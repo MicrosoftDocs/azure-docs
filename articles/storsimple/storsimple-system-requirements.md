@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/29/2015"
+   ms.date="10/30/2015"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -35,9 +35,9 @@ The following software requirements are for the storage clients that access your
 
 | Supported operating systems | Version required | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned volumes only. It cannot create fully provisioned or partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul>|
-| VMWare ESX | Tested with VMware vSphere 5.1 as iSCSI client | VAAI-block feature is tested with VMware vSphere v.5.1 on StorSimple devices. 
-| Linux RHEL/CentOS | Versions 5 and 6 | Support for Linux iSCSI clients with open-iSCSI initiator versions 5 and 6. |
+| Windows Server              | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI volumes are supported for use on only the following Windows disk types:<ul><li>Simple volume on basic disk</li><li>Simple and mirrored volume on dynamic disk</li></ul>Windows Server 2012 thin provisioning and ODX features are supported if you are using a StorSimple iSCSI volume.<br><br>StorSimple can create thinly provisioned volumes only. It cannot create fully provisioned or partially provisioned volumes.<br><br>Reformatting a thinly provisioned volume may take a long time. We recommend deleting the volume and then creating a new one instead of reformatting. However, if you still prefer to reformat a volume:<ul><li>Run the following command before the reformat to avoid space reclamation delays: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>After the formatting is complete, use the following command to re-enable space reclamation:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Apply the Windows Server 2012 hotfix as described in [KB 2878635](https://support.microsoft.com/kb/2870270) to your Windows Server computer.</li></ul></li></ul></ul> If you are configuring StorSimple Snapshot Manager or StorSimple Adapter for SharePoint, go to [Software requirements for optional components](#software-requirements-for-optional-components).|
+| VMWare ESX | 5.1 | Supported with VMWare vSphere 5.1 as iSCSI client. VAAI-block feature is supported with VMware vSphere v.5.1 on StorSimple devices. 
+| Linux RHEL/CentOS | 5 and 6 | Support for Linux iSCSI clients with open-iSCSI initiator versions 5 and 6. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX is currently not supported with StorSimple.
 
@@ -45,10 +45,10 @@ The following software requirements are for the storage clients that access your
 
 The following software requirements are for the optional StorSimple components (StorSimple Snapshot Manager and StorSimple Adapter for SharePoint).
 
-| Component | Operating system | Additional requirements/notes |
+| Component | Host platform | Additional requirements/notes |
 | --------------------------- | ---------------- | ------------- |
 | StorSimple Snapshot Manager | Windows Server 2008R2 SP1, 2012, 2012R2 | Use of StorSimple Snapshot Manager on Windows Server is required for backup/restore of mirrored dynamic disks and for any application-consistent backups.<br> StorSimple Snapshot Manager is supported only on Windows Server 2008 R2 SP1 (64-bit), Windows 2012 R2, and Windows Server 2012.<ul><li>If you are using Window Server 2012, you must install .NET 3.5–4.5 before you install StorSimple Snapshot Manager.</li><li>If you are using Windows Server 2008 R2 SP1, you must install Windows Management Framework 3.0 before you install StorSimple Snapshot Manager.</li></ul> |
-| StorSimple Adapter for SharePoint | Windows Server 2008R2 SP1, 2012, 2012R2 |StorSimple Adapter for SharePoint is only supported on SharePoint 2010 and SharePoint 2013. RBS requires SQL Server Enterprise Edition, version 2008 R2 or 2012.|
+| StorSimple Adapter for SharePoint | Windows Server 2008R2 SP1, 2012, 2012R2 |<ul><li>StorSimple Adapter for SharePoint is only supported on SharePoint 2010 and SharePoint 2013.</li><li>RBS requires SQL Server Enterprise Edition, version 2008 R2 or 2012.</li></ul>|
  
 ## Networking requirements for your StorSimple device
 
@@ -188,9 +188,9 @@ StorSimple device model 8600 includes an Extended Bunch of Disks (EBOD) enclosur
 
 - Do not concurrently remove both SAS cables from the system at any point in time.
 
-### High availability requirements for your host computers
+### High availability recommendations for your host computers
 
-Carefully review these requirements and best practices to ensure the high availability of hosts connected to your StorSimple device.
+Carefully review these best practices to ensure the high availability of hosts connected to your StorSimple device.
 
 - Configure StorSimple with [two-node file server cluster configurations][1]. By removing single points of failure and building in redundancy on the host side, the entire solution becomes highly available.
 
