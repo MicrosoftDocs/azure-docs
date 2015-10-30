@@ -92,9 +92,9 @@ Now that we have an application, let's try running it.
 
   Service Fabric Explorer offers a visual representation of a cluster, including the set of deployed applications deployed to it and the set of physical nodes that make it up.
 
-6. In the left pane, expand **OneBox/Local cluster > Node View** and find the node where your code is running.
+6. In the left pane, expand **Cluster > Nodes** and find the node where your code is running.
 
-7. Right-click the node and choose **Start/Stop > Stop** and confirm the action. This simulates a machine going down unexpectedly.
+7. Click **Actions > Deactivate (Restart)** to simulate a machine restarting.
 
 	![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
