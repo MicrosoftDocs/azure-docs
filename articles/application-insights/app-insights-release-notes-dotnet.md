@@ -33,7 +33,7 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Rebuild your solution.
 
 ## Version 2.0.0-beta2
-- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK] (https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
 - Removed context initializers. Use [Telemetry Initializers]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) instead.
 - Updated Application Insights for .Net framework 4.6. 
 - Custom event names can now be up to 512 characters.
