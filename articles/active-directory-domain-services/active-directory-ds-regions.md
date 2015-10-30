@@ -18,16 +18,4 @@
 
 # Azure AD Domain Services *(Preview)*
 
-## Supported Azure Regions
-Azure Active Directory Domain Services are available in the following Azure regions:
-
-- United States
-  - Central US
-  - East US
-  - East US2
-  - South Central US
-  - West US
-
-- Asia
-  - East Asia
-  - Southeast Asia
+To learn where Azure services are available, please see [Services by region](https://azure.microsoft.com/en-us/regions/#services).

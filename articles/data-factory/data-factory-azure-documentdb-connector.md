@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -420,7 +420,7 @@ the following properties are available in **typeProperties** section:
 	**Answer:**
 	No. 
 4. **Question:**
-	Can I specifi more than one DocumentDB collection for a table?
+	Can I specify more than one DocumentDB collection for a table?
 	
 	**Answer:**
 	No. Only one collection can be specified at this time.

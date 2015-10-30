@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>  
 
 # Azure Data Catalog developer concepts
@@ -40,7 +40,7 @@ Users are security principals that have permissions to perform actions (search t
 
 There are several different roles a user can have. For more information on roles see the section Roles and Authorization.
 
-Only individual users (not security groups) can be added.
+Individual users and security groups can be added.
 
 Azure Data Catalog uses Azure Active Directory for identity and access management. Each Catalog user must be a member of the Active Directory for the account.
 
@@ -92,19 +92,19 @@ These properties apply to all root asset types and all annotation types.
 
 > [AZURE.NOTE] Properties whose names begin with a double underscore are system types.
 
-<table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>The last time the root was modified.  This is set by the client. (The server does not maintain this value).</td></tr><tr><td>__id</td><td>Guid</td><td>id of the item (read-only). This id is guaranteed to unique to the asset. So the key for the item is __Id, __id of Root.  This tuple is only guaranteed to be unique within a directory.</td></tr><tr><td>__typeId</td><td>Guid</td><td>The type of the asset (read-only)</td></tr><tr><td>__creatorId</td><td>String</td><td>A string used by the creator of the asset to uniquely identify the asset. </td></tr></table>
+<table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>The last time the root was modified.  This is set by the client. (The server does not maintain this value).</td></tr><tr><td>__id</td><td>String</td><td>id of the item (read-only). This id is guaranteed to unique to the asset within a catalog.</td></tr><tr><td>__type</td><td>String</td><td>The type of the asset (read-only)</td></tr><tr><td>__creatorId</td><td>String</td><td>A string used by the creator of the asset to uniquely identify the asset. </td></tr></table>
 
 ### Common root properties
 
 These properties apply to all root asset types.
 
-<table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>name</td><td>String</td><td>A name derived from the data source location information</td></tr><tr><td>dsl</td><td>Data Source Location</td><td>Uniquely describes the data source and is one of the identifiers for the asset. (See dual identity section).  The structure of the dsl varies by the source type.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>More detail on the type of asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describes the user who most recently registered this asset.  Contains both the unique id for the user (the upn) as well as a display name (lastName and firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>The last time this asset was registered in the catalog.</td></tr></table>
+<table><tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>name</td><td>String</td><td>A name derived from the data source location information</td></tr><tr><td>dsl</td><td>Data Source Location</td><td>Uniquely describes the data source and is one of the identifiers for the asset. (See dual identity section).  The structure of the dsl varies by the source type.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>More detail on the type of asset.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Describes the user who most recently registered this asset.  Contains both the unique id for the user (the upn) as well as a display name (lastName and firstName).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>The last time this asset was registered in the catalog.</td></tr><tr><td>containerId</td><td>String</td><td>Id of the container asset for the data source. This property is not supported for the Container type.</td></tr></table>
 
 ### Root asset types
 
 Root asset types are those types that represent the various types of data assets that can be registered in the catalog.
 
-<table><tr><td><b>Asset Type</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>Table</td><td></td><td></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure</td><td></td><td></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>Measure</td><td>Column</td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Physical container for measure</td></tr><tr><td>KPI</td><td></td><td></td><td>This type represents an Analysis Services Key Performance Indicator.</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>physical container for measure</td></tr><tr><td>Report</td><td></td><td></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr></table>
+<table><tr><td><b>Asset Type</b></td><td><b>Additional Properties</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr><tr><td>Table</td><td></td><td></td><td>A Table represents any tabular data.  This would include a SQL Table, SQL View, Analysis Services Tabular Table, Analysis Services Multidimensional dimension, Oracle Table, etc…   </td></tr><tr><td>Measure</td><td></td><td></td><td>This type represents an Analysis Services measure.</td></tr><tr><td></td><td>Measure</td><td>Column</td><td>Metadata describing the measure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Specifies if the measure is calculated or not.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>Physical container for measure</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td>An MDX numeric expression or a calculation that returns the target value of the KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td>An MDX numeric expression that returns the actual value of the KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td>An MDX expression that represents the state of the KPI at a specified point in time.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>An MDX expression that evaluates the value of the KPI over time. The trend can be any time-based criterion that is useful in a specific business context.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td>physical container for measure</td></tr><tr><td>Report</td><td></td><td></td><td>This type represents a SQL Server Reporting Services report </td></tr><tr><td></td><td>CreatedBy</td><td>String</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr><tr><td>Container</td><td></td><td></td><td>This type represents a container of other assets such as a SQL database, an Azure Blobs container, or an Analysis Services model.</td></tr></table>
 
 ### Annotation types
 
@@ -123,6 +123,10 @@ Annotation types represent types of metadata that can be assigned to other types
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>The number of rows in the data set</td></tr>
+
+<tr><td>Documentation</td><td></td><td></td><td>A given asset can have only one documentation associated with it.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>The mime type of the content.</td></tr>
+<tr><td></td><td>content</td><td>string</td><td>The documentation content.</td></tr>
 
 
 </table>

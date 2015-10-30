@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a Logic App | Microsoft Azure"
-	description="Learn how to create a basic App Services Logic App"
+	description="Learn how to create a Logic App connecting SaaS services"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="10/21/2015"
 	ms.author="stepsic"/>
 
-# Create a new logic app
+# Create a new logic app connecting SaaS services
 
 | Quick Reference |
 | --------------- |
@@ -94,15 +94,19 @@ Triggers are what make your logic app run. Next, you'll add a recurrence trigger
 
 1. Still in the **Create logic app** view, click **Triggers and actions**.
 
-	This displays a full-screen designer that displays your flow. On the right-hand side is a list of all services that could have triggers.
+	This displays a full-screen designer that displays your flow, and some templates to start from.
+	
+2. For this tutorial let's **Create from Scratch**.  You can always use a template if it looks like it would be useful.
+    
+    Now on the right-hand side is a list of all services that could have triggers.
 
-2. In the top section, click **Recurrence**.
+3. In the top section, click **Recurrence**.
 
 	This adds a box where you can specify the recurrence settings.
 
 	![Recurrence](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  Choose a recurrence **Frequency** and **Interval** (such as once every 1 hour), then click the green checkmark.
+4.  Choose a recurrence **Frequency** and **Interval** (such as once every 1 hour), then click the green checkmark.
 
 Now, you'll add an action to the flow.
 
