@@ -33,17 +33,16 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Rebuild your solution.
 
 ## Version 2.0.0-beta2
- - Fix UI thread locking when initializing InMemoryChannel (default channel) from UI thread.
- - Added support for ITelemetryProcessor and ability to construct chain of TelemetryProcessors via code or config.
- - Version of Microsoft.ApplicationInsights.dll for the framework 4.6 is now part of the package.
- - IContextInitializer interface is not supported any longer. ContextInitializers collection was removed from TelemetryConfiguraiton object.
- - The max length limit for the Name property of EventTelemetry was set to 512.
- - Property Name of OperationContext was renamed to RootName
- - Property Id of RequestTelemetry was removed.
- - Property Id and Context.Operation.Id of RequestTelemetry would not be initialized when creating new RequestTelemetry.
- - New properties of OperationContext: CorrelationVector, ParentId and RootId to support end-to-end telemetry items correlation.
- - RequestTelemetry.Name is not initialized any longer. RequestTelemetry.Context.Operation.Name will be used instead.
- - Response code 401 is part of the normal authentication handshake and will result in a succesfull request.
+- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK] (https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Removed context initializers. Use [Telemetry Initializers]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) instead.
+- Updated Application Insights for .Net framework 4.6. 
+- Custom event names can now be up to 512 characters.
+- Property OperationContext.Name renamed to RootName.
+- Property RequestTelemetry.Id removed.
+- Property Id and Context.Operation.Id of RequestTelemetry would not be initialized when creating new RequestTelemetry.
+- RequestTelemetry.Name is not initialized any longer. RequestTelemetry.Context.Operation.Name will be used instead.
+- In request monitoring, response code 401 is part of the normal authentication handshake and will result in a successful request.
+- Fix UI thread locking when initializing InMemoryChannel (default channel) from UI thread. This fixes UI freezing issues with WPF applications.
  
 ## Version 2.0.0-beta1
 - TrackDependency will produce valid JSON when not all required fields were specified.
