@@ -37,10 +37,10 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 - Removed context initializers. Use [Telemetry Initializers]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) instead.
 - Updated Application Insights for .Net framework 4.6. 
 - Custom event names can now be up to 512 characters.
-- Property OperationContext.Name renamed to RootName.
-- Property RequestTelemetry.Id removed.
-- Property Id and Context.Operation.Id of RequestTelemetry would not be initialized when creating new RequestTelemetry.
-- RequestTelemetry.Name is not initialized any longer. RequestTelemetry.Context.Operation.Name will be used instead.
+- Property ```OperationContext.Name``` renamed to ```RootName```.
+- Property ```RequestTelemetry.Id``` removed.
+- Property ```Id``` and ```Context.Operation.Id``` of RequestTelemetry would not be initialized when creating new RequestTelemetry.
+- ```RequestTelemetry.Name``` is not initialized any longer. ```RequestTelemetry.Context.Operation.Name``` will be used instead.
 - In request monitoring, response code 401 is part of the normal authentication handshake and will result in a successful request.
 - Fix UI thread locking when initializing InMemoryChannel (default channel) from UI thread. This fixes UI freezing issues with WPF applications.
  
