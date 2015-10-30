@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="10/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="sstein"/>
 
 
-# Upgrade to SQL Database V12
+# Upgrade to Azure SQL Database V12
 
 
 > [AZURE.SELECTOR]
@@ -36,45 +36,44 @@ SQL Database V12 has many [advantages over the previous version](sql-database-v1
 
 > [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation regardless of moving to single or elastic databases. Upgrading to SQL Database V12 does not take any databases offline. (Although, some management functions may not be available until the upgrade completes.)
 
-During the process of upgrading to SQL Database V12 you must also update all Web and Business databases to a new service tier. 
+
 
 For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) is likely to be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool.
 
 You can easily [migrate databases directly from V11 servers into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but you must first upgrade to a V12 server (following the directions in this article) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
 
 
-
+Your databases will continue to work through the upgrade operation but at the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
 ## Start the upgrade
-
-
-Your databases will continue to work through the upgrade operation but at the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
 1. In the [Azure Preview Portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
 2. Select **Latest SQL database update**, then select **Upgrade this server**.
 
       ![upgrade server][1]
 
-## Upgrade your Web and Business databases
+## Upgrade all Web and Business databases
 
-2. Upgrade all Web and Business databases. If your server has any Web or Business databases you must upgrade them. To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. The service recommends the best tier for running your existing database’s workload by analyzing the historical usage for your database. 
+If your server has any Web or Business databases you must upgrade them. During the process of upgrading to SQL Database V12 you will update all Web and Business databases to a new service tier.    
+
+To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. The service recommends the best tier for running your existing database’s workload by analyzing the historical usage for your database. 
     
-    Select each database to review and select the recommended pricing tier to upgrade to. You can always browse the available pricing tiers and select the one that suits your environment best.
+3. In the **Upgrade this server** blade select each database to review and select the recommended pricing tier to upgrade to. You can always browse the available pricing tiers and select the one that suits your environment best.
 
-    What is important to note, is that your SQL database is not locked into any specific service tier or performance level, so as the requirements of your database change you can easily change between the available service tiers and performance levels. In fact, Basic, Standard, and Premium SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period.
 
      ![databases][2]
 
 
+7. After clicking the suggested tier you will be presented with the **Choose your pricing tier** blade where you can select a tier and then click the **Select** button to change to that tier. Select a new tier for each Web or Business database.
 
-7. After clicking the suggested tier you will be presented with the **Choose your pricing tier** blade where you can select a tier and then click the **Select** button to change to that tier. Select a new tier for each Web or Business database
+    What is important to note is that your SQL database is not locked into any specific service tier or performance level, so as the requirements of your database change you can easily change between the available service tiers and performance levels. In fact, Basic, Standard, and Premium SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period.
 
     ![recommendations][6]
 
 
 After all databases on the server are eligible you are ready to start the upgrade
 
-## Start the upgrade
+## Confirm the upgrade
 
 3. When all the databases on the server are eligible for upgrade you need to **TYPE THE SERVER NAME** to verify that you want to perform the upgrade, and then click **OK**. 
 
@@ -130,7 +129,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 
 ## Next Steps
 
-- [Create an elastic database pool](sql-database-elastic-pool-portal.md) and add some or all of the databases into the pool.
+- [Create an elastic database pool](sql-database-elastic-pool-portal.md) and add some or all of your databases into a pool.
 - [Change the service tier and performance level of your database](sql-database-scale-up.md).
 
 
