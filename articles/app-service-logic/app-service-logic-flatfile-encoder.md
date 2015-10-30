@@ -38,7 +38,7 @@ To launch it from the Azure start page you can search for it by typing the name 
 To start the configuration, you'll want to add a schema by:  
 1. Selecting the "Schemas" component  
 ![BizTalk Flat File Encoder Schemas Part][2]  
-2. Then then selecting "Add New" on the Schemas blade that opens up  
+2. Then selecting "Add New" on the Schemas blade that opens up  
 ![BizTalk Flat File Encoder List of actions][7]  
 3. Select one of the three options to provide your schema. The options are UPLOAD NEW SCHEMA, GENERATE FROM JSON AND GENERATE FROM FLAT FILE  
 ![BizTalk Flat File Encoder List of actions][8]  
