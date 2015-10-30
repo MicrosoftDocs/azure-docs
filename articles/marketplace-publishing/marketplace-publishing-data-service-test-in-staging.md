@@ -13,29 +13,61 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="10/30/2015"
    ms.author="hascipio; avikova" />
 
 # Testing your Data Service offer in Staging
-Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer will appear in staging just as it would to a customer who has deployed it. Your offer **must be certified to be pushed to staging**.
+After completing the first two steps of [Creating your Microsoft Seller Accounts in Seller Dashboard](marketplace-publishing-accounts-creation-registration.md) and [Creating your Data Service Offer in Publishing Portal](marketplace-publishing-data-service-creation.md) you’re ready for making your offer available in the Azure Marketplace. This topic will walk you through the first, intermediate, step called “Staging”
 
-After the offer is staged, you can view and test the offer in the [Azure Preview Portal](https://ms.portal.azure.com/).
+Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer will appear in staging just as it would to a customer who has deployed it.
 
-Please follow the steps below to push your offer to staging and carrying out the testing in the [Azure Preview Portal](https://ms.portal.azure.com/).
+## 1. Pushing your offer to staging
+Pushing your offer to staging allows you to test the offer before it becomes available to future subscribers.  You can see how your offer will appear and function for those subscribing to your data.  
 
-1.	Navigate to [Publishing Portal](https://publish.windowsazure.com)-> select **Solution Templates** tab-> your offer -> **Publish** ->Click on **“Push to Staging"**
-2.	Provide the list of Azure subscriptions which you will use to preview/test your offer.
-3.	Login to the Azure Preview Portal using the same subscription id with which you have staged your offer in the previous step.
-4.	Carry out at least one round of testing in the Azure Preview Portal on the points mentioned below.
-  -	Marketing content is showing up correctly in the gallery
-  -	End-to-end deployment of the topology
-  -	Perform performance testing and stress testing
-  -	Ensure that your topology adheres to the best practices.
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
+
+1.	Login into the [Publishing Portal](https://publish.windowsazure.com)
+2.	Select **Data Services** in the left navigation window
+3.	Select your offer you want to push to staging. You will see the above screen.
+4.	Click **Push To Staging** button.  
+5.	If there are issues with the offer that needed to be completed prior to pushing to staging, you will see a list displayed.  Correct these items by clicking on each item in the list. When all corrections made, click **Push to Staging** button again.
+
+If there are no issues with your offer you will see the popup window below.  
+
+If you’re not planning/not approved to surface your offer in Azure Portal (currently has limited capacity), then just close the pop-up window.
+
+To test your Data Service in Azure Portal (in addition to the DataMarket portal), you will need an Azure Subscription ID to test with.  This Subscription ID will identify the account that will be allowed to test your offer.  
+
+Cut and paste your Subscription ID and click the checkmark to continue.
+
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
+
+The next screen that appears shows that publishing is taking place by displaying the “In progress” icon highlighted yellow below. Pushing to staging takes between 10 to 15 minutes.  If it takes longer, first refresh your browser (press F5 in IE).  In the rare cases where your offer is still pushing to staging after an hour, click the contact us link to let us know that there is an issue.
+
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.3.png)
+
+When the Push to Staging completes the “In progress” icon will stop moving and the status will be updated to “Staged”.  You are now ready to test your offer.  
+
+## 2. Test your staged offer in DataMarket
+
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-2.1.png)
+
+Click the link following the text **“See Your service offer at…”** to display the screen that the subscriber will see when your offer goes to production and will appear in DataMarket.
+
+  ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
+
+Test each of the 12 items marked above to ensure all logos, prices/transactions, text, images, documentation, and links are correct and working properly.  This is a good time to ensure any test values you entered when creating your offer have been replaced with actual values.
+
+Finally, check the service will work through the Datamarket by clicking the link “EXPLORE THIS DATASET”.  A new window will open in the tool we call “Service Explorer” so you can preview the results of a query against your service.  In this window, you can enter the parameters needed and see the results displayed from a query against your service.   Also, displayed is the URL for your Query.  
+
+> [AZURE.NOTE] Be sure to review the textual description of the service displayed at the top.  And if your offer consists of more than one service call, click the tabs at the bottom to switch to the next service to review and test.
+
+
 
 ## Next step
-If you are content with the results then you can proceed to the final offer publishing phase, **Step 4**,  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, please make changes in your offer and request for certification again.
+If you are having issues and need help resolving them please contact the Azure Datamarket On-boarding team (Azure Marketplace Publisher Support) at ampubsup@microsoft.com
 
-> [AZURE.NOTE] For marketing content changes, certification is not required.
+If you are satisfied and ready to publish your offer please read the [Request Approval to Push To Production](marketplace-publishing-push-to-production.md) documentation.
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
