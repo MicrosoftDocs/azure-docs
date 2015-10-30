@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How Reliable Actors use the Service Fabric platform"
+   pageTitle="How Reliable Actors use the platform | Microsoft Azure"
    description="This articles describes how Reliable Actors use the features of the Service Fabric platform. It covers Service Fabric platform concepts from the point of view of actor developers."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/29/2015"
    ms.author="abhisram"/>
 
 # How Reliable Actors use the Service Fabric platform
@@ -96,10 +96,6 @@ The following is a partial listing of the above location (full listing omitted f
 
 The listing above shows the assemblies that implement the VoicemailBox actor getting included in the code package within the service package within the application package.  
 
-The Visual Studio solution includes the PowerShell scripts that are used to deploy the application to and remove the application from the cluster. The scripts are circled in the screenshot below.
-
-![][2]
-
 Subsequent management (i.e. upgrades and eventual deletion) of the application is also performed using Service Fabric application management mechanisms. For more information, please see the topics on the [application model](service-fabric-application-model.md), [application deployment and removal](service-fabric-deploy-remove-applications.md), and [application upgrade](service-fabric-application-upgrade.md).
 
 ## Scalability for actor services
@@ -108,7 +104,7 @@ Cluster administrators can create one or more actor services of each service typ
 > [AZURE.NOTE] Stateless actor services are required to have an [instance](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) count of 1. Having more than one instance of a stateless actor service in a partition is not supported. Therefore, stateless actor services do not have the option of increasing instance count to achieve scalability. They must use the scalability options that are described in the [scalability article](service-fabric-concepts-scalability.md).
 
 ## Service Fabric partition concepts for actors
-The actor ID of an actor is mapped to a partition of an actor service. The actor is created within the partition that its actor ID maps to. When an actor is created, the Actors runtime writes an [EventSource event](service-fabric-reliable-actors-diagnostics.md#eventsource-events) that indicates which partition the actor is created in. Below is an example of this event that indicates that an actor with ID `-5349766044453424161` was created within partition `0583c745-1bed-43b2-9545-29d7e3448156` of service `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, application `fabric:/VoicemailBoxAdvancedApplication`.
+The actor ID of an actor is mapped to a partition of an actor service. The actor is created within the partition that its actor ID maps to. When an actor is created, the Actors runtime writes an [EventSource event](service-fabric-reliable-actors-diagnostics.md#eventsource-events) that indicates which partition the actor is created in. Below is an example of this event that indicates that an actor with ID `-5349766044453424161` was created within partition `b6afef61-be9a-4492-8358-8f473e5d2487` of service `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService`, application `fabric:/VoicemailBoxAdvancedApplication`.
 
     {
       "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
@@ -120,14 +116,14 @@ The actor ID of an actor is mapped to a partition of an actor service. The actor
         "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
         "actorId": "-5349766044453424161",
         "isStateful": "True",
-        "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "0583c745-1bed-43b2-9545-29d7e3448156",
+        "replicaOrInstanceId": "130906628008120392",
+        "partitionId": "b6afef61-be9a-4492-8358-8f473e5d2487",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
     }
 
-Another actor with ID `-4952641569324299627` was created within a different partition `c146fe53-16d7-4d96-bac6-ef54613808ff` of the same service, as indicated by the event below.
+Another actor with ID `-4952641569324299627` was created within a different partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` of the same service, as indicated by the event below.
 
     {
       "Timestamp": "2015-04-26T15:06:56.93882-07:00",
@@ -140,7 +136,7 @@ Another actor with ID `-4952641569324299627` was created within a different part
         "actorId": "-4952641569324299627",
         "isStateful": "True",
         "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "c146fe53-16d7-4d96-bac6-ef54613808ff",
+        "partitionId": "5405d449-2da6-4d9a-ad75-0ec7d65d1a2a",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
@@ -148,7 +144,7 @@ Another actor with ID `-4952641569324299627` was created within a different part
 
 *Note:* some fields of the above events are omitted for brevity.
 
-The partition ID can be used to get other information about the partition. For example, the [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) tool can be used to view information about the partition and the service and application to which it belongs. The screenshot below shows information about partition `c146fe53-16d7-4d96-bac6-ef54613808ff`, which contained the actor with ID `-4952641569324299627` in the above example.  
+The partition ID can be used to get other information about the partition. For example, the [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) tool can be used to view information about the partition and the service and application to which it belongs. The screenshot below shows information about partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, which contained the actor with ID `-4952641569324299627` in the above example.  
 
 ![][3]
 
@@ -204,7 +200,7 @@ Stateful actors are created within a partition of the Service Fabric stateful se
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events related to stateful actor replicas](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). They are useful in diagnostics and performance monitoring.
 
-Recall that in the [VoiceMailBoxActor example presented earlier](#service-fabric-partition-concepts-for-actors), the actor with ID `-4952641569324299627` was created within partition `c146fe53-16d7-4d96-bac6-ef54613808ff`. The EventSource event from that example also indicated that the actor was created in replica `130745418574851853` of that partition. This was the primary replica of that partition at the time the actor was created. The Service Fabric Explorer screenshot below confirms this.
+Recall that in the [VoiceMailBoxActor example presented earlier](#service-fabric-partition-concepts-for-actors), the actor with ID `-4952641569324299627` was created within partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. The EventSource event from that example also indicated that the actor was created in replica `130745418574851853` of that partition. This was the primary replica of that partition at the time the actor was created. The Service Fabric Explorer screenshot below confirms this.
 
 ![][4]
 
