@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="10/30/2015"
    ms.author="hascipio"/>
 
 # Complete the offer creation with marketing content
@@ -148,7 +148,7 @@ Now that your Marketplace content is loaded, lets move forward with the **Step 3
 
 ||Virtual Machine Image |Developer Service | Data Service | Solution Template |
 |----|----|----|----|----|
-| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | Test your Data Service offer in Staging | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Step 3. Push your offer to Staging** | [Test your VM offer in Staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your Developer Service offer in Staging | [Test your Data Service offer in Staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your Solution Template in Staging](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
