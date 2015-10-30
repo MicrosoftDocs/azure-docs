@@ -371,6 +371,8 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
+See the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation for a walkthrough. 
+
 ## Azure SQL Data Warehouse Linked Service properties
 
 The following table provides description for JSON elements specific to Azure SQL Data Warehouse linked service. 
