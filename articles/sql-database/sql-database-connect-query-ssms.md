@@ -45,7 +45,7 @@ When working with SQL Database, you should use the most recent version of SSMS. 
 
 The most common reason for connection failures are mistakes in the server name, user name, or password, as well as the server not allowing connections for security reasons. Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses. Sometimes they're different. 
 
-If the connection fails because of a firewall rule, the IP address is reported in the error message. Add this IP address to the server firewall rule. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+If the connection fails because of firewall settings, the latest version of SSMS will create the firewall rule for you after asking. To get it, see [Download SSMS](https://msdn.microsoft.com/library/mt238290.aspx). If you're using an earlier version, the IP address is reported in an error message and you need to add this IP address to the server firewall rule. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Run sample queries
 

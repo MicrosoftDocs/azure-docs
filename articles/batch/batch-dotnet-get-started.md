@@ -26,7 +26,7 @@ Start working with the Azure Batch .NET Library by creating a console applicatio
 
 	- **Azure account** - You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
-	- **Batch account** - See the **Batch Account** section of [Azure Batch technical overview](batch-technical-overview.md).
+	- **Batch account** - See [Create and manage an Azure Batch account](batch-account-create-portal.md).
 
 	- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage-create-storage-account.md). In this tutorial, you create a container in this account named **testcon1**.
 

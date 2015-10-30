@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a new Azure Service Principal using the Azure portal"
-   description="Describes how to create a new Azure service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
+   pageTitle="Create AD application and service principal in portal | Microsoft Azure"
+   description="Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,26 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/29/2015"
    ms.author="tomfitz"/>
 
-# Create a new Azure Service Principal using the Azure portal
+# Create Active Directory application and service principal using portal
 
 ## Overview
-A service principal is an automated process, application or service that needs to access other resources. Using Azure Resource Manager, you can grant access
-to a service principal and authenticate it so it can perform the permitted management actions on resources that exist in 
-the subscription or as a tenant. 
+When you have an application that needs to access or modify a resource in your subscription, you can use the portal to create an Active Directory application and assign it to a role with the correct permission. When you create an Active Directory application through the portal, it actually creates both the application and a service principal. You use the service principal when setting the permissions.
 
-This topic shows you how to create a new service principal using the Azure portal. Currently, you must use the Microsoft Azure portal to create a new service principal. This ability will be added to the Azure preview portal in a later release.
+This topic shows you how to create a new application and service principal using the Azure portal. Currently, you must use the Microsoft Azure portal to create a new Active Directory application. This ability will be added to the Azure preview portal in a later release. You can use the preview portal to assign the application to a role.
 
 ## Concepts
-1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](./active-directory-whatis/)
+1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
 2. Service Principal - an instance of an application in a directory.
-3. AD Application - a directory record in AAD that identifies an application to AAD. For more details see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. AD Application - a directory record in AAD that identifies an application to AAD. 
+
+For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](active-directory/active-directory-application-objects.md). 
+For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
-## Create Active Directory application
-1. Login to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
+## Create the application and service principal objects
+
+1. Login to your Azure Account through the [portal](https://manage.windowsazure.com/).
 
 2. Select **Active Directory** from the left pane.
 
@@ -67,7 +69,7 @@ For **APP ID URI**, provide the URI that identifies your application. The unique
 
      ![application properties][4]
 
-## Create your service principal password
+## Create an authentication key for your application
 The portal should now have your application selected.
 
 1. Click on the **Configure** tab to configure your application's password.
@@ -96,12 +98,42 @@ Your application is now ready and the service principal created on your tenant. 
 * **CLIENT ID** - as your user name.
 * **KEY** - as your password.
 
+## Assigning the application to a role
+
+You can use the [preview portal](https://portal.azure.com) to assign the Active Directory application to a role that has access to the resource you need to access. For information about assigning the application to a role, see [Azure Active Directory Role-based Access Control](active-directory/role-based-access-control-configure.md).
+
+## Get access token in code
+
+If you are using .NET, you can retrieve the access token for your application with the following code.
+
+First, you must install the Active Directory Authentication Library into your Visual Studio project. The easiest way to do this is to use the NuGet package. Open the Package Manager Console, and type the following commands.
+
+    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+    PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
+
+In your application, add a method like the following to retrieve the token.
+
+    public static string GetAccessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+        var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
 ## Next Steps
 
-- To learn about specifying security policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md)  
-- For the steps to permit a service principal to access resources, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
-- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)
-- For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
+- To learn about specifying security policies, see [Managing and Auditing Access to Resources](azure-portal/resource-group-rbac.md).  
+- For a video demonstration of these steps, see [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- To learn about using Azure PowerShell or Azure CLI to work with Active Directory applications and service principals, including how to use a certificate for authentication, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md).
+- For guidance on implementing security with Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
