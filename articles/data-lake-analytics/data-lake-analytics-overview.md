@@ -47,7 +47,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 
 - **Works with all your Azure Data**
 
-    Data Lake Analytics can work with a number of Azure data sources: Azure Storage Blobs, Azure SQL DB, Azure SQL DB, and of course Data Lake Analytics is specially optimized to work with Azure Data Lake Store - providing the highest level of performance, throughput, and parallelization for you big data workloads.
+    Data Lake Analytics can work with a number of Azure data sources: Azure Blob storage, Azure SQL database, and of course Data Lake Analytics is specially optimized to work with Azure Data Lake Store - providing the highest level of performance, throughput, and parallelization for you big data workloads.
 
 ## See also
 
