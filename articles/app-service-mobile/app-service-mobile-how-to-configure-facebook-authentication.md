@@ -18,6 +18,9 @@
 
 # How to configure your application to use Facebook login
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure Mobile Apps to use Facebook as an authentication provider.
@@ -80,4 +83,5 @@ You are now ready to use Facebook for authentication in your app.
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://portal.azure.com/
+
  

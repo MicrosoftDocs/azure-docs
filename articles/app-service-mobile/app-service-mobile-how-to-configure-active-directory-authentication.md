@@ -18,6 +18,9 @@
 
 # How to configure your application to use Azure Active Directory login
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider. 
@@ -73,4 +76,3 @@ Authenticate users of your Mobile App with Azure Active Directory single sign-on
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
