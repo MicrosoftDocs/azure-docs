@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="10/28/2015" 
 	ms.author="sstein"/>
 
 # Upgrade to SQL Database V12 using PowerShell
@@ -24,9 +24,16 @@
 - [PowerShell](sql-database-upgrade-server.md)
 
 
-This article shows you how to upgrade to SQL Database V12 using PowerShell. 
 
-During the process of upgrading to SQL Database V12 you must also update any Web and Business databases to a new service tier. The following directions include using pricing tier and elastic pool recommendations to assist with [updating any Web and Business databases](sql-database-upgrade-new-service-tiers.md) on the server. 
+SQL Database V12 is the latest version of SQL Database and has many [advantages over the previous version](sql-database-v12-whats-new.md). SQL Database V12 is recommended for all new development.
+
+> [AZURE.IMPORTANT] All databases on the server will remain online and available throughout the upgrade operation. Upgrading to SQL Database V12 does not take any databases offline.
+
+During the process of upgrading to SQL Database V12 you must also update all Web and Business databases to a new service tier. 
+
+To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. The service recommends the best tier for running your existing database’s workload by analyzing the historical usage for your database. 
+
+For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) is likely to be more cost effective than upgrading to individual performance levels. You can easily migrate databases directly from V11 servers into elastic database pools using PowerShell (as shown in this article). You can also use the portal to migrate V11 databases into a pool but you must first [upgrade to a V12 server](sql-database-v12-upgrade.md) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
 
 
 ## Prerequisites 
@@ -46,7 +53,7 @@ To run PowerShell cmdlets against your Azure subscription you must first establi
 
 After successfully signing in you should see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
-To select the subscription you want to work with you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset.
+To select the subscription you want to work with you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the resultset.
 
 Run the following cmdlet with your subscription information to set your current subscription:
 
@@ -135,6 +142,38 @@ ElasticPoolCollection and DatabaseCollection parameters are optional:
 
     
 
+## Monitor databases after upgrading to SQL Database V12
+
+
+After upgrading, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. The following additional steps are recommended for monitoring the database.
+
+
+**Resource consumption data:** For Basic, Standard, and Premium databases more granular resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
+
+    SELECT end_time
+    	 , (SELECT Max(v)
+             FROM (VALUES (avg_cpu_percent)
+                         , (avg_data_io_percent)
+                         , (avg_log_write_percent)
+    	   ) AS value(v)) AS [avg_DTU_percent]
+    FROM sys.dm_db_resource_stats
+    ORDER BY end_time DESC;
+
+For more information, see [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx) and [Price and performance considerations for an elastic database pool](sql-database=elastic-pool-guidance.md).
+
+
+**Alerts:** Set up 'Alerts' in the Azure Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
+
+For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
+
+
+
+
+
+## Next Steps
+
+- [Create an elastic database pool](sql-database-elastic-pool-portal.md) and add some or all of the databases into the pool.
+- [Change the service tier and performance level of your database](sql-database-scale-up.md).
 
 
 
