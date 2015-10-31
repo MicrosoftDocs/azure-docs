@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="tarcher"/>
 
 # Connect to on-premises SQL Server from an API app in Azure App Service using Hybrid Connections
@@ -361,7 +361,7 @@ The **Azure App Service Activity** window shows the deployment progress, and wil
 
 4. In the **API Apps** blade, locate your API app and click it.
 
-5. In your APII app's blade, click the value under **API app host**.  
+5. In your API app's blade, click the value under **API app host**.  
  
 	![API App blade](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
