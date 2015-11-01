@@ -61,7 +61,11 @@ To create a backup vault:
 
 The backup extension needs connectivity to the Azure public IPs to function correctly, because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. Without the right internet connectivity, these HTTP requests from the VM will time out and the backup operation will fail.
 
-If your deployment has access restrictions in place (through a Network Security Group, for example), then you need to take additional steps to ensure that backup traffic to the Azure Backup vault remains unaffected. There are two ways to provide a path for the backup traffic:
+### Network restrictions with NSGs
+
+If your deployment has access restrictions in place (through a Network Security Group, for example), then you need to take additional steps to ensure that backup traffic to the Azure Backup vault remains unaffected.
+
+There are two ways to provide a path for the backup traffic:
 
 1. Whitelist the [Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
 2. Deploy an HTTP proxy to route the traffic.
@@ -76,28 +80,30 @@ The trade-off is between manageability, granular control, and cost.
 ### Using an HTTP proxy for VM backup
 When backing up a VM, the snapshot management commands are sent from the backup extension to Azure Storage using an HTTPS API. This traffic must be routed from the extension through the proxy, since only the proxy will be configured to have access to the public internet.
 
-**A)** Allow outgoing network connections (Windows):
-1. Run the following command in an elevated command prompt:
+In the example below, the App VM needs to be configured to use the Proxy VM for all HTTP traffic bound for the public internet. The Proxy VM needs to be configured to allow incoming traffic from VMs in the VNET. And finally, the NSG (named *NSG-lockdown*) needs a new Security Rule that allows outbound Internet traffic from the Proxy VM.
+![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
+
+**A) Allow outgoing network connections:**
+1. For Windows machines, run the following command in an elevated command prompt:
 ```
 netsh winhttp set proxy http://<proxy IP>:<proxy port>
 ```
 This will setup a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
 
-**B)** Allow outgoing network connections (Linux):
-1. Add the following line to the ```/etc/environment``` file:
+2. For Linux machines, add the following line to the ```/etc/environment``` file:
 
  	```
  	http_proxy=http://<proxy IP>:<proxy port>
  	```
 
-2. Add the following lines to the ```/etc/waagent.conf``` file:
+	Add the following lines to the ```/etc/waagent.conf``` file:
 
 	```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-**C)** Allow incoming connections on the proxy:
+**B) Allow incoming connections on the proxy server:**
 
 1. Open up Windows Firewall on the proxy server; right-click on *Inbound Rules* and click on **New Rule...**.
 
@@ -118,6 +124,17 @@ HttpProxy.Port=<proxy port>
 
 For the rest of the wizard, click all the way to the end and give this rule a name.
 
+**C) Add an exception rule to the NSG:**
+In an Azure PowerShell command prompt, type out the following command:
+
+```
+Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
+Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
+```
+
+This command adds an exception to the NSG, allowing TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you need to hit a specific port in the public internet, make sure you add that to the ```-DestinationPortRange``` as well.
+
+*Ensure that you replace the names in the example with the details appropriate to your deployment.*
 
 ## 2. VM Agent
 
