@@ -27,12 +27,15 @@
 1. From the list of labs, tap the lab in which you want create the new VM.  
 
 1. On the lab blade, tap **Settings**.
+
     ![Lab settings](./media/devtest-lab-create-template/lab-blade-settings.png)
 
 1. On the lab **Settings** blade, tap **Templates**.
+
     ![Templates option](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
 
 1. On the **Templates** blade, tap **+ Template**.
+
     ![Add template](./media/devtest-lab-create-template/add-template.png)
 
 1. On the **Add Template** blade:
@@ -70,6 +73,7 @@
 In order to add a new template image, you'll need to have access to a VHD image file.
 
 1. On the **Add Template Image** blade, tap **Upload an image using PowerShell**.
+
     ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
 1. The next blade will display instructions for modifying and running a PowerShell script that upload to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed. 
