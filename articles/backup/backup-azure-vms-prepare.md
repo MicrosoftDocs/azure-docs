@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="11/01/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Preparing your environment to back up Azure virtual machines
@@ -79,6 +79,8 @@ The trade-off is between manageability, granular control, and cost.
 
 ### Using an HTTP proxy for VM backup
 When backing up a VM, the snapshot management commands are sent from the backup extension to Azure Storage using an HTTPS API. This traffic must be routed from the extension through the proxy, since only the proxy will be configured to have access to the public internet.
+
+>[AZURE.NOTE] There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that is compatible with configuration steps mentioned below.
 
 In the example below, the App VM needs to be configured to use the Proxy VM for all HTTP traffic bound for the public internet. The Proxy VM needs to be configured to allow incoming traffic from VMs in the VNET. And finally, the NSG (named *NSG-lockdown*) needs a new Security Rule that allows outbound Internet traffic from the Proxy VM.
 ![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
