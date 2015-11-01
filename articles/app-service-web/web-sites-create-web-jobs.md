@@ -74,7 +74,35 @@ The following file types are accepted:
 	
 > For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 
-## <a name="CreateScheduled"></a>Create a scheduled WebJob
+## <a name="CreateScheduledCRON"></a>Create a scheduled WebJob using a CRON expression
+
+This technique is available to Web Apps running in Standard or Premium mode, and requires the **Always On** setting to be enabled on the app.
+
+To turn an On Demand WebJob into a scheduled WebJob, simply include a `settings.job` file at the root of your WebJob zip file. This JSON file should include a `schedule` property with a [CRON expression](https://en.wikipedia.org/wiki/Cron), per example below.
+
+The CRON expression is composed of 6 fields: `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+For example, to trigger your WebJob every 15 minutes, your `settings.job` would have:
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+Other CRON schedule examples:
+
+- Every hour (i.e. whenever the count of minutes is 0): `* 0 * * * *` 
+- Every hour from 9 AM to 5 PM: `* 0 9-17 * * *` 
+- At 9:30 AM every day: `* 30 9 * * *`
+- At 9:30 AM every week day: `* 30 9 * * 1-5`
+
+**Note**: when deploying a WebJob from Visual Studio, make sure to mark your `settings.job` file properties as 'Copy if newer'.
+
+
+## <a name="CreateScheduled"></a>Create a scheduled WebJob using the Azure Scheduler
+
+The following alternate technique makes use of the Azure Scheduler. In this case, your WebJob does not have any direct knowledge of the schedule. Instead, the Azure Scheduler gets configured to trigger your WebJob on a schedule. 
 
 The Azure management portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [old portal](http://manage.windowsazure.com).
 
