@@ -16,14 +16,13 @@
    ms.date="08/26/2015"
    ms.author="bscholl"/>
 
-# Getting started with partitioning Service Fabric reliable services
+# How to partition Service Fabric reliable services
 In this article we will cover the basic concepts of Service Fabric service partitions, partition planning and how to build reliable services using partitions.    
 
 ## What is partitioning
 Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) into smaller accessible units to improve performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
 
-### Service Fabric service partitioning
-Service Fabric provides service partitioning for both stateless and stateful services.
+
 ### Partitioning stateless services
 For stateless services you can think about a partition being a logical unit that contains one or more instances of a service. Figure 1 shows a stateless service with 5 instances distributed across a cluster using one partition. This, multiple instances in one partition, is in fact the most common configuration for a stateless service. The only times you want to consider multiple partitions for stateless service instances is when you need to meet special routing requests for example users with a certain id should only be served by a particular service instance or you have a truly partitioned backend, e.g. a sharded SQL database, and you want to control which service instance should write to the database shard. Again those are very rare scenarios that can also be solved in other ways.
 
@@ -88,7 +87,7 @@ Service Fabric supports three partition schemes.
 - Named Partitioning Scheme
 - Singleton Partitioning Scheme
 
-Named and Singleton partitioning schemes are really just a special form of ranged partitions. By default Visual Studio uses the ranged partitioning scheme as it is the most common and useful one. For the remainder of this article we will focus on the ranged partitioning scheme.
+Named and Singleton partitioning schemes are a special form of ranged partitions. By default Visual Studio uses the ranged partitioning scheme as it is the most common and useful one. For the remainder of this article we will focus on the ranged partitioning scheme.
 
 ### Ranged Partitioning Scheme
 This is used to specify an integer range (identified by a low and a high key) and a number of partitions (n). It creates n partitions, each responsible for a non-overlapping subrange. Example: A ranged partitioning scheme (for a service with three replicas) with a low key of 0, a high key of 99 and a count of 4 would create 4 partitions as shown below.
@@ -191,16 +190,100 @@ private async Task<String> AddUserAsync(NameValueCollection parameters)
         }
         return output;
 }
-```   
+```
+`ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
 
-10. For testing the service you need 
+10. Let's add a stateless service to the project to see how you can call a particular partition.
+This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key and sends it to the Alphabet.Processing service for processing.
+11. In the Create a Service dialog choose Stateless service and call it Alphabet.WebApi as shown below.
+![alphabetstateless](./media/service-fabric-concepts-partitioning/alphabetstateless.png).
+12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below
+```xml
+<Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8090"/>
+```
+13. You need to return a ServiceInstanceListeners. Again you can choose to implement a simple HttpCommunicationListener. The code below shows how to use an HttpCommunicationListener to listen on the endpoint that is defined in the ServiceManifest.xml.
+```
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+           return new[] { new ServiceInstanceListener(CreateInputListener, "Input") };
+}
+private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
+{
+           // Service instance's URL is the node's IP & desired port
+           EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint");
+           var uriPrefix = $"{inputEndpoint.Protocol}://+:{inputEndpoint.Port}/";
+           var uriPublished = uriPrefix.Replace("+", m_nodeIP);
+           return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+}
+```
+14. Now you need to implement the processing logic. The HttpCommunicationListener calls `ProcessInputRequest` when a request comes in. So let's go ahead and add the code below
+```
+private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
+{
+           String output = null;
+           String primaryReplicaAddress = null;
+           try
+           {
+               HttpListenerRequest request = context.Request;
+               NameValueCollection parameters = request.QueryString;
+               char[] charArray = parameters["lastname"].Substring(0, 1).ToCharArray();
+               Int32 partitionKey = Char.ToUpper(charArray[0]) - 'A';
 
-This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key and sends it to the Alphabet.Service for processing.
+               ResolvedServicePartition partition =
+              await s_resolver.ResolveAsync(AlphabetSvc, partitionKey, cancelRequest);
+               ResolvedServiceEndpoint ep = partition.GetEndpoint();
 
-6. In the Create a Service dialog choose Stateful service and call it Alphabet.Processing as shown below.
+               int start = ep.Address.IndexOf("Http:");
+               int end = ep.Address.LastIndexOf("\"");
+               primaryReplicaAddress = ep.Address.Substring(start, end - start).Replace("\\", "");
+               var queryString = request.Url.ToString().Substring(request.Url.ToString().IndexOf('?'));
+               output = await s_httpClient.GetStringAsync(primaryReplicaAddress + queryString);
+}
+    catch (Exception ex) { output = ex.Message; }
+           using (var response = context.Response)
+{
+               if (output != null)
+               {
+                   output = output + "added to Partition: " + primaryReplicaAddress;
+                   byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                   response.OutputStream.Write(outBytes, 0, outBytes.Length);
+               }
+           }
+}
+```
+Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a CharArray. Then it determines the partition key for this letter by subtracting the hex value of `A` from the hex value of the last names' first letter.
+```
+char[] charArray = parameters["lastname"].Substring(0, 1).ToCharArray();
+Int32 partitionKey = Char.ToUpper(charArray[0]) - 'A';
+```
+Remember for this example we are using 26 partitions with one partition key per partition.
+Next we obtain the service partition `partition` for this key by using the `ResolveAsync` method on the `s_resolver` object. `s_resolver` is defined as
+```
+ private static readonly ServicePartitionResolver s_resolver = ServicePartitionResolver.GetDefault();
+```
+The `ResolveAsync` method takes the service uri, the partition key and a cancelation token as parameters. The service uri for the  processing service is `fabric:/AlphabetPartitions/Processing`  
+Next we get the endpoint of the partition.
+```
+ResolvedServiceEndpoint ep = partition.GetEndpoint()
+```
+Finally we build the endpoint url plus the querystring and call the processing service.
+```
+output = await s_httpClient.GetStringAsync(primaryReplicaAddress + queryString);
+```
+One the processing is done we write the output back.
+15. The last step is to test the service. Visual Studio uses application parameters for local and cloud deployment. To test the service with 26 partitions locally you need update the `Local.xml` file in the ApplicationParameters folder of the AlphabetPartitions project as shown below:
+```xml
+<Parameters>
+      <Parameter Name="Processing_PartitionCount" Value="26" />
+      <Parameter Name="WebApi_InstanceCount" Value="1" />
+</Parameters>
+```  
+16. Once deployed you can check the service and all of its partitions in the Service Fabric Explorer.
+![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. In a browser you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
+![Browser](./media/service-fabric-concepts-partitioning/browser.png)
 
-8. The next step is to add class library project that contains an HttpCommunicationListener which will be used by both the Alphabet.WebApi and the Alphabet.Processing projects.
-
+The entire source code of the sample is available on [Github](www.github.com)
 
 ## Next steps
 
