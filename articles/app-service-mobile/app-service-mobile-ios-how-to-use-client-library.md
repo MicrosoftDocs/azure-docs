@@ -18,9 +18,9 @@
 
 # How to Use iOS Client Library for Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-client-library.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-client-library.md)]
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
@@ -233,7 +233,7 @@ The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azu
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile Apps Quick Start]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Azure Mobile Apps Quick Start]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios

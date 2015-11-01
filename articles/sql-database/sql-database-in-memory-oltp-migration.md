@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
 
-# Use In-Memory OLTP (Preview) to improve your Azure SQL application's performance
+# Use In-Memory (Preview) to improve your Azure SQL application's performance
 
-Follow these steps to optimize the transactional performance of your existing Premium Azure SQL Database using [In-Memory OLTP](sql-database-in-memory.md).
+Follow these steps to optimize the transactional performance of your existing Premium Azure SQL Database using [In-Memory](sql-database-in-memory.md).
 
 For comparison, choose a workload similar to your production workload with a similar number of concurrent connections and read/write ratio. To minimize network latency, we recommend running your test workload in the same Azure region as the database.
 
@@ -115,6 +115,6 @@ Run your test workload against the memory-optimized tables and natively compiled
 
 ## Next steps
 
-[Monitor In-Memory Storage](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-monitoring/) for In-Memory OLTP
+[Monitor In-Memory Storage](https://azure.microsoft.com/documentation/articles/sql-database-in-memory-oltp-monitoring/).
 
 [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)

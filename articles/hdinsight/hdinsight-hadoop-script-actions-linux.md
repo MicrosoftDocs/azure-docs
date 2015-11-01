@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/26/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # Script Action development with HDInsight
@@ -43,7 +43,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - [Write information to STDOUT and STDERR](#bPS7)
 - [Save files as ASCII with LF line endings](#bps8)
 
-> [AZURE.IMPORTANT] Script actions must complete within 15 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
