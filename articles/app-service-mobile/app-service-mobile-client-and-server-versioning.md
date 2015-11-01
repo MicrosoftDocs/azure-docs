@@ -74,7 +74,7 @@ The chart below shows the compatibility between all client and server types.
 | HTML                              | [1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | 
 
 These are the corresponding server SDK versions:
-- [WindowsAzure.MobileServices.Backend.* 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/)
+- [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/)
 
 <!-- TODO: add Node and npm version -->
 
@@ -86,8 +86,8 @@ The Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSI
 | ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
 | Not specified    | Any                          | 200 - OK |
-| Any value        | False/Not Specified          | 400 - Bad Request | 
 | Any value        | True                         | 200 - OK |
+| Any value        | False/Not Specified          | 400 - Bad Request | 
 
 # <a name="2.0.0"></a>Azure Mobile Apps client and server
 
@@ -103,15 +103,15 @@ The Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSI
 <!-- TODO: add Android and HTML versions when released -->
 
 Version checking was added to the following server SDK versions:
-- .NET: [Microsoft.Azure.Mobile.Server.* 0.3.x](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)
-- Node.js: [azure-mobile-apps beta1](https://www.npmjs.com/package/azure-mobile-apps)
+- .NET: [Microsoft.Azure.Mobile.Server.* Version 0.3.x](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)
+- Node.js: [azure-mobile-apps Version 1.0-beta1](https://www.npmjs.com/package/azure-mobile-apps)
 
 ## Behavior of Mobile Apps backends
 
 | ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
-| Null             | False/Not Specified          | 400 - Bad Request | 
 | x.y.z or Null    | True                         | 200 - OK |
+| Null             | False/Not Specified          | 400 - Bad Request | 
 | 1.x.y            | False/Not Specified          | 400 - Bad Request | 
 | 2.0.0-2.x.y      | False/Not Specified          | 200 - OK |
 | 3.0.0-3.x.y      | False/Not Specified          | 400 - Bad Request | 
