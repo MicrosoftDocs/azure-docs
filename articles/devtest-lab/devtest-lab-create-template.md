@@ -17,3 +17,13 @@
 	ms.author="tarcher"/>
 
 # Create VM templates
+
+## Create a VM template
+
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
+
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+
+1. From the list of labs, tap the lab in which you want create the new VM.  
+
+1. From lab blade, 
