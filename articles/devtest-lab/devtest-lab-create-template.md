@@ -24,7 +24,7 @@
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
-1. From the list of labs, tap the lab in which you want create the new VM.  
+1. From the list of labs, tap the desired lab.  
 
 1. On the lab blade, tap **Settings**.
 
