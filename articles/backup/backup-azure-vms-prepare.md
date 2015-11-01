@@ -19,7 +19,11 @@
 # Preparing your environment to back up Azure virtual machines
 Before you back up an Azure virtual machine, you need to complete these prerequisites to prepare your environment. If you've already done this, you can start [backing up your VMs](backup-azure-vms.md), otherwise, continue through the steps below to make sure your environment is ready.
 
+
 ## 1. Backup vault
+
+![Backup vault](./media/backup-azure-vms-prepare/step1.png)
+
 To start backing up your Azure virtual machines, you first need to create a backup vault. A vault is an entity that stores all the backups and recovery points that have been created over time. The vault also contains the backup policies that will be applied to the virtual machines being backed up.
 
 This image shows the relationships between the various Azure Backup entities:
@@ -49,7 +53,76 @@ To create a backup vault:
 
     ![Virtual machine backup instructions in the Dashboard page](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
+
+
+## 3. Network connectivity
+
+![Network connectivity](./media/backup-azure-vms-prepare/step2.png)
+
+The backup extension needs connectivity to the Azure public IPs to function correctly, because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. Without the right internet connectivity, these HTTP requests from the VM will time out and the backup operation will fail.
+
+If your deployment has access restrictions in place (through a Network Security Group, for example), then you need to take additional steps to ensure that backup traffic to the Azure Backup vault remains unaffected. There are two ways to provide a path for the backup traffic:
+
+1. Whitelist the [Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+2. Deploy an HTTP proxy to route the traffic.
+
+The trade-off is between manageability, granular control, and cost.
+
+|Option|Advantages|Disadvantages|
+|------|----------|-------------|
+|OPTION 1: Whitelist IP ranges| No additional costs<br><br>For opening access in an NSG, use the Use the <i>Set-AzureNetworkSecurityRule</i> commandlet | Complex to manage as the impacted IP ranges change over time,<br>Provides access to the whole of Azure, and not just Storage.|
+|OPTION 2: HTTP proxy| Granular control in the proxy over the storage URLs allowed,<br>Single point of internet access to the VMs,<br>Not subject to Azure IP address changes| Additional costs for running a VM with the proxy software.|
+
+### Using an HTTP proxy for VM backup
+When backing up a VM, the snapshot management commands are sent from the backup extension to Azure Storage using an HTTPS API. This traffic must be routed from the extension through the proxy, since only the proxy will be configured to have access to the public internet.
+
+**A)** Allow outgoing network connections (Windows):
+1. Run the following command in an elevated command prompt:
+```
+netsh winhttp set proxy http://<proxy IP>:<proxy port>
+```
+This will setup a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+
+**B)** Allow outgoing network connections (Linux):
+1. Add the following line to the ```/etc/environment``` file:
+
+ 	```
+ 	http_proxy=http://<proxy IP>:<proxy port>
+ 	```
+
+2. Add the following lines to the ```/etc/waagent.conf``` file:
+
+	```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
+
+**C)** Allow incoming connections on the proxy:
+
+1. Open up Windows Firewall on the proxy server; right-click on *Inbound Rules* and click on **New Rule...**.
+
+	![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
+
+	![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
+2. In the *New Inbound Rule Wizard* choose the **Custom** option for the *Rule Type* and click Next. In the screen to select the *Program* choose **All Programs** and click Next.
+
+3. In the *Protcol and Ports* screen use the inputs in the table below and click Next:
+
+	![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
+
+| Input field | Value |
+| --- | --- |
+| Protocol type | TCP |
+| Local port    | select *Specific Ports* in the dropdown, and in the text box enter the ```<Proxy Port>``` that has been configured. |
+| Remote port   | select *All Ports* in the dropdown. |
+
+For the rest of the wizard, click all the way to the end and give this rule a name.
+
+
 ## 2. VM Agent
+
+![VM agent](./media/backup-azure-vms-prepare/step3.png)
+
 Before you can back up the Azure virtual machine, you should ensure that the Azure VM Agent is correctly installed on the virtual machine. Since the VM agent is an optional component at the time that the virtual machine is created, ensure that the checkbox for the VM agent is selected before the virtual machine is provisioned.
 
 Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -59,8 +132,6 @@ To back up the virtual machine, the Azure Backup service installs an extension t
 
 The backup extension is installed if the VM is running. A running VM also provides the greatest chance of getting an application consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off and the extension could not be installed (aka Offline VM). In this case, the recovery point will be *Crash consistent* as discussed above.
 
-## 3. Network connection
-The backup extension needs connectivity to the internet to function correctly, because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. Without internet connectivity, these HTTP requests from the VM will time out and the backup operation will fail.
 
 ## Limitations
 
