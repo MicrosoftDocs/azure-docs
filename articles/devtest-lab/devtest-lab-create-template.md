@@ -26,4 +26,54 @@
 
 1. From the list of labs, tap the lab in which you want create the new VM.  
 
-1. From lab blade, 
+1. On the lab blade, tap **Settings**.
+    ![Lab settings](./media/devtest-lab-create-template/lab-blade-settings.png)
+
+1. On the lab **Settings** blade, tap **Templates**.
+    ![Templates option](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
+
+1. On the **Templates** blade, tap **+ Template**.
+    ![Add template](./media/devtest-lab-create-template/add-template.png)
+
+1. On the **Add Template** blade:
+
+	1. Enter the name of the template. This name is displayed in the list of templates when creating a new VM.
+	
+	1. Enter the description of the template. This description is displayed in the list of templates when creating a new VM. 
+	
+	1. Tap **Image**.
+	
+	1. If the image you want is not listed and you want to add it, skip to the *Add a new template image* section, and return here when finished.
+	
+	1. Select the desired image.
+	
+	1. Tap **OK** to close the **Add Template** blade.
+	
+1. Tap **OS Configuration**.
+
+1. On the **OS Configuration** tab, select either **Windows** or **Linux**.
+
+1. If **Windows** is selected, specify via the checkbox whether or not *Sysprep* has been run on the machine.
+
+1. Enter a **User name** for the machine.
+
+1. Enter a **Password** for the machine. **Note:** The password will display in clear text.
+
+1. Tap **OK** to close the **OS Configuration** blade.
+
+1. Specify the **Location**.
+
+1. Tap **OK** to create the template.
+
+##Add a new template image
+
+In order to add a new template image, you'll need to have access to a VHD image file.
+
+1. On the **Add Template Image** blade, tap **Upload an image using PowerShell**.
+    ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
+
+1. The next blade will display instructions for modifying and running a PowerShell script that upload to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed. 
+
+##Next steps
+
+Once you have added a VM template for use when creating a VM, the next step is to [Add a VM](devtest-lab-add-vm-with-artifacts) to your DevTest Lab. 
