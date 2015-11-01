@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/01/2015" 
 	ms.author="tarcher"/>
 
 # Securely add a user to your Azure DevTest Lab

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/01/2015" 
 	ms.author="tarcher"/>
 
 # Create VM templates
@@ -76,7 +76,7 @@ In order to add a new template image, you'll need to have access to a VHD image 
 
     ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. The next blade will display instructions for modifying and running a PowerShell script that upload to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed. 
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed. 
 
 ##Next steps
 
