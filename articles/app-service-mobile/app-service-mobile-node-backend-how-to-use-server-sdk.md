@@ -91,8 +91,7 @@ You can find the code for this basic application in the [basicapp sample on GitH
 
 ## HOWTO: Create a Node backend with Visual Studio 2015
 
-Visual Studio 2015 requires an extension to develop Node application within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  
-Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
+Visual Studio 2015 requires an extension to develop Node application within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
 
 1. Open the *New Project* dialog (from File -&gt; New Project...)
 2. Expand *Templates* -&gt; *JavaScript* -&gt; *Node.js*
