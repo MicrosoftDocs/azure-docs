@@ -293,7 +293,7 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 
 ## Use a Script Action from Azure PowerShell
 
-In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/en-us/library/mt603527.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
 
 Perform the following steps:
 
