@@ -42,7 +42,7 @@ The recommended way to reduce traffic while preserving accurate statistics. The 
 
 1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-2. Add this snippet to ApplicationInsights.config:
+2. Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 

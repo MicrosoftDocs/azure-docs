@@ -183,6 +183,10 @@ You can then:
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## Modify property names or values
+
+Create a filter(app-insights-api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
+
 ## List specific users and their usage
 
 If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](app-insights-api-custom-events-metrics/#authenticated-users).
