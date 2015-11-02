@@ -18,6 +18,10 @@
 
 # Create VM templates
 
+## Overview
+
+Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to that lab](devtest-lab-add-vm-with-artifacts.md) from a list of VM templates. In this article, you'll learn how to upload and configure an image (VHD) file as a template from which to create your VMs.
+
 ## Create a VM template
 
 1. Sign in to the [Azure preview portal](http://portal.azure.com).
@@ -80,4 +84,4 @@ In order to add a new template image, you'll need to have access to a VHD image 
 
 ##Next steps
 
-Once you have added a VM template for use when creating a VM, the next step is to [Add a VM](devtest-lab-add-vm-with-artifacts) to your DevTest Lab. 
+Once you have added a VM template for use when creating a VM, the next step is to [add a VM to your DevTest Lab](devtest-lab-add-vm-with-artifacts). 
