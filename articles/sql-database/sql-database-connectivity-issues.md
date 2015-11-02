@@ -38,7 +38,7 @@ If your client program is using ADO.NET, your program is told about the transien
 ### Connection versus command
 
 
-When a transient error occurs during a connection try, the connection should be retried after delay for several seconds.
+When a transient error occurs during a connection try, the connection should be retried after delaying for several seconds.
 
 
 When a transient error occurs during an SQL query command, the command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
