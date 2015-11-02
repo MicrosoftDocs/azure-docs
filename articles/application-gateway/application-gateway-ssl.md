@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure an application gateway for SSL offload using classic deployment| Microsoft Azure"
-   description="This article provides instructions to configure SSL offload on an Azure application gateway using Azure classic deployment."
+   description="This article provides instructions to create an application gateway with SSL offload using Azure classic deployment model."
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -15,11 +15,11 @@
    ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configure an application gateway for SSL offload using classic deployment
+# Configure an application gateway for SSL offload using classic deployment model 
  
 Application Gateway can be configured to terminate the SSL session at the gateway to avoid costly SSL decryption task to happen at the web farm. SSL offload also simplifies the front end server setup and management of the web application.
 
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an application gateway using Azure classic . To use the Azure Resource Manager version, go to [Configure application gateway SSL offload using Azure Resource Manager](application-gateway-ssl-arm.md).
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic deployment model. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an application gateway using Azure classic deployment model . To use the Azure Resource Manager version, go to [Configure application gateway SSL offload using Azure Resource Manager](application-gateway-ssl-arm.md).
 
 
 ## Before you begin
