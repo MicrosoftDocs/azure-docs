@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure an Application Gateway for SSL offload using Azure Resource Manager | Microsoft Azure"
-   description="This page provides instructions to create an Application Gateway with SSL offload using Azure Resource Manager "
+   pageTitle="Configure an application gateway for SSL offload using Azure Resource Manager | Microsoft Azure"
+   description="This page provides instructions to create an application gateway with SSL offload using Azure Resource Manager "
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -15,23 +15,23 @@
    ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configure an Application Gateway for SSL offload using Azure Resource Manager
+# Configure an application gateway for SSL offload using Azure Resource Manager
 
 
  Application Gateway can be configured to terminate the SSL session at the gateway to avoid costly SSL decryption task to happen at the web farm. SSL offload also simplifies the front end server setup and management of the web application.
 
 
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [Configure Application gateway SSL offload using PowerShell (classic)](application-gateway-ssl.md).
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an application gateway using Azure Resource Manager. To use the classic version, go to [Configure application gateway SSL offload using Azure classic deployment](application-gateway-ssl.md).
 
 
 
 ## Before you begin
 
 1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
-2. You will create a virtual network and subnet for Application Gateway. Make sure no Virtual machines or cloud deployments are using the subnet. Application gateway must be by itself in a virtual network subnet.
-3. The servers which you will configure to use the Application gateway must exist or have their endpoints created either in the virtual network, or with a public IP/VIP assigned.
+2. You will create a virtual network and subnet for application gateway. Make sure no Virtual machines or cloud deployments are using the subnet. application gateway must be by itself in a virtual network subnet.
+3. The servers which you will configure to use the application gateway must exist or have their endpoints created either in the virtual network, or with a public IP/VIP assigned.
 
-## What is required to create an Application Gateway?
+## What is required to create an application gateway?
  
 
 - **Back end server pool:** The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP. 
@@ -47,19 +47,19 @@ For SSL certificates configuration, the protocol in **HttpListener** should chan
 **To enable cookie based affinity**: An application gateway can be configured to ensure that request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie which allows the gateway to direct traffic appropriately. To enable cookie based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element. 
 
  
-## Create a new Application Gateway
+## Create a new application gateway
 
 The difference between using Azure Classic and Azure Resource Manager will be the order you will create the application gateway and items needed to be configured.
 
-With Resource manager, all items which will make an Application Gateway will be configured individually and then put together to create the Application Gateway resource.
+With Resource manager, all items which will make an application gateway will be configured individually and then put together to create the application gateway resource.
 
 
-Here follows the steps needed to create an Application Gateway:
+Here follows the steps needed to create an application gateway:
 
 1. Create a resource group for Resource Manager
-2. Create virtual network, subnet and public IP for Application Gateway
-3. Create an Application Gateway configuration object
-4. Create Application Gateway resource
+2. Create virtual network, subnet and public IP for application gateway
+3. Create an application gateway configuration object
+4. Create application gateway resource
 
 
 ## Create a resource group for Resource Manager
@@ -95,11 +95,11 @@ Create a new resource group (skip this step if using an existing resource group)
 
     New-AzureResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create an Application Gateway will use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create an application gateway will use the same resource group.
 
 In the example above we created a resource group called "appgw-RG" and location "West US". 
 
-## Create virtual network and subnet for Application Gateway
+## Create virtual network and subnet for application gateway
 
 The following example shows how to create a virtual network using Resource manager: 
 
@@ -127,25 +127,25 @@ Assigns the subnet object to variable $subnet for the next steps.
 It creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
 
 
-## Create an Application Gateway configuration object
+## Create an application gateway configuration object
 
 ### Step 1
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-It creates an Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back end IP pool. Keep in mind each instance will take one IP address.
+It creates an application gateway IP configuration named "gatewayIP01". When application gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back end IP pool. Keep in mind each instance will take one IP address.
  
 ### Step 2
 
 	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This step will configure the back end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your  web application endpoints.
+This step will configure the back end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your web application endpoints.
 
 ### Step 3
 
 	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-It configures Application Gateway settings "poolsetting01" to load balanced network traffic in the back end pool.
+It configures application gateway settings "poolsetting01" to load balanced network traffic in the back end pool.
 
 ### Step 4
 
@@ -182,42 +182,42 @@ It creates the load balancer routing rule named "rule01" configuring the load ba
 
 	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-It configures the instance size of the Application Gateway.
+It configures the instance size of the application gateway.
 
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium and Standard_Large.
 
-## Create Application Gateway using New-AzureApplicationGateway
+## Create application gateway using New-AzureApplicationGateway
 
 	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-It creates an Application Gateway with all configuration items from the steps above. In the example, the Application Gateway is called "appgwtest". 
+It creates an application gateway with all configuration items from the steps above. In the example, the application gateway is called "appgwtest". 
 
 
-## Start Application Gateway
+## Start application gateway
 
 Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
 
 
 **Note:** The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
 
-For the example below, the Application Gateway is called "appgwtest" and the resource group is "app-rg":
+For the example below, the application gateway is called "appgwtest" and the resource group is "app-rg":
 
 
 ### Step 1
 
-Get the Application Gateway object and associate to a variable "$getgw":
+Get the application gateway object and associate to a variable "$getgw":
  
 	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
 
 ### Step 2
 	 
-Use `Start-AzureApplicationGateway` to start the Application Gateway:
+Use `Start-AzureApplicationGateway` to start the application gateway:
 
 	 Start-AzureApplicationGateway -ApplicationGateway $getgw  
 
 	
 
-## Verify the Application Gateway status
+## Verify the application gateway status
 
 Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. 
 
@@ -372,7 +372,7 @@ This sample shows an application gateway that is up, running, and is ready to ta
 ## Next Steps
 
 
-If you want to configure an application gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
+If you want to configure an application gateway to use with ILB, see [Create an application gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, see:
 
