@@ -12,7 +12,7 @@
 	ms.workload="sql-database"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="10/26/2015"
 	ms.author="genemi"/>
 
