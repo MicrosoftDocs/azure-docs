@@ -37,13 +37,12 @@ These basic steps can help resolve many allocation failures in virtual machines.
 - Resize the VM to a different VM size.<br>
 	Click Browse all > Virtual machines (classic) > your virtual machine > Settings > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
-- Delete all VMs from the Cloud Service and recreate VMs. 
-
+- Delete all VMs from the Cloud Service and recreate VMs.<br> 
 	Click Browse all > Virtual machines (classic) > your virtual machine > Delete. Then, click New > Compute > [Virtual Machine Image]
 
-## Resource Manager Deployment Model
+### Resource Manager Deployment Model
 
-- Stop-deallocate all VMs in the same Availability Set, then restart each one. 
+- Stop-deallocate all VMs in the same Availability Set, then restart each one.<br> 
 	To stop: Click Resource Groups > your Resource Group > Resources > Your Availability Set > Virtual Machines > your Virtual Machine. > Stop
 	After all VMs stopped, select the first VM and click Start.
 
