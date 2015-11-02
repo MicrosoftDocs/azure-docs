@@ -21,7 +21,9 @@
 This article shows you how to use Azure PowerShell for backup and recovery of Azure IaaS VMs.
 
 ## Concepts
-Get [introduced to Azure IaaS VM backup](backup-azure-vms-introduction.md) in the Azure Backup documentation. It covers the essentials about why you should backup your VM, prerequisites, and limitations.
+Get [introduced to Azure IaaS VM backup](backup-azure-vms-introduction.md) in the Azure Backup documentation.
+
+> [AZURE.WARNING] Before you start, ensure that you cover the essentials about the [prerequisites](backup-azure-vms-prepare.md) needed to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.
 
 In order to use PowerShell effectively, it is necessary to understand the hierarchy of objects and from where to start.
 
