@@ -80,14 +80,14 @@ This application creates a simple mobile-optimized WebAPI with a single endpoint
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
 client library quick starts:
 
-- (iOS)[app-service-mobile-ios-get-started]
-- (Xamarin.iOS)[app-service-mobile-xamarin-ios-get-started]
-- (Xamarin.Android)[app-service-mobile-xamarin-android-get-started]
-- (Xamarin.Forms)[app-service-mobile-xamarin-forms-get-started]
-- (Windows Phone)[app-service-mobile-windows-store-dotnet-get-started]
-- (HTML/Javascript)[app-service-html-get-started]
+- [iOS Client QuickStart]
+- [Xamarin.iOS Client QuickStart]
+- [Xamarin.Android Client QuickStart]
+- [Xamarin.Forms Client QuickStart]
+- [Windows Phone Client QuickStart]
+- [HTML/Javascript Client QuickStart]
 
-You can find the code for this basic application in the (Azure Mobile Apps Node SDK GitHub Repository)[https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app].
+You can find the code for this basic application in the [basicapp sample on GitHub].
 
 ## HOWTO: Create a Node backend with Visual Studio 2015
 
@@ -105,7 +105,7 @@ The azure-mobile-apps Node Server SDK provides mechanisms to expose data tables 
 	| PUT /tables/_tablename_/:id | Update an existing record in the table |
 	| DELETE /tables/_tablename_/:id | Delete a record in the table |
 	
-This WebAPI supports (OData)[http://www.odata.org] and extends the table schema to support (offline data sync)[app-service-mobile-offline-data-sync].  
+This WebAPI supports [OData] and extends the table schema to support [offline data sync].  
 
 ## HOWTO: Define Tables using a Dynamic Schema
 
@@ -150,7 +150,7 @@ module.exports = table;
 
 Tables use dynamic schema by default.  To turn off dynamic schema globally, set the App Setting *MS_DynamicSchema* to false within the Azure Portal.
   
-You can find a complete example in the (Azure Mobile Apps Node SDK GitHub Repository)[https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo].
+You can find a complete example in the [todo sample on GitHub].
 
 ## HOWTO: Define Tables using a Static Schema
 
@@ -176,8 +176,7 @@ module.exports = table;
 ```
 
 If you define tables statically, then you must also call the tables.initialize() method to create the database schema on startup.  The tables.initialize()
-method returns a (Promise)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise] - this is used to ensure that the web
-service does not serve requests prior to the database being initialized.
+method returns a [Promise] - this is used to ensure that the web service does not serve requests prior to the database being initialized.
 
 ## HOWTO: Use SQL Express as a Development Datastore on your local machine
 
@@ -278,8 +277,8 @@ module.exports = table;
 ```
 
 Operations that normally execute a query will have a query property that you can adjust with a where clause.    The query property is
-a (QueryJS)[https://github.com/Azure/queryjs] object that is used to convert an OData query to something that the data backend can 
-process.  For simple equality cases (like the one above), a map can be used. It is also relatively easy to add specific SQL clauses:
+a [QueryJS] object that is used to convert an OData query to something that the data backend can process.  For simple equality cases 
+(like the one above), a map can be used. It is also relatively easy to add specific SQL clauses:
 
 ```
 context.query.where('myfield eq ?', 'value');
@@ -312,5 +311,18 @@ context.query.where('myfield eq ?', 'value');
 ## HOWTO: Leverage Authentication with an MVC Web App
 
 <!-- Images -->
-<!-- png screenshot of the npm init output -->
-[0]: ./media/images/...
+[0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
+
+<!-- URLs -->
+[iOS Client QuickStart]: app-service-mobile-ios-get-started.md
+[Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
+[Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
+[Xamarin.Forms Client QuickStart]: app-service-mobile-xamarin-forms-get-started.md
+[Windows Phone Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
+[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
+[offline data sync]: app-service-mobile-offline-data-sync.md
+[OData]: http://www.odata.org
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[QueryJS]: https://github.com/Azure/queryjs
