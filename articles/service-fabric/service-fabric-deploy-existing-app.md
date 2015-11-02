@@ -323,19 +323,19 @@ Console redirection can be configured in the `servicemanifest.xml` file using th
 
 Log files are saved on one of the service's working directories, in order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used.
 
-In the Service Fabric explorer, identify the node where the service is running
+In the Service Fabric Explorer, identify the node where the service is running:
 
 ![][3]
 
-After you know the node where the service is currently running, you can find out which is the working directory used
+After you know the node where the service is currently running, you can find out which is the working directory used:
 
 ![][4]
 
-When you select the name of the service, on the right panel you can see there the service code and settings are stored
+When you select the code package, you can find the location where the service code and settings are stored on-disk by choosing the **Details** tab in the right pane.
 
 ![][5]
 
-If you click on the link in the 'Disk Location' field you can access the directory where the services is running on.
+If you navigate to this directory, you will see all of the files associated with the running services.
 
 ![][6]
 
