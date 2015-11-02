@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Setting up a Service Fabric Cluster from the Azure Portal"
+   pageTitle="Setting up a Service Fabric Cluster from the Azure Portal | Microsoft Azure"
    description="Setting up a Service Fabric Cluster from the Azure Portal."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/22/2015"
+   ms.date="10/29/2015"
    ms.author="chackdan"/>
 
 # Setting up a Service Fabric Cluster from the Azure Portal
@@ -29,7 +29,7 @@ This page helps you with setting up of a Service Fabric Cluster. It is assumed t
 1. Log on to the Azure Portal [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
 
 2. Click on the **+** to add a new Resource Template. Search for our Template under Everything - **Service Fabric Cluster**
-(you can navigate to **Everything** by clicking into the top level category - Marketplace > and then search for "Fabric" and press enter - Sometimes the auto filter does not work, so make sure to press ent)  
+(you can navigate to **Everything** by clicking into the top level category - Marketplace > and then search for "Fabric" and press enter - Sometimes the auto filter does not work, so make sure to press enter)  
     ![SearchforServiceFabricClusterTemplate][SearchforServiceFabricClusterTemplate]
  
 3. Select "Service Fabric Cluster" from the list
