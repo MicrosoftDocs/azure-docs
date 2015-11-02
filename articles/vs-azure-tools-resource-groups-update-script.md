@@ -39,7 +39,7 @@ If the new Azure PowerShell prevents you from deploying your Azure Resource Grou
 - You can make specific, targeted changes to the deployment project's PowerShell script to address the issues, and then run that script manually in the PowerShell command window. You won't be able to run the script from the **Deploy** menu item in Visual Studio. The steps to update the PowerShell script are listed later in this article, as well as a copy of the fully updated script.
 
 ## Update the Azure PowerShell script
-These instructions refer to line numbers. To enable line numbering in Visual Studio, see [How to: Display Line Numbers in the Editor](https://msdn.microsoft.com/en-us/library/ms165340.aspx).
+These instructions refer to line numbers. To enable line numbering in Visual Studio, see [How to: Display Line Numbers in the Editor](https://msdn.microsoft.com/library/ms165340.aspx).
 
 1. In line 61, replace the following code:
 
