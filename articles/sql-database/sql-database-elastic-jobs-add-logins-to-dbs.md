@@ -5,7 +5,7 @@
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddive"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/02/2015" 
 	ms.author="ddove; sidneyh" />
 
 # How to add users to an Elastic Database pool
@@ -33,7 +33,7 @@ The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQ
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. The user must have permissions as well, sufficient to execute the script specified for the job. Use the **sp_addrolemember** procedure to provide the user with the minimum required permissions for the script to execute succesfully. 
+3. The user must have permissions as well, sufficient to execute the script specified for the job. Use the [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx) procedure to provide the user with the minimum required permissions for the script to execute succesfully. 
 
 ## Next steps
 
