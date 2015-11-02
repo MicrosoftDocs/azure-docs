@@ -5,7 +5,7 @@
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="ddive"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
