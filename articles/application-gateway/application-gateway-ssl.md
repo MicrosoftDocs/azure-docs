@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure an application gateway for SSL offload using classic deployment| Microsoft Azure"
-   description="This article provides instructions to configure SSL offload on an Azure application gateway using classic deployment."
+   description="This article provides instructions to configure SSL offload on an Azure application gateway using Azure classic deployment."
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
