@@ -77,6 +77,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - sp_addmessage
 - sp_configure options and RECONFIGURE
 - sp_helpuser
+- sp_migrate_user_to_contained
 - SQL Server audit (use SQL Database auditing instead)
 - SQL Server Profiler
 - SQL Server trace
