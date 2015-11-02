@@ -78,7 +78,7 @@ How to Enable Single Sign-On to Google Apps in 2 Minutes:
 
 4. On the **Auto configure single sign-on** page, type in the domain for your Google Apps tenant. Then press the **Configure** button.
 
-	![Type in your domain name and press Configure.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.PNG)
+	![Type in your domain name and press Configure.](./media/active-directory-saas-google-apps-tutorial/ga-auto-config.png)
 
 	> [AZURE.NOTE] If you prefer to configure single sign-on manually, see [Optional Step: Manually Configure Single Sign-On](#optional-step-manually-configure-single-sign-on)
 
