@@ -92,7 +92,7 @@ To perform other customizatons, you'll need to connect to the VM using an SSH cl
 ## Deploy a new VM from the captured image
 The image is ready to be used with a template to create a new Linux VM. These steps show you how to use the Azure CLI and the JSON file template you created with the `azure vm capture` command to create the VM in a new virtual network.
 
-## Prepare network settings
+### Prepare network settings
 
 To use the template, you first need to set up a virtual network and NIC for your new VM. We recommend you create a new resource group for these resources. Run commands similar to the following, substituting names for your resources and an appropriate Azure location ("centralus" in these commands):
 
@@ -145,7 +145,7 @@ You will see output similar to the following for a successful deployment.
 
 
 	data:    ------------------  ------------  -------------------------------------
-	
+
 	data:    vmName              String        mynewvm
 
 
