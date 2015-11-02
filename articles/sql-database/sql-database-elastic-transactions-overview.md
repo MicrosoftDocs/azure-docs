@@ -16,13 +16,15 @@
    ms.date="11/2/2015"
    ms.author="torsteng"/>
 
+# Overview of Elastic Database Transactions with Azure SQL Database (in preview)
+
 Elastic database transactions for Azure SQL Database (SQL DB) allow you to run transactions that span several databases in SQL DB. Elastic database transactions for SQL DB are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/en-us/library/system.transactions.aspx) classes. 
 
 On premises, such a scenario usually required running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC is not available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL DB. Applications can connect to any SQL Database to launch distributed transactions, and one of the databases will transparently coordinate the distributed transaction, as shown in the following figure. 
 
   ![Distributed transactions with Azure SQL Database using elastic database transactions ][1]
 
-# Common scenarios
+## Common scenarios
 
 Elastic database transactions for SQL DB enable applications to make atomic changes to data stored in several different SQL Databases. The preview focuses on client-side development experiences in C# and .NET. A server-side experience using T-SQL is planned for a later time.  
 Elastic database transactions targets the following scenarios:
@@ -33,7 +35,7 @@ Elastic database transactions targets the following scenarios:
 Elastic database transactions use two-phase commit to ensure transaction atomicity across databases. It is a good fit for transactions that involve less than 100 databases at a time within a single transaction. These limits are not enforced, but one should expect performance and success rates for elastic database transactions to suffer when exceeding these limits.
 
 
-# Installation and migration
+## Installation and migration
 
 The capabilities for elastic database transactions in SQL DB are provided through updates to the .NET libraries System.Data.dll and System.Transactions.dll. The DLLs ensure that two-phase commit is used where necessary to ensure atomicity. To start developing applications using elastic database transactions, install the [.NET 4.6.1 Release Candidate](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) or a later version of the .NET framework. When running on an earlier version of the .NET framework, transactions will fail to promote to a distributed transaction and an exception will be raised.
 
@@ -41,9 +43,9 @@ After installation, you can use the distributed transaction APIs in System.Trans
 
 Remember that elastic database transactions do not require installing MSDTC. Instead, elastic database transactions are directly managed by and within SQL DB. This significantly simplifies cloud scenarios since a deployment of MSDTC is not necessary to use distributed transactions with SQL DB. Section 4 explains in more detail how to deploy elastic database transactions and the required .NET framework together with your cloud applications to Azure.
 
-# Development experience
+## Development experience
 
-##	Multi-database applications
+###	Multi-database applications
 
 The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
@@ -68,7 +70,7 @@ The following sample code uses the familiar programming experience with .NET Sys
 		scope.Complete();
 	}
 
-## Sharded database applications
+### Sharded database applications
  
 Elastic database transactions for SQL DB also support coordinating distributed transactions where you use the OpenConnectionForKey method of the elastic database client library to open connections for a scaled out data tier. Consider cases where you need to guarantee transactional consistency for changes across several different sharding key values. Connections to the shards hosting the different sharding key values are brokered using OpenConnectionForKey. In the general case, the connections can be to different shards such that ensuring transactional guarantees requires a distributed transaction. 
 The following code sample illustrates this approach. It assumes that a variable called shardmap is used to represent a shard map from the elastic database client library:
@@ -95,11 +97,11 @@ The following code sample illustrates this approach. It assumes that a variable 
 	}
 
 
-# Setup for Azure worker roles
+## Setup for Azure worker roles
 
 You can automate the installation and deployment of the .NET version and libraries needed for elastic database transactions to Azure (into the guest OS of your cloud service). For Azure worker roles, use the startup tasks. The concepts and steps are documented in [Install .NET on a Cloud Service Role](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/).  
 
-# Monitoring transaction status
+## Monitoring transaction status
 
 Use Dynamic Management Views (DMVs) in SQL DB to monitor status and progress of your ongoing elastic database transactions. All DMVs related to transactions are relevant for distributed transactions in SQL DB. You can find the corresponding list of DMVs here: [Transaction Related Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/en-us/library/ms178621.aspx).
  
@@ -109,7 +111,7 @@ These DMVs are particularly useful:
 * **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. See the [DMV documentation](https://msdn.microsoft.com/en-us/library/ms186957.aspx) for more details.
 * **sys.dm\_tran\_locks**: Provides information about the locks that are currently held by ongoing transactions. See the [DMV documentation](https://msdn.microsoft.com/en-us/library/ms190345.aspx) for more details.
 
-# Limitations 
+## Limitations 
 
 The following limitations currently apply to elastic database transactions in SQL DB:
 
