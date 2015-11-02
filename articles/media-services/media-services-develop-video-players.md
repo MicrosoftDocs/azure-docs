@@ -48,7 +48,7 @@ You can also use any of the following SDKs:
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 - [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Licensing Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
  
 
