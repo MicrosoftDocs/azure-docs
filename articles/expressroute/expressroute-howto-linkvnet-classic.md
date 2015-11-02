@@ -26,6 +26,8 @@ This article give you an overview of how to link virtual networks (VNets) to Exp
 
 >[AZURE.IMPORTANT] It's important to understand that Azure currently works with two deployment models: Resource Manager, and classic (also known as Service Management). Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md). For more information about Resource Manager in general, see [Azure Resource Manager overview](../resource-group-overview.md).
 
+[AZURE.INCLUDE [vpn-gateway-sm-rm-include](../../includes/vpn-gateway-sm-rm-include.md)] 
+
 ## Configuration prerequisites
 
 - You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
