@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Data Factory Editor (Azure Portal)
@@ -47,7 +47,10 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 
 	![New data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] Azure Data Factory names are globally unique. You will need to prefix the name of the data factory with your name, to enable the successful creation of the factory. 
+	> [AZURE.IMPORTANT] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “DataFactoryMyFirstPipeline” is not available**, change the name of the data factory (for example, yournameDataFactoryMyFirstPipeline) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	>  
+	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+
 3.	If you have not created any resource group,  you will need to create a resource group. To do this:
 	1.	Click on **RESOURCE GROUP NAME**.
 	2.	Select **Create a new resource group** in the **Resource group** blade.

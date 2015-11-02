@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="10/15/2015"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager support for services and regions
+# Resource Manager support for services, regions, and API versions
 
 Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. 
 Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. Microsoft will enable Resource Manager for every service that is important for future solutions, but until the 
 support is consistent, you need to know the current status for each service. This topic provides a list of supported resource providers for Azure Resource Manager.
 
-When deploying your resources, you also need to know which regions support those resources. The section [Supported Regions](#supported-regions) shows you how to find out which regions will work for your subscription and resources.
+When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions will work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
 The following tables list which services support deployment and management through Resource Manager and which do not. The column titled **Move Resources** refers to whether resources of this type can be moved to both a 
 new resource group and a new subscription. The column titled **Preview Portal** indicates whether you can create the service through the preview portal.
@@ -139,7 +139,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | IoTHubs | Yes     | Yes |               |          |        |
 
 
-## Supported Regions
+## Supported regions
 
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there 
 may be limitations on your subscription which prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed 
@@ -149,8 +149,7 @@ Before deploying your resources, check the supported regions for your resource t
 
 ### REST API
 
-Your best option for discovering which regions are available for a particular resource type is the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. This operation returns only 
-those regions that are available to your subscription and resource type.
+To discover which regions are available for a particular resource type in your subscription, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
 
 ### PowerShell
 
@@ -192,3 +191,44 @@ Which returns:
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
+## Supported API versions
+
+When you deploy a template, you must specify an API version to use for creating each resource. The API version corresponds to a version of REST API operations that are released by the resource provider. 
+As a resource provider enables new features, it will release a new version of the REST API. Therefore, the version of the API you specify in your template affects which properties you can specify in the 
+template. In general, you will want to select the most recent API version when creating new templates. For existing templates, you can decide whether you want to continue using an earlier API version, or update your template for the latest version to take advantage of new features.
+
+### REST API
+
+To discover which API versions are available for resource types, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
+
+### PowerShell
+
+The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0 Preview.
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+The output will be similar to:
+    
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+
+### Azure CLI
+
+You can save the information (including the available API versions) for a resource provider to a file with the following command.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+You can open the file and find the **apiVersions** element
+
+## Next steps
+
+- To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](./azure-portal/resource-group-template-deploy.md).

@@ -1,14 +1,14 @@
 <properties
 	pageTitle="How to Create a Web App in an App Service Environment"
 	description="Creation flow for web apps and app service plans examined for an app service environment"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

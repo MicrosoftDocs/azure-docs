@@ -23,19 +23,7 @@ You will receive the following type of information:
 
 Verify that the value of **PSVersion** is 3.0 or 4.0. If not, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-You must also have Azure PowerShell version 1.0.0 or later. If you have not installed and configured Azure PowerShell, click [here](powershell-install-configure.md) for instructions.
-
-You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
-
-	Get-Module azure | format-table version
-
-You will receive the following type of information:
-
-	Version
-	-------
-	1.0.0
-
-If you do not have 1.0.0 or later, you must remove Azure PowerShell using the Programs and Features Control Panel and then install the latest version. See [How to Install and Configure Azure PowerShell](powershell-install-configure.md) for more information.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ### Set your Azure account and subscription
 

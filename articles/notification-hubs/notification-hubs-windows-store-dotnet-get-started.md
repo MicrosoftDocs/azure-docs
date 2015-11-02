@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/11/2015"
 	ms.author="wesmc"/>
 
 # Getting started with Notification Hubs for Windows Store Apps
@@ -25,7 +25,10 @@
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Windows Store or Windows Phone 8.1 (non-Silverlight) application. If you are targeting Windows Phone 8.1 Silverlight, please refer to the [Windows Phone](notification-hubs-windows-phone-get-started.md) version.
 In this tutorial, you create a blank Windows Store app that receives push notifications by using the Windows Push Notification Service (WNS). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.
 
-This tutorial demonstrates a simple broadcast scenario in using Notification Hubs. Be sure to follow along with the next tutorial to learn how to use Notification Hubs to address specific users and groups of devices.
+
+## Before you begin
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
@@ -205,7 +208,7 @@ In this tutorial, we will keep it simple and just demonstrate testing your clien
 * **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 
-### Send notifications from a console app
+## (Optional) Send notifications from a console app
 
 
 To send notifications by using a .NET console application follow these steps. 
@@ -262,9 +265,11 @@ You can find all the supported payloads in the [toast catalog], [tile catalog], 
 
 ##Next steps
 
-In this simple example, you sent broadcast notifications to all your Windows devices using the portal or a console app. We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It will show you how to send notifications from an ASP.NET backend targeting specific users.
+In this simple example, you sent broadcast notifications to all your Windows devices using the portal or a console app. We recommend the [Use Notification Hubs to push notifications to users] tutorial as the next step. It will show you how to send notifications from an ASP.NET backend using tags to target specific users.
 
-If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news]. To learn more general information about Notification Hubs, see [Notification Hubs Guidance].
+If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news]. 
+
+To learn more general information about Notification Hubs, see [Notification Hubs Guidance].
 
 
 

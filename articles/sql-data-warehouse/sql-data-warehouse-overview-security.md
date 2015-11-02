@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/15/2015"
    ms.author="sahajs"/>
 
 # Secure a database in SQL Data Warehouse
@@ -78,7 +78,7 @@ Managing databases and logical servers from the Azure Management Portal or using
 
 ## Encryption
 
-Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. To encrypt your database, connect as a database owner and execute:
+Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. To encrypt your database, connect to the master database on your server and execute:
 
 
 ```

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="10/15/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -49,8 +49,9 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 	* __HEAD__: Check this option
 	* __WORKER__: Leave this blank.
 	* __ZOOKEEPER__: Leave this blank.
-	* __PARAMETERS__: The script expects the **cluster admin password** as a parameter. This is the password you specified while provisioning the cluster. You must specify the password within single quotes.
-
+	* __PARAMETERS__: The script expects the **cluster admin password** as a parameter. This is the password you specified while provisioning the cluster. Important considerations while providing the password:
+		* If the cluster username is "admin", you only need to specify the password within single quotes.
+		* If the cluster username is anything other than "admin", you must specify the paramter as `-u [username] [password in single quotes]`
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
