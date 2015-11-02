@@ -89,11 +89,11 @@ In the example below, the App VM needs to be configured to use the Proxy VM for 
 
 1. For Windows machines, run the following command in an elevated command prompt:
 
-```
-netsh winhttp set proxy http://<proxy IP>:<proxy port>
-```
+	```
+	netsh winhttp set proxy http://<proxy IP>:<proxy port>
+	```
 
-This will setup a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+	This will setup a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
 
 2. For Linux machines, add the following line to the ```/etc/environment``` file:
 
@@ -130,6 +130,7 @@ HttpProxy.Port=<proxy port>
 For the rest of the wizard, click all the way to the end and give this rule a name.
 
 **C) Add an exception rule to the NSG:**
+
 In an Azure PowerShell command prompt, type out the following command:
 
 ```
