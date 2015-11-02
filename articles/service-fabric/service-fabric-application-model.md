@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="10/22/2015"
    ms.author="alexwun"/>
 
 # Model an application in Service Fabric
