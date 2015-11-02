@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/06/2015"
+	ms.date="11/02/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -82,14 +82,15 @@ The supported logical operators along with the syntax are listed below:
 
 | Operator Name		| Syntax		 |
 | :------------- | :------------- |
-| Not			 | "not" : {&lt;condition&gt;}			 |
+| Not			 | "not" : {&lt;condition  or operator &gt;}			 |
 | And			| "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 | Or						 | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 
+Nested conditions are not supported.
 
 ## Conditions
 
-The supported conditions along with the syntax are listed below:
+A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
 
 | Condition Name | Syntax				 |
 | :------------- | :------------- |
@@ -102,12 +103,13 @@ The supported conditions along with the syntax are listed below:
 
 ## Fields and Sources
 
-The conditions are formed through the use of fields and sources. The
-following fields and sources are supported:
+Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload. A source represents characteristics of the request itself. 
+
+The following fields and sources are supported:
 
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-Sources: **action**
+Sources: **action**. To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). 
 
 ## Policy Definition Examples
 
