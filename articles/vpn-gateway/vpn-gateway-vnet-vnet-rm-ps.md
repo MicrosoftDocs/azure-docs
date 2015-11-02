@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell
@@ -78,9 +78,11 @@ Before you begin, verify that you have the following:
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- The latest version of Azure PowerShell cmdlets. You can download and install the latest version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article is written for Azure PowerShell *0.9.8*. 
+- Azure PowerShell 0.9.8 cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). This article was written for 0.9.8, although it's possible to use these steps (with slight modifications to the cmdlets) with the PowerShell 1.0 Preview.
 
->[AZURE.NOTE] If you are running mission-critical apps, please continue to use Azure PowerShell 0.9.8. In most cases, the only difference between the two versions is that the 1.0 Preview cmdlet name follows the pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 name does not include Rm. For example, New-AzureRmResourceGroup instead of New-AzureResourceGroup. For information about the Azure PowerShell 1.0 Preview, please see this [blog post](https://azure.microsoft.com/blog/azps-1-0-pre/). For more information about the Azure PowerShell 1.0 Preview cmdlets, see [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx).
+**About using these steps with Azure PowerShell 1.0 Preview**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
 
 
 ## 1. Plan your IP address ranges
@@ -113,10 +115,7 @@ Values for VNet2:
 
 ## 2. Connect to your subscription 
 
-Open your PowerShell console and connect to your account. The instructions below use Azure PowerShell version 0.9.8. 
-You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
-
-Use the following sample to help you connect:
+Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 		Add-AzureAccount
 

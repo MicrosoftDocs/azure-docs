@@ -19,6 +19,8 @@
 
 # Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 This article provides detailed troubleshooting steps for complex Remote Desktop errors.
 
 > [AZURE.IMPORTANT] To eliminate the more common Remote Desktop errors, make sure to read [the basic troubleshooting for Remote Desktop](virtual-machines-troubleshoot-remote-desktop-connections.md) before proceeding.

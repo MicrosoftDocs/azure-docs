@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric application model"
-   description="How to model an application in Service Fabric"
+   pageTitle="Service Fabric application model | Microsoft Azure"
+   description="How to model and describe applications and services in Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="alexwun"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/01/2015"
+   ms.date="10/22/2015"
    ms.author="alexwun"/>
 
 # Model an application in Service Fabric

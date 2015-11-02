@@ -4,8 +4,9 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="jdial"
-   editor="tysonn"/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,13 +14,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # Configure a point-to-site VPN connection to an Azure Virtual Network
 
 
->[AZURE.NOTE] This article applies to point-to-site connections for virtual networks that are created in the classic deployment mode. At this time, point-to-site connections to a virtual network created in the Azure Resource Manager deployment mode are not supported.
+>[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+
+This article applies to point-to-site connections for virtual networks created using the classic deployment model (Service Management). At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are not supported.
 
 The following procedure will walk you through the steps to create a secure point-to-site connection to a virtual network. Although configuring a point-to-site connection requires multiple steps, it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. There are three main parts to configuring a point-to-site VPN: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that is used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
 
@@ -29,7 +32,6 @@ The following procedure will walk you through the steps to create a secure point
 3. [Configure your VPN client](#configure-your-vpn-client).
 
 ## Create a virtual network and a VPN gateway
-
 
 
 A point-to-site connection requires a virtual network with a dynamic routing gateway. The following steps will walk you through creating both.

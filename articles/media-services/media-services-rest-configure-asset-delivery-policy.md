@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure Asset Delivery Policies using REST" 
-	description="This topic shows how to configure different asset delivery policies." 
+	pageTitle="Configure Asset Delivery Policies using Media Services REST API" 
+	description="This topic shows how to configure different asset delivery policies using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #How to: Configure Asset Delivery Policies
