@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors Smart Cache design pattern"
-   description="Design pattern on how to use Reliable Actors as caching infrastructure on web-based applications"
+   pageTitle="Smart cache design pattern | Microsoft Azure"
+   description="Design pattern on how to use Service Fabric's Reliable Actors programming model to build a caching infrastructure for web-based applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # Reliable Actors design pattern: smart cache
+
 The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.
 Many caches are simple key-value pairs while other systems like [Redis](http://redis.io) that are used as caches offer richer semantics. Still, any special, caching tier will be limited in semantics and more importantly it is yet another tier to manage.
 What if instead, objects just kept state in local variables and these objects can be snapshotted or persisted to a durable store automatically? Furthermore, rich collections such as lists, sorted sets, queues, and any other custom type for that matter are simply modelled as member variables and methods.
@@ -24,6 +25,7 @@ What if instead, objects just kept state in local variables and these objects ca
 ![][1]
 
 ## The leaderboard sample
+
 Take leader boards as an example—a Leaderboard object needs to maintain a sorted list of players and their scores so that we can query it. For example for the "Top 100 Players" or to find a player’s position in the leader board relative to +- N players above and below him/her. A typical solution with traditional tools would require ‘GET’ing the Leaderboard object (collection which supports inserting a new tuple<Player, Points> named Score), sorting it, and finally ‘PUT’ing it back to the cache. We would probably LOCK (GETLOCK, PUTLOCK) the Leaderboard object for consistency.
 Let’s have an actor-based solution where state and behaviour are together. There are two options:
 
@@ -291,6 +293,7 @@ Essentially Smart Cache provides:
 
 
 ## Next Steps
+
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
