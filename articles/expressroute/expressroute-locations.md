@@ -90,9 +90,9 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Coming Soon | Not Supported | Chicago+, Washington DC+ |
+| **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Not Supported | Chicago+, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Coming Soon | Not Supported | Chicago+,  Washington DC+ |
-| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Coming Soon | Not Supported | Chicago+, Washington DC |
+| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Chicago+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Not Supported | Chicago+, Washington DC |
 
 ## Connectivity through service providers not listed

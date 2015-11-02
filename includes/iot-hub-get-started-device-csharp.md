@@ -62,7 +62,10 @@ In this section, you'll write a Windows console app that simulates a device send
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-> [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, it is reccommended to implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
+  By default, the **Create** method creates a **DeviceClient** that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the **Create** method to specify the protocol. If you choose to use the HTTPS protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
+
+
+> [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, it is recommended to implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
 
 <!-- Links -->
 
