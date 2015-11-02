@@ -89,7 +89,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) to a working folder on your local computer.
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
-```
+	```
 	{
 	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 	  "contentVersion": "1.0.0.0",
@@ -111,7 +111,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 	    }
 	  }
 	}
-```
+	```
 3. After saving the azuredeploy.parameters.json file, use the following command to create a new resource group based on the template. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. Replace the *testRG* with the group name you wish to use, and *testDeploy* with a deployment name of your choice. The location should be same as the one specified in your template parameter file.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
