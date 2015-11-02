@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Having trouble with Azure Multi-Factor Authentication? | Microsoft Azure" 
+	pageTitle="Having trouble with Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/29/2015" 
 	ms.author="billmath"/>
 
-# Having trouble with Azure Multi-Factor Authentication?
+# Having trouble with Azure Multi-Factor Authentication
 The following information is provided to help you with some of the common issues that you may experience.
 
 
