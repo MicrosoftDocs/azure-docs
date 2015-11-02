@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Backing up Azure virtual machines | Microsoft Azure"
-	description="this article provides the procedures for backing up an Azure virtual machine."
+	pageTitle="Back up Azure virtual machines | Microsoft Azure"
+	description="Procedures for backing up an Azure virtual machine."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# Backing up Azure virtual machines
+# Back up Azure virtual machines
 This article provides the procedures for backing up existing Azure virtual machines, to protected them in accordance with your company’s backup and retention policies.
 
 First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for VM backup before you proceed.
