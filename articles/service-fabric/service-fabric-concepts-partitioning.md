@@ -17,7 +17,7 @@
    ms.author="bscholl"/>
 
 # How to partition Service Fabric reliable services
-In this article we will cover the basic concepts of Service Fabric service partitions, partition planning and how to build reliable services using partitions.    
+This article provides an introduction to the basic concepts of Service Fabric service partitions.
 
 ## What is partitioning
 Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) into smaller accessible units to improve performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
@@ -36,8 +36,9 @@ Service Fabric makes it easy to develop stateful services that scale by offering
 
 Conceptually we can think about a partition of a stateful service being a unit that is made [highly available](service-fabric-availability-services.md) through [replicas](service-fabric-availability-services.md) of partitions that are distributed and balanced across the nodes in the cluster.
 
-What does that mean?
-Let's say we start with a 5 node cluster and 10 partitions. In this case we would end up with 2 primary [replicas](service-fabric-availability-services.md) per node, if we now scale out our cluster to 10 nodes Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise if we scaled back to 5 nodes Service Fabric would rebalance all the replicas across the 5 nodes.  
+
+To give you can example say we start with a 5 node cluster and 10 partitions. In this case Service Fabric would balance and distribute the replicas across the cluster and we would end up with 2 primary [replicas](service-fabric-availability-services.md) per node.
+If we now need to scale out our cluster to 10 nodes Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise if we scaled back to 5 nodes Service Fabric would rebalance all the replicas across the 5 nodes.  
 
 Figure 2 shows the distribution of 10 partitions before and after a scale out.
 
@@ -119,11 +120,11 @@ As we literally want to have one partition per letter we need to use 0 as the lo
 ![alphabetstateful](./media/service-fabric-concepts-partitioning/alphabetstateful.png)
 5. Next set the number of partitions. Open the ApplicationManifest.xml in the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
 ```xml
-<Parameter Name="Processing_PartitionCount" DefaultValue="26" />
+    <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
 ```
 We also need to update the LowKey and HighKey properties of the StatefulService element as shown below.
 ```xml
-<Service Name="Processing">
+    <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Processing_PartitionCount]" LowKey="0" HighKey="25" />
       </StatefulService>
@@ -131,33 +132,33 @@ We also need to update the LowKey and HighKey properties of the StatefulService 
 ```
 6. For the service to be accessible open up an endpoint on a port by adding updating the endpoint element of ServiceManifest.xml (located in the PackageRoot folder) for the Alphabet.Processing service as shown below:
 ```xml
-<Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
+    <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
 ```
 Now the service is configured to listen to an internal endpoint on port 8089 with 26 partitions.
 7. Next you need to override the `CreateServiceReplicaListeners()` method of the Processing class.
->[AZURE.NOTE] For this sample we assume that you are using a simple HttpCommunicationListener. More information on reliable service communication can be found [here](service-fabric-reliable-services-communication.md).
+    >[AZURE.NOTE] For this sample we assume that you are using a simple HttpCommunicationListener. More information on reliable service communication can be found [here](service-fabric-reliable-services-communication.md).
 8. A partition replica url has the following format `http://nodeip:port/partitionid/replicaid/guid` so you need to make sure that your communication listener listens on the correct endpoints. The code below shows an example.
 ```
-protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-{
+    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+    {
             return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
-}
-private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
-{
+        }
+        private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
+        {
         EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
         var uriPrefix = $"{internalEndpoint.Protocol}://+:{internalEndpoint.Port}/"+ $"{ServiceInitializationParameters.PartitionId}/{ServiceInitializationParameters.ReplicaId}"+ $"-{Guid.NewGuid()}/";   // Uniqueness
         var uriPublished = uriPrefix.Replace("+", m_nodeIP);
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInternalRequest);
-}
+    }
 ```
 9. The last step is to add the processing logic to the service as shown below.
 ```
-protected override async Task RunAsync(CancellationToken cancellationToken)
-{
+    protected override async Task RunAsync(CancellationToken cancellationToken)
+    {   
         m_name = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, string>>("lastname");
-}
-private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
-{
+    }
+    private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
+    {
             String output = null;
             HttpListenerRequest request = context.Request;
             NameValueCollection parameters = request.QueryString;
@@ -174,9 +175,9 @@ private async Task ProcessInternalRequest(HttpListenerContext context, Cancellat
                     response.OutputStream.Write(outBytes, 0, outBytes.Length);
                 }
             }
-}
-private async Task<String> AddUserAsync(NameValueCollection parameters)
-{
+        }
+        private async Task<String> AddUserAsync(NameValueCollection parameters)
+        {
         String output;
         using (var tx = StateManager.CreateTransaction())
         {
@@ -189,9 +190,9 @@ private async Task<String> AddUserAsync(NameValueCollection parameters)
                 else output = $"User '{user}' already exists";
         }
         return output;
-}
+    }
 ```
-`ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
+    `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
 
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key and sends it to the Alphabet.Processing service for processing.
@@ -199,27 +200,27 @@ This service serves as a simple web interface that accepts the lastname as a que
 ![alphabetstateless](./media/service-fabric-concepts-partitioning/alphabetstateless.png).
 12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below
 ```xml
-<Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8090"/>
+    <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8090"/>
 ```
 13. You need to return a ServiceInstanceListeners. Again you can choose to implement a simple HttpCommunicationListener. The code below shows how to use an HttpCommunicationListener to listen on the endpoint that is defined in the ServiceManifest.xml.
 ```
-protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-{
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
            return new[] { new ServiceInstanceListener(CreateInputListener, "Input") };
-}
-private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
-{
+    }
+    private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
+    {
            // Service instance's URL is the node's IP & desired port
            EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint");
            var uriPrefix = $"{inputEndpoint.Protocol}://+:{inputEndpoint.Port}/";
            var uriPublished = uriPrefix.Replace("+", m_nodeIP);
            return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
-}
+     }
 ```
 14. Now you need to implement the processing logic. The HttpCommunicationListener calls `ProcessInputRequest` when a request comes in. So let's go ahead and add the code below
 ```
-private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
-{
+    private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
+    {
            String output = null;
            String primaryReplicaAddress = null;
            try
@@ -238,10 +239,10 @@ private async Task ProcessInputRequest(HttpListenerContext context, Cancellation
                primaryReplicaAddress = ep.Address.Substring(start, end - start).Replace("\\", "");
                var queryString = request.Url.ToString().Substring(request.Url.ToString().IndexOf('?'));
                output = await s_httpClient.GetStringAsync(primaryReplicaAddress + queryString);
-}
+    }
     catch (Exception ex) { output = ex.Message; }
            using (var response = context.Response)
-{
+    {
                if (output != null)
                {
                    output = output + "added to Partition: " + primaryReplicaAddress;
@@ -249,34 +250,34 @@ private async Task ProcessInputRequest(HttpListenerContext context, Cancellation
                    response.OutputStream.Write(outBytes, 0, outBytes.Length);
                }
            }
-}
+      }
 ```
-Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a CharArray. Then it determines the partition key for this letter by subtracting the hex value of `A` from the hex value of the last names' first letter.
+    Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a CharArray. Then it determines the partition key for this letter by subtracting the hex value of `A` from the hex value of the last names' first letter.
 ```
-char[] charArray = parameters["lastname"].Substring(0, 1).ToCharArray();
-Int32 partitionKey = Char.ToUpper(charArray[0]) - 'A';
+    char[] charArray = parameters["lastname"].Substring(0, 1).ToCharArray();
+    Int32 partitionKey = Char.ToUpper(charArray[0]) - 'A';
 ```
-Remember for this example we are using 26 partitions with one partition key per partition.
-Next we obtain the service partition `partition` for this key by using the `ResolveAsync` method on the `s_resolver` object. `s_resolver` is defined as
+    Remember for this example we are using 26 partitions with one partition key per partition.
+    Next we obtain the service partition `partition` for this key by using the `ResolveAsync` method on the `s_resolver` object. `s_resolver` is defined as
 ```
- private static readonly ServicePartitionResolver s_resolver = ServicePartitionResolver.GetDefault();
+    private static readonly ServicePartitionResolver s_resolver = ServicePartitionResolver.GetDefault();
 ```
-The `ResolveAsync` method takes the service uri, the partition key and a cancelation token as parameters. The service uri for the  processing service is `fabric:/AlphabetPartitions/Processing`  
-Next we get the endpoint of the partition.
+    The `ResolveAsync` method takes the service uri, the partition key and a cancelation token as parameters. The service uri for the  processing service is `fabric:/AlphabetPartitions/Processing`  
+    Next we get the endpoint of the partition.
 ```
-ResolvedServiceEndpoint ep = partition.GetEndpoint()
+    ResolvedServiceEndpoint ep = partition.GetEndpoint()
 ```
-Finally we build the endpoint url plus the querystring and call the processing service.
+    Finally we build the endpoint url plus the querystring and call the processing service.
 ```
-output = await s_httpClient.GetStringAsync(primaryReplicaAddress + queryString);
+    output = await s_httpClient.GetStringAsync(primaryReplicaAddress + queryString);
 ```
-One the processing is done we write the output back.
+    One the processing is done we write the output back.
 15. The last step is to test the service. Visual Studio uses application parameters for local and cloud deployment. To test the service with 26 partitions locally you need update the `Local.xml` file in the ApplicationParameters folder of the AlphabetPartitions project as shown below:
 ```xml
-<Parameters>
+    <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
-</Parameters>
+  </Parameters>
 ```  
 16. Once deployed you can check the service and all of its partitions in the Service Fabric Explorer.
 ![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
