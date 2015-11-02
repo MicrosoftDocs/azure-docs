@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -74,7 +74,7 @@ This section describes common scenarios and provides links to relevant topics. T
 	
 	It is recommended to apply storage encryption option to your asset in order to protect your content during upload and while at rest in storage.
  
-1. Encode to adaptive bitrate MP4 set. 
+1. Encode to a set of adaptive bitrate MP4 files. 
 
 	It is recommended to apply storage encryption option to the output asset in order to protect your content at rest.
 	
@@ -93,7 +93,7 @@ This section describes common scenarios and provides links to relevant topics. T
 To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
 1. Upload a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
-1. Encode to adaptive bitrate MP4 set. Apply storage encryption option to the output asset.
+1. Encode to a set of adaptive bitrate MP4 files. Apply storage encryption option to the output asset.
 1. Create encryption content key for the asset you want to be dynamically encrypted during playback.
 2. Configure content key authorization policy.
 1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
@@ -113,7 +113,7 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 ###Deliver progressive download 
 
 1. Upload a high-quality mezzanine file into an asset.
-1. Encode to adaptive bitrate MP4 set or a single MP4.
+1. Encode to a single MP4 file.
 1. Publish the asset by creating an OnDemand or SAS locator.
 
 	If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.

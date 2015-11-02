@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -204,7 +204,7 @@ SELECT TOP 3
 		Program()   // Constructor.
 		{
 			int[] arrayOfTransientErrorNumbers =
-				{ 4060, 10928, 10929, 40197, 40501, 40613, 49918, 49919, 49920
+				{ 4060, 40197, 40501, 40613, 49918, 49919, 49920
 					//,11001   // 11001 for testing, pretend network error is transient.
 				};
 			m_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);

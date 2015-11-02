@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics inputs
@@ -142,7 +142,7 @@ The table below explains each property in the Blob storage input tab with its de
 <tr>
 <td>Path Prefix Pattern [optional]</td>
 <td>The file path used to locate your blobs within the specified container.
-Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time},<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: cluster1/logs/{date}</td>
+Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time},<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: cluster1/logs/{date}<P>Note that "*" is not an allowed value for pathprefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed.</td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
@@ -167,7 +167,7 @@ Within the path, you may choose to specify one or more instances of the followin
 </tbody>
 </table>
 
-When your data is coming from a Blob storage source, you can access to few metadata fields in your Stream Analytics query. The table below lists the fields and their description.
+When your data is coming from a Blob storage source, you can access a few metadata fields in your Stream Analytics query. The table below lists the fields and their description.
 
 | PROPERTY | DESCRIPTION |
 |------|------|

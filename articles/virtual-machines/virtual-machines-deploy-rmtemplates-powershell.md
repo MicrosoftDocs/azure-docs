@@ -43,11 +43,7 @@ These tasks use only PowerShell:
 - [Restart a virtual machine](#restart)
 - [Delete a virtual machine](#delete)
 
-Before you get started, make sure you have Azure PowerShell ready to go.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Azure Resource Manager templates and resource groups
 

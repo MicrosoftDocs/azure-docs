@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs

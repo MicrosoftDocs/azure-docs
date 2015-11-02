@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
 
 This page answers frequently asked questions about the Azure Active Directory Domain Services preview. Keep checking back for updates.
 
-### 1. Configuration
+### Troubleshooting guide
+Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
+
+
+### Configuration
 
 #### Can I create multiple domains for a single Azure AD directory?
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
@@ -35,7 +39,7 @@ PowerShell/automated deployment of Azure AD Domain Services is not available cur
 No. Azure AD Domain Services can be configured only in the older Azure management portal (i.e. https://manage.windowsazure.com). We expect to extend support for the new Microsoft Azure management portal (i.e. https://portal.azure.com) in the future.
 
 
-### 2. Administration and Operations
+### Administration and Operations
 
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
 The user accounts you’ve added to the administrative group (i.e. ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
@@ -47,7 +51,7 @@ No. Since this is a managed service, you will not be provided administrative pri
 No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may however change group memberships or user attributes either in Azure AD or on your on-premises domain. Such changes will be automatically synchronized to Azure AD Domain Services.
 
 
-### 3. Billing and availability
+### Billing and availability
 
 #### Is this a paid service?
 The service is available at a special reduced price for the duration of the public preview period. Billing will commence at full price once the service is generally available (GA). See the pricing page for more information.

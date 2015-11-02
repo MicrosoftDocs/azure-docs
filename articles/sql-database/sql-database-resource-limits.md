@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="09/11/2015"
+	ms.date="10/27/2015"
 	ms.author="jroth" />
 
 
@@ -53,7 +53,7 @@ For a single database, the limits of a database are defined by the database serv
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-For a detailed discussion of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
+For an expanded definition of each resource listed in the previous tables, see the descriptions in [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). For an overview of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
 
 ## DTU quota per server
 

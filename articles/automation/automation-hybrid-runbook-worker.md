@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -30,6 +30,8 @@ You can designate one or more computers in your data center to act as a Hybrid R
 >[AZURE.NOTE] Operational Insights is in the process of being integrated into Operations Management Suite, and you may see either name used in the portal and in documentation.
 
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
+
+>[AZURE.NOTE] Hybrid Runbook Workers do not currently support [DSC Configurations](automation-dsc-overview.md).
 
 ## Hybrid Runbook Worker groups
 
@@ -73,7 +75,7 @@ When you add an agent to Operations Management Suite, the Automation solution pu
 
 Open a PowerShell session in Administrator mode and run the following commands to import the module.
 
-	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\5.2.20826.0\HybridRegistration"
+	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
 	Import-Module HybridRegistration.psd1
 
 
@@ -111,8 +113,6 @@ Use the **RunOn** parameter  You could use the following command to start a runb
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE] The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell.  You should [download the latest version](http://azure.microsoft.com/downloads) if you have an earlier one installed.  You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.  You do not need to install it on the worker computer unless you intend to start runbooks from that computer.  You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.  The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.
-
->[AZURE.NOTE] Hybrid Runbook Worker can only run [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md).  You cannot currently start a [PowerShell runbook](automation-runbook-types.md) on a Hybrid Runbook Worker. 
 
 ## Troubleshooting runbooks on Hybrid Runbook Worker
 

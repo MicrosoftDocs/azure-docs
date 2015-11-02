@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/16/2015" 
 	ms.author="genemi"/>
 
 
@@ -89,6 +89,7 @@ EntLib classes are used to construct other EntLib classes. In this code sample, 
  - **SqlDatabaseTransientErrorDetectionStrategy** object.
 4. Construct a **ReliableSqlConnection** object. Input parameters are:
  - A **String** object - with server name and the other connection info.
+ - **RetryPolicy** object.
 5. Call to connect, made through the **RetryPolicy .ExecuteAction** method.
 6. Call the **ReliableSqlConnection .CreateCommand** method.
  - Returns a **System.SqlClient.Data.DbCommand** object, part of ADO.NET.

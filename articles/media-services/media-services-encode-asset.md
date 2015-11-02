@@ -3,7 +3,7 @@
 	description="This topic gives an overview and gives a comparison of Azire On Demand Media encoders." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
 
 ##Encoding overview
 
-Encoders compress digital media using codecs. Encoders typically have various settings that allow you to specify properties of the media generated for example, the codecs used, file format, resolution, and bitrate. File formats are containers that hold the compressed video as well as information about what codecs were used to compress the video. 
+Azure Media Services provides multiple options for the encoding of media in the cloud. 
 
-Codecs have two components: one to compress digital media files for transmission and the other to decompress digital media files for playback. There are audio codecs that compress and decompress audio and video codecs that compress and decompress video. Codecs can use lossless or lossy compression. Lossless codecs preserve all of the information when compression occurs. When the file is decompressed, the result is a file that is identical to the input media, making lossless codecs well suited to archiving and storage. Lossy codecs lose some of the information when encoding and produce smaller files (than the original) at the cost of video quality and are well suited to streaming over the internet. 
-
-It is important to understand the difference between codecs and file formats. Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video. For more information, see [Encoding versus Packaging](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
+When starting out with Media Services, it is important to understand the difference between codecs and file formats. 
+Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
 Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
 
@@ -168,6 +167,7 @@ AVI (Uncompressed 8bit/10bit)|Yes|Yes	|Yes
 Smooth Streaming File Format (PIFF 1.3)|Yes|Yes|No
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Yes|No|No
 Matroska/WebM				|Yes|No|No
+QuickTime (.mov) |Yes|No|No
 
 ###Input Video Codecs
 
@@ -183,6 +183,12 @@ Windows Media Video/VC-1							|Yes|Yes|Yes
 Canopus HQ/HQX										|No|Yes|No
 MPEG-4 Part 2										|Yes|No|No
 [Theora](https://en.wikipedia.org/wiki/Theora)		|Yes|No|No
+Apple ProRes 422	|Yes|No|No
+Apple ProRes 422 LT	|Yes|No|No
+Apple ProRes 422 HQ |Yes|No|No
+Apple ProRes Proxy|Yes|No|No
+Apple ProRes 4444 |Yes|No|No
+Apple ProRes 4444 XQ |Yes|No|No
 
 ###Input Audio Codecs
 

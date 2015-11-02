@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/28/2015"
+    ms.date="10/20/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -31,6 +31,8 @@ These forecasts or predictions from machine learning can make apps and devices s
 Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.
 
 Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models. You do not need to buy any hardware nor manually manage virtual machines.
+
+![What is machine learning? Basic workflow to operationalize predictive analytics on Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -53,7 +55,7 @@ Create predictive models in [Machine Learning Studio](machine-learning-what-is-m
 * Use a large library of [Machine Learning algorithms and modules](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio to jump-start your predictive models. Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing. Extend Studio modules with your own custom  [R](machine-learning-r-quickstart.md) and [Python](machine-learning-execute-python-scripts.md) scripts.
 * In [Cortana Analytics Gallery](machine-learning-gallery-how-to-use-contribute-publish.md), you can get started with Azure Machine Learning and learn from others in the community. Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments. You can also share links to experiments via social networks such as LinkedIn and Twitter.  
 
-	![Try predictive experiment samples or contribute your own in Azure Cortana Analytics Gallery](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
+	![Try predictive experiment samples or contribute your own in Azure Cortana Analytics Gallery](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-analytics-gallery.png)
 
 ### Operationalize predictive analytics solutions: Purchase web services or publish your own
 

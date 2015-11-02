@@ -39,17 +39,7 @@ But how can you compare the relative performance of databases and database pools
 
 ## Understand DTUs
 
-The Database Transaction Unit (DTU) is the unit of measure in SQL Database that represents the relative power of databases based on a real-world measure: the database transaction. We took a set of operations that are typical for an online transaction processing (OLTP) request, and then measured how many transactions could be completed per second under fully loaded conditions (that’s the short version, you can read the gory details in the [Benchmark overview](https://msdn.microsoft.com/library/azure/dn741327.aspx)).
-
-A Basic database has 5 DTUs, which means it can complete 5 transactions per second, while a Premium P11 database has 1750 DTUs.
-
-![Single database DTUs](./media/sql-database-technical-overview/single_db_dtus.png)
-
-The DTU for single databases translates directly to the eDTU for elastic databases. For example, a database in a Basic elastic database pool offers up to 5 eDTUs. That’s the same performance as a single Basic database. The difference is that the elastic database won’t consume any eDTUs from the pool until it has to. 
-
-![Elastic pools and eDTUs](./media/sql-database-technical-overview/sqldb_elastic_pools.png)
-
-A simple example helps. Take a Basic elastic database pool with 1000 DTUs and drop 800 databases in it. As long as only 200 of the 800 databases are being used at any point in time (5DTU X 200 = 1000), you won’t hit capacity of the pool, and database performance won’t degrade. This example is simplified for clarity. The real math is a bit more involved. The portal does the math for you, and makes a recommendation based on historical database usage. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md) to learn how the recommendations work, or to do the math yourself.
+[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
 ## Keep your app and business running
 

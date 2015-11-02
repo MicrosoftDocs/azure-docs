@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/22/2015"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -25,7 +25,7 @@
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
-[Application Insights web tests][availability] monitor your application's availability.
+Application Insights supports Java apps running on Linux, Unix or Windows.
 
 You'll need:
 
