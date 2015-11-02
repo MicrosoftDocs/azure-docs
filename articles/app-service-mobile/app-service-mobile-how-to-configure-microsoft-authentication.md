@@ -18,6 +18,9 @@
 
 # How to configure your application to use Microsoft Account login
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure Mobile Apps to use Microsoft Account as an authentication provider.
@@ -68,4 +71,3 @@ You are now ready to use Microsoft Account for authentication in your app.
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure Management Portal]: https://portal.azure.com/
- 
