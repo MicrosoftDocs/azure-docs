@@ -162,3 +162,4 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 * No, sampling for device applications is not supported at the moment. 
 
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc

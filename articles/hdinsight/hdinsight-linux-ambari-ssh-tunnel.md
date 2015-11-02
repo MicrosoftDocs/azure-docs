@@ -144,23 +144,11 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 4. Select the **URL Patterns** tab, and then select **Add New Pattern**. Use the following to define the pattern, and then click **OK**:
 
-	* **Pattern Name** - **headnode0** - This is just a friendly name for the pattern.
+	* **Pattern Name** - **clusternodes** - This is just a friendly name for the pattern.
 
-	* **URL pattern** - **\*hn0\*** - This defines a pattern that matches any URL with the word **hn0** in it.
+	* **URL pattern** - **\*internal.cloudapp.net\*** - This defines a pattern that matches the internal fully qualified domain name of the cluster nodes.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-    
-    Repeat this process to add another entry for __headnode1__. The pattern for this entry is __hn1__.
-
-	> [AZURE.NOTE] If you are using an __HBase__ cluster, you must also add the following pattern, as it hosts a web UI on the zookeeper nodes of the cluster:
-	>
-	> * __Pattern Name__ - __zookeeper__
-	> * __URL pattern__ - __\*zk\*__
-	>
-	> If you are using a __Storm__ cluster, you must add the following patterns, as the Storm UI links to the IP address of the worker nodes when retrieving logs. We are working to change this to use the domain name in a future update.
-	>
-	> * __Pattern Name__ - __nodesbyip__
-	> * __URL pattern__ - __\*10.0.0.\*__
 
 4. Click **OK** to add the proxy and close **Proxy Settings**.
 
@@ -168,7 +156,7 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 	![foxyproxy select mode](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
 
-After following these steps, only requests for URLs that contain the string **hn0** or __hn1__ will be routed over the SSL tunnel.
+After following these steps, only requests for URLs that contain the string __internal.cloudapp.net__ will be routed over the SSL tunnel.
 
 ##Verify with Ambari web UI
 

@@ -241,8 +241,3 @@ Among the metrics you can show in metrics explorer are a set of system performan
 * If not, [add the counter to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
 
 
- 
-
-### Azure web roles
-
-We don't currently monitor performance counters on 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
@@ -22,14 +22,6 @@
 
 
 This topic lists the minimum version number for each library/driver that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
-
-
-This topic is split into two sections:
-
-
-- *Table of driver libraries released by Microsoft* - covers libraries that Microsoft has released. Microsoft maintains the information that is in this section.
-- *Third party libraries* - lists libraries that are released and maintained by third parties rather than by Microsoft. **Only the public community of developers maintains this section. Microsoft will not maintain this section.**
-
 
 ## Table of driver libraries released by Microsoft
 
@@ -45,6 +37,14 @@ The following table displays libraries that are released by Microsoft. The **Lib
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Microsoft ODBC Driver for SQL Server | [Link](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | . |
 | ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Microsoft ODBC Driver for SQL Server | . |
+
+### ODBC Support
+
+When using the data source name (DSN) wizard to define a data source for Azure SQL Database, click the **With SQL Server Authentication using a login ID and password entered by the user** option and select the **Connect to SQL Server to obtain default settings for the additional configuration options**. Enter your user name and password to connect to your Azure SQL Database server as **Login ID** and **Password**. Clear the **Connect to SQL Server to obtain default settings…** checkbox. Click **Change the default database to:** and enter the name of your Azure SQL Database even if it does not show up in the list. Note that the wizard lists several languages in the **Change the language of SQL Server system messages to:** list.
+
+In this release, Microsoft Azure SQL Database supports only English, so select English as a language. Microsoft Azure SQL Database does not support **Mirror Server** or **Attach Database**, so leave those items empty. Click **Test Connection**.
+
+When using the SQL Server 2008 Native Client ODBC driver, the **Test Connection** button may result in an error that **master.dbo.syscharsets** is not supported. Ignore this error, save the DSN, and use it.
 
 
 ### OLEDB for DB2 and SQL Server, for DRDA design
