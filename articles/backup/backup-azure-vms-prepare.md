@@ -83,6 +83,7 @@ When backing up a VM, the snapshot management commands are sent from the backup 
 >[AZURE.NOTE] There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that is compatible with configuration steps mentioned below.
 
 In the example below, the App VM needs to be configured to use the Proxy VM for all HTTP traffic bound for the public internet. The Proxy VM needs to be configured to allow incoming traffic from VMs in the VNET. And finally, the NSG (named *NSG-lockdown*) needs a new Security Rule that allows outbound Internet traffic from the Proxy VM.
+
 ![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
 **A) Allow outgoing network connections:**
@@ -148,9 +149,21 @@ This command adds an exception to the NSG, allowing TCP traffic from any port on
 
 Before you can back up the Azure virtual machine, you should ensure that the Azure VM Agent is correctly installed on the virtual machine. Since the VM agent is an optional component at the time that the virtual machine is created, ensure that the checkbox for the VM agent is selected before the virtual machine is provisioned.
 
+### Manual installation and update
+
+The VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+
+| **Operation** | **Windows** | **Linux** |
+| --- | --- | --- |
+| Installing the VM agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from Github. You will need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
+| Updating the VM agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Ensure that no backup operation is running while the VM Agent is being updated. | Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md). <br><br>Ensure that no backup operation is running while the VM Agent is being updated. |
+| Validating the VM agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher | - |
+
+
 Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### Backup extension
+
 To back up the virtual machine, the Azure Backup service installs an extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
 The backup extension is installed if the VM is running. A running VM also provides the greatest chance of getting an application consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off and the extension could not be installed (aka Offline VM). In this case, the recovery point will be *Crash consistent* as discussed above.
