@@ -16,12 +16,11 @@
 	ms.date="10/30/2015"  
 	ms.author="xpouyat"/>
 
-
 #Licensing Microsoft® Smooth Streaming Client Porting Kit
 
 ##Overview
 
-Microsoft Smooth Streaming Client Porting Kit (SSPK for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive streaming content in Smooth Streaming format. SSPK is a device and platform independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
+Microsoft Smooth Streaming Client Porting Kit (**SSPK** for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive streaming content in Smooth Streaming format. SSPK is a device and platform independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
 
 Included below is a high level architecture and IIS Smooth Streaming Porting Kit box is the Smooth Streaming Client implementation provided by Microsoft and includes all the core logic for playback of Smooth Streaming content. This is then ported by partners for a specific device or platform by implementing appropriate interfaces. 
 
@@ -30,33 +29,36 @@ Included below is a high level architecture and IIS Smooth Streaming Porting Kit
 ##Description
 
 SSPK is licensed on terms that offer excellent business value. SSPK license provides the industry with:
+
 - Smooth Streaming Porting Kit source in C++ 
   - implements Smooth Streaming Client functionality
   - adds format parsing, heuristics, buffering logic, etc.
--	Player application APIs 
+- Player application APIs 
   -	programming interfaces for interaction with a media player application
--	Platform Abstraction Layer (PAL) Interface 
+- Platform Abstraction Layer (PAL) Interface 
   -	programming interfaces for interaction with the operating system (threads, sockets)
--	Hardware Abstraction Layer (HAL) Interface 
+- Hardware Abstraction Layer (HAL) Interface 
   -	programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
--	Digital Rights Management (DRM) Interface 
+- Digital Rights Management (DRM) Interface 
   -	programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
-  -	Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details Microsoft PlayReady Device licensing, click here.
--	Implementation samples 
+  -	Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+- Implementation samples 
   -	sample PAL implementation for Linux
   -	sample HAL implementation for GStreamer
 
 ##Licensing Options
 
-Microsoft Smooth Streaming Client Porting Kit is made available to licensees under two distinct license agreements: one for developing Smooth Streaming Client Interim Products and another for distributing Smooth Streaming Client Final Products to end users. 
-- For chipset manufacturers, system integrators, or independent software vendors (ISVs) who require a source code porting kit to develop Interim Products, a Microsoft Smooth Streaming Client Porting Kit Interim Product License should be executed.
-- For device manufacturers or ISVs who require distribution rights for Smooth Streaming Client Final Products to end users, the Microsoft Smooth Streaming Client Porting Kit Final Product License should be executed.
+Microsoft Smooth Streaming Client Porting Kit is made available to licensees under two distinct license agreements: one for developing Smooth Streaming Client Interim Products and another for distributing Smooth Streaming Client Final Products to end users.
+ 
+- For chipset manufacturers, system integrators, or independent software vendors (ISVs) who require a source code porting kit to develop Interim Products, a Microsoft Smooth Streaming Client Porting Kit **Interim Product License** should be executed.
+- For device manufacturers or ISVs who require distribution rights for Smooth Streaming Client Final Products to end users, the Microsoft Smooth Streaming Client Porting Kit **Final Product License** should be executed.
 
 ###Microsoft Smooth Streaming Client Porting Kit Interim Product License
 
 Under this license, Microsoft offers a Smooth Streaming Client Porting Kit and the necessary intellectual property rights to develop and distribute Smooth Streaming Client Interim Products to other Smooth Streaming Client Porting Kit device licensees that distribute Smooth Streaming Client Final Products.
 
 ####Fee structure
+
 A U.S. $50,000 one-time license fee provides access to the Smooth Streaming Client Porting Kit. 
 
 ###Microsoft Smooth Streaming Client Porting Kit Final Product License
@@ -64,12 +66,14 @@ A U.S. $50,000 one-time license fee provides access to the Smooth Streaming Clie
 Under this license, Microsoft offers all necessary intellectual property rights to receive Smooth Streaming Client Interim Products from other Smooth Streaming Client Porting Kit licensees and to distribute company-branded Smooth Streaming Client Final Products to end users.
 
 ####Fee structure
+
 The Smooth Streaming Client Final Product is offered under a royalty model as under:
+
 - $0.10 per device implementation shipped
 - The royalty is capped at $50,000 each year
 - No royalty for first 10,000 device implementations each year 
 
-##Licensing Procedure
+##Licensing Procedure and SSPK access
 
 Please email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) for all licensing queries.
 
@@ -79,10 +83,12 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 
 ##Microsoft Smooth Streaming Client Interim Product Agreement Licensees
 
+- Adroit Business Solutions, Inc
 - Advanced Digital Broadcast SA
 - AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 - Albis Technologies Ltd.
 - Alticast Corporation
+- Amazon Digital Services, Inc.
 - Amlogic, Co., Ltd.
 - AVC Multimedia Software Co., Ltd.
 - AwoX S.A.
@@ -107,6 +113,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Panasonic Corporation
 - Research In Motion Limited
 - Saffron Digital Limited
+- Sichuan Changhong Electric Co., Ltd
 - SoftAtHome
 - Tatung Technology Inc.
 - TCL Technoly Electronics (Huizhou) Co., Ltd.
@@ -127,6 +134,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 - Albis Technologies Ltd.
 - Altech Multimedia International (Pty) Ltd
+- Amazon Digital Services, Inc.
 - AmTRAN Technology Co., Ltd.
 - Arcadyan Technology Corporation
 - Arcelik A.S
@@ -138,6 +146,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Compal Electronics, Inc.
 - Dongguan Digital AV Technology Corp., Ltd.
 - Enseo, Inc.
+- Filmflex Movies Limited
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
@@ -147,6 +156,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Infomir GMBH
 - Koninklijke Philips Electronics N.V.
 - Kaonmedia Co., Ltd.
+- KDDI Corporation
 - Loewe Opta GmbH
 - NETGEAR, Inc.
 - Nintendo Co., Ltd.
