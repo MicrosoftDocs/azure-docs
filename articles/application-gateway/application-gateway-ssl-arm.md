@@ -49,9 +49,9 @@ For SSL certificates configuration, the protocol in **HttpListener** should chan
  
 ## Create a new application gateway
 
-The difference between using Azure Classic and Azure Resource Manager will be the order you will create the application gateway and items needed to be configured.
+The difference between using Azure Classic deployment model and Azure Resource Manager will be the order you will create an application gateway and items needed to be configured.
 
-With Resource manager, all items which will make an application gateway will be configured individually and then put together to create the application gateway resource.
+With Resource manager, all items which will make an application gateway will be configured individually and then put together to create an application gateway resource.
 
 
 Here follows the steps needed to create an application gateway:
