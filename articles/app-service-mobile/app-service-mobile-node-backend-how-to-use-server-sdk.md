@@ -93,20 +93,20 @@ You can find the code for this basic application in the [basicapp sample on GitH
 
 Visual Studio 2015 requires an extension to develop Node application within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
 
-1. Open the *New Project* dialog (from File -&gt; New Project...)
-2. Expand *Templates* -&gt; *JavaScript* -&gt; *Node.js*
-3. Select the *Basic Azure Node.js Express 4 Application*
+1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
+2. Expand **Templates** > **JavaScript** > **Node.js**.
+3. Select the **Basic Azure Node.js Express 4 Application**.
 4. Fill in the project name.  Click on *OK*.
 
 ![Visual Studio 2015 New Project][1]
 
-5. Right-click on the *npm* node and select *Install New npm packages...*
-6. You will need to refresh the npm catalog on creating your first Node application - click on *Refresh*.
-7. Enter _azure-mobile-apps_ in the search box.  Click on the azure-mobile-apps 2.0.0 package, then click on *Install Package*
+5. Right-click on the **npm** node and select **Install New npm packages...**.
+6. You will need to refresh the npm catalog on creating your first Node application - click on **Refresh**.
+7. Enter _azure-mobile-apps_ in the search box.  Click on the **azure-mobile-apps 2.0.0** package, then click on **Install Package**.
 
 ![Install New npm packages][2]
 
-8. Click on *Close*.
+8. Click on **Close**.
 9. Open the _app.js_ file to add support for the Azure Mobile Apps SDK:
   a. At line 6, add the following code:
   
@@ -194,7 +194,7 @@ var table = azureMobileApps.table();
 module.exports = table;
 ```
 
-Tables use dynamic schema by default.  To turn off dynamic schema globally, set the App Setting *MS_DynamicSchema* to false within the Azure Portal.
+Tables use dynamic schema by default.  To turn off dynamic schema globally, set the App Setting **MS_DynamicSchema** to false within the Azure Portal.
   
 You can find a complete example in the [todo sample on GitHub].
 
@@ -228,58 +228,61 @@ method returns a [Promise] - this is used to ensure that the web service does no
 
 The Azure Mobile Apps Node SDK provides three options for serving data out of the box:
 
-- Use the *memory* driver to provide a non-persistent example store
-- Use the *sql* driver to provide a SQL Express data store for development
-- Use the *sql* driver to provide a SQL Azure data store for production
+- Use the **memory** driver to provide a non-persistent example store
+- Use the **sql** driver to provide a SQL Express data store for development
+- Use the **sql** driver to provide a SQL Azure data store for production
 
 Tha Azure Mobile Apps Node SDK uses the [mssql Node package] to establish and use a connection to both SQL Express and SQL Azure.  This package requires
 that you enable TCP connections on your SQL Express instance.
+
+   > [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
+   we recommend the use of a SQL Express data store and using the sql driver.
 
 1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly
 require 64 Bit support, the 32 Bit version will consume less memory when running.
 
 2. Run the SQL Server 2014 Configuration Manager.
 
-  a. Expand the *SQL Server Network Configuration* node in the left hand tree menu.
-  b. Click on *Protocols for SQLEXPRESS*.
-  c. Right-click on *TCP/IP* and select *Enable*.  Click on *OK* in the pop-up dialog.
-  d. Right-click on *TCP/IP* and select *Properties*.
-  e. Click on the *IP Addresses* tab.
-  f. Find the *IPAll* node.  In the *TCP Port* field, enter *1433*.
+  a. Expand the **SQL Server Network Configuration** node in the left hand tree menu.
+  b. Click on **Protocols for SQLEXPRESS**.
+  c. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.
+  d. Right-click on **TCP/IP** and select **Properties**.
+  e. Click on the **IP Addresses** tab.
+  f. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
   
 ![Configure SQL Express for TCP/IP][3]
 
-  g. Click on *OK*.  Click on *OK* in the pop-up dialog.
-  h. Click on *SQL Server Services* in the left hand tree menu.
-  i. Right-click on *SQL Server (SQLEXPRESS) and select *Restart*
+  g. Click on **OK**.  Click on **OK** in the pop-up dialog.
+  h. Click on **SQL Server Services** in the left hand tree menu.
+  i. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
   j. Close the SQL Server 2014 Configuration Manager.
   
 3. Create a Run the SQL Server 2014 Management Studio and connect to your local SQL Express instance
 
-  a. Right-click on your instance in the Object Explorer and select *Properties*
-  b. Select the *Security* page.
-  c. Ensure the *SQL Server and Windows Authentication mode* is selected
-  d. Click on *OK*
+  a. Right-click on your instance in the Object Explorer and select **Properties**
+  b. Select the **Security** page.
+  c. Ensure the **SQL Server and Windows Authentication mode** is selected
+  d. Click on **OK**
   
 ![Configure SQL Express Authentication][4]
   
-  e. Expand *Security* -&gt; *Logins* in the Object Explorer
-  f. Right-click on *Logins* and select *New Login...*
-  g. Enter a Login name.  Select *SQL Server authentication*.  Enter a Password, then enter the same password in *Confirm password*.  Note that the password must meet Windows complexity requirement.
-  h. Click on *OK*
+  e. Expand **Security** > **Logins** in the Object Explorer
+  f. Right-click on **Logins** and select **New Login...**
+  g. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
+  h. Click on **OK**
 
 ![Add a new user to SQL Express][5]
 
-  i. Right-click on your new login and select *Properties*
-  j. Select the *Server Roles* page
-  k. Check the box next to the *dbcreator* server role
-  l. Click on *OK*
+  i. Right-click on your new login and select **Properties**
+  j. Select the **Server Roles** page
+  k. Check the box next to the **dbcreator** server role
+  l. Click on **OK**
   m. Close the SQL Server 2015 Management Studio
 
 Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your 
 specific database requirements.  
 
-The Node application will read the SQLCONNSTR_MS_TableConnectionString environment variable to read the connection string for this database.
+The Node application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.
 You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
 
 ```
@@ -289,6 +292,47 @@ $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdat
 Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.  
   
 ## HOWTO: Use SQL Azure as your Production Datastore
+
+<!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
+
+Using SQL Azure as a data store is identical across all Azure App Service application types. If you have not done so already, follow these steps 
+to create a new Mobile App backend.
+
+1. Log into the [Azure Portal].
+
+2. In the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
+
+3. In the **Resource Group** box, enter the same name as your app.
+
+4. The Default App Service plan will be selected.  If you wish to change your App Service plan, you can do so by clicking on the App Service Plan > **+ Create New**.  Provide a name of the new App Service plan and select an appropriate location.  Click the Pricing tier and select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**.  Once you have selected the pricing tier, click the **Select** button.  Back in the **App Service plan** blade, click **OK**.
+
+5. Click **Create**. This creates a Mobile App backend where you will later deploy your server project.  Provisioning a Mobile App backend can take a couple of minutes.  Once the Mobile App backend is provisioned, the portal will open the **Settings** blade for the Mobile App backend.  
+
+Once the Mobile App backend is created, you can choose to either connect an existing SQL Azure database to your Mobile App backend or create a 
+new SQL Azure database.  In this HOWTO, we will create a new SQL database.
+
+    > [AZURE.NOTE] If you already have a database in the same location as the new mobile app backend, you can instead choose **Use an existing database** and 
+	then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies.
+
+6. In the new Mobile App backend, click **Settings** > **Mobile App** > **Data** > **+Add**.
+
+7. In the **Add data connection** blade, click **SQL Database - Configure required settings** > **Create a new database**.  Enter the name of the new database in the **Name** field.
+
+8. Click **Server**.  In the **New server** blade, enter a unique server name in the **Server name** field, and provide a suitable **Server admin login** and **Password**.  Ensure **Allow azure services to access server** is checked.  Click on **OK**.
+
+	![Create a SQL Azure Database][6]
+
+9. On the **New database** blade, click on **OK**.
+
+10. Back on the **Add data connection** blade, select **Connection string**, enter the login and password that you just provided when creating the database.  If you use an existing database, provide the login credentials for that database.  Once entered, click **OK**.
+
+11. Back on the **Add data connection** blade again, click on **OK** to create the database.
+
+<!-- END OF ALTERNATE INCLUDE -->
+
+Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress 
+until the database has been deployed sucessfully.  Once successfully deployed, a Connection String will be created for the SQL Azure database
+instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
 
 ## HOWTO: Require Authentication for access to tables
 
@@ -394,6 +438,8 @@ context.query.where('myfield eq ?', 'value');
 
 ## HOWTO: Seed your database with data
 
+<!-- XXX-TODO: HOWTO Topic with seeding of data -->
+
 # Custom API
 
 ## HOWTO: Define a Simple Custom API
@@ -425,8 +471,10 @@ context.query.where('myfield eq ?', 'value');
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
+[6]: ./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Azure Portal]: https://portal.azure.com/
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
@@ -437,6 +485,7 @@ context.query.where('myfield eq ?', 'value');
 [Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
+[Create a new Azure App Service]: ../app-service-web/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
