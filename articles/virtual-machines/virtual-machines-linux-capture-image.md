@@ -88,7 +88,7 @@ These steps assume that you've already created an Azure virtual machine using th
 	![Image capture successful](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 
-## Next wteps
+## Next steps
 The image is ready to be used to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Management Portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
 
 **See Also:** [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
