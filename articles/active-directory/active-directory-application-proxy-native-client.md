@@ -16,7 +16,7 @@
 	ms.date="11/02/2015"
 	ms.author="rkarlin"/>
 
-# How to enable native client apps to interact with proxy Applications
+# How to enable native client apps to interact with proxy applications
 Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access and custom line of business applications. It can also be used to publish HTTP backend applications that are consumed using native clients. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
 
 
