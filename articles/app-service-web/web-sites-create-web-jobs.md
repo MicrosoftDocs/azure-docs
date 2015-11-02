@@ -92,10 +92,10 @@ For example, to trigger your WebJob every 15 minutes, your `settings.job` would 
 
 Other CRON schedule examples:
 
-- Every hour (i.e. whenever the count of minutes is 0): `* 0 * * * *` 
-- Every hour from 9 AM to 5 PM: `* 0 9-17 * * *` 
-- At 9:30 AM every day: `* 30 9 * * *`
-- At 9:30 AM every week day: `* 30 9 * * 1-5`
+- Every hour (i.e. whenever the count of minutes is 0): `0 0 * * * *` 
+- Every hour from 9 AM to 5 PM: `0 0 9-17 * * *` 
+- At 9:30 AM every day: `0 30 9 * * *`
+- At 9:30 AM every week day: `0 30 9 * * 1-5`
 
 **Note**: when deploying a WebJob from Visual Studio, make sure to mark your `settings.job` file properties as 'Copy if newer'.
 

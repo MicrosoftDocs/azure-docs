@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="jroth"/>
 
 # SQL Database service tiers

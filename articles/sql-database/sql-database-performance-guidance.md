@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jroth" />
 
 # Azure SQL Database performance guidance for single databases
@@ -138,6 +138,8 @@ Note that this is just a snapshot at a single point in time. To get a better und
 ### Max concurrent logins
 
 **Max concurrent logins** represents the limit on the number of users or applications attempting to login to the database at the same time. Note that even if these clients use the same connection string, the service authenticates each login. So if ten users all simultaneously connected to the database with the same username and password, there would be ten concurrent logins. This limit only applies to the duration of the login and authentication. So if the same ten users connected sequentially to the database, the number of concurrent logins would never be higher than one. 
+
+>[AZURE.NOTE] This limit does not currently apply to databases in elastic database pools.
 
 There is no query or DMV that can show you concurrent login counts or history. You can analyze your user and application patterns to get an idea of the frequency of logins. You could also run real-world loads in a test environment to make sure that you are not hitting this or other limits described in this topic.
 
