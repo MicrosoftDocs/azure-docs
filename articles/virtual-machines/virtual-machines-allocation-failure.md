@@ -44,6 +44,7 @@ These basic steps can help resolve many allocation failures in virtual machines.
 
 - Stop-deallocate all VMs in the same Availability Set, then restart each one.<br> 
 	To stop: Click Resource Groups > your Resource Group > Resources > Your Availability Set > Virtual Machines > your Virtual Machine. > Stop
+
 	After all VMs stopped, select the first VM and click Start.
 
 ### Background – How allocation works
