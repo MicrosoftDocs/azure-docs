@@ -86,10 +86,13 @@ In the example below, the App VM needs to be configured to use the Proxy VM for 
 ![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
 **A) Allow outgoing network connections:**
+
 1. For Windows machines, run the following command in an elevated command prompt:
+
 ```
 netsh winhttp set proxy http://<proxy IP>:<proxy port>
 ```
+
 This will setup a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
 
 2. For Linux machines, add the following line to the ```/etc/environment``` file:
