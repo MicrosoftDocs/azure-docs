@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	tags="top-support-issue"/>
 
 <tags
 	ms.service="virtual-machines"
