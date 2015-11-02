@@ -13,13 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # How to configure your application to use Azure Active Directory login
-
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
-&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -29,7 +26,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 1. Log on to the [Preview Azure Management Portal], and navigate to your Mobile App.
 
-2. Under **Settings**, click **User authentication**, and then click **Azure Active Directory**. Copy the **App URL** and the **Reply URL** listed there. You will use these later. Make sure that the **App URL** and **Reply URL** are using the HTTPS scheme.
+2. Under **Settings**, click **Mobile authentication**, and then click **Azure Active Directory**. Copy the **App URL** and the **Reply URL** listed there. You will use these later. Make sure that the **App URL** and **Reply URL** are using the HTTPS scheme.
 
     ![][1]
 
