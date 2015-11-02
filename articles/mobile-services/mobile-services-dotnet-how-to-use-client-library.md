@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Working with the Mobile Services .NET Client Library"
-	description="Learn how to use an .NET client for Azure Mobile Services."
+	pageTitle="Working with the Mobile Services managed client library (Windows | Xamarin) | Microsoft Azure"
+	description="Learn how to use a .NET client for Azure Mobile Services with Windows and Xamarin apps."
 	services="mobile-services"
-	documentationCenter="windows"
+	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
@@ -10,19 +10,19 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
-# How to use a .NET client for Azure Mobile Services
+# How to use the managed client library for Azure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 ##Overview
 
-This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) tutorial.
+This guide shows you how to perform common scenarios using the managed client library for Azure Mobile Services in Windows and Xamarin apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](mobile-services-dotnet-backend-xamarin-ios-get-started.md) tutorial.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -288,7 +288,7 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 
 ##How to: Register for push notifications
 
-The Mobile Services client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a channel URI that you obtain from the Windows Platform. You then provide this value along with any tags when you create the registration. The following code registers for push notifications on a Windows Store app that uses the Windows Notification Service (WNS):
+The Mobile Services client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a handle that you obtain from the platform-specific Push Notification Service (PNS). You then provide this value along with any tags when you create the registration. The following code registers your Windows app for push notifications with the Windows Notification Service (WNS):
 
 		private async void InitNotificationsAsync()
 		{
@@ -302,7 +302,9 @@ The Mobile Services client enables you to register for push notifications with A
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Note that in this example, two tags are included with the registration. For more information, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
+Note that in this example, two tags are included with the registration. For more information on Windows apps, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md). 
+
+Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
@@ -398,9 +400,9 @@ The following code shows how to resolve a write conflict once detected. The corr
 For a more complete example of using optimistic concurrency for Mobile Services, see the [Optimistic Concurrency Tutorial].
 
 
-##<a name="binding"></a>How to: Bind data to user interface in a mobile service
+##<a name="binding"></a>How to: Bind mobile service data to a Windows user interface
 
-This section shows how to display returned data objects using UI elements. To query incomplete items in `todoTable` and display it in a very simple list, you can run the following example code to bind the source of the list with a query. Using `MobileServiceCollection` creates a mobile services-aware binding collection.
+This section shows how to display returned data objects using UI elements in a Windows app. To query incomplete items in `todoTable` and display it in a very simple list, you can run the following example code to bind the source of the list with a query. Using `MobileServiceCollection` creates a mobile services-aware binding collection.
 
 	// This query filters out completed TodoItems.
 	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
@@ -414,7 +416,7 @@ This section shows how to display returned data objects using UI elements. To qu
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Some controls in the Windows Runtime support an interface called [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). This interface allows controls to request extra data when the user scrolls. There is built-in support for this interface for Windows Store apps via `MobileServiceIncrementalLoadingCollection`, which automatically handles the calls from the controls. To use `MobileServiceIncrementalLoadingCollection` in Windows Store apps, do the following:
+Some controls in the managed runtime support an interface called [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). This interface allows controls to request extra data when the user scrolls. There is built-in support for this interface for universal Windows 8.1 apps via `MobileServiceIncrementalLoadingCollection`, which automatically handles the calls from the controls. To use `MobileServiceIncrementalLoadingCollection` in Windows apps, do the following:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -424,14 +426,14 @@ Some controls in the Windows Runtime support an interface called [ISupportIncrem
 		lb.ItemsSource = items;
 
 
-To use the new collection on Windows Phone, use the `ToCollection` extension methods on `IMobileServiceTableQuery<T>` and `IMobileServiceTable<T>`. To actually load data, call `LoadMoreItemsAsync()`.
+To use the new collection on Windows Phone 8 and "Silverlight" apps, use the `ToCollection` extension methods on `IMobileServiceTableQuery<T>` and `IMobileServiceTable<T>`. To actually load data, call `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 When you use the collection created by calling `ToCollectionAsync` or `ToCollection`, you get a collection which can be bound to UI controls. This collection is paging-aware, i.e., a control can ask the collection to "load more items", and the collection will do it for the control. At that point there is no user code involved, the control will start the flow. However, since the collection is loading data from the network, it's expected that some times this loading will fail. To handle such failures, you may override the `OnException` method on `MobileServiceIncrementalLoadingCollection` to handle exceptions resulting from calls to `LoadMoreItemsAsync` performed by controls.
 
-Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the section <a href="#selecting">"Select specific columns"</a> above to select specific columns to display in the UI.
+Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the section "[Select specific columns](#selecting)" above to select specific columns to display in the UI.
 
 ##<a name="authentication"></a>How to: Authenticate users
 
@@ -440,7 +442,7 @@ Mobile Services supports authenticating and authorizing app users using a variet
 Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 ###Server flow
-To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
+To have Mobile Services manage the authentication process in your Windows apps,
 you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the tutorial [Add authentication to your app].
 
 Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
@@ -515,7 +517,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 ####Single sign-in using Microsoft Account with the Live SDK
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your mobile service. If you have both Windows Store and Windows Phone versions of your app, register the Windows Store version first.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your mobile service. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
 The following code authenticates using Live SDK and uses the returned token to sign-in to your mobile service. 
 
