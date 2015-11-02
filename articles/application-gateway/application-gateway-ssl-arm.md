@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create, start, or delete an Application Gateway using Azure Resource Manager | Microsoft Azure"
-   description="This page provides instructions to create, configure, start, and delete an Azure Application Gateway using Azure Resource Manager"
+   pageTitle="Configure an Application Gateway for SSL offload using Azure Resource Manager | Microsoft Azure"
+   description="This page provides instructions to create an Application Gateway with SSL offload using Azure Resource Manager "
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
@@ -12,28 +12,16 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-
-# Create, start, or delete an Application Gateway using Azure Resource Manager
-
-Application Gateway is load balancer layer 7. It provides failover, performance routing HTTP requests between different servers, whether they are on the cloud or on premise. Application gateway has the following application delivery features: HTTP load balancing, Cookie based session affinity, SSL offload. 
+# Configure an Application Gateway for SSL offload using Azure Resource Manager
 
 
-> [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+ Application Gateway can be configured to terminate the SSL session at the gateway to avoid costly SSL decryption task to happen at the web farm. SSL offload also simplifies the front end server setup and management of the web application.
 
 
-<BR>
-
-
-This article walks you through the steps to create and configure, start, and delete an application gateway.
-
-
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [create an Application Gateway classic deployment using PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [Configure Application gateway SSL offload using PowerShell (classic)](application-gateway-ssl.md).
 
 
 
@@ -49,9 +37,14 @@ This article walks you through the steps to create and configure, start, and del
 - **Back end server pool:** The list of IP addresses of the back end servers. The IP addresses listed should either belong to the virtual network subnet, or should be a public IP/VIP. 
 - **Back end server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front end Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers.
-- **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
+- **Listener:** The listener has a front end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
 - **Rule:** The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
+**Additional configuration notes:**
+
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element needs to be added to **HttpListener** with the variable value configured for the SSL certificate. The front end port should be updated to 443.
+
+**To enable cookie based affinity**: An application gateway can be configured to ensure that request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie which allows the gateway to direct traffic appropriately. To enable cookie based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element. 
 
  
 ## Create a new Application Gateway
@@ -114,22 +107,24 @@ The following example shows how to create a virtual network using Resource manag
 	
 	$subnet = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-Assigns the Address range 10.0.0.0/24 to subnet variable to be used to create a virtual network
+It assigns the Address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
 
 ### Step 2	
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
+It creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
 
 ### Step 3
-	
+
 	$subnet=$vnet.Subnets[0]
 
+Assigns the subnet object to variable $subnet for the next steps.
+	
 ## Create public IP address for front end configuration
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
+It creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
 
 
 ## Create an Application Gateway configuration object
@@ -138,57 +133,64 @@ Creates a public IP resource "publicIP01" in resource group "appw-rg" for the We
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Creates an Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.
+It creates an Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back end IP pool. Keep in mind each instance will take one IP address.
  
 ### Step 2
 
 	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This step will configure the back end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint. You will replace the IP addresses above to add your own application IP address endpoints.
+This step will configure the back end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those will be the IP addresses receiving the network traffic coming from the front end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your  web application endpoints.
 
 ### Step 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-Configures Application gateway settings "poolsetting01" for the load balanced network traffic in the backend pool.
+It configures Application Gateway settings "poolsetting01" to load balanced network traffic in the back end pool.
 
 ### Step 4
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-Configures the front end IP port named "frontendport01" in this case for the public IP endpoint.
+It configures the front end IP port named "frontendport01" in this case for the public IP endpoint.
 
-### Step 5
+### Step 5 
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
+	$cert = New-AzureApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
-Creates the front end IP configuration named "fipconfig01" and associates the public IP address with the front end IP configuration.
+It configures the certificate used for SSL connection. The certificate needs to be in .pfx format and password between 4 to 12 characters.
 
 ### Step 6
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-Creates the listener name "listener01" and associates the front end port to the frontend IP configuration.
+It creates the front end IP configuration named "fipconfig01" and associates the public IP address with the front end IP configuration.
 
-### Step 7 
+### Step 7
+
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+
+
+It creates the listener name "listener01"; associates the front end port to the front end IP configuration and certificate.
+
+### Step 8 
 
 	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-Creates the load balancer routing rule named "rule01" configuring the load balancer behavior.
+It creates the load balancer routing rule named "rule01" configuring the load balancer behavior.
 
-### Step 8
+### Step 9
 
 	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-Configures the instance size of the Application Gateway
+It configures the instance size of the Application Gateway.
 
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium and Standard_Large.
 
 ## Create Application Gateway using New-AzureApplicationGateway
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-Creates an Application Gateway will all configuration items from the steps above. In the example the Application Gateway is called "appgwtest". 
+It creates an Application Gateway with all configuration items from the steps above. In the example, the Application Gateway is called "appgwtest". 
 
 
 ## Start Application Gateway
@@ -358,7 +360,7 @@ This sample shows an application gateway that is up, running, and is ready to ta
                                     ]
 	ResourceGroupName                 : appgw-rg
 	Location                          : westus
-		Tag                               : {}
+	Tag                               : {}
 	TagsTable                         : 
 	Name                              : appgwtest
 	Etag                              : W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"
@@ -367,49 +369,8 @@ This sample shows an application gateway that is up, running, and is ready to ta
 
 
 
-## Delete an Application Gateway
-
-To delete an application gateway, you'll need to do the following in order:
-
-1. Use the `Stop-AzureApplicationGateway` cmdlet to stop the gateway. 
-2. Use the `Remove-AzureApplicationGateway` cmdlet to remove the gateway.
-3. Verify the gateway has been removed by using the `Get-AzureApplicationGateway` cmdlet.
-
-
-### Step 1
-
-Get the Application Gateway object and associate to a variable "$getgw":
- 
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### Step 2
-	 
-Use `Stop-AzureApplicationGateway` to stop the Application Gateway:
-
-	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
-
-
-Once the application gateway is in a Stopped state, use the `Remove-AzureApplicationGateway` cmdlet to remove the service.
-
-
-	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
-
-	
-
->[AZURE.NOTE] The "-force" switch can be used to suppress the remove confirmation message
->
-
-To verify that the service has been removed, you can use the `Get-AzureApplicationGateway` cmdlet. This step is not required.
-
-
-	Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
-
-	
-
-
 ## Next Steps
 
-If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
 
 If you want to configure an application gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
 
