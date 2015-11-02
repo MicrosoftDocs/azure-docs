@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="How do you redirect USB devices in Azure RemoteApp?| Microsoft Azure" 
+    pageTitle="How do you redirect USB devices in Azure RemoteApp? | Microsoft Azure" 
     description="Learn how to use redirection for USB devices in Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/19/2015" 
+    ms.date="10/23/2015" 
     ms.author="elizapo" />
 
 
@@ -76,3 +76,6 @@ Now, use the instance ID in the following cmdlet:
 	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
 
 
+
+### Help us help you 
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.

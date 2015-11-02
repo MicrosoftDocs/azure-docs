@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -175,6 +175,15 @@ The following example shows how to define parameters:
 
 In the variables section, you construct values that can be used to simplify template language expressions. Typically, these variables will be based on values provided from the parameters.
 
+You define variables with the following structure:
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 The following example shows how to define a variable that is constructed from two parameter values:
 
     "parameters": {
@@ -229,6 +238,7 @@ You define resources with the following structure:
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -246,6 +256,7 @@ You define resources with the following structure:
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.
 | tags                     |   No     | Tags that are associated with the resource.
+| comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
 | properties               |   No     | Resource specific configuration settings.
 | resources                |   No     | Child resources that depend on the resource being defined.

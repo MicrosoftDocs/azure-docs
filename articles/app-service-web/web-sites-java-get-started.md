@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
+	ms.date="10/20/2015"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
@@ -43,45 +43,45 @@ This section shows how to use the Azure Marketplace to create a Java web app.
 
 	![](./media/web-sites-java-get-started/newmarketplace.png)
 
-5. Click **Web + Mobile**.
+3. Click **Web + Mobile**.
 
 	You might have to scroll left to see the **Marketplace** blade where you can select **Web + Mobile**.
 
-6. In the search text box, enter the name of a Java application server, such as **Apache Tomcat** or **Jetty**, and then press Enter.
+4. In the search text box, enter the name of a Java application server, such as **Apache Tomcat** or **Jetty**, and then press Enter.
 
-4. In the search results, click the Java application server.
+5. In the search results, click the Java application server.
 
 	![](./media/web-sites-java-get-started/webmobilejetty.png)
 
-5. In the first **Apache Tomcat** or **Jetty** blade, click **Create**.
+6. In the first **Apache Tomcat** or **Jetty** blade, click **Create**.
 
 	![](./media/web-sites-java-get-started/jettyblade.png)
 
-4. In the next **Apache Tomcat** or **Jetty** blade, enter a name for the web app in the **Web app** box.
+7. In the next **Apache Tomcat** or **Jetty** blade, enter a name for the web app in the **Web app** box.
 
 	This name must be unique in the azurewebsites.net domain because the URL of the web app will be {name}.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
 
-5. Select a **Resource Group** or create a new one.
+8. Select a **Resource Group** or create a new one.
 
 	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
 
-5. Select an **App Service plan/Location** or create a new one.
+9. Select an **App Service plan/Location** or create a new one.
 
 	For more information about App Service plans, see [Azure App Service plans overview](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. Click **Create**.
+10. Click **Create**.
 
 	![](./media/web-sites-java-get-started/jettyportalcreate2.png)
 
 	In a short time, typically less than a minute, Azure finishes creating the new web app.
 
-7. Click **Web apps > {your new web app}**.
+11. Click **Web apps > {your new web app}**.
 
-8. Click the **URL** to browse to the new site.
+12. Click the **URL** to browse to the new site.
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
-	IF you chose Tomcat, you see a page similar to the following example.
+	If you chose Tomcat, you see a page similar to the following example.
 
 	![Web app using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)
 
@@ -99,7 +99,8 @@ This section shows how to create a web app and configure it manually for Java.
 
 2. Click **New > Web + Mobile**.
 
-6. Click **Web App**.
+
+3. Click **Web App**.
 
 4. Enter a name for the web app in the **Web app** box.
 
@@ -109,29 +110,29 @@ This section shows how to create a web app and configure it manually for Java.
 
 	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
 
-5. Select an **App Service plan/Location** or create a new one.
+6. Select an **App Service plan/Location** or create a new one.
 
 	For more information about App Service plans, see [Azure App Service plans overview](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. Click **Create**.
+7. Click **Create**.
  
-11. When the web app has been created, click **Web Apps > {your web app}**.
+8. When the web app has been created, click **Web Apps > {your web app}**.
  
-13. In the **Web app** blade, click **Settings**.
+9. In the **Web app** blade, click **Settings**.
 
-12. Click **Application settings**.
+10. Click **Application settings**.
 
-13. Choose the desired **Java version**.
+11. Choose the desired **Java version**.
 
-14. Choose the desired **Web container**.
+12. Choose the desired **Web container**.
 
-15. Click **Save**.
+13. Click **Save**.
 
 	Within a few moments, your web app will become Java-based.
 
-7. Click **Web apps > {your new web app}**.
+14. Click **Web apps > {your new web app}**.
 
-8. Click the **URL** to browse to the new site.
+15. Click the **URL** to browse to the new site.
 
 	The web page confirms that you have created a Java-based web app.
 

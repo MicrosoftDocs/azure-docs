@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="bradsev" />
 
 
@@ -48,11 +48,10 @@ Before you can create an Azure VM, you must have the following:
 The steps involved in creating your instance of the data science VM are as follows:
 
 1.	Login to Azure portal
-2.	Navigate to **New** -> **Compute** -> **Marketplace** and search for *Data Science Virtual Machine*. Select the one VM titled “**Data Science Virtual Machine**” published by Microsoft to see a panel describing the Data Science Virtual Machine
-3.	Click on the **Create** button at the bottom to be taken into a wizard.
-![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-4.	 The following sections provide the inputs for each step in the wizard used to create the Data Science VM
-
+2.	Navigate to **New** -> **Compute** -> **Marketplace** and search for *Data Science Virtual Machine*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
+3.	Select the one VM titled “**Data Science Virtual Machine**” published by Microsoft to see a panel describing the Data Science Virtual Machine. 	
+4.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+5.	 The following sections provide the inputs for each of the 5 steps (enumerated on the right of the figure above) in the wizard used to create the Data Science VM. Here are the inputs needed to configure each of these steps:
 
  **1. Basics**: 
 

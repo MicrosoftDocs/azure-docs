@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Unable to connect to an Azure VM over SSH | Microsoft Azure"
+	pageTitle="Troubleshoot connection to an Azure VM over SSH | Microsoft Azure"
 	description="Troubleshoot Secure Shell (SSH) connections to an Azure virtual machine running Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
