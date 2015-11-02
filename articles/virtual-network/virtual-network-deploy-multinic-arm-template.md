@@ -59,7 +59,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	      }
 	    },
 
-4. Scroll down to the list of variables, and check the definition for the *dbZVMSetting* variables, listed below. It receives one of the array elements contained in the *dbVMSettings* variable.
+4. Scroll down to the list of variables, and check the definition for the *dbVMSetting* variables, listed below. It receives one of the array elements contained in the *dbVMSettings* variable.
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
@@ -177,23 +177,23 @@ Before you deploy the template provided with this documentation, make sure you u
 
 11. Scroll down to the next resource. This resource represents the database VMs, as seen in the first few lines listed below. Notice the use of the **copy** function again, ensuring that multiple VMs are created based on the *dbCount* parameter. Also notice the *dependsOn* collection. It lists two NICs being necessary to be created before the VM is deployed, along with the availability set, and the storage account.
 
-	  "apiVersion": "2015-06-15",
-	  "type": "Microsoft.Compute/virtualMachines",
-	  "name": "[concat(variables('dbVMSetting').vmName,copyindex(1))]",
-	  "location": "[variables('location')]",
-	  "dependsOn": [
-	    "[concat('Microsoft.Network/networkInterfaces/', variables('dbVMSetting').nicName,'-DA-', copyindex(1))]",
-	    "[concat('Microsoft.Network/networkInterfaces/', variables('dbVMSetting').nicName,'-RA-', copyindex(1))]",
-	    "[concat('Microsoft.Compute/availabilitySets/', variables('dbVMSetting').avsetName)]",
-	    "[concat('Microsoft.Storage/storageAccounts/', parameters('prmStorageName'))]"
-	  ],
-	  "tags": {
-	    "displayName": "VMs - DB"
-	  },
-	  "copy": {
-	    "name": "dbvmcount",
-	    "count": "[parameters('dbCount')]"
-	  },
+		  "apiVersion": "2015-06-15",
+		  "type": "Microsoft.Compute/virtualMachines",
+		  "name": "[concat(variables('dbVMSetting').vmName,copyindex(1))]",
+		  "location": "[variables('location')]",
+		  "dependsOn": [
+		    "[concat('Microsoft.Network/networkInterfaces/', variables('dbVMSetting').nicName,'-DA-', copyindex(1))]",
+		    "[concat('Microsoft.Network/networkInterfaces/', variables('dbVMSetting').nicName,'-RA-', copyindex(1))]",
+		    "[concat('Microsoft.Compute/availabilitySets/', variables('dbVMSetting').avsetName)]",
+		    "[concat('Microsoft.Storage/storageAccounts/', parameters('prmStorageName'))]"
+		  ],
+		  "tags": {
+		    "displayName": "VMs - DB"
+		  },
+		  "copy": {
+		    "name": "dbvmcount",
+		    "count": "[parameters('dbCount')]"
+		  },
 
 12. Scroll down in the VM resource to the **networkProfile** element, as listed below. Notice that there are two NICs being reference for each VM. When you create multiple NICs for a VM, you must set the *primary* property of one of the NICs to *true*, and the rest to *false*.
 
