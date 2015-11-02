@@ -25,13 +25,13 @@
 
 This article shows you how to capture an Azure virtual machine running Linux so you can use it as an Azure Resource Manager template to create other virtual machines. This template specifies the OS disk and data disks attached to the virtual machine. It doesn't include the virtual networking configuration you'll need to create an Azure Resource Manager VM, so you'll need to set up a virtual network, subnet, and network adapter (NIC) in Azure separately before you create another virtual machine that uses the template.
 
-## Before You begin
+## Before you begin
 
 These steps assume that you've already created an Azure virtual machine in the Azure Resource Manager deployment model and configured the operating system, including attaching any data disks and making other customizations like installing applications. If you haven't done this yet, see these instructions for using the Azure CLI in Azure Resource Manager mode:
 
 - [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-For example, you might create a resource group name *MyResourceGroup* in the West US region. Then use an **azure vm quick-create** command similar to the following to deploy an Ubuntu 14.04 LTS VM in the resource group.
+For example, you might create a resource group named *MyResourceGroup* in the West US region. Then use an **azure vm quick-create** command similar to the following to deploy an Ubuntu 14.04 LTS VM in the resource group.
 
  	azure vm quick-create -g MyResourceGroup -n <your-virtual-machine-name> "WestUS" -y Linux -Q canonical:ubuntuserver:14.04.2-LTS:14.04.201507060 -u <your-user-name> -p <your-password>
 
@@ -79,7 +79,7 @@ To perform other customizatons, you'll need to connect to the VM using an SSH cl
 
 8. Generalize the VM with the following command:
 
-	azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>
+	`azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
 
 9. Now capture the image as a local file template with the following command:
 
@@ -128,8 +128,7 @@ You are prompted to supply a new VM name, admin user name and password, and the 
 	vmName: mynewvm
 	adminUserName: myadminuser
 	adminPassword: ********
-	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource
-	Groups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
+	networkInterfaceId: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resource Groups/mynewrg/providers/Microsoft.Network/networkInterfaces/mynewnic
 
 You will see output similar to the following for a successful deployment.
 
@@ -146,8 +145,7 @@ You will see output similar to the following for a successful deployment.
 
 
 	data:    ------------------  ------------  -------------------------------------
-	--------------------------------------------------------------------------------
-	------------
+	
 	data:    vmName              String        mynewvm
 
 
