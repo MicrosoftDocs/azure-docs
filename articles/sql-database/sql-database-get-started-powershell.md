@@ -10,7 +10,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="article"
+    ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="10/20/2015"

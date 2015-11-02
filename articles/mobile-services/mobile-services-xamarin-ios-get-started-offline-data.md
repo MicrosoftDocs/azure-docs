@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
