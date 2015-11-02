@@ -109,7 +109,9 @@ The following fields and sources are supported:
 
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-Sources: **action**. To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). 
+Sources: **action**. 
+
+To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). 
 
 ## Policy Definition Examples
 
