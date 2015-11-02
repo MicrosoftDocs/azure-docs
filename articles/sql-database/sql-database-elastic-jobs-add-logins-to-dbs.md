@@ -33,7 +33,7 @@ The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQ
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. The user must have permissions as well, sufficient to execute the script specified for the job. Use the [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx) procedure to provide the user with the minimum required permissions for the script to execute succesfully. 
+3. The user must have permissions as well, sufficient to execute the script specified for the job. Use the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) to provide the user with the minimum required permissions for the script to execute succesfully. 
 
 ## Next steps
 
