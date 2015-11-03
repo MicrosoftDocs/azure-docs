@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Application Upgrade Tutorial"
-   description="This article walks through an experience of upgrading a Service Fabric application."
+   pageTitle="Application upgrade tutorial | Microsoft Azure"
+   description="This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -18,13 +18,13 @@
 
 
 
-# Application Upgrade Tutorial
+# Application upgrade tutorial
 
 The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next upgrade domain or fail the upgrade based on the health policies. A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST.
 
 Service Fabric monitored rolling upgrade allows the application administrator to configure the health evaluation policy that Service Fabric uses to determine the application is healthy. In addition, it also allows the administrator to configure the action to be taken when the health evaluation fails such as automatically roll-back. This section walkthrough a monitored upgrade for one of the SDK samples.
 
-## Step 1: Build & Deploy the Visual Objects Sample
+## Step 1: Build and deploy the Visual Objects sample
 
 These steps can be done by opening the project in Visual Studio, and right clicking on the Solution and selecting the deploy command in the Service Fabric menu item.  See [managing your Service Fabric application in Visual Studio](service-fabric-manage-application-in-visual-studio.md) for more information.  Alternatively, one may use PowerShell.
 
@@ -34,7 +34,7 @@ After building the project in Visual Studio, one may use the PowerShell command 
 
 Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use **Get-ServiceFabricApplication** to check the application status.
 
-## Step 2: Update the Visual Objects Sample
+## Step 2: Update the Visual Objects sample
 
 You might notice that with the version that was deployed in Step 1, the visual objects do not rotate. Let us upgrade this application to one where the visual objects also rotate.
 
@@ -78,7 +78,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## Step 4: Prepare Application for Upgrade
+## Step 4: Prepare application for upgrade
 
 Now, the application is built and ready to be upgraded. If you open up a PowerShell window as administrator and type **Get-ServiceFabricApplication**, it should let you know that it is Application Type 1.0.0.0 of **VisualObjects** that's been deployed.  The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
 
@@ -97,7 +97,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObject
 
 If the above command doesn't succeed it is likely that you need a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
 
-## Step 5: Start Application Upgrade
+## Step 5: Start the application upgrade
 
 Now, we are all set to start the application upgrade by using the following command:
 
