@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/02/2015"
+   ms.date="11/03/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -22,7 +22,9 @@ The Azure Active Directory team regularly updates Azure AD Connect with new feat
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-## 1.0.9124.0
+For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
+
+## 1.0.9125.0
 Released: 2015 November
 
 **New features:**
@@ -53,6 +55,7 @@ Released: 2015 November
 - Not able to change the group used for group filtering after initial install.
 - Will no longer create a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.
 - Not able to use Long Integer values in Sync Rules scopes.
+- The checkbox "device writeback" remains disabled if there are unreachable domain controllers.
 
 ## 1.0.8667.0
 Released: 2015 August
