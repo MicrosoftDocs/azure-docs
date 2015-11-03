@@ -34,7 +34,11 @@ DevTest Lab allows you to specify key policies that govern how your lab and its 
 
 1. Tap **Settings**.
 
+	![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
+
 1. On the **Settings** blade, there is a grouping of settings called **Policies**. Within that grouping, tap **Max VMs per User**.
+
+	![Max VMs per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
 1. On the **Max VMs per User** blade, enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is too large, the UI will display the maximum number allowed for this field.
 
