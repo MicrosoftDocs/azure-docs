@@ -31,25 +31,32 @@ This tutorial shows how to create a Java [web app in Azure App Service](http://g
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service][]. There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
-## Web container options
+## Java application options
 
-There are several ways you can set up a Java web container in an App Service web app. 
+There are several ways you can set up a Java application in an App Service web app. 
 
 1. Use a template from the Azure Marketplace.
 
 	The Azure Marketplace includes templates that automatically create and configure Java web apps with Tomcat or Jetty web containers. The web containers that the templates set up are configurable. For more information, see the [Use a Java template from the Azure Marketplace](#marketplace) section of this tutorial.
  
-1. Create a web app and then configure **Application settings**.
+1. Create an app and then configure **Application settings**.
 
-	App Service provides several Tomcat and Jetty versions, with default configuration. If the application that you will be hosting will work with one of the built-in versions, this method of setting up a web container offers the best performance. For this method, you create a web app in the portal, and then go to the web app's **Application settings** blade to choose your Java web container. When you use this method the web container runs from the local hard drive of the Virtual Machine host for a web app, which is very fast. However, you don't have access to edit files in this part of the file system, which means you can't configure *server.xml*.  For more information, see the [Create and configure a Java web app](#appsettings) section later in this tutorial.  
+	App Service provides several Tomcat and Jetty versions, with default configuration. If the application that you will be hosting will work with one of the built-in versions, this method of setting up a web container is the easiest but it lacks the configuration capabilities in other methods. For this method, you create an app in the portal, and then go to the app's **Application settings** blade to choose your version of Java along with the desired Java web container. When you use this method the app runs from the local hard drive that is used by the worker to host the app, which does not take disk space away from the tenant. When you use this model, you don't have access to edit files in this part of the file system, which means you can't do things like configure the *server.xml* file or place library files in the */lib* folder.  For more information, see the [Create and configure a Java web app](#appsettings) section later in this tutorial.  
   
-3. Create a web app and then manually copy and edit configuration files 
+3. Create an app and then manually copy and edit configuration files 
 
-	You might want to host a Java application that requires a version of Tomcat or Jetty that isn't directly supported by App Service or provided by a template. Or you might want to configure the web container from scratch yourself. In this case, you can create a web app using the portal, and then provide the appropriate runtime files manually. In this case the files will reside in a part of the VM's file system that you do have access to, but this part of the VM's file system resides in Azure storage, which is slightly slower than a local hard drive. For more information, see [Upload a custom Java web app to Azure](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/).
+	You might want to host a custom Java application that does not deploy in any of the web containers provided by App Service.  For example, here are some reasons for doing this:
+	
+	* Your Java application requires a version of Tomcat or Jetty that isn't directly supported by App Service or provided in the gallery.
+	* You Java application takes HTTP requests and does not deploy as a WAR into a pre-existing web container.
+	* You want to configure the web container from scratch yourself. 
+	* You want to use a version of Java that isn’t supported in App Service and want to upload it yourself.
+
+	For cases like these, you can create an app using the portal, and then provide the appropriate runtime files manually. In this case the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/).
 
 ## <a name="marketplace"></a> Use a Java template from the Azure Marketplace
 
-This section shows how to use the Azure Marketplace to create a Java web app.
+This section shows how to use the Azure Marketplace to create a Java web app.  The same general flow can also be used to create a Java-based mobile or API app.  
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com/).
 
@@ -95,11 +102,11 @@ This section shows how to use the Azure Marketplace to create a Java web app.
 
 	![](./media/web-sites-java-get-started/jettyurl.png)
 
-	If you chose Tomcat, you see a page similar to the following example.
+	Tomcat ships with a default set of pages so if you chose Tomcat, you see a page similar to the following example.
 
 	![Web app using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)
 
-	If you chose Jetty, you see a page similar to the following example.
+	If you chose Jetty, you see a page similar to the following example. Jetty doesn’t have a default page set, so the same JSP that is used for an empty Java site is reused here.
 
 	![Web app using Jetty](./media/web-sites-java-get-started/jetty.png)
 
@@ -139,15 +146,17 @@ This section shows how to create a web app and configure it for Java using the *
 
 10. Click **Application settings**.
 
-11. Choose the desired **Java version**.
+11. Choose the desired **Java version**. 
 
-12. Choose the desired **Web container**.
+12. Choose the desired **Java minor version**.  If you select **Newest**, your app will use the newest minor version that is available in App Service for that Java major version.
+
+12. Choose the desired **Web container**. If you select a container name that starts with **Newest**, your app will be kept at the latest version of that web container major version that is available in App Service. 
 
 	![](./media/web-sites-java-get-started/versions.png)
 
 13. Click **Save**.
 
-	Within a few moments, your web app will become Java-based.
+	Within a few moments, your web app will become Java-based and configured to use the web container you selected.
 
 14. Click **Web apps > {your new web app}**.
 
