@@ -114,8 +114,8 @@ Standard and Active Geo-Replication provides similar disaster recovery features 
 
 For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
 
-### Max XTP In-Memory storage
-**Max XTP In-Memory storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. You can use the Azure Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor XTP In-Memory Storage](sql-database-in-memory-oltp-monitoring.md). 
+### Max In-Memory OLTP storage
+**Max In-Memory OLTP storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. This is also sometimes referred to as *XTP In-Memory storage*. You can use the Azure Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md). 
 
 >[AZURE.NOTE] The In-Memory OLTP Preview is currently only supported for single databases and not for databases in elastic database pools.
 
