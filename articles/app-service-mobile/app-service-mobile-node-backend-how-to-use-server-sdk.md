@@ -567,7 +567,7 @@ var api = {
 	});
 };
 // The GET methods must be authenticated.
-api.get access = 'authenticated';
+api.get.access = 'authenticated';
 
 module.exports = api;
 ```
