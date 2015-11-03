@@ -21,7 +21,7 @@
 Azure Resource Manager now allows you to control access through custom
 policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
 
-Policy is a default allow system. You create policy definitions that describe the actions or resources that are specifically denied. 
+You create policy definitions that describe the actions or resources that are specifically denied. 
 You assign those policy definitions at the desired scope, such as the subscription,
 resource group, or an individual resource. 
 
@@ -34,9 +34,8 @@ REST API.
 ## How is it different from RBAC?
 
 There are a few key differences between policy and role-based access control, but the first thing to understand is that 
-policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike policy, RBAC is a 
-default deny system. So, a user's permitted actions on a resource 
-combine those actions granted through RBAC and those not denied through policies.
+policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a 
+default allow and explicit deny system. 
 
 RBAC focuses on the actions a **user** can perform at different scopes. 
 For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that 
