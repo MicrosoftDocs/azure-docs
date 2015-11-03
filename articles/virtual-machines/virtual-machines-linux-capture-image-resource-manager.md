@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"
+	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
@@ -37,7 +37,7 @@ For example, you might create a resource group named *MyResourceGroup* in the We
 
 After the VM is provisioned and running, you might want to attach and mount a data disk. See instructions [here](virtual-machines-linux-tutorial.md#attach-and-mount-a-disk).
 
-To perform other customizatons, you'll need to connect to the VM using an SSH client of your choice. For details, see [Connect to your Azure Linux VM using ssh](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
+To perform other customizations, you'll need to connect to the VM using an SSH client of your choice. For details, see [Connect to your Azure Linux VM using ssh](virtual-machines-linux-tutorial-portal-rm.md#connect-to-your-azure-linux-vm-using-strongsshstrong).
 
 
 ## Capture the VM
@@ -81,18 +81,18 @@ To perform other customizatons, you'll need to connect to the VM using an SSH cl
 
 	`azure vm generalize –g <your-resource-group-name> -n <your-virtual-machine-name>`
 
-9. Now capture the image as a local file template with the following command:
+9. Now capture the image and a local file template with the following command:
 
 	`azure vm capture –g <your-resource-group-name> -n <your-virtual-machine-name> -p <your-vhd-name-prefix> -t <your-template-file-name.json>`
 
 	This command creates a generalized OS image, using the VHD name prefix you specify for the VM disks. The image VHD files get created by default in the same storage account that the original VM used. The **-t** option creates a local JSON file template you can use to create a new VM from the image.
 
-
+>[AZURE.TIP] Each image VHD is stored in the same storage account as the VM from which it was captured. To find the location of the image, open the JSON file template. In the **storageProfile and find the **uri** of the **image** located in the _system_ container. For example, the uri of the OS disk image is similar to `https://clixxxxxxxxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/your-prefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 
 ## Deploy a new VM from the captured image
 The image is ready to be used with a template to create a new Linux VM. These steps show you how to use the Azure CLI and the JSON file template you created with the `azure vm capture` command to create the VM in a new virtual network.
 
-### Prepare network settings
+### Create network resources
 
 To use the template, you first need to set up a virtual network and NIC for your new VM. We recommend you create a new resource group for these resources. Run commands similar to the following, substituting names for your resources and an appropriate Azure location ("centralus" in these commands):
 
@@ -163,7 +163,7 @@ You will see output similar to the following for a successful deployment.
 
 ### Verify the deployment
 
-Now SSH to the virtual machine you created to verify the deployment. To connect via SSH, find the IP address of the VM you created by running the following command:
+Now SSH to the virtual machine you created to verify the deployment and start using the new VM. To connect via SSH, find the IP address of the VM you created by running the following command:
 
 	azure network public-ip show <your-new-resource-group-name> <your-ip-name>
 
@@ -171,8 +171,11 @@ The public IP address is listed in the command output.
 
 ## Next steps
 
-Use the captured image and template to deploy additional VMs using the steps in the preceding section. The following are the basic steps:
+* Use the captured image and template to deploy additional VMs using the steps in the preceding section.
 
-* Copy the template JSON file and enter a unique value in the **URI** to each VHD in the VM
-* Prepare settings for a new NIC in either the same or a different virtual network
-* Create a deployment in the resource group in which you set up the virtual network, using the modified template JSON file
+	* Copy the template JSON file and enter a unique value for the **uri** of each VM's VHD
+	* Ensure that your VM image is in the same storage account that will host your VM's VHD
+	* Create a new NIC in either the same or a different virtual network
+	* Create a deployment in the resource group in which you set up the virtual network, using the modified template JSON file
+
+* For a simpler deployment, use the [101-vm-from-user-image template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) from GitHub. This template creates a VM from your custom image in addition to a virtual network, a public IP address, and a NIC. For steps, see [How to create a virtual machine from a custom image using an ARM template](http://codeisahighway.com/how-to-create-a-virtual-machine-from-a-custom-image-using-an-arm-template/).
