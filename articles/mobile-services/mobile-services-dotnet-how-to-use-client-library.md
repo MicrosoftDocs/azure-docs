@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##Overview
+##Overview 
 
 This guide shows you how to perform common scenarios using the managed client library for Azure Mobile Services in Windows and Xamarin apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](mobile-services-dotnet-backend-xamarin-ios-get-started.md) tutorial.
 

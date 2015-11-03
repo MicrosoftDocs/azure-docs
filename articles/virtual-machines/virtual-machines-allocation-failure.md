@@ -55,7 +55,7 @@ The servers in Azure datacenters are partitioned into clusters. Normally, an all
 When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resource. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
 ![Pinned Allocation Failure](./media/virtual-machines-allocation-failure/Allocation2.png)
 
-## Troubleshooting Azure Resource Management
+## Troubleshooting allocation failure in the Azure Resource Manager deployment model
 Here are the common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 - Resizing a VM, or adding additional VMs or role instances to an existing cloud service
 - Restarting stopped (de-allocated) VMs - **partial** de-allocation
@@ -106,7 +106,7 @@ GeneralError*
 
 Try selecting a new VM size to allocate. If not, please try again later.
 
-## Troubleshooting Azure Service Management
+## Troubleshooting allocation failure in the classic deployment model
 Here are the common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 - Resizing a VM, or adding additional VMs or role instances to an existing cloud service
 - Restarting stopped (de-allocated) VMs - partial de-allocation

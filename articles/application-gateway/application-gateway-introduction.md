@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/23/2015"
+   ms.date="11/03/2015"
    ms.author="joaoma"/>
 
 # What is Application Gateway?
@@ -20,7 +20,7 @@
 
 Microsoft Azure Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. 
 
-Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The Application Gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 Application Gateway currently supports layer 7 application delivery for the following:
 
@@ -32,7 +32,7 @@ Application Gateway currently supports layer 7 application delivery for the foll
 
 ## HTTP layer 7 load balancing
 
-Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the App Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing. When you create an Application Gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
+Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
 
 The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
 
@@ -54,9 +54,27 @@ Application Gateway is currently offered in 3 sizes: Small, Medium and Large. Sm
 
 You can create up to 10 application gateways per subscription and each application gateway can have up to 10 instances each. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
 
+The table below shows an average performance throughput for each application gateway instance:
+
+| Back end page response | Small | Medium | Large|
+|---|---|---|---|
+| 6K | 7.5 mbps | 13 mbps | 50 mbps |
+|100k | 35 mbps | 100mbps| 200 mbps |
+
+
+>[AZURE.NOTE] Performance numbers also depends on the web application HTTP response back to application gateway. 
+
+
+## Monitoring
+ 
+Application Gateway monitors the health status of back end instances using probes ports, testing the HTTP response from HttpSettings sections of gateway periodically. The probe expects a successful HTTP response in 200-390 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
+
+When a successful HTTP response is received, the IP address is marked as healthy. If the probe fails, the IP address is removed from a healthy back end pool, and traffic stops flowing to this server. The health probe continues every 30 seconds to the failed web instance until it comes back online. When the web instance  responds successfully to the health probe, it is added back to the healthy back end pool, and traffic starts flowing to this instance again.
+
 ## Configuring and managing
 
-You can create and manage the application gateway by using REST APIs and by using PowerShell cmdlets.
+You can create and manage an application gateway by using REST APIs and by using PowerShell cmdlets.
+
 
 ## Next Steps
 
