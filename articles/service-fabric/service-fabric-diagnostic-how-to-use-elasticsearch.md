@@ -139,7 +139,7 @@ Of course it is possible to combine and benefit from both approaches; indeed it 
 
 In this article we will use the **Microsoft.Diagnostic.Listeners library** and the in-process tracing to send data from a Service Fabric application to ElasticSearch cluster.
 
-## Using the Microsoft.Diagnostics.Listeners Library to Send Diagnostic Data From a Fabric Application to ElasticSearch
+## Using the Listeners Library to Send Diagnostic Data to ElasticSearch
 Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric application [TODO: final sample URL here]. To use it:
 
 1. Download the Party Cluster sample
