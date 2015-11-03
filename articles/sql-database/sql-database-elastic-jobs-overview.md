@@ -1,5 +1,4 @@
-<properties 
-	title="Elastic database jobs overview" 
+<properties
 	pageTitle="Elastic database jobs overview" 
 	description="Illustrates the elastic database job service" 
 	metaKeywords="azure sql database elastic databases" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Elastic Database jobs overview

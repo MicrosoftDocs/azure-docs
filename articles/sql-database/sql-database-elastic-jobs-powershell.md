@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Create and manage a SQL Database elastic database jobs using PowerShell (preview)
@@ -229,7 +229,7 @@ To create a new encrypted credential, the [**Get-Credential cmdlet**](https://te
 
 ### To update credentials
 
-When passwords change, use the [**Set-AzureSqlJobCredential cmdlet**](https://msdn.microsoft.com/en-us/library/mt346062.aspx) and set the **CredentialName** parameter.
+When passwords change, use the [**Set-AzureSqlJobCredential cmdlet**](https://msdn.microsoft.com/library/mt346062.aspx) and set the **CredentialName** parameter.
 
 	$credentialName = "{Credential Name}"
 	Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
@@ -551,7 +551,7 @@ Use the [**Get-AzureSqlJobTarget**](https://msdn.microsoft.com/library/mt346077.
 
 ### Create a job to execute a script across a custom database collection target
 
-Use the [**New-AzureSqlJob**](https://msdn.microsoft.com/en-us/library/mt346078.aspx) cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
+Use the [**New-AzureSqlJob**](https://msdn.microsoft.com/library/mt346078.aspx) cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
 
 	$jobName = "{Job Name}"
 	$scriptName = "{Script Name}"

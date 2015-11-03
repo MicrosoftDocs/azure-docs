@@ -1,5 +1,4 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="How to add a users to an elastic database pool" 
 	description="You must add a user with privileges to each db in the pool" 
 	metaKeywords="azure sql database elastic databases credentials" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # How to add users to an Elastic Database pool
