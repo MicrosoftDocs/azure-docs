@@ -18,7 +18,8 @@
 
 
 # Password policies and restrictions in Azure Active Directory
-	This article describes the password policies and complexity	requirements associated with user accounts stored in your Azure AD directory.
+
+This article describes the password policies and complexity	requirements associated with user accounts stored in your Azure AD directory.
 
 ## UserPrincipalName policies that apply to all user accounts
 
@@ -32,21 +33,20 @@ Every user account that needs to sign in to the Azure AD authentication	system m
 
 ## Password policies that apply only to cloud user accounts
 
-The following table describes the available password policy settings
-	that can be applied to user accounts that are created and managed in
-	Azure AD.
+The following table describes the available password policy settings that can be applied to user accounts that are created and managed in	Azure AD.
 
-|  Property       |    Requirements          |  
-|   ----------------------- |   ----------------------- |  
-|  Characters allowed   |   <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { }  \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+|  Property       |    Requirements          |
+|   ----------------------- |   ----------------------- |
+|  Characters allowed   |   <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 |  Characters not allowed   |       <ul><li>Unicode characters</li><li>Spaces</li><li>spaces</li><li> **Strong passwords only**: Cannot contain a dot character '.' immediately preceding the '@' symbol</li></ul> |
 |   Password restrictions | <ul><li>8 characters minimum and 16 characters maximum</li><li>**Strong passwords only**: Requires 3 out of 4 of the following:<ul><li>Lowercase characters</li><li>Uppercase characters</li><li>Numbers (0-9)</li><li>Symbols (see password restrictions above)</li></ul></li></ul> |
 | Password expiry duration      | <ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
 | Password expiry notification |  <ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
-| Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. See Set a password to never expire for instructions.</li></ul> |
+| Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
 |  Password history  | Last password cannot be used again. |
 |  Password history duration | Forever |
 |  Account Lockout | <ul><li>After 10 unsuccessful logon attempts (wrong password), the user will need to solve a CAPTCHA dialog as part of logon.</li><li>After a further 10 unsuccessful logon attempts (wrong password) and correct solving of the CAPTCHA dialog, the user will be locked out for a time period. Further incorrect passwords will result in an exponential increase in the lockout time period.</li></ul> |
+
 
 ## Next Steps
 
