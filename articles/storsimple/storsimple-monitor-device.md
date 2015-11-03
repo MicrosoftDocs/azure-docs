@@ -55,15 +55,15 @@ These charts show the amount of data written to StorSimple volumes before the da
 
 ![Primary capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-When you view the Primary Storage Volume Capacity utilization charts for all volumes vis-à-vis all of the individual volumes, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This is because of one or more of the following reasons:
+When you view the primary storage volume capacity utilization charts for all volumes versus all of the individual volumes, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
 
 - **Snapshot data included for all volumes**: The local snapshot data for all the volumes is added to the primary data of all the volumes. This can also be explained by the following equation:
 
-	*Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i) )
+	*Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i) )*
 	
-	where, Primary data (volume i) = Size of primary data allocated to volume i*
+	*where, Primary data (volume i) = Size of primary data allocated to volume i*
  
-	If you were to delete the local snapshots through the service, the deletion is done asynchronously in the background. It may take some time for the volume data size to be updated following the deletion. 
+	If the snapshots are deleted through the service, the deletion is done asynchronously in the background. It may take some time for the volume data size to be updated following the snapshot deletion. 
  
 - **Volumes with monitoring disabled included in all volumes**: If you have volumes on your device for which monitoring is turned off, the monitoring data for these individual volumes will not be available in the charts. However, the data for all volumes in the chart will include the volumes for which monitoring is turned off. 
  
