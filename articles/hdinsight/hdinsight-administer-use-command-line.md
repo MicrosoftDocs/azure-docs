@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="11/03/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the Azure CLI to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
+Learn how to use the [Azure CLI](../xplat-cli-install.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>.
 
-This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [How to use the Azure CLI] [azure-command-line-tools].
+This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [Install and configure Azure CLI][azure-command-line-tools].
 
 
 ##Prerequisites
@@ -33,17 +33,11 @@ This article covers only using the Azure CLI with HDInsight. For a general guide
 Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
 - **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
 
-##Installation
-
-If you have not already done so, use the [Install and configure the Azure CLI](../xplat-cli-install.md) document to install and configure the Azure CLI.
-
-##Provision an HDInsight cluster
+##Provision HDInsight clusters
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
-
 
 HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account is required before you can create an HDInsight cluster.
 
@@ -95,7 +89,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 
 
-##Provision an HDInsight cluster by using a configuration file
+##Provision HDInsight cluster using configuration files
 Typically, you provision an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
 
 	azure hdinsight cluster config create <file>
@@ -127,12 +121,12 @@ Use the following commands to list and show cluster details:
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
 
-##Delete a cluster
+##Delete clusters
 Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <ClusterName>
 
-##<a name="scaling"></a>Scale a cluster
+##Scale clusters
 
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
@@ -147,7 +141,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [How to use the Azure CLI] [azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli-install.md
+[azure-command-line-tools]: ../xplat-cli.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
