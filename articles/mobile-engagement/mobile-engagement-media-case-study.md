@@ -69,7 +69,7 @@ Now that John has finished defining his KPIs, he starts his Engagement strategy 
 
 
 | Program Name | Objective1 | Objective2 | Objective3 |
-|:============:|:==========:|:==========:|:==========:|
+|:------------:|:----------:|:----------:|:----------:|
 | Welcome Program | Introduce users to the app | Boost opt-in push | ??? |
 | Weekly Program | Increase app visits | Develop??? | Develop usage??? |
 | Discover Program | Implement what??? | Cross-sell | Increase number of something??? |
@@ -88,26 +88,26 @@ Then John goes deeper by detailing push notifications for each program. Push not
 **Welcome Program**
 
 | Push Sequence | Objective | How | Target | Content | When |
-|:=============:|:=========:|:===:|:======:|:=======:|:====:|
+|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
 | Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |
 | Push 2 | Encourage users to<br>configure the app and<br>respond to notifications | Explain the benefits of allowing notifications | All users who have not configured notifications | Did you know we can send you<br>instant updates and discount offers? | 3rd session |
 
 **Weekly Program**
 | Push Sequence | Objective | How | Target | Content | When |
-|:=============:|:=========:|:===:|:======:|:=======:|:====:|
+|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
 | Push 1 | Drive retention | Correctly targeted push notifications | All users | Receive instant updates and<br>stay informed | Monday at 10AM |  
 | Push 2 | Drive retention | Correctly targeted push notifications | All users | Question of the week:<br>Who will win the World Series?<br>1. The Royals<br>2. The Mets | During World Series |
 | Push 3 | Drive retention | Correctly targeted push notifications | All users | Daily traffic report | 3PM each week day  |
 
 **Discover Program**
 | Push Sequence | Objective | How | Target | Content | When |
-|:=============:|:=========:|:===:|:======:|:=======:|:====:|
+|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
 | Push 1 | Increase cross selling<br>and page views | Introduce new categories | User who have been active<br>for 20-70 days | This month we bring you<br>the latest movie reviews. | Out of app |
 | Push 2 | Increase cross selling<br>and page views | Users who have consumed movie reviews<br>three times after receiving Push 1 | How do you like our latest movie reviews?<br>Use this discount code for<br>movie tickets to a theater near you | Out of app |  
 
 **Inactive Program**
 | Push Sequence | Objective | How | Target | Content | When |
-|:=============:|:=========:|:===:|:======:|:=======:|:====:|
+|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
 | Push 1 | Get feedback for technical issues | Poll for performance feedback | User who have not created a session<br>in the last 2 weeks | The latest reports are now available.<br>Are you having any technical difficulties?<br>1. I'm having problems accessing my account.<br>2. The app is not running well for me.<br>3. The app does not contain content I'm interested in. | Anytime |
 
 

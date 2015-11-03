@@ -66,7 +66,7 @@ After 3 months the Mobile Project Director has collected enough data to enhance 
 Thanks to this analysis the Mobile Project Director decides to create specific push notifications to increase in app sales. He also creates two sequences, the first one is a **Welcome program** and the second one is an **Inactive Program**. For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
 
 | Push Sequence | Objective | How | Target | Content | When |
-|:===:|:=========:|:===:|:======:|:=======:|:====:|
+|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
 | Welcome Program |
 | Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |
 | Push 2 | Encourage users to<br>create an account | Explain the benefits of the account | Users running the app the second time | Welcome back, we recommend you create an account. Slide to see the benefits of having an account | 2nd session |
