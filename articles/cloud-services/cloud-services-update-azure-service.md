@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 pageTitle="How to update a cloud service | Microsoft Azure"
 description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
 services="cloud-services"
@@ -58,6 +58,7 @@ The following table shows the allowed changes to a service during an update:
 |Change existing certificates|Yes|Yes|Yes|
 |Deploy new code|Yes|Yes|Yes|
 \*Requires Azure SDK 1.5 or later versions.
+
 > [AZURE.WARNING] Changing the virtual machine size will destroy local data.
 
 
