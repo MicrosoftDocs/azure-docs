@@ -18,14 +18,14 @@
 
 # Using ElasticSearch as Service Fabric Application Trace Store
 
-This article describes how [Service Fabric](http://azure.microsoft.com/en-us/documentation/services/service-fabric/) applications can use **ElasticSearch** and **Kibana** for application trace storage, indexing and search. [ElasticSearch](https://www.elastic.co/guide/index.html) is an open-source, distributed and scalable real-time search and analytics engine that is well suited for this task.
+This article describes how [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) applications can use **ElasticSearch** and **Kibana** for application trace storage, indexing and search. [ElasticSearch](https://www.elastic.co/guide/index.html) is an open-source, distributed and scalable real-time search and analytics engine that is well suited for this task and can be installed on Windows or Linux virtual machines running in Microsoft Azure. ElasticSearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
-Service Fabric runtime uses **Event Tracing for Windows (ETW)** to source diagnostic information (traces). Service Fabric applications are free to choose their own method for trace sourcing, but the default (and recommended) method is to use ETW as well. This allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default.
+ETW is used by Service Fabric runtime to source diagnostic information (traces) and is the recommended method for Service Fabric applications to source their diagnostic information too. This allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW please see [this article](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 For the traces to show up in ElasticSearch, they need to be captured at the Service Fabric cluster nodes in real time (while the application is running) and sent to ElasticSearch endpoint. There are two major options for trace capturing:
 
 + **In-process**  
-The application, or more precisely, service process is responsible for both handling client requests as well as sending the diagnostic data out to the trace store (ElasticSearch).
+The application, or more precisely, service process is responsible for sending the diagnostic data out to the trace store (ElasticSearch).
 
 + **Out-of-process**  
 A separate agent is capturing traces from service process(es) and sending them to the trace store.
@@ -34,7 +34,7 @@ In the rest of the article we will describe how to set up ElasticSearch on Azure
 
 
 ## Setting up Elasticsearch on Azure
-The most straightforward way to set up ElasticSearch service on Azure is through [**Azure ARM templates**](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/). A comprehensive [quickstart ARM template for ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes) and can provision separate client and server nodes with different configurations, with various numbers of data disks attached.
+The most straightforward way to set up ElasticSearch service on Azure is through [**Azure ARM templates**](https://azure.microsoft.com/documentation/articles/resource-group-overview/). A comprehensive [quickstart ARM template for ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes) and can provision separate client and server nodes with different configurations, with various numbers of data disks attached.
 
 In this article we will use another template called **ES-MultiNode** from the [Microsoft Patterns & Practices ELK branch](https://github.com/mspnp/semantic-logging/tree/elk/). This template is somewhat easier to use and creates a cluster protected by HTTP basic authentication by default. Before proceeding please download the [Microsoft P&P "elk" repo](https://github.com/mspnp/semantic-logging/tree/elk/) from GitHub to your machine (either by cloning the repo or downloading a ZIP file). The ES-MultiNode template is located in the folder with the same name.
 
@@ -49,13 +49,15 @@ Note: the `CreateElasticSearchCluster` script is designed to ease the use of the
 2. The **openssl** tool is included in the distribution of [**Git for Windows**](http://www.git-scm.com/downloads). If you have not done so already, please install [Git for Windows](http://www.git-scm.com/downloads) now (default installation options are OK).
 
 3. Assuming that Git has been installed, but not included in the system path, open Microsoft Azure PowerShell window and run the following commands:
-```powershell
-$ENV:PATH += ";<Git installation folder>\usr\bin"
-$ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
-```
-Replace the `<Git installation folder>` with the Git location on your machine; the default is *"C:\Program Files\Git"*. Note the semicolon character at the beginning of the first path.
 
-4. Ensure that you are logged on to Azure (via [*Add-AzureAccount*](https://msdn.microsoft.com/en-us/library/azure/dn790372.aspx) cmdlet) and that you have selected the subscription that should be used to create your ElasticSearch cluster ([*Select-AzureSubscription*](https://msdn.microsoft.com/en-us/library/azure/dn790367.aspx)).
+    ```powershell
+    $ENV:PATH += ";<Git installation folder>\usr\bin"
+    $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
+    ```
+
+    Replace the `<Git installation folder>` with the Git location on your machine; the default is *"C:\Program Files\Git"*. Note the semicolon character at the beginning of the first path.
+
+4. Ensure that you are logged on to Azure (via [*Add-AzureAccount*](https://msdn.microsoft.com/library/azure/dn790372.aspx) cmdlet) and that you have selected the subscription that should be used to create your ElasticSearch cluster ([*Select-AzureSubscription*](https://msdn.microsoft.com/library/azure/dn790367.aspx)).
 
 5. If you haven't done so already, change the current directory to the ES-MultiNode folder.
 
