@@ -17,3 +17,25 @@
 	ms.author="tarcher"/>
 
 # Define lab policies
+
+## Overview
+
+DevTest Lab allows you to specify key policies that govern how your lab and its VMs are used. These policies include cost thresholds, allowed VM sizes, maximum number of VMs per user, and *auto shutdown*. 
+
+> [AZURE.NOTE] Only the **Max VMs per User** policy is currently supported in a **DevTest Lab**.
+
+## Defining max VMs per user
+
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
+
+1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+
+1. From the list of labs, tap the desired lab.   
+
+1. Tap **Settings**.
+
+1. On the **Settings** blade, there is a grouping of settings called **Policies**. Within that grouping, tap **Max VMs per User**.
+
+1. On the **Max VMs per User** blade, enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is too large, the UI will display the maximum number allowed for this field.
+
+1. Tap **Save**.
