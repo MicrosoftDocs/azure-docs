@@ -4,13 +4,13 @@
    services="sql-database"
    documentationCenter=""
    authors="sidneyh"
-   manager="jhubbard"
+   manager="jeffreyg"
    editor=""
    tags=""/>
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/14/2015"

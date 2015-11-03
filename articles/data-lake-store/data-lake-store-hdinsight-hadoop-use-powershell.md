@@ -8,7 +8,7 @@
    editor="cgronlun"/>
  
 <tags
-   ms.service="data-lake"
+   ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
