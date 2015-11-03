@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/03/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to monitor your StorSimple device 
@@ -65,7 +65,7 @@ When you view the primary storage volume capacity utilization charts for all vol
  
 - **Deleted volumes with live associated backups included for all volumes**: If volumes containing snapshot data are deleted but the associated snapshots still exist, then you may see a mismatch.
 
-- **Deleted volumes included for all volumes**: In some instances, old volumes containing snapshot data may exist even though these were deleted. The effect of deletion is not seen and the device may show lower available capacity. You will need to contact Microsoft Support to remove these volumes.
+- **Deleted volumes included for all volumes**: In some instances, old volumes may exist even though these were deleted. The effect of deletion is not seen and the device may show lower available capacity. You will need to contact Microsoft Support to remove these volumes.
 
 The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. Given that this is just volume data, a cloud snapshot should not change the primary storage. As you can see, the chart shows no difference in the primary capacity utilization as a result of taking a cloud snapshot. Note that the cloud snapshot started at around 2:00 pm on that device.
 
