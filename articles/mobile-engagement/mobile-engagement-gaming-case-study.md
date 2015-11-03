@@ -63,31 +63,20 @@ After 3 months the Mobile Project Director has collected enough data to enhance 
 * Users who have passed the level 20, start to spend more than $10/week.
 * Users tend to buy premium packages at level 16, 24 and 32.
 
-Thanks to this analysis the Mobile Project Director decides to create specific push notifications to increase in app sales. He also creates two sequences, the first one is a **Welcome program** and the second one is an **Inactive Program**. For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
+Thanks to this analysis the Mobile Project Director decides to create specific push notifications to increase in app sales. He creates three push sequences which he calls: **Welcome program**, **Sales Program**, and **Inactive Program**. For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
 
 
-<br>
-**Welcome Program**
 
-| Push Sequence | Objective | How | Target | Content | When |
-|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
+| Push Sequence       | Objective | How | Target | Content | When |
+|:-------------------:|:---------:|:---:|:------:|:-------:|:----:|
+| **Welcome Program** |
 | Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |
 | Push 2 | Encourage users to<br>create an account | Explain the benefits of the account | Users running the app the second time | Welcome back, we recommend you create an account. Slide to see the benefits of having an account | 2nd session |
-
-<br>
-**Sales Program**
-
-| Push Sequence | Objective | How | Target | Content | When |
-|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
+| **Sales Program** |
 | Push 1 | Encourage users to make<br>their first purchase | Send a special offer when<br>the user reaches level 7 | Users at level 7 who have<br>not yet made a purchase | Congratulations on reaching level 7!<br>With this special armor offer,<br>you will look like an elite warrior | In app after reaching level 7 |  
 | Push 2 | Encourage users to purchase | Send a special offer when<br>the user reaches level 14 | Users at level 14 | Congratulations on reaching level 14!<br>purchase these new level 14 legendary weapons for $5<br>to help you bring down the harder bosses<br>through level 32 | In app when the user opens<br>the weapons page after reaching<br>level 14 and does not possess<br>level 14 legendary weapons pack |
 | Push 3 | Increase game packs sales at levels 16, 24, 32 | Webview with a special offer | Users who reach the target level | Take advantage of these special<br>game packs to help you quickly<br>excel at your level | Users reach the target level |
-
-<br>
-**Inactive Program**
-
-| Push Sequence | Objective | How | Target | Content | When |
-|:-------------:|:---------:|:---:|:------:|:-------:|:----:|
+| **Inactive Program**
 | Push 1 | Get feedback for technical issues | Poll for performance feedback | User who have not created a session<br>in the last 2 months | Your friends are missing you in game.<br>Are you having any technical difficulties?<br>1. I've just been too busy to play.<br>2. I just don't enjoy the game anymore.<br>3. I'm having problems accessing my account.<br>4. The game is not running well for me. | Anytime |
 | Push 2 | Introduce new features and updates | Users who respond to Inactive Push 1 | We've added updates based on in game user feedback, take a look at what we've added. | Anytime |  
 
