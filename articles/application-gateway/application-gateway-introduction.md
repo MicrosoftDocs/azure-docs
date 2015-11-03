@@ -66,7 +66,7 @@ The table below shows an average performance throughput for each application gat
 
 ## Monitoring
  
-Application Gateway monitors the health status using probes ports for back end IP's testing HTTP response from HttpSettings sections of gateway periodically. The probe expects a successful HTTP response in 200-390 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
+Application Gateway monitors the health status of back end instances using probes ports, testing the HTTP response from HttpSettings sections of gateway periodically. The probe expects a successful HTTP response in 200-390 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
 
 When a successful HTTP response is received, the IP address is marked as healthy. If the probe fails, the IP address is removed from a healthy back end pool, and traffic stops flowing to this server. The health probe continues every 30 seconds to the failed web instance until it comes back online. When the web instance  responds successfully to the health probe, it is added back to the healthy back end pool, and traffic starts flowing to this instance again.
 
