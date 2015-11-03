@@ -37,11 +37,9 @@ To complete this tutorial, you need the following:
 * Complete the [quickstart tutorial](../app-service-mobile-windows-store-dotnet-get-started.md).  
 
 
-
-##<a name="create-gateway"></a>Create a Notification Hub
+##<a name="create-hub"></a>Create a Notification Hub
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
-
 
 ##Register your app for push notifications
 
