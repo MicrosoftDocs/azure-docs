@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/03/2015"
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
@@ -396,7 +396,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 You can link an Azure storage account to an Azure data factory using an Azure Storage linked service. The following table provides description for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
 | dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
@@ -413,10 +413,12 @@ For a full list of JSON sections & properties available for defining datasets, s
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties.
 
 | Property | Description | Required |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | folderPath | Path to the container and folder in the Azure Data Lake store. | Yes |
 | fileName | <p>Name of the file in the Azure Data Lake store. fileName is optional. </p><p>If you specify a filename, the activity (including Copy) works on the specific file.</p><p>When fileName is not specified Copy will include all files in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No |
+| format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. | No |
+| compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optimal and Fastest. See [Compression support](#compression-support) section for more details.  | No |
 
 ### Leveraging partitionedBy property
 As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -446,6 +448,52 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 	],
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
+
+### Specifying TextFormat
+
+If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
+
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| columnDelimiter | The character(s) used as a column separator in a file.This tag is optional. The default value is comma (,). | No |
+| rowDelimiter | The character(s) used as a raw separator in file. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
+| escapeChar | <p>The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No | 
+| quoteChar | <p>The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No |
+| nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |
+| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
+
+#### Samples
+The following sample shows some of the format properties for TextFormat.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myblobname"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": "\"",
+	        "NullValue": "NaN"
+	    }
+	},
+
+To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
+
+	"escapeChar": "$",
+
+### Specifying AvroFormat
+If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## Azure Data Lake Copy Activity type properties  
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
