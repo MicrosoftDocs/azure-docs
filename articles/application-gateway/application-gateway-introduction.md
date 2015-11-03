@@ -61,6 +61,7 @@ The table below shows an average performance throughput for each application gat
 | 6K | 7.5 mbps | 13 mbps | 50 mbps |
 |100k | 35 mbps | 100mbps| 200 mbps |
 
+
 >[AZURE.NOTE] Performance numbers also depends on the web application HTTP response back to application gateway. 
 
 
