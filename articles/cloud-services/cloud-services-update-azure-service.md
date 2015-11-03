@@ -15,8 +15,9 @@ ms.topic="article"
 ms.date="10/26/2015"
 ms.author="kenazk"/>
 
-# Overview
+# How to update a cloud service
 
+## Overview
 At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
 
 ## Update an Azure Service
@@ -56,8 +57,9 @@ The following table shows the allowed changes to a service during an update:
 |Add new certificates|Yes|Yes|Yes|
 |Change existing certificates|Yes|Yes|Yes|
 |Deploy new code|Yes|Yes|Yes|
+\*Requires Azure SDK 1.5 or later versions.
 > [AZURE.WARNING] Changing the virtual machine size will destroy local data.
-> [AZURE.NOTE] \*Requires Azure SDK 1.5 or later versions.
+
 
 The following items are not supported during an update:
 
@@ -172,6 +174,6 @@ The following diagram illustrates how a service than contains two roles are dist
 > [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
 ## Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)
-[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)
-[How to Configure Cloud Services](cloud-services-how-to-cofigure.md)
+[How to Manage Cloud Services](cloud-services-how-to-manage.md)<br>
+[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)<br>
+[How to Configure Cloud Services](cloud-services-how-to-cofigure.md)<br>
