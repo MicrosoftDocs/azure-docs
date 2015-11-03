@@ -52,7 +52,7 @@ To resolve the more common SSH connection failures in virtual machines created u
 	- Create a new sudo user account.
 	- Reset the SSH configuration.
 
-5. - Check VM's Resource Health for any platform issues. 
+5. Check VM's Resource Health for any platform issues. 
 	Click Browse all > Virtual Machines (classic) > your Linux virtual machine > **Check Health**
 
 
