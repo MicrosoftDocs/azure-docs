@@ -24,36 +24,34 @@ Partitioning is not unique to Service Fabric, in fact it is a core pattern of bu
 
 
 ### Partitioning stateless services
-For stateless services you can think about a partition being a logical unit that contains one or more instances of a service. Figure 1 shows a stateless service with 5 instances distributed across a cluster using one partition. This (multiple instances in one partition) is in fact the most common configuration for a stateless service. The only times you want to consider multiple partitions for stateless service instances is when you need to meet special routing requests for example users with a certain id should only be served by a particular service instance or you have a truly partitioned backend, e.g. a sharded SQL database, and you want to control which service instance should write to the database shard. Again those are very rare scenarios that can also be solved in other ways.
+For stateless services you can think about a partition being a logical unit that contains one or more instances of a service. Figure 1 shows a stateless service with 5 instances distributed across a cluster using one partition. This (multiple instances in one partition) is in fact the most common configuration for a stateless service. The only times you want to consider multiple partitions for stateless service instances is when you need to meet special routing requests. As an example, consider a case where users with ids in a certain range should only be served by a particular service instance. Another example of when you could partition a stateless service is when you have a truly partitioned backend, e.g. a sharded SQL database, and you want to control which service instance should write to the database shard or perform other preparation work within the stateless service that requires the same partitioning information as is used in the backend. Again: partitioning a stateless service is a very rare scenarios, and most of the times when you would use it the problem can also be solved in other ways.
 
 ![Stateless Service](./media/service-fabric-concepts-partitioning/stateless-reliable-service.png)
-
 
 For the remainder of this walkthrough we focus on stateful services.
 
 ### Partitioning stateful services
-Service Fabric makes it easy to develop stateful services that scale by offering a first-class way to partition state. Please note that state also refers to data in this context. Just as with databases, partitioning in this case refers to the process of determining that a particular service or set of services is responsible for a portion of the complete state of the service. It enables each service to individually address only a portion of the complete state. As a result the load is better distributed, the overall performance of the application is improved, and contention on access to chunks of data is reduced.
+Service Fabric makes it easy to develop stateful services that scale by offering a first-class way to partition state. Please note that state refers to data in this context. Just as with databases, partitioning in this case refers to the process of determining that a particular service partiton (really just a set of replicas) or set of services is responsible for a portion of the complete state of the service. It enables each set of replicas to individually address only a portion of the complete state of a service. As a result the load is better distributed, the overall performance of the application is improved, and contention on access to chunks of data is reduced.
 
-Conceptually we can think about a partition of a stateful service being a unit that is made [highly available](service-fabric-availability-services.md) through [replicas](service-fabric-availability-services.md) of partitions that are distributed and balanced across the nodes in the cluster.
+Conceptually we can think about a partition of a stateful service being a unit that is made [highly available](service-fabric-availability-services.md) through [replicas](service-fabric-availability-services.md) that are distributed and balanced across the nodes in the cluster.
 
-
-To give you can example say we start with a 5 node cluster and 10 partitions. In this case Service Fabric would balance and distribute the replicas across the cluster and we would end up with 2 primary [replicas](service-fabric-availability-services.md) per node.
+To give you can example say we start with a 5 node cluster and a service configured to have 10 partitions and a target of three replicas. In this case Service Fabric would balance and distribute the replicas across the cluster and we would end up with 2 primary [replicas](service-fabric-availability-services.md) per node.
 If we now need to scale out our cluster to 10 nodes Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise if we scaled back to 5 nodes Service Fabric would rebalance all the replicas across the 5 nodes.  
 
-Figure 2 shows the distribution of 10 partitions before and after a scale out.
+Figure 2 shows the distribution of 10 partitions before and after scaling the cluster.
 
 ![Stateful Service](./media/service-fabric-concepts-partitioning/partitionsincluster.png)
 
 ## Planning for partitioning
-Before implementing a service we should always think about our partitioning strategy. For the context of this article we keep it a higher level and just look at some of the important aspects to get us started.
+Before implementing a service we should always think about our partitioning strategy. For the context of this article we look at some of the most important aspects to get us started.
 
 A good approach is to think about the structure of the state that needs to be partitioned as the first step.
 
-Let's look at the following simple example. If we were to build a service for a county wide poll we could say we want to create a partition for every city in the county and store the state of polls for every user in a city in its partition. The image below shows the distribution for a small amount of state and just a view cities.
+Let's look at the following simple example. If we were to build a service for a county wide poll we could say we want to create a partition for every city in the county and store the votes cast for every person in a city in the partition corresponding to that city. The image below shows the distribution for a small amount of state and just a view cities.
 
 ![Simple partition](./media/service-fabric-concepts-partitioning/citypartitions.png)
 
-As the population of cities varies widely we may end up with partitions that contain lots of state (e.g. Seattle) and partitions with very little state (e.g. Kirkland). So what is the impact of having partitions with unevenly amounts of state?  
+As the population of cities varies widely we may end up with partitions that contain lots of state (e.g. Seattle) and partitions with very little state (e.g. Kirkland). So what is the impact of having partitions with uneven amounts of state? 
 
 If we think about the example again we can easily see that the partition that holds the votes for Seattle will get way more traffic than the Kirkland one. By default Service Fabric makes sure that there is about the same number of primaries and secondary replicas on each node, so we may end up with nodes that hold replicas that serve a lot of traffic and others that serve very little traffic. As we want to avoid hot and cold spots in a cluster this is not an ideal situation.
 
@@ -62,12 +60,12 @@ In order to avoid hot and cold spots in a cluster we should do two things from a
 - try to partition the state so that it is evenly distributed across all partitions.
 - [Report load for the service (add topic)](). Service Fabric provides the capability to report load, such as amount of memory or number of records, on a service. Based on the load reported Service Fabric will detect that some partitions have to serve higher loads than others and balance the cluster out by moving replicas around.
 
-Sometimes we cannot know with how much data we will end up, so a general recommendation is to do both, trying to find a partitioning strategy that spreads the data evenly across the partitions and report load.  
+Sometimes we cannot know with how much data we will end up with, so a general recommendation is to do both, first by trying to find a partitioning strategy that spreads the data evenly across the partitions and secondly by report load.  Generally the first method prevents situations like we saw in the voting example, while the second helps smooth out temporary differences in access or load over time.
 
-Another aspect of partition planning is to choose the right amount of partitions to begin with.
+Another aspect of partition planning is to choose the right number of partitions to begin with.
 From a Service Fabric perspective there is nothing preventing us from starting out with the highest number of partitions anticipated for our scenario.
-In fact assuming the maximum number of partitions is a valid approach given the fact that we cannot increase the number of partitions for a running service.
->[AZURE.NOTE] In order to increase partitions after the fact we can create a new service instance of the same service type and implement some logic that routes the request between the two service instances based on the hash.
+In fact assuming the maximum number of partitions is a valid approach given the fact that we cannot (at least as the time of this writing) dynamically increase the number of partitions for a running service.
+>[AZURE.NOTE] In order to increase partitions after the fact we can create a new service instance of the same service type and implement some logic that routes the request between the two service instances based on the hash.  This is an advanced scenario with its own pros and cons, which we'll address in another topic.
 
 The limiting factors of this approach are the machine resources available. As the state needs to be accessed and stored we are bound to following machine resources:
 
@@ -87,10 +85,10 @@ Service Fabric supports three partition schemes.
 - Named Partitioning Scheme
 - Singleton Partitioning Scheme
 
-Named and Singleton partitioning schemes are a special form of ranged partitions. By default Visual Studio uses the ranged partitioning scheme as it is the most common and useful one. For the remainder of this article we will focus on the ranged partitioning scheme.
+Named and Singleton partitioning schemes are special forms of ranged partitions. By default Visual Studio uses the ranged partitioning scheme as it is the most common and useful one. For the remainder of this article we will focus on the ranged partitioning scheme.
 
 ### Ranged Partitioning Scheme
-This is used to specify an integer range (identified by a low and a high key) and a number of partitions (n). It creates n partitions, each responsible for a non-overlapping subrange. Example: A ranged partitioning scheme (for a service with three replicas) with a low key of 0, a high key of 99 and a count of 4 would create 4 partitions as shown below.
+This is used to specify an integer range (identified by a low and a high key) and a number of partitions (n). It creates n partitions, each responsible for a non-overlapping subrange of the overall partition key range. For example: A ranged partitioning scheme (for a service with three replicas) with a low key of 0, a high key of 99 and a count of 4 would create 4 partitions as shown below.
 
 ![Range Partitioning](./media/service-fabric-concepts-partitioning/range-partitioning.png)
 
@@ -143,7 +141,7 @@ As we literally want to have one partition per letter we need to use 0 as the lo
 
     >[AZURE.NOTE] For this sample we assume that you are using a simple HttpCommunicationListener. More information on reliable service communication can be found [here](service-fabric-reliable-services-communication.md).
 
-8. A partition replica url has the following format `http://nodeip:port/partitionid/replicaid/guid` so you need to make sure that your communication listener listens on the correct endpoints. The code below shows an example.
+8. A recommended pattern for the url a replica listens on is the following format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}` so we want to configure your communication listener to listen on the correct endpoints and with this pattern. The code below shows an example.
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -214,7 +212,7 @@ This service serves as a simple web interface that accepts the lastname as a que
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8090"/>
     ```
 
-13. You need to return a ServiceInstanceListeners. Again you can choose to implement a simple HttpCommunicationListener. The code below shows how to use an HttpCommunicationListener to listen on the endpoint that is defined in the ServiceManifest.xml.
+13. You need to return a collection of ServiceInstanceListeners. Again you can choose to implement a simple HttpCommunicationListener. 
 
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
