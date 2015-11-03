@@ -37,7 +37,7 @@ This article shows you how to use Azure Resource Manager templates and the Azure
 
 ## Getting ready
 
-Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and a work or school account. If you don't have the Azure CLI, [install it](xplat-cli-install.md).
+Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and Azure account. If you don't have the Azure CLI, [install it](xplat-cli-install.md).
 
 ### Update your Azure CLI version to 0.9.0 or later
 
