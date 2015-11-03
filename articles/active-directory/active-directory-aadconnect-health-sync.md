@@ -1,7 +1,7 @@
 
 <properties 
 	pageTitle="Using Azure AD Connect Health with sync | Microsoft Azure" 
-	description="This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect synch." 
+	description="This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
