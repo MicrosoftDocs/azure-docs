@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from PHP
