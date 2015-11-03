@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/03/2015"
 	ms.author="markusvi"/>
 
 
@@ -71,9 +71,7 @@ To configure the integration of Promapp into Azure AD, you need to add Promapp f
 6. In the search box, type **Promapp**.<br><br>
 ![Applications][5]<br>
 7. In the results pane, select **Promapp**, and then click **Complete** to add the application.
-<!--
 <br><br>![Applications][500]<br>
--->
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Promapp based on a test user called "Britta Simon".
@@ -245,9 +243,7 @@ When you click the Promapp tile in the Access Panel, you should get automaticall
 [4]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_01.png
 
-<!--
-[500]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_05.png
--->
+[500]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_500.png
 
 [6]: ./media/active-directory-saas-promapp-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-promapp-tutorial/tutorial_promapp_02.png
