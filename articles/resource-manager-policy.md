@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
 	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like 			subscription, resource groups or individual resources."
 	services="azure-resource-manager"
@@ -19,25 +19,32 @@
 # Use Policy to manage resources and control access
 
 Azure Resource Manager now allows you to control access through custom
-policies. A policy represents one or more violations that can be prevented
-at the desired scope. A scope in this case can be a subscription,
-resource group or an individual resource.
+policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
 
-Policy is a default allow system. A policy is defined through a Policy
-Definition which decribes the set of actions or resources that would violate 
-the policy and then you deny those. A policy is applied through a Policy 
-Assignment. Policy Assignments lets you control the scope of where a policy 
-can be applied.
+Policy is a default allow system. You create policy definitions that describe the actions or resources that are specifically denied. 
+You assign those policy definitions at the desired scope, such as the subscription,
+resource group, or an individual resource. 
 
 In this article, we will explain the basic structure of the policy
 definition language that you can use to create policies. Then we will
 describe how you can apply these policies at different scopes and
-finally we will show some examples on how you can achieve this through
-REST API. PowerShell support will also be added shortly.
+finally we will show some examples of how you can achieve this through
+REST API.
 
 ## How is it different from RBAC?
 
-There are a few key differences between policy and role based access control. The first thing to understand is that to be able to use policy, the user will need to be authenticated through RBAC. Without that, policy can't be used. The scenarios accomplished through RBAC revolve around the actions a user can perform at different scopes. An example would be to control if a particular user will be a reader, owner or contributor at the desired scope. This is contract with policies which provide access to resources at various scopes. An example of this would be to control the types of resources that can be provisioned at the desired scope or restrict the locations in which the resources can be provisioned. Another key difference is that policy is default allow and explicit deny system unlike RBAC which is a default deny system.
+There are a few key differences between policy and role-based access control, but the first thing to understand is that 
+policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike policy, RBAC is a 
+default deny system. So, a user's permitted actions on a resource 
+combine those actions granted through RBAC and those not denied through policies.
+
+RBAC focuses on the actions a **user** can perform at different scopes. 
+For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that 
+resource group. 
+
+Policy focuses on **resource** actions at various scopes. For example, through policies, you can 
+control the types of resources that can be provisioned or restrict the locations in which the 
+resources can be provisioned.
 
 ## Common Scenarios
 
