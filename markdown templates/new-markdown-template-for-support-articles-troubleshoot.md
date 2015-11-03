@@ -1,3 +1,22 @@
+<properties
+   pageTitle="Page title that displays in the browser tab and search results"
+   description="Article description that will be displayed on landing pages and in most search results"
+   services="service-name"
+   documentationCenter="dev-center-name"
+   authors="GitHub-alias-of-only-one-author"
+   manager="manager-alias"
+   editor=""
+   tags="comma-separates-additional-tags-if-required"/>
+
+<tags
+   ms.service="required"
+   ms.devlang="may be required"
+   ms.topic="article"
+   ms.tgt_pltfrm="may be required"
+   ms.workload="required"
+   ms.date="mm/dd/yyyy"
+   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
+
 # Title (maximum 120 characters, should be what users use to describe the problem)
 
 ## Summary
