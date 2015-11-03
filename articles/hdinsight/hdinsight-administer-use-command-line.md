@@ -17,11 +17,11 @@
 	ms.date="11/03/2015"
 	ms.author="jgao"/>
 
-# Manage Hadoop clusters in HDInsight by using the Azure Command-line Interface (Azure CLI)
+# Manage Hadoop clusters in HDInsight using the Azure CLI
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the [Azure CLI](../xplat-cli-install.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
+Learn how to use the [Azure Command-line Interface](xplat-cli-install.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>.
 
@@ -34,42 +34,66 @@ Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
+- **Connect to Azure**, using the following command:
+
+		azure login
+
+	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+	
+- **Switch to the Azure Resource Manager mode**, using the following command:
+
+		azure config mode arm
+
 
 ##Provision HDInsight clusters
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account is required before you can create an HDInsight cluster.
+You must have a Azure Resource Management (ARM), and a Azure Blob storage account before you can create a HDInsight cluster. To create a HDInsight cluster, you must specify the following:
 
-After you have imported the publishsettings file, you can use the following command to create a Storage account:
+- **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation. 
 
-	azure account storage create [options] <StorageAccountName>
+	To list the resource groups in your subscription:
+	
+		azure group list 
+	
+	To create a new resource group:
+	
+		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 
+- **HDInsight cluster name**
 
-> [AZURE.NOTE] The Storage account must be collocated with HDInsight in the data center.
+- **Location**: One of the Azure data centers that supports HDInsight clusters. For a list of supported locations, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
+- **Default storage account**: HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account is required before you can create an HDInsight cluster.
 
-For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
+	To create a new Azure storage account:
+	
+		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
+	> [AZURE.NOTE] The Storage account must be collocated with HDInsight in the data center.
+	> The storage account type can't be ZRS, because ZRS doesn't support table.
 
-	-- Lists Storage accounts
-	azure account storage list
-	-- Shows a Storage account
-	azure account storage show <StorageAccountName>
-	-- Lists the keys for a Storage account
-	azure account storage keys list <StorageAccountName>
+	For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a Storage account][azure-create-storageaccount].
+	
+	If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
+	
+		-- Lists Storage accounts
+		azure storage account list
+		-- Shows a Storage account
+		azure storage account show "<Storage Account Name>"
+		-- Lists the keys for a Storage account
+		azure storage account keys list "<Storage Account Name>" -g "<Resource Group Name>"
 
-For details on getting the information by using the Azure preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a Storage account][azure-create-storageaccount].
+	For details on getting the information by using the Azure preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a Storage account][azure-create-storageaccount].
 
+- **(Optional) Default Blob container**: The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
 
-The **azure hdinsight cluster create** command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
-
-	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+	azure storage container create --account-name "<Storage Account Name>" --account-key <StorageAccountKey> [ContainerName]
 
 Once you have the Storage account and the Blob container prepared, you are ready to create a cluster:
 
-	azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+	azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName "<Storage Account Name>" --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
 ![HDI.CLIClusterCreation][image-cli-clustercreation]
 
@@ -94,9 +118,9 @@ Typically, you provision an HDInsight cluster, run jobs on it, and then delete t
 
 	azure hdinsight cluster config create <file>
 
-	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
+	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
 
-	azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
+	azure hdinsight cluster config storage add <file> --storageAccountName ""<Storage Account Name>".blob.core.windows.net"
 	       --storageAccountKey "<StorageAccountKey>"
 
 	azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
