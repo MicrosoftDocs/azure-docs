@@ -64,7 +64,7 @@ For each KPI, he classifies the data required and he records it in the proper lo
 Now that John has finished defining his KPIs, he starts his Engagement strategy phase by defining 4 engagement programs and their objectives:
 
 
-| Program Name | Objective1 | Objective2 | Objective3 |
+| Program Name | Objective 1 | Objective 2 | Objective 3 |
 |:------------:|:----------:|:----------:|:----------:|
 | Welcome Program | Introduce users to the app | Boost opt-in push | ??? |
 | Weekly Program | Increase app visits | Develop??? | Develop usage??? |
@@ -86,7 +86,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 | Push Sequence        | Objective | How | Target | Content | When |
 |:--------------------:|:---------:|:---:|:------:|:-------:|:----:|
 | **Welcome Program**  |
-| Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |
+| Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splash-screen |
 | Push 2 | Encourage users to<br>configure the app and<br>respond to notifications | Explain the benefits of allowing notifications | All users who have not configured notifications | Did you know we can send you<br>instant updates and discount offers? | 3rd session |
 | **Weekly Program**   |
 | Push 1 | Drive retention | Correctly targeted push notifications | All users | Receive instant updates and<br>stay informed | Monday at 10AM |  
