@@ -75,7 +75,7 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
-##<a id="oct_chagnes_15"></a>October 2015 Release
+##<a id="oct_changes_15"></a>October 2015 Release
 
 Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure Management Portal to [create Media Service accounts](media-services-create-account.md#create-a-media-services-account-using-quick-create) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
 
