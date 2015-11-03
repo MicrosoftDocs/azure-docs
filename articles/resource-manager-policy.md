@@ -24,14 +24,20 @@ at the desired scope. A scope in this case can be a subscription,
 resource group or an individual resource.
 
 Policy is a default allow system. A policy is defined through a Policy
-Definition and is applied through a Policy Assignment. Policy
-Assignments lets you control the scope of where a policy can be applied.
+Definition which decribes the set of actions or resources that would violate 
+the policy and then you deny those. A policy is applied through a Policy 
+Assignment. Policy Assignments lets you control the scope of where a policy 
+can be applied.
 
 In this article, we will explain the basic structure of the policy
 definition language that you can use to create policies. Then we will
 describe how you can apply these policies at different scopes and
 finally we will show some examples on how you can achieve this through
 REST API. PowerShell support will also be added shortly.
+
+## How is it different from RBAC?
+
+There are a few key differences between policy and role based access control. The first thing to understand is that to be able to use policy, the user will need to be authenticated through RBAC. Without that, policy can't be used. The scenarios accomplished through RBAC revolve around the actions a user can perform at different scopes. An example would be to control if a particular user will be a reader, owner or contributor at the desired scope. This is contract with policies which provide access to resources at various scopes. An example of this would be to control the types of resources that can be provisioned at the desired scope or restrict the locations in which the resources can be provisioned. Another key difference is that policy is default allow and explicit deny system unlike RBAC which is a default deny system.
 
 ## Common Scenarios
 
