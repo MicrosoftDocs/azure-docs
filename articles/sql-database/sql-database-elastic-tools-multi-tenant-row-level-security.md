@@ -1,5 +1,4 @@
 <properties 
-	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="Multi-tenant applications with elastic database tools and row-level security" 
 	description="Learn how to use elastic database tools together with row-level security to build an application with a highly scalable data tier on Azure SQL Database that supports multi-tenant shards." 
 	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/3/2015" 
+	ms.date="11/03/2015" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Multi-tenant applications with elastic database tools and row-level security 
