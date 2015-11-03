@@ -136,7 +136,7 @@ DateId |CalendarQuarter |FiscalQuarter
 
 ### Step 4: Create Statistics on your newly loaded data 
 
-Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns in all tables the first load or  any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the data being loaded in this example
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example
 
 Execute the following CREATE STATISTICS statements from a sqlcmd prompt:
 
@@ -184,10 +184,10 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Article references-->
 
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load/
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Table Design]: ./sql-data-warehouse-develop-table-design
-[Statistics]: ./sql-data-warehouse-develop-statistics
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Design]: ./sql-data-warehouse-develop-table-design.md
+[Statistics]: ./sql-data-warehouse-develop-statistics.md
 
 
 <!--MSDN references-->
