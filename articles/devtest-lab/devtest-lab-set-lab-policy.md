@@ -24,7 +24,7 @@ DevTest Lab allows you to specify key policies that govern how your lab and its 
 
 > [AZURE.NOTE] Only the **Max VMs per User** policy is currently supported in a **DevTest Lab**.
 
-## Defining max VMs per user
+## Define max VMs per user
 
 1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
