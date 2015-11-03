@@ -24,7 +24,11 @@
 
 If you need to use the D drive to store data, follow these instructions to use a different drive letter for the temporary disk. Never use the temporary disk to store data that you need to keep.
 
-Before you begin, you'll need to attach the data disk to the virtual machine. See [How to attach a data disk to a Windows virtual machine][Attach]. If you want to use an existing data disk as the D drive, make sure you've also uploaded the VHD to the Storage account. For instructions, see steps 3 and 4 in [Create and upload a Windows Server VHD to Azure][VHD].
+## Attach the data disk
+
+Now you'll need to attach the data disk to the virtual machine. To attach a new disk, see [How to attach a data disk to a Windows virtual machine][Attach]. 
+
+If you want to use an existing data disk, make sure you've also uploaded the VHD to the Storage account. For instructions, see steps 3 and 4 in [Create and upload a Windows Server VHD to Azure][VHD]. 
 
 
 ## Temporarily move pagefile.sys to C drive
@@ -45,33 +49,37 @@ Before you begin, you'll need to attach the data disk to the virtual machine. Se
 
 8. Click Apply. You will get a warning that the computer needs to be restarted for the changes to take affect.
 
-9. In the Azure Management console, select the VM and at the bottom of the page, click **RESTART**.
+9. Restart the virtual machine.
 
 
-##Change the drive letter for the temporary drive
+
+
+## Change the drive letters 
 
 1. Once the VM restarts, log back on to the VM.
 
-2. In Server Manager, select **File and Storage Services** from the left pane and then select **Volumes**.
+2. Click the Start menu and type **diskmgmt.msc** and hit Enter. Disk Management will start.
 
-3. Right-click on **D**, the Temporary Storage drive, and select **Manage Drive Letter and Access Paths**.
+3. Right-click on **D**, the Temporary Storage drive, and select **Change Drive Letter and Paths**.
 
 4. Under Drive letter, select drive **G** and then click **OK**. 
 
-5. Right-click on the data disk, and select **Manage Drive Letter and Access Paths**.
+5. Right-click on the data disk, and select **Change Drive Letter and Paths**.
 
 6. Under Drive letter, select drive **D** and then click **OK**. 
 
-## Force the temporary storage drive on to drive E
+7. Right-click on **G**, the Temporary Storage drive, and select **Change Drive Letter and Paths**.
 
-In order to make sure the temporary disk is drive E you need to hard reboot the VM. When the VM starts after a hard reboot the temporary disk will be assigned to the first available drive letter, which will be **E**. 
+8. Under Drive letter, select drive **E** and then click **OK**. 
 
-1. In the Azure Management portal, select the VM and at the bottom of the page, click **SHUT DOWN**. You will be warned that the IP address will be released, click OK on the message.
+> [AZURE.NOTE] If your VM has other disks or drives, use the same method to reassign the drive letters of the other disks and drives. You want the disk configuration to be roughtly:  
+>C: OS disk  
+>D: Data Disk  
+>E: Temporary disk
 
-2. When the VM status turns to **Stopped ((deallocated))**, click **START**.
 
 
-## Move pagefile.sys back to the temporary storage drive on E
+## Move pagefile.sys back to the temporary storage drive 
 
 1. Connect to the VM.
 
