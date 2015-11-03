@@ -20,7 +20,7 @@
 
 Microsoft Azure Application Gateway provides an Azure-managed HTTP load balancing solution based on layer 7 load balancing. 
 
-Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The application gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Application load balancing  enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The Application Gateway service is highly available and metered. For the SLA and Pricing, please refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 Application Gateway currently supports layer 7 application delivery for the following:
 
@@ -32,7 +32,7 @@ Application Gateway currently supports layer 7 application delivery for the foll
 
 ## HTTP layer 7 load balancing
 
-Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the App Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing. When you create an Application Gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
+Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
 
 The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
 
@@ -61,7 +61,7 @@ The table below shows an average performance throughput for each application gat
 | 6K | 7.5 mbps | 13 mbps | 50 mbps |
 |100k | 35 mbps | 100mbps| 200 mbps |
 
->[AZURE.NOTE] Performance response also depends on the web application application gateway is sending HTTP network traffic.
+>[AZURE.NOTE] Performance numbers also depends on the web application HTTP response back to application gateway. 
 
 
 ## Monitoring
