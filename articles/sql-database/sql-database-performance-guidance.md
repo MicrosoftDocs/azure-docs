@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="11/3/2015"
 	ms.author="jroth" />
 
 # Azure SQL Database performance guidance for single databases
 
-## Overview
+## Overview 
 
 Microsoft Azure SQL Database has three [service tiers](sql-database-service-tiers.md), Basic, Standard, and Premium. All strictly isolate the resource provided to your Azure SQL Database and guarantee predictable performance. The throughput guaranteed for your database rises from Basic through Standard and then to Premium.
 
