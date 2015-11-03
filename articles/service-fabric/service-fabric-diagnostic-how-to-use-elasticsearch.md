@@ -67,12 +67,12 @@ Before running the script, open the `azuredeploy-parameters.json` file and verif
 |Parameter Name           |Description|
 |-----------------------  |--------------------------|
 |dnsNameForLoadBalancerIP |This is the name that will be used to create the publicly visible DNS name for the cluster (by appending the Azure region domain to the provided name). For example, if this parameter value is "myBigCluster" and the chosen Azure region is West US, the resulting DNS name for the cluster will be myBigCluster.westus.cloudapp.azure.com. This name will also serve as a root for names for many artifacts associated with the cluster, such as data node names.|
-|storageAccountPrefix    |The prefix for the storage account(s) that will be created for the ElasticSearch cluster. The current version of the template uses one shared storage account, but that might change in future.|
+|storageAccountPrefix    |The prefix for the storage account(s) that will be created for the ElasticSearch cluster. <br /><br /> The current version of the template uses one shared storage account, but that might change in future.|
 |adminUsername           |The name of the administrator account for managing the cluster (corresponding SSH keys will be generated automatically)|
 |dataNodeCount           |The number of nodes in the cluster. The current version of the script does not distinguish between data and query nodes; all nodes will play both roles.|
 |dataDiskSize            |The size of data disks (in GB) that will be allocated for each data node. Each node will receive 4 data disks, exclusively dedicated to ElasticSearch service.|
 |region                  |The name of Azure region where the cluster should be located.|
-|esClusterName           |The internal name of the ElasticSearch cluster. This value does need to be changed from the default unless you plan to run more than one ES cluster on the same virtual network, which is currently not supported by the ES-MultiNode template.|
+|esClusterName           |The internal name of the ElasticSearch cluster. <br /><br />This value does need to be changed from the default unless you plan to run more than one ES cluster on the same virtual network, which is currently not supported by the ES-MultiNode template.|
 |esUserName esPassword  |Credentials for the user that will be configured to have access to ES cluster (subject to HTTP basic authentication).|
 
 Now you are ready to run the script. Issue the following command:
@@ -90,11 +90,11 @@ After running the `CreateElasticSearchCluster` script the following main artifac
 
 |Artifact|Name, Location and Remarks|
 |----------------------------------|----------------------------------|
-|SSH key for remote administration |myBigCluster.key file (in the directory from which the CreateElasticSearchCluster was run). This is the key that can be used to connect to the admin node and (through the admin node) to data nodes in the cluster.|
-|Admin node                        |myBigCluster-admin.westus.cloudapp.azure.com This is a dedicated VM for remote cluster administration, the only one that allows external SSH connections. It runs on the same virtual network as all the ElasticSearch cluster nodes but does not run ElasticSearch services.|
-|Data nodes                        |myBigCluster1 … myBigCluster*N* Data nodes that are running ElastisSearch and Kibana services. You can connect via SSH to each node, but only via the admin node.|
+|SSH key for remote administration |myBigCluster.key file (in the directory from which the CreateElasticSearchCluster was run). <br /><br />This is the key that can be used to connect to the admin node and (through the admin node) to data nodes in the cluster.|
+|Admin node                        |myBigCluster-admin.westus.cloudapp.azure.com <br /><br />This is a dedicated VM for remote cluster administration, the only one that allows external SSH connections. It runs on the same virtual network as all the ElasticSearch cluster nodes but does not run ElasticSearch services.|
+|Data nodes                        |myBigCluster1 … myBigCluster*N* <br /><br />Data nodes that are running ElastisSearch and Kibana services. You can connect via SSH to each node, but only via the admin node.|
 |ElasticSearch cluster             |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />The above is the primary endpoint for the ElastisSearch cluster (note the /es suffix). It is protected by basic HTTP authentication (the credentials were specified esUserName/esPassword parameters of the ES-MultiNode template). The cluster has also the head plugin installed (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) for basic cluster administration.|
-|Kibana service                    |http://myBigCluster.westus.cloudapp.azure.com Kibana service is set up to show data from the created ElasticSearch cluster; it is protected by the same authentication credentials that the cluster itself.|
+|Kibana service                    |http://myBigCluster.westus.cloudapp.azure.com <br /><br />Kibana service is set up to show data from the created ElasticSearch cluster; it is protected by the same authentication credentials that the cluster itself.|
 
 ## In-process Versus Out-of-process Tracing
 In the introduction we have mentioned two fundamental ways of collecting diagnostic data: in-process and out-of-process. Each has strengths and weaknesses.
