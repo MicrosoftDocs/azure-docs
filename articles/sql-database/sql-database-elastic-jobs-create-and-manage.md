@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/02/2015"
 	ms.author="ddove; sidneyh"/>
 
 # Create and manage a SQL Database elastic jobs with Portal (preview)

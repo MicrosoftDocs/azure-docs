@@ -50,10 +50,6 @@ Before you begin this tutorial, you must have the following:
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
-
-
 
 <!-- ################################ -->
 <!-- ################################ -->
