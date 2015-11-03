@@ -22,7 +22,7 @@
 
 
 Learn how to use Azure CLI to create Azure Data Lake Analytics accounts, define Data Lake Analytics
-jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
+jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more 
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 >[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
@@ -36,7 +36,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 ![Azure Data Lake Analytics process flow diagram](./media/data-lake-analytics-get-started-portal/data-lake-analytics-process.png)
 
 1. Create a Data Lake Analytics account.
-2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
+2. Prepare the source data. Data Lake Analytics jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
 3. Develop a U-SQL script.
 4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
 in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
@@ -45,7 +45,7 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial]https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Azure CLI**. See [Install and configure Azure CLI](xplat-cli.md).
 - **Authentication**, using the following command:
 
@@ -67,7 +67,7 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
     
 	To create a new resource group:
 
-		azure group create -n "<Your resource group name>" -l "<Azure data center>"
+		azure group create -n "<Resource Group Name>" -l "<Azure Location>"
 
 - **Data Lake Analytics account name**
 - **Location**: one of the Azure data centers that supports Data Lake Analytics.
@@ -79,7 +79,7 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 
 	To create a new Data Lake account:
 
-		azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
+		azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
 
 	> [AZURE.NOTE] The Data Lake account name must only contain lowercase letters and numbers.
 
@@ -87,10 +87,10 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 
 **To create a Data Lake Analytics account**
 
-		azure datalake analytics account create <dataLakeAnalyticsAccountName> <location> <resourceGroup> <defaultDataLake>
+		azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
 		azure datalake analytics account list
-		azure datalake analytics account show <dataLakeAnalyticsAccountName>				
+		azure datalake analytics account show "<Data Lake Analytics Account Name>"				
 
 	![Data Lake Analytics show account](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
@@ -104,14 +104,15 @@ In this tutorial, you will process some search logs.  The search log can be stor
 The Azure Preview portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare soude data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
 
 To upload files using cli, use the following command:
-  	azure datalake store filesystem import <dataLakeStoreAccountName> <path> <destination>
-  	azure datalake store filesystem list <dataLakeStoreAccountName> <path>
+
+  	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
+  	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
 
 ##Submit Data Lake Analytics jobs
 
-The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **To create a Data Lake Analytics job script**
 
@@ -150,20 +151,20 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 **To submit the job**
 
 
-	azure datalake analytics job create  <dataLakeAnalyticsAccountName> <jobName> <script>
+	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
     
     
 The following commands can be used to list jobs, get job details, and cancel jobs:
 
-  	azure datalake analytics job cancel <dataLakeAnalyticsAccountName> <jobId>
-  	azure datalake analytics job list <dataLakeAnalyticsAccountName>
-	azure datalake analytics job show <dataLakeAnalyticsAccountName> <jobId>
+  	azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+  	azure datalake analytics job list "<Data Lake Analytics Account Name>"
+	azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
 
 After the job is completed, you can use the following cmdlets to list the file, and download the file:
 	
-    azure datalake store filesystem list <dataLakeStoreAccountName> "/Output"
-	azure datalake store filesystem export <dataLakeStoreAccountName> "/Output/SearchLog-from-Data-Lake.csv" <destination>
-	azure datalake store filesystem read <dataLakeStoreAccountName> "/Output/SearchLog-from-Data-Lake.csv" <length> <offset>
+    azure datalake store filesystem list "<Data Lake Store Account Name>" "/Output"
+	azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
+	azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
 ## See also
 
