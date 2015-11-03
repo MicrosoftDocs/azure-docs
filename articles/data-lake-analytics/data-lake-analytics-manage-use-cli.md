@@ -22,9 +22,6 @@
 
 Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure. To see management topic using other tools, click the tab select above.
 
->[AZURE.IMPORTANT] The UE team hasn't been able to successfully install CLI.  Matthew Hicks and Ben Goldsmith are investigating.
-
-
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
@@ -61,7 +58,7 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 The following command updates the properties of an existing Data Lake Analytics Account
   	
-	  azure datalake analytics account set "<Data Lake Analytics Account Name>"
+	azure datalake analytics account set "<Data Lake Analytics Account Name>"
 
 
 ###List accounts
@@ -106,7 +103,7 @@ The value is listed under properties:datalakeStoreAccount:name.
 
   	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
->[AZURE.NOTE] Only Blob storage short names are supported.  Don't use FQDN, for example "myblob.blob.core.windows.net"
+>[AZURE.NOTE] Only Blob storage short names are supported.  Don't use FQDN, for example "myblob.blob.core.windows.net".
 
 ### Add additional Data Lake Store accounts
 
@@ -158,7 +155,7 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 
 > [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
 
-	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" <script>
+	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
 ### Cancel jobs
 
