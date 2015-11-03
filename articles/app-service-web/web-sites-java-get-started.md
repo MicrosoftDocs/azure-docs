@@ -48,7 +48,7 @@ There are several ways you can set up a Java application in an App Service web a
 	You might want to host a custom Java application that does not deploy in any of the web containers provided by App Service.  For example, here are some reasons for doing this:
 	
 	* Your Java application requires a version of Tomcat or Jetty that isn't directly supported by App Service or provided in the gallery.
-	* You Java application takes HTTP requests and does not deploy as a WAR into a pre-existing web container.
+	* Your Java application takes HTTP requests and does not deploy as a WAR into a pre-existing web container.
 	* You want to configure the web container from scratch yourself. 
 	* You want to use a version of Java that isn’t supported in App Service and want to upload it yourself.
 
