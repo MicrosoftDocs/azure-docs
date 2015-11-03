@@ -24,8 +24,6 @@
 
 This article give you an overview of how to link virtual networks (VNets) to ExpressRoute circuits. Virtual networks can either be in the same subscription, or be part of another subscription. This article applies to VNets deployed using the classic deployment model. If you want to link a virtual network that was deployed using the Azure Resource Manager deployment method, you can do so by using a template. See the tab above to navigate to the template.
 
->[AZURE.IMPORTANT] It's important to understand that Azure currently works with two deployment models: Resource Manager, and classic (also known as Service Management). Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md). For more information about Resource Manager in general, see [Azure Resource Manager overview](../resource-group-overview.md).
-
 [AZURE.INCLUDE [vpn-gateway-sm-rm-include](../../includes/vpn-gateway-sm-rm-include.md)] 
 
 ## Configuration prerequisites
