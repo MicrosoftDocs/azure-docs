@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/25/2015"
+	ms.date="11/02/2015"
 	ms.author="wesmc"/>
 
 #A media app case study for Azure Mobile Engagement 
@@ -85,7 +85,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 5. When: what is the best moment to send this push notification
 
 
-|     | Objective | How | Target | Content | When |
+| Push Sequence | Objective | How | Target | Content | When |
 |:===:|:=========:|:===:|:======:|:=======:|:====:|
 | Welcome Program |
 | Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |

@@ -22,15 +22,15 @@
 
 A gaming start-up has launched a new role-play/strategy game app. The game has been up and running for 6 months. This game is a huge success, they have millions of downloads and the retention is very high compared to other start-up game apps. At the quarterly review meeting, stakeholders agree they need to increase average revenue per user. Premium in-game packages are available as special offers. These game packs allow users to upgrade the appearance and performance of their weapons and armor in the game. However, package sales are very low. So they decide first to analyze the customer experience with an analytics tool, and then to develop an engagement program to increase sales using advanced segmentation.
 
-Based on the guideline Azure Mobile Engagement white paper they build an engagement strategy.
+Based on the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md) they build an engagement strategy.
 
 ##Objectives and KPIs
 
 Key stakeholders for the game meet. All agree on one main objective: To increase premium package sales by 15%. They create Key Performance Indicators (KPIs) to drive this objective
 
 * On which level are packages purchased?
-* What is the revenue for various periods per user (per session/ per week / per month…)?
-* What are favorite purchase types?
+* What is the revenue for per user, per session, per week, and per month?
+* What are the favorite purchase types?
 
 Part 1 of the [Getting Started Guide](mobile-engagement-getting-started-best-practices.md) explains how to define the objectives and KPIs. The Business KPI are already defined.
 
@@ -56,16 +56,16 @@ For each KPI the Mobile Product Manager specifies the data he needs and where it
 
 Before building an advanced engagement program, The Mobile Project Director in charge of the project should have a deep understanding of how and when products are consumed by the users.
 
-After 3 months the Mobile Project Director has collected enough data to enhance his in-app sales push notifications. He learns that:
+After 3 months the Mobile Project Director has collected enough data to enhance his in-app push notification sales. He learns that:
 
-* The first purchase generally happens at the level 14. For 90% of those cases, the purchase is a new legendary weapons for $3.
+* The first purchase generally happens at the level 14. For 90% of those cases, the purchase is new legendary weapons for $3.
 * In 80 % of those cases, users who have made a purchase, continue with the product and make more purchases.
 * Users who have passed the level 20, start to spend more than $10/week.
 * Users tend to buy premium packages at level 16, 24 and 32.
 
 Thanks to this analysis the Mobile Project Director decides to create specific push notifications to increase in app sales. He also creates two sequences, the first one is a **Welcome program** and the second one is an **Inactive Program**. For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
 
-|     | Objective | How | Target | Content | When |
+| Push Sequence | Objective | How | Target | Content | When |
 |:===:|:=========:|:===:|:======:|:=======:|:====:|
 | Welcome Program |
 | Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |
