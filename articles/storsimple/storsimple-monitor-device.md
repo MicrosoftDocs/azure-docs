@@ -49,13 +49,9 @@ The primary, cloud and device storage capacity can be described as follows:
 
 ####Primary storage capacity utilization
  
-These charts show the amount of data written to StorSimple volumes before the data is deduplicated and compressed. The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. Given that this is just volume data, a cloud snapshot should not change the primary storage. As you can see, the chart shows no difference in the primary capacity utilization as a result of taking a cloud snapshot. Note that the cloud snapshot started at around 2:00 pm on that device.
+These charts show the amount of data written to StorSimple volumes before the data is deduplicated and compressed. You can view the primary storage utilization by all volumes or for a single volume.
 
-![Primary capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
-
-![Primary capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
-
-When you view the primary storage volume capacity utilization charts for all volumes versus all of the individual volumes, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
+When you view the primary storage volume capacity utilization charts for all volumes versus each of the individual volumes and sum it up, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
 
 - **Snapshot data included for all volumes**: The local snapshot data for all the volumes is added to the primary data of all the volumes. This can also be explained by the following equation:
 
@@ -67,7 +63,16 @@ When you view the primary storage volume capacity utilization charts for all vol
  
 - **Volumes with monitoring disabled included in all volumes**: If you have volumes on your device for which monitoring is turned off, the monitoring data for these individual volumes will not be available in the charts. However, the data for all volumes in the chart will include the volumes for which monitoring is turned off. 
  
+- **Deleted volumes with live associated backups included for all volumes**: If volumes containing snapshot data are deleted but the associated snapshots still exist, then you may see a mismatch.
+
 - **Deleted volumes included for all volumes**: In some instances, old volumes containing snapshot data may exist even though these were deleted. The effect of deletion is not seen and the device may show lower available capacity. You will need to contact Microsoft Support to remove these volumes.
+
+The following charts show the primary storage capacity utilization of a StorSimple device before and after a cloud snapshot was taken. Given that this is just volume data, a cloud snapshot should not change the primary storage. As you can see, the chart shows no difference in the primary capacity utilization as a result of taking a cloud snapshot. Note that the cloud snapshot started at around 2:00 pm on that device.
+
+![Primary capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
+
+![Primary capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
 
 ####Cloud storage capacity utilization
 
