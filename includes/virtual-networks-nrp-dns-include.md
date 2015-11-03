@@ -23,6 +23,7 @@ DNS zones have a child object named record set. Record sets are a collection of 
 | SRV | service record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
 <sup>1</sup> only allows one value per record set.
+
 <sup>2</sup> only allows one record type SOA per DNS zone. 
 
 Sample of DNS zone in Json format:
