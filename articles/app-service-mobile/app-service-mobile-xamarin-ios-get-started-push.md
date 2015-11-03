@@ -42,6 +42,10 @@ Note that it's easier to run your Xamarin.iOS app on a Mac by using Xamarin Stud
 
 * Complete the [quickstart tutorial](../app-service-mobile-xamarin-ios-get-started.md).
 
+##<a name="create-hub"></a>Create a Notification Hub
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>Register app for push notifications
 
 [AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
