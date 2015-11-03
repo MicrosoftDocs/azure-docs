@@ -65,8 +65,6 @@ The following table displays libraries that are released by third parties such a
 | Node.js | [Edge.js *(github com, tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk, github io)*](http://tjanczuk.github.io/edge/) |
 | . | [FreeTDS *(org)*](http://www.freetds.org/) |
 
-Windows Azure
-
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
