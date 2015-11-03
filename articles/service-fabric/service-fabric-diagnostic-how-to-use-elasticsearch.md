@@ -66,7 +66,7 @@ Before running the script, open the `azuredeploy-parameters.json` file and verif
 
 |Parameter Name           |Description|
 |-----------------------  |--------------------------|
-|dnsNameForLoadBalancerIP |This is the name that will be used to create the publicly visible DNS name for the cluster (by appending the Azure region domain to the provided name). For example, if this parameter value is "myBigCluster" and the chosen Azure region is West US, the resulting DNS name for the cluster will be myBigCluster.westus.cloudapp.azure.com. This name will also serve as a root for names for many artifacts associated with the cluster, such as data node names.|
+|dnsNameForLoadBalancerIP |This is the name that will be used to create the publicly visible DNS name for the cluster (by appending the Azure region domain to the provided name). For example, if this parameter value is "myBigCluster" and the chosen Azure region is West US, the resulting DNS name for the cluster will be myBigCluster.westus.cloudapp.azure.com. <br /><br />This name will also serve as a root for names for many artifacts associated with the cluster, such as data node names.|
 |storageAccountPrefix    |The prefix for the storage account(s) that will be created for the ElasticSearch cluster. <br /><br /> The current version of the template uses one shared storage account, but that might change in future.|
 |adminUsername           |The name of the administrator account for managing the cluster (corresponding SSH keys will be generated automatically)|
 |dataNodeCount           |The number of nodes in the cluster. The current version of the script does not distinguish between data and query nodes; all nodes will play both roles.|
