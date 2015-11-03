@@ -52,7 +52,7 @@ Notice that because RLS has not yet been enabled in the shard databases, each of
 2. **Data tier**: Create an RLS security policy in each shard database to filter rows based on the TenantId stored in SESSION_CONTEXT. You will need to do this for each of your shard databases, otherwise rows in multi-tenant shards will not be filtered. 
 
 
-## Step 1) Application tier: Set CONTEXT_INFO to TenantId
+## Step 1) Application tier: Set TenantId in the SESSION_CONTEXT
 
 After connecting to a shard database using the elastic database client library’s data dependent routing APIs, the application still needs to tell the database which TenantId is using that connection so that an RLS security policy can filter out rows belonging to other tenants. The recommended way to pass this information is to store the current TenantId for that connection in the [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Note: You could alternatively use [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125.aspx), but SESSION_CONTEXT is a better option because it is easier to use, returns NULL by default, and supports key-value pairs.)
 
@@ -234,7 +234,7 @@ GO
 You can put a default constraint on each table to automatically populate the TenantId with the value currently stored in SESSION_CONTEXT when inserting rows. For example: 
 
 ```
--- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
+-- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
 ALTER TABLE Blogs     
 	ADD CONSTRAINT df_TenantId_Blogs      
 	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
