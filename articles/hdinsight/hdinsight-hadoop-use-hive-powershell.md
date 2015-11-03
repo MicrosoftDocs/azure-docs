@@ -119,7 +119,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following commands, and replace **CLUSTERNAME** with the name of your cluster:
 
-        Use-AzureRmHDInsightCluster $clusterName
+        Use-AzureRmHDInsightCluster -ClusterName $clusterName
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
