@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="A media app case study for Azure Mobile Engagement"
-	description="A case study for a media app that uses Azure Mobile Engagement" 
+	pageTitle="A media app scenarop for Azure Mobile Engagement"
+	description="A scenario for a media app that uses Azure Mobile Engagement" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="11/02/2015"
 	ms.author="wesmc"/>
 
-#A media app case study for Azure Mobile Engagement 
+#A media app scenario for Azure Mobile Engagement 
 
 ## Overview
 
@@ -30,27 +30,23 @@ John has recently read the [Azure Mobile Engagement - Getting Started Guide with
 
 ##Objectives and KPIs
 
-Key stakeholders for John's app meet. All agree on one main objective: To increase sales from ads by 25%. They create Key Performance Indicators (KPIs) to drive this objective
+Key stakeholders for John's app meet. Business is generated from ads as users consume his media. By increasing content consumed per user, John increases his revenues. All agree on one main objective: To increase sales from ads by 25%. They create Business Key Performance Indicators (KPIs) to measure and drive this objective
 
 * Number of ads clicked per user
 * How many article pages visited (per user/ per session/ per week / per month…)
 * What are favorite categories
 
-John meets with all key stakeholders for his app to define his Business KPIs. He follows Part 1 of the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md). 
+Based on John's meeting with key stakeholders he has defined his Business KPIs. He follows Part 1 of the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md). 
 
-Based on purchasing patterns he has noted for his users, John is confident he will reach his objectives based on 2 main factors:
 
-1. The number of visits per user
-2. Consumed content per user. Business is generated as users consume his media. By increasing content consumed per user, John increases his revenues.
-
-He creates the following Engagement KPIs to ensure that objectives are reached:
+Next, he creates the following Engagement KPIs to ensure that objectives are reached:
 
 * Monitor retention across the following intervals: daily, weekly, bi-weekly and monthly.
 * Origin sources of my users and performances by source (Wes: need clarification on this)
 * Active users counts
 * The app rating in the app stores
 
-Following recommendations from the IT team, some technical KPIs were added to answer the following questions:
+Based on recommendations from the IT team, the following Technical KPIs were added to answer the following questions:
 
 * What is my user path (which page is visited, how many time users spend on it)
 * Number of crashes or bugs encountered per session?
