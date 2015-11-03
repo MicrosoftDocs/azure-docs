@@ -33,8 +33,6 @@ You grant access to your **DevTest-Lab** through two roles:
      For example, a **DevTest Lab User** cannot create a virtual machine using the Virtual Machine service of the subscription. Creating a virtual machine is only allowed from the DevTest Lab account.
      - *External* users must have an account in one of the Microsoft account domains (i.e. @hotmail.com, @live.com, @msn.com, @passport.com, @outlook.com, or any variant for a specific country).
 
-> [AZURE.NOTE] Azure roles other than **Owner** and **DevTest Lab User** are not supported in a **DevTest Lab**.
-
 ## Add a DevTest Lab User to your lab 
 
 1. Sign in to the [Azure preview portal](http://portal.azure.com).
@@ -47,16 +45,20 @@ You grant access to your **DevTest-Lab** through two roles:
 	
 	![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-lab-home-blade.png)
 
-1. On the **Users** blade, tap **Add** to display the **Add access** blade.
+1. On the **Users** blade, tap **Add**.
 
 	![Choose the Access link](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 
-2. In the **Select a role** blade, tap **DevTest Lab User**.
+> [AZURE.NOTE] Only the **Owner** and **DevTest Lab User** roles are currently supported in a **DevTest Lab**.
+
+1. In the **Select a role** blade, tap either **Owner** or **DevTest Lab User**, depending on the type of user you are adding.
 
 1. In the **Add users** blade:
 
-	1. Enter the email account in the **Users** text box and press **Enter**. An error message is displayed if the account does not exist.
+	1. The **Add users** blade will display a list of built-in users. If the desired user is already in the list, you can simply tap the user row to select it. A checkmark will appear to the left of the user to indicate that the user has been selected. To select multiple users, hold the **<Ctrl>**    key while clicking each user. To deselect a user, hold the **<Ctrl>** key and click the user. A counter at the bottom of the blade indicates the number of selected users. 
+	
+	1. If the desired user is not in the list, enter a valid Microsoft email account in the **Users** text box and press **Enter**. **Note:** An error message is displayed if the account does not exist. 
 
-	1. Tap the verified account.
+	1. Once you've selected the users you want to add to the lab, tap **Select**.
 
-	3. Tap **Select**.
+	1. The **Add access** blade displays the added roles and users. Click **OK** to close the blade.
