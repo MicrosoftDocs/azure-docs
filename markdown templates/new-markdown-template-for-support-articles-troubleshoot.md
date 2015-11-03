@@ -36,5 +36,5 @@ Troubleshooting step 3/scenario 3
 -	Describe the symptom, possible cause and resolution
 -	Include screenshot if possible
 
-## Next step
+## Next steps
 - Put additional information and reference links here
