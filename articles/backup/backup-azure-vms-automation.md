@@ -175,7 +175,7 @@ The variable ```$rp``` is an array of recovery points for the selected backup it
 
 There is a key difference between the restore operations done through the Azure portal and through Azure PowerShell. With PowerShell, the restore operation stops at restoring the disks and config information from the recovery point. It does not create a virtual machine.
 
-> [AZURE.WARNING] The Restore-AzureRMBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behaviour you will experience in the Azure portal.
+> [AZURE.WARNING] The Restore-AzureRMBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behavior you will experience in the Azure portal.
 
 ```
 PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]

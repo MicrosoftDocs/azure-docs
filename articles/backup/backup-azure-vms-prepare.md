@@ -55,7 +55,7 @@ To create a backup vault:
 
 
 
-## 3. Network connectivity
+## 2. Network connectivity
 
 ![Network connectivity](./media/backup-azure-vms-prepare/step2.png)
 
@@ -143,7 +143,7 @@ This command adds an exception to the NSG, allowing TCP traffic from any port on
 
 *Ensure that you replace the names in the example with the details appropriate to your deployment.*
 
-## 2. VM Agent
+## 3. VM Agent
 
 ![VM agent](./media/backup-azure-vms-prepare/step3.png)
 
