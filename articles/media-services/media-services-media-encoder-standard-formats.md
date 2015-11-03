@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs
@@ -58,6 +58,7 @@ Input Video Codecs|Supported
 AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra	|8 bit 4:2:0 and 4:2:2 
 Avid DNxHD (in MXF)									|Yes 
 DVCPro/DVCProHD (in MXF)							|Yes 
+Digital video (DV) (in AVI files)                   |Yes
 JPEG 2000											|Yes 
 MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)|Up to 422 Profile 
 MPEG-1												|Yes 

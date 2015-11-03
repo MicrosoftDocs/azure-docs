@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Code sample: Parse data exported from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
@@ -540,6 +540,6 @@ To see this example in action, [download](https://sesitai.codeplex.com/) the com
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

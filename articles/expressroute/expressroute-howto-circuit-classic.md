@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
@@ -322,4 +322,4 @@ If the service provider has deprovisioned the circuit (the service provider prov
 ## Next steps
 
 - [Configure routing](expressroute-howto-routing-classic.md)
-- [Link a VNet to an ExpressRoute circuit](expresssroute-howto-linkvnet-classic.md) 
+- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md) 

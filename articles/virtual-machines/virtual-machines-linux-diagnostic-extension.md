@@ -35,7 +35,8 @@ For version 2.0, the data includes:
 - All system data specified in this [document](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - User specified log files.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ## How to enable the extension
 The extension can be enabled through the [Azure portal](https://ms.portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.

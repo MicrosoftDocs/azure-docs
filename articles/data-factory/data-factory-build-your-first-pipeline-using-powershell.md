@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Azure PowerShell
@@ -32,7 +32,12 @@ In this article, you will learn how to use Azure PowerShell to create your first
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
-> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.   
+> [AZURE.IMPORTANT] 
+> Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.
+>   
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
+>    
+> If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.   
 
 ## Step 1: Creating the data factory
 
@@ -54,7 +59,9 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named ADF
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
-	The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “DataFactoryMyFirstPipelinePSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial.
+	> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “DataFactoryMyFirstPipelinePSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	> 
+	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 
 In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial.
 
@@ -152,9 +159,9 @@ Now, you will create the output dataset to represent the data stored in the Azur
 
 	In the previous example, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 
-2. Run the following command in Azure PowerShell to create the Data Factory table.
+2. Run the following command in Azure PowerShell to create the Data Factory dataset.
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## Step 3: Creating your first pipeline
 In this step, you will create your first pipeline.
@@ -267,3 +274,5 @@ In this article, you have created a pipeline with a transformation activity (HDI
 
 ## Send Feedback
 We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md). 
+
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx

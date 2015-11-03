@@ -18,6 +18,8 @@
 
 # Move Data to and from Azure Blob Storage using Azure Storage Explorer
 
+Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introduction

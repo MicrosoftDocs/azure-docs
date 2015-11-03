@@ -19,7 +19,8 @@
 
 # Get Started with Fleet on CoreOS on Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This article gives you two quick examples of using [fleet](https://github.com/coreos/fleet) and [Docker](https://www.docker.com/) to run applications on a cluster of [CoreOS] virtual machines.
 

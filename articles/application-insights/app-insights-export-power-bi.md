@@ -36,7 +36,7 @@ Noam Ben Zeev shows what we describe in this article.
 
 ## Monitor your app with Application Insights
 
-If you haven't tried it yet, now is the time to start. Application Insights can monitor any device or web app on a wide range of platforms, including Windows, iOS, Android, J2EE, and more. [Get started](app-insights-get-started.md).
+If you haven't tried it yet, now is the time to start. Application Insights can monitor any device or web app on a wide range of platforms, including Windows, iOS, Android, J2EE, and more. [Get started](app-insights-overview.md).
 
 ## Create storage in Azure
 

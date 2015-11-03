@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/02/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL information
@@ -76,6 +76,8 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - SHUTDOWN
 - sp_addmessage
 - sp_configure options and RECONFIGURE
+- sp_helpuser
+- sp_migrate_user_to_contained
 - SQL Server audit (use SQL Database auditing instead)
 - SQL Server Profiler
 - SQL Server trace

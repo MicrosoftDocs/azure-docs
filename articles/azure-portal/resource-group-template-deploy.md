@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -27,13 +27,15 @@ When deploying an application with a template, you can provide parameter values 
 
 ## Deploy with PowerShell
 
-You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Depending on which version of Azure PowerShell you have 
-installed, the commands will be a little bit different.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
     Earlier than Azure PowerShell 1.0 Preview:
 
+        PS C:\> Switch-AzureMode AzureResourceManager
+        ...
         PS C:\> Add-AzureAccount
 
         Id                             Type       ...
@@ -49,15 +51,11 @@ installed, the commands will be a little bit different.
          ...
 
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment with the **Select-AzureRmSubscription** command (or **Select-AzureSubscription** for Azure PowerShell versions earlier than 1.0 Preview). 
+2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment with the **Select-AzureRmSubscription** command. 
 
         PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-3. For Azure PowerShell versions earlier than 1.0 Preview, switch to the Azure Resource Manager module.
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-
-4. If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup** command (or **New-AzureResourceGroup** for Azure PowerShell versions earlier than 1.0 Preview). Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+3. If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup** command. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
 
         PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -71,7 +69,7 @@ installed, the commands will be a little bit different.
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command (or **New-AzureResourceGroupDeployment** for Azure PowerShell versions earlier than 1.0 Preview) and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
+5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
    
      You have the following options for providing parameter values: 
    

@@ -48,7 +48,7 @@ Change user license                  | Changed the license assigned to a user in
 Update user                          | Updated a user in the directory. [See below](#quotupdate-userquot-attributes) for attributes that can be updated.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
-Create group                         | Created a group in the directory.
+Add group                            | Created a group in the directory.
 Update group                         | Updated a group in the directory.
 Delete group                         | Deleted a group from the directory.
 Add member to group                  | Added a member to a group in the directory.

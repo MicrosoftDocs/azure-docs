@@ -24,7 +24,8 @@ This article gives an overview of using the Custom Script extension on Windows V
 Virtual machine (VM) extensions are built by Microsoft and trusted third-party publishers to extend the functionality of the VM. For an overview of VM extensions, see
 [Azure VM extensions and features](virtual-machines-extensions-features.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. You can also create a resource with the [Resource Manager deployment model](virtual-machines-extensions-customscript%20-with%20template.md).
+Link:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Custom Script extension overview

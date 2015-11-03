@@ -22,7 +22,8 @@
 
 Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Windows or a Linux distribution. 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This topic describes how to:
 

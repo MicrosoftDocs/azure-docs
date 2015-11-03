@@ -1,19 +1,19 @@
 <properties
  pageTitle="List of Azure IoT Hub SDKs | Microsoft Azure"
- description="Information about and links to the various IoT Hub device and service SDKs"
+ description="Information about and links to the various Azure IoT Hub device and service SDKs."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="10/01/2015"
  ms.author="dobett"/>
 
 # IoT Hub SDKs

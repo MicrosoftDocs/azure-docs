@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Application Insights for Java web apps that are already live

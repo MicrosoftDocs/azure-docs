@@ -1,14 +1,14 @@
 <properties
-   pageTitle="Connecting your device to the the Azure IoT Suite preconfigured remote monitoring solution | Microsoft Azure"
-   description="Describes how to connect your device to the Azure IoT Suite preconfigured remote monitoring solution using an example involving temperature and humidity."
-   services="iot-hub"
+   pageTitle="Connect a device to a preconfigured solution | Microsoft Azure"
+   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an example that uses temperature and humidity data."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -244,10 +244,10 @@ To learn how to do command and control, please go to that section below in this 
 
 
    ```
-   static const char* deviceId = "[Device Id]";
-   static const char* deviceKey = "[Device Key]";
-   static const char* hubName = "[IoTHub Name]";
-   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   var deviceID = "[DeviceID]";
+   var deviceKey = "[Device Key]";
+   var hubName = "[IoT Hub Name]";
+   var hubSuffix = "[IoT Hub Suffix i.e azure-devices.net]";
    ```
 
 -  Replace "[Device Id]", "[Device Key], with the data your device data.
@@ -258,10 +258,10 @@ To learn how to do command and control, please go to that section below in this 
 
 
    ```
-     static const char* deviceId = "mydevice";
-   static const char* deviceKey = "mykey";
-   static const char* hubName = "Contoso";
-   static const char* hubSuffix = "azure-devices.net";
+   var deviceID = "mydevice";
+   var deviceKey = "mykey";
+   var hubName = "Contoso";
+   var hubSuffix = "azure-devices.net";
    ```
 
 

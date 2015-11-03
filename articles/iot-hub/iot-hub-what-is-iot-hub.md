@@ -1,10 +1,10 @@
 <properties
- pageTitle="What is Azure IoT Hub | Microsoft Azure"
- description="A overview of the Azure IoT Hub service including device connectivity, communication patterns and service assisted communication pattern"
+ pageTitle="Overview Azure IoT Hub | Microsoft Azure"
+ description="A overview of the Azure IoT Hub service including device connectivity, communication patterns, and service assisted communication pattern"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # What is Azure IoT Hub?
 
- Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
 
 ![IoT Hub as cloud gateway?][img-architecture]
 

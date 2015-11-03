@@ -102,7 +102,7 @@ Click through Users to see details about new users and their locations.
 
 * [Web tests](app-insights-monitor-web-app-availability.md) to monitor the availability of your site.
 
-* [Application Insights](app-insights-get-started.md) for other types of app.
+* [Application Insights](app-insights-overview.md) for other types of app.
 
 
 

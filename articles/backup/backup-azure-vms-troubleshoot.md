@@ -1,6 +1,6 @@
 ﻿<properties
-	pageTitle="Azure virtual machine backup - Troubleshooting | Microsoft Azure"
-	description="Find information to troubleshoot backup and restore of Azure virtual machine"
+	pageTitle="Troubleshoot Azure virtual machine backup | Microsoft Azure"
+	description="Troubleshoot backup and restore of Azure virtual machines"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk";"aashishr"/>
 
 

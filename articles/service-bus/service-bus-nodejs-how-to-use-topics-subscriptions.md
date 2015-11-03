@@ -19,6 +19,8 @@
 
 # How to Use Service Bus topics and subscriptions
 
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
 This guide describes how to use Service Bus topics and subscriptions
 from Node.js applications. The scenarios covered include **creating
 topics and subscriptions**, **creating subscription filters**, **sending

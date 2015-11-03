@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub Scaling | Microsoft Azure"
+ pageTitle="Azure IoT Hub scaling | Microsoft Azure"
  description="Describes how to scale Azure IoT Hub."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 

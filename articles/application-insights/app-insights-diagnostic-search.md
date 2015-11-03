@@ -194,7 +194,7 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [javalogs]: app-insights-java-trace-logs.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-spi-custom-events-metrics.md
 

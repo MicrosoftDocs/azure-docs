@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -157,8 +157,8 @@ SELECT
 		o.name         AS [db_object_name],
 		o.description  AS [db_obj_description]
 	FROM
-				   sys.dm_xe_database_objects  AS o
-		INNER JOIN sys.dm_xe_database_packages AS p  ON p.guid = o.package_guid
+		           sys.dm_xe_objects  AS o
+		INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
 	WHERE
 		o.object_type in
 			(

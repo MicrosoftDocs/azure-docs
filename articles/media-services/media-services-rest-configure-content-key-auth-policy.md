@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure Content Key Authorization Policy using REST" 
-	description="Learn how to configure an authorization policy for a content key." 
+	pageTitle="Configure Content Key Authorization Policy using Media Services REST API" 
+	description="Learn how to configure an authorization policy for a content key using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 

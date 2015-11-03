@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 # How to create NSGs in PowerShell
@@ -32,16 +32,9 @@ The sample PowerShell commands below expect a simple environment already created
 ## How to create the NSG for the front end subnet
 To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
 
 3. Create a security rule allowing access from the Internet to port 3389.
 
@@ -129,6 +122,8 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		                        "RouteTable": null,
 		                        "ProvisioningState": "Succeeded"
 		                      }
+
+>[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the **Set-AzureVirtualNetwork** cmdlet to save these settings to Azure.
 
 7. Save the new VNet settings to Azure.
 

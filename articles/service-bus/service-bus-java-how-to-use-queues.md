@@ -18,6 +18,8 @@
 
 # How to use Service Bus queues
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 This article describes how to use Service Bus queues. The samples are
 written in Java and use the [Azure SDK for Java][]. The
 scenarios covered include **creating queues**, **sending and receiving

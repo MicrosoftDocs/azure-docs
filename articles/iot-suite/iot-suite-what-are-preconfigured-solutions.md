@@ -1,10 +1,10 @@
 <properties
- pageTitle="Description of the Azure IoT preconfigured solutions. | Microsoft Azure"
+ pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="aguilaaj"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="araguila"/>
 

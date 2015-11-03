@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Azure Storage replication
@@ -88,8 +88,10 @@ When you create a storage account, you select the primary region for the account
 |Japan West         |Japan East
 |Brazil South       |South Central US
 |Australia East     |Australia Southeast
-|Australia Southeast|Australia East  
-
+|Australia Southeast|Australia East
+|India South        |India Central
+|India Central      |India South
+  
 
 ## Read-access geo-redundant storage
 

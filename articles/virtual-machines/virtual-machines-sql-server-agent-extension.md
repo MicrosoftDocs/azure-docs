@@ -21,7 +21,8 @@
 
 This extension enables SQL Server in Azure Virtual Machines to use certain services, listed in this article, which can only be used with this extension installed. This extension is automatically installed for SQL Server Gallery Images in the Azure Preview Portal. It can be installed on any SQL Server VM in Azure which has the Azure VM Guest Agent installed.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
  
 ## Prerequisites
 Requirements for using Powershell cmdlets:

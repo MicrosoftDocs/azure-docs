@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application #
@@ -337,7 +337,7 @@ The first thing to notice is that each public property of `Hotel` corresponds to
 
 The second important thing about the `Hotel` class are the data types of the public properties. The .NET types of  these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method on [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
  
-> [AZURE.NOTE] When designing your own model classes to map to an Azure Search index, make sure to declare properties of value types such as `bool` and `int` to be nullable (e.g.: `bool?` instead of `bool`). This is required because all primitive field types in Azure Search are nullable. If you use non-nullable types, you may get unexpected results when indexing default values like `0` and `false`.
+> [AZURE.NOTE] When designing your own model classes to map to an Azure Search index, make sure to declare properties of value types such as `bool` and `int` to be nullable (for example, `bool?` instead of `bool`). This is required because all primitive field types in Azure Search are nullable. If you use non-nullable types, you will get unexpected results when indexing default values like `0` and `false`. Specifically, such default values will be converted to null during indexing. In a future release of the SDK, using non-nullable types will result in an exception being thrown instead.
 
 This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
 

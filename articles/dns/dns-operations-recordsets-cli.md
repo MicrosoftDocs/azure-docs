@@ -34,7 +34,7 @@ Record sets are created using the `azure network dns record-set create` command 
 
 >For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
 
-Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.
+Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.  Note that [the SPF record type has been deprecated by the DNS standards in favour of creating SPF records using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
