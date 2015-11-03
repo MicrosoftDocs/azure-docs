@@ -47,7 +47,7 @@ To import a SQL database from a .bacpac you need the following:
 
 Open the SQL Server blade for the database you want to import:
 
-1.	Go to the [Azure Preview Portal](https://portal.azure.com).
+1.	Go to the [Azure Preview Portal](https//:portal.azure.com).
 2.	Click **BROWSE ALL**.
 3.	Click **SQL servers**.
 2.	Click the server to restore the database into.
