@@ -85,6 +85,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 4. Content: What is the wording and the format of the notification (In App/Out of App)
 5. When: what is the best moment to send this push notification
 
+<br>
 **Welcome Program**
 
 | Push Sequence | Objective | How | Target | Content | When |
@@ -92,6 +93,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 | Push 1 | Help user learn the app<br>and introduce features | Make a tutorial to<br>introduce the app | First time users of the app | Welcome on board! Thank you for installing the app.<br>If this is your first experience with the app,<br>click OK to launch a short tutorial. | 1st session, immediately<br>after the splashscreen |
 | Push 2 | Encourage users to<br>configure the app and<br>respond to notifications | Explain the benefits of allowing notifications | All users who have not configured notifications | Did you know we can send you<br>instant updates and discount offers? | 3rd session |
 
+<br>
 **Weekly Program**
 
 | Push Sequence | Objective | How | Target | Content | When |
@@ -100,6 +102,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 | Push 2 | Drive retention | Correctly targeted push notifications | All users | Question of the week:<br>Who will win the World Series?<br>1. The Royals<br>2. The Mets | During World Series |
 | Push 3 | Drive retention | Correctly targeted push notifications | All users | Daily traffic report | 3PM each week day  |
 
+<br>
 **Discover Program**
 
 | Push Sequence | Objective | How | Target | Content | When |
@@ -107,6 +110,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 | Push 1 | Increase cross selling<br>and page views | Introduce new categories | User who have been active<br>for 20-70 days | This month we bring you<br>the latest movie reviews. | Out of app |
 | Push 2 | Increase cross selling<br>and page views | Users who have consumed movie reviews<br>three times after receiving Push 1 | How do you like our latest movie reviews?<br>Use this discount code for<br>movie tickets to a theater near you | Out of app |  
 
+<br>
 **Inactive Program**
 
 | Push Sequence | Objective | How | Target | Content | When |
