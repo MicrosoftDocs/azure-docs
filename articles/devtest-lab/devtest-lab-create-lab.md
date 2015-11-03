@@ -53,11 +53,6 @@ To create a DevTest Lab, you will need:
 
     ![Create a DevTest Lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
-## What happens
-
-Azure creates the lab and opens the blade for the lab.
-
-
 ## Next steps
 
 Once you've created your lab, here are some next steps to consider:
