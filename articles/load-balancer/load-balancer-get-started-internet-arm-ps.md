@@ -33,7 +33,7 @@ We will cover in this page the sequence of individual tasks it has to be done to
 
 ## What is required to create an internet facing load balancer?
 
-You need to create and configure the following objects to deploy a load balancer.
+You need to create and configure the following objects to deploy a load balancer:
 
 - Front end IP configuration - contains public IP addresses for incoming network traffic. 
 
@@ -41,7 +41,7 @@ You need to create and configure the following objects to deploy a load balancer
 
 - Load balancing rules - contains rules mapping a public port on the load balancer to ports on the NICs in the back end address pool.
 
-- Inbound NAT rules - contains rules mapping a public port on the load balncer to a port in an individual NIC in the back end address pool.
+- Inbound NAT rules - contains rules mapping a public port on the load balancer to a port in an individual NIC in the back end address pool.
 
 - Probes - contains health probes used to check availability of VMs linked to the NICs in the back end address pool.
 
@@ -69,21 +69,6 @@ Make sure you have the latest production version of the Azure module for PowerSh
 
 ### Step 2
 
- If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
- From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-
->[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
-
-
-### Step 3
-
 Log in to your Azure account.
 
 
@@ -92,7 +77,7 @@ Log in to your Azure account.
 You will be prompted to Authenticate with your credentials.
 
 
-### Step 4
+### Step 3
 
 Choose which of your Azure subscriptions to use. 
 
@@ -121,7 +106,7 @@ Create a public IP address (PIP) named *PublicIP* to be used by a frontend IP po
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT] The load balancer will use the domain label of the public IP as its FQDN. This a change from classic deployment which uses the cloud service as the load balancer FQDN. 
+>[AZURE.IMPORTANT] The load balancer will use the domain label of the public IP as its FQDN. This is a change from classic deployment model which uses the cloud service as the load balancer FQDN. 
 >In this example, the FQDN will be *loadbalancernrp.westus.cloudapp.azure.com*.
 
 ## Create a front end IP pool and a backend address pool
@@ -134,7 +119,7 @@ Create a front end IP pool named *LB-Frontend* that uses the *PublicIp* PIP.
 
 ### step 2 
 
-Create a back end address pool named *LB-backend*.
+Create a back end address pool named *LB-backend*. 
 
 	$beaddresspool= New-AzureLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 
