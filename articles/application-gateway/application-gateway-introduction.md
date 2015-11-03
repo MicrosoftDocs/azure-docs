@@ -72,7 +72,7 @@ When a successful HTTP response is received, the IP address is marked as healthy
 
 ## Configuring and managing
 
-You can create and manage the application gateway by using REST APIs and by using PowerShell cmdlets.
+You can create and manage an application gateway by using REST APIs and by using PowerShell cmdlets.
 
 
 ## Next Steps
