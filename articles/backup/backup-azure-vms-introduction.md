@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
-# Planning your VM backup infrastructure in Azure
+# Plan your VM backup infrastructure in Azure
 This article covers the key considerations you should keep in mind when planning your VM backup infrastructure. If you've [prepared your environment](backup-azure-vms-prepare.md) this is the next step before you begin [backing up your VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machine documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?

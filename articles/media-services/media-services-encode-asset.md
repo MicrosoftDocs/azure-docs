@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
@@ -167,6 +167,7 @@ AVI (Uncompressed 8bit/10bit)|Yes|Yes	|Yes
 Smooth Streaming File Format (PIFF 1.3)|Yes|Yes|No
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Yes|No|No
 Matroska/WebM				|Yes|No|No
+QuickTime (.mov) |Yes|No|No
 
 ###Input Video Codecs
 
@@ -182,6 +183,12 @@ Windows Media Video/VC-1							|Yes|Yes|Yes
 Canopus HQ/HQX										|No|Yes|No
 MPEG-4 Part 2										|Yes|No|No
 [Theora](https://en.wikipedia.org/wiki/Theora)		|Yes|No|No
+Apple ProRes 422	|Yes|No|No
+Apple ProRes 422 LT	|Yes|No|No
+Apple ProRes 422 HQ |Yes|No|No
+Apple ProRes Proxy|Yes|No|No
+Apple ProRes 4444 |Yes|No|No
+Apple ProRes 4444 XQ |Yes|No|No
 
 ###Input Audio Codecs
 
