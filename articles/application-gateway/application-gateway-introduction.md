@@ -54,9 +54,26 @@ Application Gateway is currently offered in 3 sizes: Small, Medium and Large. Sm
 
 You can create up to 10 application gateways per subscription and each application gateway can have up to 10 instances each. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
 
+The table below shows an average performance throughput for each application gateway instance:
+
+| Back end page response | Small | Medium | Large|
+|---|---|---|---|
+| 6K | 7.5 mbps | 13 mbps | 50 mbps |
+|100k | 35 mbps | 100mbps| 200 mbps |
+
+>[AZURE.NOTE] Performance response also depends on the web application application gateway is sending HTTP network traffic.
+
+
+## Monitoring
+ 
+Application Gateway monitors the health status using probes ports for back end IP's testing HTTP response from HttpSettings sections of gateway periodically. The probe expects a successful HTTP response in 200-390 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
+
+When a successful HTTP response is received, the IP address is marked as healthy. If the probe fails, the IP address is removed from a healthy back end pool, and traffic stops flowing to this server. The health probe continues every 30 seconds to the failed web instance until it comes back online. When the web instance  responds successfully to the health probe, it is added back to the healthy back end pool, and traffic starts flowing to this instance again.
+
 ## Configuring and managing
 
 You can create and manage the application gateway by using REST APIs and by using PowerShell cmdlets.
+
 
 ## Next Steps
 
