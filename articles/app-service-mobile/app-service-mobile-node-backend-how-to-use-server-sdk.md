@@ -336,6 +336,15 @@ instance in your Mobile backend App Settings.  You can see this app setting in t
 
 ## HOWTO: Require Authentication for access to tables
 
+If you wish to use Authentication with the tables endpoint, you must configure it first.  For more details about configuring authentication in an 
+Azure App Service, review the Configuration Guide for the authentication mechanism you intend to use:
+
+- [How to configure Azure Active Directory Authentication]
+- [How to configure Facebook Authentication]
+- [How to configure Google Authentication]
+- [How to configure Microsoft Authentication]
+- [How to configure Twitter Authentication]
+
 Each table has an access property that can be used to control access to the table.  The following sample shows a statically defined table with 
 authorization required. 
 
@@ -442,27 +451,103 @@ context.query.where('myfield eq ?', 'value');
 
 # Custom API
 
+In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in
+a similar way to the table definitions and can access all the same facilities, including authentication.
+
+If you wish to use Authentication with a Custom API, you must configure it first.  For more details about configuring authentication in an 
+Azure App Service, review the Configuration Guide for the authentication mechanism you intend to use:
+
+- [How to configure Azure Active Directory Authentication]
+- [How to configure Facebook Authentication]
+- [How to configure Google Authentication]
+- [How to configure Microsoft Authentication]
+- [How to configure Twitter Authentication]
+
 ## HOWTO: Define a Simple Custom API
+
+Custom APIs are defined in much the same way as the Tables API.
+
+1. Create an **api** directory
+2. Create an API definition JavaScript file in the **api** directory.
+3. Use the import method to import the **api** directory.
+
+Here is the prototype api definition based on the basic-app sample we used earlier.
+
+```
+var express = require('express'),
+	azureMobileApps = require('azure-mobile-apps');
+	
+var app = express(),
+	mobile = azureMobileApps();
+	
+// Import the Custom API
+mobile.api.import('./api');
+
+// Add the mobile API so it is accessible as a Web API
+app.use(mobile);
+
+// Start listening on HTTP
+app.listen(process.env.PORT || 3000);
+```
+
+Let's take a simple API that will return the server date using the _Date.now()_ method.  Here is the api/date.js file:
+
+```
+var api = {
+	get: function (req, res, next) {
+		var date = { currentTime: Date.now() };
+		res.status(200).type('application/json').send(date);
+	});
+};
+
+module.exports = api;
+```
+
+Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function
+that sends the required output.  
 
 ## HOWTO: Require Authentication for access to a Custom API
 
+Azure Mobile Apps SDK implements authentication in the same way for both the tables endpoint and custom APIs.  To add authentication to the
+API developed in the previous section, add an **access* property:
+
+```
+var api = {
+	get: function (req, res, next) {
+		var date = { currentTime: Date.now() };
+		res.status(200).type('application/json').send(date);
+	});
+};
+// All methods must be authenticated.
+api.access = 'authenticated';
+
+module.exports = api;
+```
+
+You can also specify authentication on specific operations:
+
+```
+var api = {
+	get: function (req, res, next) {
+		var date = { currentTime: Date.now() };
+		res.status(200).type('application/json').send(date);
+	});
+};
+// The GET methods must be authenticated.
+api.get access = 'authenticated';
+
+module.exports = api;
+```
+
+The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
+
 ## HOWTO: Create a Custom API to use Push Notifications
 
-# Authentication
-
-## HOWTO: Work with Social Authentication to get information about the user
-
-## HOWTO: Work with Azure Active Directory to access the Office APIs
+<!-- XXX-TODO Push Notifications Example -->
 
 # Debugging and Troubleshooting
 
 ## HOWTO: Write to the Azure Mobile Apps diagnostic logs
-
-# Integrating a Web Application
-
-## HOWTO: Use MVC Routes to provide a Web App in addition to a Mobile App
-
-## HOWTO: Leverage Authentication with an MVC Web App
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -482,6 +567,11 @@ context.query.where('myfield eq ?', 'value');
 [Windows Phone Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
 [HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
+[How to configure Azure Active Directory Authentication]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure Facebook Authentication]: app-service-mobile-how-to-configure-facebook-authentication.md
+[How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
+[How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
 [Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
@@ -495,3 +585,4 @@ context.query.where('myfield eq ?', 'value');
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
