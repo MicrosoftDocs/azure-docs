@@ -18,7 +18,7 @@
 
 # Upgrade your existing .NET Azure Mobile Service to App Service
 
-App Service Mobile Apps is a new way to build mobile applications using Microsoft Azure. You can learn more about Mobile Apps in the [What are Mobile Apps?] topic.
+App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
 This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile App. When performing this upgrade, your existing Mobile Services application can continue to operate. 
 
@@ -163,3 +163,4 @@ Once your customers have had a chance to receive these updates, you can delete t
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
