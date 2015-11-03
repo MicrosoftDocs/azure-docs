@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Consume an API app in Azure App Service from a .NET client 
@@ -37,7 +37,7 @@ The project and code samples in this article are based on the API app project th
 
 - [Create an API app](app-service-dotnet-create-api-app.md)
 - [Deploy an API app](app-service-dotnet-deploy-api-app.md)
-- [Protect an API app](../app-service-dotnet-add-authentication.md)
+- [Protect an API app](../app-service-api-dotnet-add-authentication.md)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 

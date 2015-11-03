@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Get started with a Javascript mobile app after adding Mobile Services by using Visual Studio Connected Services | Microsoft Azure " 
 	description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
-# Getting Started with Mobile Services
+# Getting Started with with a Javascript mobile app after adding Azure Mobile Services by using Visual Studio Connected Services
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -24,17 +24,17 @@
 
 The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
 
-For a JavaScript backend mobile service, create a table called TodoItem.  To create a table,  locate the mobile service under the Azure node in Server Explorer, right-click the mobile service's node to open the context menu, and choose **Create Table**. Enter "TodoItem" as the table name.
+ - For a JavaScript backend mobile service, create a table called TodoItem.  To create a table,  locate the mobile service under the Azure node in Server Explorer, right-click the mobile service's node to open the context menu, and choose **Create Table**. Enter "TodoItem" as the table name.
 
-If instead you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure. To publish it, open the context menu for the mobile service project in Solution Explorer, and choose **Publish Web**. Accept the defaults, and choose the **Publish** button.
+ - If instead you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure. To publish it, open the context menu for the mobile service project in Solution Explorer, and choose **Publish Web**. Accept the defaults, and choose the **Publish** button.
 
-#####Get reference to a table
+##Get a reference to a table
 
 The client object was added to your project already.  Its name is the name of your mobile service with "Client" appended to it. The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table.
 
 	var todoTable = yourMobileServiceClient.getTable('TodoItem');
 
-#####Add entry 
+##Add an entry 
 
 Insert a new item into a data table. An id (a GUID of type string) is automatically created as the primary key for the new row. Don't change the type of the id column, since the mobile services infrastructure uses it.
 
@@ -46,7 +46,7 @@ Insert a new item into a data table. An id (a GUID of type string) is automatica
         });
     };
 
-#####Read/query table
+##Read/query a table
 
 The following code queries a table for all items, updates a local collection and binds the result to the UI element listItems.
 
@@ -72,17 +72,17 @@ You can use the where method to modify the query. Here's an example that filters
 
 For more examples of queries you can use, see [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
-#####Update entry
+##Update an entry
 
-Update a row in a data table. In this example, todoItem is the updated item, and item is the same item as returned from the mobile service. When the mobile service responds, the item is updated in the local todoItems list using the [splice](http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx) method. Call the [done]() method on the returned [Promise]() object to get a copy of the inserted object and handle any errors.
+Update a row in a data table. In this example, *todoItem* is the updated item, and *item* is the same item as returned from the mobile service. When the mobile service responds, the item is updated in the local todoItems list using the [splice](http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx) method. Call the **done** method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 
         todoTable.update(todoItem).done(function (item) {
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Delete entry
+#####Delete an entry
 
-Delete a row in a data table. Call the [done]() method on the returned [Promise]() object to get a copy of the inserted object and handle any errors.
+Delete a row in a data table. Call the [done]() method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 
 	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);

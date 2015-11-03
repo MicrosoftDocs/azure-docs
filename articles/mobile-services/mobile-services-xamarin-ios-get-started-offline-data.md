@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Mobile Dev Center" 
+	pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Microsoft Azure" 
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -67,7 +67,7 @@ This section walks through the offline sync related code in `QSTodoService.cs`.
             await client.SyncContext.InitializeAsync(store);
         }
 
-    This creates a local store using the class `MobileServiceSQLiteStore`, which is provided in the Mobile Services SDK. You can also a provide a different local store implementation by implementing `IMobileServiceLocalStore`.
+    This creates a local store using the class `MobileServiceSQLiteStore`, which is provided in the Mobile Services SDK. You can also provide a different local store implementation by implementing `IMobileServiceLocalStore`.
 
     The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type doesn't have to include all of the columns that are in the remote database--it is possible to store just a subset of columns.
 
@@ -175,7 +175,6 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 <!-- URLs. -->
 [Handling conflicts with offline support for Mobile Services]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md 
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md

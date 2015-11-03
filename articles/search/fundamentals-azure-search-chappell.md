@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction to Azure Search | Azure" 
+	pageTitle="Introduction to Azure Search | Microsoft Azure" 
 	description="Learn how Azure Search can help you build rich search applications." 
 	editor="monicar" 
 	manager="mblythe" 

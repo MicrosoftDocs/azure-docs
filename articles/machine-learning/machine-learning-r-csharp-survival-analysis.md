@@ -3,7 +3,7 @@
 	description="Survival Analysis event occurrence probability" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="zhangya" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
-	ms.author="jaymathe"/> 
+	ms.date="09/02/2015" 
+	ms.author="zhangya"/> 
 
 
 #Survival Analysis 

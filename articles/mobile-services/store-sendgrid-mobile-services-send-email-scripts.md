@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send email using SendGrid - Azure Mobile Services" 
+	pageTitle="Send email using SendGrid | Microsoft Azure" 
 	description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." 
 	services="mobile-services" 
 	documentationCenter="" 

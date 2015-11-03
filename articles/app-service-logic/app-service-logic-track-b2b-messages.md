@@ -13,36 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
 # Track B2B messages
 
 ## B2B Tracking Information
-B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established then there needs to be a way to monitor if the communication is happening as expected. 
-As part of bringing B2B API Apps as part of Azure App Services we have enabled tracking data and the same is also surfaced via Azure Portal. 
+B2B communication involves message processing between trading partners. The relationships are defined as agreements between two trading partners. Once the communication is established, there needs to be a way to monitor if the communication is happening as expected. 
+
+We've implemented message tracking for the following B2B scenarios: AS2, EDIFACT and X12.
 
 ## AS2
-Once you have created an instance of an AS2 API App then browse to that instance and go to the Tracking part. Herein one will be able to view all the AS2 tracking information and also filter it via the filter blades surfaced.
+Once you have created an instance of an AS2 API App, browse to that instance and select Tracking. Herein you will be able to view and filter all the AS2 tracking information 
 
 ![][1]  
 
 ## EDIFACT
-Once you have created an instance of an EDIFACT API App then browse to that instance and go to the Tracking part. Herein one will be able to view all the EDIFACT tracking information and also filter it via the filters surfaced.
-Additionally one will be able to view the interchange level data, group level data and transaction set level data as one steps into the view. 
+Once you have created an instance of an EDIFACT API App, browse to that instance and select Tracking. Herein you will be able to view and filter all the EDIFACT tracking information. Additionally you will be able to view the interchange level, group level and transaction set level data, all in a single view. 
 
-If batches have been created as part of EDIFACT agreements in the associated Trading Partner Management API app then the Batching part will list all these batches. One would be able to step into a batch to see the message which constitute the active message (if any) and also the information for batches which have completed in the past.
+If batches are created as part of EDIFACT agreements in the associated Trading Partner Management API app then the Batching section will list all these batches. You can select a batch to see the active message (if any) and also the information for the completed.
 
 ![][2]      
 
 ## X12
-Once you have created an instance of a X12 API App then browse to that instance and go to the Tracking part. Herein one will be able to view all the X12 tracking information and also filter it via the filters surfaced.
-Additionally one will be able to view the interchange level data, group level data and transaction set level data as one steps into the view. 
+Once you have created an instance of an X12 API App, browse to that instance and go to Tracking. Herein you will be able to view and filter all the X12 tracking information. Additionally you will be able to view the interchange level, group level and transaction set level data, all in a single view.
 
-If batches have been created as part of X12 agreements in the associated Trading Partner Management API app then the Batching part will list all these batches. One would be able to step into a batch to see the message which constitute the active message (if any) and also the information for batches which have completed in the past. 
-
-X12 & EDIFACT have similar tracking views. 
+If batches are created as part of X12 agreements in the associated Trading Partner Management API app then the Batching section will list all these batches. You can select a batch to see the active message (if any) and also the information for the completed batches.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg

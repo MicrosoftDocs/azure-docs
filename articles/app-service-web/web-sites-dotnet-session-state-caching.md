@@ -3,17 +3,17 @@
 	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
 	services="app-service\web" 
 	documentationCenter=".net" 
- 	authors="Rick-Anderson" 
+	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/16/2015" 
 	ms.author="riande"/>
 
 
@@ -23,6 +23,8 @@
 This topic explains how to use the Azure Redis Cache Service for session state.
 
 If your ASP.NET web app uses session state, you will need to configure an external session state provider (either the Redis Cache Service or a SQL Server session state provider). If you use session state, and don't use an external provider, you will be limited to one instance of your web app. The Redis Cache Service is the fastest and simplest to enable.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ##<a id="createcache"></a>Create the Cache
 Follow [these directions](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) to create the cache.
@@ -43,12 +45,12 @@ In addition to making assembly references for Cache, the NuGet package adds stub
 
 1. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) blade for your cache instance. For more information, see [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file, specifically the changes to *port*, *host*, accessKey*, and *ssl*.
 
-		    <system.web>;
+		  <system.web>;
 		    <customErrors mode="Off" />;
 		    <authentication mode="None" />;
 		    <compilation debug="true" targetFramework="4.5" />;
 		    <httpRuntime targetFramework="4.5" />;
-		  <sessionState mode="Custom" customProvider="RedisSessionProvider">;
+		    <sessionState mode="Custom" customProvider="RedisSessionProvider">;
 		      <providers>;  
 		          <!--<add name="RedisSessionProvider" 
 		            host = "127.0.0.1" [String]

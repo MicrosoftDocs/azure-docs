@@ -18,13 +18,11 @@
 
 # Elastic Database client library overview
 
-The **Elastic Database client library** helps you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure. Such designs are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database. Building and managing such an application is a goal of the library.
-
-The client library is a .NET Framework library that can be installed into any application project using [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) and [Nuget](http://go.microsoft.com/?linkid=9862605). The client library is part of Elastic Database tools which is specifically an [Elastic Database feature](sql-database-elastic-scale-introduction.md). 
+The **Elastic Database client library** helps you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases hosted on Microsoft Azure. Such designs are commonly used for Software as a Service (SaaS) applications, which are typically single tenant architectures--where each tenant is provisioned with a database. Building and managing such an application is a goal of the library. The client library is a .NET Framework library that can be installed into any application project using [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) and [Nuget](http://go.microsoft.com/?linkid=9862605). The client library is part of Elastic Database tools which is specifically an [Elastic Database feature](sql-database-elastic-scale-introduction.md). 
 
 ## Client capabilities
 
-Developing, scaling and managing scaled-out applications using *sharding* (discussed below) presents challenges for both the developer as well as the administrator. The client library make life easier for both these roles. The numbers in the figure below outline the main capabilities delivered by the elastic database client library and split-merge tool. The figure illustrates an environment with many databases, and each database corresponds to a shard. The tools make developing sharded Azure SQL DB applications easier through the following specific capabilities:
+Developing, scaling and managing scaled-out applications using *sharding* (discussed below) presents challenges for both the developer as well as the administrator. The client library make life easier for both these roles. The figure below outline the main capabilities delivered by the Elastic Database client library. The figure illustrates an environment with many databases, and each database corresponds to a shard. In this example, many customers are co-located in the same database using a range map, although the same applies if there is a database per customer (tenant). The tools make developing sharded Azure SQL Database applications easier through the following specific capabilities:
 
 For definitions of terms used here, see [Elastic database tools glossary](sql-database-elastic-scale-glossary.md).
 
@@ -45,6 +43,8 @@ Try the [sample app](sql-database-elastic-scale-get-started.md) which demonstrat
 To install the library, go to [Elastic Database Client Library]( http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 For instructions on using the split-merge tool, see the [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
+
+[Elastic database client library is now open sourced!](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

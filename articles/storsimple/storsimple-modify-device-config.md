@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service to modify your StorSimple device configuration | Microsoft Azure" 
+   pageTitle="Modify the StorSimple device configuration | Microsoft Azure" 
    description="Describes how to use the StorSimple Manager service to reconfigure a StorSimple device that has already been deployed." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/30/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration
@@ -83,10 +83,7 @@ For each network interface, the following parameters are displayed:
 
 - **Speed** – Not a user-configurable parameter. DATA 0, DATA 1, DATA 4, and DATA 5 are always 1 GbE, whereas DATA 2 and DATA 3 are 10 GbE interfaces.
 
-     >[AZURE.NOTE] 
-     >
-     >- Speed and duplex are always auto-negotiated.
-     >- Jumbo frames are not supported.
+     >[AZURE.NOTE] Speed and duplex are always auto-negotiated. Jumbo frames are not supported.
  
 - **Interface state** – An interface can be enabled or disabled. If enabled, the device will attempt to use the interface. We recommend that only those interfaces that are connected to the network and used be enabled. Disable any interfaces that you are not using.
 
@@ -127,6 +124,7 @@ Perform the following steps to swap or reassign the VIPs for any of the network 
 
 ## Next steps
 
-[Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
- 
+- Learn how to [configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
      

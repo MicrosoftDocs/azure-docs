@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Install your StorSimple 8100 device"
-   description="Describes how to unpack, rack mount, and cable your StorSimple 8100 device."
+   pageTitle="Install your StorSimple 8100 device | Microsoft Azure"
+   description="Describes how to unpack, rack mount, and cable your StorSimple 8100 device before you deploy and configure the software."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,16 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="10/13/2015"
    ms.author="alkohli" />
 
-# Install your StorSimple 8100 device
+# Unpack, rack-mount, and cable your StorSimple 8100 device
 
 ## Overview
 
-Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device. 
-
-This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you  configure the StorSimple software.
+Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device. This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you configure and deploy the StorSimple device.
 
 ## Unpack your StorSimple 8100 device
 
@@ -31,24 +29,22 @@ The following steps provide clear, detailed instructions about how to unpack you
 
 Before you unpack your device, review the following information.
 
->[AZURE.WARNING]
-> ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
->
-> 1. Make sure that you have two people available to manage the weight of the device if you are handling it manually. A fully configured device can weigh up to 32 kg (70 lbs.).
->
-> 2. Place the box on a flat, level surface.
+![Warning Icon](./media/storsimple-safety/IC740879.png)![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNING!**
 
+1. Make sure that you have two people available to manage the weight of the enclosure if you are handling it manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
+1. Place the box on a flat, level surface.
+ 
 Next, complete the following steps to unpack your device.
 
 #### To unpack your device
 
-1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please contact Microsoft Support to help you assess whether the device is in good working order. 
+1. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, do not open the box. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to help you assess whether the device is in good working order. 
 
-2. Unpack the box. The following image shows the unpacked view of your Azure StorSimple device.
+2. Unpack the box. The following image shows the unpacked view of your StorSimple device.
 
      ![Unpack your storage device](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png) 
 
-    **Figure 1: Unpacked view of your storage device**
+    **Unpacked view of your storage device**
 
      Label | Description 
      ----- | -------------
@@ -58,6 +54,7 @@ Next, complete the following steps to unpack your device.
      4     | Top foam
      5     | Accessory box
 
+
 3. After unpacking the box, make sure that you have:
 
    - 1 single enclosure device
@@ -66,11 +63,11 @@ Next, complete the following steps to unpack your device.
    - 2 serial console cables
    - 1 serial-USB converter for serial access
    - 1 tamper-proof T10 screwdriver
-   - 4 single QSFP-to-SFP+ adapters
+   - 4 QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
    - 1 rack-mount kit (2 side rails with mounting hardware)
    - Getting Started documentation
 
-    If you did not receive any of the items listed above, contact Microsoft Support. 
+    If you did not receive any of the items listed above, [contact Microsoft Support](storsimple-contact-microsoft-support.md). 
 
 The next step is to rack-mount your device. 
 
@@ -92,10 +89,9 @@ The device must be installed in a standard 19-inch rack that has both front and 
 
 3. Make sure that one 2U slot is available on the rack in which you intend to mount the device. 
 
->[AZURE.WARNING]
-> ![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
-> 
-> Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
+![Warning Icon](./media/storsimple-safety/IC740879.png)![heavy weight icon](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **WARNING!**
+ 
+Make sure that you have two people available to manage the weight if you are handling the device setup manually. A fully configured enclosure can weigh up to 32 kg (70 lbs.).
 
 ### Rack prerequisites
 
@@ -109,22 +105,22 @@ The 8100 enclosure is designed for installation in a standard 19-inch rack cabin
 
 A set of mounting rails is provided for use with the 19-inch rack cabinet. The rails have been tested to handle the maximum enclosure weight. These rails will also allow installation of multiple enclosures without any loss of space within the rack.
 
+
 #### To install the device on the rails
 
-1. With the enclosure on the work surface, remove the left and right front flange caps by pulling the caps free. The flange caps simply snap onto the flanges.
-
-2. Typically, the rails are installed at the factory. If they are not, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.<br/>
+2. Perform this step only if inner rails are not installed on your device. Typically, the inner rails are installed at the factory. If rails are not installed, then install the left-rail and right-rail slides to the sides of the enclosure chassis. They attach using six metric screws on each side. To help with orientation, the rail slides are marked **LH – Front** and **RH – Front**, and the end that is affixed towards the rear of the enclosure has a tapered end.<br/>
 
     ![Attaching rail slides to enclosure chassis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png) 
 
-   **Figure 2: Attaching rail slides to the sides of the enclosure**
+   **Attaching inner rail slides to the sides of the enclosure**
 
-    Label | Description
-    ----- | -----------
-    1     | M 3x4 button-head screws
-    2     | Chassis slides
+    	Label | Description
+    	----- | -----------
+    	1     | M 3x4 button-head screws
+   		2     | Chassis slides
 
-3. Attach the left rail and right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation.
+
+3. Attach the outer left rail and outer right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation. 
 
 4. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts and insert the pins into the front and rear rack post vertical member holes. Be sure that the rail assembly is level.
 
@@ -134,15 +130,16 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
      ![Attaching rail slides to rack cabinet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png) 
 
-    **Figure 3: Attaching rail assemblies to the rack**
+    **Attaching outer rail assemblies to the rack**
 
      Label | Description
      ----- | -----------
      1     | Clamping screw
      2     | Square-hole front rack post screw
-     3     | Left front-rail location pins
+     3     | Left rail front location pins
      4     | Clamping screw
-     5     | Right front-rail location pins
+     5     | Left rail rear location pins
+
 
 ### Mounting the device in the rack
 
@@ -156,15 +153,18 @@ Using the rack rails that were just installed, perform the following steps to mo
 
     ![Inserting device in the rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figure 4: Mounting the device in the rack**
+    **Mounting the device in the rack**
 
-3. Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.
+
+3. Remove the left and right front flange caps by pulling the caps free. The flange caps simply snap onto the flanges. 
+
+5. Secure the enclosure in the rack by installing one provided Phillips-head screw through each flange, left and right.
 
 4. Install the flange caps by pressing them into position and snapping them in place.<br/>
 
      ![Installing flange caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figure 5: Installing the flange caps**
+    **Installing the flange caps**
 
      Label | Description
      ----- | -----------
@@ -180,7 +180,7 @@ The following procedures explain how to cable your StorSimple 8100 device for po
 
 Before you begin the cabling of your device, you will need:
 
-- Your storage device, completely unpacked
+- Your storage device, completely unpacked and rack mounted.
 
 - 2 power cables that came with your device
 
@@ -192,9 +192,9 @@ Before you begin the cabling of your device, you will need:
 
 - Serial USB converter with the appropriate driver installed on your PC (if needed)
 
-- Provided single QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
+- Provided 4 QSFP-to-SFP+ adapters for use with 10 GbE network interfaces
 
-- [Supported transceivers, cables, and switches for 10 GbE network interfaces](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Power cabling
@@ -203,29 +203,7 @@ Your device includes redundant Power and Cooling Modules (PCMs). Both PCMs must 
 
 Perform the following steps to cable your device for power.
 
-#### To cable for power
-
-1. Make sure that the power switches on each of the PCMs are in the OFF position.
-
-2. Connect the power cords to both PCMs in the primary enclosure.
-
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following illustration. Ensure that the two PCMs use separate power sources.
-
-4. Turn on the system by flipping the power switches on both PCMs to the ON position.
-
-    >[AZURE.NOTE] To ensure high availability of your system, you should strictly adhere to the power cabling scheme shown in the following diagram.
-
-    ![Cable your 2U device for power](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **Figure 6: Power cabling for your device**
-
-     Label | Description
-     ----- | -----------
-     1     | PCM 0
-     2     | Controller 1
-     3     | Controller 0
-     4     | PCM 1
-     5     | PDUs
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Network cabling
 
@@ -239,7 +217,7 @@ To support this redundant controller failover, you need to cable your device net
 
     ![Backplane of 8100 device](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figure 7: Back of the device showing data ports**
+    **Back of the device showing data ports**
  
      Label   | Description
      ------- | -----------
@@ -247,30 +225,45 @@ To support this redundant controller failover, you need to cable your device net
      2,3     | 10 GbE network interfaces
      6       | Serial ports
 
-2. For high availability, the device requires a minimum of two connections for each controller.
-    1. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Management Portal. 
-    2. Identify identical network interfaces on each controller. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller. 
+2. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. Additional configuration required for high availability and performance is shown by dotted lines.) 
 
-3. For high availability, ensure that you connect:
-    1. Identical interfaces on each controller to the relevant network to ensure availability if a controller failure occurs.
-    2. Interfaces from each controller to at least two different switches to ensure availability if a switch failure occurs.
-    3. DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
-
-    At a minimum, configure one network interface for cloud access and one for iSCSI. For high availability and performance, configure two pairs of network interfaces on each controller. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. For high availability and performance, additional configuration required is shown by dotted lines.)
-
+		
     ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Figure 8: Network cabling for your device**
+    **Network cabling for your device**
 
-    Label | Description
-    ----- | -----------
-     A    | LAN with Internet access
-     B    | Controller 0
-     C    | PCM 0
-     D    | Controller 1
-     E    | PCM 1
-     F,G  | Hosts
-     0-5  | Network interfaces
+   
+	|Label | Description |
+    |----- | ----------- |
+    | A    | LAN with Internet access |
+    | B    | Controller 0 |
+    | C    | PCM 0 |
+    | D    | Controller 1 |
+    | E    | PCM 1 |
+    | F, G | Hosts |
+    | 0-5  | Network interfaces |
+
+
+	
+When cabling the device, the minimum configuration requires:
+
+
+- At least two network interfaces connected on each controller with one for cloud access and one for iSCSI. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Management Portal. In this case, connect DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
+
+- Identical interfaces on each controller connected to the same network to ensure availability if a controller failover occurs. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller.
+	
+Keep in mind for high availability and performance:
+
+
+- When possible, configure a pair of network interface for cloud access (1 GbE) and another pair for iSCSI (10 GbE recommended) on each controller. 
+
+- When possible, connect network interfaces from each controller to two different switches to ensure availability against a switch failure. The figure illustrates the two 10 GbE network interfaces, DATA 2 and DATA 3, from each controller connected to two different switches. 
+
+For more information, refer to the **Network interfaces** under the [High availability requirements for your StorSimple device](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+
+>[AZURE.NOTE] If using SFP+ transceivers with your 10 GbE network interfaces, use the provided QSFP-SFP+ adapters. More information on [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+    
+
    
 ### Serial port cabling
 
@@ -278,7 +271,7 @@ Perform the following steps to cable your serial port.
 
 #### To cable for serial connection
 
-1. Your device has a serial port on each controller that is identified by a wrench icon. Refer to Figure 7 to locate the serial ports on the backplane of your device. 
+1. Your device has a serial port on each controller that is identified by a wrench icon. Refer to the illustration in the [Network cabling](#network-cabling) section to locate the serial ports on the backplane of your device. 
 
 2. Identify the active controller on your device backplane. A blinking blue LED indicates that the controller is active. 
 
@@ -292,9 +285,8 @@ Perform the following steps to cable your serial port.
 
 >[AZURE.NOTE] **Lights-Out Management**: When the device is installed in a remote datacenter or in a computer room with limited access, ensure that the serial connections to both controllers are always connected to a serial console switch or similar equipment. This allows out-of-band remote control and support operations if there are network disruptions or unexpected failures.
 
-Your device is now cabled for power, network access, and serial connectivity. The next step is to configure the software on your device.
+Your device is now cabled for power, network access, and serial connectivity. The next step is to configure the software and deploy your device.
 
 ## Next steps
 
-You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md) 
- 
+Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md) 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/14/2015" 
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET API app in Azure App Service using Visual Studio 2015

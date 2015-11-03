@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure" 
-	description="Learn how to use one Windows PowerShell script to provision an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster." 
+	pageTitle="Analyze flight delay data with Hive on Linux-based HDInsight | Microsoft Azure" 
+	description="Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #Analyze flight delay data by using Hive in HDInsight
 
-Learn how to analyze flight delay data using Hive on Linux-based HDInsight (preview) then export the data to Azure SQL Database using using Sqoop.
+Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using using Sqoop.
 
-> [AZURE.NOTE] While individual pieces of this article can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps in this document are specific to Linux-based clusters. For steps that will work with a Windows-based cluster, see [Analyze flight delay data using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
+> [AZURE.NOTE] While individual pieces of this document can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps are specific to Linux-based clusters. For steps that will work with a Windows-based cluster, see [Analyze flight delay data using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 
 ###Prerequisites
 
@@ -32,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 - __Azure SQL Database__. You will use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [How to create and configure an Azure SQL Database to create one](../sql-database/sql-database-create-configure.md)
 
-- __Azure CLI__. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli.md) for more steps.
+- __Azure CLI__. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) for more steps.
 
 
 ##Download the flight data

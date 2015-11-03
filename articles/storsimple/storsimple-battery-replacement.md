@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace the backup battery module on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace the battery on a StorSimple device | Microsoft Azure"
    description="Describes how to remove, replace, and maintain the backup battery module on your StorSimple device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/31/2015"
    ms.author="alkohli" />
 
 # Replace the backup battery module on your StorSimple device
@@ -27,7 +27,7 @@ This tutorial explains how to:
 - Install a new backup battery module
 - Maintain the backup battery module
 
->[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in the [Introduction to StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 ## Remove the backup battery module
 

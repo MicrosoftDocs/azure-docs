@@ -4,7 +4,7 @@
 
 In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
-1. Log on to the [Azure Management Portal], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure portal], and click **NEW** at the bottom of the screen.
 
 2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
 
@@ -28,7 +28,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
     ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	This downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
 
 7. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **OK** to create the class.
 
@@ -112,11 +112,11 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 > [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost], as shown in the [Scaled out event processing] sample. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, refer to the [Event Hubs Overview] and [Event Hubs Programming Guide] topics.
 
 <!-- Links -->
-[Event Hubs Overview]: http://azure.microsoft.com/en-us/documentation/articles/event-hubs-overview/
+[Event Hubs Overview]: event-hubs-overview.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[Azure Storage account]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure portal]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -125,6 +125,6 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Event Hubs Programming Guide]: http://azure.microsoft.com/en-us/documentation/articles/event-hubs-programming-guide/
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs

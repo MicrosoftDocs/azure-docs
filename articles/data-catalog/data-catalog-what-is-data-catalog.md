@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Data Catalog what is data catalog"
-   description="Microsoft Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
+   pageTitle="Azure Data Catalog - What is Data Catalog"
+   description="Overview of Microsoft Azure Data Catalog, including its features and the problems it is designed to address. Azure Data Catalog provides capabilities that enable any user – from analysts to data scientists to developers – to register, discover, understand, and consume data sources."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/31/2015"
+   ms.date="08/21/2015"
    ms.author="maroche"/>
 
 # What is Azure Data Catalog?
@@ -71,6 +71,8 @@ The registration process involves three basic steps:
 - SQL Server Analysis Services Multidimensional KPI
 - SQL Server Analysis Services Tabular Table
 - SQL Server Reporting Services Report
+- Azure Storage Blob
+- Azure Storage Directory
 
 Additional data sources and asset types will be added during the **Azure Data Catalog** preview.
 
@@ -111,7 +113,7 @@ After a data source has been registered, it can sometimes be necessary to remove
 
 > [AZURE.IMPORTANT] Deleting a data source from **Azure Data Catalog** only deletes the metadata stored in the **Azure Data Catalog** service. The original data source is not affected in any way.
 
-## Consume data sources 
+## Consume data sources
 
 The ultimate goal of data discovery is to find the data that you need, and to use it in the data tool of your choice. The data consumption experience in Azure Data Catalog enables this capability in two ways.
 

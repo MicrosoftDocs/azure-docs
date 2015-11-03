@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages." 
 	services="storage" 
 	documentationCenter="python" 
-	authors="huguesv" 
+	authors="emgerner-msft" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
-	ms.author="huvalo"/>
+	ms.date="08/25/2015" 
+	ms.author="emgerner"/>
 
 # How to use Queue storage from Python
 
@@ -22,7 +22,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Azure Queue storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **inserting**, **peeking**,
+This guide shows you how to perform common scenarios using the Azure Queue storage service. The samples are written in Python and use the [Python Azure Storage package][]. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**. For more information on queues, refer to the [Next Steps][] section.
 
@@ -37,7 +37,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Storage:
 
-	from azure.storage import QueueService
+	from azure.storage.queue import QueueService
 
 The following code creates a **QueueService** object using the storage account name and account key. Replace 'myaccount' and 'mykey' with the real account and key.
 
@@ -136,7 +136,10 @@ to learn about more complex storage tasks.
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]
 
+For more information, see also the [Python Developer Center](/develop/python/).
+
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Python Azure package]: https://pypi.python.org/pypi/azure
+[Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage 
  

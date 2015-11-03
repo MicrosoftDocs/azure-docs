@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Schedule recurring jobs in Azure Mobile Services" 
-	description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." 
+	pageTitle="Schedule backend tasks in a .NET backend mobile service | Microsoft Azure"
+	description="Use the scheduler in Azure Mobile Services to define .NET backend jobs that run on a schedule."
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 # Schedule recurring jobs in Mobile Services 
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
  
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="08/16/2015" 
 	ms.author="bradyg"/>
 
 # Customize Swashbuckle-generated API definitions 

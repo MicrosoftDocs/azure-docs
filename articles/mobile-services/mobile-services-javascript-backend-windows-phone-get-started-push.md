@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Add push notifications to your Mobile Services app (Windows Store) | Mobile Dev Center" 
-	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." 
+	pageTitle="Add push notifications to your Mobile Services app (Windows Phone) | Microsoft Azure" 
+	description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Phone app." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -139,9 +139,6 @@ Finally, you must update the script registered to the insert operation on the To
 ## <a name="next-steps"> </a>Next steps
 
 This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
-
-+ [Send push notifications to authenticated users](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)
-	<br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers](../notification-hubs-windows-phone-send-breaking-news.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.

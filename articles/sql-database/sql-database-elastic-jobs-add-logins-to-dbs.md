@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh" />
+	ms.date="07/27/2015" 
+	ms.author="ddove; sidneyh" />
 
 # How to add users to an Elastic Database pool
 
-**Elastic Database jobs** allows you to run the same script against every database in an [elastic database pool](sql-database-elastic-pool.md). To run the script, a user with the appropriate permissions must be added to every database in the pool. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, an **Elastic Database pool** or an **Elastic Database shard set** in Azure SQL Database. To run the script, a user with the appropriate permissions must be added to every database in which the job will execute. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Prerequisites
-* [Create an elastic database pool (preview)](sql-database-elastic-pool-portal.md)
 * Install the [elastic job components](sql-database-elastic-jobs-service-installation.md). 
 
 ## How to add the users to the databases
@@ -38,7 +37,7 @@
 
 ## Next steps
 
-Run a job against the elastic database pool. See [Creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md).
+Create and manage jobs, see [Creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

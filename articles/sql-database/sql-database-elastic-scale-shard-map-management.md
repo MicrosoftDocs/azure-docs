@@ -106,6 +106,7 @@ In this code, an application tries to open an existing **ShardMapManager**.  If 
         // for privileges on both the GSM and the shards themselves.
     } 
  
+As an alternative, you can use Powershell to create a new Shard Map Manager. An example is available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Shard map administration credentials
 
@@ -199,7 +200,7 @@ The code is written in a way that the entire method can be safely rerun in case 
             } 
         } 
  
-As an alternative you can use PowerShell scripts to achieve the same result.     
+As an alternative you can use PowerShell scripts to achieve the same result. Some of the sample PowerShell examples are available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).     
 
 Once shard maps have been populated, data access applications can be created or adapted to work with the maps. Populating or manipulating the maps need not occur again until **map layout** needs to change.  
 

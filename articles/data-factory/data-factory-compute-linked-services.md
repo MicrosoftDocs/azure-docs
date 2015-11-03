@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compute Linked Services | Azure Data Factory" 
+	pageTitle="Compute Linked Services | Microsoft Azure" 
 	description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data." 
 	services="data-factory" 
 	documentationCenter="" 

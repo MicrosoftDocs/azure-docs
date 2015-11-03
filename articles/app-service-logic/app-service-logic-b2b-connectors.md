@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Azure" 
+	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
-	ms.author="mandia"/>
+	ms.date="10/15/2015" 
+	ms.author="mandia"/> 
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
 Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 
@@ -191,6 +191,7 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 4. Select **OK** to save your changes. 
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## More B2B resources
 

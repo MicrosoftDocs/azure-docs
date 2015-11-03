@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Customizing Attribute Mappings"
+	pageTitle="Customizing Attribute Mappings | Microsoft Azure"
 	description="Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 

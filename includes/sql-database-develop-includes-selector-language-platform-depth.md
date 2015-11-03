@@ -15,3 +15,4 @@
 - [(Python | Mac. Starter)](sql-database-develop-python-simple-mac-osx.md)
 - [(Ruby | Linux. Starter)](sql-database-develop-ruby-simple-linux.md)
 - [(Ruby | Mac. Starter)](sql-database-develop-ruby-simple-mac-osx.md)
+- [(Ruby | Windows. Starter)](sql-database-develop-ruby-simple-windows.md)

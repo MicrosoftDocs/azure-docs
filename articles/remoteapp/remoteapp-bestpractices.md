@@ -2,7 +2,7 @@
     pageTitle="Azure RemoteApp best practices"
     description="Best practices for configuring and using Azure RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 # Best practices for configuring and using Azure RemoteApp

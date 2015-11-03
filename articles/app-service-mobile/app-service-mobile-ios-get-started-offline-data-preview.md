@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Enable offline sync for your Mobile App (iOS)"
+	pageTitle="Enable offline sync for your Azure Mobile App (iOS)"
 	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your iOS application"
 	documentationCenter="ios"
-	authors="lindydonna"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
@@ -13,40 +13,28 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="donnam"/>
+	ms.date="08/22/2015"
+	ms.author="krisragh"/>
 
 # Enable offline sync for your iOS mobile app
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-This tutorial covers the offline sync feature of Mobile Apps for iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
+## Overview
 
-Offline sync has several potential uses:
+This tutorial covers the offline sync feature of Azure Mobile Apps for iOS. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
-* Improve app responsiveness by caching server data locally on the device
-* Make apps resilient against intermittent network connectivity
-* Allow end-users to create and modify data even when there is no network access, supporting scenarios with little or no connectivity
-* Sync data across multiple devices and detect conflicts when the same record is modified by two devices
+If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an iOS App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
-If this is your first experience with Mobile Apps, first complete the tutorial [Create an iOS App].
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
-##<a name="review"></a>Review your server project configuration (optional)
+## <a name="review-sync"></a>Review the client sync code 
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)] 
+The client project that you downloaded for the tutorial [Create an iOS App] already contains code supporting offline synchronization using a local Core Data-based database. This section is a summary of what is already included in the tutorial code. For a conceptual overview of the feature, see [Offline Data Sync in Azure Mobile Apps].
 
-## <a name="get-app"></a>Get the sample offline ToDo app
-
-In the [Mobile Apps sample repository on GitHub], clone the repo and open the project [Offline iOS Sample] in Xcode.
-
-### Beta SDK
-To add offline support to an existing app, get the latest [beta iOS SDK](http://aka.ms/gc6fex).
-
-## <a name="review-sync"></a>Review the Mobile Apps sync code
-
-Mobile App offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
-
-This section walks through the offline sync-related code in the sample.
+The offline data sync sync feature of Azure Mobile Apps allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
 
 1. In **QSTodoService.m**, notice the type of the member `syncTable` is `MSSyncTable`. Offline sync uses this sync table interface instead of `MSTable`. When a sync table is used, all operations go to the local store and are only synchronized with the remote backend with explicit push and pull operations.
 
@@ -119,7 +107,7 @@ When using the Core Data offline store, you need to define particular tables and
       * MS_TableConfig: For tracking the last updated time for the last sync operation for all pull operations
       * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties.
 
->[AZURE.NOTE] The Mobile App SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote backend.
+>[AZURE.NOTE] The Azure Mobile Apps SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote backend.
 
 - When using the offline sync feature, you must define the system tables as shown below.
 
@@ -154,7 +142,7 @@ When using the Core Data offline store, you need to define particular tables and
 
     | Attribute  |    Type     |
     |----------- |   ------    |
-    | id         | Integer 64  |
+    | id         | String      |
     | key        | String      |
     | keyType    | Integer 64  |
     | table      | String      |
@@ -169,7 +157,7 @@ When using the Core Data offline store, you need to define particular tables and
 
     | Attribute    |  Type   | Note                                                   |
     |-----------   |  ------ | -------------------------------------------------------|
-    | id           | String  | primary key in remote store                            |
+    | id           | String, marked required  | primary key in remote store                            |
     | complete     | Boolean | todo item field                                        |
     | text         | String  | todo item field                                        |
     | ms_createdAt | Date    | (optional) maps to __createdAt system property         |
@@ -220,7 +208,7 @@ In order to support the offline sync feature, we used the `MSSyncTable` interfac
 
 When using a Core Data local store, you must define several tables with the [correct system properties](#review-core-data).
 
-The normal CRUD operations for Mobile Apps work as if the app is still connected but, all the operations occur against the local store.
+The normal CRUD operations for Azure Mobile Apps work as if the app is still connected but all the operations occur against the local store.
 
 When we wanted to synchronize the local store with the server, we used the `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion` methods.
 
@@ -243,42 +231,20 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 ## Additional Resources
 
-* [Cloud Cover: Offline Sync in Azure Mobile Services]
+* [Offline Data Sync in Azure Mobile Apps]
 
-* [Azure Friday: Offline-enabled apps in Azure Mobile Services] \(note: demos are for Windows, but feature discussion applies to all platforms\)
+* [Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)
 
 <!-- URLs. -->
 
-[Create an iOS App]: ../app-service-mobile-dotnet-backend-ios-get-started.md
 
-[core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
-[core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
-[core-data-3]: ./media/mobile-services-ios-get-started-offline-data/core-data-3.png
-[defining-core-data-main-screen]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png
-[defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
+[Create an iOS App]: ../app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync-preview.md
+
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-todoitem-entity.png
-[update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
-[update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
-
-[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[Creating an Outlet Connection]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[Build a User Interface]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Adding a Segue Between Scenes in a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[Adding a Scene to a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-
-[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: ../mobile-services-ios-how-to-use-client-library.md
-[Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[Mobile Apps sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
-
-[Get started with Mobile Services]: ../mobile-services-ios-get-started.md
-[Get started with data]: ../mobile-services-ios-get-started-data.md
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-ios-handling-conflicts-offline-data.md
-[Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

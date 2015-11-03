@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Understanding NoSQL Technologies on Azure | Azure" 
+	pageTitle="Understanding NoSQL Technologies on Azure | Microsoft Azure" 
 	description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." 
 	editor="cgronlun" 
 	manager="jhubbard" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="08/21/2015" 
 	ms.author="mimig"/>
 
 # Understanding NoSQL on Microsoft Azure
 
-Are you curious about the array of NoSQL technologies available in Azure, but aren't sure how they differ from each other or the relational models available? Or maybe you've got specific data in mind, but aren't sure which NoSQL technology is best for your application. If so, take advantage of the key learnings David Chappell provides in this  insightful whitepaper. 
+Are you curious about the array of NoSQL technologies available in Azure, but aren't sure how they differ from each other or the relational models available? Or maybe you've got specific data in mind, but aren't sure which NoSQL technology is best for your application. If so, take advantage of the key learnings David Chappell provides in this insightful whitepaper. 
 
 This whitepaper walks you through the following:
 

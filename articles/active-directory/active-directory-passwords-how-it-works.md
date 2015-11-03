@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # How Password Management works
@@ -38,7 +38,8 @@ You can configure Password Management policies for a specific directory using th
  - Security Questions (knowledge-based authentication)
 - Setting the number of questions a user must register in order to use the security questions authentication method (only visible if security questions are enabled)
 - Setting the number of questions a user must supply during reset to use the security questions authentication method (only visible if security questions are enabled)
-- Defining the custom security questions that a user may choose to register for to use the security questions authentication method (only visible if security questions are enabled)
+- Using pre-canned, localized, security questions that a user may choose to use when registering for password reset (only visible if security questions are enabled)
+- Defining the custom security questions that a user may choose to use when registering for password reset (only visible if security questions are enabled)
 - Requiring users to register for password reset when they go to the application Access Panel at [http://myapps.microsoft.com](http://myapps.microsoft.com).
 - Requiring users to re-confirm their previously registered data after a configurable number of days have passed (only visible if enforced registration is enabled)
 - Providing a custom helpdesk email or URL that will be shown to users in case they have a problem resetting their passwords
@@ -122,4 +123,3 @@ For more information about Azure AD Connect, see [Get Started: Azure AD Connect]
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 

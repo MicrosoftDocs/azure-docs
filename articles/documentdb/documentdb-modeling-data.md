@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/24/2015" 
 	ms.author="ryancraw"/>
 
 #Modeling data in DocumentDB#

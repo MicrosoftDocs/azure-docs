@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Tutorial: Copy data from an Azure blob to Azure SQL"
-	description="This tutorial shows you how to create a sample data pipeline that copies data from a blob to an Azure SQL Database instance."
+	pageTitle="Tutorial: Use Copy Activity in an Azure Data Factory Pipeline"
+	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="10/12/2015"
 	ms.author="spelluru"/>
 
 # Tutorial: Copy data from an Azure blob to Azure SQL
@@ -99,6 +99,9 @@ Do the following:
 - Click [Using PowerShell](data-factory-monitor-manage-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
  
+
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started.md). 
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -1,20 +1,19 @@
 <properties
 	pageTitle="Manage passwords in Azure AD | Microsoft Azure"
-	description="A topic that explains how to manage passwords in Azure AD."
+	description="How to manage passwords in Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Manage passwords in Azure AD
@@ -34,13 +33,15 @@ This rest of this topic covers the full set of password management capabilities 
 
 Use the following links to jump to the documentation you are most interested in:
 
-- [Overview: password management in Azure AD](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Self-service password reset in Azure AD: how to enable, configure, and test self-service password reset](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Self-service password reset in Azure AD: how to customize password reset to meet your needs](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Self-service password reset in Azure AD: deployment and management best practices](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Password management reports in Azure AD: how to view password management activity in your tenant](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [Password writeback: how to configure Azure AD to manage on-premises passwords](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [FAQ/Troubleshooting for Azure AD password management](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [Overview: password management in Azure AD](active-directory-passwords-how-it-works.md)
+- [Self-service password reset in Azure AD: how to enable, configure, and test self-service password reset](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Self-service password reset in Azure AD: how to customize password reset to meet your needs](active-directory-passwords-customize.md)
+- [Self-service password reset in Azure AD: deployment and management best practices](active-directory-passwords-best-practices.md)
+- [Password management reports in Azure AD: how to view password management activity in your tenant](active-directory-passwords-get-insights.md)
+- [Password writeback: how to configure Azure AD to manage on-premises passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Troubleshooting Azure AD password management](active-directory-passwords-troubleshoot.md)
+- [FAQ for Azure AD password management](active-directory-passwords-faq.md)
+
 
 ## What's next
 

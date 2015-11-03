@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="MySQL Connector - Move data from MySQL" 
-	description="Learn about MySQL Connector for the Data Factory service that lets you move data from MySQL database" 
+	pageTitle="Move data from MySQL | Azure Data Factory" 
+	description="Learn about how to move data from MySQL database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# MySQL Connector - Move data From MySQL
+# Move data From MySQL using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
@@ -33,11 +33,11 @@ For Data Management Gateway to connect to the MySQL Database, you need to instal
 
 The sample below shows:
 
-1.	A linked service of type OnPremisesMySql.
-2.	A linked service of type AzureStorage.
-3.	An input dataset of type RelationalTable.
-4.	An output dataset of type AzureBlob.
-4.	A pipeline with Copy Activity that uses RelationalSource and BlobSink.
+1.	A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
+2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-mysql-connector.md#mysql-dataset-type-properties).
+4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from a query result in MySQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -227,6 +227,8 @@ The following table provides description for JSON elements specific to MySQL lin
 | username | Specify user name if you are using Basic or Windows authentication. | No | 
 | password | Specify password for the user account you specified for the username. | No | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. | Yes |
+
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
 
 ## MySQL Dataset type properties
 

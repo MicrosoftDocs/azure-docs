@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Azure" 
+	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Microsoft Azure" 
 	description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
 	services="documentdb" 
 	documentationCenter="" 

@@ -4,15 +4,15 @@
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/06/2015"
 	ms.author="awills"/>
 
 # Usage analysis with Application Insights
@@ -21,13 +21,41 @@ Knowing how people use your application lets you focus your development work on 
 
 Application Insights can provide a clear view of your application's usage, helping you to improve your users' experience, and meet your business goals.
 
+Application Insights works for both stand-alone apps (on iOS, Android and Windows) and for web apps (hosted on .NET or J2EE). 
+
+## Add Application Insights to your project
+
+To get started, get a subscription to [Microsoft Azure](https://azure.com). (There's a free trial, and after the trial period, you can continue with the free tier of the service.)
+
+In the [Azure portal](https://portal.azure.com), create an Application Insights resource. This is where you'll see usage and performance data about your app.
+
+![In Azure, click New, Developer Services, Application Insights](./media/app-insights-overview-usage/01-create.png)
+
+**If your app is a device app,** add the Application Insights SDK to your project. The exact procedure varies depending on your [IDE and platform](app-insights-platforms.md). For Windows apps, just right-click the project in Visual Studio and choose "Add Application Insights."
+
+**If it's a web app,** open the Quick Start blade and get the code snippet to add to your web pages. Republish them with this snippet.
+
+![Open Quick start and click Get code to monitor my web pages. Copy the script into the head of your master web page.](./media/app-insights-overview-usage/02-monitor-web-page.png)
+
+You can also add Application Insights to your [ASP.NET](app-insights-start-monitoring-app-health-usage.md) or [J2EE](app-insights-java-get-started.md) server code so as to combine telemetry from both client and server.
+
+
+### Run your project and see first results
+
+Run your project in debug mode for a few minutes, and then go to the [Azure portal](http://portal.azure.com) and browse to your project resource in Application Insights.
+
+![In Azure, click Browse, Application Insights, and select your project](./media/app-insights-overview-usage/00-start.png)
+
+Publish your app to get more telemetry and find out what your users are doing with your app.
+
+
 ## Analytics out of the box
 
-Add [Application Insights][start] to your project, and without further effort you get charts showing you how many users you have and more.
+Click the Page Views tile to see usage details.
 
-![In Azure, Browse > Application Insights > your project and scroll down](./media/app-insights-overview-usage/01-overview.png)
+![In Azure, Browse > Application Insights > your project and scroll down to the Page Views tile](./media/app-insights-overview-usage/01-overview.png)
 
-Hover in the blank part above a graph to see the counts at a particular point. Otherwise, the numbers show the value aggregated over the period, such an average, a total, or a count of distinct users over the period.
+Hover in the blank part above a graph to see the counts at a particular point. Otherwise, the numbers show the value aggregated over the period, such as an average, a total, or a count of distinct users over the period.
 
 In web applications, users are counted by using cookies. A person who uses several browsers, clears cookies, or uses the privacy feature will be counted several times.
 
@@ -54,7 +82,7 @@ Group (segment) data by a property such as Browser, Operating System, or City:
 
 ## Page usage
 
-Click through the page views chart to get a more zoomed-in version together with a breakdown of your most popular pages:
+Click the page views tile to get a a breakdown of your most popular pages:
 
 
 ![From the Overview blade, click the Page views chart](./media/app-insights-overview-usage/05-games.png)
@@ -249,6 +277,11 @@ And of course, when the feature is live, make sure you look at the analytics and
 * Canary testing. Set up a feature switch that allows you to make a new feature visible only to some users. Use Application Insights to see whether the new feature is being used in the way you envisaged. Make adjustments, then release it to a wider audience.
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 
+## Learn more
+
+* [Detect, triage and diagnose crashes and performance issues in your app](app-insights-detect-triage-diagnose.md)
+* [Get started with Application Insights on many platforms](app-insights-detect-triage-diagnose.md)
+
 
 ## Video
 
@@ -257,5 +290,5 @@ And of course, when the feature is live, make sure you look at the analytics and
 
 <!--Link references-->
 
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
  

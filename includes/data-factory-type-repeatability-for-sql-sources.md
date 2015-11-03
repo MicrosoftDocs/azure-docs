@@ -2,7 +2,7 @@
 
 When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
 
-When copying data to Azure SQL Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
+When copying data to Azure SQL/SQL Server Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
@@ -20,7 +20,7 @@ Suppose you found errors in source file and updated the quantity of Down Tube fr
 
 To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.
 
-> [AZURE.NOTE] A slice can be re-run automatically in Azure Data Factory too as per the retry policy specified.
+> [AZURE.NOTE] A slice can be re-run automatically in Azure Data Factory as per the retry policy specified.
 
 ### Mechanism 1
 
@@ -29,10 +29,10 @@ You can leverage **sqlWriterCleanupScript** property to first perform cleanup ac
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd HH:mm}\\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	}
 
-The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The copy activity will subsequently insert the data into the SQL Table. 
+The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The activity will subsequently insert the data into the SQL Table. 
 
 If the slice is now re-run, then you will find the quantity is updated as desired.
 	
@@ -47,7 +47,7 @@ Suppose the Flat Washer record is removed from the original csv. Then re-running
 	...	...			...			...
 	7 	Down Tube	4			2015-05-01 00:00:00
 
-Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which now contained only 1 record) and inserted in into the Table. 
+Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table. 
 
 ### Mechanism 2
 

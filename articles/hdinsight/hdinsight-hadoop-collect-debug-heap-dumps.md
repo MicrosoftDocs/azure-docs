@@ -3,6 +3,7 @@
 	description="Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>

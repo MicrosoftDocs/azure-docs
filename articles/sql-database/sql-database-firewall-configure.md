@@ -61,17 +61,17 @@ When an application from Azure attempts to connect to your database server, the 
 
 You can enable connections from Azure in the [Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793) in two ways:
 
-- Select the checkbox **Allow Windows Azure Services to Access the Server** when creating a new server.
+- Select the checkbox **Allow Microsoft Azure Services to Access the Server** when creating a new server.
 
-- From the **Configure** tab on a server, under the **Allowed Services** section, click **Yes** for **Windows Azure Services**. 
+- From the **Configure** tab on a server, under the **Allowed Services** section, click **Yes** for **Microsoft Azure Services**. 
 
 ## Creating the first server-level firewall rule
 
-The first server-level firewall setting can be created using the [Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, as well as through Transact-SQL. For more information on server-level firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](article:sql-database-configure-firewall-settings).
+The first server-level firewall setting can be created using the [Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=161793) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, as well as through Transact-SQL. For more information on server-level firewall rules, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Creating database-level firewall rules
 
-After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](article:sql-database-configure-firewall-settings).
+After you have configured the first server-level firewall, you may want to restrict access to certain databases. If you specify an IP address range in the database-level firewall rule that is outside the range specified in the server-level firewall rule, only those clients that have IP addresses in the database-level range can access the database. You can have a maximum of 128 database-level firewall rules for a database. Database-level firewall rules for master and user databases can be created and managed through Transact-SQL. For more information, see [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ## Programmatically managing firewall rules
 
@@ -82,12 +82,12 @@ In addition to the Azure Management Portal, firewall rules can be managed progra
 
 | Catalog View or Stored Procedure                                                           | Level     | Description                                          |
 |--------------------------------------------------------------------------------------------|-----------|------------------------------------------------------|
-| [sys.firewall\\_rules](https://msdn.microsoft.com/library/dn269980.aspx)                   | Server    | Displays the current server-level firewall rules     |
-| [sp\\_set\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270017.aspx)             | Server    | Creates or updates server-level firewall rules       |
-| [sp\\_delete\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270024.aspx)          | Server    | Removes server-level firewall rules                  |
-| [sys.database\\_firewall\\_rules](https://msdn.microsoft.com/library/dn269982.aspx)        | Database  | Displays the current database-level firewall rules   |
-| [sp_set\\_database\\_firewall\\_rule](https://msdn.microsoft.com/library/dn270010.aspx)    | Database  | Creates or updates the database-level firewall rules |
-| [sp\\_delete\\_database\\_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Databases | Removes database-level firewall rules                |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx)                   | Server    | Displays the current server-level firewall rules     |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx)             | Server    | Creates or updates server-level firewall rules       |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx)          | Server    | Removes server-level firewall rules                  |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx)        | Database  | Displays the current database-level firewall rules   |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx)    | Database  | Creates or updates the database-level firewall rules |
+| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) | Databases | Removes database-level firewall rules                |
 
 ### REST API
 
@@ -114,7 +114,7 @@ In addition to the Azure Management Portal, firewall rules can be managed progra
 
 Consider the following points when access to the Microsoft Azure SQL Database service does not behave as you expect:
 
-- **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. 
+- **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. You may have to open additional ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Network address translation (NAT):** Due to NAT, the IP address used by your computer to connect to Azure SQL Database may be different then the IP address shown in your computer IP configuration settings. To view the IP address your computer is using to connect to Azure, log in to the Management Portal and navigate to the **Configure** tab on the server that hosts your database. Under the **Allowed IP Addresses** section, the **Current Client IP Address** is displayed. Click **Add** to the **Allowed IP Addresses **to allow this computer to access the server.
 
@@ -130,7 +130,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
 ## See also
 
-[How to: Configure Firewall Settings (Azure SQL Database)](article:sql-database-configure-firewall-settings)
+[How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png

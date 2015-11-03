@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Notification Hubs Notify Users" 
-	description="Learn how to send push notifications to users in Azure. Code samples written in Java for Android" 
-	documentationCenter="android" 
-	services="notification-hubs" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure Notification Hubs Notify Users"
+	description="Learn how to send push notifications to users in Azure. Code samples written in Java for Android"
+	documentationCenter="android"
+	services="notification-hubs"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users
@@ -25,8 +25,7 @@
 
 Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the [Getting Started with Notification Hubs (Android)](notification-hubs-android-get-started.md) tutorial.
 
-> [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Android)](notification-hubs-android-get-started.md). 
-> If you are using Mobile Services as your backend service, see the [Mobile Services version](../mobile-services-javascript-backend-android-push-notifications-app-users.md) of this tutorial.
+> [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (Android)](notification-hubs-android-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -36,17 +35,17 @@ The next step is to create the Android application.
 
 1. Follow the [Getting Started with Notification Hubs (Android)](notification-hubs-android-get-started.md) tutorial to create and configure your app to receive push notifications from GCM.
 
-2. Open your **res/layout/activity_main.xml** file, replace the with the following content definitions. 
- 
+2. Open your **res/layout/activity_main.xml** file, replace the with the following content definitions.
+
     This adds new EditText controls for logging in as a user. Also a field is added for a username tag that will be part of notifications you send:
-			
+
 		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
             android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-        
+
         <EditText
             android:id="@+id/usernameText"
             android:layout_width="match_parent"
@@ -138,12 +137,12 @@ The next step is to create the Android application.
 
 	![][A1]
 
-4. Create a new class named **RegisterClient** in the same package as your `MainActivity` class. Use the code below for the new class file. 
- 
+4. Create a new class named **RegisterClient** in the same package as your `MainActivity` class. Use the code below for the new class file.
+
 		import java.io.IOException;
         import java.io.UnsupportedEncodingException;
         import java.util.Set;
-        
+
         import org.apache.http.HttpResponse;
         import org.apache.http.HttpStatus;
         import org.apache.http.client.ClientProtocolException;
@@ -157,11 +156,11 @@ The next step is to create the Android application.
         import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
-        
+
         import android.content.Context;
         import android.content.SharedPreferences;
         import android.util.Log;
-        
+
         public class RegisterClient {
             private static final String PREFS_NAME = "ANHSettings";
             private static final String REGID_SETTING_NAME = "ANHRegistrationId";
@@ -169,32 +168,32 @@ The next step is to create the Android application.
             SharedPreferences settings;
             protected HttpClient httpClient;
             private String authorizationHeader;
-        
+
             public RegisterClient(Context context, String backendEnpoint) {
                 super();
                 this.settings = context.getSharedPreferences(PREFS_NAME, 0);
                 httpClient =  new DefaultHttpClient();
                 Backend_Endpoint = backendEnpoint + "/api/register";
             }
-        
+
             public String getAuthorizationHeader() {
                 return authorizationHeader;
             }
-        
+
             public void setAuthorizationHeader(String authorizationHeader) {
                 this.authorizationHeader = authorizationHeader;
             }
-        
+
             public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
                 String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-        
+
                 JSONObject deviceInfo = new JSONObject();
                 deviceInfo.put("Platform", "gcm");
                 deviceInfo.put("Handle", handle);
                 deviceInfo.put("Tags", new JSONArray(tags));
-        
+
                 int statusCode = upsertRegistration(registrationId, deviceInfo);
-        
+
                 if (statusCode == HttpStatus.SC_OK) {
                     return;
                 } else if (statusCode == HttpStatus.SC_GONE){
@@ -210,7 +209,7 @@ The next step is to create the Android application.
                     throw new RuntimeException("Error upserting registration");
                 }
             }
-        
+
             private int upsertRegistration(String registrationId, JSONObject deviceInfo)
                     throws UnsupportedEncodingException, IOException,
                     ClientProtocolException {
@@ -222,11 +221,11 @@ The next step is to create the Android application.
                 int statusCode = response.getStatusLine().getStatusCode();
                 return statusCode;
             }
-        
+
             private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
                 if (settings.contains(REGID_SETTING_NAME))
                     return settings.getString(REGID_SETTING_NAME, null);
-        
+
                 HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
                 request.addHeader("Authorization", "Basic "+authorizationHeader);
                 HttpResponse response = httpClient.execute(request);
@@ -236,9 +235,9 @@ The next step is to create the Android application.
                 }
                 String registrationId = EntityUtils.toString(response.getEntity());
                 registrationId = registrationId.substring(1, registrationId.length()-1);
-        
+
                 settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
-        
+
                 return registrationId;
             }
         }
@@ -252,26 +251,26 @@ The next step is to create the Android application.
 		private RegisterClient registerClient;
 	    private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
- 
+
 6. In your `MainActivity` class, in the `onCreate` method, remove or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method. Then add code to initialize an instance of the `RegisterClient` class. The method should contain the following lines:
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-    
+
             MyHandler.mainActivity = this;
             NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
             gcm = GoogleCloudMessaging.getInstance(this);
-    
+
             //hub = new NotificationHub(HubName, HubListenConnectionString, this);
             //registerWithNotificationHubs();
-    
+
 	        registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
 
             setContentView(R.layout.activity_main);
         }
 
-7. In your `MainActivity` class, delete or comment out the entire `registerWithNotificationHubs` method. It will not be used in this tutorial. 
+7. In your `MainActivity` class, delete or comment out the entire `registerWithNotificationHubs` method. It will not be used in this tutorial.
 
 8. Add the following `import` statements to your **MainActivity.java** file.
 
@@ -293,10 +292,10 @@ The next step is to create the Android application.
         	Button sendPush = (Button) findViewById(R.id.sendbutton);
 	        sendPush.setEnabled(false);
 	    }
-	
+
 		public void login(View view) throws UnsupportedEncodingException {
 	    	this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
-	    	
+
 	    	final Context context = this;
 	    	new AsyncTask<Object, Object, Object>() {
 				@Override
@@ -310,7 +309,7 @@ The next step is to create the Android application.
 					}
 					return null;
 				}
-	
+
 				protected void onPostExecute(Object result) {
                 	Button sendPush = (Button) findViewById(R.id.sendbutton);
 			        sendPush.setEnabled(true);
@@ -319,7 +318,7 @@ The next step is to create the Android application.
 				}
 			}.execute(null, null, null);
 	    }
-	    
+
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
 	    	EditText password = (EditText) findViewById(R.id.passwordText);
@@ -345,20 +344,20 @@ The next step is to create the Android application.
                 @Override
                 protected Object doInBackground(Object... params) {
                     try {
-    
+
                         String uri = BACKEND_ENDPOINT + "/api/notifications";
                         uri += "?pns=" + pns;
                         uri += "&to_tag=" + userTag;
-    
+
                         HttpPost request = new HttpPost(uri);
                         request.addHeader("Authorization", "Basic "+ getAuthorizationHeader());
                         request.setEntity(new StringEntity(message));
                         request.addHeader("Content-Type", "application/json");
-    
+
                         HttpResponse response = new DefaultHttpClient().execute(request);
-    
+
                         if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                            DialogNotify("MainActivity - Error sending " + pns + " notification", 
+                            DialogNotify("MainActivity - Error sending " + pns + " notification",
 								response.getStatusLine().toString());
                             throw new RuntimeException("Error sending notification");
                         }
@@ -366,16 +365,16 @@ The next step is to create the Android application.
                         DialogNotify("MainActivity - Failed to send " + pns + " notification ", e.getMessage());
                         return e;
                     }
-    
+
                     return null;
                 }
             }.execute(null, null, null);
         }
 
 
-	The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration. 
+	The `login` handler for the **Log in** button generates a basic authentication token using on the input username and password (note that this represents any token your authentication scheme uses), then it uses `RegisterClient` to call the backend for registration.
 
-	The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in. 
+	The `sendPush` method calls the backend to trigger a secure notification to the user based on the user tag. The platform notification service that `sendPush` targets depends on the `pns` string passed in.
 
 10. In your `MainActivity` class, update the `sendNotificationButtonOnClick` method to call the `sendPush` method with the user's selected platform notification services as follows.
 
@@ -387,15 +386,15 @@ The next step is to create the Android application.
          */
         public void sendNotificationButtonOnClick(View v)
                 throws ClientProtocolException, IOException {
-    
+
             String nhMessageTag = ((EditText) findViewById(R.id.editTextNotificationMessageTag))
                     .getText().toString();
             String nhMessage = ((EditText) findViewById(R.id.editTextNotificationMessage))
                     .getText().toString();
-    
+
             // JSON String
             nhMessage = "\"" + nhMessage + "\"";
-    
+
             if (((ToggleButton)findViewById(R.id.toggleButtonWNS)).isChecked())
             {
                 sendPush("wns", nhMessageTag, nhMessage);
@@ -417,9 +416,9 @@ The next step is to create the Android application.
 
 1. Run the application on a device or an emulator using Android Studio.
 
-2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters. 
+2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
 
-3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. This will enable the **Send Notification** button. 
+3. In the Android app, click **Log in**. Wait for a toast message that states **Logged in and registered**. This will enable the **Send Notification** button.
 
 	![][A2]
 
@@ -432,5 +431,3 @@ The next step is to create the Android application.
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
-
- 

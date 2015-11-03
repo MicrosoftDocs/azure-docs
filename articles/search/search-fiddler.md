@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs"
+	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Azure"
 	description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs."
 	services="search"
 	documentationCenter=""
@@ -16,30 +16,30 @@
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# How to use Fiddler to evaluate and test Azure Search REST APIs
+# Use Fiddler to evaluate and test Azure Search REST APIs
 
 This article explains how to use Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests to and view responses using the Azure Search REST API, without having to write any code. Azure Search service REST APIs are documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
+In the following steps, you'll create an index, upload documents, query the index, and then query the system for service information.
 
 To complete these steps, you will need an Azure Search service and `api-key`. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on how to get started.
 
 ## Create an index
 
-1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task.
+1. Start Fiddler. On the **File** menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task.
 
-3. On the Composer tab, you'll formulate a request that looks like this:
+3. On the **Composer** tab, you'll formulate a request that looks like the following screen shot.
 
   	![][1]
 
 2. Select **PUT**.
 
-3. Enter a URL that specifies the service URL, request attributes and the api-version. A few pointers to keep in mind:
-   + Use HTTPS as the prefix
+3. Enter a URL that specifies the service URL, request attributes, and the api-version. A few pointers to keep in mind:
+   + Use HTTPS as the prefix.
    + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
-   + Api-version is lower-case, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
+   + Api-version is lowercase, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
 
-    The full URL should look similar to the following example:
+    The full URL should look similar to the following example.
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
@@ -77,13 +77,13 @@ If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404,
 
 ## Load documents
 
-On the Composer tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
+On the **Composer** tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
 
    ![][2]
 
 1. Select **POST**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example:
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example.
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -163,7 +163,7 @@ In a few seconds, you should see an HTTP 200 response in the session list. This 
 
 ## Query the index
 
-Now that an index and documents are loaded, you can issue queries against them.  On the Composer tab, a GET command that queries your service will look similar to the following:
+Now that an index and documents are loaded, you can issue queries against them.  On the **Composer** tab, a **GET** command that queries your service will look similar to the following screen shot.
 
    ![][3]
 
@@ -182,11 +182,11 @@ Now that an index and documents are loaded, you can issue queries against them. 
         content-type: application/json
         api-key: 1111222233334444
 
-The response code should be 200, and the response output should look similar to the following illustration.
+The response code should be 200, and the response output should look similar to the following screen shot.
 
    ![][4]
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler:
+The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
 
 **Before spaces are replaced:**
 
@@ -198,7 +198,7 @@ The following example query is from the [Search Index operation (Azure Search AP
 
 ## Query the system
 
-You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
+You can also query the system to get document counts and storage consumption. On the **Composer** tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
 
  ![][5]
 
@@ -219,7 +219,7 @@ You can also query the system to get document counts and storage consumption. On
 
 5.	Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
 
-6.	Click the **Inspectors** tab | **Headers**, and select the JSON format. You should see the document count and storage size (in KB).
+6.	Click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
 
 ## Next steps
 
@@ -234,4 +234,3 @@ The following links provide additional information for a no-code approach to man
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
- 

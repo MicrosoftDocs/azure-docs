@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/03/2015"
+   ms.date="09/23/2015"
    ms.author="alexwun"/>
 
 # Deploy an application

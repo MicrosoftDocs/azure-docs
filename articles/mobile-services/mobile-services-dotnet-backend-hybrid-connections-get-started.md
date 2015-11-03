@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" 
-	description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" 
+	pageTitle="Connect to an on-premises SQL Server from a .NET backend mobile service using Hybrid Connections |  Azure Mobile Services" 
+	description="Learn how to connect to an on-premises SQL Server from a .NET backend mobile service using Azure Hybrid Connections" 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/15/2015" 
 	ms.author="glenga"/>
 
   

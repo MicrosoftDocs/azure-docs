@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in SQL Database V12
 
 
-This topic describes the many advantages that the new V12 version of Azure SQL Database has over the V11 version.
+This topic describes the many advantages that the new V12 version of Azure SQL Database has over version V11.
 
 
 We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
@@ -31,6 +31,9 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 - Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 
+The latest information about resource limits for SQL Database is documented at:<br/>[Azure SQL Database Resource Limits](sql-database-resource-limits.md).
+
+
 ## Increased application compatibility with SQL Server
 
 
@@ -38,8 +41,8 @@ A key goal for SQL Database V12 was to improve the compatibility with Microsoft 
 
 
 - [Common Language Runtime (CLR) assemblies](http://msdn.microsoft.com/library/ms189524.aspx)
-- [Window functions](https://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
-- [XML indexes](https://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
+- [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -56,7 +59,19 @@ In V12, we increased the database throughput units (DTUs) allocated to all Premi
 
 - Support for in-memory [columnstore indexes](http://msdn.microsoft.com/library/gg492153.aspx).
 - [Table partitioning by rows](http://msdn.microsoft.com/library/ms187802.aspx) with related enhancements to [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- The availability of dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) and Extended Events[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) to help monitor and tune performance.
+- The availability of dynamic management views [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx) to help monitor and tune performance.
+
+
+### Reliable performance
+
+
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+
+- 11000-11999
+- 14000-14999
+
+
+Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 
 ## Better support for cloud SaaS vendors
@@ -81,6 +96,8 @@ Security is a primary concern for anyone who runs their business in the cloud. T
 - [Contained databases](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - [Application roles](http://msdn.microsoft.com/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
 - [Transparent Data Encryption](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+ - SQL Database now supports Azure Active Directory authentication, a mechanism of connecting to SQL Database by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location.
 
 
 ## Increased business continuity when recovery is needed
@@ -96,7 +113,7 @@ V12 offers significantly improved recovery point objectives (RPOs) and estimated
 | Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
-See [SQL Database business continuity](https://msdn.microsoft.com/library/azure/hh852669.aspx) for more information.
+See [SQL Database business continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx) for more information.
 
 
 ## More reasons to upgrade now
@@ -108,17 +125,6 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 - SQL Database V12 has a long list of features beyond those of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
 - Most new features are released on SQL Database V12 before they being released for Microsoft SQL Server.
-
-
-## Gateway no longer provides retry logic in V12
-
-
-Before version V12, Azure SQL Database had a gateway that acted as a proxy to buffer all interactions between the database and your client program. The gateway provided automated *retry logic* for some *transient errors*.
-
- V12 eliminated the gateway. Now your program must more fully handle transient errors. For details see:
-
-
-- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 
 ## Are you using V12 already?

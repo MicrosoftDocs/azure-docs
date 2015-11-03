@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
 
 # Elastic database Split-Merge tool tutorial
@@ -47,7 +47,11 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 2. Open ServiceConfiguration.cscfg in your favorite text editor. We recommend using Visual Studio as it will validate inputs such as the format of certificate thumbprints.
 
-3. Either create a new database or choose an existing database to serve as the status database for Split/Merge operations and retrieve the connection string of that database. With Azure SQL DB, the connection string typically is of the form:
+3. Either create a new database or choose an existing database to serve as the status database for Split/Merge operations and retrieve the connection string of that database. 
+
+	**Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+
+	With Azure SQL DB, the connection string typically is of the form:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Enter this connection string in the cscfg file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
@@ -100,12 +104,12 @@ Go to the [Azure preview portal](https://portal.azure.com).
 ### Update the service configuration file
 
 Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings.
-For the web role:
+For the worker role:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-For the worker role:
+For the web role:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />

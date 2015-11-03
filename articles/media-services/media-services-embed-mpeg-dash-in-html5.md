@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -99,6 +99,15 @@ Finally, set the size of the video element using CSS. In an adaptive streaming e
 ##Playing a Video
 
 To play a video, point your browser at the basicPlayback.html file and click play on the video player displayed.
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 ##See Also
 

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Analyze Twitter data with Hadoop in HDInsight | Microsoft Azure"
-	description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word."
+	pageTitle="Analyze Twitter data with Apache Hive on HDInsight | Microsoft Azure"
+	description="Learn how to use Python to store Tweets that contain specific keywords, then use Hive and Hadoop on HDInsight to transform the raw TWitter data into a searchable Hive table."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
 
-In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight (preview) cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
+In this document, you will get tweets by using a Twitter streaming API and then use Apache Hive on a Linux-based HDInsight cluster to process the JSON formatted data. The result will be a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [AZURE.NOTE] The steps in this article are based on using a Linux-based HDInsight cluster. For steps specific to a Windows-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE] While individual pieces of this document can be used with Windows-based HDInsight clusters (Python and Hive for example,) many steps are based on using a Linux-based HDInsight cluster. For steps specific to a Windows-based cluster, see [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Prerequisites
 
@@ -36,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 - __Python__ and [pip](https://pypi.python.org/pypi/pip)
 
-- The __Azure CLI__. For more information, see [Install and configure the Azure CLI](../xplat-cli.md)
+- The __Azure CLI__. For more information, see [Install and configure the Azure CLI](../xplat-cli-install.md)
 
 ##Get a Twitter feed
 

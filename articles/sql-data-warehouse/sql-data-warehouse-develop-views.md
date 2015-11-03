@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
  
@@ -27,9 +27,10 @@ This article highlights a few examples of how to enrich your solution by impleme
 A very common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data. 
 
 The example below adds new date records to a date dimension. Note how a new object, DimDate_New, is first created and then renamed to replace the original version of the object. 
+
 ```
 CREATE TABLE dbo.DimDate_New
-WITH (DISTRIBUTION = REPLICATE
+WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
 AS 
@@ -44,6 +45,7 @@ RENAME OBJECT DimDate TO DimDate_Old;
 RENAME OBJECT DimDate_New TO DimDate;
 
 ```
+
 However, this can result in table objects appearing and disappearing from a user's view in the SSDT SQL Server Object Explorer. Views can be used to provide warehouse data consumers with a consistent presentation layer whilst the underlying objects are renamed. Providing access to the data through a view means users don't need to have visibility of the underlying tables. This provides a consistent user experience whilst ensuring that the data warehouse designers can evolve the data model and also maximise performance by using CTAS during the data loading process.    
 
 ## Performance optimization

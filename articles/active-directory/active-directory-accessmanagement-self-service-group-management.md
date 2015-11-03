@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Setting up Azure AD for self service application access management| Microsoft Azure" 
-	description="A topic that explains how to manage groups in Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
+<properties
+	pageTitle="Setting up Azure AD for self service application access management| Microsoft Azure"
+	description="overview of Self-service group management that enables users to create and manage security groups in Microsoft Azure Active Directory (AD) and offers users the possibility to request security group memberships"
+	services="active-directory"
+	documentationCenter=""
     authors="femila"
-	manager="swadhwa"" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/09/2015"
 	ms.author="femila"/>
 
 #Setting up Azure AD for self service application access management
 
-Self-service group management enables users to create and manage security groups in Microsoft Azure Active Directory (AD) and offers users the possibility to request security group memberships, which can subsequently be approved or denied by the owner of the group. By using self-service group management features, the day-to-day control of group membership can be delegated to people who understand the business context for that membership. 
+Self-service group management enables users to create and manage security groups in Microsoft Azure Active Directory (AD) and offers users the possibility to request security group memberships, which can subsequently be approved or denied by the owner of the group. By using self-service group management features, the day-to-day control of group membership can be delegated to people who understand the business context for that membership. Note that self service group management features are only available for security groups and Office 365 groups, not for mail enabled security groups or distribution lists.
 
 Self-service group management is currently comprised of two essential scenarios: delegated group management and self-service group management.
 
@@ -41,7 +41,7 @@ You can also use the Users who can use self-service for security groups switch t
 
 You can also use the Group that can use self-service for security groups field (set by default to ‘SSGMSecurityGroupsUsers’ to specify your own custom name for a group that will hold all the users with the ability to use self-service and create new security groups in your directory.
 
-Here are some topics that will provide some additional information on Azure Active Directory 
+Here are some topics that will provide some additional information on Azure Active Directory
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 

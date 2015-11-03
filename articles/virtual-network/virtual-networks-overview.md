@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Virtual Network Overview
@@ -57,7 +57,7 @@ You can divide your VNet into multiple subnets for organization and security. Su
 
 ## IP addresses
 
-There are two types of IP addresses assigned to components in Azure: public and private. IaaS VMs and PaaS role instances deployed to an Azure subnet are automatically assigned a private IP address to each of their NICs based on teh CIDR address blocks assigned to your subnets. You can also assign a public IP address to your IaaS VMs and PaaS role instances. 
+There are two types of IP addresses assigned to components in Azure: public and private. IaaS VMs and PaaS role instances deployed to an Azure subnet are automatically assigned a private IP address to each of their NICs based on the CIDR address blocks assigned to your subnets. You can also assign a public IP address to your IaaS VMs and PaaS role instances. 
 
 These IP addresses are dynamic, meaning that they can change at any time. You may want to ensure the IP address for certain services remain the same, at all times. To do so, you can reserve an IP address, making it static.
 
@@ -85,10 +85,11 @@ Virtual appliances depend on [user defined routes and IP forwarding](../virtual-
 
 ## Next steps
 
-- [Create a VNet](../virtual-networks-create-a-vnet.md) and subnets.
+- [Create a VNet](../virtual-networks-create-vnet-arm-pportal.md) and subnets.
 - [Create a VM in a VNet](../virtual-machines-windows-tutorial.md).
 - Learn about [NSGs](../virtual-networks-nsg.md).
 - Learn about [load balancers](../load-balancer-overview.md).
 - [Reserve an internal IP address](../virtual-networks-reserved-private-ip.md)
 - [Reserve a public IP address](../virtual-networks-reserved-public-ip.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
+

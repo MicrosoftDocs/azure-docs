@@ -1,7 +1,7 @@
 <properties
-   pageTitle="Deploy an application with Azure Resource Manager Template"
+   pageTitle="Deploy resources with Resource Manager template | Microsoft Azure"
    services="azure-resource-manager"
-   description="Use Azure Resource Manager to deploy an application to Azure. A template is a JSON file and can be used from the Portal, PowerShell, the Azure Command-Line Interface for Mac, Linux, and Windows, or REST."
+   description="Use Azure Resource Manager to deploy a resources to Azure. A template is a JSON file and can be used from the Portal, PowerShell, the Azure Command-Line Interface for Mac, Linux, and Windows, or REST."
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -13,72 +13,51 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
 
 This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Microsoft Azure preview portal.
 
-Azure Resource Manager templates enable you to quickly and easily provision your applications in Azure via declarative JSON. In a single JSON template, you can deploy multiple services, such as Virtual Machines, Virtual Networks, Storage, App Services, and databases. You use the same template to repeatedly and consistently deploy your application during every stage of the application lifecycle.
-
-To simplify management of your application, you can organize all of the resources that share a common lifecycle into a single resource group. Resource groups make it easy to deploy, update, and delete all of the related resources together. In most cases, a resource group maps to either a single application or an application tier (for large applications). The resource deployed through a template will reside within a single resource groups, but they can include dependencies in other resource groups.   
-
-Within a resource group, you can track the execution of a deployment, and see the status of the deployment and any output from template execution.
+For an introduction to Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 When deploying an application with a template, you can provide parameter values to customize how the resources are created.  You specify values for these parameters either inline or in a parameter file.
-
-## Concepts
-
-- Resource Group - collection of entities that share a common lifecycle
-- Resource Manager Template - declarative JSON file that defines the goal state of a deployment
-- Deployment - operation which tracks execution of a Resource Manager template
-- Parameters - values provided by the user executing the deployment to customize deployed resources
-- Parameter file - JSON file that stores parameter names and values 
-
-## Scenarios
-
-With Resource Manager templates, you can:
-
-- Deploy complex multitier applications, such as Microsoft SharePoint.
-- Consistently and repeatedly deploy your applications.
-- Support dev, test, and production environments.
-- View the status of deployments.
-- Troubleshoot deployment failures using deployment audit logs.
-
-## Deploy with the preview portal
-
-Guess what?  Every application that you create through the [preview portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
-Simply, select the **New** icon and you will be on your way toward deploying an application through Azure Resource Manager.
-
-![New](./media/resource-group-template-deploy/new.png)
-
-For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).  
 
 
 ## Deploy with PowerShell
 
-If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
+    Earlier than Azure PowerShell 1.0 Preview:
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        ...
         PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
         someone@example.com            User       ...   
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
+    Azure PowerShell 1.0 Preview:
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+         PS C:\> Login-AzureRmAccount
 
-3. Switch to the Azure Resource Manager module.
+         Evironment : AzureCloud
+         Account    : someone@example.com
+         ...
 
-        PS C:\> Switch-AzureMode AzureResourceManager
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment with the **Select-AzureRmSubscription** command. 
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+
+3. If you do not have an existing resource group, create a new resource group with the **New-AzureRmResourceGroup** command. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+
+        PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -90,22 +69,22 @@ If you have not previously used Azure PowerShell with Resource Manager, see [Usi
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
+5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
    
      You have the following options for providing parameter values: 
    
      - Use inline parameters.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Use a parameter object.
 
             PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Using a parameter file. For information about the template file, see [Parameter file](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      When the resource group has been deployed, you will see a summary of the deployment.
 
@@ -118,11 +97,15 @@ If you have not previously used Azure PowerShell with Resource Manager, see [Usi
 
 6. To get information about deployment failures.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
 
-7. To get detailed information about deployment failures.
+        
+### Video
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+Here's a video demonstrating working with Resource Manager templates with PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Deploy with Azure CLI for Mac, Linux and Windows
 
@@ -165,13 +148,13 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
    
      You have the following options for providing parameter values: 
 
-     - Use inline parameters and a local template.
+     - Use inline parameters and a local template. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The example below shows the parameters with escape characters.
 
-             azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Use inline parameters and a link to a template.
 
-             azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create --template-uri <LinkToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Use a parameter file. For information about the template file, see [Parameter file](./#parameter-file).
     
@@ -230,6 +213,16 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Deploy with the preview portal
+
+Guess what?  Every application that you create through the [preview portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
+Simply, select the **New** icon and you will be on your way toward deploying an application through Azure Resource Manager.
+
+![New](./media/resource-group-template-deploy/new.png)
+
+For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).  
+
+
 ## Parameter file
 
 If you use a parameter file to pass the parameter values to your template during deployment, you'll need to create a JSON file with a format similar to the following example.
@@ -250,9 +243,12 @@ If you use a parameter file to pass the parameter values to your template during
        }
     }
 
+The size of the parameter file cannot be more than 64 KB.
+
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../arm-template-deployment.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments-preview-portal.md).
 - To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../resource-group-authoring-templates.md)
 - For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../resource-group-template-functions.md)
 

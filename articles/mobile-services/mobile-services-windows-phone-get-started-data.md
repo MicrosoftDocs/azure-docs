@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Mobile Services to an existing app (WP8) - Azure Mobile Services" 
+	pageTitle="Add Mobile Services to an existing app (WP8) | Microsoft Azure" 
 	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -19,7 +19,7 @@
 
 # Add Mobile Services to an existing app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ##Overview
 

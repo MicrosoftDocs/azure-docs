@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm."
+   description="Describes how to install and configure or remove the StorSimple Adapter for SharePoint in a SharePoint server farm."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
-# StorSimple Adapter for SharePoint
+# Install and configure the StorSimple Adapter for SharePoint
 
 ## Overview
 
@@ -55,8 +55,7 @@ Moving BLOB content to the file system can provide other cost savings and benefi
 
 ### Capacity and performance limits
 
-Before you consider using RBS in your SharePoint solution, you should be aware of the tested performance and capacity limits of SharePoint Server 2010 and SharePoint Server 2013, and how these limits relate to acceptable performance. 
-For more information, see Software Boundaries and Limits for SharePoint 2013.
+Before you consider using RBS in your SharePoint solution, you should be aware of the tested performance and capacity limits of SharePoint Server 2010 and SharePoint Server 2013, and how these limits relate to acceptable performance. For more information, see [Software Boundaries and Limits for SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
 
 Review the following before you configure RBS:
 
@@ -229,9 +228,77 @@ Use the following procedure to upgrade SharePoint server and then reinstall Stor
 >
 >- If you are configuring RBS for a SharePoint farm that has a very large number of databases (greater than 200), the **SharePoint Central Administration** page might time out. If that occurs, refresh the page. This does not affect the configuration process.
 
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
+## StorSimple Adapter for SharePoint removal
+
+The following procedures describe how to move the BLOBs back to the SQL Server content databases and then uninstall the StorSimple Adapter for SharePoint. 
+
+>[AZURE.IMPORTANT] You have to move the BLOBs back to the content databases before you uninstall the adapter software. 
+
+### Before you begin 
+
+Collect the following information before you move the data back to the SQL Server content databases and begin the adapter removal process:
+
+- The names of all the databases for which RBS is enabled
+- The UNC path of the configured BLOB store
+
+### Move the BLOBs back to the content databases
+
+Before you uninstall the StorSimple Adapter for SharePoint software, you must migrate all of the BLOBs that were externalized back to the SQL Server content databases. If you attempt to uninstall the StorSimple Adapter for SharePoint before you move all the BLOBs back to the content databases, you will see the following warning message.
+
+![Warning message](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+ 
+####To move the BLOBs back to the content databases 
+
+1. Download each of the externalized objects.
+
+2. Open the **SharePoint Central Administration** page, and browse to **System Settings**. 
+
+3. Under **Azure StorSimple**, click **Configure StorSimple Adapter**.
+
+4. On the **Configure StorSimple Adapter** page, click the **Disable** button below each of the content databases that you want to remove from external BLOB storage. 
+
+5. Delete the objects from SharePoint, and then upload them again.
+
+Alternatively, you can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx).
+
+After you move the BLOBs back to the content database, go to the next step: [Uninstall the adapter](#uninstall-the-adapter).
+
+### Uninstall the adapter
+
+After you move the BLOBs back to the SQL Server content databases, use one of the following options to uninstall the StorSimple Adapter for SharePoint.
+
+#### To use the installation program to uninstall the adapter 
+
+1. Use an account with administrator privileges to log on to the web front-end (WFE) server.
+2. Double-click the StorSimple Adapter for SharePoint installer. The Setup Wizard starts.
+
+    ![Setup wizard](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+
+3. Click **Next**. The following page appears.
+
+    ![Setup wizard remove page](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+
+4. Click **Remove** to select the removal process. The following page appears.
+
+    ![Setup wizard confirmation page](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+
+5. Click **Remove** to confirm the removal. The following progress page appears.
+
+    ![Setup wizard progress page](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+
+6. When the removal is complete, the finish page appears. Click **Finish** to close the Setup Wizard.
+
+#### To use the Control Panel to uninstall the adapter 
+
+1. Open the Control Panel, and then click **Programs and Features**.
+
+2. Select **StorSimple Adapter for SharePoint**, and then click **Uninstall**. 
+
 ## Next steps
 
-[Learn more about StorSimple](storsimple-overview.md)
+[Learn more about StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073

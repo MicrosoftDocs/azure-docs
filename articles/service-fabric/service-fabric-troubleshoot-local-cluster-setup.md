@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Troubleshoot your local cluster setup"
+   pageTitle="Troubleshoot your local Service Fabric cluster setup | Microsoft Azure"
    description="This article covers a set of suggestions for troubleshooting your local development cluster"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup

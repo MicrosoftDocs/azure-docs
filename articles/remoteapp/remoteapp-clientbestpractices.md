@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Best practices Azure RemoteApp clients"
+    pageTitle="Best practices for Azure RemoteApp clients"
     description="Learn about best practices for using the RemoteApp clients" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
-# Best practices for RemoteApp clients
+# Best practices for Azure RemoteApp clients
 
-The following information can help you use RemoteApp clients:
+The following information can help you use Azure RemoteApp clients:
 
 - Always use the latest client. This ensures that the client version you are running has the latest bug fixes, improvements and features. You might need to sign up to automatically receive updates for the client in the appropriate Store.
 

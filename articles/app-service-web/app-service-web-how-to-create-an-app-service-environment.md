@@ -1,31 +1,33 @@
 <properties 
 	pageTitle="How to Create an App Service Environment" 
 	description="Creation flow description for app service environments" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
 
-App Service Environments (ASE) are a Premium service option of Azure App Service that is currently in Preview.  It delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
+App Service Environments (ASE) are a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ### Overview ###
 
 The ASE feature essentially deploys the Azure App Service into a customer’s VNET.  To do this the customer needs: 
 
-- A Regional VNET is required with more than 512 (/23) or more addresses
-- A Subnet in this VNET is required with 256 (/24) or more addresses
+- A Regional classic "v1" VNET is required with more than 512 (/23) or more addresses
+- A Subnet in this VNET is required with 8 (/29) or more addresses
 - The subnet **must not contain any other compute resources**.  Only one App Service Environment can be deployed into a subnet.  The creation attempt will fail if there are any other compute resources already residing in the subnet.
 
 If you do not already have a VNET you wish to use to host your App Service Environment you can create one during App Service Environment creation.
@@ -37,12 +39,13 @@ Each ASE deployment is a Hosted Service that Azure manages and maintains.  The c
 There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile.  
 
 ### Quick create ###
-After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.  This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.  Be sure to select the location where you want the system to be located and the subscription that you want it to be in.  The only accounts that can use the ASE to host content must be in the subscription used to create it.
+After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.  This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.  Be sure to create a new *app service plan* or select an existing one and the subscription that you want it to be in.  The only accounts that can use the ASE to host content must be in the subscription used to create it.
 
 The name that is specified for the ASE will be used for the web apps created in the ASE.  If name of the ASE is appsvcenvdemo then the domain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created a web app named mytestapp then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  
 
 
 ![][1]
+![][4]
 
 ### Compute Resource Pools ###
 
@@ -72,7 +75,7 @@ Pricing for App Service Environments is against the compute resources assigned. 
 
 
 ### VNET Creation ###
-While there is a quick create capability that will automatically create a new VNET, the feature also supports  selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET if it is large enough to support an App Service Environment deployment.  The VNET must have 512 addresses or more.  If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 256 addresses or more.  
+While there is a quick create capability that will automatically create a new VNET, the feature also supports selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET (only classic "v1" virtual networks are supported at this time) if it is large enough to support an App Service Environment deployment.  The VNET must have 512 addresses or more.  If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 8 addresses or more.  
 
 If going through the VNET creation UI you are required to provide:
 
@@ -136,6 +139,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Services Fragmented MP4 Live Ingest Specification
@@ -194,6 +194,15 @@ Below is a recommended implementation for redundant audio tracks:
 1. Send each unique audio track in a stream by itself.  Also send a redundant stream for each of these audio track streams, where the 2nd stream differs from the 1st only by the identifier in the HTTP POST URL:  {protocol}://{server address}/{publishing point path}/Streams({identifier}).
 2. Use separate streams to send the two lowest video bitrates. Each of these streams SHOULD also contain a copy of each unique audio track.  For example, when multiple languages are supported, these streams SHOULD contain audio tracks for each language.
 3. Use separate server (encoder) instances to encode and send the redundant streams mentioned in (1) and (2). 
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png

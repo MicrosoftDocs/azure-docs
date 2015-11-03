@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="Set and retrieve Properties and Metadata for Storage Resources | Microsoft Azure" 
-  description="Learn how to set and retrieve properties and metadata for Azure Storage resources." 
+  pageTitle="Set and retrieve properties and metadata for objects in Azure Storage | Microsoft Azure" 
+  description="Store custom metadata on objects in Azure Storage, and set and retrieve system properties." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="08/04/2015" 
+  ms.date="09/03/2015" 
   ms.author="tamram"/>
 
 

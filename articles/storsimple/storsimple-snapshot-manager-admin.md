@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use StorSimple Snapshot Manager to administer your StorSimple solution | Microsoft Azure"
-   description="Provides links to more information about StorSimple Snapshot Manager solution administration tasks and workflows."
+   pageTitle="StorSimple Snapshot Manager administration | Microsoft Azure"
+   description="Provides an overview and links to more information about StorSimple Snapshot Manager solution administration tasks and workflows."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="08/28/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to administer your StorSimple solution

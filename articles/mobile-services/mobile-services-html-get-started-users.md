@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add authentication to your HTML/JavaScript app | Azure Mobile Services" 
+	pageTitle="Add authentication to your HTML/JavaScript app | Microsoft Azure" 
 	description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -133,7 +133,6 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

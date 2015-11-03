@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/23/2015"
+   ms.date="08/26/2015"
    ms.author="aprameyr"/>
 
 # Scaling Service Fabric Applications

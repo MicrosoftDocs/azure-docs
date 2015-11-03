@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2015"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 

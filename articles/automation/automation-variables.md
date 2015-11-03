@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Variable assets in Azure Automation"
+   pageTitle="Variable assets in Azure Automation | Microsoft Azure"
    description="Variable assets are values that are available to all runbooks in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Variable assets in Azure Automation

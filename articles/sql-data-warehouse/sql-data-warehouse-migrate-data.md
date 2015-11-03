@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate Your Data
@@ -37,7 +37,7 @@ Integration Services (SSIS) is a powerful and flexible Extract Transform and Loa
 
 > [AZURE.NOTE] SSIS can export to UTF-8 without the byte order mark in the file. To configure this you must first use the derived column component to convert the character data in the data flow to use the 65001 UTF-8 code page. Once the columns have been converted, write the data to the flat file destination adapter ensuring that 65001 has also been selected as the code page for the file.
 
-SSIS connects to SQL Data Warehouse just as it would connect to a SQL Server deployment. However, your connections will need to be using an ADO.NET connection manager. You should also take care to configure the "" setting to maximize throughput.
+SSIS connects to SQL Data Warehouse just as it would connect to a SQL Server deployment. However, your connections will need to be using an ADO.NET connection manager. You should also take care to configure the "Use bulk insert when available" setting to maximize throughput. Please refer to the [ADO.NET destination adapter][] article to learn more about this property
 
 > [AZURE.NOTE] Connecting to Azure SQL Data Warehouse by using OLEDB is not supported.
 
@@ -192,5 +192,6 @@ For more development tips, see [development overview][].
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/
+[ADO.NET destination adapter]: https://msdn.microsoft.com/en-us/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/en-us/library/ms141026.aspx
 

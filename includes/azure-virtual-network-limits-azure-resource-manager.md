@@ -4,7 +4,7 @@
    <th align="left" valign="middle">Default Limit</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Virtual networks</a><sup>1</sup> per subscription</p></td>
+   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">Virtual networks</a><sup>1</sup> per subscription</p></td>
    <td valign="middle"><p>50 per Region<sup>1</sup></p></td>
 </tr>
 <tr>

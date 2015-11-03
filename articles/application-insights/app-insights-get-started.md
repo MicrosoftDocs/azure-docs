@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Get started with Application Insights" 
-	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Get started with Visual Studio Application Insights | Microsoft Azure"
+	description="Analyze usage, availability, and performance of your on-premises or Microsoft Azure web application with Visual Studio Application Insights."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="10/05/2015"
 	ms.author="awills"/>
 
 # Get started with Visual Studio Application Insights
@@ -23,13 +23,13 @@ Detect issues, solve problems and continuously improve your applications. Quickl
 
 Configuration is very easy, and you'll see results within minutes.
 
-We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services. Web apps can run on  Azure or your own on-premises servers. Our JavaScript SDK runs in any web pages.
+We currently support iOS, Android, and Windows apps, J2EE and ASP.NET web applications, and WCF services. Web apps can run on Azure or your own on-premises servers. Our JavaScript SDK runs on any web page.
 
 ## Get started
 
-Start with any combination, in any order, of the entry points on the left of this map. Follow the path that works for you.
+Start with any combination, in any order, of the entry points that appear in the following diagram. Follow the path that works for you.
 
-Application Insights works by adding an SDK into your app, which sends telemetry to the [Azure portal](http://portal.azure.com). There are different SDKs for the many combinations of platforms, languages and IDEs that are supported.
+Application Insights works by adding an SDK into your app, which sends telemetry to the [Azure portal](http://portal.azure.com). There are different SDKs for the various combinations of platforms, languages, and IDEs that are supported.
 
 You'll need an account in [Microsoft Azure](http://azure.com). You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account. Application Insights has a free tier, so you won't need to pay until your app is popular. Review the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -46,7 +46,8 @@ What you want | What to do | What you get
 
 ## Support and feedback
 
-* Questions and Issues:
+
+* Questions and issues:
  * [Troubleshooting][qna]
  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
@@ -54,6 +55,8 @@ What you want | What to do | What you get
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Suggestions:
  * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+* Code samples
+ * [Code samples](app-insights-code-samples.md)
 
 
 
@@ -71,5 +74,3 @@ What you want | What to do | What you get
 <!--Link references-->
 
 [qna]: app-insights-troubleshoot-faq.md
-
- 

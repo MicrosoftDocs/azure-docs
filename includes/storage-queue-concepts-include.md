@@ -9,8 +9,7 @@ total capacity limit of a storage account. A storage account can contain up to 5
 Common uses of Queue storage include:
 
 -   Creating a backlog of work to process asynchronously
--   Passing messages from an Azure Web role to an Azure
-    Worker role
+-   Passing messages from an Azure Web role to an Azure worker role
 
 ## Queue Service Concepts
 
@@ -22,10 +21,11 @@ The Queue service contains the following components:
 - **URL format:** Queues are addressable using the following URL format:   
 	http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-The following URL addresses one of the queues in the diagram:  
-	http://myaccount.queue.core.windows.net/imagesToDownload
+	The following URL addresses a queue in the diagram:  
+		
+		http://myaccount.queue.core.windows.net/imagesToDownload
 
--**Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+- **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
 
 - **Queue:** A queue contains a set of messages. All messages must be in a queue.
 

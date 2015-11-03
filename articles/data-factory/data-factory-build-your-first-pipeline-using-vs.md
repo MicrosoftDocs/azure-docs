@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Build your first pipeline using Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight using Visual Studio"
+	pageTitle="Build your first Azure Data Factory pipeline using Visual Studio"
+	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Visual Studio."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
-# Build your first pipeline using Azure Data Factory
+# Build your first Azure Data Factory pipeline using Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -26,56 +26,30 @@
 
 In this article, you will learn how to use the Visual Studio to create your first pipeline. This tutorial consists of the following steps:
 
-1.	Creating the data factory
-2.	Creating the linked services (data stores, computes) and datasets
-3.	Creating the pipeline
+2.	Creating linked services (data stores, computes).
+3.	Creating a dataset.
+3.	Creating a pipeline.
+4.	Create a data factory, and deploy linked services, dataset, and the pipeline. 
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
-## Step 1: Creating the data factory
-
-1.	After logging into the [Azure Preview Portal](http://portal.azure.com/), do the following:
-	1.	Click **NEW** from the bottom-left corner. 
-	2.	Click **Data analytics** in the **Create** blade.
-	3.	Click **Data Factory** on the **Data analytics** blade.
-
-		![Create blade](./media/data-factory-build-your-first-pipeline-using-vs/create-blade.png)
-
-2.	In the **New data factory** blade, enter **DataFactoryMyFirstPipeline** for the Name.
-
-	![New data factory blade](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
-
-	> [AZURE.IMPORTANT] Azure Data Factory names are globally unique. You will need to prefix the name of the data factory with your name, to enable the successful creation of the factory. 
-3.	If you have not created any resource group,  you will need to create a resource group. To do this:
-	1.	Click on **RESOURCE GROUP NAME**.
-	2.	Select **Create a new resource group** in the **Resource group** blade.
-	3.	Enter **ADF** for the **Name** in the **Create resource group** blade.
-	4.	Click **OK**.
-	
-		![Create resource group](./media/data-factory-build-your-first-pipeline-using-vs/create-resource-group.png)
-4.	After you have selected the resource group, verify that you are using the correct subscription where you want the data factory to be created.
-5.	Click **Create** on the **New data factory** blade.
-6.	You will see the data factory being created in the **Startboard** of the Azure Preview Portal as follows:   
-
-	![Creating data factory status](./media/data-factory-build-your-first-pipeline-using-vs/creating-data-factory-image.png)
-7. Congratulations! You have successfully created your first data factory. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory. 	
-
-	![Data Factory blade](./media/data-factory-build-your-first-pipeline-using-vs/data-factory-blade.png)
-
-In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial. 
+> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.  
 
 ## Walkthrough: Create and deploy Data Factory entities using Visual Studio 
 
 ### Pre-requisites
 
 You must have the following installed on your computer: 
-- Visual Studio 2013
-- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
 
+- Visual Studio 2013 or Visual Studio 2015
+- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
+- Download the latest Azuer Data Factory plugin for Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
+	
+	
 
 ### Create the Visual Studio project 
-1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
-2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
+1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
+2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**.   
 
 	![New project dialog box](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
@@ -109,15 +83,16 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 3. Replace the **JSON** with the following:
 
 		{
-		    "name": "HDInsightOnDemandLinkedService",
-		    "properties": {
-		        "version": "3.1",
-		        "clusterSize": 1,
-		        "timeToLive": "00:05:00",
-		        "jobsContainer": "adfjobs",
-		        "linkedServiceName": "StorageLinkedService",
-		        "type": "HDInsightOnDemandLinkedService"
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
+		    "type": "HDInsightOnDemand",
+		    "typeProperties": {
+		      "version": "3.1",
+		      "clusterSize": 1,
+		      "timeToLive": "00:30:00",
+		      "linkedServiceName": "AzureStorageLinkedService1"
 		    }
+		  }
 		}
 	
 	The following table provides descriptions for the JSON properties used in the snippet:
@@ -140,22 +115,22 @@ Now, you will create the output dataset to represent the data stored in the Azur
 3. Replace the **JSON** in the editor with the following: In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 	
 		{
-		    "name": "AzureBlobOutput",
-		    "properties": {
-		        "location": {
-		            "type": "AzureBlobLocation",
-		            "folderPath": "data/partitioneddata",
-		            "format": {
-		                "type": "TextFormat",
-		                "columnDelimiter": ","
-		            },
-		            "linkedServiceName": "StorageLinkedService"
-		        },
-		        "availability": {
-		            "frequency": "Month",
-		            "interval": 1
-		        }
+		  "name": "AzureBlobOutput",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "AzureStorageLinkedService1",
+		    "typeProperties": {
+		      "folderPath": "data/partitioneddata",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Month",
+		      "interval": 1
 		    }
+		  }
 		}
 
 4. Save the **AzureBlobLocation1.json** file.
@@ -166,60 +141,83 @@ In this step, you will create your first pipeline.
 
 1. In the **Solution Explorer**, right-click **Pipelines**, point to **Add**, and click **New Item.** 
 2. Select **Hive Transformation Pipeline** from the list, and click **Add**. 
-3. Replace the **JSON** with the following snippet and replace **storageaccountname** with the name of your storage account.
+3. Replace the **JSON** with the following snippet.
+
+	> [AZURE.IMPORTANT] replace **storageaccountname** with the name of your storage account.
 
 		{
-			"name": "MyFirstPipeline",
-			"properties": {
-			"description": "My first Azure Data Factory pipeline",
-		 	"activities": [
+		  "name": "MyFirstPipeline",
+		  "properties": {
+		    "description": "My first Azure Data Factory pipeline",
+		    "activities": [
 		      {
-		            "type": "HDInsightActivity",
-		            "transformation": {
-		                    "scriptPath": "script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
-		                    "type": "Hive",
-		                    "extendedProperties": {
-		                        "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
-		                    }
-		                },
-		                "outputs": [   {  "name": "AzureBlobOutput"    }   ],
-		                "policy": {  
-		                    "concurrency": 1,
-		                    "retry": 3
-						},
-		                "name": "RunSampleHiveActivity",
-		                "linkedServiceName": "HDInsightOnDemandLinkedService"
-		            }
+		        "type": "HDInsightHive",
+		        "typeProperties": {
+		          "scriptPath": "script/partitionweblogs.hql",
+		          "scriptLinkedService": "AzureStorageLinkedService1",
+		          "defines": {
+		            "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
+		          }
+		        },
+		        "outputs": [
+		          {
+		            "name": "AzureBlobOutput"
+		          }
 		        ],
-		        "start": "2014-01-01",
-		        "end": "2014-01-02"
-		    }
+		        "policy": {
+		          "concurrency": 1,
+		          "retry": 3
+		        },
+		        "name": "RunSampleHiveActivity",
+		        "linkedServiceName": "HDInsightOnDemandLinkedService"
+		      }
+		    ],
+		    "start": "2014-01-01",
+		    "end": "2014-01-02"
+		  }
 		}
- 
-	In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
+
+ 	In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
 	
-	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in a container called **script**.
+	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **AzureStorageLinkedService1**), and in a container called **script**.
 
 	The **extendedProperties** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:PartitionedData}).
 
 	The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the linked service – **HDInsightOnDemandLinkedService**.
-3. Save the **HiveActivity1.json** file. 
+3. Save the **HiveActivity1.json** file.
+
+### Add partitionweblogs.hql as a dependency 
+
+1. Right-click **Dependencies** in the **Solution Explorer** window, point to **Add**, and click **Existing Item**.  
+2. Navigate to the **C:\ADFGettingStarted** and select **partitionweblogs.hql** file, and click **Add**. 
+
+When you publish the solution in the next step, the HQL file is uploaded to the scripts container in your blob storage.  
 
 ### Publish/deploy Data Factory entities
-  
-1. In the toolbar area, right-click and select **Data Factory** to enable the Data Factory toolbar if it is not already enabled. 
-19. In the **Data Factory toolbar**, click the **drop-down box** to see all the data factories in your Azure subscription. If you see the **Sign-in to Visual Studio** dialog box: 
-	20. Enter the **email account** associated with the Azure subscription in which you want to create the data factory, enter **Password**, and click **Sign-in**.
-	21. Once the sign-in is successful, you should see all the data factories in the Azure subscription. In this tutorial, you will create a new data facotry.       
-22. In the drop-down list, select **DataFactoryMyFirstPipeline**, and click **Publish** button to deploy/publish the linked services, datasets, and the pipeline.    
 
-	![Publish button](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+18. Right-click project in the Solution Explorer, and click **Publish**. 
+19. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
+20. You should see the following dialog box:
 
-23. You should see the status of publishing in the **Data Factory Task List** window that is shown in the picture above. Confirm that publishing has succeeded.
+	![Publish dialog box](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
+21. In the Configure data factory page, do the following: 
+	1. select **Create New Data Factory** option.
+	2. Enter **FirstPipelineUsingVS** for **Name**. 
+	
+		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstPipelineUsingVS” is not available** when publishing, change the name (for example, yournameFirstPipelineUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
+		> 
+		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+	3. Select the right subscription for the **Subscription** field. 
+	4. Select the **resource group** for the data factory to be created. 
+	5. Select the **region** for the data factory. 
+	6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
+23. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
+24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
+25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+ 
 
 ## Use Server Explorer to review Data Factory entities
 
@@ -245,3 +243,5 @@ See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) fo
 ## Next Steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-get-started.md).
   
+## Send Feedback
+We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md). 

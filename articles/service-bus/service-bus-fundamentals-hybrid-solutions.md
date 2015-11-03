@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Service Bus - Azure fundamentals" 
+	pageTitle="Azure Service Bus | Microsoft Azure" 
 	description="An introduction to different ways you can use the Service Bus to connect Azure applications to other software." 
 	services="service-bus" 
 	documentationCenter=".net" 

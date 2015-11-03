@@ -1,19 +1,6 @@
-<properties 
-   pageTitle="Create a custom StorSimple backup policy"
-   description="Explains how you can use the StorSimple Manager service to create a custom backup policy."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
+
+<!--author=SharS last changed: 9/15/15-->
+
 
 #### To create a custom backup policy
 

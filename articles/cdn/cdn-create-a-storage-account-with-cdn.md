@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use CDN - Azure feature guide" 
+	pageTitle="How to use CDN | Microsoft Azure" 
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mazha"/>
 
 
@@ -40,8 +40,8 @@ Azure Service Management API, see the [Create Storage Account](http://msdn.micro
 
 **To create a storage account for an Azure subscription**
 
-1.  Log into the [Azure Management Portal].
-2.  In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
+1.  Sign in to the [Azure Management Portal].
+2.  In the lower left corner, select **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
 
     The **Create Storage Account** dialog appears.
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Server Farm"
-	description="You can quickly create a new SharePoint Server 2013 farm using the SharePoint Server Farm feature in the Azure Preview Portal."
+	pageTitle="SharePoint Server Farm | Microsoft Azure"
+	description="Quickly create a new basic or highly-available SharePoint Server 2013 farm using SharePoint Server Farm in the Azure Preview portal."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -11,13 +11,16 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # SharePoint Server Farm
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
 
 With SharePoint Server Farm, the Microsoft Azure Preview Portal automatically creates a pre-configured SharePoint Server 2013 farm for you. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a development and testing environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
@@ -35,6 +38,8 @@ You can use this farm configuration to test higher client loads, high availabili
 
 For the configuration details for both of these farms, see [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
+> [AZURE.NOTE] Microsoft has released the SharePoint Server 2016 IT Preview. To make this preview easy to install and test, you can use an Azure virtual machine gallery image with SharePoint Server 2016 IT Preview and its prerequisites pre-installed. For more information, see [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Stepping through configuration
 
 To create your SharePoint farm with the SharePoint Server Farm template, do the following:
@@ -48,7 +53,8 @@ To create your SharePoint farm with the SharePoint Server Farm template, do the 
 7. To configure your SharePoint servers, click the arrow. You can specify a host name prefix (the default is the resource group name), the size of your SharePoint servers (default is A2), a SharePoint user account (the default is sp_setup) and password, a SharePoint farm account name (the default is sp_farm) and password, and a SharePoint farm passphrase. The default is to use the administrator password for the SharePoint user account, farm account, and passphrase.
 8. To configure optional configuration settings for the virtual network, storage account, or diagnostics, click the corresponding arrow.
 9. To specify the subscription, click the arrow.
-10. When you are done, click **Create**.
+10. To specify the Azure location, click the arrow.
+11. When you are done, click **Create**.
 
 > [AZURE.NOTE] The domain controller does not have the Active Directory Management tools installed by default. To install them, run the **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** command from an administrator-level Windows PowerShell command prompt on the domain controller virtual machine.
 
@@ -77,20 +83,17 @@ From the Central Administration SharePoint site, you can configure My sites, Sha
 
 Notes:
 
-- The Azure Preview Portal creates these virtual machines within the specified subscription.
 - The Azure Preview Portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
-- You can administer these servers through Remote Desktop connections. For more information, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
+- You can administer these servers through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
 
 ## Azure Resource Manager
 
-The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management. To create SharePoint Server 2013 farms in Resource Manager, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
+The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines with the classic deployment model. To create SharePoint Server 2013 farms with the Resource Manager deployment model, see [Deploy SharePoint Farms with Azure Resource Manager Templates](virtual-machines-workload-template-sharepoint.md).
 
 ## Additional resources
 
 [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)

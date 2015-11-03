@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # About Traffic Manager Monitoring
 
@@ -27,7 +27,7 @@ Azure Traffic Manager monitors your endpoints, including cloud services and webs
 
 ## About monitoring health status
 
-Azure Traffic Manager displays profile and endpoint service health in the Management Portal. The status column for both the profile and the endpoint displays the most recent monitor status. You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings. When your profile is healthy, DNS queries will be distributed to your services based on the load balancing settings for the profile (Round Robin, Performance, or Failover). Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Management Portal. It can take up to five minutes for the state change to refresh.
+Azure Traffic Manager displays profile and endpoint service health in the Management Portal. The status column for both the profile and the endpoint displays the most recent monitor status. You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings. When your profile is healthy, DNS queries will be distributed to your services based on the traffic routing settings for the profile (Round Robin, Performance, or Failover). Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Management Portal. It can take up to five minutes for the state change to refresh.
 
 ### Endpoint Monitor status
 
@@ -89,7 +89,7 @@ An example timeline illustrating the monitoring process with a single cloud serv
 
 ## Child and parent endpoint status for nested profiles
 
-The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see [Traffic Manager Overview](traffic-manager-overview.md).
+The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see [What is Traffic Manager?](traffic-manager-overview.md).
 
 |Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
@@ -108,9 +108,9 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 
 ## See Also
 
-[Traffic Manager Overview](traffic-manager-overview.md)
+[What is Traffic Manager?](traffic-manager-overview.md)
 
-[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
+[About Traffic Manager traffic routing Methods](traffic-manager-load-balancing-methods.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
