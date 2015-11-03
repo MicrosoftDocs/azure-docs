@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -49,6 +49,10 @@ Consider the following recommendations for hybrid workers:
 - Designate multiple hybrid workers in each group for high availability.  
 - Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
 - Consider using a machine physically located in or near the region of your automation account since the job data is sent back to Azure Automation when a job completes.
+
+Firewall requirements:
+
+- The on-premise machine running hybrid runbook worker must have outbound access to *.cloudapp.net to port 443 and to ports 30000-30199.
 
 ## Installing Hybrid Runbook Worker
 The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
