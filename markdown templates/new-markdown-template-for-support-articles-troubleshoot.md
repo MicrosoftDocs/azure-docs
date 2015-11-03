@@ -23,10 +23,6 @@
 - Briefly describe the problem
 - Set the expectation
 
-**Contact Azure Customer Support**
-
-If your Azure issue is not addressed in this article, browse the Azure forums on [MSDN and Stack Overflow](http://azure.microsoft.com/support/forums/). To file an Azure support request, visit the [Azure Support site](http://azure.microsoft.com/support/options/) and select **Get Support**. For an overview about Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
-
 ### (Optional) Background - Description
 Background information that needs to be understood before continuing
 
@@ -42,6 +38,10 @@ Troubleshooting step 1/scenario 1
 Troubleshooting step 2/scenario 2
 
 Troubleshooting step 3/scenario 3
+
+**Contact Azure Customer Support**
+
+If your Azure issue is not addressed in this article, browse the Azure forums on [MSDN and Stack Overflow](http://azure.microsoft.com/support/forums/). To file an Azure support request, visit the [Azure Support site](http://azure.microsoft.com/support/options/) and select **Get Support**. For an overview about Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
 
 ### Troubleshooting step 1/scenario 1
 -	Describe the symptom, possible cause and resolution
