@@ -29,6 +29,8 @@ Service Mobile Apps SDK is provided for ASP.NET and NodeJS web application and p
 Both operations provide for authentication across all authentication methods allowed by Azure App Service, including social authentication
 providers such as Facebook, Twitter, Google and Microsoft as well as Azure Active Directory for enterprise authentication.
 
+You can find samples for each use case in the [samples directory on GitHub].
+
 ## HOWTO: Create a Basic Node backend using the Command Line
 
 Every Azure App Service Mobile App Node backend starts as an ExpressJS application.  ExpressJS is the most popular web service framework
@@ -447,7 +449,38 @@ context.query.where('myfield eq ?', 'value');
 
 ## HOWTO: Seed your database with data
 
-<!-- XXX-TODO: HOWTO Topic with seeding of data -->
+When creating a new application, you may wish to seed a table with data.  This can be done within the table definition JavaScript file as
+follows:
+
+```
+var azureMobileApps = require('azure-mobile-apps');
+
+var table = azureMobileApps.table();
+
+// Define the columns within the table
+table.columns = {
+	"text": "string",
+	"complete": "boolean"
+};
+table.seed = [
+	{ text: 'Example 1', complete: false },
+	{ text: 'Example 2', complete: true }
+];
+
+// Turn off dynamic schema
+table.dynamicSchema = false;
+
+// Require authentication to access the table
+table.access = 'authenticated';
+
+module.exports = table;
+```
+
+It is important to note that seeding of data is only done when the table is created by the Azure Mobile Apps SDK.  If the table already
+exists within the database, no data is injected into the table.  If dynamic schema is turned on, then the schema will be inferred from
+the seeded data.
+
+We recommend that you explicitly call the initialize() method to create the table when the service starts running.
 
 # Custom API
 
@@ -541,10 +574,6 @@ module.exports = api;
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
-## HOWTO: Create a Custom API to use Push Notifications
-
-<!-- XXX-TODO Push Notifications Example -->
-
 # Debugging and Troubleshooting
 
 ## HOWTO: Write to the Azure Mobile Apps diagnostic logs
@@ -580,6 +609,7 @@ The same token that is used for the tables endpoint must be used for custom APIs
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
+[samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
