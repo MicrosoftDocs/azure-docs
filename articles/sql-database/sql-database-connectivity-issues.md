@@ -82,17 +82,10 @@ When your program communicates with Azure SQL Database through a 3rd party middl
 ### Interval increase between retries
 
 
-Your program should always wait at least 6-10 seconds before its first retry. Otherwise the cloud service can suddenly become flooded with requests it is not yet ready to process.
 
+We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
-If more than one retry is necessary, the interval must increase before each successive retry, up to a maximum. Two of the alternative strategies are:
-
-
-- Monotonic increase of the interval. For example, you could add another 5 seconds to each successive interval.
-
-
-- Exponential increase of the interval. For example, you could multiply each successive interval by 1.5.
-
+A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 You might also want to set a maximum number of retries before the program self-terminates.
 
