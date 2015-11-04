@@ -110,4 +110,4 @@ If you must upgrade the OS image that you are using, then you must do this one V
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
-[AddingLBRules]: ./media/service-fabric-cluster-upgrade/AddingLBRules.png
+[AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
