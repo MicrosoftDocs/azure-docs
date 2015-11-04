@@ -24,10 +24,10 @@ ETW is used by Service Fabric runtime to source diagnostic information (traces) 
 
 For the traces to show up in ElasticSearch, they need to be captured at the Service Fabric cluster nodes in real time (while the application is running) and sent to ElasticSearch endpoint. There are two major options for trace capturing:
 
-+ **In-process**  
++ **In-process trace capturing**  
 The application, or more precisely, service process is responsible for sending the diagnostic data out to the trace store (ElasticSearch).
 
-+ **Out-of-process**  
++ **Out-of-process trace capturing**  
 A separate agent is capturing traces from service process(es) and sending them to the trace store.
 
 In the rest of the article we will describe how to set up ElasticSearch on Azure, discuss the pros and cons for both capture options, and explain how to configure a Fabric service to send data to ElasticSearch.
@@ -96,10 +96,10 @@ After running the `CreateElasticSearchCluster` script the following main artifac
 |ElasticSearch cluster             |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />The above is the primary endpoint for the ElastisSearch cluster (note the /es suffix). It is protected by basic HTTP authentication (the credentials were specified esUserName/esPassword parameters of the ES-MultiNode template). The cluster has also the head plugin installed (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) for basic cluster administration.|
 |Kibana service                    |http://myBigCluster.westus.cloudapp.azure.com <br /><br />Kibana service is set up to show data from the created ElasticSearch cluster; it is protected by the same authentication credentials that the cluster itself.|
 
-## In-process Versus Out-of-process Tracing
+## In-process Versus Out-of-process Trace Capturing
 In the introduction we have mentioned two fundamental ways of collecting diagnostic data: in-process and out-of-process. Each has strengths and weaknesses.
 
-Advantages of the **in-process tracing** include:
+Advantages of the **in-process trace capturing** include:
 
 1. *Easy configuration and deployment*
 
@@ -107,15 +107,15 @@ Advantages of the **in-process tracing** include:
 
     * Per-application or per-service configuration is easily achievable.
 
-    * The out-of-process approach usually requires a separate deployment and configuration of the diagnostic agent, which is extra administrative task and a source of errors. Often the particular agent technology allows only one instance of the agent per virtual machine (node), which means configuration for the collection of the diagnostic configuration is shared between all applications and services running on that node.
+    * The out-of-process trace capturing usually requires a separate deployment and configuration of the diagnostic agent, which is extra administrative task and a source of errors. Often the particular agent technology allows only one instance of the agent per virtual machine (node), which means configuration for the collection of the diagnostic configuration is shared between all applications and services running on that node.
 
 2. *Flexibility*
 
-    * The application can send the data wherever it needs to go, as long as there is a client library that supports the targeted data storage system. New sinks can be added as desired
+    * The application can send the data wherever it needs to go, as long as there is a client library that supports the targeted data storage system. New sinks can be added as desired.
 
     * Complex capture, filtering and data aggregation rules can be implemented.
 
-    * An out-of-process solution is often limited by the data sinks that the agent supports. Some agents are extensible.
+    * An out-of-process trace capturing is often limited by the data sinks that the agent supports. Some agents are extensible.
 
 3. *Access to internal application data & context*
 
@@ -123,7 +123,7 @@ Advantages of the **in-process tracing** include:
 
     * In the out-of-process approach the data must be sent to an agent via some inter-process communication mechanism such as Event Tracing for Windows (ETW). This might impose additional limitations.
 
-Advantages of the **out-of-process tracing** include:
+Advantages of the **out-of-process trace capturing** include:
 
 1. *Ability to monitor application and collect crash dumps*
 
@@ -137,7 +137,7 @@ Advantages of the **out-of-process tracing** include:
 
 Of course it is possible to combine and benefit from both approaches; indeed it might be the best solution for many applications.
 
-In this article we will use the **Microsoft.Diagnostic.Listeners library** and the in-process tracing to send data from a Service Fabric application to ElasticSearch cluster.
+In this article we will use the **Microsoft.Diagnostic.Listeners library** and the in-process trace capturing to send data from a Service Fabric application to ElasticSearch cluster.
 
 ## Using the Listeners Library to Send Diagnostic Data to ElasticSearch
 Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric application [TODO: final sample URL here]. To use it:
