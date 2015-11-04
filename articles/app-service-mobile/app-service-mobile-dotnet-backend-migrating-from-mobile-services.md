@@ -99,23 +99,29 @@ The identity features also have app setting requirements for the individual prov
  
 Microsoft Account
 * **MS_MicrosoftClientID**
+
 * **MS_MicrosoftClientSecret**
+
 * **MS_MicrosoftPackageSID**
  
 Facebook
 * **MS_FacebookAppID**
+
 * **MS_FacebookAppSecret**
  
 Twitter
 * **MS_TwitterConsumerKey**
+
 * **MS_TwitterConsumerSecret**
  
 Google
 * **MS_GoogleClientID**
+
 * **MS_GoogleClientSecret**
  
 AAD
 * **MS_AadClientID**
+
 * **MS_AadTenants** - Note: **MS_AadTenants** is stored as a comma-separated list of tenant domains (the "Allowed Tenants" fields in the Mobile Services portal).
 
 ### <a name="publish"></a>How to: Publish the Mobile Services project
