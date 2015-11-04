@@ -17,6 +17,9 @@
 	ms.author="asteen"/>
 
 # Manage your passwords from anywhere
+
+  >[AZURE.IMPORTANT] Are you here because you want to reset your Azure or O365 password?  If so, please [follow the instructions here](https://support.microsoft.com/kb/2606983).
+  
 Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure AD sets itself apart from these offerings by providing some of the easiest to use and and most powerful self-service capabilities available today.
 
 **Azure AD Password Management** is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.
