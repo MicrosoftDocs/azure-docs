@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="11/03/2015"
 	ms.author="cynthn"/>
 
-# Change drive letters for a Windows VM so that you can use the D: drive as a data drive
+# Use the D: drive as a data drive on Windows VM 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
