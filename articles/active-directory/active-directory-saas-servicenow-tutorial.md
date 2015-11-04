@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/30/2015" 
+    ms.date="11/02/2015" 
     ms.author="markvi" />
 
 #Tutorial: Azure Active Directory integration with ServiceNow
@@ -83,9 +83,9 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     ![Configure app URL](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
 
-    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application (e.g.: *https://<InstanceName>.service-now.com*).
+    a. in the **ServiceNow Sign On URL** textbox, type your URL used by your users to sign-on to your ServiceNow application (e.g.: *https://\<InstanceName\>.service-now.com*).
 
-    b. In the **Issuer URL** textbox,type your URL used by your users to sign-on to your ServiceNow application (e.g.: *https://<InstanceName>.service-now.com*).
+    b. In the **Issuer URL** textbox,type your URL used by your users to sign-on to your ServiceNow application (e.g.: *https://\<InstanceName\>.service-now.com*).
 
     c. Click **Next**
 
