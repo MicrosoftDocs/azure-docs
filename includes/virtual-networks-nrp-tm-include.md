@@ -4,7 +4,6 @@ Traffic manager and its child endpoint resource enable DNS routing to endpoints 
 
 | Property | Description |
 |---|---|
-
 |**Traffic routing method**| possible values are *Performance*, *Weighted*, and *Priority* | 
 | **DNS configuration** | FQDN for the profile | 
 | **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
