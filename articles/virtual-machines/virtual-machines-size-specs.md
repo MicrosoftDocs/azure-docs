@@ -102,7 +102,7 @@ The following tables show the sizes and the capacities they provide.
 
 >[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
 
-### Basic tier
+## Basic tier
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|---|
@@ -112,7 +112,7 @@ The following tables show the sizes and the capacities they provide.
 |A3\Basic_A3|4|7 GB|1|<p>OS = 1023 GB</p><p>Temporary = 120 GB</p>|8|8x300|
 |A4\Basic_A4|8|14 GB|1|<p>OS = 1023 GB</p><p>Temporary = 240 GB</p>|16|16x300|
 
-### Standard tier: A-series
+## Standard tier: A-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
@@ -129,7 +129,7 @@ The following tables show the sizes and the capacities they provide.
 |A10\same|8|56 GB|2|<p><p>OS = 1023 GB</p><p>Temporary = 382 GB</p><blockquote><p>Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 compute intensive instances</a>.</p></blockquote>|16|16x500|
 |A11\same|16|112 GB|4|<p><p>OS = 1023 GB</p><p>Temporary = 382 GB</p><blockquote><p>Note: For information and considerations about using this size, see <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">About the A8, A9, A10, and A11 compute intensive instances</a>.</p></blockquote>|16|16x500|
 
-### Standard tier: D-series
+## Standard tier: D-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
@@ -142,7 +142,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_D13\same|8|56 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
 |Standard_D14\same|16|112 GB|16|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 
-### Standard tier: Dv2-series
+## Standard tier: Dv2-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_D13_v2\same|8|56 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
 |Standard_D14_v2\same|16|112 GB|16|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 
-### Standard tier: DS-series*
+## Standard tier: DS-series*
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|---|
@@ -171,7 +171,7 @@ The following tables show the sizes and the capacities they provide.
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
 
-### Standard tier: G-series
+## Standard tier: G-series
 
 |Size – Azure Portal\cmdlets &amp; APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
@@ -181,7 +181,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_G4\same|16|224 GB|8|<p>OS = 1023 GB</p><p>Local SSD disk = 3,072 GB</p>|32|32 x 500|
 |Standard_G5\same|32|448 GB|16|<p>OS = 1023 GB</p><p>Local SSD disk = 6,144 GB</p>|64|<p>64 x 500</p>|
 
-### Standard tier: GS-series
+## Standard tier: GS-series
 
 |Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|---|
