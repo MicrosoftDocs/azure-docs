@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Attach a disk to a virtual machine running Linux in Azure"
-	description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use."
+	pageTitle="Attach a disk to a Linux VM | Microsoft Azure"
+	description="Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,9 @@
 	ms.author="dkshir"/>
 
 # How to Attach a Data Disk to a Linux Virtual Machine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. This article refers to virtual machines created using the classic deployment model.
 
@@ -149,7 +152,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	Or, on systems based on SUSE Linux you may need to use a slightly different format:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
 

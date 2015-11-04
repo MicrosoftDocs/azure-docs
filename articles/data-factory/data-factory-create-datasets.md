@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Datasets
@@ -48,12 +48,12 @@ A Dataset is a logical description of the data. The data being described can var
 
 | Property | Description | Required | Default |
 | -------- | ----------- | -------- | ------- |
-| Name | Name of the dataset | Yes | NA |
-| Structure | <p>Schema of the dataset</p><p>See [Dataset Structure](#Structure) section for more details</p> | No. | NA |
-| Type | Type of the dataset | Yes | NA |
+| name | Name of the dataset | Yes | NA |
+| structure | <p>Schema of the dataset</p><p>See [Dataset Structure](#Structure) section for more details</p> | No. | NA |
+| type | Type of the dataset | Yes | NA |
 | typeProperties | <p>Properties corresponding to the selected type</p><p>See [Dataset Type](#Type) section for details on the supported types and their properties.</p> | Yes | NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not  | No | false | 
-| Availability | <p>Defines the processing window or the slicing model for the dataset production. </p><p>See [Dataset Availability](#Availability) topic for more details</p><p>See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing model</p> | Yes | NA
+| availability | <p>Defines the processing window or the slicing model for the dataset production. </p><p>See [Dataset Availability](#Availability) topic for more details</p><p>See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing model</p> | Yes | NA
 | policy | Defines the criteria or the condition that the dataset slices must fulfill. <p>See [Dataset Policy](#Policy) topic for more details</p> | No | NA |
 
 ### Example
@@ -103,15 +103,15 @@ The supported data sources and the dataset types are aligned. See the connector 
 
 ## <a name="Availability"></a> Dataset Availability
 
-The Availability section in a dataset defines the processing window or the slicing model for the dataset production. See Dataset Slice topic for more details on the dataset slicing and dependency model. 
+The Availability section in a dataset defines the processing window or the slicing model for the dataset production. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model. 
 
 | Property | Description | Required | Default |
 | -------- | ----------- | -------- | ------- |
 | frequency | Specifies the time unit for dataset slice production.<p>**Supported frequency**: Minute, Hour, Day, Week, Month</p> | Yes | NA |
 | interval | Specifies a multiplier for frequency<p>”Frequency x interval” determines how often the slice is produced.</p><p>If you need the dataset to be sliced on an hourly basis, you set **Frequency** to **Hour**, and **interval** to **1**.</p><p>**Note:** If you specify Frequency as Minute, we recommend that you set the interval to no less than 15</p> | Yes | NA |
-| style | Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of moth.<.p><p>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.</p>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM.</p> | No | EndOfInterval |
+| style | Specifies whether the slice should be produced at the start/end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of month.</p><p>If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.</p>If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM.</p> | No | EndOfInterval |
 | anchorDateTime | Defines the absolute position in time used by scheduler to compute dataset slice boundaries. <p>**Note:** If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the **interval** is **hourly** (frequency: hour and interval: 1) and the **AnchorDateTime** contains **minutes and seconds**, then the **minutes and seconds** parts of the AnchorDateTime will be ignored. </p>| No | 01/01/0001 |
-| Offset | Timespan by which the start and end of all dataset slices are shifted. <p>**Note:** If both anchorDateTime and offset are specified, the result is the combined shift.</p> | No | NA |
+| offset | Timespan by which the start and end of all dataset slices are shifted. <p>**Note:** If both anchorDateTime and offset are specified, the result is the combined shift.</p> | No | NA |
 
 ### anchorDateTime examples
 
@@ -121,7 +121,7 @@ The Availability section in a dataset defines the processing window or the slici
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 

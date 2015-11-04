@@ -4,7 +4,7 @@
 
 # Management API: Version 2014-07-31-Preview
 
-This document describes the **2014-07-31-Preview** version of the Azure Search Management REST API. It has since been replaced by the generally available version, [Azure Search Management REST API 2015-02-28](https://msdn.microsoft.com/library/dn832684.aspx) on MSDN.
+This document describes the **2014-07-31-Preview** version of the Azure Search Management REST API. It has since been replaced by newer versions. For the latest, see [Azure Search Management REST API 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) on MSDN.
 ________________________________________
 
 ## Service management operations
@@ -27,7 +27,7 @@ Note that all management API calls must include the subscription ID and an API v
 
 ### Versions
 
-The current version of the Azure Search Management REST API is `api-version=2014-07-31-Preview`. It is the only version of this API.
+`api-version=2014-07-31-Preview` was introduced during the public preview of Azure Search. For more information about changes from one release to the next, see [What's new in Azure Search](search-latest-updates.md).
 
 ### Authentication and Access Control
 

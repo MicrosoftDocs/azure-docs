@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to Use Azure Redis Cache" 
 	description="Learn how to improve the performance of your Azure applications with Azure Redis Cache" 
-	services="redis-cache" 
+	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
 	manager="dwrede" 
@@ -13,29 +13,28 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/25/2015" 
+	ms.date="10/23/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
 
-This guide shows you how to get started using 
-**Azure Redis Cache**. The samples are written in C\# code and
-use the [StackExchange.Redis][] client. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing objects from the cache**, and **storing ASP.NET session state in the cache**. For more
-information on using Azure Redis Cache, refer to the [Next Steps][] section.
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
-<a name="what-is"></a>
-## What is Azure Redis Cache?
+This guide shows you how to get started using **Azure Redis Cache**. Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
 
-Microsoft Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft. A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.
-
-Microsoft Azure Redis Cache is available in two tiers:
+Microsoft Azure Redis Cache is available in the following tiers:
 
 -	**Basic** – Single node. Multiple sizes up to 53 GB.
 -	**Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
+-	**Premium** – Currently in preview. Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). No SLA during the preview period.
 
-Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details][].
+Each tier differs in terms of features and pricing. For information on pricing, see [Cache Pricing Details][].
 
-This guide provides an overview of getting started with Azure Redis Cache. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Azure Redis Cache][].
+This guide shows you how to use the [StackExchange.Redis][] client using C\# code. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, and **adding and removing objects from the cache**. For more information on using Azure Redis Cache, refer to the [Next Steps][] section.
 
 <a name="getting-started-cache-service"></a>
 ## Get Started with Azure Redis Cache
@@ -60,7 +59,7 @@ In the **New Redis Cache** blade, specify the desired configuration for the cach
 
 In **Dns name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
-Use **Pricing Tier** to select the desired cache size and features. **Basic** caches have a single node with multiple sizes up to 53 GB. **Standard** caches have a two node primary/replica configuration with a 99.9% SLA, and multiple sizes up to 53 GB.
+Use **Pricing Tier** to select the desired cache size and features.
 
 In **Resource group**, select or create a resource group for your cache.
 
@@ -110,6 +109,7 @@ The steps in this section describe how to perform common tasks with Cache.
 
 -	[Connect to the cache][]
 -   [Add and retrieve objects from the cache][]
+-   [Work with .NET objects in the cache](#work-with-net-objects-in-the-cache)
 -   [Store ASP.NET session state in the cache][]
 
 <a name="connect-to-cache"></a>
@@ -187,99 +187,119 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
         cache.StringSet("key1", value);
     }
 
->[AZURE.NOTE] Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer. For more information, see [Work with .NET objects in the cache][].
-
-<a name="specify-expiration"></a>
-## Specify the expiration of an item in the cache
-
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 
 	cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
+## Work with .NET objects in the cache
 
-<a name="store-session"></a>
-## Store ASP.NET session state in the cache
+Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized. This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
-Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database. To use the caching session
-state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.
+One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) and serialize to and from JSON. The following example shows a get and set using an `Employee` object instance.
 
-To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
+    // Store to cache
+    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
 
-![Manage NuGet packages][NuGetMenu]
+    // Retrieve from cache
+    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
-Type **RedisSessionStateProvider** into the **Search Online** text box, select it from the results, and click **Install**.
+Another way to serialize objects to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class. In the following example, [extension methods](https://msdn.microsoft.com/library/bb383977.aspx) to the `StackExchange.Redis.IDatabase` type are defined that use the `BinaryFormatter` to simplify the serialization of objects when they are cached.
 
-![Redis Cache Session State NuGet Package][SessionStateNuGet]
+	public static class SampleStackExchangeRedisExtensions
+	{
+	    public static T Get<T>(this IDatabase cache, string key)
+	    {
+	        return Deserialize<T>(cache.StringGet(key));
+	    }
+	
+	    public static object Get(this IDatabase cache, string key)
+	    {
+	        return Deserialize<object>(cache.StringGet(key));
+	    }
+	
+	    public static void Set(this IDatabase cache, string key, object value)
+	    {
+	        cache.StringSet(key, Serialize(value));
+	    }
+	
+	    static byte[] Serialize(object o)
+	    {
+	        if(o == null)
+	        {
+	            return null;
+	        }
+	
+	        BinaryFormatter binaryFormatter = new BinaryFormatter();
+	        using (MemoryStream memoryStream = new MemoryStream())
+	        {
+	            binaryFormatter.Serialize(memoryStream, o);
+	            byte[] objectDataAsStream = memoryStream.ToArray();
+	            return objectDataAsStream;
+	        }
+	    }
+	
+	    static T Deserialize<T>(byte[] stream)
+	    {
+	        if(stream == null)
+	        {
+	            return default(T);
+	        }
+	
+	        BinaryFormatter binaryFormatter = new BinaryFormatter();
+	        using (MemoryStream memoryStream = new MemoryStream(stream))
+	        {
+	            T result = (T)binaryFormatter.Deserialize(memoryStream);
+	            return result;
+	        }
+	    }
+	}
 
-The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
+The `RedisValue` type can work directly with byte arrays, so when the `Get` helper method is called, it serializes the object into a byte stream, which is then cached. When the item is retrieved, it is serialized back into an object, and returned to the caller.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />
-      </providers>
-    </sessionState>
+In the following example, an instance of an `Employee` object is stored and retrieved from the cache.
 
-The commented section provides an example of the attributes and sample settings for them.
+	[Serializable]
+	class Employee
+	{
+	    public int Id { get; set; }
+	    public string Name { get; set; }
+	
+	    public Employee(int EmployeeId, string Name)
+	    {
+	        this.Id = EmployeeId;
+	        this.Name = Name;
+	    }
+	}
 
-Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.
+	IDatabase cache = Connection.GetDatabase();
+	
+	// Put an Employee object into the cache
+	cache.Set("Employee25", new Employee(25, "Clayton Gragg"));
+	
+	// Retrieve it
+	Employee e2 = cache.Get<Employee>("Employee25");
+	
+	// Retrieve it as an object
+	Employee e3 = (Employee)cache.Get("Employee25");
 
-	<sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="contoso5.redis.cache.windows.net" 
-		accessKey="..." ssl="true" />
-      </providers>
-    </sessionState>
-
-Be sure to comment out the standard **InProc** session state provider.
-
-    <!-- <sessionState mode="InProc" customProvider="DefaultSessionProvider">
-      <providers>
-        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
-      </providers>
-    </sessionState> -->
-
-For more information about configuring these settings and using the Azure Redis Session State Provider, see [Azure Redis Session State Provider][].
+>[AZURE.NOTE] If your object is not serializable you will receive an exception similar to the following when you try to serialize it.
+>
+>`Type 'SampleApplication.Employee' in Assembly SampleApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' is not marked as serializable.`
 
 <a name="next-steps"></a>
 ## Next Steps
 
-Now that you've learned the basics of Azure Redis Cache,
-follow these links to learn how to do more complex caching tasks.
+Now that you've learned the basics, follow these links to learn more about Azure Redis Cache.
 
+-	Check out the ASP.NET providers for Azure Redis Cache.
+	-	[Azure Redis Session State Provider](cache-asp.net-session-state-provider.md)
+	-	[Azure Redis Cache ASP.NET Output Cache Provider](cache-asp.net-output-cache-provider.md)
 -	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [cache-how-to-monitor.md) the health of your cache. You can view the metrics in the preview portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	Check out the [StackExchange.Redis cache client documentation][].
 	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
 	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].
 -	See the [redis][] documentation and read about [redis data types][] and [a fifteen minute introduction to Redis data types][].
--   See the MSDN Reference for [Azure Redis Cache][]. 
+
 
 
 <!-- INTRA-TOPIC LINKS -->

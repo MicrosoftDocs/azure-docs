@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Manage the availability of virtual machines | Microsoft Azure"
+	pageTitle="Manage the availability of VMs | Microsoft Azure"
 	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,9 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#Manage the availability of virtual machines
+# Manage the availability of virtual machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Understand planned vs. unplanned maintenance
 There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.

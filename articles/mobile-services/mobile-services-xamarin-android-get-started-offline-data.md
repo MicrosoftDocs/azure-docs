@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/25/2015"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
@@ -160,8 +160,7 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-android-get-started-data.md
+[Handling conflicts with offline support for Mobile Services]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md

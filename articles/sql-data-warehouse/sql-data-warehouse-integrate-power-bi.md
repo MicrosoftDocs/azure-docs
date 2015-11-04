@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Use Power BI with SQL Data Warehouse
@@ -42,18 +42,16 @@ The easiest way to move between your SQL Data Warehouse and Power BI is with the
 ## Connecting through the Power BI portal
 In addition to using the Open in Power BI button, users can also connect to their SQL Data Warehouse through the Power BI Portal. 
 
-1.   Click Get Data at the bottom of the navigation pane.
-2.  Select Big Data & More.
-3.  Once on the Big Data & More page, select the SQL Data Warehouse
-4.  Enter the necessary connection information.  The in the Finding Parameters section below shows where this data can be found.  
-5.	Drilling into the dataset, you can explore all of the tables and columns in your database. Selecting a column will send a query back to the source, dynamically creating your visual. These visuals can be saved in a new report, and pinned back to your dashboard.
+1.  Click 'Get Data' at the bottom of the navigation pane.
+2.  Select 'Databases'.
+3.  Once on the Databases page, select 'Azure SQL Data Warehouse' and then click 'Connect'.
+4.  Enter the necessary connection information.  The the Finding Parameters section below shows where this data can be found. 
+5.  You will be directed back to the main page of Power BI and after your connection is made a new entry under 'Datasets' will appear with the name of your instance.  
+6.	 You can click on the new dataset to explore all of the tables, and views in your database. Selecting a column will send a query back to the source, dynamically creating your visual. These visuals can be saved in a new report, and pinned back to your dashboard.
 
 ## Finding parameter values
 Your fully qualified server name and database name can be found in the Azure Portal.  Please note that SQL Data Warehouse only has a presence in the Azure Preview portal at this time.
 
-## Next steps
-For an overview of integration, see [SQL Data Warehouse integration overview][].
-For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
 

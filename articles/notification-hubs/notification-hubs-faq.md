@@ -48,8 +48,7 @@ We provide SDKs and samples for .NET, Java, PHP, Python, Node.js so that an app 
 We support sending notifications to Apple iOS, Android, Windows Universal and Windows Phone, Kindle, Android China (via Baidu), Xamarin (iOS & Android), Chrome Apps platforms. Step by step getting started tutorials for these platforms are available here - [NH - Getting Started Tutorials]
 
 ###3.	Do you support SMS/Email/web notifications?
-Notification Hubs is primarily designed to send notifications to mobile apps using the above listed platforms. We do not provide capability to send email or SMS however third party platforms which provide these capabilities can be integrated along with Notification Hubs to send native push notifications by using Azure Mobile Services. E.g. this tutorial talks about how to send SMS notifications using Azure Mobile services - [Send SMS with Mobile Services]
-We also do not provide an in-browser push notification out of the box. Customers may choose to implement this using SignalR. We also provide a tutorial for sending push notification to Chrome apps which will work on Google Chrome browser. See this - [Chrome Apps tutorial]
+Notification Hubs is primarily designed to send notifications to mobile apps using the above listed platforms. We do not provide capability to send email or SMS however third party platforms which provide these capabilities can be integrated along with Notification Hubs to send native push notifications by using Azure Mobile Services. We also do not provide an in-browser push notification out of the box. Customers may choose to implement this using SignalR. We also provide a tutorial for sending push notification to Chrome apps which will work on Google Chrome browser. See this - [Chrome Apps tutorial]
 
 ###4.	What is the relation between Azure Mobile Services and Azure Notification Hubs and when do I use what?
 If you have an existing mobile app backend and you only want to add the capability to send push notifications then you must use Azure Notification Hubs. If you want to setup your mobile app backend from scratch then you should consider using Azure Mobile Services. An Azure mobile service automatically provisions a Notification Hub for you to be able to send push notifications easily from the mobile app backend. Pricing for Azure Mobile Services includes the base charges for a Notification Hub and you only pay when you go beyond the included pushes. More details here - [Mobile Services Pricing]
@@ -129,7 +128,6 @@ It also provides the capability to export the telemetry programmatically (in Sta
 [CaseStudy - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Send SMS with Mobile Services]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
 [Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx

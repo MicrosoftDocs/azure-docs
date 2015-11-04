@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/19/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Azure Search: tutorials, video demos, and samples
@@ -23,7 +23,7 @@ Get up to speed faster with the following videos, demos, tutorials, and sample a
 
 ##Demo sites
 
-[**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is an ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative.
+[**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is a live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative.
 
 [**Try App Service + Azure Search**](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features.
 
@@ -31,6 +31,7 @@ Get up to speed faster with the following videos, demos, tutorials, and sample a
 
 Link|Description
 ----|-----------
+[AzureCon 2015 Best Practices for Azure Search](https://azure.microsoft.com/en-us/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Practical advice on how to achieve scale, optimum performance, and coding efficiency when building apps for Web or mobile scenarios. 
 [Microsoft Virtual Academy: Adding Azure Search to your Websites and Apps](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|7-part series on how to add Azure Search to an application, presented by Liam Cavanagh, Janusz Lembicz, and Bernardita Torres Garayar.
 [Build 2015: Modern Data](http://channel9.msdn.com/Events/Build/2015/2-663)|At 29 minutes into the session, learn how Azure Search fits in the modern data revolution, presented by Shawn Bice and Pablo Castro.
 [Build 2015: Using Azure Search to Build Great Search Experiences in Mobile and WebApps](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presents at Microsoft Build 2015.
@@ -64,7 +65,16 @@ Walkthrough|Description
 
 ##Code samples
 
-[**https://github.com/AzureSearch**](https://github.com/AzureSearch) is a GitHub repository for Azure Search containing code samples created by the Azure Search development team. You can browse the repository to see what it contains, or click links below to go directly to specific samples. 
+[**https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) is a GitHub repository containing code samples created by Liam Cavanagh. The following samples can be found in this repository:
+
+- [AdventureWorksWP8]() is a Windows phone app.
+- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) is an index.html file that provides data in a tutorial.
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) is an ASP.NET MVC application for Azure Search.
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) provides source code for the NYCJobs live demo site.
+- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) uses Active Data Factory, SQL Database, Blob storage, and HDInsight to implement product recommendations based on how frequently products are purchased together.
+
+[**https://github.com/AzureSearch**](https://github.com/AzureSearch) is another GitHub repository for Azure Search containing code samples created by the Azure Search development team. You can browse the repository to see what it contains, or click links below to go directly to specific samples. 
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)

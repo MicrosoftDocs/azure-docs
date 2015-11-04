@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor your Logic Apps" 
+	pageTitle="Monitor your Logic Apps | Microsoft Azure" 
 	description="How to see what your Logic Apps have done." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="stepsic"/>
 
 #Monitor your Logic Apps

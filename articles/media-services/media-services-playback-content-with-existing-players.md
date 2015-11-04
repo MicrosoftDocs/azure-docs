@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -78,5 +78,13 @@ To test HLS URLs you can also use:
 ##Developing video players
 
 For information about how to develop your own players, see [Developing video players](media-services-develop-video-players.md)
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png 

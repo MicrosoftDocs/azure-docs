@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Use R in HDInsight to customize clusters | Microsoft Azure" 
-	description="Learn how to install and use R to customize Hadoop clusters." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Install R on Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to install and use R to customize Linux-based Hadoop clusters."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
 
 You can install R on any type of cluster in Hadoop on HDInsight by using **Script Action** cluster customization. This enables data scientists and analysts to use R to deploy the powerful MapReduce/YARN programming framework to process large amounts of data on Hadoop clusters that are deployed in HDInsight.
 
-> [AZURE.NOTE] The steps in this document require a Linux-based HDInsight cluster. For information on using R with a Windows-based cluster, see [Install and use R on HDinsight Hadoop clusters (Windows)](hdinsight-hadoop-r-scripts.md)
+> [AZURE.NOTE] The steps in this document require a Linux-based HDInsight cluster. For information on using R with a Windows-based cluster, see [Install and use R on HDinsight Hadoop clusters (Windows)](hdinsight-hadoop-r-scripts.md).
 
 ## What is R?
 
-The <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a> is an open source language and environment for statistical computing. R provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities. R is the preferred programming environment for most professional statisticians and scientists in a wide variety of fields. 
+The <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a> is an open source language and environment for statistical computing. R provides hundreds of build-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities. R is the preferred programming environment for most professional statisticians and scientists in a wide variety of fields.
 
 R scripts can be run on Hadoop clusters in HDInsight that were customized using Script Action when created to install the R environment. R is compatible with Azure Blob Storage (WASB) so that data that is stored there can be processed using R on HDInsight.
 
@@ -62,7 +62,7 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-inst
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
@@ -75,7 +75,7 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-inst
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue provisining the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Run R scripts
 
@@ -84,14 +84,14 @@ After the cluster has finished provisioning, use the following steps to use R to
 1. Connect to the HDInsight cluster using SSH:
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	For more information on using SSH with HDInsight, see the following:
-	
+
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. From the `username@headnode1:~$` prompt, enter the following command to start an interactive R session:
+2. From the `username@hn0-CLUSTERNAME:~$` prompt, enter the following command to start an interactive R session:
 
 		R
 
@@ -100,24 +100,23 @@ After the cluster has finished provisioning, use the following steps to use R to
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
 
 	The first line calls the RHadoop library rmr2, which is used for MapReduce operations.
-	
+
 	The second line generates values 1 - 100, then stores them to the Hadoop file system using `to.dfs`.
-	
+
 	The third line creates a MapReduce process using functionality provided by rmr2, and begins processing. You should see several lines scroll past as the processing begins.
-	
+
 4. Next, use the following to see the temporary path that the MapReduce output was stored to:
 
 		print(calc())
-		
+
 	This should be something similar to `/tmp/file5f615d870ad2`. To view the actual output, use the following:
-	
+
 		print(from.dfs(calc))
-	
+
 	The output should look like this:
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +125,7 @@ After the cluster has finished provisioning, use the following steps to use R to
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. To exit R, enter the following:
 
 		q()
@@ -148,4 +147,3 @@ After the cluster has finished provisioning, use the following steps to use R to
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 

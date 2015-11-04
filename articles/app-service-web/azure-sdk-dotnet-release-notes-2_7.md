@@ -150,6 +150,7 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 
 Installing the Azure SDK 2.6 or 2.7.1 for Visual Studio Community 2013 on a non-English OS will display a warning that the English and non-English resources of Visual Studio may be mismatched. This warning may be safely dismissed. It will only occur if the machine did not contain a prior installation of Visual Studio Community 2013 and you are installing the SDK on a non-English OS. The warning is shown after the language pack applies the RTM resources to Visual Studio, but before it applies Update 4. Dismissing the warning will allow the language pack to continue and complete applying the Update 4 version of the language pack content.
 
+LightSwitch projects are not compatibile with this release. This issue will be resolved with the next SDK release.
 
 ##Also see
 [Azure SDK 2.7.1 announcement post](http://go.microsoft.com/fwlink/?LinkId=623850)

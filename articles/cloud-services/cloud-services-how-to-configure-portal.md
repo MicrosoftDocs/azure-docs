@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to configure a cloud service | Microsoft Azure" 
-	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." 
+	pageTitle="How to configure a cloud service (preview portal) | Microsoft Azure" 
+	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure preview portal." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -86,6 +86,11 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 ## Configure remote access to role instances
 
-Remote access cannot be configured using the **Azure Preview Portal**, you can only change this setting through the [non-preview portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-role-enable-remote-desktop.md).
+Remote access cannot be configured using the **Azure Preview Portal**, you can only change this setting through the [non-preview portal](http://manage.windowsazure.com/). This is described [here](cloud-services-role-enable-remote-desktop.md).
 			
- 
+## Next steps
+
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).

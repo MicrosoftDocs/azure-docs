@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services" 
-description="How to configure your azure cloud service application to allow remote desktop connections" 
+pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell" 
+description="How to configure your azure cloud service application using PowerShell to allow remote desktop connections" 
 services="cloud-services" 
 documentationCenter="" 
 authors="sbtron" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/31/2015" 
+ms.date="09/17/2015" 
 ms.author="saurabh"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell

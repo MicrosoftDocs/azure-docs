@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
+Please see the [Data Factory - .NET API Change Log](data-factory-api-change-log.md) article to learn about changes to Data Factory .NET SDK in a specific release.  
 
 ## Notes for 07/17/2015 release of Data Factory
 The following JSON changes are introduced in the July 2015 release of Azure PowerShell. 

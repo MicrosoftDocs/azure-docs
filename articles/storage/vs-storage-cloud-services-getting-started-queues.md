@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Getting started with Azure Queue storage and Visual Studio connected services (Cloud Service projects)" 
-	description="How to get started using Azure Queue storage in a cloud service project in Visual Studio" 
+    pageTitle="Get started with queue storage and Visual Studio connected services (cloud services) | Microsoft Azure"
+	description="How to get started using Azure Queue storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services"
 	services="storage" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
-	ms.author="patshea123"/>
+	ms.date="09/03/2015" 
+	ms.author="patshea"/>
 
 # Getting started with Azure Queue storage and Visual Studio connected services (cloud services projects)
 
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##Overview
+## Overview
 
 This article describes how to get started using Azure Queue storage in Visual Studio after you have created or referenced an Azure storage account in a cloud services project by using the  Visual Studio **Add Connected Services** dialog. 
 
@@ -44,7 +44,7 @@ The **Add Connected Services** operation installs the appropriate NuGet packages
 Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 
 
-##Access queues in code
+## Access queues in code
 
 To access queues in Visual Studio Cloud Services projects, you need to include the following items to any C# source file that access Azure Queue storage.
 
@@ -72,7 +72,7 @@ To access queues in Visual Studio Cloud Services projects, you need to include t
 
 **NOTE:** Use all of the above code in front of the code in the following samples.
 
-##Create a queue in code
+## Create a queue in code
 
 To create the queue in code, just add a call to **CreateIfNotExists**.
 
@@ -82,7 +82,7 @@ To create the queue in code, just add a call to **CreateIfNotExists**.
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##Add a message to a queue
+## Add a message to a queue
 
 To insert a message into an existing queue, create a new **CloudQueueMessage** object, then call the **AddMessage** method.
 
@@ -97,7 +97,7 @@ Here is an example which inserts the message 'Hello, World'.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##Read a message in a queue
+## Read a message in a queue
 
 You can peek at the message in the front of a queue without removing it from the queue by calling the **PeekMessage** method.
 
@@ -107,7 +107,7 @@ You can peek at the message in the front of a queue without removing it from the
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##Read and remove a message in a queue
+## Read and remove a message in a queue
 
 Your code can remove (de-queue) a message from a queue in two steps.
 
@@ -128,7 +128,7 @@ This two-step process of removing a message assures that if your code fails to p
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Leverage additional options for processing and removing queue messages
+## Use additional options to process and remove queue messages
 
 There are two ways you can customize message retrieval from a queue.
 
@@ -176,7 +176,7 @@ property returns the last value retrieved by the
 	// Display number of messages.
 	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## Use Async-Await Pattern with common Azure Queue APIs
+## Use the Async-Await Pattern with common Azure Queue APIs
 
 This example shows how to use the Async-Await pattern with common Azure Queue APIs. The sample calls the async version of each of the given methods, this can be seen by the **Async** post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
 
@@ -208,7 +208,7 @@ To delete a queue and all the messages contained in it, call the **Delete** meth
     // Delete the queue.
     messageQueue.Delete();
 
-##Next steps
+## Next steps
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			

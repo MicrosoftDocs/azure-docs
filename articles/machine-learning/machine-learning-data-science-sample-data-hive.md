@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Sample data in Azure HDInsight Hive tables | Microsoft Azure"
-	description="Down sampling data in Azure HDInsight Hive Tables"
+	description="Down sampling data in Azure HDInsight  (Hadopop) Hive Tables"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,12 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/20/2015"
 	ms.author="hangzh;bradsev" />
 
 # Sample data in Azure HDInsight Hive tables
 
-If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Advanced Analytics Process and Technology (ADAPT) of Azure Machine Learning, is to enable fast prototyping of the data processing functions and machine learning models.
+This **menu** links to topics that describe how to sample data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introduction
+
+If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 In this article, we describe how to down-sample data in Azure HDInsight Hive tables using Hive queries. We cover three popularly used sampling methods: 
 

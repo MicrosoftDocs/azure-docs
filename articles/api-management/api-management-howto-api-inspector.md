@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/14/2015" 
 	ms.author="sdanie"/>
 
 # How to use the API Inspector to trace calls in Azure API Management
@@ -24,7 +24,7 @@ In addition to tracing operations, API Inspector also traces [policy expression]
 
 This guide provides a walk-through of using API Inspector.
 
->[AZURE.NOTE] API Inspector traces are only available to the [administrators](api-management-howto-create-groups.md) of your API Management service instance. API Inspector traces are only returned when making calls to a [protected product](api-management-howto-add-products.md) that requires a subscription key. 
+>[AZURE.NOTE] API Inspector traces are only generated and made available for requests containing subscription keys that belong to the [administrator](api-management-howto-create-groups.md) account.
 
 ## <a name="trace-call"> </a> Use API Inspector to trace a call
 

@@ -54,7 +54,7 @@ In your ASP.NET 5 project, paste it into `config.json`:
       }
     }
 
-Or if you’d prefer the configuration to be dynamic, you can add this code to the application’s Startup class:
+Or if you'd prefer the configuration to be dynamic, you can add this code to the application's Startup class:
 
     configuration.AddApplicationInsightsSettings(
       instrumentationKey: "11111111-2222-3333-4444-555555555555");
@@ -172,5 +172,5 @@ Return to the [Azure portal][portal] and browse to your Application Insights res
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md 

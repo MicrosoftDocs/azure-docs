@@ -98,7 +98,7 @@ Standard search starts with one replica and partition each, but can be easily re
 
 Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
 
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](search-limits-quotas-capacity.md) for help in deciding how to configure partition and replica combinations.
 
  ![][15]
 
@@ -334,7 +334,7 @@ Ready for the next step? The following links take you to additional material tha
 
 - [What is Azure Search?](search-what-is-azure-search.md)
 
-- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
+- [Azure Search Service REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 

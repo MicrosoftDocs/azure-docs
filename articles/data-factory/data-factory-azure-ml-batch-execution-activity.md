@@ -348,7 +348,9 @@ If you want to continue using the AzureMLBatchScoring activity, please refer to 
 **A:** Yes. See the **Using a Reader module to read data from multiple files in Azure Blob** section for details. 
 
 
+## See Also
 
+- [Azure blog post: Getting started with Azure Data Factory and Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 
 

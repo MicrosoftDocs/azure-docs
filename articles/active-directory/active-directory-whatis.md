@@ -1,19 +1,19 @@
-<properties 
-                pageTitle="What is Azure Active Directory?" 
-                description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="swadhwa" 
+<properties
+                pageTitle="What is Azure Active Directory?"
+                description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications."
+                services="active-directory"
+                documentationCenter=""
+                authors="markusvi"
+                manager="swadhwa"
                 editor=""/>
 
-<tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="08/10/2015" 
+<tags
+                ms.service="active-directory"
+                ms.workload="identity"
+                ms.tgt_pltfrm="na"
+                ms.devlang="na"
+                ms.topic="article"
+                ms.date="08/10/2015"
                 ms.author="markusvi"/>
 
 
@@ -23,11 +23,11 @@
 
 
 
-Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service. 
+Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.
 
 For IT Admins, Azure AD provides an affordable, easy to use solution to give employees and business partners single sign-on (SSO) access to [thousands of cloud SaaS Applications](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx) like Office365, Salesforce.com, DropBox, and Concur.
 
-For application developers, Azure AD lets you focus on building your application by making it fast and simple to integrate with a world class identity management solution used by millions of organizations around the world. 
+For application developers, Azure AD lets you focus on building your application by making it fast and simple to integrate with a world class identity management solution used by millions of organizations around the world.
 
 Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role based access control, application usage monitoring, rich auditing and security monitoring and alerting. These capabilities can help secure cloud based applications, streamline IT processes, cut costs and help assure corporate compliance goals are met.
 
@@ -47,7 +47,7 @@ If you are an Office365, Azure or Dynamics CRM Online customer, you might not re
 
 The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs. Running out of 28 data centers around the world with automated failover, you’ll have the comfort of knowing that Azure AD is highly reliable and that even if a data center goes down, copies of your directory data are live in at least two more regionally dispersed data centers and available for instant access.
 
-For more details, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/). 
+For more details, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 
 
@@ -57,7 +57,7 @@ Your organization can use Azure AD to improve employee productivity, streamline 
 
 -	Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.
 -	Empower employees with access to world class cloud apps and service and self-services capabilities from wherever they need to work on the devices they love to use.
--	Easily and securely manage employee and vendor access to your corporate social media accounts. 
+-	Easily and securely manage employee and vendor access to your corporate social media accounts.
 -	Improve application security with Azure AD multifactor authentication and conditional access.
 -	Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overhead.
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
@@ -73,8 +73,8 @@ Your organization can use Azure AD to improve employee productivity, streamline 
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
  - Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 -	If you are a developer:
- - Check out our [Developers Guide](https://msdn.microsoft.com/library/azure/ff800682.aspx) to Azure Active Directory <need link>
- - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and get started integrating your app with Azure AD 
+ - Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory 
+ - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and get started integrating your app with Azure AD
 
 
 
@@ -104,4 +104,3 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 - [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-what-is.md)
 
 - [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
-

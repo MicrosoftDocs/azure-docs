@@ -137,6 +137,8 @@ Fields (in Select query) | <ul><li>Valid column names separated by commas. No ta
 
 App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system. If you're connector uses an on-premises SQL Server, the Hybrid Connection Manager is required.
 
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+
 See [Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md).
 
 

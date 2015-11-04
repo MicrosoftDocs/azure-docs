@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="10/16/2015"
    ms.author="joaoma" />
 
 
 # Internet Facing load balancer between multiple Virtual Machines or services
 
-One use for endpoints is the configuration of the Azure Load Balancer to distribute a specific type of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
+One use for endpoints is the configuration of the Azure load balancer to distribute a specific type of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
 
-Azure Load Balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine.
+Azure load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine.
 
->[AZURE.NOTE] When you configure load balancing of traffic among multiple virtual machines or services using default settings, it will provide a random distribution of the incoming traffic. If you are looking for session affinity, check out [load balancer distribution mode](load-balancer-distribution-mode.md)
+>[AZURE.NOTE] Azure load balancer will provide a hash distribution  network traffic among multiple virtual machine instances using the default settings (more info about hash distribution in [load balancer features](load-balancer-overview.md#load-balancer-features) . If you are looking for session affinity, check out [load balancer distribution mode](load-balancer-distribution-mode.md).
 
 For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition (.csdef).
  
@@ -36,7 +36,7 @@ The following figure shows a load-balanced endpoint for encrypted web traffic th
 
 
 
-When Internet clients send web page requests to the public IP address of the cloud service and TCP port 443, the Azure Load Balancer performs a random balancing of those requests between the three virtual machines in the load-balanced set.
+When Internet clients send web page requests to the public IP address of the cloud service and TCP port 443, the Azure Load Balancer performs a hash based load balancing of those requests between the three virtual machines in the load-balanced set. You can get more information about load balancer algorithm at [load balancer overview page](load-balancer-overview#load-balancer-features).
 
 
 ## Next Steps

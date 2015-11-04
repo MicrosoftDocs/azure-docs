@@ -3,7 +3,7 @@
 	description="Cluster Model" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="FrancescaLazzeri" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/02/2015" 
-	ms.author="jaymathe"/> 
+	ms.author="lazzeri"/> 
 
 
 #Cluster Model    

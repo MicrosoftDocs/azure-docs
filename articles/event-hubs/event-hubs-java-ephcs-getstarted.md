@@ -95,6 +95,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 - The [Scale out Event Processing with Event Hubs] sample.
 - A [queued messaging solution] using Service Bus queues.
 
+For more information, see also the [Java Developer Center](/develop/java/).
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/14/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration
@@ -124,6 +124,7 @@ Perform the following steps to swap or reassign the VIPs for any of the network 
 
 ## Next steps
 
-[Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
- 
+- Learn how to [configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
      

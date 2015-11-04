@@ -319,7 +319,7 @@ Using the read-only service provided in [Try Azure App Service](https://tryappse
 
 To perform all these tasks, you’ll need an Azure subscription so that you can create and populate indexes in a service. For more information about how to sign up for a free trial, visit [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-To learn more about Azure Search, visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](http://azure.microsoft.com) or check out any number of [samples and videos](https://msdn.microsoft.com/library/dn818681.aspx) that explore the full range of Azure Search functionality.
+To learn more about Azure Search, visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](http://azure.microsoft.com) or check out any number of [samples and videos](search-video-demo-tutorial-list.md) that explore the full range of Azure Search functionality.
 
 <a name="Schema"></a>
 ##About the schema

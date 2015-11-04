@@ -13,18 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Azure Search Indexer Customization#
+#Azure Search Indexer Customization
 
-In this article, you will learn how to use Azure Search indexers to implement these scenarios: 
-
-- Rename fields between a datasource and a target index 
-- Transform strings from a database table into string collections
-- Switch the change detection policy on a datasource 
-- URL-encode document keys that contain URL-unsafe characters 
-- Tolerate failures to index some documents 
+Configuring an indexer in Azure Search let's you rename fields between a datasource and a target index, transform strings from a database table into string collections, switch the change detection policy on a datasource, URL-encode document keys that contain URL-unsafe characters, and tolerate failures to index some documents.
 
 If you’re not familiar with Azure Search indexers, you might want to take a look at the following articles first:
 

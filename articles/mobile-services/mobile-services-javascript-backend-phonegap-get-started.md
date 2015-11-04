@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Mobile Services for PhoneGap/cordova apps"
+	pageTitle="Get started with Azure Mobile Services for PhoneGap/cordova apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,13 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="ggailey777"/>
 
 # Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 This tutorial shows you how to add a cloud-based backend service to an app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service.
 
@@ -152,11 +155,16 @@ The final stage of this tutorial is to build and run your new app.
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* [Add authentication to your app]
-  <br/>Learn how to authenticate users of your app with an identity provider.
+* **[Add authentication to your app]**  
+  Learn how to authenticate users of your app with an identity provider.  
 
-* [Add push notifications to your app](https://msdn.microsoft.com/magazine/dn879353.aspx)
-  <br/>Learn how to register for and send push notifications to your app.
+* **[Add push notifications to your app](https://msdn.microsoft.com/magazine/dn879353.aspx)**  
+  Learn how to register for and send push notifications to your app.
+
+* **[Mobile Services HTML/JavaScript How-to Conceptual Reference](mobile-services-html-how-to-use-client-library.md)**  
+  Learn more about how to use the JavaScript client library to access data, call custom APIs, and perform authentication.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Images. -->
 [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
@@ -166,7 +174,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: mobile-services-html-get-started-data.md
 [Add authentication to your app]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh"/>
 
 # Shard elasticity 
 
-**Shard elasticity** enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs. The combination of the **Elastic Database tools** for Azure SQL Database along with the [Basic, Standard, and Premium service tiers](http://msdn.microsoft.com/library/azure/dn741340.aspx) provides very compelling elasticity scenarios.  Elastic database tools enable horizontal scaling - a design pattern in which databases (also [known as "shards”](sql-database-elastic-scale-glossary.md)) are added or removed from a shard set to grow or shrink capacity. Similarly, the SQL Database service tiers provide **vertical scaling** capabilities in that a single database's resources can scale up or down to appropriately match demand.  Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.
+**Shard elasticity** enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs. The combination of the **Elastic Database tools** for Azure SQL Database along with the [Basic, Standard, and Premium service tiers](sql-database-service-tiers) provides very compelling elasticity scenarios.  Elastic database tools enable horizontal scaling - a design pattern in which databases (also [known as "shards”](sql-database-elastic-scale-glossary.md)) are added or removed from a shard set to grow or shrink capacity. Similarly, the SQL Database service tiers provide **vertical scaling** capabilities in that a single database's resources can scale up or down to appropriately match demand.  Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.
 
-With the newly introduced **elastic database pools** capability, vertical scaling is even simpler to achieve.   Pools allow an individual database’s resource consumption to grow or shrink *automatically* within a budget shared among the entire pool. For applications that choose not to take advantage of elastic database pools, this article will describe other techniques for implementing policy-based mechanics for managing vertical scaling, as well as some common scenarios for automating horizontal scaling operations.
+With the newly introduced **elastic database pools** capability, vertical scaling is even simpler to achieve. Pools allow an individual database’s resource consumption to grow or shrink *automatically* within a budget shared among the entire pool. For applications that choose not to take advantage of elastic database pools, this article will describe other techniques for implementing policy-based mechanics for managing vertical scaling, as well as some common scenarios for automating horizontal scaling operations.
 
 ## Horizontal scaling example: concert spike
 
@@ -149,7 +149,7 @@ To facilitate the actual implementation of both horizontal and vertical scaling 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
 
 <!--anchors-->
 [Telemetry]:#telemetry

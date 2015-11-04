@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Getting started with Azure storage and Visual Studio connected services (WebJob projects)" 
-	description="How to get started using Blob storage in an Azure storage account that was created using Visual Studio's Add Connected Services dialog box in a WebJob project."
+<properties
+	pageTitle="Get started with blob storage and Visual Studio connected services (WebJob projects) | Microsoft Azure"
+	description="How to get started using Blob storage in a WebJob project after connecting to an Azure storage using Visual Studio connected services."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started" 
+	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="patshea123"/>
+	ms.date="09/03/2015"
+	ms.author="patshea"/>
 
-# Getting Started with Azure Storage (Azure WebJob Projects)
+# Get started with Azure Blob storage and Visual Studio connected services (WebJob projects)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
@@ -35,9 +35,9 @@ This article provides C# code samples that show how to trigger a process when an
 
 ## How to trigger a function when a blob is created or updated
 
-This section shows how to use the `BlobTrigger` attribute. 
+This section shows how to use the **BlobTrigger** attribute.
 
- **Note:** The WebJobs SDK scans log files to watch for new or changed blobs. This process is inherently slow; a function might not get triggered until several minutes or longer after the blob is created.  If your application needs to process blobs immediately, the recommended method is to create a queue message when you create the blob, and use the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) attribute instead of the `BlobTrigger` attribute on the function that processes the blob.
+ **Note:** The WebJobs SDK scans log files to watch for new or changed blobs. This process is inherently slow; a function might not get triggered until several minutes or longer after the blob is created.  If your application needs to process blobs immediately, the recommended method is to create a queue message when you create the blob, and use the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) attribute instead of the **BlobTrigger** attribute on the function that processes the blob.
 
 ### Single placeholder for blob name with extension  
 
@@ -49,7 +49,7 @@ The following code sample copies text blobs that appear in the *input* container
 		    output = input.ReadToEnd();
 		}
 
-The attribute constructor takes a string parameter that specifies the container name and a placeholder for the blob name. In this example, if a blob named *Blob1.txt* is created in the *input* container, the function creates a blob named *Blob1.txt* in the *output* container. 
+The attribute constructor takes a string parameter that specifies the container name and a placeholder for the blob name. In this example, if a blob named *Blob1.txt* is created in the *input* container, the function creates a blob named *Blob1.txt* in the *output* container.
 
 You can specify a name pattern with the blob name placeholder, as shown in the following code sample:
 
@@ -69,7 +69,7 @@ use this for your pattern:
 
 		images/{{20140101}}-{name}
 
-In the example, the *name* placeholder value would be *soundfile.mp3*. 
+In the example, the *name* placeholder value would be *soundfile.mp3*.
 
 ### Separate blob name and extension placeholders
 
@@ -88,24 +88,24 @@ The following code sample changes the file extension as it copies blobs that app
 
 ## Types that you can bind to blobs
 
-You can use the `BlobTrigger` attribute on the following types:
+You can use the **BlobTrigger** attribute on the following types:
 
-* `string`
-* `TextReader`
-* `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* Other types deserialized by [ICloudBlobStreamBinder](#icbsb) 
+* **string**
+* **TextReader**
+* **Stream**
+* **ICloudBlob**
+* **CloudBlockBlob**
+* **CloudPageBlob**
+* Other types deserialized by [ICloudBlobStreamBinder](#icbsb)
 
-If you want to work directly with the Azure storage account, you can also add a `CloudStorageAccount` parameter to the method signature.
+If you want to work directly with the Azure storage account, you can also add a **CloudStorageAccount** parameter to the method signature.
 
 ## Getting text blob content by binding to string
 
-If text blobs are expected, `BlobTrigger` can be applied to a `string` parameter. The following code sample binds a text blob to a `string` parameter named `logMessage`. The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard. 
- 
+If text blobs are expected, **BlobTrigger** can be applied to a **string** parameter. The following code sample binds a text blob to a **string** parameter named **logMessage**. The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard.
+
 		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
-		    string name, 
+		    string name,
 		    TextWriter logger)
 		{
 		     logger.WriteLine("Blob name: {0}", name);
@@ -115,13 +115,13 @@ If text blobs are expected, `BlobTrigger` can be applied to a `string` parameter
 
 ## Getting serialized blob content by using ICloudBlobStreamBinder
 
-The following code sample uses a class that implements `ICloudBlobStreamBinder` to enable the `BlobTrigger` attribute to bind a blob to the `WebImage` type.
+The following code sample uses a class that implements **ICloudBlobStreamBinder** to enable the **BlobTrigger** attribute to bind a blob to the **WebImage** type.
 
 		public static void WaterMark(
 		    [BlobTrigger("images3/{name}")] WebImage input,
 		    [Blob("images3-watermarked/{name}")] out WebImage output)
 		{
-		    output = input.AddTextWatermark("WebJobs SDK", 
+		    output = input.AddTextWatermark("WebJobs SDK",
 		        horizontalAlign: "Center", verticalAlign: "Middle",
 		        fontSize: 48, opacity: 50);
 		}
@@ -134,11 +134,11 @@ The following code sample uses a class that implements `ICloudBlobStreamBinder` 
 		    output = input.Resize(width, height);
 		}
 
-The `WebImage` binding code is provided in a `WebImageBinder` class that derives from `ICloudBlobStreamBinder`.
+The **WebImage** binding code is provided in a **WebImageBinder** class that derives from **ICloudBlobStreamBinder**.
 
 		public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
 		{
-		    public Task<WebImage> ReadFromStreamAsync(Stream input, 
+		    public Task<WebImage> ReadFromStreamAsync(Stream input,
 		        System.Threading.CancellationToken cancellationToken)
 		    {
 		        return Task.FromResult<WebImage>(new WebImage(input));
@@ -153,9 +153,9 @@ The `WebImage` binding code is provided in a `WebImageBinder` class that derives
 
 ## How to handle poison blobs
 
-When a `BlobTrigger` function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
+When a **BlobTrigger** function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
 
-The maximum number of retries is configurable. The same [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) setting is used for poison blob handling and poison queue message handling. 
+The maximum number of retries is configurable. The same [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) setting is used for poison blob handling and poison queue message handling.
 
 The queue message for poison blobs is a JSON object that contains the following properties:
 
@@ -165,7 +165,7 @@ The queue message for poison blobs is a JSON object that contains the following 
 * BlobName
 * ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-In the following code sample, the `CopyBlob` function has code that causes it to fail every time it's called. After the SDK calls it for the maximum number of retries, a message is created on the poison blob queue, and that message is processed by the `LogPoisonBlob` function. 
+In the following code sample, the **CopyBlob** function has code that causes it to fail every time it's called. After the SDK calls it for the maximum number of retries, a message is created on the poison blob queue, and that message is processed by the **LogPoisonBlob** function.
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("textblobs/output-{name}")] out string output)
@@ -173,7 +173,7 @@ In the following code sample, the `CopyBlob` function has code that causes it to
 		    throw new Exception("Exception for testing poison blob handling");
 		    output = input.ReadToEnd();
 		}
-		
+
 		public static void LogPoisonBlob(
 		[QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
 		    TextWriter logger)
@@ -185,7 +185,7 @@ In the following code sample, the `CopyBlob` function has code that causes it to
 		    logger.WriteLine("ETag: {0}", message.ETag);
 		}
 
-The SDK automatically deserializes the JSON message. Here is the `PoisonBlobMessage` class: 
+The SDK automatically deserializes the JSON message. Here is the **PoisonBlobMessage** class:
 
 		public class PoisonBlobMessage
 		{
@@ -198,15 +198,15 @@ The SDK automatically deserializes the JSON message. Here is the `PoisonBlobMess
 
 ### Blob polling algorithm
 
-The WebJobs SDK scans all containers specified by `BlobTrigger` attributes at application start. In a large storage account this scan can take some time, so it might be a while before new blobs are found and `BlobTrigger` functions are executed.
+The WebJobs SDK scans all containers specified by **BlobTrigger** attributes at application start. In a large storage account this scan can take some time, so it might be a while before new blobs are found and **BlobTrigger** functions are executed.
 
-To detect new or changed blobs after application start, the SDK periodically reads from the blob storage logs. The blob logs are buffered and only get physically written every 10 minutes or so, so there may be significant delay after a blob is created or updated before the corresponding `BlobTrigger` function executes. 
+To detect new or changed blobs after application start, the SDK periodically reads from the blob storage logs. The blob logs are buffered and only get physically written every 10 minutes or so, so there may be significant delay after a blob is created or updated before the corresponding **BlobTrigger** function executes.
 
-There is an exception for blobs that you create by using the `Blob` attribute. When the WebJobs SDK creates a new blob, it passes the new blob immediately to any matching `BlobTrigger` functions. Therefore if you have a chain of blob inputs and outputs, the SDK can process them efficiently. But if you want low latency running your blob processing functions for blobs that are created or updated by other means, we recommend using `QueueTrigger` rather than `BlobTrigger`.
+There is an exception for blobs that you create by using the **Blob** attribute. When the WebJobs SDK creates a new blob, it passes the new blob immediately to any matching **BlobTrigger** functions. Therefore if you have a chain of blob inputs and outputs, the SDK can process them efficiently. But if you want low latency running your blob processing functions for blobs that are created or updated by other means, we recommend using **QueueTrigger** rather than **BlobTrigger**.
 
 ### Blob receipts
 
-The WebJobs SDK makes sure that no `BlobTrigger` function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+The WebJobs SDK makes sure that no **BlobTrigger** function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
 
 Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
 
@@ -220,7 +220,7 @@ If you want to force reprocessing of a blob, you can manually delete the blob re
 
 ## Related topics covered by the queues article
 
-For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
 Related topics covered in that article include the following:
 
@@ -230,11 +230,10 @@ Related topics covered in that article include the following:
 * Use WebJobs SDK attributes in the body of a function
 * Set the SDK connection strings in code.
 * Set values for WebJobs SDK constructor parameters in code
-* Configure `MaxDequeueCount` for poison blob handling.
+* Configure **MaxDequeueCount** for poison blob handling.
 * Trigger a function manually
 * Write logs
 
 ## Next steps
 
 This article has provided code samples that show how to handle common scenarios for working with Azure blobs. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
- 

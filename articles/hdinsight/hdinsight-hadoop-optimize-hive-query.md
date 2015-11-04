@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
 
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)] 
+
 
 * [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
 
@@ -60,7 +62,7 @@ You can make any Hive query Tez enabled by prefixing the query with the setting 
 
 	set hive.execution.engine=tez;
 
-Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
+For Windows-based HDInsight clusters, Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -84,6 +86,10 @@ Tez must be enabled at the provision time. The following is a sample Azure Power
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE] Linux-based HDInsight clusters have Tez enabled by default.
+    
 
 ## Hive partitioning
 

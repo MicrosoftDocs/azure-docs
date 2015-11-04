@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Using attributes to create advanced rules| Microsoft Azure"
-	description="Advanced How-to's for managing security groups and how to use these groups to manage access to a resource."
+	description="How-to's to create advanced rules for a group including supported expression rule operators and parameters."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 

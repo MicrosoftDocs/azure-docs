@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Move Web App Resources to another Resource Group"
 	description="Describes the scenarios where you can move Web Apps and App Services from one Resource Group to another."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ZainRizvi"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

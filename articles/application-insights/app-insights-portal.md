@@ -17,7 +17,7 @@
 
 # Using the Application Insights portal
 
-After you have [set up Application Insights on your project](app-insights-get-started.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
+After you have [set up Application Insights on your project](app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
 ## Find your telemetry in Azure
 

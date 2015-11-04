@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Application Frameworks"
+   pageTitle="Application Frameworks | Microsoft Azure"
    description="Describes how to create popular application frameworks by using templates with Azure Resource Manager. Examples include the LAMP stack, SharePoint, and SQL Server."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -13,12 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # Create application frameworks by using templates
 
-Use this stuff to create great things, quickly.
+Use this stuff to create great things, quickly. In addition to these templates, you can search through templates](https://azure.microsoft.com/documentation/templates/).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 | Template | Description | View the template | Deploy it right now |
 |:---|:---|:---:|:---:|

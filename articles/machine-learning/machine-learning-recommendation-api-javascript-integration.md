@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/14/2015" 
 	ms.author="luisca"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
