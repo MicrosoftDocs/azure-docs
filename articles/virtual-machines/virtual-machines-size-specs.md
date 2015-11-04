@@ -64,6 +64,26 @@ The following considerations might help you decide on a size:
 
 *   Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
+## Performance considerations
+
+
+
+
+|SKU Family	|ACU/Core |
+|---|---|
+|Basic_A0	|50.0 |
+|Basic_A1-4	|70.0 |
+|Standard_A0 (Extra Small)	|50.0 |
+|Standard_A1-4 (Small – Large)	|100.0 |
+|Standard_A5-7	|100.0 |
+|A8-A11	|225.0 |
+|D1-14	|160.0 |
+|D1-14v2	|212.5 |
+|DS1-14	|160.0 |
+|G1-5	|187.5 |
+|GS1-5	|187.5 |
+
+
 ## General limits
 
 This table shows limits that apply regardless of a virtual machine's size, for virtual machines created using the Service Management deployment model.
