@@ -115,7 +115,7 @@ The configuration model in sync is called [declarative provisioning](active-dire
 
 | Topic |  |
 | --------- | --------- |
-| Technical concepts | [Azure AD Connect sync: Technical Concepts](active-directory-aadconnect-technical-concepts.md) |
+| Technical concepts | [Azure AD Connect sync: Technical Concepts](active-directory-aadconnectsync-technical-concepts.md) |
 | Understanding users and contacts | [Azure AD Connect sync: Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Declarative provisioning functions reference | [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md) |
