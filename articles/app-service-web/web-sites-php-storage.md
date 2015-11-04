@@ -68,7 +68,7 @@ To install the PHP Client Libraries for Azure via Composer, follow these steps:
 
 ##Getting started with the client libraries
 
-There are four basic steps that have to be performed before you can make a call to an Azure API wen using the libraries. You will create an initialization script that will perform these steps.
+There are four basic steps that have to be performed before you can make a call to an Azure API when using the libraries. You will create an initialization script that will perform these steps.
 
 * Create a file called **init.php**.
 
@@ -231,7 +231,7 @@ The home page of the Tasklist application should list all existing tasks and all
 
 ## Inserting Entities into a Table
 
-Your application can now read all items stored in the table. Since there won't be any at fist, let's add a function that writes data into the database.
+Your application can now read all items stored in the table. Since there won't be any at first, let's add a function that writes data into the database.
 
 * Create a file named **additem.php**.
 
@@ -326,13 +326,13 @@ To make your application store data into the cloud you need to first create a st
 
 1. Login to the [Azure Portal][management-portal].
 
-2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Click the **New** icon on the top left of the portal, then click **Data + Storage** > **Storage Account**. Click **Create** and give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
 	![Create a new storage account][storage-quick-create]
 	
 	When the storage account has been created, the **Notifications** button will flash a green **SUCCESS** and the storage account's blade is open to show that it belongs to the new resource group you created.
 
-5. Click the **Settings** part in the storage account's blade. Take note of the account name and the primary key.
+5. Click the **Settings** part in the storage account's blade. Click on **Keys** and take note of the account name and the primary key.
 
 	![Select Manage Keys][storage-access-keys]
 
