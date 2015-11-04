@@ -1,24 +1,24 @@
     <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure" 
-	description="Learn how to author your own artifacts for use with DevTest Labs" 
-	services="devtest-lab,virtual-machines" 
-	documentationCenter="na" 
-	authors="tomarcher" 
-	manager="douge" 
+	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
+	description="Learn how to author your own artifacts for use with DevTest Labs"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
 	editor=""/>
-  
-<tags 
-	ms.service="devtest-lab" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/01/2015" 
+
+<tags
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/01/2015"
 	ms.author="tarcher"/>
 
 #Create custom artifacts for your DevTest Lab VM
 
-**Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name. 
+**Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name.
 
 ##Artifact definition file format
 The following example shows the sections that make up the basic structure of a definition file.
@@ -53,7 +53,7 @@ The following example shows the sections that make up the basic structure of a d
 
 ###Artifact parameters
 
-In the parameters section of the definition file, you specify which values a user can input when installing an artifact. You can refer to these values in the artifact install command. 
+In the parameters section of the definition file, you specify which values a user can input when installing an artifact. You can refer to these values in the artifact install command.
 
 You define parameters will the following structure.
 
@@ -68,12 +68,12 @@ You define parameters will the following structure.
 | Element name | Required? | Description
 | ------------ | --------- | -----------
 | type         | Yes       | Type of parameter value. See the list below for the allowed types:
-| displayName    Yes       | Name of the parameter that is displayed to a user in the lab. 
+| displayName    Yes       | Name of the parameter that is displayed to a user in the lab.
 | description  | Yes 	   | Description of the parameter that is displayed in the lab.
 
 The allowed types are:
 
-- string – any valid JSON string 
+- string – any valid JSON string
 - int – any valid JSON integer
 - bool – any valid JSON Boolean
 - array – any valid JSON array
@@ -89,13 +89,13 @@ The following list shows common functions.
 - parameters(parameterName) - Returns a parameter value that is provided when the artifact command is run.
 - concat(arg1,arg2,arg3, …..) - 	Combines multiple string values. This function can take any number of arguments.
 
-The following example shows how to use expression and functions to construct a value. 
+The following example shows how to use expression and functions to construct a value.
 
-	runCommand": { 
+	runCommand": {
 	     "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
 	, ' -RawPackagesList ', parameters('packages')
 	, ' -Username ', parameters('installUsername')
-	, ' -Password ', parameters('installPassword'))]" 
+	, ' -Password ', parameters('installPassword'))]"
 	}
 
 ##Create a custom artifact

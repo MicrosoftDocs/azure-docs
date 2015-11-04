@@ -1,26 +1,26 @@
-    <properties 
-	pageTitle="Create a DevTest Lab | Microsoft Azure" 
-	description="Create a new DevTest Lab lab for virtual machines" 
-	services="devtest-lab,virtual-machines" 
-	documentationCenter="na" 
-	authors="tomarcher" 
-	manager="douge" 
+    <properties
+	pageTitle="Create a DevTest Lab | Microsoft Azure"
+	description="Create a new DevTest Lab lab for virtual machines"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
 	editor=""/>
-  
-<tags 
-	ms.service="devtest-lab" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/01/2015" 
+
+<tags
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="11/01/2015"
 	ms.author="tarcher"/>
 
 # Create an Azure DevTest Lab
 
 ## Prerequisites
 
-To create a DevTest Lab, you will need: 
+To create a DevTest Lab, you will need:
 
 - An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](http://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
 - An Azure Resource Group for the lab. See [Azure Resource Manager Overview](resource-group-overview.md) and [Managing and Auditing Access to Resources](./azure-portal/resource-group-rbac.md).
@@ -28,7 +28,7 @@ To create a DevTest Lab, you will need:
 
 ## Create a lab
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
 3. Tap the **Marketplace** tile.
 

@@ -36,7 +36,7 @@ You grant access to your DevTest Lab through two roles:
 
 ## Add an Owner or DevTest Lab User to your lab
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 

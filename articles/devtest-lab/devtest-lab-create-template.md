@@ -1,19 +1,19 @@
-    <properties 
-	pageTitle="Create VM templates | Microsoft Azure" 
-	description="Learn how to create VM templates from VHD images" 
-	services="devtest-lab,virtual-machines" 
-	documentationCenter="na" 
-	authors="tomarcher" 
-	manager="douge" 
+    <properties
+	pageTitle="Create VM templates | Microsoft Azure"
+	description="Learn how to create VM templates from VHD images"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
 	editor=""/>
-  
-<tags 
-	ms.service="devtest-lab" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/01/2015" 
+
+<tags
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/01/2015"
 	ms.author="tarcher"/>
 
 # Create VM templates
@@ -24,7 +24,7 @@ Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to th
 
 ## Create a VM template
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -45,17 +45,17 @@ Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to th
 1. On the **Add Template** blade:
 
 	1. Enter the name of the template. This name is displayed in the list of templates when creating a new VM.
-	
-	1. Enter the description of the template. This description is displayed in the list of templates when creating a new VM. 
-	
+
+	1. Enter the description of the template. This description is displayed in the list of templates when creating a new VM.
+
 	1. Tap **Image**.
-	
+
 	1. If the image you want is not listed and you want to add it, skip to the *Add a new template image* section, and return here when finished.
-	
+
 	1. Select the desired image.
-	
+
 	1. Tap **OK** to close the **Add Template** blade.
-	
+
 1. Tap **OS Configuration**.
 
 1. On the **OS Configuration** tab, select either **Windows** or **Linux**.
@@ -80,8 +80,8 @@ In order to add a new template image, you'll need to have access to a VHD image 
 
     ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed. 
+1. The next blade will display instructions for modifying and running a PowerShell script that uploads to your Azure subscription a VHD image file. **Note:** This process can be lengthy depending on the size of the image file and your connection speed.
 
 ##Next steps
 
-Once you have added a VM template for use when creating a VM, the next step is to [add a VM to your DevTest Lab](devtest-lab-add-vm-with-artifacts). 
+Once you have added a VM template for use when creating a VM, the next step is to [add a VM to your DevTest Lab](devtest-lab-add-vm-with-artifacts).

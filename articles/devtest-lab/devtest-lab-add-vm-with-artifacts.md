@@ -1,19 +1,19 @@
-    <properties 
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure" 
-	description="Create a new virtual machine with Artifacts in DevTest Lab." 
-	services="devtest-lab,virtual-machines" 
-	documentationCenter="na" 
-	authors="tomarcher" 
-	manager="douge" 
+    <properties
+	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
+	description="Create a new virtual machine with Artifacts in DevTest Lab."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
 	editor=""/>
-  
-<tags 
-	ms.service="devtest-lab" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/01/2015" 
+
+<tags
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/01/2015"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to an Azure DevTest Lab
@@ -24,13 +24,13 @@ You create a virtual machine in a DevTest Lab starting with an Azure base image 
 
 DevTest Lab *artifacts* let you specify actions that are performed when the VM is created. Artifact actions can perform procedures such as running Powershell and Bash commands, and installing software. Artifact *parameters* let you customize the artifact for your particular scenario.
 
-Your lab includes artifacts from the official DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository. 
+Your lab includes artifacts from the official DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository.
 
 This article shows you how create a VM in your lab using artifacts.
 
 ## Add a VM with artifacts
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -67,10 +67,10 @@ While creating a VM, you can add artifacts by tapping **Artifacts** from the **L
 
 **Adding an artifact to a VM**
 
-Follow these steps for each artifact you want to add to your VM: 
+Follow these steps for each artifact you want to add to your VM:
 
 1. Tap the desired artifact in the **Add Artifacts** blade to view a blade that enables you to specify the artifact's parameters.  
-    
+
 2. Enter the required parameter values and any optional parameters that you need.  
 
 3. Tap **Add** to add the artifact and return to the **Add Artifacts** blade.
@@ -88,7 +88,7 @@ Follow these steps to view or modify the parameters of your selected artifacts:
     ![](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
 1. To view or edit the parameters of a specific artifact, tap that artifact in the **Selected Artifacts** blade.  
-    
+
 1. Make any needed changes, and tap **OK** to close the **Add Artifact** blade.
 
 1. Tap **OK** to close the **Selected Artifacts** blade.
