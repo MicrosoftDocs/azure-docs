@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/04/2015"
 	ms.author="dkshir"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
@@ -48,7 +48,8 @@ This article assumes that you have the following items:
 
 - **Azure Powershell tools** - the `Add-AzureVhd` cmdlet can also be used to upload the VHD. See [Azure Downloads](http://azure.microsoft.com/downloads/) to download the Azure Powershell cmdlets. For reference information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
+<a id="prepimage"> </a>
+## Step 1: Prepare the image to be uploaded
 
 Azure supports a variety of Linux distributions (see [Endorsed Distributions](../linux-endorsed-distributions.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
@@ -62,8 +63,8 @@ Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-v
 
 After following the steps in the guides above you should have a VHD file that is ready to upload to Azure.
 
-
-## <a id="connect"> </a>Step 2: Prepare the connection to Azure ##
+<a id="connect"> </a>
+## Step 2: Prepare the connection to Azure
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure.
 
@@ -141,7 +142,8 @@ Use Azure AD method to login:
 
 > [AZURE.NOTE] We recommend you use the newer Azure Active Directory method to login to your Azure subscription, either from the Azure CLI or the Azure PowerShell.
 
-## <a id="upload"> </a>Step 3: Upload the image to Azure ##
+<a id="upload"> </a>
+## Step 3: Upload the image to Azure
 
 ### If using Azure CLI
 
@@ -159,7 +161,7 @@ From the Azure PowerShell window you used in the previous step, type:
 
 		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
-For more information, see [Add-AzureVhd]((https://msdn.microsoft.com/library/azure/dn495173.aspx).
+For more information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 > [AZURE.NOTE] The [Azure Powershell 1.0 Preview version](https://azure.microsoft.com/en-us/blog/azps-1-0-pre/) significantly changes the way it handles cmdlets for the classic and Resource Manager deployment model. This article does not use the Preview version yet. 
 
