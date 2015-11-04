@@ -13,15 +13,36 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
-# Create predictive pipelines using Azure Machine Learning Batch Execution activity   
+# Create predictive pipelines using Azure Machine Learning activities   
 ## Overview
 
 > [AZURE.NOTE] See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
-Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using Azure Data Factory, you can make use of big data pipelines (e.g. Pig and Hive) to process the data that you have ingested from various data sources, and use the Azure Machine Learning web services to make predictions on the data in batch. 
+[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps: 
+
+- **Create a training experiment**. You do this by using the Azure ML Studio, which is a collaborative visual development environment that you use to train and test a predictive analytics model using training data that you supply.
+- **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring. 
+- **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. Users can send data to your model via this web service end point and receive result predictions fro the model.  
+
+Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the Batch Execution Activity in an Azure Data Factory pipeline, you can invoke an Azure ML web service to make predictions on the data in batch. See [Azure ML Batch Execution Activity](#batch-execution-activity) section for details.
+
+Overtime, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps: 
+
+- Publish the training experiment (not predictive experiment) as a web service. 
+- Use the Azure ML Batch Execution Activity to invoke the web service for the training experiment
+  
+After you are done with retraining, you want to update the scoring web service (not the training web service) with the newly trained model. You do this by following the steps below: 
+
+- Add a non-default end point to the scoring web service. 
+- Update existing linked services to use the non-default endpoint. 
+- Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.  
+
+See [Retraining and updating an Azure ML model using Azure Data Factory](#retraining-and-updating-an-azure-ml-model-using-adf) section for details. 
+
+## Batch Execution Activity
 
 You use Azure Data Factory to orchestrate  data movement and processing, and then perform batch execution using Azure Machine Learning. To achieve this, you will need to do the following:
 
@@ -35,7 +56,7 @@ You use Azure Data Factory to orchestrate  data movement and processing, and the
 	![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 
-## Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
+### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
 In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Azure Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the Web service by using the **webServiceInput** JSON property and **DecisionTreeResultBlob** as an output to the Web service by using the **webServiceOutputs** JSON property. Only datasets that are inputs/outputs for the activity can be passed as Web service inputs and outputs.    
 
 
@@ -239,7 +260,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 
 	> [AZURE.NOTE] Specifying input for the AzureMLBatchExecution activity is optional. 
 
-## Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
+### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
 
 Another common scenario when creating Azure ML experiments is to use Reader and Writer modules. The reader module is used to load data into an experiment and the writer module is to save data from your experiments. For details about reader and writer modules, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.     
 
@@ -329,6 +350,22 @@ In the above JSON example:
 - The deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.  
 - Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
  
+
+## Retraining and updating Azure Machine Learning models with Azure Data Factory
+Overtime, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps: 
+
+- Publish the training experiment (not predictive experiment) as a web service. 
+- Use the Azure ML Batch Execution Activity to invoke the web service for the training experiment. This is same as invoking an Azure ML web service for scoring data. 
+  
+After you are done with retraining, you want to update the scoring web service (not the training web service) with the newly trained model. You do this by following the steps below: 
+
+- Add a non-default end point to the scoring web service. 
+- Update existing linked services in your data factory to use the non-default endpoint. 
+- Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.  
+ 
+
+
+
 
 ## Frequently asked questions
 
