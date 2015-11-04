@@ -34,7 +34,7 @@ For more on the benefits of App Service, see the [Mobile Services vs. App Servic
 
 ##Migrate vs. upgrade
 
-[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade)]
+[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
   - For Node.js-based server projects, the new [Mobile Apps Node.js SDK](https://github.com/Azure/azure-mobile-apps-node) provides a number of new features. For instance, you can now do local development and debugging, use any Node.js version above 0.10, and customize with any Express.js middleware.
 

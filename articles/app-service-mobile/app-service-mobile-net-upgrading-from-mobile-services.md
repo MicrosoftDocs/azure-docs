@@ -26,7 +26,7 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 ##Migrate vs. upgrade
 
-[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade)]
+[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 ###Improvements in Mobile Apps .NET server SDK
 
