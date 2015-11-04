@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Resource Manager Template Functions"
-   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, format strings and retrieve deployment information."
+   pageTitle="Resource Manager Template Functions | Microsoft Azure"
+   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager Template Functions
+# Azure Resource Manager template functions
 
 This topic describes all of the functions you can use in an Azure Resource Manager template.
+
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same.
 
 ## add
 
