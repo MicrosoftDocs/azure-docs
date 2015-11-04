@@ -24,7 +24,7 @@
 
 There can be various reasons for Remote Desktop (RDP) to fail connecting to your Azure virtual machine running Windows. The issue can be with the RDP software on VM, the underlying host computer, the network connection or on the client side from where connecting. This article will help you find out the causes and correct them.  
 
-> [AZURE.NOTE] This article only applies to Azure virtual machines running Windows. For troubleshooting connections to *Azure virtual machines running Linux*, see [this article](virtual-machines-troubleshoot-ssh-connections.md).
+This article only applies to Azure virtual machines running Windows. For troubleshooting connections to *Azure virtual machines running Linux*, see [this article](virtual-machines-troubleshoot-ssh-connections.md).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -47,6 +47,10 @@ These basic steps can help resolve most of the common Remote Desktop connection 
 
 - Review your VM’s console log or screenshot to correct boot problems.
 	Click Browse all > Virtual machines (classic) > your Windows virtual machine > **Boot diagnostics**
+
+- Check VM's Resource Health for any platform issues. 
+	Click Browse all > Virtual Machines (classic) > your Windows virtual machine > **Check Health**
+-  
 
 ## Basic steps - Resource Manager deployment model
 
