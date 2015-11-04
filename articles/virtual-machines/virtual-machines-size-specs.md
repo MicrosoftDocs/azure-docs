@@ -77,7 +77,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 |SKU Family	|ACU/Core |
 |---|---|
-|Basic_A0	|50.0 |
+|[Basic_A0](#basic-tier)	|50.0 |
 |Basic_A1-4	|70.0 |
 |Standard_A0 (Extra Small)	|50.0 |
 |Standard_A1-4 (Small – Large)	|100.0 |
