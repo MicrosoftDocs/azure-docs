@@ -72,5 +72,11 @@ At this time, Service Fabric clusters do not support auto-scaling. In the near f
 
 This article covered scaling clusters using the portal. However, you can perform the same actions from the command line using ARM commands on the cluster resource. The GET response of the ClusterResource will provide the list of nodes which have been disabled.
 
+## Next steps
+
+- [Learn about cluster upgrades](service-fabric-cluster-upgrade.md)
+- [Learn about partitioning stateful services for maximum scale](service-fabric-concepts-partitioning.md)
+
+
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
