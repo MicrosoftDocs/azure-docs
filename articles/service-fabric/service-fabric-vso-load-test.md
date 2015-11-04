@@ -4,7 +4,7 @@
     services="service-fabric"
     documentationCenter="na"
     authors="cawa"
-    manager="paulyuk"
+    manager="timlt"
     editor="" />
 
 <tags
