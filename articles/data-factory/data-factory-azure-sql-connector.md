@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL using Azure Data Factory

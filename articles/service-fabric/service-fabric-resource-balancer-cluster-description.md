@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Balancer Cluster Description"
-   description="Specifying a cluster description for the Resource Balancer"
+   pageTitle="Resource Balancer cluster description | Microsoft Azure"
+   description="Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Resource Balancer."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,25 +16,25 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# Cluster Description
+# Describing a Service Fabric cluster
 
 The Service Fabric Resource Balancer provides several mechanisms to describe a cluster. During runtime, the Resource Balancer uses these pieces of information to ensure that it places services in ways that ensure high availability of the services running in the cluster while also ensuring maximum utilization of the cluster resources. The Resource Balancer features that describe a cluster are fault domains, upgrade domains, node properties, and node capacities. Additionally, the Resource Balancer has some configuration options that can tweak its performance.
 
-## Key Concepts
+## Key concepts
 
-### Fault Domains:
+### Fault domains:
 
 Fault domains enable cluster administrators to define the physical nodes that are likely to experience failure at the same time due to shared physical dependencies such as power and networking sources. Fault domains typically represent hierarchies that are related to these shared dependencies, with more nodes likely to fail together from a higher point in the fault domain tree. The following figure shows several nodes that are organized via hierarchical fault domains in the order of data center, rack, and blade.
 
-![Fault Domains][Image1]
+![Fault domains][Image1]
 
  During runtime, the Service Fabric Resource Manager considers the fault domains in the cluster and attempts to spread out the replicas for a given service so that they are all in separate fault domains. This process helps ensure, in case of failure of any one fault domain, that the availability of that service and its state is not compromised. The following figure shows the replicas of a service that is spread over several fault domains even though there is enough room to concentrate them in only one or two domains.
 
-![Fault Domains][Image2]
+![Fault domains][Image2]
 
 Fault domains are configured within the cluster manifest. Each node is defined to be within a particular fault domain. During runtime, the Resource Manager combines the reports from all the nodes to develop a complete overview of all of the fault domains in the system.
 
-### Upgrade Domains
+### Upgrade domains
 
 Upgrade domains are another piece of information that is consumed by the Resource Manager. Upgrade domains, like fault domains, describe sets of nodes that are shut down for upgrades at approximately the same time. Upgrade domains are not hierarchical and can be thought of as tags.
 
@@ -42,7 +42,7 @@ Whereas fault domains are defined by the physical layout of the nodes in the clu
 
 For these reasons, the Resource Manager collects upgrade domain information and spreads replicas among the upgrade domains in a cluster just like fault domains. Upgrade domains might or might not correspond one-to-one with fault domains, but generally are not expected to correspond one-to-one. The following figure shows a layer of several upgrade domains on top of the previously defined fault domains. The Resource Manager still spreads the replicas across domains so that no fault or upgrade domain becomes concentrated with replicas to ensure high availability for the service, in spite of either upgrades or faults in the cluster.
 
-![Upgrade Domains][Image3]
+![Upgrade domains][Image3]
 
 Upgrade domains and fault domains are both configured as a part of the node definition within the cluster manifest, as shown below:
 
@@ -61,7 +61,7 @@ Upgrade domains and fault domains are both configured as a part of the node defi
 ```
 - In Azure deployments, fault domains and upgrade domains are assigned by Azure; therefore, the definition of your nodes and roles within the Infrastructure option for Azure does not include fault domain or upgrade domain information.
 
-### Node Properties
+### Node properties
 Node properties are user-defined key/value pairs that provide extra metadata for a given node. Examples of node properties include whether the node had a hard drive or video card, the number of spindles in its hard drive, cores, and other physical properties.
 
 Node properties can also be used to specify more abstract properties to aid in placing policy decisions. For example, several nodes within a cluster can be assigned a "color" as a means of segmenting the cluster into different sections. The code example shows that node properties are defined for nodes via the cluster manifest as a part of node type definitions, which can then be applied to multiple nodes within the cluster.
@@ -95,7 +95,7 @@ The NodeName, NodeType, FaultDomain, and UpgradeDomain placement properties have
 
 During runtime, the Resource Balancer uses node property information to ensure that services that require specific capabilities are placed on the appropriate nodes.
 
-### Node Capacities
+### Node capacities
 Node capacities are key/value pairs that define the name and amount of a particular resource that a particular node has available for consumption. The code example shows a node that it has capacity for a metric called "MemoryInMb" and that it has 2048 MB in memory available by default. Capacities are defined via the cluster manifest, much like node properties.
 
 ``` xml
@@ -106,7 +106,7 @@ Node capacities are key/value pairs that define the name and amount of a particu
   </Capacities>
 </NodeType>
 ```
-![Node Capacity][Image4]
+![Node capacity][Image4]
 
 Because services that run on a node can update their capacity requirements via Reporting Load, the Resource Balancer also checks periodically whether a node is at or over capacity for any of its metrics. If it is, the Resource Balancer can move services to less loaded nodes to decrease resource contention and to improve overall performance and utilization.
 
@@ -115,7 +115,7 @@ Note that while a given metric could also be listed in the property section of t
 When new services are created, the Service Fabric Cluster Resource Balancer uses the information about the capacity of existing nodes and the consumption of existing services to determine if there is sufficient available in the capacity to place the entire new service. If there is insufficient capacity then the Create Service request is rejected with an error message indicating that there is insufficient cluster capacity remaining.
 
 
-### Resource Balancer Configurations
+### Resource Balancer configurations
 
 Within the cluster manifest, the following several different configuration values that define the overall behavior of the Resource Balancer:
 
@@ -123,7 +123,7 @@ Within the cluster manifest, the following several different configuration value
 
 The following figure shows two examples, where the balancing threshold for the given metric to be is 10.
 
-![Balancing Threshold][Image5]
+![Balancing threshold][Image5]
 
 Note that at this time, the "utilization" on a node does not take into consideration the size of the node as determined by the capacity of the node, but only the absolute use that is currently reported on the node for the specified metric.
 
@@ -139,7 +139,7 @@ The code example shows that balancing thresholds for metrics are configured per 
 
 - Activity Thresholds act as a gate on how often the Resource Balancer runs by limiting the cases that the Resource Balancer reacts to when a significant absolute amount of load is present. In this way, if the cluster is not very busy for a particular metric, the Resource Balancer does not run even if that small amount of metric is very imbalanced within the cluster. This measure prevents wasting resources by rebalancing the cluster for substantively little gain. The following figure shows that the balancing threshold for the metric is 4 and that the activity threshold is 1536.
 
-![Activity Threshold][Image6]
+![Activity threshold][Image6]
 Note also that both the activity and balancing thresholds must be exceeded for the same metric to cause the Resource Balancer to run. Triggering either for two separate metrics does not cause the Resource Balancer to run.
 
 The code example shows that just like balancing thresholds, activity thresholds are configured per metric via the FabricSettings element within the cluster manifest.

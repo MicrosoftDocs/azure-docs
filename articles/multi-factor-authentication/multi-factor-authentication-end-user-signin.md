@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 # The sign in experience with Azure Multi-Factor Authentication
-The following information is provided to help guide you through the sign in experience.
+The documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 
 
 ## What will your sign in experience be?

@@ -41,7 +41,7 @@ For information on scalability targets for File storage, see [Azure Storage Scal
 
 Here's a video that demonstrates how to create and use Azure File shares on Windows.
 
-> [AZURE.VIDEO 45f60e08-42c6-402b-b325-a5210125212b]
+> [AZURE.VIDEO azure-file-storage-with-windows]
 
 ## About this tutorial
 
@@ -147,6 +147,7 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 | Windows 8              | SMB 3.0              |
 | Windows Server 2012    | SMB 3.0              |
 | Windows Server 2012 R2 | SMB 3.0              |
+| Windows 10             | SMB 3.0              |
 
 ### Mount the file share from an Azure virtual machine running Windows
 
