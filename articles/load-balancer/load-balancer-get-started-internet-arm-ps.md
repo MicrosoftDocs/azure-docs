@@ -241,6 +241,36 @@ Use the `Add-AzureVMNetworkInterface` cmdlet to assign the NICs to different VMs
 
 You can find guidance on how to create a virtual machine, and assign a NIC in [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), using option 5 in the example. 
 
+## Update an existing load balancer
+
+
+### Step 1
+
+Using the load balancer from the example above, assign load balancer object to variable $slb using Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### Step 2
+
+In the following example, you will add a new Inbound NAT rule using port 81 in the front end and port 8181 for the back end pool to an existing load balancer
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Step 3
+
+Save the new configuration using Set-AzureLoadBalancer 
+
+	$slb | Set-AzureLoadBalancer
+
+## Remove a load balancer
+
+Use the command Remove-AzureLoadBalancer to delete a previously created load balancer named "NRP-LB"  in a resource group called "NRP-RG" 
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
+
 ## Next steps
 
 [Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)

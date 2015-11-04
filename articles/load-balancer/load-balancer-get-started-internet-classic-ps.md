@@ -52,6 +52,11 @@ Create another endpoint for the second VM  "web2" using the same load balancer s
 
 	Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 
+## Remove a virtual machine from a load balancer
+
+You can use Remove-AzureEndpoint to remove a virtual machine endpoint from the load balancer 
+
+	Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
 
 ## Next steps
 
