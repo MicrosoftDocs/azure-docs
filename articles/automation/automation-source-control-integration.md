@@ -49,7 +49,7 @@ For example, if you have a repository named **PowerShellScripts** that contains 
 
     -To sync runbooks from repository, runbook folder path is **/**
     -To sync runbooks from **RootFolder**, runbook folder path is **/RootFolder**
-    -To sync runbooks from **SubFolder**, runbook folder path is **/RootFolder/SubFolder.**<br>
+    -To sync runbooks from **SubFolder**, runbook folder path is **/RootFolder/SubFolder.**
 After you configure the parameters, they are displayed on the **Set Up Source Control  blade.**
 
 ![Configure Blade](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
@@ -61,7 +61,7 @@ After you configure the parameters, they are displayed on the **Set Up Source Co
 4. After you set up source control, the following Automation resources will be created in your Automation account:<br> 
 a. Two [variable assets](automation-variables.md) are created.
 
-* The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.<br>
+  * The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.<br>
 
 |Parameter            |Value |
 |:---|:---|
@@ -70,7 +70,7 @@ a. Two [variable assets](automation-variables.md) are created.
 | Value  | {"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
 
 
-* The variable **Microsoft.Azure.Automation.SourceControl.OauthToken**, contains the secure encrypted value of your OAuthToken. <br>
+  * The variable **Microsoft.Azure.Automation.SourceControl.OauthToken**, contains the secure encrypted value of your OAuthToken. <br>
 
 |Parameter            |Value |
 |:---|:---|
