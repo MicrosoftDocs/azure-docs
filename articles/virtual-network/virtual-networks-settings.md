@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # How to manage Virtual Network (VNet) Properties
-You can view and modify VNet settings by using the management portal.
+You can view and modify VNet settings by using the Azure portal.
 
 ## View VNet settings
 

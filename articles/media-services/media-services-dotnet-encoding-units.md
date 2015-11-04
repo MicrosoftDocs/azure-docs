@@ -3,7 +3,7 @@
 	description="Learn how to how to add encoding units with .NET"  
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada,gtrifonov" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
-
-
 
 
 #How to Scale Encoding with .NET SDK
@@ -72,4 +70,12 @@ To open a support ticket do the following:
 1. Click submit to open the ticket.
  
 
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
  

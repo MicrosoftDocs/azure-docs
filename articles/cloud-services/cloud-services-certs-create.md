@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Cloud Services - All you want to know about certificates" 
+	pageTitle="Cloud Services and management certificates | Microsoft Azure" 
 	description="Learn how to create and use certificates with Microsoft Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
-# Certificates Overview for Azure Cloud Services
+# Certificates overview for Azure Cloud Services
 Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates)). This topic gives a general overview of both certificate types, how to [create](#create) them, and how to [deploy](#deploy) them to Azure.
 
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, and because of this, are not trusted by default. Most browsers can ignore this. Self-signed certificates should only be used by yourself when developing and testing your cloud services. 
@@ -68,6 +68,9 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 
 ### Java
 You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
+
+### Linux
+[This](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) article describes how to create certificates with SSH.
 
 ## Next steps
 

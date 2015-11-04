@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Move data to and from Oracle | Azure Data Factory" 
+	pageTitle="Move data from Oracle | Azure Data Factory" 
 	description="Learn how to move data to/from Oracle database that is on-premises using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Move data to on-premises Oracle using Azure Data Factory 
+# Move data from on-premises Oracle using Azure Data Factory 
 
 This article outlines how you can use data factory copy activity to move data from Oracle to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 

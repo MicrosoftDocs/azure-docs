@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure Content Key Authorization Policy using REST" 
-	description="Learn how to configure an authorization policy for a content key." 
+	pageTitle="Configure Content Key Authorization Policy using Media Services REST API" 
+	description="Learn how to configure an authorization policy for a content key using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -465,6 +465,15 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
         PlayReadyLicense = 1,
         BaselineHttp = 2,
     }
+
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 ##Next Steps

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Frequently asked questions about DocumentDB | Microsoft Azure" 
-	description="Answers to frequently asked questions related about Azure DocumentDB, a NoSQL document database service." 
+	pageTitle="DocumentDB Database Questions - Frequently Asked Questions | Microsoft Azure" 
+	description="Get answers to frequently asked questions about Azure DocumentDB NoSql document database service. Answer database questions about capacity, performance levels, and scaling." 
+	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -19,12 +20,12 @@
 
 #Frequently asked questions about DocumentDB
 
-## Microsoft Azure DocumentDB fundamentals
+## Database questions about Microsoft Azure DocumentDB fundamentals
 
 ### What is Microsoft Azure DocumentDB? 
 Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key requirements. DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
   
-For instructions on deploying and using this service, see the [DocumentDB documentation page](http://azure.microsoft.com/documentation/services/documentdb/).
+For more database questions, answers, and instructions on deploying and using this service, see the [DocumentDB documentation page](http://azure.microsoft.com/documentation/services/documentdb/).
 
 ### What kind of database is DocumentDB?
 DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB [SQL query grammar](documentdb-sql-query.md). DocumentDB provides high performance transactional processing of server side JavaScript through [stored procedures, triggers, and user defined functions](documentdb-programming.md). The database also supports developer tunable consistency levels with associated [performance levels](documentdb-performance-levels.md).
@@ -75,7 +76,7 @@ Each collection comes with an allocation of database storage and provisioned thr
 ### How do I set up users and permissions?
 You can create users and permissions using one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).   
 
-## Develop against Microsoft Azure DocumentDB
+## Database questions about developing against Microsoft Azure DocumentDB
 
 ### How to do I start developing against DocumentDB?
 [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) are available for .NET, Python, Node.js, JavaScript, and Java.  Developers can also leverage the [RESTful HTTP APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with DocumentDB resources from a variety of platforms and languages. 

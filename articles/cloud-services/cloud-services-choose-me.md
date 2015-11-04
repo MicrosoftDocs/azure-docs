@@ -36,5 +36,5 @@ Azure provides different hosting models for running applications. Each one provi
 [Create a cloud service app in Python](../cloud-services-python-ptvs.md)<br/>
 
 [App Service]: app-service-choose-me.md
-[Virtual Machines]: ../virtual-machines-choose-me.md
+[Virtual Machines]: ../virtual-machines-about.md
 [Cloud Services]: #tellmecs 

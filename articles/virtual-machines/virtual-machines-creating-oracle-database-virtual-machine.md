@@ -1,6 +1,25 @@
-<properties title="Creating an Oracle Database virtual machine in Azure" pageTitle="Creating an Oracle Database virtual machine in Azure" description="Step through an example of creating an Oracle virtual machine in Microsoft Azure and then creating an Oracle Database on it." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
-#Creating an Oracle Database virtual machine in Azure
+<properties 
+	pageTitle="Create an Oracle Database VM with the Azure portal | Microsoft Azure" 
+	description="Learn how to create a virtual machine with an Oracle Database on it using the classic deployment model and the Azure preview portal." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""
+	tags="azure-service-management"/>
+	
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Windows" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+	
+#Create an Oracle Database virtual machine in Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 The following example shows you how you can create a virtual machine (VM) based on a Microsoft-provided Oracle Database image running on Windows Server 2012 in Azure. There are two steps. First, create the VM, and then create the Oracle Database inside the VM. The example shown is Oracle Database version 12c, but the steps are virtually identical for version 11g.
 
 ##To create an Oracle Database VM in Azure
@@ -19,7 +38,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 7.	Choose a **Pricing Tier**.  Note that Recommended Pricing Tiers are displayed by default, to see all configuration options, click **View all** on the top right.
 
-8.	Set [Optional Configuration](https://msdn.microsoft.com/library/azure/dn763935.aspx) as needed, with these considerations:
+8.	Set the optional configuration as needed, with these considerations:
 
 	a. Leave **Storage Account** as-is to create a new storage account with the VM name.
 

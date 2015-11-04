@@ -1,10 +1,10 @@
 
 <properties 
-    pageTitle="How to use your Office 365 subscription with Azure RemoteApp"
+    pageTitle="How to use your Office 365 subscription with Azure RemoteApp | Microsoft Azure"
 	description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
 	services="remoteapp"
 	documentationCenter="" 
-	authors="lizap" 
+	authors="piotrci" 
 	manager="mbaldwin" />
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/02/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -26,6 +26,9 @@ Did you know that you can use your existing Office 365 subscription in Azure Rem
 
 Yes! In fact, using your Office 365 subscription is the only way to bring your Office applications to Azure RemoteApp.
 
+(Note: If your Azure RemoteApp deployment is delivered by a hosting partner, they may be able to provide you with Office licenses based on a [Service Provider Licensing Agreement](http://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx))
+
+
 The great thing about your Office 365 subscription is that it lets you use the same user license on many different platforms and environments, including the Azure cloud. When you use Office applications in Azure RemoteApp you don't need to purchase additional licenses or configure your existing licenses in any special way. All you need is an Office 365 subscription that includes [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
 Office 365 ProPlus enables [shared computer activation](https://technet.microsoft.com/library/Dn782860.aspx) - this feature enables temporary user-based activation for Office in virtual and cloud environments like Azure RemoteApp (and Remote Desktop Services).
@@ -35,6 +38,8 @@ Which Office 365 plans include Office 365 ProPlus? Check out the [Service availa
 ## Ok, so how are my Office 365 ProPlus licenses used with Azure RemoteApp?
 
 Each user license for Office 365 ProPlus lets a single user activate Office applications on up to 5 computers plus tablets and phones. Each activation is registered with the user until they deactivate Office on the device. (Users can manage their devices in the [Office 365 portal](https://portal.office365.com/).)
+
+With Azure RemoteApp a single user might log into several computers on the same day without realizing it. That is because the service automatically manages and scales resources in the cloud, while the user sees only the apps and programs you've shared. For this scenario Office 365 ProPlus offers a shared computer activation mode - this means that user doesn't need to do any license management to access those resources and that the individual computers do not count against the 5 computer activation limit.
 
 As long as you (the admin) assign Office 365 ProPlus licenses to your users, they can use Office on their personal devices, as well as through your Azure RemoteApp collection.
 
@@ -73,7 +78,7 @@ You can always create a custom image - you can create an [Azure VM](remoteapp-im
 
 ### Disable automatic updates for Office 365 ProPlus in your custom image - IMPORTANT
 
-Your custom image is used by Azure RemoteApp as a template for adding additional resources as the demand from your users increases. To prevent delays and connection issues, disable automatic updated for Office in the image. If you do not, then every resource created with that template will automatically update when it is started. Instead, use the standard Azure RemoteApp process for updating your custom image. That way you update the Office applications once on the template image and then let Azure RemoteApp take care of getting the updates to your users.
+Your custom image is used by Azure RemoteApp as a template for adding additional resources as the demand from your users increases. To prevent delays and connection issues, disable automatic updates for Office in the image. If you do not, then every resource created with that template will automatically update when it is started. Instead, use the standard Azure RemoteApp process for updating your custom image. That way you update the Office applications once on the template image and then let Azure RemoteApp take care of getting the updates to your users.
 
 To disable automatic updates, add the following to the Office Deployment Tool configuration file:
 
@@ -82,8 +87,8 @@ To disable automatic updates, add the following to the Office Deployment Tool co
 So now your configuration file should contain these lines:
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## So how can I update an image with Office 365 ProPlus?
 

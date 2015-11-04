@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="swadhwa"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/16/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
 # What is Microsoft Azure Active Directory licensing?

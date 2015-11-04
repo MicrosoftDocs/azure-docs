@@ -36,7 +36,9 @@ Azure provides layer 4 load balancing via Azure load balancer working at the tra
 
 The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
 
-The diagram below explains how traffic flows for Application Gateway: 
+The diagram below explains how traffic flows for Application Gateway:
+
+ 
 ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 HTTP layer 7 load balancing is useful for:

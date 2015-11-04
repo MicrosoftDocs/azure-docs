@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/20/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -40,21 +40,24 @@ Not all services currently support the ability to move resources.
 For now, the services that support moving to both a new resource group and subscription are:
 
 - API Management
+- Azure DocumentDB
 - Azure Search
+- Azure Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
 - Data Factory
 - Key Vault
 - Mobile Engagement
 - Operational Insights
 - Redis Cache
-- Azure Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
+- SQL Database
 
 The services that support moving to a new resource group but not a new subscription are:
 
-- Compute (classic)
+- Virtual Machines (classic)
 - Storage (classic)
 
 The services that currently do not support moving a resource are:
 
+- Virtual Machines
 - Virtual Networks
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
@@ -64,17 +67,19 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Using PowerShell to move resources
 
-To move existing resources to another resource group or subscription, use the **Move-AzureResource** command.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+To move existing resources to another resource group or subscription, use the **Move-AzureRmResource** command.
 
 The first example shows how to move one resource to a new resource group.
 
-    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 The second example shows how to move multiple resources to a new resource group.
 
-    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
 

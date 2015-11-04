@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="10/16/2015"
    ms.author="barbkess"/>
 
 #Transact-SQL topics
@@ -35,7 +35,7 @@
 - [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 - [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 - [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
-- [CREATE TABLE](https://msdn.microsoft.com/library/ms174979.aspx)
+- [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 - [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 - [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
 - [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
@@ -47,7 +47,8 @@
 - [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 - [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 - [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-- RENAME
+- R
+- ENAME
 - [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 - [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 

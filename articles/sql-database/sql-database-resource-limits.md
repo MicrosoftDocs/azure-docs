@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="08/28/2015"
+	ms.date="09/11/2015"
 	ms.author="jroth" />
 
 
@@ -45,20 +45,32 @@ For example, the number of connections to a SQL database as well as the number o
 
 ## Service tiers and performance levels
 
-The actual limits of a database are defined by the performance level of the database. For a detailed explanation, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+For a single database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, and Premium databases at varying performance levels.
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-## Database provisioning quota
+[Elastic database pools](sql-database-elastic-pool.md) share resources across databases in the pool. The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
 
-Azure SQL Database has a DTU quota per logical server of currently 2000 DTUs. This quota represents the DTUs a logical server can host, based on the sum of the DTUs if the performance level of each database on the server. For example, a server with 5 Basic databases (5 X 5 DTUs maximum), 2 Standard S1 databases (2 X 20 DTUs maximum), and 3 Premium P1 databases (3 X 100 DTUs maximum) has consumed 365 DTUs of its 2000 DTU quota.
+[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+For a detailed discussion of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
+
+## DTU quota per server
+
+Azure SQL Database has a DTU quota per logical server of currently 15000 DTUs. This quota represents the DTUs a logical server can host, based on the sum of the DTUs if the performance level of each database on the server. For example, a server with 5 Basic databases (5 X 5 DTUs maximum), 2 Standard S1 databases (2 X 20 DTUs maximum), and 3 Premium P1 databases (3 X 100 DTUs maximum) has consumed 365 DTUs of its 15000 DTU quota.
 
 >[AZURE.NOTE] You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+
+## Other SQL Database limits
+
+| Area | Limit | Description |
+|---|---|---|
+| Databases using Automated export per subscription | 10 | Automated export allows you to create a custom schedule for backing up your SQL databases. For more information, see [SQL Databases: Support for Automated SQL Database Exports](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 
 ## Resources
 
 [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 
-[Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)
 
 [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Working with Azure Media Services Jobs
@@ -59,3 +59,12 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 [Quotas and Limitations](media-services-quotas-and-limitations.md) – Describes quotas used and limitations of the Media Services Encoder
  
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

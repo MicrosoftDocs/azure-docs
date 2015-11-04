@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="Provision Web App with Redis Cache" 
 	description="Use Azure Resource Manager template to deploy web app with Redis Cache." 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="cache-redis" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/08/2015" 

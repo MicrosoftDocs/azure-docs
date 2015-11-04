@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Configure AlwaysOn Availability Groups in Azure (PowerShell)"
-	description="Use PowerShell to create an AlwaysOn Availability Group in Azure."
+<properties
+	pageTitle="Configure AlwaysOn Availability Groups in an Azure VM | Microsoft Azure"
+	description="This tutorial uses resources created with  the classic deployment model, and uses PowerShell to create an AlwaysOn Availability Group in Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -15,9 +16,16 @@
 	ms.date="08/14/2015"
 	ms.author="jroth" />
 
-# Configure AlwaysOn Availability Groups in Azure (PowerShell)
+# Configure AlwaysOn Availability Groups in Azure VM (PowerShell)
 
->[AZURE.NOTE] For the GUI-based tutorial of the same scenario, see [Configure AlwaysOn Availability Groups in Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+
+<br/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 Azure virtual machines (VMs) can help database administrators to implement lower the cost of a high availability SQL Server system. This tutorial shows you how to implement an availability group using SQL Server AlwaysOn end-to-end inside an Azure environment. At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
@@ -49,10 +57,10 @@ This tutorial is intended to show you the steps required to set up the described
 
 		Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
 		Get-AzurePublishSettingsFile
-		Import-AzurePublishSettingsFile <publishsettingsfilepath> 
+		Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
 	The **Get-AzurePublishgSettingsFile** command automatically generates a management certificate with Azure downloads it to your machine. A browser will be automatically opened and you are prompted to enter the Microsoft account credentials for your Azure subscription. The downloaded **.publishsettings** file contains all the information you need to manage your Azure subscription. After saving this file to a local directory, import it using the **Import-AzurePublishSettingsFile** command.
-	
+
 	>[AZURE.NOTE] The publishsettings file contains your credentials (unencoded) that are used to administer your Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it once the import has completed. A malicious user gaining access to the publishsettings file can edit, create, and delete your Azure services.
 
 1. Define a series of variables that you will use to create your cloud IT infrastructure.
@@ -69,20 +77,20 @@ This tutorial is intended to show you the steps required to set up the described
 		$winImageName = (Get-AzureVMImage | where {$_.Label -like "Windows Server 2008 R2 SP1*"} | sort PublishedDate -Descending)[0].ImageName
 		$sqlImageName = (Get-AzureVMImage | where {$_.Label -like "SQL Server 2012 SP1 Enterprise*"} | sort PublishedDate -Descending)[0].ImageName
 		$dcServerName = "ContosoDC"
-		$dcServiceName = "<uniqueservicename>" 
+		$dcServiceName = "<uniqueservicename>"
 		$availabilitySetName = "SQLHADR"
-		$vmAdminUser = "AzureAdmin" 
-		$vmAdminPassword = "Contoso!000" 
+		$vmAdminUser = "AzureAdmin"
+		$vmAdminPassword = "Contoso!000"
 		$workingDir = "c:\scripts\"
 
 	Pay attention to the following to ensure that your commands will succeed later:
-	
+
 	- Variables **$storageAccountName** and **$dcServiceName** must be unique because they are used to identify your cloud storage account and cloud server, respectively, on the internet.
-	
+
 	- Names specified for variables **$affinityGroupName** and **$virtualNetworkName** are configured in the virtual network configuration document that you will use later.
-	
+
 	- **$sqlImageName** specifies the updated name of the VM image that contains SQL Server 2012 Service Pack 1 Enterprise Edition.
-	
+
 	- For simplicity, **Contoso!000** is the same password used throughout the entire tutorial.
 
 1. Create an affinity group.
@@ -126,7 +134,7 @@ This tutorial is intended to show you the steps required to set up the described
 		New-AzureStorageAccount `
 			-StorageAccountName $storageAccountName `
 			-Label $storageAccountLabel `
-			-AffinityGroup $affinityGroupName 
+			-AffinityGroup $affinityGroupName
 		Set-AzureSubscription `
 			-SubscriptionName (Get-AzureSubscription).SubscriptionName `
 			-CurrentStorageAccount $storageAccountName
@@ -138,7 +146,7 @@ This tutorial is intended to show you the steps required to set up the described
 			-InstanceSize Medium `
 			-ImageName $winImageName `
 			-MediaLocation "$storageAccountContainer$dcServerName.vhd" `
-			-DiskLabel "OS" | 
+			-DiskLabel "OS" |
 			Add-AzureProvisioningConfig `
 				-Windows `
 				-DisableAutomaticUpdates `
@@ -150,26 +158,26 @@ This tutorial is intended to show you the steps required to set up the described
 					-VNetName $virtualNetworkName
 
 	This series of piped commands do the following things:
-	
+
 	- **New-AzureVMConfig** creates a VM configuration.
-	
+
 	- **Add-AzureProvisioningConfig** gives the configuration parameters of a standalone Windows server.
-	
+
 	- **Add-AzureDataDisk** adds the data disk that you will use for storing Active Directory data, with caching option set to None.
-	
+
 	- **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service.
 
 1. Wait for the new VM to be fully provisioned and download the remote desktop file to your working directory. Since the new Azure VM takes a long time to provision, the while loop continues to poll the new VM until it is ready for use.
 
 		$VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
-		
+
 		While ($VMStatus.InstanceStatus -ne "ReadyRole")
 		{
 		    write-host "Waiting for " $VMStatus.Name "... Current Status = " $VMStatus.InstanceStatus
 		    Start-Sleep -Seconds 15
 		    $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 		}
-		
+
 		Get-AzureRemoteDesktopFile `
 		    -ServiceName $dcServiceName `
 		    -Name $dcServerName `
@@ -242,7 +250,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		$corp = Get-ADObject -Identity "DC=corp,DC=contoso,DC=com"
 		$acl = Get-Acl $corp
 		$acl.AddAccessRule($ace1)
-		Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl 
+		Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
 	The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission in order to create the Active Direct objects for the WSFC cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you do not need to grant it explicitly. For more information on permissions needed to create the WSFC cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
@@ -273,7 +281,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 			-ImageName $winImageName `
 			-MediaLocation "$storageAccountContainer$quorumServerName.vhd" `
 			-AvailabilitySetName $availabilitySetName `
-			-DiskLabel "OS" | 
+			-DiskLabel "OS" |
 			Add-AzureProvisioningConfig `
 				-WindowsDomain `
 				-AdminUserName $vmAdminUser `
@@ -291,14 +299,14 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 						-VNetName $virtualNetworkName `
 						-DnsSettings $dnsSettings
 
-	Note the following regarding the command above: 
-	
+	Note the following regarding the command above:
+
 	- **New-AzureVMConfig** creates a VM configuration with the desired availability set name. The subsequent VMs will be created with the same availability set name so that they are joined to the same availability set.
-	
+
 	- **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain you created.
-	
+
 	- **Set-AzureSubnet** places the VM in the Back subnet.
-	
+
 	- **New-AzureVM** creates a new cloud service and creates the new Azure VM in the new cloud service. The **DnsSettings** parameter specifies that the DNS server for the servers in the new cloud service has the IP address **10.10.0.4**, which is the IP address of the DC server. This parameter is needed to enable the new VMs in the cloud service to join to the Active Directory domain successfully. Without this parameter, you must manually set the IPv4 settings in your VM to use the DC server as the primary DNS server after the VM is provisioned and then join the VM to the Active Directory domain.
 
 1. Run the following piped commands to create the SQL Server VMs, named **ContosoSQL1** and **ContosoSQL2**.
@@ -311,7 +319,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		    -MediaLocation "$storageAccountContainer$sql1ServerName.vhd" `
 		    -AvailabilitySetName $availabilitySetName `
 		    -HostCaching "ReadOnly" `
-		    -DiskLabel "OS" | 
+		    -DiskLabel "OS" |
 		    Add-AzureProvisioningConfig `
 		        -WindowsDomain `
 		        -AdminUserName $vmAdminUser `
@@ -327,10 +335,10 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		                -Name "SQL" `
 		                -Protocol "tcp" `
 		                -PublicPort 1 `
-		                -LocalPort 1433 | 
+		                -LocalPort 1433 |
 		                New-AzureVM `
 		                    -ServiceName $sqlServiceName
-		
+
 		# Create ContosoSQL2...
 		New-AzureVMConfig `
 		    -Name $sql2ServerName `
@@ -339,7 +347,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		    -MediaLocation "$storageAccountContainer$sql2ServerName.vhd" `
 		    -AvailabilitySetName $availabilitySetName `
 		    -HostCaching "ReadOnly" `
-		    -DiskLabel "OS" | 
+		    -DiskLabel "OS" |
 		    Add-AzureProvisioningConfig `
 		        -WindowsDomain `
 		        -AdminUserName $vmAdminUser `
@@ -355,20 +363,20 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		                -Name "SQL" `
 		                -Protocol "tcp" `
 		                -PublicPort 2 `
-		                -LocalPort 1433 | 
+		                -LocalPort 1433 |
 		                New-AzureVM `
 		                    -ServiceName $sqlServiceName
 
 	Note the following regarding the commands above:
 
 	- **New-AzureVMConfig** uses the same availability set name as the DC server, and uses the SQL Server 2012 Service Pack 1 Enterprise Edition image in the virtual machine gallery. It also sets the operating system disk to read-caching only (no write caching). It is recommended that you migrate the database files to a separate data disk that you attach to the VM and configure it with no read or write caching. However, the next best thing is to remove write caching on the operating system disk, since you cannot remove read caching on the operating system disk.
-	
+
 	- **Add-AzureProvisioningConfig** joins the VM to the Active Directory domain you created.
-	
+
 	- **Set-AzureSubnet** places the VM in the Back subnet.
-	
+
 	- **Add-AzureEndpoint** adds access endpoints so that client applications can access these SQL Server services instances on the internet. Different ports are given to ContosoSQL1 and ContosoSQL2.
-	
+
 	- **New-AzureVM** creates the new SQL Server VM in the same cloud service as ContosoQuorum. You must place the VMs in the same cloud service if you want them to be in the same availability set.
 
 1. Wait for each VM to be fully provisioned and download its remote desktop file to your working directory. The for loop cycles through the three new VMs and executes the commands inside the top-level curly brackets for each of them.
@@ -376,7 +384,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
 		{
 		    write-host "Waiting for " $VM.Name "..."
-		
+
 		    # Loop until the VM status is "ReadyRole"
 		    While ($VM.InstanceStatus -ne "ReadyRole")
 		    {
@@ -384,9 +392,9 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
 		        Start-Sleep -Seconds 15
 		        $VM = Get-AzureVM -ServiceName $VM.ServiceName -Name $VM.InstanceName
 		    }
-		
+
 		    write-host "  Current Status = " $VM.InstanceStatus
-		
+
 		    # Download remote desktop file
 		    Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
 		}
@@ -406,9 +414,9 @@ In this section, you need to modify the three servers you will use in the WSFC c
 - (ContosoSQL1 and ContosoSQL2 only) You need to add **NT AUTHORITY\System** as a login with the following permissions:
 
 	- Alter any availability group
-	
+
 	- Connect SQL
-	
+
 	- View server state
 
 - (ContosoSQL1 and ContosoSQL2 only) The **TCP** protocol is already enabled on the SQL Server VM. However, you still need to open the firewall for remote access of SQL Server.
@@ -468,7 +476,7 @@ Next, initialize **ContosoSQL1** and **ContosoSQL2**. Follow the steps below, wh
 1. Add **NT AUTHORITY\System** as a login with the three permissions described above.
 
 		Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
-		Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "." 
+		Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
 		Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
 		Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
 
@@ -515,7 +523,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
 		$svc1 = Get-Service -ComputerName $server1 -Name 'MSSQLSERVER'
 		$svc1.Stop()
 		$svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-		$svc1.Start(); 
+		$svc1.Start();
 		$svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
 1. Change the SQL Server service account for ContosoSQL2 to CORP\SQLSvc2.
@@ -525,7 +533,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
 		$svc2 = Get-Service -ComputerName $server2 -Name 'MSSQLSERVER'
 		$svc2.Stop()
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-		$svc2.Start(); 
+		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
 1. Download **CreateAzureFailoverCluster.ps1** from [Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You will use this script to help you create a functional WSFC cluster. For important information on how WSFC interacts with the Azure network, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
@@ -545,7 +553,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
 		    -NoServiceRestart
 		$svc2.Stop()
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-		$svc2.Start(); 
+		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
 1. Create a backup directory and grant permissions for the SQL Server service accounts. You will use this directory to prepare the availability database on the secondary replica.
@@ -565,21 +573,21 @@ Finally, you are ready to configure the availability group. You will use the SQL
 
 1. Create the availability group endpoints on the SQL Server VMs and set the proper permissions on the endpoints.
 
-		$endpoint = 
+		$endpoint =
 		    New-SqlHadrEndpoint MyMirroringEndpoint `
 		    -Port 5022 `
 		    -Path "SQLSERVER:\SQL\$server1\Default"
 		Set-SqlHadrEndpoint `
 		    -InputObject $endpoint `
 		    -State "Started"
-		$endpoint = 
+		$endpoint =
 		    New-SqlHadrEndpoint MyMirroringEndpoint `
 		    -Port 5022 `
 		    -Path "SQLSERVER:\SQL\$server2\Default"
 		Set-SqlHadrEndpoint `
 		    -InputObject $endpoint `
 		    -State "Started"
-		
+
 		Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
 		Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
 		Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
@@ -587,7 +595,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
 
 1. Create the availability replicas.
 
-		$primaryReplica = 
+		$primaryReplica =
 		    New-SqlAvailabilityReplica `
 		    -Name $server1 `
 		    -EndpointURL "TCP://$server1.corp.contoso.com:5022" `
@@ -595,7 +603,7 @@ Finally, you are ready to configure the availability group. You will use the SQL
 		    -FailoverMode "Automatic" `
 		    -Version 11 `
 		    -AsTemplate
-		$secondaryReplica = 
+		$secondaryReplica =
 		    New-SqlAvailabilityReplica `
 		    -Name $server2 `
 		    -EndpointURL "TCP://$server2.corp.contoso.com:5022" `

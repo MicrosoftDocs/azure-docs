@@ -1,24 +1,26 @@
 <properties 
 	pageTitle="Scale a web app in Azure App Service" 
 	description="Learn how to scale up and scale out a web app in Azure App Service, including autoscaling." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Scale a web app in Azure App Service #
 
 For increased performance and throughput for your web apps on Microsoft Azure, you can use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to scale your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan from **Free** mode to **Shared**, **Basic**, **Standard**, or **Premium** mode. 
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Scaling up on Azure web apps involves two related actions: changing your App Service plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like **Standard** and **Premium** modes offer greater robustness and flexibility in determining how your resources on Azure are used.
 

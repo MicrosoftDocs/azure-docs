@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
@@ -18,13 +18,15 @@
 
 # Connect your mobile app to SaaS APIs
 
-In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution. You will update the app from the [Authenticate your app with Azure Active Directory Authentication Library Single Sign-On] to create a Microsoft Word document in SharePoint Online whenever a new TodoItem is added.
+In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution. You will update the app from the [Azure Active Directory Authentication Library Single Sign-On] to create a Microsoft Word document in SharePoint Online whenever a new TodoItem is added.
 
 This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1
 * An active [SharePoint Online] subscription
-* Completion of the [Authenticate your app with Active Directory Authentication Library Single Sign-On] tutorial. You should use the tenant provided by your SharePoint subscription.
+* Completion of the [Azure Active Directory Authentication Library Single Sign-On] tutorial. You should use the tenant provided by your SharePoint subscription.
+
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)] 
 
 ## <a name="configure-permissions"></a>Configure your application for delegated access to SharePoint
 By default, the token you receive from AAD has limited permissions. In order to access a third-party resource or SaaS application such as SharePoint Online, you must explicitly allow it.
@@ -39,7 +41,7 @@ You have now configured Azure AD to issue a SharePoint access token to the App S
 
 ## <a name="store-credentials"></a>Add SharePoint information to your Mobile App
 
-In order to make a call to SharePoint, you need to specify the endpoints that the mobile app needs to talk to. You also need to be able to prove the identity of your app service. This is accomplished using a Client ID and Client Secret pair. You have already obtained and stored the Client ID for the app service during the AAD login setup. Because these are sensitive credentials, you should'nt store them as plaintext in our code. Instead, you'll set these values as Application Settings for our Mobile App Code site.
+In order to make a call to SharePoint, you need to specify the endpoints that the mobile app needs to talk to. You also need to be able to prove the identity of your app service. This is accomplished using a Client ID and Client Secret pair. You have already obtained and stored the Client ID for the app service during the AAD login setup. Because these are sensitive credentials, you shouldn't store them as plaintext in our code. Instead, you'll set these values as Application Settings for our Mobile App Code site.
 
 1. Return to the AAD Applications tab for your tenant, and select the web application for your app service.
 
@@ -180,8 +182,7 @@ To create a Word document, you'll use the OpenXML NuGet package. Install this pa
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
-[Authenticate your app with Active Directory Authentication Library Single Sign-On]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Azure Active Directory Authentication Library Single Sign-On]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/

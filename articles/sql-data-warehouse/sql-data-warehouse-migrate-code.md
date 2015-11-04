@@ -3,7 +3,7 @@
    description="Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate your SQL code to SQL Data Warehouse
 
-In order to ensure your code is compliant with SQL Data Warehouse it is quite likely that you will need to make changes to your code base. Some SQL Data Warehouse features can also significantly improve performance as they are designed to work directly in a distributed fashion. However, to maintain performance and scale, some features are also not available.
+To ensure your code is compliant with SQL Data Warehouse you will most likely need to make changes to your code base. Some SQL Data Warehouse features can significantly improve performance as they are designed to work directly in a distributed fashion. However, to maintain performance and scale, some features are also not available.
 
 ## Transact-SQL code changes
 
-The following list summarizes the main features that are not supported in Azure SQL Data Warehouse. The links provided take you to workarounds for the unsupported feature:
+The following list summarizes the main features not supported in Azure SQL Data Warehouse. The links take you to workarounds for the unsupported feature:
 
 - [ANSI joins on updates][]
 - [ANSI joins on deletes][]
@@ -50,7 +50,7 @@ The following list summarizes the main features that are not supported in Azure 
 - [use of select for variable assignment][]
 - [no MAX data type for dynamic SQL strings][]
 
-Happily most of these limitations can be worked around. Explanations have been included in the relevant development articles referenced above.
+Happily most of these limitations can be worked around. Explanations are provided in the relevant development articles referenced above.
 
 ### Recursive common table expressions (CTE)
 

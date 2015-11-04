@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="08/25/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Azure Queues and Service Bus queues - compared and contrasted
@@ -258,7 +258,7 @@ This section discusses the authentication and authorization features supported b
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
 |Authentication|**Symmetric key**|**Symmetric key**|
-|Access control model|Delegated access via SAS tokens.|RBAC via ACS|
+|Security model|Delegated access via SAS tokens.|SAS|
 |Identity provider federation|**No**|**Yes**|
 
 ### Additional information
@@ -267,17 +267,13 @@ This section discusses the authentication and authorization features supported b
 
 - The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authenticating Access to Your Storage Account](https://msdn.microsoft.com/library/hh225339.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
 
-- The Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) supported by Service Bus offers three distinct roles: **Admin**, **Sender**, and **Receiver**, which is not supported at this time for Azure Queues.
-
-- Because Service Bus offers ACS integration, it enables you to federate with Active Directory (through the use of ADFS) and other common web identity providers.
-
 ## Cost
 
 This section compares Azure Queues and Service Bus queues from a cost perspective.
 
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
-|Queue transaction cost|**$0.0005**<br/><br/>(per 10,000 transactions)|**Basic tier**: **$0.05**<br/><br/>(per million operations)|
+|Queue transaction cost|**$0.0036**<br/><br/>(per 100,000 transactions)|**Basic tier**: **$0.05**<br/><br/>(per million operations)|
 |Billable operations|**All**|**Send/Receive only**<br/><br/>(no charge for other operations)|
 |Idle transactions|**Billable**<br/><br/>(querying an empty queue is counted as a billable transaction)|**Billable**<br/><br/>(a receive against an empty queue is considered a billable message)|
 |Storage cost|**$0.07**<br/><br/>(per GB/month)|**$0.00**|
@@ -293,7 +289,7 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 
 - Given the support for long polling, using Service Bus queues can be cost effective in situations where low-latency delivery is required.
 
->[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 

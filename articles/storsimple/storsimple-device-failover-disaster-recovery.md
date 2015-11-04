@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="09/14/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -130,11 +130,16 @@ Perform the following steps to restore the device to a target StorSimple virtual
 	
 	b. 	Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
+![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how you can restore a failed over physical device to a virtual device in the cloud, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## Business continuity disaster recovery (BCDR)
 
 A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
 
 If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to undergo a factory reset. After the disaster, the StorSimple device will be shown as offline. The StorSimple device must be deleted from the portal, and a factory reset should be done, followed by a fresh registration.
+
 
 ## Next steps
 
@@ -143,5 +148,5 @@ After you have performed a failover, you may need to:
 - [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-For information about how to manage your device using the StorSimple Manager service, go to [Use StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

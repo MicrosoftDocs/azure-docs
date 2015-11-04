@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/24/2015" 
 	ms.author="mandia"/>
 
 
@@ -39,9 +39,9 @@ A Hybrid Connection can be created in the Azure Management Portal using Web Apps
 
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 
-<br/>If you don't have an existing BizTalk Service, you can [Create a BizTalk Service](biztalk-provision-services.md).
-3. Select the Hybrid Connections tab:
-<br/>
+
+	If you don't have an existing BizTalk Service, you can [Create a BizTalk Service](biztalk-provision-services.md).
+3. Select the Hybrid Connections tab:  
 ![Hybrid Connections Tab][HybridConnectionTab]
 
 4. Select **Create a Hybrid Connection** or select the **ADD** button in the task bar. Enter the following:
@@ -73,11 +73,9 @@ After a Hybrid Connection is created, install the Hybrid Connection Manager on t
 
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 
-3. Select the **Hybrid Connections** tab:
-<br/>
+3. Select the **Hybrid Connections** tab:  
 ![Hybrid Connections Tab][HybridConnectionTab]
-4. In the task bar, select **On-Premises Setup**:
-<br/>
+4. In the task bar, select **On-Premises Setup**:  
 ![On-Premises Setup][HCOnPremSetup]
 5. Select **Install and Configure** to run or download the Hybrid Connection Manager on the on-premises system. 
 6. Select the check mark to start the installation. 
@@ -119,26 +117,23 @@ To manage your Hybrid Connections, you can:
 
 1. Sign in to the [Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 
-3. Select the **Hybrid Connections** tab:
-<br/>
+3. Select the **Hybrid Connections** tab:  
 ![Hybrid Connections Tab][HybridConnectionTab]
-4. Select the Hybrid Connection. In the task bar, select **Manage Connection**:
-<br/>
+4. Select the Hybrid Connection. In the task bar, select **Manage Connection**:  
 ![Manage Options][HCManageConnection]
-<br/>
-**Manage Connection** lists the Application and On-Premises connection strings. You can copy the Connection Strings or regenerate the Access Key used in the connection string. 
-<br/>
-<br/>
-**If you select Regenerate**, the Shared Access Key used within the Connection String is changed. Do the following:
-- In the Azure Management Portal, select **Sync Keys** in the Azure application.
-- Re-run the **On-Premises Setup**. When you re-run the On-Premises Setup, the on-premises resource is automatically configured to use the updated Primary connection string.
+
+	**Manage Connection** lists the Application and On-Premises connection strings. You can copy the Connection Strings or regenerate the Access Key used in the connection string. 
+
+	**If you select Regenerate**, the Shared Access Key used within the Connection String is changed. Do the following:
+	- In the Azure Management Portal, select **Sync Keys** in the Azure application.
+	- Re-run the **On-Premises Setup**. When you re-run the On-Premises Setup, the on-premises resource is automatically configured to use the updated Primary connection string.
 
 
 #### Use Group Policy to control the on-premises resources used by a Hybrid Connection
 
 1. Download the [Hybrid Connection Manager Administrative Templates](http://www.microsoft.com/download/details.aspx?id=42963).
 2. Extract the files.
-3. On the computer that modifies group policy, do the following: 
+3. On the computer that modifies group policy, do the following:  
 
 	- Copy the .ADMX files to the *%WINROOT%\PolicyDefinitions* folder.
 	- Copy the .ADML files to the *%WINROOT%\PolicyDefinitions\en-us* folder.
@@ -150,18 +145,18 @@ Once copied, you can use Group Policy Editor to change the policy.
 
 ## Next
 
-[Connect Azure Web Apps to an On-Premises Resource](../web-sites-hybrid-connection-get-started.md)<br/>
-[Connect to on-premises SQL Server from Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
-[Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)<br/>
+[Connect Azure Web Apps to an On-Premises Resource](../web-sites-hybrid-connection-get-started.md)  
+[Connect to on-premises SQL Server from Azure Web Apps](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)  
+[Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)  
 [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 
 
 ## See Also
 
-[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/>
-[BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)<br/>
-[Create a BizTalk Service using Azure Management Portal](biztalk-provision-services.md)<br/>
-[BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)  
+[Create a BizTalk Service using Azure Management Portal](biztalk-provision-services.md)  
+[BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png

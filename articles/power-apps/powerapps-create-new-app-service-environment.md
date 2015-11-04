@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Add and create a new App Service environment for your PowerApps | Microsoft Azure"
-	description="IT Doc: Add and configure a new App Service Environment"
-	services="power-apps"
+	description="IT Pro: Add and configure a new App Service Environment or ASE in the Azure portal"
+	services="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-   ms.service="power-apps"
+   ms.service="powerapps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="" 
-   ms.date="10/19/2015"
+   ms.workload="na" 
+   ms.date="11/03/2015"
    ms.author="mandia"/>
 
 # Add and create a new App Service Environment

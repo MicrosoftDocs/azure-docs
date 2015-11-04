@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Shared Access Signatures Overview"
+   pageTitle="Shared Access Signatures Overview | Microsoft Azure"
    description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # Shared Access Signatures
@@ -24,7 +24,7 @@
 
 Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. SAS is an extremely powerful mechanism that is used by all Service Bus services. In actual use, SAS has two components: a *Shared Access Policy* and a *Shared Access Signature* (often called a *token*).
 
-You can find more detailed information about Shared Access Signatures with Service Bus in [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/azure/dn170477.aspx).
+You can find more detailed information about Shared Access Signatures with Service Bus in [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Shared Access Policy
 
@@ -207,7 +207,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
     // construct the put-token message
     var request = new Message(sasToken);
     request.Properties = new Properties();
-    request.Properties.MessageId = "1";
+    request.Properties.MessageId = Guid.NewGuid().ToString();
     request.Properties.ReplyTo = cbsClientAddress;
     request.ApplicationProperties = new ApplicationProperties();
     request.ApplicationProperties["operation"] = "put-token";
@@ -252,5 +252,7 @@ After sending the SAS token on the sender link, the publisher needs to read the 
 
 See the [Service Bus REST API reference](https://msdn.microsoft.com/library/azure/hh780717.aspx) for more information about what you can do with these SAS tokens.
 
-For more information about SAS, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) node on MSDN. More examples about SAS in C# and Java Script in [Damir's blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
+For more information about Service Bus authentication, see [Service Bus Authentication and Authorization](service-bus-authentication-and-authorization.md). 
+
+More examples of SAS in C# and Java Script are in [this blog post](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 

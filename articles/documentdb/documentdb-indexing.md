@@ -34,7 +34,7 @@ With a goal to eliminate the impedance mismatch between the database and the app
 
 The indexing in DocumentDB takes advantage of the fact that JSON grammar allows documents to be **represented as trees**. For a JSON document to be represented as a tree, a dummy root node needs to be created which parents the rest of the actual nodes in the document underneath. Each label including the array indices in a JSON document becomes a node of the tree. The figure below illustrates an example JSON document and its corresponding tree representation.
 
->[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId", 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
+>[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId": 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
 
 
 **JSON Documents as Trees:**

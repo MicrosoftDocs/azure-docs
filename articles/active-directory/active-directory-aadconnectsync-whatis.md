@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -35,6 +35,7 @@ What do you want to do next?:
 - If you want to know more about password synchronization, see [Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).
 - If you want to know more about users and contacts in Azure AD Connect sync, see [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - If you want to change the default configuration, see [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+- If you want to know more about how to operate the sync server, see [Operational tasks and considerations](active-directory-aadconnectsync-operations.md)
 - If you want to explore the attributes that are synchronized to Azure AD, see [Attributes synchronized to Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
 - If you want to learn more about declarative provisioning, see [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 - To explore the declarative provisioning functions, see [Functions Reference](active-directory-aadconnectsync-functions-reference.md)

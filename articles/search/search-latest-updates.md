@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="10/01/2015" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
 
-Azure Search is now generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the [2015-02-28 version of the API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Azure Search is generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the [2015-02-28 version of the API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##How features are versioned and rolled out
 
@@ -27,7 +27,17 @@ Features are released separately or jointly through the [REST API](https://msdn.
 Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
 
 
+##Api-version 2015-02-28-Preview
+**Re-released: 2015 September**
+
+This version adds new [Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx) that can be used against the [preview version of the Azure Search Service REST API](search-api-2015-02-28-preview.md). To use the new syntax, you must specify the `queryType` in a Search Documents operation.
+
+Additionally, both of the following features are transitioned out of preview, and are now part of the official API on MSDN:
+- Natural language processors
+- POST in search, suggestions, and lookup queries
+
 ##.NET SDK 0.10.0-preview
+**Released: 2015 August**
 
 This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll. This version adds support for creating, managing, and using Indexers via .NET classes. Additionally, for Azure SQL Indexers, there is new support for indexing geography points.
 
@@ -94,10 +104,20 @@ This version was the public preview release for Azure Search, providing the foll
 
 - Provisioning in the preview version of the [Azure management portal](https://portal.azure.com ). Azure Search was one of the few services that has only been available in the new portal.
 
+##Management api-version 2015-08-19
+**Released: 2015 September 11**
+
+[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) includes the following updates.
+
+- checkNameAvailability checks whether a given service name is already in use.
+- Replica range was previously 1-6 and is now 1-12.
+- SKU property was moved from the property bag to the top level of the service payload.
+- Response body of the Create Search Service operation was updated to accommodate the relocation of the SKU setting.
+
 ##Management api-version 2015-02-28
 **Released: 2015 March 5**
 
-[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) marks the first version of the management API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
+[Management REST API](search-management-api-2014-02-28.md) marks the first version of the management API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
 
 ##Management api-version 2014-07-31-Preview
 **Released: 2014 October**

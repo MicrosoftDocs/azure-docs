@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/25/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # How to use Chrome Postman with Azure Search #

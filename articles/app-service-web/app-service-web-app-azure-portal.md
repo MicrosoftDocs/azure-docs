@@ -1,24 +1,26 @@
 <properties
 	pageTitle="Reference for navigating the Azure portal"
 	description="Learn the different user experiences for App Service Web between the management portal and the Azure Portal"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
 # Reference for navigating the Azure portal
 
 Azure Websites is now called [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). We're updating all of our documentation to reflect this name change and to provide instructions for the New Azure Portal. Until that process is done, you can use this document as a guide for working with Web Apps in the new Azure portal.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
  
 ## The future of the old portal
 

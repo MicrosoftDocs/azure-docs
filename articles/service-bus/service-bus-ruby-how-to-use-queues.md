@@ -1,10 +1,10 @@
 <properties
-	pageTitle="How to use Service Bus queues (Ruby) | Microsoft Azure"
+	pageTitle="How to use Service Bus queues with Ruby | Microsoft Azure"
 	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # How to Use Service Bus Queues
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This guide will show you how to use Service Bus queues. The samples are
 written in Ruby and use the Azure gem. The scenarios
@@ -175,8 +174,8 @@ In the event that the application crashes after processing the message but befor
 
 Now that you've learned the basics of Service Bus queues, follow these links to learn more.
 
--   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   Overview of [queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
+For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  

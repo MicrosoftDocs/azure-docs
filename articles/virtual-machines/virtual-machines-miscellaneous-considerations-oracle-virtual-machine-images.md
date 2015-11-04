@@ -1,22 +1,27 @@
-<properties 
-pageTitle="Miscellaneous considerations for Oracle virtual machine images"
-description="Learn about additional considerations before you deploy an Oracle virtual machine in Azure."
+<properties
+pageTitle="Considerations for using Oracle VM images | Microsoft Azure"
+description="Learn about supported configurations and limitations for an Oracle VM on Windows Server in Azure before you deploy."
 services="virtual-machines"
 documentationCenter=""
 manager=""
 authors="bbenz"
-tags=""/>
+tags="azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
 ms.devlang="na"
 ms.topic="article"
-ms.tgt_pltfrm="na"
+ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
 ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Miscellaneous considerations for Oracle virtual machine images
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 This article covers considerations for Oracle virtual machines in Azure, which are based on Oracle software images provided by Microsoft, with Windows Server as the operating system.  
 
 -  Oracle Database virtual machine images

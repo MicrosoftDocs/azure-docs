@@ -18,6 +18,12 @@
 
 # Build and deploy a Java API app in Azure App Service
 
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
+
 This tutorial shows how to create a Java application and deploy it to Azure App Service API Apps using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Java. This tutorial is also using [Gradle](https://gradle.org) to enable build automation and package dependency resolution for the Java application. Lastly, [RESTEasy](http://resteasy.jboss.org/) is used to create the RESTful Service, fully implementing the [JaxRS](https://jax-rs-spec.java.net/) specification.
 
 Here is a screenshot of the completed application:

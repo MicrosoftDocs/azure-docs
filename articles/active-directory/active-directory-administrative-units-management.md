@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
-#Administrative units management in Azure AD - Public Preview
+# Administrative units management in Azure AD - Public Preview
 
 This article describes administrative units – a new Azure Active Directory containers of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users. In Azure Active Directory, administrative units enable central administrators to delegate permissions to regional administrators or to set policy at a granular level.
 
@@ -27,12 +27,12 @@ This is useful in organizations with independent divisions, for example, a large
 
 From the central administrator’s point of view, an administrative unit is a directory object that can be created and populated with resources. **In this release, these resources can be only users.** Once created and populated, the administrative unit can be used as a scope to restrict the granted permission only over resources contained in the administrative unit.
 
-##Managing administrative units
+## Managing administrative units
 
 In this preview release, you can create and manage administrative units using the Azure Active Directory Module for Windows PowerShell cmdlets.
 
 For more information on software requirements and installing the Azure AD module, and for information on the Azure AD Module cmdlets for managing administrative units, including syntax, parameter descriptions, and examples, see [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 
-##Next steps
+## Next steps
 [Azure Active Directory editions](active-directory-editions.md)

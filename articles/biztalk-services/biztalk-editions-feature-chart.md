@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2015"
+	ms.date="09/08/2015"
 	ms.author="mandia"/>
 
 
@@ -209,7 +209,7 @@ Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</td>
 #### What is a BizTalk unit?
 A "unit" is the atomic level of an Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. For example, a Basic unit has more compute than Developer, Standard has more compute than Basic, and so on. When you scale a BizTalk Service, you scale in terms of units.
 
-#### What is the different between BizTalk Services and Azure BizTalk VM?
+#### What is the difference between BizTalk Services and Azure BizTalk VM?
 BizTalk Services provides a true Platform-as-a-Service (PaaS) architecture for building integration solutions in the cloud. With the PaaS model, you focus completely on the application logic and leave all of the infrastructure management to Microsoft, including:
 
 - No need to manage or patch virtual machines.

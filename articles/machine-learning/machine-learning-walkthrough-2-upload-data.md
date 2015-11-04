@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Step 2: Upload data into a Machine Learning experiment | Microsoft Azure" 
-	description="Step 2 of the Develop a predictive solution walkthrough: Upload stored public data into Azure Machine Learning Studio." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Step 2: Upload data into a Machine Learning experiment | Microsoft Azure"
+	description="Step 2 of the Develop a predictive solution walkthrough: Upload stored public data into Azure Machine Learning Studio."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ This is the second step of the walkthrough, [Developing a Predictive Solution wi
 2.	**Upload existing data**
 3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -71,7 +71,7 @@ Once the data has been converted to CSV format, we need to upload it into Machin
 
 ![Upload the dataset][1]  
 
- 
+
 This uploads the data into a dataset module that we can use in an experiment.
 
 For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](machine-learning-import-data.md).
@@ -79,4 +79,3 @@ For more information about importing various types of data into an experiment, s
 **Next: [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 

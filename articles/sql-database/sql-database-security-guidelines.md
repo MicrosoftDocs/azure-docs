@@ -45,7 +45,7 @@ For supplementary technical information, see [Azure SQL Database Connection Secu
 
 ## Authentication
 
-SQL Database supports only SQL Server authentication. Windows authentication (integrated security) is not supported. Users must provide credentials (login and password) every time they connect to SQL Database. For more information about SQL Server Authentication, see [Choosing an Authentication Mode](https://msdn.microsoft.com/library/ms144284.aspx) in SQL Server Books Online. 
+Active Directory authentication (integrated security) is available as a preview in the SQL Database V12 . For information on configuring AD authentication, see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md). When not using the preview, users must provide credentials (login and password) every time they connect to SQL Database. For more information about SQL Server Authentication, see [Choosing an Authentication Mode](https://msdn.microsoft.com/library/ms144284.aspx) in SQL Server Books Online. 
 
 [SQL Database V12](sql-database-v12-whats-new.md) allows users to authenticate at the database by using contained database users. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx), and [Contained Databases](https://technet.microsoft.com/library/ff929071.aspx).
 

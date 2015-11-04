@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,18 +19,18 @@
 
 # Authoring Azure Resource Manager Templates with VM Extensions.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+ 
+
 ## Overview of Azure Resource Manager Templates.
 
 Azure Resource Manager Template allows you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the articles below:
 
-<a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/" target="_blank">Resource Group Overview</a>.
-<br/>
-<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Deploying Templates with Azure CLI</a>.
-<br/>
-<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Deploying Templates with Azure Powershell</a>.
+[Resource Group Overview](../resource-group-overview.md)
 
 ## Sample template snippet for VM Extensions.
-The template snippet for Deploying extensions looks as following:
+Deploying VM Extension as part of Azure Resource Manager template requires you to declaratively specify the Extension configuration in the template.
+Here is the format for specifying the extension configuration.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -47,6 +48,11 @@ The template snippet for Deploying extensions looks as following:
       }
       }
       }
+
+As you can see from the above, the extension template contains two main parts:
+
+1. Extension name, publisher and version.
+2. Extension Configuration.
 
 ## Identifying the publisher, type and the typeHandlerVersion for any extension.
 
@@ -73,14 +79,14 @@ Note : Its always recommended to use the latest extension version to get the mos
 
 The next step with authoring extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
 
-To look at some sample configuration for Windows Extensions, click the documentation [Windows Extensions Samples](virtual-machines-extensions-configuration-samples-windows.md).
+To look at sample configuration for Windows Extensions, click the documentation [Windows Extensions Samples](virtual-machines-extensions-configuration-samples-windows.md).
 
-To look at some sample configuration for Linux Extensions, click the documentation for  [Linux Extensions Samples ](virtual-machines-extensions-configuration-samples-linux.md).
+To look at sample configuration for Linux Extensions, click the documentation for  [Linux Extensions Samples ](virtual-machines-extensions-configuration-samples-linux.md).
 
 Please refer to the following to the VM Templates to get a fully complete Template with VM Extensions.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Custom Script Extension on a Linux VM</a>.
-</br>
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Custom Script Extension on a Windows VM</a>.
+[Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Custom Script Extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 After authoring the template, you can deploy them using Azure CLI or Azure Powershell.

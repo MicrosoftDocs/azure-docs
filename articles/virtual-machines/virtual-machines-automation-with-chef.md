@@ -1,10 +1,11 @@
 <properties
-   pageTitle="Automating Azure virtual machine deployment with Chef"
-   description="Learn the art of Azure virtual machine automation with Chef"
+   pageTitle="Azure virtual machine deployment with Chef | Microsoft Azure"
+   description="Learn how to use Chef to do automated virtual machine deployment and configuration on Microsoft Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="diegoviso"
    manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
    editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services"
@@ -15,6 +16,8 @@ ms.date="05/19/2015"
 ms.author="diviso"/>
 
 # Automating Azure virtual machine deployment with Chef
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef is a great tool for delivering automation and desired state configurations.
 

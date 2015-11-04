@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Constructing filter strings for the table designer"
    description="Constructing filter strings for the table designer"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="kempb"
    manager="douge"
    editor="tlee" />
-<tags 
+<tags
    ms.service="storage"
    ms.devlang="multiple"
    ms.topic="article"
@@ -17,7 +17,7 @@
 
 # Constructing Filter Strings for the Table Designer
 
-##Overview
+## Overview
 
 To filter data in an Azure table that is displayed in the Visual Studio **Table Designer**, you construct a filter string and enter it into the filter field. The filter string syntax is defined by the WCF Data Services and is similar to a SQL WHERE clause, but is sent to the Table service via an HTTP request. The **Table Designer** handles the proper encoding for you, so to filter on a desired property value, you need only enter the property name, comparison operator, criteria value, and optionally, Boolean operator in the filter field. You do not need to include the $filter query option as you would if you were constructing a URL to query the table via the [Storage Services REST API Reference](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
@@ -55,11 +55,9 @@ The following example filters on the **PartitionKey** and **RowKey** properties;
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-
 You can enclose each filter expression in parentheses, although it is not required:
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
-
 
 Note that the Table service does not support wildcard queries, and they are not supported in the Table Designer either. However, you can perform prefix matching by using comparison operators on the desired prefix. The following example returns entities with a LastName property beginning with the letter 'A':
 
@@ -72,7 +70,6 @@ To filter on an integer or floating-point number, specify the number without quo
 This example returns all entities with an Age property whose value is greater than 30:
 
     Age gt 30
-
 
 This example returns all entities with an AmountDue property whose value is less than or equal to 100.25:
 
@@ -88,11 +85,11 @@ The following example returns all entities where the IsActive property is set to
 
 You can also write this filter expression without the logical operator. In the following example, the Table service will also return all entities where IsActive is **true**:
 
-[Copy](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_3d6a191e-f389-447a-bbbb-ef8b163bc645');)
+    IsActive
 
 To return all entities where IsActive is false, you can use the not operator:
 
-    IsActive
+    not IsActive
 
 ## Filtering on DateTime Properties
 

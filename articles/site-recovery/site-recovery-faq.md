@@ -64,6 +64,17 @@ This isn't supported. Send us your feedback through [Azure Site Recovery Feedbac
 ### Can I seed the initial disks to Azure using offline mechanism?
 This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for offline replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
+### Can I throttle bandwidth allotted for replication traffic when using Hyper-v as source?
+- If you are doing replication between two on-premises sites then you can use Windows QoS for that. Below is a sample script: 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- If you are doing replication to Azure then you can configure it using following sample powershell cmdlet:
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
+
 ## Version support
 
 ### What versions of Windows Server hosts and clusters are supported?
@@ -189,6 +200,15 @@ When using (SAN) array-based replication to enable replication and protection be
 
 
 Your arrays also need to be discovered by SCVMM using an updated SMI-S provider that is made available by your respective storage vendors.
+
+## Deploy between VMware and Azure
+
+### I have a cloned VMware VM. Can I protect the cloned VM to Azure?
+You cannot clone a protected VM. You can protect a cloned VMware VM to Azure as long as cloned VM does not have the mobility service installed in it.  You can clone the VM before installing the mobility service to avoid duplicate entry as both VMs will report with the same GUID which will impact the replication. 
+
+### Can I clone Process Server VM?
+No, you should not clone Process Server.  When Process Server is deployed, it creates its own unique ID. If cloned, the two Process Servers will have the same GUID that will impact the existing replication. 
+
 
 ## Deploy between physical servers and Azure
 

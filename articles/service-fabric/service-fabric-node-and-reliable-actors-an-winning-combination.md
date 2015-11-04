@@ -2,14 +2,14 @@
    pageTitle="Node.js and reliable actors | Microsoft Azure"
    description="A walk through on how to build an node.js express application that uses Reliable Actors and runs on top of the Azure Service Fabric platform."
    services="service-fabric"
-   documentationCenter=".net"
+   documentationCenter="nodejs"
    authors="clca"
    manager="timlt"
    editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
+   ms.devlang="nodejs"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"

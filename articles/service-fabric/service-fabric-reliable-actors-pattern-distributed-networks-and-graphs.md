@@ -3,7 +3,7 @@
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="09/29/2015"
    ms.author="claudioc"/>
 
 # Reliable Actors design pattern: distributed networks and graphs
@@ -58,7 +58,7 @@ Public class SocialPersonState
     public SocialStatus _lastStatus; // this is my last update
 }
 
-public class SocialPerson : Actor, ISocialPerson
+public class SocialPerson : Actor<SocialPersonState>, ISocialPerson
 {
     public override Task ActivateAsync()
     {

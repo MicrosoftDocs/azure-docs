@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search index in the Azure portal

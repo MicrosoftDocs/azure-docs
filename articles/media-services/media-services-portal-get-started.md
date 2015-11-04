@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Getting started with delivering Video on Demand (VoD) using the Azure portal | Microsoft Azure"
+	pageTitle=" Get started with delivering content on demand using the Azure portal | Microsoft Azure"
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure portal."
 	services="media-services"
 	documentationCenter=""
@@ -11,17 +11,16 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Get started with delivering Video on Demand (VoD) using the Azure portal
+# Get started with delivering content on demand using the Azure portal
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-
 
 
 This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure portal.
@@ -224,6 +223,19 @@ Some considerations apply:
 ![AMSPlayer][AMSPlayer]
 
 
+
+##Next Steps
+
+###Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 
 ### Additional resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
