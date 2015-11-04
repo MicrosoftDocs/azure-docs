@@ -102,10 +102,10 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Kiteworks** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_04.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_04.png) <br>
 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Kiteworks application (e.g.: *https://fabrikam.kiteworks.com/*).
@@ -114,7 +114,7 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
  
  
 4. On the **Configure single sign-on at Kiteworks** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_05.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_05.png) <br>
 
     a. Click **Download certificate**, and then save the file on your computer.
 
@@ -124,15 +124,15 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
 1. Sign on to your Kiteworks company site as an administrator.
 
 1. In the toolbar on the top, click **Settings**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_06.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_06.png) <br>
 
 
 1.In the **Authentication and Authorization** section, click **SSO Setup**. 
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_07.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_07.png) <br>
 
 
 1. On the SSO Setup page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_09.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_09.png) <br>
 
     a. Select **Authenticate via SSO**.
 
