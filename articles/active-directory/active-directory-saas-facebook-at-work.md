@@ -72,7 +72,7 @@ This section outlines how to enable users to authenticate to Facebook at Work wi
 
 **To configure Azure AD single sign-on with Facebook at Work, perform the following steps:**
 
-1.	After adding Facebook at Work in the Windows Azure management portal, click **Configure Single Sign-On**.
+1.	After adding Facebook at Work in the Azure management portal, click **Configure Single Sign-On**.
 
 2.	In the **Configure App URL** screen, enter the URL where users will sign into your Facebook at Work application. This is your Facebook at Work tenant URL 
 (Example: https://example.facebook.com/). Once finished, click **Next**.
@@ -99,7 +99,7 @@ For provisioned AAD users to be able to see Facebook at Work on their Access Pan
 
 **To assign users to Facebook at Work:**
 
-1.	On the start page for Facebook at Work in the Windows Azure management portal, click **Assign accounts**.
+1.	On the start page for Facebook at Work in the Azure management portal, click **Assign accounts**.
 
 2.	In the **Show** menu, select whether you want to assign a user or a group to Facebook at Work and click the Checkmark button.
 
