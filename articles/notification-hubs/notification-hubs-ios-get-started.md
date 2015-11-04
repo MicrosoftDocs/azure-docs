@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for iOS apps
@@ -303,7 +303,7 @@ If you want to send notifications within an app. This section provides an exampl
 
 				// Construct authorization token string
 				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
-					targetUri, signature, expires, HubSasKeyName];
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@ If you want to send notifications within an app. This section provides an exampl
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 201)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,10 +433,10 @@ If you want to send notifications within an app. This section provides an exampl
 11. Build the project and verify that there are no errors.
 
 
+> [AZURE.NOTE] If you encounter a build error in Xcode7 about bitcode support, you should change the "Build Settings" -> "Enable Bitcode"(ENABLE_BITCODE) to 'NO' in Xcode. The Notification Hubs SDK does not currently support bitcode. 
 
 You can find all the possible notification payloads in the Apple [Local and Push Notification Programming Guide].
 
-If build error occurred by Xcode7 about bitcode, you should change the "Build Settings" -> "Enable Bitcode"(ENABLE_BITCODE) to 'NO' in Xcode. 
 
 ##Test your app
 
