@@ -21,9 +21,9 @@ Create table as select or CTAS is one of the most important T-SQL features avail
 
 ## Using CTAS to copy a table
 
-Perhaps one of the most common uses of CTAS is creating a copy of a table so that you can change the DDL.  If for example you originally create your table as ROUND_ROBIN and now want to distributed it on a column, CTAS is how you would change the distribution column.  CTAS can also be used to changed partitioning or column types.
+Perhaps one of the most common uses of CTAS is creating a copy of a table so that you can change the DDL.  If for example you originally created your table as ROUND_ROBIN and now want change it to a table distributed on a column, CTAS is how you would change the distribution column.  CTAS can also be used to changed partitioning, indexing, or column types.
 
-Let's say you have this table you created which is by default ROUND_ROBIN distributed since no distribution column was specified in the CREATE TABLE.
+Let's say you created this table using the default distribution type of ROUND_ROBIN distributed since no distribution column was specified in the CREATE TABLE.
 
 ```
 CREATE TABLE FactInternetSales
@@ -54,7 +54,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-Now you want to create a new copy of this table with a Clustered Columnstore Index so that you can take advantage of the performance of Clustered Columnstore tables.  You also want to distribute this table on ProductKey since you are anticipating joins on this columns and want to avoid data movement during joins on ProductKey.  And lastly you want to add partitioning on OrderDateKey so that you can quickly delete old data by dropping old partitions.  Here is the CTAS statement which would copy your old table into a new table.
+Now you want to create a new copy of this table with a Clustered Columnstore Index so that you can take advantage of the performance of Clustered Columnstore tables.  You also want to distribute this table on ProductKey since you are anticipating joins on this column and want to avoid data movement during joins on ProductKey.  Lastly you also want to add partitioning on OrderDateKey so that you can quickly delete old data by dropping old partitions.  Here is the CTAS statement which would copy your old table into a new table.
 
 ```
 CREATE TABLE FactInternetSales_new
@@ -425,7 +425,7 @@ For more development tips, see [development overview][].
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[development overview]: ./sql-data-warehouse-overview-develop.md
+[development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
