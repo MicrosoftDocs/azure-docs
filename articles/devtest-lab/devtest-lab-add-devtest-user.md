@@ -1,5 +1,5 @@
     <properties
-	pageTitle="Add a DevTest Lab User | Microsoft Azure"
+	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
 	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -16,7 +16,7 @@
 	ms.date="11/01/2015"
 	ms.author="tarcher"/>
 
-# Securely add a user to your Azure DevTest Lab
+# Add owners and users to a DevTest Lab
 
 ## Overview
 
