@@ -69,10 +69,10 @@ To configure the integration of Kiteworks into Azure AD, you need to add Kitewor
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **Kiteworks**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_01.png)<br>
 7. In the results pane, select **Kiteworks**, and then click **Complete** to add the application.
 <br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_02.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Kiteworks based on a test user called "Britta Simon".
