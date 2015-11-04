@@ -115,39 +115,21 @@ Once you have the Storage account and the Blob container prepared, you are ready
 		-DefaultStorageContainer $containerName  `
 		-ClusterSizeInNodes $clusterNodes
 
-##List cluster details
+##List clusters
 Use the following command to list all clusters in the current subscription:
 
 	Get-AzureRmHDInsightCluster
 
+##Show cluster
+
 Use the following command to show details of a specific cluster in the current subscription:
 
-	Get-AzureRmHDInsightCluster -ClusterName <ClusterName>
+	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Delete clusters
 Use the following command to delete a cluster:
 
-	Remove-AzureRmHDInsightCluster -ClusterName <ClusterName>
-
-
-##Grant/revoke HTTP services access
-
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-
-By default, these services are granted for access. You can revoke/grant the access. Here is a sample:
-
-	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
-
->[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
-
-This can also be done via the preview portal. See [Administer HDInsight by using the Azure preview portal][hdinsight-admin-portal].
+	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
@@ -197,6 +179,44 @@ The impact of changing the number of data nodes for each type of cluster support
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
 	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+	
+##Find the resource group
+
+##Find the default storage account
+
+The following Powershell script demonstrates how to get the default storage account name and the default storage account key for a cluster.
+
+
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster  -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+	$defaultBlobContainerName = $cluster.DefaultStorageContainer
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+
+
+##Grant/revoke HTTP services access
+
+HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
+
+- ODBC
+- JDBC
+- Ambari
+- Oozie
+- Templeton
+
+
+By default, these services are granted for access. You can revoke/grant the access. Here is a sample:
+
+	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+
+>[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
+
+This can also be done via the preview portal. See [Administer HDInsight by using the Azure preview portal][hdinsight-admin-portal].
+
+
 
 
 
