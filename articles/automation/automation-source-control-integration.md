@@ -47,9 +47,9 @@ If you already have a GitHub account and a repository that you want to link to A
 
 For example, if you have a repository named **PowerShellScripts** that contains a folder named **RootFolder**, which again contains a folder named **SubFolder**. If all the folders and the repository contain runbooks that you want to sync, then:
 
--To sync runbooks from repository, runbook folder path is **/**
--To sync runbooks from **RootFolder**, runbook folder path is **/RootFolder**
--To sync runbooks from **SubFolder**, runbook folder path is **/RootFolder/SubFolder.**
+  -To sync runbooks from repository, runbook folder path is */*
+  -To sync runbooks from **RootFolder**, runbook folder path is */RootFolder*
+  -To sync runbooks from **SubFolder**, runbook folder path is */RootFolder/SubFolder*.<br>
 
 After you configure the parameters, they are displayed on the **Set Up Source Control  blade.**
 
