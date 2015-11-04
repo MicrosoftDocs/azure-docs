@@ -127,11 +127,14 @@ Create a back end address pool named *LB-backend*.
 
 The example below creates the following items:
 
-- a NAT rule to translate all incoming traffic on port 3441 to port 3389.
+- a NAT rule to translate all incoming traffic on port 3441 to port 3389<sup>1</sup>
 - a NAT rule to translate all incoming traffic on port 3442 to port 3389.
 - a load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back end pool.
 - a probe rule which will check the health status on a page named *HealthProbe.aspx*.
 - a load balancer that uses all the objects above.
+
+
+<sup>1</sup> NAT rules are associated to a specific instance virtual machine behind the load balancer. The network traffic coming to ports 3341 will be sent to a specific virtual machine RDP port associated with the NAT rule. 
 
 ### Step 1
 
