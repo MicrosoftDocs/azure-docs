@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Data dependent routing" 
+	pageTitle="Data dependent routing | Microsoft Azure" 
 	description="How to use the ShardMapManager for data-dependent routing, a feature of elastic databases for Azure SQL Database" 
 	services="sql-database" 
 	documentationCenter="" 

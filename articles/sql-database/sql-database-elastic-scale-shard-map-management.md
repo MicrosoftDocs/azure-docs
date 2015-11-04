@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Shard map management" 
+	pageTitle="Shard map management | Microsoft Azure" 
 	description="How to use the ShardMapManager, elastic database client library" 
 	services="sql-database" 
 	documentationCenter="" 

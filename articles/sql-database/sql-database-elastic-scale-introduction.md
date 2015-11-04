@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure SQL Database - elastic database tools"
+    pageTitle="Elastic Database tools features overview | Microsoft Azure"
     description="Software as a Service (SaaS) developers can easily create elastic, scalable databases in the cloud using these tools"
     services="sql-database"
     documentationCenter=""

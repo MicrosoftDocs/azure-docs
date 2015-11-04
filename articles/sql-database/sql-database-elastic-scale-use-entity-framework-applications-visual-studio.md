@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using elastic database client library with Entity Framework" 
+	pageTitle="Using elastic database client library with Entity Framework | Microsoft Azure" 
 	description="Use Elastic Database client library and Entity Framework for coding databases" 
 	services="sql-database" 
 	documentationCenter="" 

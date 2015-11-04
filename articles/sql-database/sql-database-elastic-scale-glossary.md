@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Elastic database tools glossary" 
+    pageTitle="Elastic Database tools glossary | Microsoft Azure" 
     description="Explanation of terms used for elastic database tools" 
     services="sql-database" 
     documentationCenter="" 

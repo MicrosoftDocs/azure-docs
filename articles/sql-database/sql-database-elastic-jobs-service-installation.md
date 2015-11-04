@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Installing elastic database jobs" 
+	pageTitle="Installing elastic database jobs | Microsoft Azure" 
 	description="Walk through installation of the elastic job feature." 
 	services="sql-database" 
 	documentationCenter="" 
