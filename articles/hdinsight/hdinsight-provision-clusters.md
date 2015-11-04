@@ -251,7 +251,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 ## Create using the preview portal
 
-You can refer to the [basic configuration options], and the [advanced configuration options] for the explanations of the fields.
+You can refer to the [basic configuration options](#basic-configuration-options), and the [advanced configuration options](#advanced-configuration-options) for the explanations of the fields.
 
 **To create an HDInsight cluster**
 
