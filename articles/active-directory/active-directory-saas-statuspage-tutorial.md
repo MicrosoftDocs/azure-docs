@@ -206,6 +206,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 The objective of this section is to create a user called Britta Simon in StatusPage.
 StatusPage supports just-in-time provisioning. You have already enabled it in [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
 
+
 **To create a user called Britta Simon in StatusPage, perform the following steps:**
 
 1. Sign-on to your StatusPage company site as an administrator.
