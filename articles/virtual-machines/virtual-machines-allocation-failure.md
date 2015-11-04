@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Troubleshooting VM allocation failure | Microsoft Azure"
-	description="Troubleshooting allocation failure when you create, restart or resize a VM, or when you add new web or worker role instances in Azure"
-	services="virtual-machines, azure-resource-manager, cloud-services"
+	description="Troubleshooting allocation failure when you create, restart or resize a VM in Azure"
+	services="virtual-machines, azure-resource-manager"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
@@ -22,11 +22,11 @@
 # Troubleshooting allocation failure when you create, restart or resize a VM in Azure
 
 ## Summary
-When you create a VM, restart stopped (de-allocated) VMs, resize a VM, or when you add new web or worker role instances, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+When you create a VM, restart stopped (de-allocated) VMs, resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
 
-The first section 'Basic Steps' lists steps to address common connection issues, second section provides resolution steps by specific error message and the last section helps to perform detailed troubleshooting of each network component.
+The first section 'Basic Steps' lists steps to address common issues, second section provides resolution steps by specific error message.
 
 ## Basic steps
 
