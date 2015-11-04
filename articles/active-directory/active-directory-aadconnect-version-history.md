@@ -22,10 +22,9 @@ The Azure Active Directory team regularly updates Azure AD Connect with new feat
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-| Related links |  
-| --------- |
-| For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade). |
-| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
+Related links:
+- For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
+- [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1.0.9125.0
 Released: 2015 November
