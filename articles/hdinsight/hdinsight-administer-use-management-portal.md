@@ -240,10 +240,7 @@ The impact of changing the number of data nodes for each type of cluster support
 3. Click **Settings** from the top menu, and then click **Scale Cluster**.
 4. Enter **Number of Worker nodes**. The limit on the number of cluster node varies among Azure subscriptions. You can contact billing support to increase the limit.  The cost information will reflect the changes you have made to the number of nodes.
 
-
 	![hdinsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
-
-
 
 ##Connect to clusters using RDP
 
@@ -270,13 +267,17 @@ The credentials for the cluster that you provided at its creation give access to
 
 ##Pause/shut down clusters
 
-Most of the Hadoop jobs are batch jobs. It is not recommended to keep a HDInsight cluster idling. The recommended approach is to create a cluster when you need to run some jobs, and then delete the cluster when the jobs are completed. Deleting a cluster will not delete the default storage account or any of the linked storage account.  There are many ways you can program the process:
+Most of Hadoop jobs are batch jobs that are only ran occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
+You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
 
+There are many ways you can program the process:
+
+- User Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) and [Transform and analyze using Azure Data Factory](../data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
 - Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
+- Use Azure CLI. See [Manage HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
 - Use HDInsight .NET SDK. See [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md).
-- Azure Data Factory. See [Azure HDInsight Linked Service](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service) and [Transform and analyze using Azure Data Factory](../data-factory-data-transformation-activities.md) for on-demand and self-defined HDInsight linked services.
 
-Because each cluster has many nodes, it is fairly expensive to keep a cluster running. For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). You are charged from the time when a cluster is created until the time when the cluster is deleted, even if you don't run any jobs. There is not an option to "pause" or "shut down" a cluster to reduce the cost. To delete a cluster, see [Delete clusters](#delete-clusters)
+For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Preview portal, see [Delete clusters](#delete-clusters)
 
 ##Delete clusters
 
