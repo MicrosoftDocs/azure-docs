@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="upgrade from Mobile Services to an App Service Mobile App" 
+	pageTitle="Upgrade from Mobile Services to Azure App Service" 
 	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App" 
 	services="app-service\mobile" 
 	documentationCenter="" 
@@ -50,7 +50,7 @@ Upgrading to the new [Mobile Apps SDK NuGet packages](https://www.nuget.org/pack
 ##<a name="overview"></a>Basic upgrade overview
 The simplest way to upgrade is to create a new instance of an App Service Mobile App. In many cases, upgrading will be as simple as switching to the new Mobile Apps server SDK and republishing your code onto a new Mobile App. There are, however some scenarios which will require some additional configuration, such as advanced authentication scenarios and working with scheduled jobs. Each of these is covered in the following sections.
 
->[AZURE.NOTE] It is advised that you read and understand the rest of this topic completely before starting a upgrade. Make note of any features you use which are called out below.
+>[AZURE.NOTE] It is advised that you read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use which are called out below.
 
 You can move and test your code at your pace. When the Mobile App backend is ready, you can release a new version of your client application. At this point, you will have two copies of your application backend running side by side. You need to make sure any bug fixes you make get applied to both. Finally, once your users have updated to the newest version, you can delete the original Mobile Service.
 
