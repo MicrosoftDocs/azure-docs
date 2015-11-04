@@ -117,7 +117,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Batch Management .NET, Azure Active Directory, and the Resource Manager
 
-When working with the Batch Management .NET library, you will typically leverage the capabilities of both [Azure Active Directory][aad_about] (AAD) and the [Azure Resource Manager][resman_overview].
+When working with the Batch Management .NET library, you will typically leverage the capabilities of both [Azure Active Directory][aad_about] (AAD) and the [Azure Resource Manager][resman_overview]. The sample project discussed below employs both Azure Active Directory and the Resource Manager while demonstrating the Batch Management .NET API.
 
 ### Azure Active Directory
 
@@ -128,8 +128,6 @@ In the sample project discussed below, the [Microsoft.Azure.Common.Authenticatio
 ### Resource Manager
 
 When creating Batch accounts with the Batch Management .NET library, you will typically be creating them within a [Resource Group][resman_overview]. You can create the resource group programmatically using the [ResourceManagementClient][resman_client] found within the [Resource Manager .NET][resman_api] library, or you can add an account to an existing resource group you've created previously using the [Azure preview portal][azure_portal].
-
-The sample project discussed below employs both Azure Active Directory and the Resource Manager to demonstrate usage of the Batch Management .NET API.
 
 ## Sample project on GitHub
 
