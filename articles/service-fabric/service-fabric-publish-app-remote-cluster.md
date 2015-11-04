@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Publish an application to a remote cluster using Visual Studio | Microsoft Azure"
+    pageTitle="Publish an app to a remote cluster with VS | Microsoft Azure"
     description="Learn about the steps needed to publish an application to a remote service fabric cluster by using Visual Studio."
     services="service-fabric"
     documentationCenter="na"
     authors="cawa"
-    manager="paulyuk"
+    manager="timlt"
     editor="" />
 
 <tags
@@ -43,7 +43,7 @@ For example, you can change the partition count to fit into different environmen
 
 Here is an example application manifest file.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application2Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
@@ -85,7 +85,7 @@ The following steps demonstrate how to publish an application by using use the *
 
     ![][2]
 
-1. The **Upgrade the Application** checkbox lets you specify whether this publish action is an upgrade. Upgrade publish actions differ from normal publish actions. See [Service Fabric Application Upgrade](service-fabric-application-upgrade.md) for a list of differences. To configure upgrade settings, choose the **Configure Upgrade Settings** link. The upgrade parameter editor appears. See [Service Fabric Visual Studio Configure Upgrade](service-fabric-visualstudio-configure-upgrade.md) to learn more about upgrade parameters.
+1. The **Upgrade the Application** checkbox lets you specify whether this publish action is an upgrade. Upgrade publish actions differ from normal publish actions. See [Service Fabric Application Upgrade](service-fabric-application-upgrade.md) for a list of differences. To configure upgrade settings, choose the **Configure Upgrade Settings** link. The upgrade parameter editor appears. See [Configure the upgrade of a Service Fabric application](service-fabric-visualstudio-configure-upgrade.md) to learn more about upgrade parameters.
 
 1. Choose the **Manifest Versions…** button to view the **Edit Versions** dialog. You need to update application and service versions for an upgrade to take place. See [Service Fabric Application Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md) to learn how application and service manifest versions impact an upgrade process.
 
