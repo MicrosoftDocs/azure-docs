@@ -101,7 +101,7 @@ To configure single sign-on for StatusPage, you need a registered domain. If you
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to StatusPage** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-statusPage-tutorial/tutorial_statuspage_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_04.png) <br>
@@ -261,21 +261,21 @@ When you click the StatusPage tile in the Access Panel, you should get automatic
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_100.png
+[6]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_05.png
+[10]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_07.png
+[20]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_201.png
-[203]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-StatusPage-tutorial/tutorial_general_205.png
+[200]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
 
 
