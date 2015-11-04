@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an Azure Search index in the portal | Microsoft Azure"
-	description="Add an index to Azure Search service by filling in field definitions in the Azure portal"
+	description="Add an index to Azure Search, a cloud hosted search service, by filling in field definitions in the Azure portal."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search index in the Azure portal
