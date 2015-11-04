@@ -96,7 +96,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-> [AZURE.NOTE] In the above snippet, `context` is an instance of [AzureContext][NO\_DOCS\_ON\_MSDN!]. For more information on obtaining a valid AzureContext, see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
+> [AZURE.NOTE] In the above snippet, `context` is an instance of [AzureContext][common_azurecontext]. For more information on obtaining a valid AzureContext, see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
 
 ### Check a Batch account for compute resource quotas
 
@@ -158,6 +158,7 @@ Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to s
 [azure_portal]: http://portal.azure.com
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [common_auth]: https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication
+[common_azurecontext]: http://THIS_ASSEMBLY_IS_NOT_ON_MSDN
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_list_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.listkeysasync.aspx
 [net_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.createasync.aspx
