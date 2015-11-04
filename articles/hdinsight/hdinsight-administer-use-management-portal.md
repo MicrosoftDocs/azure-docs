@@ -108,7 +108,6 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 	
 	> [AZURE.IMPORTANT] To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
 
-		
 	**Usage**:
 	
 	![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
@@ -398,8 +397,4 @@ In this article, you have learned how to create an HDInsight cluster by using th
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
-[image-cluster-quickcreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
-[image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Cluster landing page"
-[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdi.hadoopcommandline.png "Hadoop command line"

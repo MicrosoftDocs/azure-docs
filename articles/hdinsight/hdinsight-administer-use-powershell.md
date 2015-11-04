@@ -57,7 +57,7 @@ HDInsight cluster requires an Azure Resource group and a Blob container on an Az
 
 **To create an Azure Storage account**
 
-	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
+	New-AzureRmStorageAccount -ResourceGroupName <Azure Resource Group Name> -Name <Azure Storage Account Name> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
 	
 	Don't use **Standard_ZRS** because it deson't support Azure Table.  HDInsight uses Azure Table to logging. For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
 
@@ -71,24 +71,24 @@ If you have already had a Storage account but do not know the account name and a
 	# List Storage accounts for the current subscription
 	Get-AzureRmStorageAccount
 	# List the keys for a Storage account
-	Get-AzureRmStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
+	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-For details on getting the information by using the preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account](storage-create-storage-account.md).
+For details on getting the information by using the preview portal, see the "View, copy, and regenerate storage access keys" section of [About Azure storage accounts](storage-create-storage-account.md).
 
 **To create an Azure storage container**
 
 Azure PowerShell cannot create a Blob container during the HDInsight creation process. You can create one by using the following script:
 
 	$resourceGroupName = "<AzureResoureGroupName>"
-	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountName = "<Azure Storage Account Name>"
 	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
 	$containerName="<AzureBlobContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	# Create a Blob storage container
-	New-AzureRmStorageContainer -Name $containerName -Context $destContext
+	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 **To create a cluster**
 
@@ -96,7 +96,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 	$resourceGroupName = "<AzureResoureGroupName>"
 
-	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountName = "<Azure Storage Account Name>"
 	$containerName = "<AzureBlobContainerName>"
 
 	$clusterName = "<HDInsightClusterName>"
@@ -128,7 +128,6 @@ Use the following command to show details of a specific cluster in the current s
 Use the following command to delete a cluster:
 
 	Remove-AzureRmHDInsightCluster -ClusterName <ClusterName>
-
 
 
 ##Grant/revoke HTTP services access

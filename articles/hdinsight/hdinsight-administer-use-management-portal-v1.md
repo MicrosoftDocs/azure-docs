@@ -194,8 +194,6 @@ In this article, you have learned how to create an HDInsight cluster by using th
 * [Get Started with Azure HDInsight](../hdinsight-get-started.md)
 * [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md)
 
-[image-cluster-quickcreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
-[image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Cluster landing page"
-[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdi.hadoopcommandline.png "Hadoop command line"
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
