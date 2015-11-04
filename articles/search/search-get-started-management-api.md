@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search Management REST API" 
-	description="Get started with Azure Search Management REST API" 
+	pageTitle="Get started with Azure Search Management REST API | Microsoft Azure" 
+	description="Administer your hosted cloud Azure Search service using a Management REST API" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search Management REST API

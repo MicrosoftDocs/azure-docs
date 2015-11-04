@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Typical workflow for Azure Search development | Microsoft Azure"
-	description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search."
+	description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
 
-This article is a roadmap for including Azure Search as a component that provides the search experience in your custom application. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
+This article is a roadmap for including Azure Search, a hosted cloud search service, as a component that provides the search experience in your custom application. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
 
 In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort.
 
