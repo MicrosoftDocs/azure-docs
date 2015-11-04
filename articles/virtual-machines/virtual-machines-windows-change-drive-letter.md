@@ -26,7 +26,7 @@ If you need to use the D drive to store data, follow these instructions to use a
 
 ## Attach the data disk
 
-Now you'll need to attach the data disk to the virtual machine. To attach a new disk, see [How to attach a data disk to a Windows virtual machine][Attach]. 
+First, you'll need to attach the data disk to the virtual machine. To attach a new disk, see [How to attach a data disk to a Windows virtual machine][Attach]. 
 
 If you want to use an existing data disk, make sure you've also uploaded the VHD to the Storage account. For instructions, see steps 3 and 4 in [Create and upload a Windows Server VHD to Azure][VHD]. 
 
@@ -35,17 +35,19 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 1. Connect to the virtual machine. 
 
-2. Right-click the **Start** menu and select **System**
+2. Right-click the **Start** menu and select **System**.
 
 3. In the left-hand menu, select **Advanced system settings**.
 
 4. In the **Performance** section, select **Settings**.
 
-5. Under the **Advanced** tab in the **Virtual memory** section, select **Change**.
+5. Select the **Advanced** tab.
 
-6. Select the **D** drive and then click **No paging file** and then click **Set**.
+5. In the **Virtual memory** section, select **Change**.
 
-7. Select the **C** drive and then click **System managed size** and then click **Set**.
+6. Select the **C** drive and then click **System managed size** and then click **Set**.
+
+7. Select the **D** drive and then click **No paging file** and then click **Set**.
 
 8. Click Apply. You will get a warning that the computer needs to be restarted for the changes to take affect.
 
@@ -58,7 +60,7 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 1. Once the VM restarts, log back on to the VM.
 
-2. Click the Start menu and type **diskmgmt.msc** and hit Enter. Disk Management will start.
+2. Click the **Start** menu and type **diskmgmt.msc** and hit Enter. Disk Management will start.
 
 3. Right-click on **D**, the Temporary Storage drive, and select **Change Drive Letter and Paths**.
 
@@ -72,24 +74,24 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 8. Under Drive letter, select drive **E** and then click **OK**. 
 
-> [AZURE.NOTE] If your VM has other disks or drives, use the same method to reassign the drive letters of the other disks and drives. You want the disk configuration to be roughtly:  
->C: OS disk  
->D: Data Disk  
->E: Temporary disk
+> [AZURE.NOTE] If your VM has other disks or drives, use the same method to reassign the drive letters of the other disks and drives. You want the disk configuration to be:  
+>- C: OS disk  
+>- D: Data Disk  
+>- E: Temporary disk
 
 
 
 ## Move pagefile.sys back to the temporary storage drive 
 
-1. Connect to the VM.
+1. Right-click the **Start** menu and select **System**
 
-2. Right-click the **Start** menu and select **System**
+2. In the left-hand menu, select **Advanced system settings**.
 
-3. In the left-hand menu, select **Advanced system settings**.
+3. In the **Performance** section, select **Settings**.
 
-4. In the **Performance** section, select **Settings**.
+4. Select the **Advanced** tab.
 
-5. Under the **Advanced** tab in the **Virtual memory** section, select **Change**.
+5. In the **Virtual memory** section, select **Change**.
 
 6. Select the OS drive **C** and click **No paging file** and then click **Set**.
 
@@ -97,7 +99,7 @@ If you want to use an existing data disk, make sure you've also uploaded the VHD
 
 8. Click **Apply**. You will get a warning that the computer needs to be restarted for the changes to take affect.
 
-9. In the Azure Management console, select the VM and at the bottom of the page, click **RESTART**.
+9. Restart the virtual machine.
 
 
 
