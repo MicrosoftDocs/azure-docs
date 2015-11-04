@@ -127,13 +127,13 @@ Advantages of the **out-of-process trace capturing** include:
 
 1. *Ability to monitor application and collect crash dumps*
 
-    * An in-process diagnostic data collection may be unsuccessful if the application is failing to start or crashes. An independent agent has much better chance of capturing crucial troubleshooting information.<br /><br />
+    * In-process trace capturing may be unsuccessful if the application is failing to start or crashes. An independent agent has much better chance of capturing crucial troubleshooting information.<br /><br />
 
 2. *Maturity, robustness and proven performance*
 
     * An agent developed by platform vendor (such as Microsoft Azure Diagnostics agent) has been subject to rigorous testing and battle-hardening.
 
-    * Care must be taken to ensure that the process of sending diagnostic data from an application process does not interfere with the application main tasks and does not introduce timing or performance problems. An independently running agent is less prone to these issues and is usually specifically designed to limit its impact on the system.
+    * With the in-process trace capturing care must be taken to ensure that the activity of sending diagnostic data from an application process does not interfere with the application main tasks and does not introduce timing or performance problems. An independently running agent is less prone to these issues and is usually specifically designed to limit its impact on the system.
 
 Of course it is possible to combine and benefit from both approaches; indeed it might be the best solution for many applications.
 
