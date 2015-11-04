@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -34,7 +34,18 @@ This topic lists several categories of error messages. Most categories are parti
 In your client program you have the option of providing your user with an alternative message customized by you, for any given error.
 
 
-**Tip:** Of extra importance is the section of *transient fault* errors. These errors should prompt your client program to run the *retry* logic you design to retry the operation.
+> [AZURE.TIP] Of extra importance is the section of [*transient fault* errors](#bkmk_connection_errors). These typically manifest as one of the following error messages from your client programs:
+> 
+> - Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>
+> 
+> - Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>. (Microsoft SQL Server, Error: 40613)
+> 
+> - An existing connection was forcibly closed by the remote host.
+> 
+> - System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+> 
+> These errors should prompt your client program to run *retry logic* that you design to retry the operation.  
+
 
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
