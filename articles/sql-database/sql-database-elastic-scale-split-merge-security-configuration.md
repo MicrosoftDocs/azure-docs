@@ -1,5 +1,4 @@
 <properties 
-    title="Elastic Scale Security Configurations" 
     pageTitle="Elastic Scale Security Configurations" 
     description="Set up x409 certificates for encryption" 
     metaKeywords="Elastic Database certificates security" 
