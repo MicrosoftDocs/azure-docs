@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Service limits in Azure Search | Microsoft Azure"
-	description="Azure Search limits used in capacity planning and maximum limits on requests and reponses."
+	description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
