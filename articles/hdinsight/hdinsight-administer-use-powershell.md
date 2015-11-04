@@ -43,29 +43,28 @@ HDInsight cluster requires an Azure Resource group and a Blob container on an Az
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**To create an Azure resource group**
+**To connect to Azure**
 
-2. Connect to your Azure account and select a subscription (in case you have multiple subscriptions).
-
-		Add-AzureRmAccount
-		Get-AzureRmSubscription
+		Login-AzureRmAccount
+		Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
 		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-3. Create a new resource group:
+	**Select-AzureRMSubscription** is called in case you have multiple Azure subscriptions.
+	
+**To create a new resource group**
 
-	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location <Azure Data Center>  # For example, "West US"
-
+	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location "<Azure Location>"  # For example, "EAST US 2"
 
 **To create an Azure Storage account**
 
-	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
-
-For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
+	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
+	
+	Don't use **Standard_ZRS** because it deson't support Azure Table.  HDInsight uses Azure Table to logging. For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
 
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a storage account](storage-create-storage-account.md).
+For information on creating an Azure Storage account by using the Azure preview portal, see [About Azure storage accounts](storage-create-storage-account.md).
 
 If you have already had a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 

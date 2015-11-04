@@ -45,7 +45,7 @@ Before you begin this article, you must have the following:
 		azure config mode arm
 
 
-##Provision HDInsight clusters
+##Create clusters
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
@@ -113,8 +113,8 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 
 
-##Provision HDInsight cluster using configuration files
-Typically, you provision an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
+##Create clusters using configuration files
+Typically, you create an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you create a cluster.  
 
 	azure hdinsight cluster config create <file>
 
