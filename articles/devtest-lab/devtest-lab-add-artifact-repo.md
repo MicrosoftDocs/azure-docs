@@ -1,34 +1,32 @@
-    <properties 
-	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure" 
-	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab" 
-	services="devtest-lab,virtual-machines,visual-studio-online" 
-	documentationCenter="na" 
-	authors="tomarcher" 
-	manager="douge" 
+    <properties
+	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
+	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab"
+	services="devtest-lab,virtual-machines,visual-studio-online"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
 	editor=""/>
-  
-<tags 
-	ms.service="devtest-lab" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/01/2015" 
+
+<tags
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/01/2015"
 	ms.author="tarcher"/>
 
 # Add a Git artifact repository to your DevTest Lab
 
 ## Overview
 
-By default, a **DevTest Lab** includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
+By default, a DevTest Lab includes artifacts from the official Azure DevTest Lab artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Online (VSO)](https://visualstudio.com).
 
 - To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-- To learn how to create a VSO project with a Git Repository, see [Set up Visual Studio](https://www.visualstudio.com/get-started/setup/set-up-vs).
-
-The repository must contain a top-level directory named **Artifacts**. The files for each artifact are then contained in a subdirectory of **Artifacts** directory.
+- To learn how to create a VSO project with a Git Repository, see [Connect to Visual Studio Online](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 The following screen shot shows an example of how a repository containing artifacts might look in GitHub:  
-![ContosoWebTeam GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
+![Sample GitHub artifacts repo](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
 ## Add a GitHub artifacts repository to your lab
 
@@ -36,7 +34,7 @@ To add a GitHub artifacts repository to your lab, you first get the HTTPS clone 
 
 ### Get the GitHub repository clone URL and personal access token
 
-1. On the home page of the GitHub repository that contains the team artifacts, save the **HTTPS clone url** for later use. 
+1. On the home page of the GitHub repository that contains the team artifacts, save the **HTTPS clone url** for later use.
 
 1. Tap the profile image in the upper-right corner, and select **Settings**.
 
@@ -49,7 +47,7 @@ To add a GitHub artifacts repository to your lab, you first get the HTTPS clone 
 1. Save the generated token as you'll need it later.
 
 1. You can close GitHub now.   
-   
+
 ###Connect your lab to the GitHub repository
 
 1. Sign in to the [Azure preview portal](http://portal.azure.com).
@@ -73,7 +71,7 @@ To add a GitHub artifacts repository to your lab, you first get the HTTPS clone 
 The artifacts in your repository are now listed on the **Add Artifacts** blade.
 
 ## Adding a Visual Studio Git artifact repository to your lab
-    
+
 To add a Visual Studio Git artifact repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repository, then you enter that information in your lab.
 
 ### On the Visual Studio web page of your artifact project
