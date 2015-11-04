@@ -295,6 +295,32 @@ Create a virtual machine (VM) named *web2*, and associate it with the NIC named 
 
 	azure vm create --resource-group nrprg --name web2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
+## Update an existing load balancer
+
+You can add rules referencing the an existing load balancer. In the example below, a new load balancer rule is added to an existing load balancer **NRPlb**
+
+	azure network lb rule create -g nrprg -l nrplb -n lbrule2 -p tcp -f 8080 -b 8051 -t frontendnrppool -o NRPbackendpool
+
+Parameters:
+
+**-g** - resource group name<br>
+**-l** - load balancer name<BR> 
+**-n** - load balancer rule name<BR>
+**-p** - protocol<BR>
+**-f** - front end port<BR>
+**-b** - back end port<BR>
+**-t** - front end pool name<BR>
+**-b** - back end pool name<BR>
+
+## Delete a load balancer 
+
+
+To remove a load balancer use the following command
+
+	azure network lb delete -g nrprg -n nrplb 
+
+Where **nrprg** is the resource group and **nrplb** the load balancer name.
+
 ## Next steps
 
 [Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
