@@ -157,13 +157,13 @@ To start using Microsoft.Diagnostics.Tracing implementation of the EventSource c
 
 1. Right-click on the service project and choose "Manage NuGet Packages"
 
-2. Switch to nuget.org package source (if not already selected) and search for Microsoft.Diagnostics.Tracing"
+2. Switch to nuget.org package source (if not already selected) and search for "Microsoft.Diagnostics.Tracing"
 
-3. Install Microsoft.Diagnostics.Tracing.EventSource package (and its dependencies)
+3. Install `Microsoft.Diagnostics.Tracing.EventSource` package (and its dependencies)
 
 4. Open ServiceEventSource.cs or ActorEventSource.cs file in your service project and replace `using System.Diagnostics.Tracing` directive on top of the file with `using Microsoft.Diagnostics.Tracing` directive.
 
-These steps will not be necessary once .NET Framework 4.6 is supported by Azure.
+These steps will not be necessary once **.NET Framework 4.6** is supported by Microsoft Azure.
 
 #### ElasticSearch Listener Instantiation and Configuration
 The final step necessary to send diagnostic data to ElasticSearch is to create an instance of `ElasticSearchListener` and configure it with ElasticSearch connection data. The listener will automatically capture all events raised via EventSource classes defined in the service project. It needs to be alive during the lifetime of the service, so the best place to create it is in the service initialization code. Here is how the initialization code for a stateless service could look after the necessary changes (additions pointed out in comments starting with `****`):
