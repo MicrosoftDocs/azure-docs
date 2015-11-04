@@ -51,11 +51,10 @@ Since VMs with single NICs and multiple NICs cannot coexist in the same resource
 
 ### Step 1 - Start you script
 
-You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/multinic.ps1). Follow the steps below to change the script to work in your environment.
+You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/arm/multinic.ps1). Follow the steps below to change the script to work in your environment.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
-		# Set variables for existing resource group
 		$existingRGName        = "IaaSStory"
 		$location              = "West US"
 		$vnetName              = "WTestVNet"
@@ -65,7 +64,6 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
-		# Set variables to use for backend resource group
 		$backendRGName         = "IaaSStory-Backend"
 		$prmStorageAccountName = "wtestvnetstorageprm"
 		$avSetName             = "ASDB"
@@ -83,7 +81,6 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 
 3. Retrieve the existing resources needed for your deployment.
 
-		# Retrieve existing resources
 		$vnet                  = Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
 		$backendSubnet         = $vnet.Subnets|?{$_.Name -eq $backendSubnetName}
 		$remoteAccessNSG       = Get-AzureNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
@@ -131,13 +128,11 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 
 4. Create `vmConfig` object.
 
-		    # Create VM config object
 		    $vmName = $vmNamePrefix + $suffixNumber
 		    $vmConfig = New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
 
 5. Create two data disks per VM. Notice that the data disks are in the premium storage account created earlier.
 
-		    # Create data disks
 		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
@@ -150,20 +145,17 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 
 6. Configure the credentials, operating system, and image o be used for the VM.
 
-		    # Set credentials, OS, and Image
 		    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
 		    $vmConfig = Set-AzureVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 		    $vmConfig = Set-AzureVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
 7. Add the two NICs created above to the `vmConfig` object.
 
-		    # Add NICs
 		    $vmConfig = Add-AzureVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
 		    $vmConfig = Add-AzureVMNetworkInterface -VM $vmConfig -Id $nic2.Id
 
 8. Create the OS disk and create the VM. Notice the `}` ending the `for` loop. 
 
-		    # Specify OS disk and create VM
 		    $osDiskName = $vmName + "-" + $osDiskSuffix
 		    $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
 		    $vmConfig = Set-AzureVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage

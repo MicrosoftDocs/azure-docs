@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="11/03/2015"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs (classic) using PowerShell
@@ -27,8 +27,25 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-ENTER YOUR CONTENT HERE
+The sample Azure PowerShell commands below can be used to create the backend subnet and multi NIC VMs used as database servers.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-ENTER YOUR STEPS HERE
+## Deploy the back end VMs
+
+Since VMs with single NICs and multiple NICs cannot coexist in the same cloud service deployment, you need to create a different cloud service for the backend VMs. You also need the following resources in place to create the multiNIC VMs:
+
+- **Backend subnet**. The database servers will be part of a separate subnet, to segregate traffic. The script below expects this subnet to exist in a vnet named *WTestVnet*.
+- **Storage account for data disks**. For better performance, the data disks on the database servers will use SSD, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
+- **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance. 
+
+### Step 1 - Start you script
+
+You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/classic/multinic.ps1). Follow the steps below to change the script to work in your environment.
+
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+
+		$location              = "West US"
+		$vnetName              = "WTestVNet"
+		$backendSubnetName     = "BackEnd"
+
