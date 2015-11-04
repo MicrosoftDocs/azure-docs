@@ -229,7 +229,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Kiteworks**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_50.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_50.png) <br>
 
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
