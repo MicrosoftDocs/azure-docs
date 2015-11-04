@@ -150,6 +150,8 @@ Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric ap
 
 4. Add a project reference from your service project(s) to the two added projects (each service that is supposed to send data to ElasticSearch should reference Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric).
 
+    ![Project refererences to Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric libraries][1]
+
 #### November 2015 preview of Service Fabric and Microsoft.Diagnostics.Tracing NuGet package
 Applications built with the November 2015 preview of Service Fabric target **.NET Framework 4.5.1** because this is the highest version of .NET Framework supported by Azure at the time of preview release. Unfortunately this version of the framework lacks certain EventListener APIs that Microsoft.Diagnostics.Listeners library needs. Because EventSource (the component that forms the basis of logging APIs in Fabric applications) and EventListener are tightly coupled, every project that uses Microsoft.Diagnostics.Listeners library must use an alternative implementation of EventSource, one that is provided by **Microsoft.Diagnostics.Tracing NuGet package**, authored by Microsoft. This package is fully backward-compatible with EventSource included in the framework, so no code changes should be necessary other than referenced namespace changes.
 
@@ -240,3 +242,6 @@ That is it! Now whenever the service is run, it will start sending traces to the
 
 ## Next steps
 - [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
+
+<!--Image references-->
+[1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
