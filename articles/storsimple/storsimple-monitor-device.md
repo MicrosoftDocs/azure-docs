@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/03/2015"
+   ms.date="11/04/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to monitor your StorSimple device 
@@ -51,9 +51,11 @@ The primary, cloud and device storage capacity can be described as follows:
  
 These charts show the amount of data written to StorSimple volumes before the data is deduplicated and compressed. You can view the primary storage utilization by all volumes or for a single volume.
 
-When you view the primary storage volume capacity utilization charts for all volumes versus each of the individual volumes and sum it up, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
+When you view the primary storage volume capacity utilization charts for all volumes versus each of the individual volumes and sum up the primary data in both these cases, there may be a mismatch between the two numbers. The total primary data on all volumes may not add up to the sum total of the primary data of the individual volumes. This may be due to one of the following:
 
-- **Snapshot data included for all volumes**: The local snapshot data for all the volumes is added to the primary data of all the volumes. This can also be explained by the following equation:
+- **Snapshot data included for all volumes**: The primary data shown for all the volumes is the sum of the primary data for each volume and the snapshot data. The primary data shown for a given volume corresponds to only the amount of data allocated on the volume (and does not include the corresponding volume snapshot data).
+
+	This can also be explained by the following equation:
 
 	*Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i) )*
 	
