@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure portal
@@ -149,11 +149,6 @@ By default, these services are granted for access. You can revoke/grant the acce
 5. Click **ON** or **OFF** next to **HADOOP SERVICES**.
 6. For **USER NAME** and **NEW PASSWORD**, enter the new user name and password (respectively) for the cluster.
 7. Click **SAVE**.
-
-This can also be done through the Azure PowerShell cmdlets:
-
-- Grant-AzureHDInsightHttpServicesAccess
-- Revoke-AzureHDInsightHttpServicesAccess
 
 See [Administer HDInsight using Azure PowerShell](hdinsight-administer-use-powershell.md).
 

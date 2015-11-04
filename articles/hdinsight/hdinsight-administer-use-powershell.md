@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
@@ -34,11 +34,11 @@ Before you begin this article, you must have the following:
 
 	> [AZURE.NOTE] The PowerShell scripts provided in this article uses the Azure resource manager mode. To ensure the samples work for you, please download the latest Azure PowerShell using the Microsoft Web Platform Installer.  
 
-##Provision HDInsight clusters
+##Create clusters
 
-HDInsight cluster requires an Azure Resource group and an Blob container on an Azure Storage account:
+HDInsight cluster requires an Azure Resource group and a Blob container on an Azure Storage account:
 
-- Azure Resource group is a logical container for Azure resources. The Azure resource group and the HDInsight cluster don't have to be in the same location.  For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
+- Azure Resource group is a logical container for Azure resources. The Azure resource group and the HDInsight cluster don't have to be in the same location.  For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 - HDInsight uses a Blob container of an Azure Storage account as the default file system. An Azure Storage account and a storage container are required before you can create an HDInsight cluster. The default storage account and the HDInsight cluster have to be in the same location.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
@@ -78,7 +78,7 @@ For details on getting the information by using the preview portal, see the "Vie
 
 **To create an Azure storage container**
 
-Azure PowerShell cannot create a Blob container during the HDInsight provisioning process. You can create one by using the following script:
+Azure PowerShell cannot create a Blob container during the HDInsight creation process. You can create one by using the following script:
 
 	$resourceGroupName = "<AzureResoureGroupName>"
 	$storageAccountName = "<AzureStorageAccountName>"
@@ -91,7 +91,7 @@ Azure PowerShell cannot create a Blob container during the HDInsight provisionin
 	# Create a Blob storage container
 	New-AzureRmStorageContainer -Name $containerName -Context $destContext
 
-**To provision a cluster**
+**To create a cluster**
 
 Once you have the Storage account and the Blob container prepared, you are ready to create a cluster.
 
@@ -340,7 +340,7 @@ See the [Submit MapReduce jobs](#mapreduce) section in this article.
 * [HDInsight cmdlet reference documentation][hdinsight-powershell-reference]
 * [Administer HDInsight by using the Azure preview portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
-* [Provision HDInsight clusters][hdinsight-provision]
+* [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Get started with Azure HDInsight][hdinsight-get-started]
