@@ -127,7 +127,7 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_06.png) <br>
 
 
-1.In the **Authentication and Authorization** section, click **SSO Setup**. 
+1. In the **Authentication and Authorization** section, click **SSO Setup**. 
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_kiteworks_07.png) <br>
 
 
