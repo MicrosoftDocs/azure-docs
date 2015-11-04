@@ -37,6 +37,7 @@ In the rest of the article we will describe how to set up ElasticSearch on Azure
 The most straightforward way to set up ElasticSearch service on Azure is through [**Azure ARM templates**](https://azure.microsoft.com/documentation/articles/resource-group-overview/). A comprehensive [quickstart ARM template for ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes) and can provision separate client and server nodes with different configurations, with various numbers of data disks attached.
 
 In this article we will use another template called **ES-MultiNode** from the [Microsoft Patterns & Practices ELK branch](https://github.com/mspnp/semantic-logging/tree/elk/). This template is somewhat easier to use and creates an ElasticSearch cluster protected by HTTP basic authentication by default. Before proceeding please download the [Microsoft P&P "elk" repo](https://github.com/mspnp/semantic-logging/tree/elk/) from GitHub to your machine (either by cloning the repo or downloading a ZIP file). The ES-MultiNode template is located in the folder with the same name.
+>[AZURE.NOTE] ES-MultiNode template and associated scripts currently support ElasticSearch 1.7 release. Support for ElasticSearch 2.0 will be added at a latter date.
 
 #### Preparing a machine to run ElasticSearch installation scripts
 The easiest way to use ES-MultiNode template is through a provided PowerShell script called `CreateElasticSearchCluster`. To use this script you need to install Azure PowerShell modules and a tool called openssl. The latter is needed for creating an SSH key that can be used to administer your ElasticSearch cluster remotely.
@@ -238,10 +239,13 @@ ElasticSearch connection data should be put in a separate section in the service
 The values of `serviceUri`, `userName` and `password` correspond to ElasticSearch cluster endpoint address, ElasticSearch user name and password, respectively. `indexNamePrefix` is the prefix for ElasticSearch indices; the Microsoft.Diagnostics.Listeners library creates a new index for its data on a daily basis.
 
 #### Verification
-That is it! Now whenever the service is run, it will start sending traces to the ElasticSearch service specified in the configuration. You can verify this by opening Kibana UI associated with the target ElasticSearch instance and checking that indices with the name prefix chosen for the `ElasticSearchListener` instance are indeed created and populated with data.
+That is it! Now whenever the service is run, it will start sending traces to the ElasticSearch service specified in the configuration. You can verify this by opening Kibana UI associated with the target ElasticSearch instance (in our example the page address would be http://myBigCluster.westus.cloudapp.azure.com/) and checking that indices with the name prefix chosen for the `ElasticSearchListener` instance are indeed created and populated with data.
+
+    ![Kibana showing PartyCluster application events][2]
 
 ## Next steps
 - [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
+[1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
