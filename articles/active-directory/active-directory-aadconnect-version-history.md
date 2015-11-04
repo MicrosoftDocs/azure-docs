@@ -24,7 +24,7 @@ This article is designed to help you keep track of the versions that have been r
 
 | Related links |  
 | --------- |
-| For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade).
+| For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade). |
 | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 
 ## 1.0.9125.0
