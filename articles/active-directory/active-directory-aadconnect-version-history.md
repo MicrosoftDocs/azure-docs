@@ -22,7 +22,10 @@ The Azure Active Directory team regularly updates Azure AD Connect with new feat
 
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
-For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
+| Related links |  
+| --------- |
+| For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade).
+| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 
 ## 1.0.9125.0
 Released: 2015 November
@@ -50,7 +53,7 @@ Released: 2015 November
     - Selecting a new OU to include in sync does not require a full password sync.
     - When a disabled user is enabled the password does not sync.
     - The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
-    - Improved troubleshooting.
+    - [Improved troubleshooting](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
 - Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
 - Not able to change the group used for group filtering after initial install.
 - Will no longer create a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.
