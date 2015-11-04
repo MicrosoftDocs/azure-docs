@@ -182,6 +182,12 @@ To change the Hadoop cluster size by using Azure PowerShell, run the following c
 	
 ##Find the resource group
 
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster  -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+
+
 ##Find the default storage account
 
 The following Powershell script demonstrates how to get the default storage account name and the default storage account key for a cluster.
@@ -189,7 +195,7 @@ The following Powershell script demonstrates how to get the default storage acco
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
-	$cluster = Get-AzureRmHDInsightCluster  -ClusterName $clusterName
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
 	$resourceGroupName = $cluster.ResourceGroup
 	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
 	$defaultBlobContainerName = $cluster.DefaultStorageContainer
@@ -197,7 +203,7 @@ The following Powershell script demonstrates how to get the default storage acco
 	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 
 
-##Grant/revoke HTTP services access
+##Grant/revoke access
 
 HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
 
