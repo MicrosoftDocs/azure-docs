@@ -241,11 +241,11 @@ The values of `serviceUri`, `userName` and `password` correspond to ElasticSearc
 #### Verification
 That is it! Now whenever the service is run, it will start sending traces to the ElasticSearch service specified in the configuration. You can verify this by opening Kibana UI associated with the target ElasticSearch instance (in our example the page address would be http://myBigCluster.westus.cloudapp.azure.com/) and checking that indices with the name prefix chosen for the `ElasticSearchListener` instance are indeed created and populated with data.
 
-    ![Kibana showing PartyCluster application events][2]
+![Kibana showing PartyCluster application events][2]
 
 ## Next steps
 - [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
-[1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
+[2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
