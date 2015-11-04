@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure"
-	description="Use Chrome Postman with Azure Search. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
+	description="Use Chrome Postman with Azure Search, a hosted cloud search service. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # How to use Chrome Postman with Azure Search #
