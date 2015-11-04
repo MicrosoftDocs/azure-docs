@@ -292,7 +292,40 @@ $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdat
 ```
 
 Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.  
-  
+ 
+## HOWTO: Configure your project for local development
+
+Azure Mobile Apps reads a JavaScript file called _azureMobile.js_ from the local filesystem.  You should not use this file to configure the
+Azure Mobile Apps SDK in production - use App Settings within the [Azure Portal] instead.  The _azureMobile.js_ file should export a configuration
+object.  The most common settings are:
+
+- Database Settings
+- Diagnostic Logging Settings
+- Alternate CORS Settings
+
+An example _azureMobile.js_ file implementing the database settings given above is below:
+
+```
+module.exports = {
+	cors: {
+		origins: [ 'localhost' ]
+	},
+	data: {
+		provider: 'sql',
+		server: '127.0.0.1',
+		database: 'mytestdatabase',
+		user: 'azuremobile',
+		password: 'T3stPa55word'
+	},
+	logging: {
+		level: 'verbose'
+	}
+};
+```
+
+We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
+being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
+
 ## HOWTO: Use SQL Azure as your Production Datastore
 
 <!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
