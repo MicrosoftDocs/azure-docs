@@ -1,33 +1,35 @@
 
 <properties
 	pageTitle="Add or create a new API and give users permissions in PowerApps | Microsoft Azure"
-	description="Add, create, and configure a new API, connection or connection profile, and give permissions and rights with user access"
-	services="power-apps"
+	description="IT Pro: Add, create, and configure a new API, connection or connection profile, and give permissions and rights with user access in the Azure portal"
+	services="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-   ms.service="power-apps"
+   ms.service="powerapps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="" 
-   ms.date="10/19/2015"
+   ms.workload="na" 
+   ms.date="11/03/2015"
    ms.author="mandia"/>
 
 
 # Add a new API, add a connection, and give users access
 
-APIs exist within an [App Service environment](powerapps-create-new-ase.md). APIs can be created from the Azure Marketplace, or within your API Hub (Existing API). The Azure Marketplace offers pre-built APIs available to you that can be easily added to your PowerApps apps. API Hub (Existing API) lets you upload your own API (JSON format). You can create your own API using **IS THERE AN SDK OR SOMETHING?**.
+APIs exist within an [App Service environment](powerapps-create-new-ase.md). APIs can be created from the Azure Marketplace, or within your API Hub (Existing API). The Azure Marketplace offers pre-built APIs available to you that can be easily added to your PowerApps apps. API Hub (Existing API) lets you upload your own API (JSON format).
 
 This topic:
 
 - Lists the steps to add an API and give users within your company permissions to use the API, including changing its properties.
 - Lists the steps to add a connection to your API, and give users within your company permissions to use the connection.
 
-When these steps are complete, your users can add these APIs to their PowerApps apps. 
+When you create the API, you also create a connection to that API.
+
+When these steps are complete, your users can add these APIs to their PowerApps apps created in PowerApps Studio. 
 
 #### Prerequisites to get started
 
@@ -38,7 +40,7 @@ When these steps are complete, your users can add these APIs to their PowerApps 
 There are two ways to create an API:
 
 - Using your new PowerApps blade
-- Using the app service environment you created (update steps 1-2 with slide 29)
+- Using the app service environment you created
 
 This section lists both steps. 
 
@@ -55,14 +57,13 @@ In **Name**, enter a descriptive name for your API. For example, if you're addin
 	In **Source**, select: 
 	- **Marketplace** to select an already-created API, including SharePoint, Twitter, Bing, and more. 
 	- **Import from API App** to choose an API you created (the .json and .manifest files are needed). 
-	- **Import from other backend** to add the .json file to an API app. **EXPLAIN MORE ABOUT THIS**  
+	- **Import from other backend** to add the .json file to an API app.
 
 4. Choose the API you want to add and configure that API's properties. Every API has different properties. For example, the SQL API can connect to an Azure SQL Database or an on-premises SQL Server. These options determine the settings or properties you configure. 
 	
-	In the following example, the SharePoint Online API is selected and SharePoint Online-specific properties are displayed:
-	![][4]  
-
-		> [AZURE.TIP] When you add an API, you're adding the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment, including PowerApps.
+	In the following example, the SharePoint Online API is selected and SharePoint Online-specific properties are displayed:  
+![][4]  
+> [AZURE.TIP] When you add an API, you're adding the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment, including PowerApps.
 
 5. Select **OK** and **Add** to complete these steps.  
 
@@ -80,14 +81,13 @@ In **Name**, enter a descriptive name for your API. For example, if you're addin
 	In **Source**, select: 
 	- **Marketplace** to select an already-created API, including SharePoint, Twitter, Bing, and more. 
 	- **Import from API App** to choose an API you added to your app service environment. Typically, this is chosen when you create a custom API app and the custom API app is added to your app service environment. 
-	- **Import from other backend** to add the .json file to an API app. **EXPLAIN MORE ABOUT THIS**
+	- **Import from other backend** to add the .json file to an API app.
 
 4. Choose the API you want to add and configure that API's properties. Every API has different properties. For example, the SQL API can connect to an Azure SQL Database or an on-premises SQL Server. These options determine the settings or properties you configure. 
 	
-	In the following example, the SharePoint Online API is selected and SharePoint Online-specific properties are displayed:
-	![][4]  
-
-		> [AZURE.TIP] When you add an API, you're adding the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment, including PowerApps.
+	In the following example, the SharePoint Online API is selected and SharePoint Online-specific properties are displayed:  
+![][4]  
+> [AZURE.TIP] When you add an API, you're adding the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment, including PowerApps.
 
 5. Select **OK** and **Add** to complete these steps.  
 
@@ -113,7 +113,7 @@ Now that the API is created and added to your app service environment, it's time
 	Property | Description
 --- | ---
 URL scheme | Select HTTP or HTTPS. HTTPS is recommended.
-Authenticate with backend service | Options include: <ul><li>None: No additional security is enabled when authenticating. This is similar to anonymous authentication.</li><li>Accessible via API management: <strong>NEED A DESCRIPTION HERE</strong></li><li>HTTP Basic Authentication: Prompts for a username and password. If you choose this option, be sure to choose HTTPS for the URL scheme. Otherwise, the user name and password are passed in clear text.</li></ul> 
+Authenticate with backend service | Options include: <ul><li>None: No additional security is enabled when authenticating. This is similar to anonymous authentication.</li><li>Accessible via API management</li><li>HTTP Basic Authentication: Prompts for a username and password. If you choose this option, be sure to choose HTTPS for the URL scheme. Otherwise, the user name and password are passed in clear text.</li></ul> 
 OAuth Settings | When using a PaaS (Platform as a Service) API, that service may have additional username and password. Enter this username and password. When you do this, OAuth is enabled and allows the app to automatically authenticate with the PaaS.<br/><br/>Twitter is a great example. Enter your Twitter username and password. This allows the app to automatically authenticate with Twitter with no additional sign-in prompts. 
 
 3. **Save** your changes.
