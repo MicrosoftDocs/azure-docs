@@ -83,7 +83,7 @@ To configure and test Azure AD single sign-on with TargetProcess, you need to co
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a TargetProcess test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in TargetProcess that is linked to the Azure AD representation of her.
+4. **[Creating a TargetProcess test user](#creating-a-targetprocess-test-user)** - to have a counterpart of Britta Simon in TargetProcess that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
