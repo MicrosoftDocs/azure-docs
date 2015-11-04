@@ -89,9 +89,7 @@ To configure and test Azure AD single sign-on with StatusPage, you need to compl
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your StatusPage application. As part of this procedure, you are required to create a base-64 encoded certificate file. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
-
-To configure single sign-on for StatusPage, you need a registered domain. If you don't have a registered domain yet, contact your StatusPage support team via [support@flatterfiles.com](mailto:support@flatterfiles.com).  
+The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your StatusPage application. 
 
 
 
@@ -160,18 +158,18 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_09.png) <br> 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_09.png) <br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_03.png) <br>
  
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_04.png) <br>
 
 5. On the **Tell us about this user** dialog page, perform the following steps: 
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_05.png) <br> 
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_05.png) <br> 
 
     a. As Type Of User, select New user in your organization.
 
@@ -180,7 +178,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps: 
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_06.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_06.png) <br>
  
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -192,10 +190,10 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_07.png) <br>
  
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/create_aaduser_08.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/create_aaduser_08.png) <br>
   
     a. Write down the value of the **New Password**.
 
