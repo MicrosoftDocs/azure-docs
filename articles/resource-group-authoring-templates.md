@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/03/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -108,7 +108,10 @@ You define parameters with the following structure:
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -122,6 +125,7 @@ You define parameters with the following structure:
 | maxValue       |   No     | The maximum value for int type parameters, this value is inclusive.
 | minLength      |   No     | The minimum length for string, secureString and array type parameters, this value is inclusive.
 | maxLength      |   No     | The maximum length for string, secureString and array type parameters, this value is inclusive.
+| description    |   No     | Explanation of the parameter that is visible to users of the template through the portal custom template interface.
 
 The allowed types and values are:
 
