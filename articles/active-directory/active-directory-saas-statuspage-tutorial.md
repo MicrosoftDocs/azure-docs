@@ -69,7 +69,7 @@ To configure the integration of StatusPage into Azure AD, you need to add Status
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **StatusPage**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_StatusPage_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_01.png)<br>
 7. In the results pane, select **StatusPage**, and then click **Complete** to add the application.
 <br><br>
 
@@ -214,11 +214,11 @@ StatusPage supports just-in-time provisioning. You have already enabled it in [C
 
 1. In the menu on the top, click **Manage Account**.
 
-1. Click the Team Members tab. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/tutorial_statuspage_10.png) <br>
+1. Click the Team Members tab. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_10.png) <br>
 
-1. Click **Add Team Member**. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/tutorial_statuspage_11.png) <br>
+1. Click **Add Team Member**. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_11.png) <br>
 
-1. Type the **Email Address**, **First Name** and **Sur Name** of a valid user you want to provision into the related textboxes. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-statusPage-tutorial/tutorial_statuspage_12.png) <br>
+1. Type the **Email Address**, **First Name** and **Sur Name** of a valid user you want to provision into the related textboxes. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-statuspage-tutorial/tutorial_statuspage_12.png) <br>
 
 1. As **Role**, choose **Client Administrator**.
 
