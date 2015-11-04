@@ -26,8 +26,8 @@ Service Mobile Apps SDK is provided for ASP.NET and NodeJS web application and p
 - Table operations (Read, Insert, Update, Dete) for data access
 - Custom API operations
  
-Both operations provide for authentication across all authentication methods allowed by Azure App Service, including social authentication
-providers such as Facebook, Twitter, Google and Microsoft as well as Azure Active Directory for enterprise authentication.
+Both operations provide for authentication across all identity providers allowed by Azure App Service, including social identity
+providers such as Facebook, Twitter, Google and Microsoft as well as Azure Active Directory for enterprise identity.
 
 You can find samples for each use case in the [samples directory on GitHub].
 
@@ -338,8 +338,8 @@ instance in your Mobile backend App Settings.  You can see this app setting in t
 
 ## HOWTO: Require Authentication for access to tables
 
-If you wish to use Authentication with the tables endpoint, you must configure it first.  For more details about configuring authentication in an 
-Azure App Service, review the Configuration Guide for the authentication mechanism you intend to use:
+If you wish to use App Service Authentication with the tables endpoint, you must configure App Service Authentication in the [Azure Portal] first.  For 
+more details about configuring authentication in an Azure App Service, review the Configuration Guide for the identity provider you intend to use:
 
 - [How to configure Azure Active Directory Authentication]
 - [How to configure Facebook Authentication]
@@ -348,7 +348,7 @@ Azure App Service, review the Configuration Guide for the authentication mechani
 - [How to configure Twitter Authentication]
 
 Each table has an access property that can be used to control access to the table.  The following sample shows a statically defined table with 
-authorization required. 
+authentication required. 
 
 ```
 var azureMobileApps = require('azure-mobile-apps');
@@ -487,8 +487,8 @@ We recommend that you explicitly call the initialize() method to create the tabl
 In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in
 a similar way to the table definitions and can access all the same facilities, including authentication.
 
-If you wish to use Authentication with a Custom API, you must configure it first.  For more details about configuring authentication in an 
-Azure App Service, review the Configuration Guide for the authentication mechanism you intend to use:
+If you wish to use App Service Authentication with a Custom API, you must configure App Service Authentication in the [Azure Portal] first.  For 
+more details about configuring authentication in an  Azure App Service, review the Configuration Guide for the identity provider you intend to use:
 
 - [How to configure Azure Active Directory Authentication]
 - [How to configure Facebook Authentication]
@@ -576,7 +576,19 @@ The same token that is used for the tables endpoint must be used for custom APIs
 
 # Debugging and Troubleshooting
 
+The Azure App Service provides several debugging and troubleshooting techniques for Node applications.
+All of these techniques are available.  
+
+- [Monitoring an Azure App Service]
+- [Enable Diagnostic Logging in Azure App Service]
+- [Toubleshoot an Azure App Service in Visual Studio]
+
 ## HOWTO: Write to the Azure Mobile Apps diagnostic logs
+
+Node applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile
+Apps Node SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug
+mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated
+will appear in the Diagnostic Logs on the [Azure Portal].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -588,7 +600,6 @@ The same token that is used for the tables endpoint must be used for custom APIs
 [6]: ./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
-[Azure Portal]: https://portal.azure.com/
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
@@ -602,9 +613,14 @@ The same token that is used for the tables endpoint must be used for custom APIs
 [How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
 [Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
+[Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
+[Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
+
+[Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
@@ -616,3 +632,4 @@ The same token that is used for the tables endpoint must be used for custom APIs
 [mssql Node package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Winston]: https://github.com/winstonjs/winston
