@@ -69,10 +69,10 @@ To configure the integration of Kiteworks into Azure AD, you need to add Kitewor
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **Kiteworks**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_01.png)<br>
 7. In the results pane, select **Kiteworks**, and then click **Complete** to add the application.
 <br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_02.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Kiteworks based on a test user called "Britta Simon".
@@ -102,10 +102,10 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Kiteworks** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_04.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_04.png) <br>
 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Kiteworks application (e.g.: *https://fabrikam.kiteworks.com/*).
@@ -114,7 +114,7 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
  
  
 4. On the **Configure single sign-on at Kiteworks** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_05.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_05.png) <br>
 
     a. Click **Download certificate**, and then save the file on your computer.
 
@@ -124,15 +124,15 @@ To configure single sign-on for Kiteworks, you need a registered domain. If you 
 1. Sign on to your Kiteworks company site as an administrator.
 
 1. In the toolbar on the top, click **Settings**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_06.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_06.png) <br>
 
 
 1.In the **Authentication and Authorization** section, click **SSO Setup**. 
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_07.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_07.png) <br>
 
 
 1. On the SSO Setup page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_09.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_09.png) <br>
 
     a. Select **Authenticate via SSO**.
 
@@ -165,18 +165,18 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_09.png) <br> 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_09.png) <br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_03.png) <br>
  
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_04.png) <br>
 
 5. On the **Tell us about this user** dialog page, perform the following steps: 
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_05.png) <br> 
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_05.png) <br> 
 
     a. As Type Of User, select New user in your organization.
 
@@ -185,7 +185,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps: 
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_06.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_06.png) <br>
  
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -197,10 +197,10 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_07.png) <br>
  
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-Kiteworks-tutorial/create_aaduser_08.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-kiteworks-tutorial/create_aaduser_08.png) <br>
   
     a. Write down the value of the **New Password**.
 
@@ -229,7 +229,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Kiteworks**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Kiteworks-tutorial/tutorial_Kiteworks_50.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-kiteworks-tutorial/tutorial_Kiteworks_50.png) <br>
 
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
