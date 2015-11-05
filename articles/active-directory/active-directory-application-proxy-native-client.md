@@ -16,14 +16,14 @@
 	ms.date="11/02/2015"
 	ms.author="rkarlin"/>
 
-# How to enable native client apps to interact with proxy applications
+# How to enable native client apps to interact with proxy Applications
 Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access and custom line of business applications. It can also be used to publish HTTP backend applications that are consumed using native clients. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
 
 
 ![](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
 
-The recommended method to publish such applications is to use the Azure AD Authentication Library that takes care of all the authentication hassle and supports many different client environments. The process for accomplishing this is as follows:
+The recommended method to publish such applications is to use the Azure AD Authentication Library that takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/#native-application-to-web-api). The process for accomplishing this is as follows:
 
 1. Publish your proxy application as you would any other application, assign users and give them premium or basic licenses. For more information see  [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 2. Configure your native application as follows:

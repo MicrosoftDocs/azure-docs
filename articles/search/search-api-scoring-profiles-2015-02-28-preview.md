@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure"
-	description="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview)"
+	description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="10/01/2015" />
+	ms.date="11/04/2015" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
