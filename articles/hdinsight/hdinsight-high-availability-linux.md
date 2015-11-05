@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight
@@ -146,7 +146,7 @@ When creating a new cluster, you can specify the size of the nodes. The followin
 
 * **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head node using the `--headNodeSize` parameter.
 
-* **Azure PowerShell**: When using the `New-AzureHDInsightCluster` cmdlet, you can set the size of the head node using the `-HeadNodeVMSize` parameter.
+* **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head node using the `-HeadNodeVMSize` parameter.
 
 ##Next steps
 

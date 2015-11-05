@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="11/03/2015"
 	ms.author="awills"/>
 
 # Application Insights for JavaScript web apps
@@ -51,7 +51,9 @@ Insert the script just before the &lt;/head&gt; tag of every page you want to tr
 * In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml
 * In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
 
-The script contains the instrumentation key that directs the data to your Application Insights resource.
+The script contains the instrumentation key that directs the data to your Application Insights resource. 
+
+([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 *(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
 
