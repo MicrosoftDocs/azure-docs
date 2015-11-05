@@ -56,7 +56,7 @@ To create an Internet facing load balancer (classic) deployment model from the p
 
 11. Click ok to go back to "join load balanced set" blade.
 
-12. click ok and wait for new load balancer resource to show in the load balancer sets blade.
+12. click ok and wait for new load balancer resource to show in the "load balancer sets" blade.
  
 ## Next steps
 
