@@ -21,9 +21,11 @@
 
 ## Overview
 
-Azure Premium Storage offers optimal performance for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store disk data on solid state drives (SSDs). A VM supports attaching several Premium Storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can 80,000 IOPS (input/output operations per second) per VM and 2000 MB per second disk throughput per VM with extremely low latencies for read operations.
+Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks. 
 
->[AZURE.NOTE] We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage.
+An Azure VM supports attaching several Premium Storage disks, so that your applications can have up to 64 TB of storage per VM. With Premium Storage, your applications can achieve 80,000 IOPS (input/output operations per second) per VM and 2000 MB per second disk throughput per VM with extremely low latencies for read operations.
+
+>[AZURE.NOTE] We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
 
 The purpose of this guide is to help new users of Azure Premium Storage better prepare to make a smooth transition from their current system to Premium Storage. The guide addresses three of the key components in this process: planning in the migration to Premium Storage, migrating existing virtual hard disks (VHDs) to Premium Storage, and creating Azure virtual machine instances in Premium Storage.
 
@@ -32,6 +34,7 @@ Completing the migration process in its entirety may require additional actions 
 You can find a feature overview of Premium Storage in [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
 
 This guide is divided into two sections covering the following two scenarios of migration:
+
 - [Migrating VMs from outside Azure to Azure Premium Storage](#migrating-vms-from-outside-azure-to-azure-premium-storage).
 - [Migrating existing Azure VMs to Azure Premium Storage](#migrating-existing-azure-vms-to-azure-premium-storage).
 
