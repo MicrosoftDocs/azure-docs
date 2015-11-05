@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started with Data Lake Store using cross-platform command line interface| Azure" 
+   pageTitle="Get started with Data Lake Store using cross-platform command line interface | Microsoft Azure"
    description="Use Azure cross-platform command line to create a Data Lake Store account and perform basic operations" 
    services="data-lake-store" 
    documentationCenter="" 
