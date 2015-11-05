@@ -40,7 +40,7 @@ You can create an IoT hub using the following methods.
 
 ### Choose the name of the IoT hub
 
-In order to create an IoT hub, you must name the hub. Note that this name must be unique across the hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub be named as uniquely as possible.
+In order to create an IoT hub, you must name the hub. Note that this name must be unique across the hubs. No duplication of hubs is allowed on the backend, so it is recommended that this hub be named as uniquely as possible.
 
 ### Choose the pricing tier
 
@@ -76,9 +76,9 @@ The location option provides a list of the regions in which IoT Hub is offered. 
 
 ### Create the IoT hub
 
-When all previous steps are complete, the IoT hub is ready to be created. Click **Create** to start the back-end process of creating this IoT hub with the specific options, and to deploy it to the location specified.
+When all previous steps are complete, the IoT hub is ready to be created. Click **Create** to start the backend process of creating this IoT hub with the specific options, and to deploy it to the location specified.
 
-Please note that it can take a few minutes for the IoT hub to be created as it takes time for the back-end deployment to occur in the appropriate location servers.
+Please note that it can take a few minutes for the IoT hub to be created as it takes time for the backend deployment to occur in the appropriate location servers.
 
 ## Change the settings of the IoT hub
 

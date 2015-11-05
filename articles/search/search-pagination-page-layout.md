@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to page search results in Azure Search | Microsoft Azure" 
+	pageTitle="How to page search results in Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Pagination in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 

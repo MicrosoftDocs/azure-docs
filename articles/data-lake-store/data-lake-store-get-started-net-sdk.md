@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake, see [Azure Data Lake Store](data-lake-store-overview.md).
 
@@ -50,7 +51,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 5. Add the Nuget package to your project. 
 
 	1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
-	2. In the **Nuget Package Manager** dialog box, make sure that **Package source** is set to **nuget.org** and that **Include Prerelease** check box is selected.
+	2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include Prerelease** check box is selected.
 	3. Search for and install the following packages:
 	
 		* Microsoft.Azure.Common.Authentication
@@ -212,7 +213,8 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 ## Other ways of creating a Data Lake Store account
 
 - [Get Started with Data Lake Store using Portal](data-lake-store-get-started-portal.md)
-- [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md) 
+- [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
+- [Get Started with Data Lake Store using Azure CLI](data-lake-store-get-started-cli.md)
 
 
 ## Next steps
