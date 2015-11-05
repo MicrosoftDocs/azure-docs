@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/30/2015"
    ms.author="tomfitz"/>
 
 # Authenticating a service principal with Azure Resource Manager
@@ -282,7 +282,7 @@ You will start by creating a service principal. To do this we must use create an
 
 5. Determine the **TenantId** of the tenant that the service principal's role assignment resides by listing the accounts and looking for the **TenantId** property in the output.
 
-        azure account list
+        azure account list --json
 
 6. Sign-in using the service principal as your identity. For the user name, use the **ApplicationId** that you used when creating the application. For the password, use the one you specified when creating the account.
 

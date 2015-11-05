@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/23/2015" 
+	ms.date="10/27/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -57,17 +57,15 @@ In the **New Redis Cache** blade, specify the desired configuration for the cach
 
 ![Create cache][CacheCreate]
 
-In **Dns name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
-
-Use **Pricing Tier** to select the desired cache size and features.
-
-In **Resource group**, select or create a resource group for your cache.
-
->[AZURE.NOTE] For more information, see [Using Resource groups to manage your Azure resources][]. 
-
-For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
-
-Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
+-	In **Dns name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
+-	For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
+-	In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources][]. 
+-	Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
+-	Use **Pricing Tier** to select the desired cache size and features.
+-	**Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+-	**Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
+-	**Virtual Network** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Virtual Network. You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
+-	Use **Diagnostics** to specify a storage account for cache metrics. For more informations on configuring and viewing cache metrics, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 
 Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
 
@@ -110,12 +108,11 @@ The steps in this section describe how to perform common tasks with Cache.
 -	[Connect to the cache][]
 -   [Add and retrieve objects from the cache][]
 -   [Work with .NET objects in the cache](#work-with-net-objects-in-the-cache)
--   [Store ASP.NET session state in the cache][]
 
 <a name="connect-to-cache"></a>
 ## Connect to the cache
 
-In order to programmatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use the StackExchange.Redis client to access an Azure Redis Cache:
+In order to programmatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use the StackExchange.Redis client to access an Azure Redis Cache.
 
     using StackExchange.Redis;
 
@@ -131,7 +128,22 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 If you don't want to use SSL, either set `ssl=false` or omit the `ssl` parameter.
 
->[AZURE.NOTE] The non-SSL port is disabled by default for new caches. For instructions on enabling the non-SSL port, see the Access Ports section in the [Configure a cache in Azure Redis Cache][] topic.
+>[AZURE.NOTE] The non-SSL port is disabled by default for new caches. For instructions on enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports)..
+
+One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This provides a thread-safe way to initialize only a single connected `ConnectionMultiplexer` instance. In these examples `abortConnect` is set to false, which means that the call will succeed even if a connection to the Azure Redis Cache is not established. One key feature of `ConnectionMultiplexer` is that it will automatically restore connectivity to the cache once the network issue or other causes are resolved.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+	    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
 
 For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
 
@@ -141,16 +153,11 @@ The cache endpoint and keys can be obtained from the **Redis Cache** blade for y
 
 ![Manage keys][ManageKeys]
 
-Once the connection is established, return a reference to the redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method.
+Once the connection is established, return a reference to the redis cache database by calling the `ConnectionMultiplexer.GetDatabase` method. The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
 
-	// connection refers to a previously configured ConnectionMultiplexer
-	IDatabase cache = connection.GetDatabase();
-
->[AZURE.NOTE] The object returned from the `GetDatabase` method is a lightweight pass-through object and does not need to be stored.
-
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-	IDatabase cache = connection.GetDatabase();
+	// Connection refers to a property that returns a ConnectionMultiplexer
+	// as shown in the previous example.
+	IDatabase cache = Connection.GetDatabase();
 
 	// Perform cache operations using the cache object...
 	// Simple put of integral data types into the cache
@@ -173,9 +180,9 @@ Items can be stored in and retrieved from a cache by using the `StringSet` and `
 
 	string value = cache.StringGet("key1");
 
->[AZURE.NOTE] Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
+Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
 
-When calling `StringGet`, if the object exists, it is returned, and if it does not, null is returned. In this case you can retrieve the value from the desired data source and store it in the cache for subsequent use. This is known as the cache-aside pattern.
+When calling `StringGet`, if the object exists, it is returned, and if it does not, `null` is returned. In this case you can retrieve the value from the desired data source and store it in the cache for subsequent use. This is known as the cache-aside pattern.
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -197,66 +204,6 @@ Azure Redis Cache can cache .NET objects as well as primitive data types, but be
 
 One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) and serialize to and from JSON. The following example shows a get and set using an `Employee` object instance.
 
-    // Store to cache
-    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
-
-    // Retrieve from cache
-    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
-
-Another way to serialize objects to and from the cache is to use the [BinaryFormatter](https://msdn.microsoft.com/library/azure/system.runtime.serialization.formatters.binary.binaryformatter.aspx) class. In the following example, [extension methods](https://msdn.microsoft.com/library/bb383977.aspx) to the `StackExchange.Redis.IDatabase` type are defined that use the `BinaryFormatter` to simplify the serialization of objects when they are cached.
-
-	public static class SampleStackExchangeRedisExtensions
-	{
-	    public static T Get<T>(this IDatabase cache, string key)
-	    {
-	        return Deserialize<T>(cache.StringGet(key));
-	    }
-	
-	    public static object Get(this IDatabase cache, string key)
-	    {
-	        return Deserialize<object>(cache.StringGet(key));
-	    }
-	
-	    public static void Set(this IDatabase cache, string key, object value)
-	    {
-	        cache.StringSet(key, Serialize(value));
-	    }
-	
-	    static byte[] Serialize(object o)
-	    {
-	        if(o == null)
-	        {
-	            return null;
-	        }
-	
-	        BinaryFormatter binaryFormatter = new BinaryFormatter();
-	        using (MemoryStream memoryStream = new MemoryStream())
-	        {
-	            binaryFormatter.Serialize(memoryStream, o);
-	            byte[] objectDataAsStream = memoryStream.ToArray();
-	            return objectDataAsStream;
-	        }
-	    }
-	
-	    static T Deserialize<T>(byte[] stream)
-	    {
-	        if(stream == null)
-	        {
-	            return default(T);
-	        }
-	
-	        BinaryFormatter binaryFormatter = new BinaryFormatter();
-	        using (MemoryStream memoryStream = new MemoryStream(stream))
-	        {
-	            T result = (T)binaryFormatter.Deserialize(memoryStream);
-	            return result;
-	        }
-	    }
-	}
-
-The `RedisValue` type can work directly with byte arrays, so when the `Get` helper method is called, it serializes the object into a byte stream, which is then cached. When the item is retrieved, it is serialized back into an object, and returned to the caller.
-
-In the following example, an instance of an `Employee` object is stored and retrieved from the cache.
 
 	[Serializable]
 	class Employee
@@ -271,20 +218,11 @@ In the following example, an instance of an `Employee` object is stored and retr
 	    }
 	}
 
-	IDatabase cache = Connection.GetDatabase();
-	
-	// Put an Employee object into the cache
-	cache.Set("Employee25", new Employee(25, "Clayton Gragg"));
-	
-	// Retrieve it
-	Employee e2 = cache.Get<Employee>("Employee25");
-	
-	// Retrieve it as an object
-	Employee e3 = (Employee)cache.Get("Employee25");
+    // Store to cache
+    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
 
->[AZURE.NOTE] If your object is not serializable you will receive an exception similar to the following when you try to serialize it.
->
->`Type 'SampleApplication.Employee' in Assembly SampleApplication, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' is not marked as serializable.`
+    // Retrieve from cache
+    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
 <a name="next-steps"></a>
 ## Next Steps
@@ -294,7 +232,7 @@ Now that you've learned the basics, follow these links to learn more about Azure
 -	Check out the ASP.NET providers for Azure Redis Cache.
 	-	[Azure Redis Session State Provider](cache-asp.net-session-state-provider.md)
 	-	[Azure Redis Cache ASP.NET Output Cache Provider](cache-asp.net-output-cache-provider.md)
--	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [cache-how-to-monitor.md) the health of your cache. You can view the metrics in the preview portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+-	[Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the preview portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	Check out the [StackExchange.Redis cache client documentation][].
 	-	Azure Redis Cache can be accessed from many Redis clients and development languages. For more information, see [http://redis.io/clients][] and [Develop in other languages for Azure Redis Cache][].
 	-	Azure Redis Cache can also be used with services such as Redsmin. For more information, see  [How to retrieve an Azure Redis connection string and use it with Redsmin][].

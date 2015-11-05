@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
@@ -32,6 +32,8 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Validate JWT][] - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 -	[Advanced policies][]
 	-	[Control flow][] - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions][].
+	-	[Forward request][] - Forwards the request to the backend service.
+	-	[Log to Event Hub][] - Sends messages in the specified format to a message target defined by a [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) entity.
 	-	[Set variable][] - Persist a value in a named [context][] variable for later access.
 -	[Authentication policies][]
 	-	[Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
@@ -72,6 +74,8 @@ For more information on policy expressions, see the following video.
 [Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[Forward request]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Log to Event Hub]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [Authentication policies]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [Authenticate with Basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic

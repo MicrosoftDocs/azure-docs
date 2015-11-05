@@ -27,7 +27,7 @@ Virtual machines created with the classic deployment model are always placed in 
 
 If a cloud service isn't in a virtual network, it's called a *standalone* cloud service. The virtual machines in a standalone cloud service can only communicate with other virtual machines by using the other virtual machines’ public DNS names, and the traffic travels over the Internet. If a cloud service is in a virtual network, the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
 
-If you place your virtual machines in the same standalone cloud service, you can still use load balancing and availability sets. For details, see [Load balancing virtual machines](../articles/load-balance-virtual-machines.md) and [Manage the availability of virtual machines](../articles/manage-availability-virtual-machines.md). However, you can't organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here's an example:
+If you place your virtual machines in the same standalone cloud service, you can still use load balancing and availability sets. For details, see [Load balancing virtual machines](virtual-machines-load-balance.md) and [Manage the availability of virtual machines](virtual-machines-manage-availability.md). However, you can't organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here's an example:
 
 ![Virtual machines in a standalone cloud service](./media/howto-connect-vm-cloud-service/CloudServiceExample.png)
 
@@ -41,7 +41,7 @@ Virtual networks are the recommended way to connect virtual machines in Azure. T
 
 To connect virtual machines in a virtual network:
 
-1.	Create the virtual network in the [Azure Portal](http://manage.windowsazure.com). For more information, see [Virtual Network Configuration Tasks](../documentation/services/virtual-machines/).
+1.	Create the virtual network in the [Azure Portal](http://manage.windowsazure.com). For more information, see [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
 2.	Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
 3.	To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
 
@@ -56,14 +56,14 @@ To connect virtual machines in a standalone cloud service:
 ![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Resources
-[Load balancing virtual machines](../articles/load-balance-virtual-machines.md)
+[Load balancing virtual machines](articles/virtual-machines-load-balance.md)
 
-[Manage the availability of virtual machines](../articles/manage-availability-virtual-machines.md)
+[Manage the availability of virtual machines](virtual-machines-manage-availability.md)
 
-[Virtual Network Configuration Tasks](../documentation/services/virtual-machines/)
+[Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-portal.md)
 
 After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
 
-[How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
+[How to Attach a Data Disk to a Linux Virtual Machine](virtual-machines-linux-how-to-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](../articles/virtual-machines/storage-windows-attach-disk.md)
+[How to Attach a Data Disk to a Windows Virtual Machine](virtual-machines/storage-windows-attach-disk.md)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -54,33 +54,7 @@ The basic syntax of the template is JSON; however, expressions and functions ext
 
 Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as **functionName(arg1,arg2,arg3)**. You reference properties by using the dot and [index] operators.
 
-The following list shows common functions.
-
-- **parameters(parameterName)**
-
-    Returns a parameter value that is provided when the deployment is executed.
-
-- **variables(variableName)**
-
-    Returns a variable that is defined in the template.
-
-- **concat(arg1,arg2,arg3,...)**
-
-    Combines multiple string values. This function can take any number of arguments.
-
-- **base64(inputString)**
-
-    Returns the base64 representation of the input string.
-
-- **resourceGroup()**
-
-    Returns a structured object (with id, name, and location properties) that represents the current resource group.
-
-- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
-
-    Returns the unique identifier of a resource. Can be used to retrieve resource from another resource group.
-
-The following example shows how to use several of the functions when constructing values:
+The following example shows how to use several functions when constructing values:
  
     "variables": {
        "location": "[resourceGroup().location]",
@@ -88,8 +62,7 @@ The following example shows how to use several of the functions when constructin
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-For now, you know enough about expressions and functions to understand the sections of the template. For more detailed information about all of the template functions, including parameters and the format of returned values, 
-see [Azure Resource Manager template functions](./resource-group-template-functions.md). 
+For the full list of template functions, see [Azure Resource Manager template functions](./resource-group-template-functions.md). 
 
 
 ## Parameters
@@ -108,7 +81,10 @@ You define parameters with the following structure:
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -122,6 +98,7 @@ You define parameters with the following structure:
 | maxValue       |   No     | The maximum value for int type parameters, this value is inclusive.
 | minLength      |   No     | The minimum length for string, secureString and array type parameters, this value is inclusive.
 | maxLength      |   No     | The maximum length for string, secureString and array type parameters, this value is inclusive.
+| description    |   No     | Description of the parameter which will be displayed to users of the template through the portal custom template interface.
 
 The allowed types and values are:
 
@@ -174,6 +151,15 @@ The following example shows how to define parameters:
 ## Variables
 
 In the variables section, you construct values that can be used to simplify template language expressions. Typically, these variables will be based on values provided from the parameters.
+
+You define variables with the following structure:
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
 
 The following example shows how to define a variable that is constructed from two parameter values:
 
@@ -229,6 +215,7 @@ You define resources with the following structure:
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -246,6 +233,7 @@ You define resources with the following structure:
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.
 | tags                     |   No     | Tags that are associated with the resource.
+| comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
 | properties               |   No     | Resource specific configuration settings.
 | resources                |   No     | Child resources that depend on the resource being defined.

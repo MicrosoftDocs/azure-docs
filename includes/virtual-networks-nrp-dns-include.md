@@ -2,14 +2,37 @@
 
 Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
 
-Key properties of Azure DNS include:
 
 | Property | Description | Sample Value |
 |---|---|---|
+<<<<<<< HEAD
 | DNS zones | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
 |DNS record sets | a collection of records of a specific type. Supported types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 
 
+=======
+| DNS zones | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
+
+
+### DNS record sets
+
+DNS zones have a child object named record set. Record sets are a collection of host records by type for a DNS zone. Record types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
+
+| Property | Description | Sample value |
+|---|---|---|
+| A | IPv4 record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA | IPv6 record type| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME | canonical name record type <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX | mail record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
+| NS | name server record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA | Start of Authority record type <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV | service record type | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
+
+<sup>1</sup> only allows one value per record set.
+
+<sup>2</sup> only allows one record type SOA per DNS zone. 
+
+>>>>>>> 78cb8f8224b62cf3ce8aeb31d122596aa178da03
 Sample of DNS zone in Json format:
 
 	{
