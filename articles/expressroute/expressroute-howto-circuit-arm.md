@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Steps for configuring an ExpressRoute circuit wising ARM | Microsoft Azure"
+   pageTitle="Configure an ExpressRoute circuit using Azure Resource Manager and PowerShell | Microsoft Azure"
    description="This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,29 +13,29 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/05/2015"
+   ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
 This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the ARM deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules, version 1.0 or later. Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
 
 ## Create and provision an ExpressRoute circuit
 
 1. **Import the PowerShell module for ExpressRoute.**
 
- 	You must install the latest Powershell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+ 	You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
 	    Install-Module AzureRM
 
@@ -45,7 +45,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 		Import-AzureRM
 
-	You can aslo just import a select modeule within the known semantic version range 
+	You can also just import a select module within the known semantic version range 
 		
 		Import-Module AzureRM.Network 
 
@@ -76,7 +76,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		
 3. **Create an ExpressRoute circuit.**
 
-	You must first create a resource group if you don't lready have one before you create your ExpressRoute circuit. You can do so by runnning the following command.
+	You must first create a resource group if you don't already have one before you create your ExpressRoute circuit. You can do so by running the following command.
 
 		New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
 
@@ -89,7 +89,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	Make sure that you specify the right SKU tier and SKU family.
  
 	 - SKU tier determines whether ExpressRoute standard or ExpressRoute premium add-on is enabled. You can specify *standard* to get the standard SKU or *premium* for premium add-on
-	 - SKU family determines the bbilling type. You can select *metereddata* for metered data plan and *unlimiteddata" for unlimited data plan. **Note:** You will not be able to change the billing type once a circuit is created. 
+	 - SKU family determines the billing type. You can select *metereddata* for metered data plan and *unlimiteddata" for unlimited data plan. **Note:** You will not be able to change the billing type once a circuit is created. 
 
 	
 	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
@@ -220,7 +220,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
-	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to vnets](expressroute-howto-linkvnet-arm.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
+	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-arm.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
 
 ##  How to get the status of an ExpressRoute circuit
 
