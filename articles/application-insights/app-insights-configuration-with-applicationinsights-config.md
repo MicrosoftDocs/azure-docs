@@ -32,6 +32,8 @@ by [Status Monitor on an IIS server][redfield], or when you select the Appplicat
 
 There isn't an equivalent file to control the [SDK in a web page][client].
 
+This document describes the sections you see in the configuration file, how they control the components of the SDK, and which NuGet packages load those components.
+
 ## Telemetry Modules (ASP.NET)
 
 Each telemetry module collects a specific type of data and uses the core API to send the data. The modules are installed by different NuGet packages, which also add the required lines to the .config file.
@@ -96,6 +98,7 @@ Reports the [response time and result code](app-insights-start-monitoring-app-he
 ### Core API
 
 The core package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other telemetry modules use this, and you can also [use it to define your own telemetry](app-insights-api-custom-events-metrics.md).
+
 * No entry in ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.
 

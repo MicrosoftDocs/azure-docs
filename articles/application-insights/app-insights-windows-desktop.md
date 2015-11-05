@@ -23,9 +23,9 @@
 
 Application Insights lets you monitor your deployed application for usage and performance.
 
-All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
+All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights SDK to send telemetry to Application Insights. You can also add Application Insights SDK to a class library project.
 
-The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry. Some of the other packages such as the performance counter collector will also work in a desktop app.
+You can choose which standard data collectors you want to use (for example to monitor performance counters or dependency calls), or just use the Core API and write your own telemetry.
 
 
 ## <a name="add"></a> Create an Application Insights resource
@@ -113,14 +113,14 @@ For example, in a Windows Forms application, you could write:
 
 ```
 
-Use any of the [Application Insights API][api] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
+Use any of the [Application Insights API][api] to send telemetry. If you're using the core API, no telemetry is sent automatically. Typically you'd use:
 
 * `TrackPageView(pageName)` on switching forms, pages, or tabs
 * `TrackEvent(eventName)` for other user actions
 * `TrackMetric(name, value)` in a background task to send regular reports of metrics not attached to specific events.
 * `TrackTrace(logEvent)` for [diagnostic logging][diagnostic]
 * `TrackException(exception)` in catch clauses
-* `Flush()` to make sure all telemetry is sent before closing the app. Use this only if you are just using the core API (Microsoft.ApplicationInsights). The web and device SDKs implement this behavior automatically. (If your app runs in contexts where the internet is not always available, see also [Persistence Channel](#persistence-channel).)
+* `Flush()` to make sure all telemetry is sent before closing the app. Use this only if you are just using the core API (Microsoft.ApplicationInsights). The web SDKs implement this behavior automatically. (If your app runs in contexts where the internet is not always available, see also [Persistence Channel](#persistence-channel).)
 
 
 #### Context initializers
