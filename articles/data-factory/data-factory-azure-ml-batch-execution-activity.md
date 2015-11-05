@@ -380,7 +380,7 @@ The following scenario provides more details with an example for retraining and 
 ### Scenario: retraining and updating an Azure ML model
 This section provides a sample pipeline that uses the **Azure ML Batch Execution activity** to retrain a model and the **Azure ML Update Resource activity** to update the model in the scoring web service. It also provides JSON snippets for all the linked services, datasets, and pipeline in the example. 
 
-Here is the diagram view of the sample pipeline. As you can see, the Azure ML Batch Execution Activity takes the training input and produces an training output (iLearner file). The Azure ML Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The noOpOutput is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
+Here is the diagram view of the sample pipeline. As you can see, the Azure ML Batch Execution Activity takes the training input and produces an training output (iLearner file). The Azure ML Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
 
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
@@ -523,7 +523,7 @@ The Azure ML Update Resource activity does not generate any output, but in Azure
 
 
 #### Pipeline
-The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces .iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The noOpOutput is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces .iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
 
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
