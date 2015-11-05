@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What’s new in the latest update to Azure Search | Microsoft Azure" 
+	pageTitle="What’s new in the latest update to Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Release notes for Azure Search describing the latest updates to the service" 
 	services="search" 
 	documentationCenter="" 

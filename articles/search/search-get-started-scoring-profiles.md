@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure" 
+	pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
