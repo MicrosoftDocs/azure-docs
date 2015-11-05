@@ -34,16 +34,16 @@ The following code snippet creates an account, obtains the newly created account
 
 ```
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
+await batchManagementClient.Accounts.CreateAsync("AccountMgmtSampleGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
+BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("AccountMgmtSampleGroup", "mynewaccount");
 AccountResource account = getResponse.Resource;
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
+await batchManagementClient.Accounts.DeleteAsync("AccountMgmtSampleGroup", account.Name);
 ```
 
 > [AZURE.NOTE] For an example of creating a fully initialized instance of a [BatchManagementClient][net_mgmt_client], please see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
@@ -135,7 +135,7 @@ Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to s
 
 1. Obtain an `AzureContext` by prompting the user for their Azure credentials using the [Microsoft.Azure.Common.Authentication][common_auth] library
 2. Create a [ResourceManagementClient][resman_client]
-3. Use the ResourceManagementClient to create a resource group
+3. Use the ResourceManagementClient to create a new resource group
 4. Use the [BatchManagementClient][net_mgmt_client] to perform a number of Batch account operations:
   - Create a new Batch account within the newly created resource group
   - Get the newly created account from the Batch service
@@ -146,6 +146,12 @@ Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to s
   - Print all accounts within the subscription
   - Delete newly created account
 5. Delete the resource group
+
+Before deleting the newly created Batch account and resource group, you can inspect both in the [Azure preview portal][azure_portal]:
+
+![Azure portal displaying resource group and Batch account][1]
+<br />
+*Azure preview portal displaying new resource group and Batch account*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
@@ -171,4 +177,4 @@ Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to s
 [resman_overview]: ../resource-group-overview.md
 [resman_goups]: ../blah.md
 
-[1]: ./media/batch-management-dotnet/image-01.png
+[1]: ./media/batch-management-dotnet/portal-01.png
