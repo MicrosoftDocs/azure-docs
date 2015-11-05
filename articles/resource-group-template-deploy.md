@@ -20,14 +20,14 @@
 
 This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Microsoft Azure preview portal.
 
-For an introduction to Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+For an introduction to Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 When deploying an application with a template, you can provide parameter values to customize how the resources are created.  You specify values for these parameters either inline or in a parameter file.
 
 
 ## Deploy with PowerShell
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
@@ -109,7 +109,7 @@ Here's a video demonstrating working with Resource Manager templates with PowerS
 
 ## Deploy with Azure CLI for Mac, Linux and Windows
 
-If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager.md).
+If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
 1. Login to your Azure account. After providing your credentials, the command returns the result of your login.
 
@@ -220,7 +220,7 @@ Simply, select the **New** icon and you will be on your way toward deploying an 
 
 ![New](./media/resource-group-template-deploy/new.png)
 
-For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).  
+For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
 
 
 ## Parameter file
@@ -246,10 +246,10 @@ If you use a parameter file to pass the parameter values to your template during
 The size of the parameter file cannot be more than 64 KB.
 
 ## Next steps
-- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../arm-template-deployment.md)
-- For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments-preview-portal.md).
-- To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../resource-group-authoring-templates.md)
-- For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../resource-group-template-functions.md)
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
+- For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- To learn about the sections of the Azure Resource Manager template, see [Authoring templates](resource-group-authoring-templates.md)
+- For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](resource-group-template-functions.md)
 
  
