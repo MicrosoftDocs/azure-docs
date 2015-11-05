@@ -44,7 +44,7 @@ The easiest way to use ES-MultiNode template is through a provided PowerShell sc
 
 Note: the `CreateElasticSearchCluster` script is designed to ease the use of the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.
 
-1. If you haven't installed it already, install [**Azure PowerSell modules**](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). When prompted, click Run, then Install.
+1. If you haven't installed it already, install [**Azure PowerSell modules**](http://go.microsoft.com/fwlink/p/?linkid=320376). When prompted, click Run, then Install.
 >[AZURE.NOTE] Azure PowerShell is undergoing a big change with the Azure PowerShell 1.0 release. CreateElasticSearchCluster is currently designed to work with Azure PowerShell 0.9.8 and does not support Azure PowerShell 1.0 Preview. An Azure PowerShell 1.0-compatible script will be provided at a later date.
 
 2. The **openssl** tool is included in the distribution of [**Git for Windows**](http://www.git-scm.com/downloads). If you have not done so already, please install [Git for Windows](http://www.git-scm.com/downloads) now (default installation options are OK).
