@@ -1,11 +1,10 @@
 <properties 
-    title="Elastic Scale Security Configurations" 
-    pageTitle="Elastic Scale Security Configurations" 
+    pageTitle="Elastic Scale Security Configurations | Microsoft Azure" 
     description="Set up x409 certificates for encryption" 
     metaKeywords="Elastic Database certificates security" 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags 
     ms.service="sql-database" 
@@ -13,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/07/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh" />
 
 # Split-Merge security configuration  
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create your first search solution using Azure Search" 
-	description="Create your first search solution using Azure Search" 
+	pageTitle="Create your first search solution using Azure Search | Microsoft Azure" 
+	description="Create your first search solution using Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Create your first search solution using Azure Search
