@@ -59,7 +59,7 @@
 
 ## Database Console Commands
 
-- [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/en-us/library/ms187762.aspx)
+- [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
 - DBCC PDW_SHOWEXECUTIONPLAN
