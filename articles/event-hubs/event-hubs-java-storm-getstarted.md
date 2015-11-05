@@ -42,7 +42,7 @@ In order to complete this tutorial you will need the following:
 
    	![][1]
 
-3. Type a name for your Even Hub, select your desired region, and then click **Create a new Event Hub**.
+3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
 
    	![][2]
 
