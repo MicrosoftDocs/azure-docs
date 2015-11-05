@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/17/2015"
+	ms.date="11/05/2015"
 	ms.author="bwren;sngun"/>
 
 # Azure Automation overview
 
 
-Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals. You can automate processes using runbooks or automate configuration management using Desired State Configuration. This article provides brief overview of Azure Automation and answers some common questions. You can refer to other articles in this library for more detailed information on the different topics. 
+Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals. You can automate processes using runbooks or automate configuration management using Desired State Configuration. This article provides brief overview of Azure Automation and answers some common questions. You can refer to other articles in this library for more detailed information on the different topics.
+
 
 ## Automating processes with runbooks
 
+A runbook is a set of tasks that perform some automated process in Azure Automation. It may be a simple process such as starting a virtual machine and creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds and on premise environments.  
 
-A runbook is a set of tasks that perform some automated process in Azure Automation. It may be a simple process such as starting a virtual machine and creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds.  
-
-For example, you might have an existing manual process for provisioning a new virtual machine that includes multiple steps such as creating the virtual machine, connecting it to a network, assigning it an IP address, and then notifying a user that it's ready. Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process. You would start the runbook, provide the required information such as the virtual machine name, IP address, and recipient e-mail and then sit back while the process completes. 
+For example, you might have an existing manual process for truncating a SQL database if it’s approaching maximum size that includes multiple steps such as connecting to the server, connecting to the database, get the current size of database, check if threshold has exceeded and then truncate it and notify user. Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process. You would start the runbook, provide the required information such as the SQL server name, database name, and recipient e-mail and then sit back while the process completes. 
 
 
 ## What can runbooks automate?
@@ -68,6 +68,8 @@ Following are just a few examples of the kinds of scenarios that you can automat
 * Create and copy virtual machines in different Azure subscriptions. 
 * Schedule file copies from a local machine to an Azure Blob Storage container. 
 * Automate security functions such as deny requests from a client when a denial of service attack is detected. 
+* Ensure machines continually align with configured security policy.
+* Manage continuous deployment of application code across cloud and on premises infrastructure. 
 * Build an Active Directory forest in Azure for your lab environment. 
 * Truncate a table in a SQL database if DB is approaching maximum size. 
 * Remotely update environment settings for an Azure website. 
@@ -86,10 +88,9 @@ A variety of resources are available for you to learn more about Azure Automatio
 
 * **Azure Automation Library** is where you are right now. The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
 * [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automating Azure operations using Windows PowerShell. Runbooks use these cmdlets to work with Azure resources. 
-* [Management Blog](http://azure.microsoft.com/blog/topics/management) provides the latest information on Azure Automation and other management technologies from Microsoft. You should subscribe to this blog to stay up to date with the latest from the Azure Automation team. 
+* [Management Blog](https://azure.microsoft.com/en-us/blog/tag/azure-automation/) provides the latest information on Azure Automation and other management technologies from Microsoft. You should subscribe to this blog to stay up to date with the latest from the Azure Automation team. 
 * [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community. 
-* [Azure Automation DSC Cmdlets](https://msdn.microsoft.com/library/mt244122.aspx) provides information for automating administration tasks. DSC configurations use these cmdlets to get configuration information from centralized server. 
-* [PowerShell DSC Resources](https://technet.microsoft.com/en-us/library/dn282125.aspx) contains Built-in as well as custom windows PowerShell DSC resources which are used to define configurations. 
+* [Azure Automation Cmdlets](https://msdn.microsoft.com/library/mt244122.aspx) provides information for automating administration tasks. It contains cmdlets to manage Automation accounts, assets, runbooks, DSC.
 
 
 ## Can I provide feedback? 
