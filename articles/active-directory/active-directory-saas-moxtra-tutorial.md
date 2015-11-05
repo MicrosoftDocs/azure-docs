@@ -177,7 +177,7 @@ Your Moxtra application expects the SAML assertions in a specific format, which 
 
 
 1. Click **Apply Changes**. 
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_83.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_84.png) <br>
 
 
 
