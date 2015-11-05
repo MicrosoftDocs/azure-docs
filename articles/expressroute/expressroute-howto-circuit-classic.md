@@ -13,15 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="11/04/2015"
    ms.author="cherylmc"/>
 
+# Create and modify an ExpressRoute circuit
 
 > [AZURE.SELECTOR]
 [PowerShell Classic](expressroute-howto-circuit-classic.md)
 [PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
-
-# Create and modify an ExpressRoute circuit
 
 This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
 
