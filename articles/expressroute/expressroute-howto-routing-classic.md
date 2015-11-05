@@ -124,9 +124,10 @@ You can update any part of the configuration using the following cmdlet. In the 
 
 You can remove your peering configuration by running the following cmdlet.
 
+>[AZURE.WARNING] You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
+
 	Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
->[AZURE.IMPORTANT] You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
 
 ## Azure public peering
 
@@ -187,7 +188,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
 
-### Get Azure public peering details
+### To get Azure public peering details
 
 You can get configuration details using the following cmdlet
 
@@ -207,7 +208,7 @@ You can get configuration details using the following cmdlet
 	VlanId                         : 200
 
 
-### Update Azure public peering configuration
+### To update Azure public peering configuration
 
 You can update any part of the configuration using the following cmdlet
 
@@ -215,7 +216,7 @@ You can update any part of the configuration using the following cmdlet
 
 The VLAN ID of the circuit is being updated from 200 to 600 in the above example.
 
-### Delete Azure public peering
+### To delete Azure public peering
 
 You can remove your peering configuration by running the following cmdlet
 
@@ -277,7 +278,7 @@ This section provides instructions on how to create, get, update and delete the 
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Get Microsoft peering details
+### To get Microsoft peering details
 
 You can get configuration details using the following cmdlet.
 
@@ -297,13 +298,13 @@ You can get configuration details using the following cmdlet.
 	VlanId                         : 300
 
 
-### Update Microsoft peering configuration
+### To update Microsoft peering configuration
 
 You can update any part of the configuration using the following cmdlet.
 
 		Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### Delete Microsoft peering
+### To delete Microsoft peering
 
 You can remove your peering configuration by running the following cmdlet.
 
@@ -311,7 +312,9 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
--  Next, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md).
+Next, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md).
+
+
 -  For more information about workflows, see [ExpressRoute workflows](expressroute-workflows.md).
 -  For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 

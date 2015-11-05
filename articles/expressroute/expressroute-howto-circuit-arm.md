@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the ARM deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
+This article walks you through the steps to create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. The steps below will also show you how to check the status, update, or delete and deprovision an ExpressRoute circuit. 
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
