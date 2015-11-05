@@ -20,7 +20,7 @@
 
 With Azure Resource Manager, you can make sure the users in your organization have the appropriate permissions to manage or access resources. Resource Manager takes advantage of role-based access control (RBAC) so you can easily apply security policies to individual resources or resource groups. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but no other resources.
 
-This topic focuses on the commands you use to assign roles and permissions. For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
+This topic focuses on the commands you use to assign roles and permissions. For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](active-directory/role-based-access-control-configure.md).
 
 ## Concepts
 
@@ -59,7 +59,7 @@ In this topic, you will see how to perform the following common scenarios throug
 
 ## How to use PowerShell to manage access
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
 
 ### View available roles
@@ -122,7 +122,7 @@ To view all available roles for your subscription run the **Get-AzureRmRoleDefin
 
         PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
-For a more thorough explanation of setting up an Azure Active Directory application and a service principal, see [Authenticating a Service Principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
+For a more thorough explanation of setting up an Azure Active Directory application and a service principal, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ###Grant Owner permissions to a user for a resource.
 1. Review the **Owner** role definition by providing the role name when running the **Get-AzureRmRoleDefinition** command. Check that the allowed actions are what you intend to assign.
@@ -141,7 +141,7 @@ To get the auditing log for a resource group, run the **Get-AzureRmLog** command
 
 ## How to use Azure CLI for Mac, Linux and Windows
 
-If you do not have Azure CLI for Mac, Linux and Windows installed or you have not configured your organizational account for use with Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
+If you do not have Azure CLI for Mac, Linux and Windows installed or you have not configured your organizational account for use with Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md).
 
 1. Login to your Azure account with your credentials. The command returns the result of your login.
 
@@ -263,9 +263,9 @@ Create the role assignment.
 
 ## Next steps
 
-- To learn more about role-based access control, see [Role-based access control in the Microsoft Azure portal](../role-based-access-control-configure.md).
-- To learn more about working with service principals to manage access for applications in your subscription, see [Authenticating a Service Principal through Azure Resource Manager](../resource-group-authenticate-service-principal.md) and [Create a new Azure Service Principal using the Azure classic portal](../resource-group-create-service-principal-portal.md).
-- To learn more about auditing operations in your organization, see [Audit operations with Resource Manager](../resource-group-audit.md).
-- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](../resource-manager-policy.md).
+- To learn more about role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md).
+- To learn more about working with service principals to manage access for applications in your subscription, see [Authenticating a Service Principal through Azure Resource Manager](resource-group-authenticate-service-principal.md) and [Create a new Azure Service Principal using the Azure classic portal](../resource-group-create-service-principal-portal.md).
+- To learn more about auditing operations in your organization, see [Audit operations with Resource Manager](resource-group-audit.md).
+- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
  
