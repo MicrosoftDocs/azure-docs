@@ -165,7 +165,7 @@ Your Moxtra application expects the SAML assertions in a specific format, which 
     | ---            | ---             |
     | firstname      | givenname       |
     | lastname       | surname         |
-    | idpid          | https://sts.windows-ppe.net/6247032d-9415-403c-b72b-277e3fb6f2c8/ |
+    | idpid          | *\<the **Entity ID** value from the **Configure single sign-on at Moxtra** dialog in the Azure portal \>* |
 
  
     a. Click add user attribute <br><br>![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_81.png) <br>
