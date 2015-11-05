@@ -1,6 +1,6 @@
 <properties
  pageTitle="Run OpenFOAM with HPC Pack on Linux VMs | Microsoft Azure"
- description="Deploy a Microsoft HPC Pack cluster on Azure and run an OpenFOAM on multiple Linux compute nodes across an RDMA network."
+ description="Deploy a Microsoft HPC Pack cluster on Azure and run an OpenFOAM job on multiple Linux compute nodes across an RDMA network."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/03/2015"
+ ms.date="11/05/2015"
  ms.author="danlep"/>
 
 # Run OpenFoam with Microsoft HPC Pack on a Linux RDMA network in Azure
@@ -34,7 +34,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
     Following is a sample XML configuration file to use with the script to deploy an Azure-based HPC Pack cluster consisting of one size A8 Windows Server 2012 R2 head node and 2 size A8 SUSE Linux Enterprise Server 12 compute nodes. Substitute appropriate values for your subscription and service names.
 
-    >[AZURE.NOTE]Currently Linux RDMA networking in Azure is supported only on VMs created from the RDMA-enabled SUSE Linux Enterprise Server 12 image in the Azure Marketplace (b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708).
+    >[AZURE.NOTE]Currently, Linux RDMA networking in Azure is supported only on VMs created from the RDMA-enabled SUSE Linux Enterprise Server 12 image in the Azure Marketplace (b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708).
 
     ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -84,9 +84,9 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
         
    *  Install gcc on each Linux node using the following command.
         ```
-        sudo zypper install gcc
+       sudo zypper install gcc
         ```
-s
+
 *   **Intel MPI** - To run OpenFOAM on Linux compute nodes in Azure, you need the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). In a later step, you'll install Intel MPI on your Linux compute notes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
 *   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://www.openfoam.org/download/source.php). This article is based on Source Pack version 3.0.0, available for download as OpenFOAM-3.0.0.tgz. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
