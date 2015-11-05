@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure"
+	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure | Hosted cloud search service"
 	description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
 	services="search"
 	documentationCenter=""
