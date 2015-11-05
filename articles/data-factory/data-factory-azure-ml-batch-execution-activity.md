@@ -370,6 +370,11 @@ The following scenario provides more details on these steps.
 ### Scenario: retraining and updating an Azure ML model
 This section provides a sample pipeline that uses the Azure ML Batch Execution activity to retrain a model and the Azure ML Update Resource activity to update the model in the scoring web service. It also provides JSON snippets for all the linked services, datasets, and pipeline in the example. 
 
+Here is the diagram view of the sample pipeline. As you can see, the Azure ML Batch Execution Activity takes the training input and produces an training output (iLearner file). The Azure ML Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The noOpOutput is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
+
+![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+
+
 #### Azure Blob storage linked service:
 The Azure Storage holds the following data:
 
