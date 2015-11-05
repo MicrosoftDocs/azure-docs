@@ -50,7 +50,7 @@ You can choose which standard data collectors you want to use (for example to mo
 
 2. Install the Application Insights Windows Server package: Microsoft.ApplicationInsights.WindowsServer
 
-    ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
+    ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-ai-nuget.png)
 
     *Can I use other packages?*
 
