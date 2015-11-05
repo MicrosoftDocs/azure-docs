@@ -116,7 +116,7 @@
 
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse development overview][].
+For more TSQL examples, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
 
