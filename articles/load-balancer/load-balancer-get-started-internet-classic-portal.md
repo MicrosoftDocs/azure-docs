@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/23/2015"
+   ms.date="11/05/2015"
    ms.author="joaoma" />
 
 # Get started creating Internet facing load balancer (classic) in the Azure portal
