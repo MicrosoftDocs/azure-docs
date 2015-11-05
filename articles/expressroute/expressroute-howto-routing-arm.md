@@ -26,7 +26,6 @@ This article walks you through the steps to create and manage routing configurat
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
-
 ## Configuration prerequisites
 
 - You will need the latest version of the Azure PowerShell modules, version 1.0 or later. 
@@ -41,7 +40,7 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 
 This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
 
-### Create Azure private peering
+### To create Azure private peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
@@ -161,7 +160,7 @@ You can remove your peering configuration by running the following cmdlet.
 
 This section provides instructions on how to create, get, update and delete the Azure public peering configuration for an ExpressRoute circuit.
 
-### Create Azure public peering
+### To create Azure public peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
@@ -278,7 +277,7 @@ You can remove your peering configuration by running the following cmdlet
 
 This section provides instructions on how to create, get, update and delete the Microsoft peering configuration for an ExpressRoute circuit. 
 
-### Create Microsoft peering
+### To create Microsoft peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
@@ -393,5 +392,5 @@ Next step, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-
 
 -  For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
--  For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks.overview.md).
+-  For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks-overview.md).
 

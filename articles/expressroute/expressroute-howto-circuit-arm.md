@@ -31,7 +31,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 - You will need the latest version of the Azure PowerShell modules, version 1.0 or later. Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [Prerequisites](expressroute-prerequisites.md) page and the [Workflows](expressroute-workflows.md) page before you begin configuration.
 
-## Create and provision an ExpressRoute circuit
+## To create and provision an ExpressRoute circuit
 
 1. **Import the PowerShell module for ExpressRoute.**
 
@@ -222,7 +222,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-arm.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
 
-##  How to get the status of an ExpressRoute circuit
+##  To get the status of an ExpressRoute circuit
 
 You can retrieve this information at any time using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call without any parameters will list all circuits. 
 
@@ -282,7 +282,7 @@ You can get detailed descriptions of all the parameters by running the following
 
 		get-help get-azurededicatedcircuit -detailed 
 
-##  Modifying an ExpressRoute circuit
+## To modify an ExpressRoute circuit
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity. 
 
@@ -342,7 +342,7 @@ Your circuit will have been sized up on the Microsoft side. You must contact you
 
 >[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
 
-##  Deleting and deprovisioning an ExpressRoute circuit
+## To delete and deprovision an ExpressRoute circuit
 
 You can delete your ExpressRoute circuit by running the following command:
 

@@ -40,7 +40,7 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 
 This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
 
-### Create Azure private peering
+### To create Azure private peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
@@ -94,7 +94,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN, not customer ASN.
 
-### Get Azure private peering details
+### To get Azure private peering details
 
 You can get configuration details using the following cmdlet
 
@@ -114,13 +114,13 @@ You can get configuration details using the following cmdlet
 	VlanId                         : 100
 
 
-### Update Azure private peering configuration
+### To update Azure private peering configuration
 
 You can update any part of the configuration using the following cmdlet. In the example below, the VLAN ID of the circuit is being updated from 100 to 500.
 
 	Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 
-### Delete Azure private peering
+### To delete Azure private peering
 
 You can remove your peering configuration by running the following cmdlet.
 
@@ -133,7 +133,7 @@ You can remove your peering configuration by running the following cmdlet.
 
 This section provides instructions on how to create, get, update and delete the Azure public peering configuration for an ExpressRoute circuit.
 
-### Create Azure public peering
+### To create Azure public peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
@@ -226,7 +226,7 @@ You can remove your peering configuration by running the following cmdlet
 
 This section provides instructions on how to create, get, update and delete the Microsoft peering configuration for an ExpressRoute circuit. 
 
-### Create Microsoft peering
+### To create Microsoft peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
