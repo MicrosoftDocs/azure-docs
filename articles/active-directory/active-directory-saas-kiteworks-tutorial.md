@@ -211,9 +211,10 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 ### Creating a Kiteworks test user
 
 The objective of this section is to create a user called Britta Simon in Kiteworks.
-Kiteworks supports just-in-time provisioning. You have already enabled it in [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
+Kiteworks supports just-in-time provisioning, which is by default enabled.
 
 There is no action item for you in this section.
+A new user will be created during an attempt to access Kitewors if it doesn't exist yet.
 
 > [AZURE.NOTE] If you need to create an user manually, you need to contact the Kiteworks support team.
 
