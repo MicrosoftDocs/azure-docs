@@ -82,12 +82,12 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 |[Standard_A0 (Extra Small)](#standard-tier-a-series)	|50.0 |
 |[Standard_A1-4 (Small – Large)] (#standard-tier-a-series)	|100.0 |
 |[Standard_A5-7](#standard-tier-a-series)	|100.0 |
-|A8-A11	|225.0 |
-|D1-14	|160.0 |
-|D1-14v2	|212.5 |
-|DS1-14	|160.0 |
-|G1-5	|187.5 |
-|GS1-5	|187.5 |
+|[A8-A11](#standard-tier-a-series)	|225.0 |
+|[D1-14](#standard-tier-d-series)	|160.0 |
+|[D1-14v2](#standard-tier-dv2-series)	|212.5 |
+|[DS1-14](#standard-tier-ds-series)	|160.0 |
+|[G1-5](#standard-tier-g-series)	|187.5 |
+|[GS1-5](#standard-tier-gs-series)	|187.5 |
 
 
 ## General limits
