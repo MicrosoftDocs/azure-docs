@@ -28,18 +28,18 @@ With the [Batch Management .NET][api_mgmt_net] library, you can add Batch accoun
 
 ## Create and delete Batch accounts
 
-As mentioned above, one of the primary features of the Batch Management API is to create and delete Batch accounts within an Azure region. To do so, you will use [BatchManagementClient.Accounts.CreateAsync][net_create] and [DeleteAsync][net_delete], or their synchronous counterparts (use of asynchronous methods is always recommended).
+As mentioned above, one of the primary features of the Batch Management API is to create and delete Batch accounts within an Azure region. To do so, you will use [BatchManagementClient.Accounts.CreateAsync][net_create] and [DeleteAsync][net_delete], or their synchronous counterparts.
 
 The following code snippet creates an account, obtains the newly created account from the Batch service, then deletes it. In this and the other snippets in this article, `batchManagementClient` is a fully initialized instance of [BatchManagementClient][net_mgmt_client].
 
 ```
 // Create a new Batch account
 await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
-	"MyNewAccount",
+	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "MyNewAccount");
+BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
 AccountResource account = getResponse.Resource;
 
 // Delete the account
@@ -54,14 +54,14 @@ Obtain primary and secondary account keys from any Batch account within your sub
 
 ```
 // Get and print the primary and secondary keys
-BatchAccountListKeyResponse accountKeys = await batchManagementClient.Accounts.ListKeysAsync("MyResourceGroup", "MyBatchAccount");
+BatchAccountListKeyResponse accountKeys = await batchManagementClient.Accounts.ListKeysAsync("MyResourceGroup", "mybatchaccount");
 Console.WriteLine("Primary key:   {0}", accountKeys.PrimaryKey);
 Console.WriteLine("Secondary key: {0}", accountKeys.SecondaryKey);
 
 // Regenerate the primary key
 BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts.RegenerateKeyAsync(
 	"MyResourceGroup",
-	"MyBatchAccount",
+	"mybatchaccount",
 	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
 ```
 
@@ -100,11 +100,11 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 
 ### Check a Batch account for compute resource quotas
 
-Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources you intend to allocate will not eclipse account quotas that are currently in place. In the code snippet below we print the quota information for the Batch account named `MyBatchAccount`, but in your own application, you could use such information to determine whether the account can handle the additional resources you wish to create.
+Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources you intend to allocate will not eclipse account quotas that are currently in place. In the code snippet below we print the quota information for the Batch account named `mybatchaccount`, but in your own application, you could use such information to determine whether the account can handle the additional resources you wish to create.
 
 ```
 // First obtain the Batch account
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "MyBatchAccount");
+BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
