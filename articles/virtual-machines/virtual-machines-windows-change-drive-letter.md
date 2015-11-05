@@ -17,7 +17,7 @@
 	ms.date="11/03/2015"
 	ms.author="cynthn"/>
 
-# Use the D: drive as a data drive on Windows VM 
+# Use the D drive as a data drive on a Windows VM 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
