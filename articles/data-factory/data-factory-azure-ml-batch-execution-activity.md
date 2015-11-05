@@ -515,7 +515,10 @@ The Azure ML Update Resource activity does not generate any output, but in Azure
 
 
 #### Pipeline
-The pipeline has two activities: AzureMLBatchExecution and AzureMLUpdateResource. The Azure ML Batch Execution activity takes the training data as input and produces .iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. 
+The pipeline has two activities: AzureMLBatchExecution and AzureMLUpdateResource. The Azure ML Batch Execution activity takes the training data as input and produces .iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The noOpOutput is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline. 
+
+![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+
 
 	{
 	    "name": "pipeline",
