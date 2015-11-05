@@ -16,7 +16,7 @@
    ms.date="11/02/2015"
    ms.author="karolz@microsoft.com"/>
 
-# Using ElasticSearch as Service Fabric application trace store
+# Using ElasticSearch as a Service Fabric application trace store
 ## Introduction
 This article describes how [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) applications can use **ElasticSearch** and **Kibana** for application trace storage, indexing and search. [ElasticSearch](https://www.elastic.co/guide/index.html) is an open-source, distributed and scalable real-time search and analytics engine that is well suited for this task and can be installed on Windows or Linux virtual machines running in Microsoft Azure. ElasticSearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
