@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="10/01/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
-This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
+Azure Search is a hosted cloud search service on Microsoft Azure. This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
 - [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) is an implementation of the [Lucene Query Parser](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), which you can specify using queryType parameter in [Search operations](#SearchDocs).
 - `moreLikeThis` is a a query queparameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get started with Azure Search in Java | Microsoft Azure"
-	description="How to build a custom Azure Search application using Java as your programming language."
+	description="How to build a hosted cloud search application on Azure using Java as your programming language."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Get started with Azure Search in Java
