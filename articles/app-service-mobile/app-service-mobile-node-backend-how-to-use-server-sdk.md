@@ -480,6 +480,37 @@ a [QueryJS] object that is used to convert an OData query to something that the 
 context.query.where('myfield eq ?', 'value');
 ```
 
+## HOWTO: Configure Soft Delete on a table
+
+Soft Delete does not actually delete records.  Instead it marks them as deleted within the database by setting the deleted column to true.
+Azure Mobile Apps SDK automatically discludes soft-deleted records from showing up unless the Mobile Client SDK uses IncludeDeleted().  To
+configure a table for soft delete, set the softDelete property in the table definition file.  An example might be:
+
+```
+var azureMobileApps = require('azure-mobile-apps');
+
+var table = azureMobileApps.table();
+
+// Define the columns within the table
+table.columns = {
+	"text": "string",
+	"complete": "boolean"
+};
+
+// Turn off dynamic schema
+table.dynamicSchema = false;
+
+// Turn on Soft Delete
+table.softDelete = true;
+
+// Require authentication to access the table
+table.access = 'authenticated';
+
+module.exports = table;
+```
+
+You will need to establish a mechanism for purging records - either from a client application, via a WebJob or through a custom mechanism.
+
 ## HOWTO: Seed your database with data
 
 When creating a new application, you may wish to seed a table with data.  This can be done within the table definition JavaScript file as
