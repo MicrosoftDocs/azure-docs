@@ -100,10 +100,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to UserEcho** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_04.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png) <br>
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your UserEcho application (e.g.: *https://fabrikam.UserEcho.com/*).
 
@@ -111,7 +111,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
  
  
 4. On the **Configure single sign-on at UserEcho** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_05.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_05.png) <br>
 
     a. Click **Download certificate**, and then save the file on your computer.
 
@@ -121,18 +121,18 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 1. In another browser window, sign on to your UserEcho company site as an administrator.
 
 1. In the toolbar on the top, click your user name to expand the menu, and then click **Setup**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_06.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
 1. Click **Integrations**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_07.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) <br>
 
 
 1. Click **Website**, and then click **Single sign-on (SAML2)**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_08.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) <br>
 
 
 1. On the **Single sign-on (SAML)** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_09.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_09.png) <br>
 
     a. As **SAML-enabled**, select **Yes**. 
 
@@ -161,18 +161,18 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_09.png) <br> 
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png) <br> 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png) <br>
  
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png) <br>
 
 5. On the **Tell us about this user** dialog page, perform the following steps: 
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_05.png) <br> 
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png) <br> 
 
     a. As Type Of User, select New user in your organization.
 
@@ -181,7 +181,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps: 
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_06.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_06.png) <br>
  
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -193,10 +193,10 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png) <br>
  
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-UserEcho-tutorial/create_aaduser_08.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png) <br>
   
     a. Write down the value of the **New Password**.
 
@@ -213,20 +213,20 @@ The objective of this section is to create a user called Britta Simon in UserEch
 1. Sign-on to your UserEcho company site as an administrator.
 
 1. In the toolbar on the top, click your user name to expand the menu, and then click **Setup**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_userecho_06.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) <br>
 
 1. Click **Users**, to expand the **Users** section.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_userecho_10.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png) <br>
 
 1. Click **Users**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_userecho_11.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png) <br>
 
 1. Click **Invite a new user**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_userecho_12.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_12.png) <br>
 
 
 1. On the **Invite a new user** dialog, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_userecho_13.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png) <br>
 
     a. In the **Name** textbox, type **Britta Simon**.
 
@@ -249,7 +249,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **UserEcho**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-UserEcho-tutorial/tutorial_UserEcho_50.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png) <br>
 
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
@@ -275,21 +275,21 @@ When you click the UserEcho tile in the Access Panel, you should get automatical
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_100.png
+[6]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_05.png
+[10]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_07.png
+[20]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_201.png
-[203]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-UserEcho-tutorial/tutorial_general_205.png
+[200]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
 
 
