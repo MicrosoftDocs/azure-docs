@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic mode using the Azure portal | Microsoft Azure"
-   description="Learn how to create an Internet facing load balancer in classic mode using the Azure portal"
+   pageTitle="Get started creating Internet facing load balancer in classic deployment model using the Azure portal | Microsoft Azure"
+   description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure portal"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
