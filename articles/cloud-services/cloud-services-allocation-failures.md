@@ -43,43 +43,43 @@ You may see the following error message:
 ### Common Issues
 Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.
 
-	- Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail. 
+- Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail. 
  
-	- Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail. 
+- Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail. 
 	
-	- Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail. 
+- Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail. 
 	
-	-Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail. 
+-Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail. 
 
 ## Solutions
 
-	1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
+1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
 	
-		- Deploy the workload to a new cloud service  
+	- Deploy the workload to a new cloud service  
 	
-		- Update the CNAME or A record to point traffic to the new cloud service
+	- Update the CNAME or A record to point traffic to the new cloud service
 		
-		- Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
+	- Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
 
-	2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application. 
+2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application. 
 	
-		- Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then 
+	- Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then 
 	
-		- Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group. 
+	- Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group. 
 
-	3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
+3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
 	
-		- Create a ReservedIP from their existing deployment using Powershell 
+	- Create a ReservedIP from their existing deployment using Powershell 
 
-		```
-		New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
-		```
+	```
+	New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
+	```
 		
-		- Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
+	- Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 
-	4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group. 
+4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group. 
 
-	5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
 
 ## Additional resources
 ### Contact Azure Customer Support
