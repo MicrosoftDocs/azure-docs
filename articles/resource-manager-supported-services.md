@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/21/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -100,8 +100,9 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
+| CDN | Yes (preview) | No |  |  |  |
 | Media Service | No | No |  |  |  |
-| CDN | No | No |  |  |  |
+
 
 ## Hybrid Integration
 
@@ -145,7 +146,7 @@ When deploying resources, you typically need to specify a region for the resourc
 may be limitations on your subscription which prevent you from using some regions that support the resource. These limitations may be related to tax issues for your home country, or the result of a policy placed 
 by your subscription administrator to use only certain regions. 
 
-Before deploying your resources, check the supported regions for your resource type by running one of the following commands.
+For a complete list of all supported regions for all Azure services, see [Services by region](https://azure.microsoft.com/regions/#services); however, this list may include regions that your subscription does not support. You can determine the regions for a particular resource type that your subscription supports by running one of the following commands.
 
 ### REST API
 
@@ -239,4 +240,4 @@ You can open the file and find the **apiVersions** element
 ## Next steps
 
 - To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-- To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](./azure-portal/resource-group-template-deploy.md).
+- To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).

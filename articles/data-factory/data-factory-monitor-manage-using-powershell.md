@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Azure PowerShell
@@ -27,7 +27,11 @@
 The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Preview Portal][azure-preview-portal]. 
 In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial copies data from an Azure blob to an Azure SQL database.       
 
-> [AZURE.NOTE] This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
+> [AZURE.NOTE] This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
+>  
+>  If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
+
+
 
 ##Prerequisites
 Apart from prerequisites listed in the Tutorial Overview topic, you need to have Azure PowerShell installed on your computer. If you do not have it already, download and install [Azure PowerShell][download-azure-powershell] on your computer.
@@ -130,7 +134,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 ## <a name="CreateInputAndOutputDataSets"></a>Step 3: Create input and output tables
 
-In the previous step, you created linked services **StorageLinkedService** and **AzureSqlLinkedService** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactoryPSH**. In this step, you will create tables that represent the input and output data for the Copy Activity in the pipeline you will be creating in the next step. 
+In the previous step, you created linked services **StorageLinkedService** and **AzureSqlLinkedService** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactoryPSH**. In this step, you will create datasets that represent the input and output data for the Copy Activity in the pipeline you will be creating in the next step. 
 
 A table is a rectangular dataset and it is the only type of dataset that is supported at this time. The input table in this tutorial refers to a blob container in the Azure Storage that StorageLinkedService points to and the output table refers to a SQL table in the Azure SQL database that AzureSqlLinkedService points to.  
 
@@ -254,7 +258,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
 			      }
 			    ],
 			    "type": "AzureSqlTable",
-			    "linkedServiceName": "AzureSqlLinkedService1",
+			    "linkedServiceName": "AzureSqlLinkedService",
 			    "typeProperties": {
 			      "tableName": "emp"
 			    },
@@ -355,7 +359,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
  
 2.	Run **Get-AzureDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.  
 
-		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
 	Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This should match the **Start** value in the pipeline JSON. 
 
@@ -387,7 +391,7 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 3.	Run **Get-AzureDataFactoryRun** to get the details of activity runs for a **specific** slice. Change the value of the **StartDateTime** parameter to match the **Start** time of the slice from the output above. The value of the **StartDateTime** must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-03-03T22:00:00Z.
 
-		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
 	You should see output similar to the following:
 
