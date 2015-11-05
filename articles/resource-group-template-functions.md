@@ -547,5 +547,5 @@ Returns the value of variable. The specified variable name must be defined in th
 - For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
 - To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
 - To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
-- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
 
