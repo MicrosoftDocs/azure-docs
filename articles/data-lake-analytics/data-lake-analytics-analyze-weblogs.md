@@ -129,6 +129,8 @@ You can add addition user-defined operators to the application.  For more inform
                 s_timetaken int
             FROM @"/Samples/Data/WebLog.log"
             USING Extractors.Text(delimiter:' ');
+		    RETURN;
+		END;
         
         // Create a table for storing referrers and status 
         DROP TABLE IF EXISTS SampleDBTutorials.dbo.ReferrersPerDay;
@@ -151,6 +153,10 @@ You can add addition user-defined operators to the application.  For more inform
                 cs_referer, 
                 sc_status;
         
+    To understand the U-SQL, see [Get started with Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).    
+       
+5. Add a new U-SQL script to your project and enter the following:
+
         // Query the referrers that ran into errors
         @content =
             SELECT *
@@ -161,17 +167,19 @@ You can add addition user-defined operators to the application.  For more inform
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
 
-    To understand the U-SQL, see [Get started with Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).    
-       
-5. Next to the **Submit** button, specify your Analytics account.
-5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the results in the Output pane.
-6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
-7. Verify the **Analytics Account** is the one where you want to run the job, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
-8. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Switch back to the first U-SQL script and next to the **Submit** button, specify your Analytics account.
+7. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the results in the Output pane.
+8. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
+9. Verify the **Analytics Account** is the one where you want to run the job, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
+10. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
     When the job is completed, you shall see the following screen:
     
     ![data lake analytics analyze weblogs website logs](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
+
+11. Now repeat steps 7- 10 for **Script1.usql**.
+
+>[AZURE.NOTE]You can't read from or write to a U-SQL table that has been created or modified in the same script.  That's why use use two scripts for this example.
 
 **To see the job output**
 
