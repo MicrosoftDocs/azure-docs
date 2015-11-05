@@ -113,7 +113,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure preview portal][azure_portal]. For example, please see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
+> [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal][azure_portal]. For example, please see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 
 ## Batch Management .NET, Azure Active Directory, and the Resource Manager
 
@@ -127,7 +127,7 @@ In the sample project discussed below, the [Microsoft.Azure.Common.Authenticatio
 
 ### Resource Manager
 
-When creating Batch accounts with the Batch Management .NET library, you will typically be creating them within a [Resource Group][resman_overview]. You can create the resource group programmatically using the [ResourceManagementClient][resman_client] found within the [Resource Manager .NET][resman_api] library, or you can add an account to an existing resource group you've created previously using the [Azure preview portal][azure_portal].
+When creating Batch accounts with the Batch Management .NET library, you will typically be creating them within a [Resource Group][resman_overview]. You can create the resource group programmatically using the [ResourceManagementClient][resman_client] found within the [Resource Manager .NET][resman_api] library, or you can add an account to an existing resource group you've created previously using the [Azure portal][azure_portal].
 
 ## Sample project on GitHub
 
@@ -147,11 +147,11 @@ Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to s
   - Delete newly created account
 5. Delete the resource group
 
-Before deleting the newly created Batch account and resource group, you can inspect both in the [Azure preview portal][azure_portal]:
+Before deleting the newly created Batch account and resource group, you can inspect both in the [Azure portal][azure_portal]:
 
 ![Azure portal displaying resource group and Batch account][1]
 <br />
-*Azure preview portal displaying new resource group and Batch account*
+*Azure portal displaying new resource group and Batch account*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
