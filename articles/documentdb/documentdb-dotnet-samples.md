@@ -36,7 +36,7 @@ Sample projects that perform common operations on DocumentDB resources are inclu
 
 The database sample file, [azure-documentdb-net/samples/code-samples/DatabaseManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create a database | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync(Microsoft.Azure.Documents.Database,Microsoft.Azure.Documents.Client.RequestOptions)
 Query account for a database | [DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx)
@@ -47,7 +47,7 @@ Delete a database | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.
 
 The collection sample file,[azure-documentdb-net/samples/code-samples/CollectionManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create a collection | [DocumentClient.CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx)
 Set the indexing policy | [IndexingPolicy.Automatic](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx?f=255&MSPPError=-2147217396)
@@ -62,7 +62,7 @@ Delete a collection | [DocumentClient.DeleteDocumentCollectionAsync](https://msd
 
 The document sample file, [azure-documentdb-net/samples/code-samples/DocumentManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create documents (SEE IF I CAN DO NEW LINE) and insert them into a collection using plain old clr objects (POCOs), dynamic objects, streams, or document extensions | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)
 Query for documents | [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) 
@@ -77,7 +77,7 @@ The indexing sample file, [azure-documentdb-net/samples/code-samples/IndexManage
 
 As a reminder, the default indexing policy sets [IndexingPolicy.Automatic](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx) to **True** by default.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create a collection with default indexing | [DocumentClient.CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx?f=255&MSPPError=-2147217396)
 Manually indexing a specific document | [IndexingDirective.Include](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx)
@@ -94,7 +94,7 @@ TODO: ASK ARAVIND TO COMPLETE
 
 The partitioning sample file, [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Partitioning/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Use a HashPartitionResolver | [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx)
 Use a RangePartitionResolver | [Range](https://msdn.microsoft.com/library/azure/mt126048.aspx) used with a [RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx)
@@ -108,7 +108,7 @@ TODO: ASK ARAVIND TO COMPLETE
 
 The geospatial sample file, [azure-documentdb-net/samples/code-samples/Queries.Spatial/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries.Spatial/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Enable geospatial indexing on a collection | [DocumentCollection]() with IndexingPolicy set to IndexingPolicyWithSpatialEnabled
 Insert documents with GeoJSON spatial data | [CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) where the object parameter contains the GeoJSON longitude and latitude, using the WGS-84 coordinate reference standard
@@ -124,7 +124,7 @@ TODO: ASK ARAVIND ABOUT THIS
 
 The javascript query sample file, [azure-documentdb-net/samples/code-samples/Queries.JavaScript/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries.JavaScript/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create and execute a stored procedure. | [DocumentQueryable.CreateStoredProcedureQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createstoredprocedurequery.aspx)
 Execute a stored procedure  | [DocumentClient.ExecuteStoredProcedureAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.executestoredprocedureasync.aspx)
@@ -136,7 +136,7 @@ TODO: ASK ARAVIND TO BREAK INTO SEPARATE PARTS
 
 The Order By sample file, [azure-documentdb-net/samples/code-samples/Queries.OrderBy/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries.OrderBy/Program.cs), shows how to do the following tasks. 
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create a collection with the required indexing policies to support Order By on any numeric or string property | [DocumentCollection](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx) where the [IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy) of the collection has an [IncludedPath.Indexes](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.includedpath.indexes.aspx#P:Microsoft.Azure.Documents.IncludedPath.Indexes) property that contains a [RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) of DataType.String and a **RangeIndex** of DataType.Number, with a precision of -1 for maximum precision
 
@@ -147,7 +147,7 @@ For more information about Order by, see [Sorting DocumentDB data using Order By
 
 The query document file, [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs), shows how to do each of the following tasks using the SQL query grammar, the LINQ provider with query, and with Lambda.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Querying for all documents | [CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx#M:Microsoft.Azure.Documents.Linq.DocumentQueryable.CreateDocumentQuery%28Microsoft.Azure.Documents.Client.DocumentClient,System.String,Microsoft.Azure.Documents.Client.FeedOptions,System.Object%29)
 Querying for equality using == | [CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx#M:Microsoft.Azure.Documents.Linq.DocumentQueryable.CreateDocumentQuery%28Microsoft.Azure.Documents.Client.DocumentClient,System.String,Microsoft.Azure.Documents.SqlQuerySpec,Microsoft.Azure.Documents.Client.FeedOptions,System.Object%29)  
@@ -168,7 +168,7 @@ For more information about writing queries, see (SQL query within DocumentDB)[do
 
 The server-side programming file, [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create a stored procedure | [DocumentClient.CreateStoredProcedureAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createstoredprocedureasync.aspx)
 Execute a stored procedure | [DocumentClient.ExecuteStoredProcedureAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.executestoredprocedureasync.aspx)
@@ -184,7 +184,7 @@ For more information about server-side programming, see [DocumentDB server-side 
 
 The user management file, [azure-documentdb-net/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs), shows how to do the following tasks.
 
-Task | API reference
+Task with link to snippet | API reference
 --- | ---
 Create a user | [CreateUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserasync.aspx)
 Set permissions on a collection or document | [CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
