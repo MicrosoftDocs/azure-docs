@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="mwinkle"/>
 
 # Azure Data Lake Analytics Documentation Backlog
