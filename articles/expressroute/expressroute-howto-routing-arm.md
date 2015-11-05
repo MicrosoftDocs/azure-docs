@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the ARM deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
+This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
@@ -150,10 +150,12 @@ You can update any part of the configuration using the following cmdlet. In the 
 
 You can remove your peering configuration by running the following cmdlet.
 
+>[AZURE.WARNING] You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
+
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
->[AZURE.IMPORTANT] You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
+
 
 ## Azure public peering
 
@@ -385,11 +387,11 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
--  Next, you should [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
+Next step, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
 
 -  For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
 
 -  For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
--  For more information about working with virtual networks, see [Virtual network overview](../virtual-networks/virtual-networks.overview.md).
+-  For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks.overview.md).
 
