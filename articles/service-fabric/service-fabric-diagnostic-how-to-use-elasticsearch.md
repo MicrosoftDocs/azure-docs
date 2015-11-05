@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Using ElasticSearch as a Service Fabric Application Trace Store | Microsoft Azure"
+   pageTitle="Using ElasticSearch as a Service Fabric application trace store | Microsoft Azure"
    description="Describes how Service Fabric applications can use ElasticSearch and Kibana to store, index and search through application traces (logs)"
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="11/02/2015"
    ms.author="karolz@microsoft.com"/>
 
-# Using ElasticSearch as Service Fabric Application Trace Store
+# Using ElasticSearch as Service Fabric application trace store
 
 This article describes how [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) applications can use **ElasticSearch** and **Kibana** for application trace storage, indexing and search. [ElasticSearch](https://www.elastic.co/guide/index.html) is an open-source, distributed and scalable real-time search and analytics engine that is well suited for this task and can be installed on Windows or Linux virtual machines running in Microsoft Azure. ElasticSearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
@@ -39,7 +39,7 @@ The most straightforward way to set up ElasticSearch service on Azure is through
 In this article we will use another template called **ES-MultiNode** from the [Microsoft Patterns & Practices ELK branch](https://github.com/mspnp/semantic-logging/tree/elk/). This template is somewhat easier to use and creates an ElasticSearch cluster protected by HTTP basic authentication by default. Before proceeding please download the [Microsoft P&P "elk" repo](https://github.com/mspnp/semantic-logging/tree/elk/) from GitHub to your machine (either by cloning the repo or downloading a ZIP file). The ES-MultiNode template is located in the folder with the same name.
 >[AZURE.NOTE] ES-MultiNode template and associated scripts currently support ElasticSearch 1.7 release. Support for ElasticSearch 2.0 will be added at a latter date.
 
-#### Preparing a machine to run ElasticSearch installation scripts
+### Preparing a machine to run ElasticSearch installation scripts
 The easiest way to use ES-MultiNode template is through a provided PowerShell script called `CreateElasticSearchCluster`. To use this script you need to install Azure PowerShell modules and a tool called openssl. The latter is needed for creating an SSH key that can be used to administer your ElasticSearch cluster remotely.
 
 Note: the `CreateElasticSearchCluster` script is designed to ease the use of the ES-MultiNode template from a Windows machine. It is possible to use the template on a non-Windows machine, but that scenario is beyond the scope of this article.
@@ -62,7 +62,7 @@ Note: the `CreateElasticSearchCluster` script is designed to ease the use of the
 
 5. If you haven't done so already, change the current directory to the ES-MultiNode folder.
 
-#### Running CreateElasticSearchCluster Script
+### Running CreateElasticSearchCluster script
 Before running the script, open the `azuredeploy-parameters.json` file and verify or provide values for script parameters. The following parameters are provided:
 
 |Parameter Name           |Description|
@@ -86,7 +86,7 @@ Where `<es-group-name>` is the name of the Azure resource group that will contai
 
 If you get an error from running the script and you determine that the error was caused by a wrong template parameter value, correct the parameter file and run the script again with a different resource group name. You can also reuse the same resource group name and have the script clean up the old one by adding `-RemoveExistingResourceGroup` parameter to the script invocation.
 
-#### Result of running the CreateElasticSearchCluster script
+### Result of running the CreateElasticSearchCluster script
 After running the `CreateElasticSearchCluster` script the following main artifacts will be created. For the sake of clarity we will assume that you have used 'myBigCluster' for the value of `dnsNameForLoadBalancerIP` parameter and that the region where you created the cluster is West US.
 
 |Artifact|Name, Location and Remarks|
@@ -97,7 +97,7 @@ After running the `CreateElasticSearchCluster` script the following main artifac
 |ElasticSearch cluster             |http://myBigCluster.westus.cloudapp.azure.com/es/ <br /><br />The above is the primary endpoint for the ElasticSearch cluster (note the /es suffix). It is protected by basic HTTP authentication (the credentials were specified esUserName/esPassword parameters of the ES-MultiNode template). The cluster has also the head plugin installed (http://myBigCluster.westus.cloudapp.azure.com/es/_plugin/head) for basic cluster administration.|
 |Kibana service                    |http://myBigCluster.westus.cloudapp.azure.com <br /><br />Kibana service is set up to show data from the created ElasticSearch cluster; it is protected by the same authentication credentials that the cluster itself.|
 
-## In-process Versus Out-of-process Trace Capturing
+## In-process versus out-of-process trace capturing
 In the introduction we have mentioned two fundamental ways of collecting diagnostic data: in-process and out-of-process. Each has strengths and weaknesses.
 
 Advantages of the **in-process trace capturing** include:
@@ -140,7 +140,7 @@ Of course it is possible to combine and benefit from both approaches; indeed it 
 
 In this article we will use the **Microsoft.Diagnostic.Listeners library** and the in-process trace capturing to send data from a Service Fabric application to ElasticSearch cluster.
 
-## Using the Listeners Library to Send Diagnostic Data to ElasticSearch
+## Using the Listeners library to send diagnostic data to ElasticSearch
 Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric application [TODO: final sample URL here]. To use it:
 
 1. Download the Party Cluster sample
@@ -153,7 +153,7 @@ Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric ap
 
     ![Project refererences to Microsoft.Diagnostics.EventListeners and Microsoft.Diagnostics.EventListeners.Fabric libraries][1]
 
-#### November 2015 preview of Service Fabric and Microsoft.Diagnostics.Tracing NuGet package
+### November 2015 preview of Service Fabric and Microsoft.Diagnostics.Tracing NuGet package
 Applications built with the November 2015 preview of Service Fabric target **.NET Framework 4.5.1** because this is the highest version of .NET Framework supported by Azure at the time of preview release. Unfortunately this version of the framework lacks certain EventListener APIs that Microsoft.Diagnostics.Listeners library needs. Because EventSource (the component that forms the basis of logging APIs in Fabric applications) and EventListener are tightly coupled, every project that uses Microsoft.Diagnostics.Listeners library must use an alternative implementation of EventSource, one that is provided by **Microsoft.Diagnostics.Tracing NuGet package**, authored by Microsoft. This package is fully backward-compatible with EventSource included in the framework, so no code changes should be necessary other than referenced namespace changes.
 
 To start using Microsoft.Diagnostics.Tracing implementation of the EventSource class follow these steps for each service project that needs to send data to ElasticSearch:
@@ -168,7 +168,7 @@ To start using Microsoft.Diagnostics.Tracing implementation of the EventSource c
 
 These steps will not be necessary once **.NET Framework 4.6** is supported by Microsoft Azure.
 
-#### ElasticSearch Listener Instantiation and Configuration
+### ElasticSearch listener instantiation and configuration
 The final step necessary to send diagnostic data to ElasticSearch is to create an instance of `ElasticSearchListener` and configure it with ElasticSearch connection data. The listener will automatically capture all events raised via EventSource classes defined in the service project. It needs to be alive during the lifetime of the service, so the best place to create it is in the service initialization code. Here is how the initialization code for a stateless service could look after the necessary changes (additions pointed out in comments starting with `****`):
 
 ```csharp
@@ -238,7 +238,7 @@ ElasticSearch connection data should be put in a separate section in the service
 ```
 The values of `serviceUri`, `userName` and `password` correspond to ElasticSearch cluster endpoint address, ElasticSearch user name and password, respectively. `indexNamePrefix` is the prefix for ElasticSearch indices; the Microsoft.Diagnostics.Listeners library creates a new index for its data on a daily basis.
 
-#### Verification
+### Verification
 That is it! Now whenever the service is run, it will start sending traces to the ElasticSearch service specified in the configuration. You can verify this by opening Kibana UI associated with the target ElasticSearch instance (in our example the page address would be http://myBigCluster.westus.cloudapp.azure.com/) and checking that indices with the name prefix chosen for the `ElasticSearchListener` instance are indeed created and populated with data.
 
 ![Kibana showing PartyCluster application events][2]
