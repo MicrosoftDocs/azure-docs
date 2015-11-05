@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
@@ -48,13 +48,13 @@ The core SDK just provides an API: unlike the Web or device SDKs, it doesn't inc
 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Install the Application Insights Core API package: Microsoft.ApplicationInsights.
+2. Install the Application Insights Windows Server package: Microsoft.ApplicationInsights.WindowsServer
 
     ![Search for "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
     *Can I use other packages?*
 
-    Yes, you can install other packages such as the performance counter or dependency  collector packages if you want to use their modules. Microsoft.ApplicationInsights.Web includes several such packages. If you want to use the [log or trace collector packages](app-insights-asp-net-trace-logs.md), start with the web server package.
+    Yes. Choose the Core API (Microsoft.ApplicationInsights) if you only want to use the API to send your own telemetry. The Windows Server package automatically includes the Core API plus a number of other packages such as performance counter collection and dependency monitoring. 
 
     (But don't use Microsoft.ApplicationInsights.Windows: that is intended for Windows Store apps.)
 
