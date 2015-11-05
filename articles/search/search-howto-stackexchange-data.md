@@ -1,6 +1,6 @@
 <properties
 	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure"
-	description="Learn how to perform REST searches using Azure Search."
+	description="Learn how to perform REST searches using Azure Search, a cloud hosted search service on Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/15/2015"
+	ms.date="11/04/2015"
 	ms.author="liamca"/>
 
 # How to search StackExchange data using Azure Search
