@@ -19,11 +19,20 @@
 
 # Title (maximum 120 characters, should be what users use to describe the problem)
 
-## Summary
-- Briefly describe the problem
-- Set the expectation
+Briefly describe the specific issue this article can help troubleshoot, and the common root causes
 
-### (Optional) Background - Description
+Set the expectation: What users can achieve when they finish the article
+
+Don’t have more than one Note element at the top
+
+Exceptions (optional) - relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered
+
+```
+If you need more help at any point in this article, you can contact Azure experts on [the MSDN and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get Support**.
+```
+
+**Background (Optional) - Description**
+
 Background information that needs to be understood before continuing
 
 ## Common reasons of the issue and quick troubleshooting steps
@@ -38,10 +47,6 @@ Troubleshooting step 1/scenario 1
 Troubleshooting step 2/scenario 2
 
 Troubleshooting step 3/scenario 3
-
-**Contact Azure Customer Support**
-
-If your Azure issue is not addressed in this article, browse the Azure forums on [MSDN and Stack Overflow](http://azure.microsoft.com/support/forums/). To file an Azure support request, visit the [Azure Support site](http://azure.microsoft.com/support/options/) and select **Get Support**. For an overview about Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
 
 ### Troubleshooting step 1/scenario 1
 -	Describe the symptom, possible cause and resolution
