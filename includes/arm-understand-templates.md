@@ -1,0 +1,9 @@
+## Understanding Azure resource templates and resource groups
+
+Most applications that are deployed and run in Microsoft Azure are built out of a combination of different cloud resource types (e.g. one or more VMs and Storage accounts, a SQL database, a virtual network, a CDN, etc).  [Azure Resource Manager templates](../resource-group-authoring-templates.md) make it possible for you to deploy and manage these different resources together by using a JSON description of the resources and associated configuration and deployment parameters.
+
+Once you have defined a JSON based resource template, you can execute it and have the resources defined within it be deployed in Azure using a PowerShell command.  You can run this PowerShell command either standalone within the PowerShell command shell, or you can integrate it within a PowerShell script that contains additional automation logic.
+
+The resources you create using Azure Resource Manager templates will be deployed to either a new or existing Azure resource group.  An Azure resource group allows you to manage multiple deployed resources together as a logical group. Typically, a group will contain resources related to a specific application.  Azure resource groups provide a way to manage the overall lifecycle of the group/application and provide management APIs that allow you to stop/start/delete all of the resources within the group at once, apply Role Based Access Control (RBAC) rules to lock down security permissions on them, audit operations, as well as tag resources with additional meta-data for better tracking. To learn more about Azure Resource Groups, see the [Azure Resource Manager Overview](https://azure.microsoft.com/documentation/articles/resource-group-overview/). 
+
+The following automation examples demonstrate how to use Azure Resource Manager Templates and deploy Resource Groups using PowerShell or CLI.

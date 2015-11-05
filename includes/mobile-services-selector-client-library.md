@@ -1,6 +1,7 @@
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(iOS | Any)](/en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/)
-- [(Windows C# | Any)](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
-- [(HTML/JavaScript | Any)](/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/)
-- [(Android | Any)](/en-us/documentation/articles/mobile-services-android-how-to-use-client-library/)
-- [(Xamarin | Any)](/en-us/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/)
+> [AZURE.SELECTOR]
+- [Android](../articles/mobile-services-android-how-to-use-client-library.md)
+- [HTML/JavaScript](../articles/mobile-services-html-how-to-use-client-library.md)
+- [iOS](../articles/mobile-services-ios-how-to-use-client-library.md)
+- [Managed (Windows/Xamarin)](../articles/mobile-services-dotnet-how-to-use-client-library.md)
+
+

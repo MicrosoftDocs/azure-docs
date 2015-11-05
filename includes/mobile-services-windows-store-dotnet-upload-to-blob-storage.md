@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE]To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.
+   	>[AZURE.NOTE]To add new properties to the TodoItem object in a JavaScript backend mobile service, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties. For a .NET backend mobile service, see the topic [How to make data model changes to a .NET backend mobile service](../articles/mobile-services/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 5. In the MainPage class, add the following code:
 

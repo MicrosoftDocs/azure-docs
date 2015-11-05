@@ -23,6 +23,5 @@ The following steps registers your app with the Windows Store, configure your mo
 	The code that is added to your universal Windows app solution by the Add Push Notification wizard is platform-specific. Later in this section, you will remove this redundancy by sharing the Mobile Services client code, which makes the universal app easier to maintain.  
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Import your publishsettings file in Visual Studio 2013]: /en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
