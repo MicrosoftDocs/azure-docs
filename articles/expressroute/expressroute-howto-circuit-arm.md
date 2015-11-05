@@ -321,9 +321,9 @@ You can disable the ExpressRoute premium add-on for your existing circuit using 
 
 The premium add-on is now disabled for your circuit. 
 
->[AZURE.IMPORTANT] This operation can fail if you are using resources greater than what is permitted for the standard circuit.
->
->- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
+Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
+
+- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
 - You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
 - Your route table must be less than 4000 routes for private peering. If your route table size is greater than 4000 routes, the BGP session will drop and won't be re-enabled till the number of advertised prefixes goes below 4000.
 
