@@ -5,12 +5,8 @@ Azure DNS is a hosting service for DNS domains, providing name resolution using 
 
 | Property | Description | Sample Value |
 |---|---|---|
-<<<<<<< HEAD
 | DNS zones | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
-|DNS record sets | a collection of records of a specific type. Supported types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
-
-
-=======
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | DNS zones | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
@@ -32,7 +28,6 @@ DNS zones have a child object named record set. Record sets are a collection of 
 
 <sup>2</sup> only allows one record type SOA per DNS zone. 
 
->>>>>>> 78cb8f8224b62cf3ce8aeb31d122596aa178da03
 Sample of DNS zone in Json format:
 
 	{
