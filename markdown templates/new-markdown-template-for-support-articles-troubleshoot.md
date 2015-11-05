@@ -42,11 +42,11 @@ Background information that needs to be understood before continuing
 - For example, the heading can be Troubleshoot common RDP errors
 - Add a list of the troubleshooting steps/scenarios as bookmark links serving as a mini TOC if there are more than two steps/scenarios
 
-Troubleshooting step 1/scenario 1
+Bookmark link: Troubleshooting step 1/scenario 1
 
-Troubleshooting step 2/scenario 2
+Bookmark link: Troubleshooting step 2/scenario 2
 
-Troubleshooting step 3/scenario 3
+Bookmark link: Troubleshooting step 3/scenario 3
 
 ### Troubleshooting step 1/scenario 1
 -	Describe the symptom, possible cause and resolution
