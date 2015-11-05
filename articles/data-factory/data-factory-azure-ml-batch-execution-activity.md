@@ -354,18 +354,29 @@ In the above JSON example:
  
 
 ## Updating Azure ML models using the Update Resource Activity
-Overtime, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps: 
+Overtime, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are: 
 
-- Publish the training experiment (not predictive experiment) as a web service. 
-- Use the Azure ML Batch Execution Activity to invoke the web service for the training experiment. This is same as invoking an Azure ML web service for scoring data. The above sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail. 
+1. Create an experiment in [Azure ML Studio](https://studio.azureml.net). 
+2. When you are satisfied with the model, use Azure ML Studio to publish web services for both the training experiment and scoring/predictive experiment.
+
+The following table describes the web services and endpoints used in this example.  See [Retrain Machine Learning models programmatically](../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
+
+| Type of web service | description | endpoint(s) |
+| :------------------ | :---------- | :---------- |
+| **Training web service** | Receives training data and produces trained model(s) as iLearner files. The output of the retraining is a .ilearner file in Azure Blob storage.  | One endpoint (default). The default endpoint is automatically created for you when you publish the training experiment as a web service. |
+| **Scoring web service** | Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. | two endpoints (default and non-default/updatable). The default endpoint is automatically created for you when you publish the predictive experiment as a web service. You will need to use the [Azure Portal](https://manage.windowsazure.com) to create the second non-default and updatable endpoint.    
+
+ 
+The following picture depicts the relationship between training and scoring endpoints in Azure ML. 
+
+![Web services](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+
+
+You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. This is same as invoking an Azure ML web service for scoring data. The above sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail. 
   
-After you are done with retraining, you want to update the scoring web service (not the training web service) with the newly trained model. You do this by following the steps below: 
+You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. As mentioned in the table above, you must create and use the non-default updatable endpoint. You shoudl also update any existing linked services in your data factory to use the non-default endpoint so that they always use the latest retrained model. 
 
-- Add a non-default end point to the scoring web service. 
-- Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.
-- Update existing linked services in your data factory to use the non-default endpoint.
-
-The following scenario provides more details on these steps.   
+The following scenario provides more details with an example for retraining and updating Azure ML models from an Azure Data Factory pipeline. 
  
 ### Scenario: retraining and updating an Azure ML model
 This section provides a sample pipeline that uses the Azure ML Batch Execution activity to retrain a model and the Azure ML Update Resource activity to update the model in the scoring web service. It also provides JSON snippets for all the linked services, datasets, and pipeline in the example. 
