@@ -69,7 +69,7 @@ To configure the integration of Namely into Azure AD, you need to add Namely fro
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **Namely**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-Namely-tutorial/tutorial_Namely_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-namely-tutorial/tutorial_namely_01.png)<br>
 7. In the results pane, select **Namely**, and then click **Complete** to add the application.
 <br><br>
 
