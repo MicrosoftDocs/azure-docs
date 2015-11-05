@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2015"
+   ms.date="10/28/2015"
    ms.author="saurabh"/>
 
 # Install .NET on a Cloud Service Role 

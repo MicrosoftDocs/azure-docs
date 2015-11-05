@@ -1,20 +1,20 @@
 
 <properties
 	pageTitle="Check your app usage in PowerApps | Microsoft Azure"
-	description=""
-	services="power-apps"
+	description="IT Pro: See all apps, APIs, users, app requests, and update permissions in the Azure portal"
+	services="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-   ms.service="power-apps"
+   ms.service="powerapps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="" 
-   ms.date="10/19/2015"
+   ms.workload="na" 
+   ms.date="11/03/2015"
    ms.author="mandia"/>
 
 
@@ -25,8 +25,8 @@ Once you create your app service environment and add APIs and their connections,
 - See all the APIs used by specific apps.
 - See the number of requests made to your app service environment.
 - View and manage user access to the apps within the app service environment. 
-- Add (or remov) user and group permissions to the APIs and their connections. 
-- Using role-based access control (RBAC).
+- Add (or remove) user and group permissions to the APIs and their connections. 
+- Use role-based access control (RBAC).
 
 Remember, your app service environment is yours to add other apps, including web apps and logic apps. You can then open PowerApps to see and manage these apps.
 
@@ -52,8 +52,6 @@ You can also select a specific app to view more information about that app. In t
 ![][6]
 3. Look at **Requests today**:  
 ![][7]  
-
-**Add red note in slide 39**
 
 Currently, there is no API connection-level tracking available. 
 
@@ -86,11 +84,9 @@ In this topic, you read about the different options to manage your PowerApps and
 
 Now that your Azure portal experience is configured, let's start creating your PowerApps apps. These are good starters:
 
-**INSERT LINKS TO GETTING STARTED TOPICS ON POWERAPPS.COM**
-
-
-
-[5]: ./media/powerapps-manage-monitor-usage/addadmin.png
+[Create an app from a template in PowerApps](http://www.kratosapps.com/tutorials/get-started-test-drive/)  
+[Create an app from data in PowerApps](http://www.kratosapps.com/tutorials/get-started-create-from-data/)  
+[Create an app from scratch in PowerApps](http://www.kratosapps.com/tutorials/get-started-create-from-blank/)
 
 
 [2]: ./media/powerapps-manage-monitor-usage/adduser.png
@@ -101,18 +97,3 @@ Now that your Azure portal experience is configured, let's start creating your P
 [10]: ./media/powerapps-manage-monitor-usage/alllogicapps.png
 [11]: ./media/powerapps-manage-monitor-usage/twitterdailyapp.png
 [12]: ./media/powerapps-manage-monitor-usage/twitterdailyusers.png
-
-
-
-## Add administrators to PowerApps - Move to sign-up topic
-1. In the Azure portal, open **PowerApps**.
-2. Select **Add admin**:  
-![][5]  
-
-When you add Administrators to PowerApps, the users and groups you add as Admins can:
-
-- Create connectors and connections.
-- Make changes to the PowerApps settings, including the app service environment.
-- Add other users and groups and give them roles and permissions to connectors and the app service environment. 
-- Cannot change the billing.
-- **WHAT ELSE CAN THEY DO? WHAT ELSE CAN THEY NOT DO?**

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/22/2015"
 	ms.author="szarkos"/>
 
 # Prepare a CentOS-Based Virtual Machine for Azure
@@ -32,7 +32,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 **CentOS Installation Notes**
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+- The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
 - When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
@@ -82,33 +82,12 @@ This article assumes that you have already installed a CentOS (or similar deriva
 		# sudo chkconfig network on
 
 
-8. **CentOS 6.3 Only**: Install the drivers for the Linux Integration Services
+8. **CentOS 6.3 Only**: Install the drivers for the Linux Integration Services (LIS)
 
-	**Important: The step is only valid for CentOS 6.3 and earlier.**  In CentOS 6.4+ the Linux Integration Services are *already available in the kernel*.
+	**Important: The step is only valid for CentOS 6.3 and earlier.**  In CentOS 6.4+ the Linux Integration Services are *already available in the standard kernel*.
 
-	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=41554).
+	- Follow the installation instructions on the [LIS download page](https://www.microsoft.com/en-us/download/details.aspx?id=46842) and install the RPM onto your image.  
 
-	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
-
-	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
-
-	c) In the **Hardware** pane, click **IDE Controller 1**.
-
-	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
-
-	d) In the **IDE Controller** box, click **DVD Drive**, and then click **Add**.
-
-	e) Select **Image file**, browse to **Linux IC v3.2.iso**, and then click **Open**.
-
-	f) In the **Settings** page, click **OK**.
-
-	g) Click **Connect** to open the window for the virtual machine.
-
-	h) In the Command Prompt window, type the following commands:
-
-		# sudo mount /dev/cdrom /media
-		# sudo /media/install.sh
-		# sudo reboot
 
 9. Install the python-pyasn1 package by running the following command:
 

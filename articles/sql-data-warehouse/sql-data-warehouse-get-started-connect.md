@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Get started: Connect to Azure SQL Data Warehouse | Microsoft Azure"
+   pageTitle="Connect to SQL Data Warehouse with Visual Studio | Microsoft Azure"
    description="Get started with connecting to SQL Data Warehouse and running some queries."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,80 +13,97 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="twounder"/>
+   ms.date="10/22/2015"
+   ms.author="twounder;barbkess"/>
 
-# Connect and query with Visual Studio
+# Connect to SQL Data Warehouse with Visual Studio
 
 > [AZURE.SELECTOR]
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using Visual Studio. In this walkthrough, you will:
-
-+ Install prerequisite software
-+ Connect to a database that contains the AdventureWorksDW sample database
-+ Execute a query against the sample database  
+This walkthrough shows how to get connected to an Azure SQL Data Warehouse database in just a few minutes by using SQL Server Data Tools in Visual Studio.  Once connected, you will run a simple query.
 
 ## Prerequisites
 
-+ Visual Studio 2013/2015 - To download and install Visual Studio 2015 and/or SSDT, see [Install Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md)
++ AdventureWorksDW sample database in SQL Data Warehouse. To create this, see [Create a SQL Data Warehouse database](sql-data-warehouse-get-started-create.md). 
++ SQL Server Data Tools for Visual Studio. For installation instructions and options, see [Install Visual Studio and/OR SSDT](sql-data-warehouse-install-visual-studio.md)
 
-## Get your fully qualified Azure SQL server name
+## Step 1: Find the fully qualified Azure SQL server name
 
-To connect to your database you need the full name  of the server (***servername**.database.windows.net*) that contains the database you want to connect to.
+Your database is associated with an Azure SQL server. To connect to your database you need the fully qualified name of the server(**servername**.database.windows.net*).
+
+To find the fully qualified server name.
 
 1. Go to the [Azure preview portal](https://portal.azure.com).
-2. Browse to the database you want to connect to.
-3. Locate the full server name (we'll use this in the steps below):
+2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
+3. Locate the full server name.
 
-![][1]
+    ![Full server name][1]
 
-## Connect to your SQL Database
+## Step 2: Connect to your SQL database
 
 1. Open Visual Studio.
-2. Open the **SQL Server Object Explorer** from the View menu
+2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
  
-![][2]
+    ![SQL Server Object Explorer][2]
 
-3. Click the **Add SQL Server** button
+3. Click the **Add SQL Server** icon.
 
-![][3]
+    ![Add SQL Server][3]
 
-4. Enter the *server name* we captured above
-5. In the **Authentication** list, select **SQL Server Authentication**.
-6. Enter the **Login** and **Password** you specified when you created your SQL Database server, and click **Connect**.
+1. Fill in the fields in the Connect to Server window.
 
-## Run sample queries
+    ![Connect to Server][4]
 
-Now that we have registered our server let's go ahead and write a query.
+    - **Server name**. Enter the *server name* we located previously.
+    - **Authentication**. Select SQL Server Authentication.
+    - **Login** and **password**. Enter login and password for the Azure SQL server.
+    - Click **Connect**.
 
-1. Click the user database in SSDT.
+1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
 
-2. Click the **New Query** button. A new window opens.
+    ![Explore AdventureWorksDW][5]
 
-![][4]
 
-3. Type the following code into the query window:
+## Step 3: Run a sample query
+
+Now that we have connected to the server, let's go ahead and write a query. 
+
+1. Right-click your database in SQL Server Object Explorer. 
+
+2. Select **New Query**. A new query window opens.
+
+    ![New query][6]
+
+3. Copy this TSQL query into the query window:
 
 	```
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
-4. Run the query.
+4. Run the query. To do this, click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 
-	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
+    ![Run query][7]
+
+1. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
+
+    ![Query results][8]
 
 ## Next steps
 
-Now that you can connect and query, try [connecting with PowerBI][].
+Now that you can connect and query, try [visualizing the data with PowerBI][].
 
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md  
+[visualizing the data with PowerBI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 
 <!--Image references-->
 
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 [2]: ./media/sql-data-warehouse-get-started-connect/open-ssdt.png
-[3]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
-[4]: ./media/sql-data-warehouse-get-started-connect/new-query.png
+[3]: ./media/sql-data-warehouse-get-started-connect/add-server.png
+[4]: ./media/sql-data-warehouse-get-started-connect/connection-dialog.png
+[5]: ./media/sql-data-warehouse-get-started-connect/explore-sample.png
+[6]: ./media/sql-data-warehouse-get-started-connect/new-query2.png
+[7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
+[8]: ./media/sql-data-warehouse-get-started-connect/query-results.png

@@ -1,64 +1,77 @@
 <properties
 	pageTitle="Sign-up or get started with PowerApps using your Azure subscription | Microsoft Azure"
-	description="IT Doc: sign-up for Azure subscription administrator for enterprises"
-	services="power-apps"
-	documentationCenter="" 
+	description="IT Pro: Sign up or login steps for Azure subscription administrator for enterprises in the Azure portal"
+	services="powerapps"
+	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-   ms.service="power-apps"
+   ms.service="powerapps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="" 
-   ms.date="09/15/2015"
+   ms.workload="na"
+   ms.date="11/03/2015"
    ms.author="mandia"/>
 
-# Sign-up overview
-PowerApps is a new offering available to companies with an Azure subscription. You can sign-up for PowerApps and allow anyone within your company to create and use PowerApps within your company subscription. 
+# Sign up overview
+
+PowerApps is a new offering available to companies with an Azure subscription. You can sign up for PowerApps and allow anyone within your company to create and use PowerApps within your company subscription.
 
 
 #### Requirements to get started
-
-- Azure company subscription
-- Subscription Administrator signs-in to the Azure portal
-
-
-## Sign-up your company to use PowerApps 
-
-> [AZURE.NOTE] The following steps require the subscription Administrator to sign-in to the Azure portal and submit a request. 
-
-To sign-up your company, the subscription administrator submits a request for *@yourCompany.com* email accounts. Use the following steps to sign-up:
-
-1. In the Azure portal, sign-in to your work subscription.
-2. Select **Browse All** in the task bar:  
-![Browse for PowerApps][1]  
-3. In the list, you can scroll to find PowerApps. You can also select **Resources**, and type in *powerapps*:
-![Search for PowerApps in Resources][2]  
-4. Next, submit your request to sign-up for PowerApps:  
-![Submit your request][3]  
+- Have an Azure company subscription
+- Must be a Subscription Administrator 
+- The Subscription Administrator signs in to the Azure portal
 
 
-Once approved, everyone with the *@yourCompany.com* email address potentially has access to PowerApps. Within PowerApps, you can:  
+## Sign up your company to use PowerApps
+To sign-up your company, the **subscription administrator** submits a request to sign up for PowerApps. Use the following steps to sign-up:
 
-- Add users within your company and using [role-based access control](../role-based-access-control-configure.md), give these users specific roles to the PowerApps apps.
-- Creating connectors [we now call this API that serves as connection provider to access user data] to run within your App Service environment (ASE).
-- View performance metrics for your App Service environment. [this won't be available at Public Preview, user will only see the requests coming through to their dedicated ASE]
-- Add additional apps to your ASE, including web apps and mobile apps. [User can create other apps on their dedicated ASE in additional to PowerApps such as web apps, mobile apps]
-- See the PowerApps apps hosted [the PowerApps apps are not hosted on the ASE. The connections they use are hosted on the ASE] within the App Service environment and their respective "owners" [why is there " " on owners?].
+1. In the Azure portal, sign in to your work subscription.
+2. In the task bar on the left, select **PowerApps**:  
+![][6]  
+3. In **PowerApps**, select **Get an invitation**:  
+![][7]  
 
-In the following example, the Contoso company signed-up for PowerApps. In this new **PowerApps apps** blade, you can see all the apps created within this app service environment, including the *Audio notes* and *Link forms* apps. In **Connection providers**, you can see all the connectors used by your PowerApps apps, including Twitter and Youtube:  
-![Sample company PowerApps blade][4]  
+An email opens that is sent to the PowerApps group. After you submit your request, the PowerApps team reviews the information you provided. There is no ETA on approval and each scenario is considered on a case-by-case basis. Until your request is reviewed, an **Access denied** message may display in PowerApps in the Azure portal.
+
+
+If the request is approved, you can then:  
+
+- Add users within your company to PowerApps and using [role-based access control](../role-based-access-control-configure.md), give these users specific roles to the apps.
+- Create APIs and their connections to run within your dedicated app service environment (ASE).
+- In addition to PowerApps apps, you can add additional apps to your app service environment, including web apps, mobile apps, and logic apps. 
+
+In the following example, the Contoso company signed-up for PowerApps. In this new **PowerApps** blade, you can see a summary of the different type of apps created using this app service environment. In **Registered APIs**, you can see a summary of the Microsoft-created APIs (Microsoft managed) and see the Contoso-created APIs (Self managed):  
+![][4]  
+
+In **All apps**, you can select the different app types to see all those apps. For example, you can select **Logic apps** and see all those apps listed, including *Twitter daily* and *Link forms*. You can also see all the APIs used by your logic apps, including Bing, Facebook, Twitter, and more:  
+![][8]  
+
+## Add more administrators to PowerApps
+Once you have access to PowerApps, you can give users and groups within your company administrative privileges. Steps include:
+
+1. In the Azure portal, open **PowerApps**.
+2. Select **Settings** and then select **Admins**:  
+![][5]  
+3. Add your users or groups.
+
+When you add Administrators to PowerApps, the users and groups you add as Admins can:
+
+- Create APIs and their connections.
+- Make changes to the PowerApps settings, including the app service environment.
+- Add other users and groups and give them roles and permissions to APIs and the app service environment. 
+- Cannot change the billing.
 
 
 ## Next step
 Now that you're company is signed up for PowerApps, [create an app service environment](powerapps-create-new-ase.md) to host your PowerApps apps.
 
-[1]: ./media/powerapps-portal-signup/browseall.png
-[2]: ./media/powerapps-portal-signup/allresources.png
-[3]: ./media/powerapps-portal-signup/signup.png
+[5]: ./media/powerapps-portal-signup/addadmin.png
 [4]: ./media/powerapps-portal-signup/powerappsblade.png
-
-[We need to give user a clearer expectation of what will happen each step.]
+[6]: ./media/powerapps-portal-signup/taskbar.png
+[7]: ./media/powerapps-portal-signup/invitation.png
+[8]: ./media/powerapps-portal-signup/alllogicapps.png

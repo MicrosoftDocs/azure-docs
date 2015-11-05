@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
 # Load data with PolyBase
-This tutorial will show you how to load  data into your Azure SQL Data Warehouse using PolyBase.
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
+This tutorial will show you how to load  data into your Azure SQL Data Warehouse using PolyBase.  To learn more about PolyBase, refer to [PolyBase in SQL Data Warehouse Tutorial][].
 
 
 ## Prerequisites
@@ -70,7 +76,6 @@ To create an external table, use the following steps:
 - [Create External Data Source]: To specify the location of your Azure blob storage.
 - [Create External File Format]: To specify the layout of your data.
 - [Create External Table]: To reference the Azure Storage data.
-
 
 
 ```
@@ -127,7 +132,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ## Step 4: Load data into SQL Data Warehouse
 
-- To load the data into a new table, run the CREATE TABLE AS SELECT statement. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition. 
+- To load the data into a new table, run the [CREATE TABLE AS SELECT (Transact-SQL)][] statement. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition. 
 - To load the data into an existing table, use the INSERT...SELECT statement.  
 
 
@@ -139,18 +144,25 @@ CREATE TABLE dbo.DimDate2
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
-		DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 AS 
 SELECT * 
 FROM   [dbo].[DimDate2External];
 
 ```
-See [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-To learn more about PolyBase, refer to [PolyBase in SQL Data Warehouse Tutorial][].
+## Step 5: Create Statistics on your newly loaded data 
 
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example
+
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 <!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: sql-data-warehouse-load-with-polybase.md
@@ -168,3 +180,6 @@ To learn more about PolyBase, refer to [PolyBase in SQL Data Warehouse Tutorial]
 [CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
 
 
+<!--Article references-->
+
+[Statistics]: ./sql-data-warehouse-develop-statistics.md
