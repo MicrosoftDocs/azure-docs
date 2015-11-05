@@ -19,8 +19,8 @@
 # Create and modify ExpressRoute routing configuration
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell Classic](expressroute-howto-routing-classic.md)
+[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the ARM deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an  ExpressRoute circuit.
 
