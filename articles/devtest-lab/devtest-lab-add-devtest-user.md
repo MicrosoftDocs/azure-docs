@@ -36,7 +36,7 @@ You grant access to your DevTest Lab through two roles:
 
 ## Add a DevTest Lab user to your lab
 
-The following steps will walk you through adding a DevTest Lab user to your lab:
+To add a DevTest Lab user to your lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
@@ -72,7 +72,7 @@ The following steps will walk you through adding a DevTest Lab user to your lab:
 
 DevTest Lab considers the owner(s) of an Azure subscription that contains labs to be owner(s) of those labs. While you can add additional owners to a DevTest Lab via the lab's blade in the Azure portal, those users will not be able to perform owner tasks unless they are also owners of the subscription within which the lab was created. 
 
-This section will walk you through adding an owner to your subscription where you have labs already created or will be creating new labs.
+To add an owner to an Azure subscription where you have labs already created or will be creating new labs, follow these steps:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
