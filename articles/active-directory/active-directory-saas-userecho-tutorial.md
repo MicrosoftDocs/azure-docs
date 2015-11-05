@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="11/05/2015"
 	ms.author="markusvi"/>
 
 
@@ -46,7 +46,7 @@ To test the steps in this tutorial, you should follow these recommendations:
  
 ## Scenario Description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
-The scenario outlined in this tutorial consists of three main building blocks:
+The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding UserEcho from the gallery 
 2. Configuring and testing Azure AD single sign-on
@@ -83,7 +83,7 @@ To configure and test Azure AD single sign-on with UserEcho, you need to complet
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a UserEcho test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in UserEcho that is linked to the Azure AD representation of her.
+4. **[Creating a UserEcho test user](#creating-a-userecho-test-user)** - to have a counterpart of Britta Simon in UserEcho that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
