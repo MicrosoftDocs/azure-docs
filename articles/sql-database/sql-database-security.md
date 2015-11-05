@@ -96,7 +96,7 @@ For other ways to encrypt your data secrets, consider:
 
 * [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
 * If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using [Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
-
+* [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) (in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
 ## Auditing
 
