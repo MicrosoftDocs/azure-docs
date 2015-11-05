@@ -31,15 +31,15 @@
 
 Azure Data Factory enables you to easily create pipelines that leverage a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure ML web service to make predictions on the data in batch. See [Invoking an Azure ML web service using the Batch Execution Activity](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) section for details.
 
-Overtime, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps: 
+Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. You can retrain an Azure ML model from a Data Factory pipeline by doing the following steps: 
 
 1. Publish the training experiment (not predictive experiment) as a web service. You do this in the Azure ML Studio as you did to expose predictive experiment as a web service in the previous scenario.
 2. Use the Azure ML Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Azure ML Batch Execution activity to invoke both training web service and scoring web service. 
   
 After you are done with retraining, you want to update the scoring web service (predictive experiment exposed as a web service) with the newly trained model. You do this by following the steps below: 
 
-1. Add a non-default end point to the scoring web service. The default endpoint of the web service cannot be updated, so you will need to create a new non-default endpoint using the Azure Management Portal.
-2. Update existing linked services to use the non-default endpoint. You should start using the new endpoint to use the web service that is updated.
+1. Add a non-default end point to the scoring web service. The default endpoint of the web service cannot be updated, so you will need to create a new non-default endpoint using the Azure Management Portal. See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for both conceptual information and procedural steps.
+2. Update existing Azure ML linked services for scoring to use the non-default endpoint. YYou should start using the new endpoint to use the web service that is updated.
 3. Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.  
 
 See [Updating Azure ML models using the Update Resource Activity](#updating-azure-ml-models-using-the-update-resource-activity) section for details. 
@@ -354,17 +354,17 @@ In the above JSON example:
  
 
 ## Updating Azure ML models using the Update Resource Activity
-Overtime, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are: 
+Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are: 
 
 1. Create an experiment in [Azure ML Studio](https://studio.azureml.net). 
 2. When you are satisfied with the model, use Azure ML Studio to publish web services for both the **training experiment** and scoring/**predictive experiment**.
 
-The following table describes the web services and endpoints used in this example.  See [Retrain Machine Learning models programmatically](../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
+The following table describes the web services used in this example.  See [Retrain Machine Learning models programmatically](../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
 
-| Type of web service | description | endpoint(s) |
-| :------------------ | :---------- | :---------- |
-| **Training web service** | Receives training data and produces trained model(s). The output of the retraining is a .ilearner file in an Azure Blob storage.  | One endpoint (default). The default endpoint is automatically created for you when you publish the training experiment as a web service. |
-| **Scoring web service** | Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. | two endpoints (default and non-default/updatable). The default endpoint is automatically created for you when you publish the predictive experiment as a web service. You will need to create the second non-default and updatable endpoint by using the [Azure Portal](https://manage.windowsazure.com).       
+| Type of web service | description 
+| :------------------ | :---------- 
+| **Training web service** | Receives training data and produces trained model(s). The output of the retraining is a .ilearner file in an Azure Blob storage.  The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint |
+| **Scoring web service** | Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. You will need to create the second **non-default and updatable endpoint** by using the [Azure Portal](https://manage.windowsazure.com). You can create more endpoints but this example uses only one non-default updatable endpoint. See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for steps.       
  
 The following picture depicts the relationship between training and scoring endpoints in Azure ML. 
 
@@ -413,8 +413,8 @@ The following dataset represents the input training data for the Azure ML traini
 	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
-	            "folderPath": "labeledExamples",
-	            "fileName": "labeledExamples.arff",
+	            "folderPath": "labeledexamples",
+	            "fileName": "labeledexamples.arff",
 	            "format": {
 	                "type": "TextFormat"
 	            }
@@ -442,7 +442,7 @@ The following dataset represents the output iLearner file from the Azure ML trai
 	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
-	            "folderPath": "trainingOutput",
+	            "folderPath": "trainingoutput",
 	            "fileName": "model.ilearner",
 	            "format": {
 	                "type": "TextFormat"
@@ -458,15 +458,15 @@ The following dataset represents the output iLearner file from the Azure ML trai
 #### Linked service for Azure ML training endpoint 
 The following JSON snippet defines an Azure Machine Learning linked service that points to the  default endpoint of the training web service. 
 
-	{
-	  "name": "trainingEndpoint",
-	  "properties": {
-	    "type": "AzureML",
-	    "typeProperties": {
-	      "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/xxx/jobs",
-	      "apiKey": "myKey"
-	    }
-	  }
+	{	
+		"name": "trainingEndpoint",
+	  	"properties": {
+	    	"type": "AzureML",
+	    	"typeProperties": {
+	    		"mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
+	      		"apiKey": "myKey"
+	    	}
+	  	}
 	}
 
 In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **apiKey**:
@@ -481,17 +481,16 @@ In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **
 The following JSON snippet defines an Azure Machine Learning linked service that points to the non-default updatable endpoint of the scoring web service.  
 
 	{
-		"name": "updatableScoringEndpoint2",
-	  	"properties": {
-	    	"type": "AzureML",
-		    "typeProperties": {
-	      		"mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/xxx/jobs",
-	      		"apiKey": "endpoint2Key",
-	      		"updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/xxx/endpoints/endpoint2"
-			}
+	    "name": "updatableScoringEndpoint2",
+	    "properties": {
+	        "type": "AzureML",
+	        "typeProperties": {
+	            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
+	            "apiKey": "endpoint2Key",
+	            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+	        }
 	    }
 	}
-
 
 
 Before creating and deploying an Azure ML linked service, follow the steps in [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article to create a second (non-default and updatable) endpoint for the scoring web service.
