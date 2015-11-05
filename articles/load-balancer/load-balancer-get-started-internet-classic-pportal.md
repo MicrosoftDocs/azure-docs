@@ -44,17 +44,11 @@ To create an Internet facing load balancer (classic) deployment model from the p
 
 5. To create a new load balancer, click  "join" icon on the top of the load balanced sets blade.
 
-6. Select the "load balanced set type" public for Internet facing load balancer. Example:
-![scenario-classic](./media/load-balancer-get-started-internet-classic-pportal/join-lb-set.png)
+6. Select the "load balanced set type" public for Internet facing load balancer. 
 
 7. Click in "configure required settings" to open "choose a load balanced set" and click on "create a load balanced set".
 
 8. In "create a load balanced set" blade, create a name for the load balancer set. Fill out the name, public port, probe protocol, probe port.
-
-Example:
-<BR>
-
-![scenario-classic](./media/load-balancer-get-started-internet-classic-pportal/create-lb-set.png)
 
 9. Change probe interval and retries if needed.
 
