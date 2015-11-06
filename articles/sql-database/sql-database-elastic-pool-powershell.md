@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/31/2015"
+    ms.date="11/03/2015"
     ms.author="adamkr; sstein"/>
 
 # Create an elastic database pool with PowerShell
@@ -68,7 +68,7 @@ If you already have a resource group you can go to the next step, or you can run
 
 ### Create a server 
 
-Elastic database pools are created inside Azure SQL Database servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
+Elastic database pools are created inside Azure SQL Database servers. If you already have a server you can go to the next step, or you can run the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -77,7 +77,7 @@ When you run this command a window opens asking for a **User name** and **Passwo
 
 ### Configure a server firewall rule to allow access to the server
 
-Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your computer.
+Establish a firewall rule to access the server. Run the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) command replacing the start and end IP addresses with valid values for your computer.
 
 If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
 
@@ -88,7 +88,7 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create an elastic database pool, and elastic databases
 
-Now you have a resource group, a server, and a firewall rule configured so you can access the server. The following command will create the elastic database pool. This command creates a pool that shares a total of 400 eDTUs. Each database in the pool is guaranteed to always have 10 eDTUs available (DatabaseDtuMin). Individual databases in the pool can consume a maximum of 100 eDTUs (DatabaseDtuMax). For detailed parameter explanations, see [Azure SQL Database elastic pools](sql-database-elastic-pool.md). 
+Now you have a resource group, a server, and a firewall rule configured so you can access the server. The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet will create the elastic database pool. This command creates a pool that shares a total of 400 eDTUs. Each database in the pool is guaranteed to always have 10 eDTUs available (DatabaseDtuMin). Individual databases in the pool can consume a maximum of 100 eDTUs (DatabaseDtuMax). For detailed parameter explanations, see [Azure SQL Database elastic pools](sql-database-elastic-pool.md). 
 
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
@@ -102,7 +102,7 @@ The pool created in the previous step is empty, it has no elastic databases in i
 
 ### Create a new elastic database inside an elastic database pool
 
-To create a new database directly inside a pool, use the **New-AzureRMSqlDatabase** cmdlet and set the **ElasticPoolName** parameter.
+To create a new database directly inside a pool, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter.
 
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -111,7 +111,7 @@ To create a new database directly inside a pool, use the **New-AzureRMSqlDatabas
 
 ### Move an existing database into an elastic database pool
 
-To move an existing database into a pool, use the **Set-AzureRMSqlDatabase** cmdlet and set the **ElasticPoolName** parameter. 
+To move an existing database into a pool, use the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet and set the **ElasticPoolName** parameter. 
 
 
 For demonstration, create a database that's not in an elastic database pool.

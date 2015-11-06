@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="10/31/2015"
+   ms.date="11/03/2015"
    ms.author="sstein"/>
 
 # Create an elastic database pool with C&#x23;
