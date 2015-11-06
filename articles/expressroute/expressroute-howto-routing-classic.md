@@ -16,7 +16,7 @@
    ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Create and modify ExpressRoute routing configuration
+# Create and modify routing for an ExpressRoute circuit using PowerShell
 
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
