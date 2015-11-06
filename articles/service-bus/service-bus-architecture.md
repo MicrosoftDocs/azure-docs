@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Service Bus Architecture | Microsoft Azure"
+   pageTitle="Service Bus architecture | Microsoft Azure"
    description="Describes the message processing architecture of Azure Service Bus."
    services="service-bus"
    documentationCenter="na"
