@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Troubleshooting VM allocation failure | Microsoft Azure"
-	description="Troubleshooting allocation failure when you create, restart or resize a VM, or when you add new web or worker role instances in Azure"
-	services="virtual-machines, azure-resource-manager, cloud-services"
+	description="Troubleshooting allocation failure when you create, restart or resize a VM in Azure"
+	services="virtual-machines, azure-resource-manager"
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
@@ -22,7 +22,30 @@
 # Troubleshooting allocation failure when you create, restart or resize a VM in Azure
 
 ## Summary
-When you create a VM, restart stopped (de-allocated) VMs, resize a VM, or when you add new web or worker role instances, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+When you create a VM, restart stopped (de-allocated) VMs, resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+
+The first section 'Basic Steps' lists steps to address common issues, second section provides resolution steps by specific error message.
+
+## Basic steps
+
+These basic steps can help resolve many allocation failures in virtual machines. 
+
+### Classic Deployment Model 
+
+- Resize the VM to a different VM size.<br>
+	Click Browse all > Virtual machines (classic) > your virtual machine > Settings > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+
+- Delete all VMs from the Cloud Service and recreate VMs.<br> 
+	Click Browse all > Virtual machines (classic) > your virtual machine > Delete. Then, click New > Compute > [Virtual Machine Image]
+
+### Resource Manager Deployment Model
+
+- Stop-deallocate all VMs in the same Availability Set, then restart each one.<br> 
+	To stop: Click Resource Groups > your Resource Group > Resources > Your Availability Set > Virtual Machines > your Virtual Machine. > Stop
+
+	After all VMs stopped, select the first VM and click Start.
 
 ### Background – How allocation works
 The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or Availability Set is hosted.
@@ -32,7 +55,7 @@ The servers in Azure datacenters are partitioned into clusters. Normally, an all
 When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resource. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
 ![Pinned Allocation Failure](./media/virtual-machines-allocation-failure/Allocation2.png)
 
-## Troubleshooting Azure Resource Management
+## Troubleshooting allocation failure in the Azure Resource Manager deployment model
 Here are the common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 - Resizing a VM, or adding additional VMs or role instances to an existing cloud service
 - Restarting stopped (de-allocated) VMs - **partial** de-allocation
@@ -83,7 +106,7 @@ GeneralError*
 
 Try selecting a new VM size to allocate. If not, please try again later.
 
-## Troubleshooting Azure Service Management
+## Troubleshooting allocation failure in the classic deployment model
 Here are the common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 - Resizing a VM, or adding additional VMs or role instances to an existing cloud service
 - Restarting stopped (de-allocated) VMs - partial de-allocation
