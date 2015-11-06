@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create an index definition for document in multiple languages in Azure Search | Microsoft Azure"
+   pageTitle="Create an index for documents in multiple languages in Azure Search | Microsoft Azure | Hosted cloud search service"
    description=" Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
    services="search"
    documentationCenter=""
@@ -16,9 +16,9 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# Create an index definition for document in multiple languages in Azure Search
-
+# Create an index for documents in multiple languages in Azure Search
 > [AZURE.SELECTOR]
+- [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 

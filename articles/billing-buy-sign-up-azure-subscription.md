@@ -20,12 +20,6 @@
 
 # How to buy or sign up for an Azure subscription
 
-This topic will help you with the following tasks:
-
-* Sign up for an Azure Free Trial subscription
-* Upgrade your Azure Free Trial subscription to a Pay-As-You-Go subscription
-* Activate your Azure subscription by using a Online Service Activation Key (a 5x5 key)
-
 ## Sign up for an Azure Free Trial subscription
 To sign up for an Azure Free Trial subscription, you must provide a phone number, a credit card, and a [Microsoft Account](https://www.microsoft.com/en-us/account/faq.aspx) (formerly Windows Live ID) or a School/Work account (aka Organizations ID). Your phone number and credit card are used only to verify your identity, and your credit card will not be billed.
 
@@ -43,9 +37,7 @@ To sign up for an Azure Free Trial subscription:
 ![the screenshot about phone verification](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>If you do not receive a text message or a call back, try using a different phone number or contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help. </br>
 5. After the Phone verification is completed, move to the card
  verification section.
-
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
-
 6. After the credit card verification is completed, select the **Agreement** option, and then select **Sign Up**. ![Signup](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br>
 It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance. </br>
 If you get any error message, follow the steps in the message to resolve the issue. A typical error message is:
