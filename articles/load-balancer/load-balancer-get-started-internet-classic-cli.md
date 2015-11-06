@@ -14,24 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/23/2015"
+   ms.date="11/06/2015"
    ms.author="joaoma" />
 
-#Get started creating Internet facing load balancer (classic) in the Azure CLI
+# Get started creating Internet facing load balancer (classic) in the Azure CLI
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer in ARM mode using the Azure CLI"](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-ENTER YOUR CONTENT HERE
 
-## Get started creating an Internet facing load balancer using CLI
+## Step by step creating an Internet facing load balancer using CLI
 
-This is a guide to create a load balancer based on the scenario above, follow the steps below.
+This guide will show how to create an Internet load balancer based on the scenario above.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
@@ -120,4 +119,15 @@ You have to delete the endpoint associated to the load balancer set from the vir
 The command `azure vm endpoint delete` removes the endpoint. Using the example above, remove the endpoint created for virtual machine "web1" from load balancer "lbset"
 
 
-	azure vm endpoint delete web1 tcp-80-80 
+	azure vm endpoint delete web1 tcp-80-80
+
+
+## Next steps
+
+[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+ 
