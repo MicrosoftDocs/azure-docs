@@ -18,14 +18,14 @@
 	ms.date="11/06/2015" 
 	ms.author="ryancraw"/>
 
+# DocumentDB .NET SDK
+
 > [AZURE.SELECTOR]
 - [.NET](documentdb-sdk-dotnet.md)
 - [Node.js](documentdb-sdk-node.md)
 - [JavaScript Client](documentdb-sdk-js.md)
 - [Java](documentdb-sdk-java.md)
 - [Python](documentdb-sdk-python.md)
-
-# DocumentDB .NET SDK
 
 Download and install the [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package for the latest version of the DocumentDB Client Library for .NET. This approach is recommended for ensuring that you have the most up-to-date client libraries.
 
