@@ -68,7 +68,7 @@ The following table shows the differences of the business continuity features ac
 
 These features are provided to address the scenarios listed earlier. Please refer to the [Design for business continuity](sql-database-business-continuity-design.md) section for guidance how to select the specific feature. 
 
-> [AZURE.NOTE] : The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/en-us/support/legal/sla/sql-database/v1_0/)
+> [AZURE.NOTE] : The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
 
 
 ###Point In Time Restore
