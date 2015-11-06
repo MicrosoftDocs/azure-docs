@@ -83,6 +83,8 @@ Other software VPN solutions should work with our gateway as long as they confor
 
 ## Point-to-site connections
 
+Presently, point-to-site connections are available only for the classic deployment model (also known as Service Management). We are working on a point-to-site solution for the Azure Resource Manager deployment model. When that is available, this page will be updated.
+
 ### What operating systems can I use with point-to-site?
 
 The following operating systems are supported:
@@ -97,7 +99,7 @@ The following operating systems are supported:
 
 ### Can I use any software VPN client for point-to-site that supports SSTP?
 
-No. Support is limited only to the Windows operating system versions listed above.
+No. Support is limited only to the Windows operating system versions listed above. The Windows 10 client is presently being verified.
 
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 
@@ -105,7 +107,7 @@ We support up to 128 VPN clients to be able to connect to a virtual network at t
 
 ### Can I use my own internal PKI root CA for point-to-site connectivity?
 
-At this time, only self-signed root certificates are supported.
+Yes. Previously, only self-signed root certificates could be used. You can still upload 20 root certificates.
 
 ### Can I traverse proxies and firewalls using point-to-site capability?
 
