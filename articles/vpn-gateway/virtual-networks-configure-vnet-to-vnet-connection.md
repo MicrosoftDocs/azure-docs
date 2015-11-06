@@ -72,7 +72,7 @@ You may want to connect virtual networks for the following reasons:
 
 - VNet-to-VNet traffic travels across the Azure backbone.
 
-## Configure a VNet to VNet connection
+## Configure a VNet-to-VNet connection
 
 In this procedure, we’ll walk you through connecting two virtual networks, VNet1 and VNet2. You’ll need to be comfortable with networking in order to substitute the IP address ranges that are compatible with your network design requirements. From an Azure virtual network, connecting to another Azure virtual network is the same as connecting to an on premises network via site-to-site (S2S) VPN.
 
@@ -220,7 +220,7 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
-## Next Steps
+## Next steps
 
 
 If you want to add virtual machines to your virtual network, see [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).

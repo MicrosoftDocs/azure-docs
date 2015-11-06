@@ -17,7 +17,7 @@
    ms.date="11/06/2015"
    ms.author="cherylmc"/>
 
-# Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell for VNets in the same subscription
+# Configure a VNet-to-VNet connection for virtual networks in the same subscription by using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
