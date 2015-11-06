@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connect Azure Search with ASP.NET MVC Web Apps | Microsoft Azure"
-	description="Hook up an ASP.NET Web app with Azure Search. Learn how to connect, query, and render results using the .Net library or REST API."
+	pageTitle="Connect Azure Search with ASP.NET MVC Web Apps | Microsoft Azure | Hosted cloud search service"
+	description="Hook up an ASP.NET MVC Web app with Azure Search, a hosted cloud search service. Learn how to connect, query, and render results using the .Net library or REST API."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/26/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #How to integrate Azure Search with ASP.NET MVC Web Apps

@@ -13,13 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # How to configure your application to use Twitter login
-
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
-&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -32,7 +29,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 1. Log on to the [Azure Management Portal], and navigate to your Mobile App. Copy your **URL**. You will use this to configure your Twitter app.
 
-2. Click **Settings**, **User authentication**, and then click **Twitter**. Copy the **Callback URL**. You will use this to configure your Twitter app.
+2. Click **Settings**, **Mobile authentication**, and then click **Twitter**. Copy the **Callback URL**. You will use this to configure your Twitter app.
 
 3. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 
@@ -73,5 +70,3 @@ You are now ready to use Twitter for authentication in your app.
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure Management Portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
-
- 

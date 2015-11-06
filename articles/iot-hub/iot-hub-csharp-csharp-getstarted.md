@@ -20,9 +20,9 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the application back end. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application backend. One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the application backend. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
 
-This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back-end.
+This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud backend.
 
 At the end of this tutorial you will have three Windows console applications:
 
