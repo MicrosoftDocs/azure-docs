@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure App Service deployment documentation resources"
+	pageTitle="Azure App Service deployment documentation"
 	description="Find documentation that explains how to deploy your app to Azure App Service."
 	services="app-service"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="11/06/2015"
 	ms.author="tdykstra"/>
 
-# Azure App Service deployment documentation resources
+# Azure App Service deployment documentation
 
 ## Overview
 
