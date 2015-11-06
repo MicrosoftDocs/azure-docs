@@ -29,6 +29,8 @@ The first paragraph is a good place to place keywords. But avoid stuffing keywor
 
 Exceptions (optional) - relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered
 
+How to use this article (option) - Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
+
 ```
 If you need more help at any point in this article, you can contact Azure experts on [the MSDN and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get Support**.
 ```
