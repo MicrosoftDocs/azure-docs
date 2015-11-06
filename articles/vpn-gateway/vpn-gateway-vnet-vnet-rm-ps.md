@@ -234,6 +234,8 @@ You can use the following cmdlet example. Be sure to change the values to match 
 	  }
 	} 
 
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
+
 ## Connecting existing VNets
 
 If you already have created virtual networks in Azure Resource Manager mode and you want to connect them, verify the following:
@@ -256,6 +258,8 @@ After verifying that your gateway subnets are configured correctly, continue wit
 
 You can add virtual machines to your virtual networks. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-faq.md).
+For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
+
+For REST API information, see [Azure Network Gateway REST API Reference](https://msdn.microsoft.com/library/azure/mt163859.aspx).
 
 For more information about Virtual Networks, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
