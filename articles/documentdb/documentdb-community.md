@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/20/2015"
+  ms.date="11/5/2015"
   ms.author="andrl"/>
 
 # Community portal
@@ -89,8 +89,6 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                      | Location             | Date                | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [CloudDevelop 2015](http://www.clouddevelop.org/)                               | Columbus, OH         | October 23, 2015    | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp)                 | Seattle, WA          | October 27-30, 2015 | [#Summit15](https://twitter.com/hashtag/Summit15) |
 | [Integration User Group](http://www.integrationusergroup.com/)                  | Webinar              | November 9, 2015    | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/)            | Montreal, QC, Canada | December 1, 2015    | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
@@ -100,11 +98,14 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp)                                                            | Seattle, WA          | October 27-30, 2015    | n/a |
+| [CloudDevelop 2015](http://www.clouddevelop.org/)                                                                          | Columbus, OH         | October 23, 2015       | n/a |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx)                                            | Sofia, Bulgaria      | October 10, 2015       | n/a |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx)                                           | Oporto, Portugal     | October 3, 2015        | n/a |
 | [AzureCon](https://azure.microsoft.com/azurecon/)                                                                          | Virtual Event        | September 29, 2015     | [Azure data and analytics platform](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Working with NoSQL Data in DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx)                                          | Utrecht, Netherlands | September 26, 2015     | n/a |
+| [SQL Saturday #434 - Holland 2015](http://www.sqlsaturday.com/434/eventhome.aspx)                                          | Utrecht, Netherlands | September 26, 2015     | [Introduction to Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/)                        | San Francisco, CA    | September 15, 2015     | n/a |
+| [Belarus Azure User Group Meet-Up](https://www.facebook.com/events/786540124800276/)                                       | Minsk, Belarus       | September 9, 2015      | [Introduction to DocumentDB concept overview, consistency levels, sharding strategies](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
 | [NoSQL Now!](http://nosql2015.dataversity.net/)                                                                            | San Jose, CA         | August 18-20, 2015     | n/a |
 | [@Scale Seattle](http://www.atscaleconference.com/)                                                                        | Seattle, WA          | June 17, 2015          | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015)                                         | Lisbon, Portugal     | June 15, 2015          | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
