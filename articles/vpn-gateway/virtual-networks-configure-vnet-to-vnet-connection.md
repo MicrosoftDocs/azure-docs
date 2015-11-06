@@ -223,7 +223,7 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 ## Next Steps
 
 
-If you want to add virtual machines to your virtual network, see [How to Create a Custom Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).
+If you want to add virtual machines to your virtual network, see [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).
 
 For information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
@@ -231,7 +231,7 @@ For REST API information, see [Operations on Virtual Network Gateways](https://m
 
 For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
 
-For more information about Virtual Networks, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+For more information about Virtual Networks, see the [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) and the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
