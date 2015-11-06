@@ -76,7 +76,7 @@ This is not intended as a way to back up a virtual machine. One possible way to 
 
 ##Next steps
 
-The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a virtual machine from an image] [].
+The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a virtual machine from an image](virtual-machines-create-custom.md).
 
 
 
