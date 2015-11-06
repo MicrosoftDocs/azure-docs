@@ -20,10 +20,10 @@
 # Configure a VNet-to-VNet connection in the Azure Portal
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-This article will walk you through the steps to create and connect virtual networks together using the Classic deployment model (also known as Service Management). These steps will use a combination of the Azure Classic Portal and PowerShell cmdlets. If you want to connect VNets that were created using the Azure Resource Manager deployment model, see the tab above. The steps are different for each model. 
+This article will walk you through the steps to create and connect virtual networks together using the Classic deployment model (also known as Service Management). These steps will use a combination of the Azure Portal (not the Preview Portal) and PowerShell cmdlets. If you want to connect VNets that were created using the Azure Resource Manager deployment model, see the tab above. The steps are different for each model. 
 
 You can also connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
