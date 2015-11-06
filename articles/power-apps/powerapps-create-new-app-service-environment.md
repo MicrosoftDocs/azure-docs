@@ -86,8 +86,8 @@ In this topic, you created a new App Service environment to host your PowerApps 
 
 Next, [add some APIs](powerapps-create-new-connector.md) to your app service environment and give users within your company access.
 
-[1]: ./media/owerapps-create-new-app-service-environment/browseall.png
-[2]: ./media/owerapps-create-new-app-service-environment/allresources.png
+[1]: ./media/powerapps-create-new-app-service-environment/browseall.png
+[2]: ./media/powerapps-create-new-app-service-environment/allresources.png
 [3]: ./media/powerapps-create-new-app-service-environment/createase.png
 [4]: ./media/powerapps-create-new-app-service-environment/aseproperties.png
 [5]: ./media/powerapps-create-new-app-service-environment/addaseowner.png
