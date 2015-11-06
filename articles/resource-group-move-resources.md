@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -32,6 +32,7 @@ not change the location of the resource.
 3. If you are using Azure PowerShell, make sure you are using the latest version. The **Move-AzureResource** command is updated frequently. To update your version, run the Microsoft Web Platform Installer and check if a 
 new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 4. The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.
+5. When moving resources, both the source group and the target group are locked for the duration of the operation. Write and delete operations are blocked on the groups until the move completes.
 
 ## Supported services
 
