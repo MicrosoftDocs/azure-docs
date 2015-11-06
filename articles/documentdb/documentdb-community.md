@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="11/5/2015"
+  ms.date="11/05/2015"
   ms.author="andrl"/>
 
 # Community portal
