@@ -25,7 +25,7 @@
 
 This article will walk you through the steps using the Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above. At this time, we don't have a solution for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment method that reside in different subscriptions. The team is currently working on a solution and we anticipate having steps by end of year. When it is available, this article will reflect those steps. The steps below are for VNets that are in the same subscription. 
 
-The Classic deployment model does support connecting VNets in different subscriptions. If your virtual networks were created using the Classic deployment model, see [Create a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md).
+If your virtual networks were created using the Classic deployment model, see [Create a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md). The Classic deployment model supports connecting VNets that reside in different subscriptions.
 
 If you want to connect a virtual network that was created in the Classic deployment model to a virtual network that was created using the Azure Resource Manager model, see [Connecting Classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
