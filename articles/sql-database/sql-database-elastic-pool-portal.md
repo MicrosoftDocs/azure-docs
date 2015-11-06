@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/03/2015"
+	ms.date="11/04/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -26,10 +26,10 @@
 
 This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal.
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
 
 
-Before you start, you need a database on a SQL Database V12 server. If you don't have one, see [Create your first Azure SQL Database](sql-database-get-started.md) to create one in under five minutes. Or if you already have a SQL Database V11 server you can [upgrade to V12 in the portal](sql-database-v12-upgrade.md) and then come back and follow these directions to create a pool, or you can [use PowerShell and upgrade your V11 databases directly into a pool](sql-database-upgrade-server.md).
+Before you start, you need a database on a SQL Database V12 server. If you don't have one, see [Create your first Azure SQL Database](sql-database-get-started.md) to create one in under five minutes. Or if you already have a SQL Database V11 server you can [upgrade to V12 in the portal](sql-database-v12-upgrade.md) and then come back and follow these directions to create a pool.
 
 
 ## Step 1: add a pool to a server

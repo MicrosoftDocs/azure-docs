@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="11/03/2015"
+   ms.date="11/04/2015"
    ms.author="sstein"/>
 
 # Create an elastic database pool with C&#x23;
@@ -26,7 +26,7 @@
 
 This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) from an application using C#.
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
 
 The examples use the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
@@ -107,11 +107,9 @@ To create a new application and register it in the correct active directory do t
 The domain name is required for your code. An easy way to identify the proper domain name is to:
 
 1. Go to the [Azure preview portal](https://portal.azure.com).
-2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
+2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window. Replace **domain.onmicrosoft.com** in the code snippet below with the value for your account.
 
     ![Identify domain name][3]
-
-
 
 
 
@@ -364,14 +362,6 @@ The following example lists all databases in a pool:
         Console.WriteLine("  Database {0}", db.Name);
     }
 
-
-
-## Delete a resource group
-
-The following example deletes a resource group (and all it's contained resources):
-
-    // Delete the resource group
-    var resourceOperationResponse = resourceClient.ResourceGroups.Delete("resourcegroup-name");
 
 
 

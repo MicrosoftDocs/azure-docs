@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/03/2015"
+    ms.date="11/04/2015"
     ms.author="adamkr; sstein"/>
 
 # Create an elastic database pool with PowerShell
@@ -26,11 +26,11 @@
 
 This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
 
 This article shows you how to create everything you need (including the V12 server) to create and configure an elastic database pool except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
-If you already have a SQL Database V11 server you can [use PowerShell to upgrade your V11 databases directly into a pool](sql-database-upgrade-server.md).
+
 
 
 The individual steps to create an elastic database pool with Azure PowerShell are broken out and explained for clarity. For those who simply want a concise list of commands, see the **Putting it all together** section at the bottom of this article.
