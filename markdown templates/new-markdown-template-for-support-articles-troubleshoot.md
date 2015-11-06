@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
+   pageTitle="42 characters followed by | Microsoft Azure to equal 60 characters. This title is displayed in search engines which will cut you off at 60 characters. Use keywords but don’t waste space"
+   description="Displayed in search engines under the title. You have more room here, use more keywords and a more descriptive explanation than the title"
    services="service-name"
    documentationCenter="dev-center-name"
    authors="GitHub-alias-of-only-one-author"
    manager="manager-alias"
    editor=""
-   tags="comma-separates-additional-tags-if-required"/>
+   tags="top-support-issue"/>
 
 <tags
    ms.service="required"
@@ -17,13 +17,15 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# Title (maximum 120 characters, should be what users use to describe the problem)
+# Title (This is displayed on the article itself with a maximum 120 characters. Should be keyword rich to match what users use to describe the problem.)
 
 Briefly describe the specific issue this article can help troubleshoot, and the common root causes
 
 Set the expectation: What users can achieve when they finish the article
 
 Don’t have more than one Note element at the top
+
+The first paragraph is a good place to place keywords. But avoid stuffing keywords but let the content flow in a natural way.
 
 Exceptions (optional) - relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered
 
