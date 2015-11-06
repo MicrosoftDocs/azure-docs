@@ -23,7 +23,11 @@
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-This article will walk you through the steps using the Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above. At this time, we don't have a solution for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment method. The team is currently working on a solution. When it is available, this article will reflect those steps.
+This article will walk you through the steps using the Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above. At this time, we don't have a solution for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment method that reside in different subscriptions. The team is currently working on a solution and we anticipate having steps by end of year. When it is available, this article will reflect those steps. The steps below are for VNets that are in the same subscription. 
+
+The Classic deployment model does support connecting VNets in different subscriptions. If your virtual networks were created using the Classic deployment model, see [Create a VNet-to-VNet connection](virtual-networks-configure-vnet-to-vnet-connection.md).
+
+If you want to connect a virtual network that was created in the Classic deployment model to a virtual network that was created using the Azure Resource Manager model, see [Connecting Classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
@@ -236,6 +240,7 @@ If you already have created virtual networks in Azure Resource Manager mode and 
 
 - You have a gateway subnet of at least /29 or larger for each VNet.
 - The address ranges for your virtual networks do not overlap.
+- Your VNets are in the same subscription
 
 If you need to add gateway subnets to your VNets, use the sample below, replacing the values with your own. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, your VPN configuration will not work as expected. 
 
