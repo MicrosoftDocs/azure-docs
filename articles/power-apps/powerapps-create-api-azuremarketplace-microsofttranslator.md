@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a new Google Drive API in your organization's App Service Environment"
-	description="Create a new Google Drive API in your organization's App Service Environment"
+	pageTitle="Create a new Microsoft Translator API in your organization's App Service Environment"
+	description="Create a new Microsoft Translator API in your organization's App Service Environment"
 	services="powerapps"
 	documentationCenter="" 
 	authors="LinhTran"
@@ -16,7 +16,7 @@
    ms.date="11/05/2015"
    ms.author="litran"/>
 
-#Create a new Google Drive API in your organization's App Service Environment
+#Create a new Microsoft Translator API in your organization's App Service Environment
 
 1. In the Azure portal, open **PowerApps**. In PowerApps, select **Registered APIs** tile or select it from *Settings*:  
 
@@ -32,18 +32,20 @@
 	
 	c) Select **API** from Azure Marketplace.  
 
-4. Select Google Drive from Azure Marketplace
+4. Select Microsoft Translator from Azure Marketplace
 
 	a) Select *Settings - Configure required settings*
 	
-	b) Enter *App Key* and *App Secret* for Salesforce
+	b) Enter *Client Id* and *Client Secret*
 		
-		Note the *Redirect URL*
-	- If you don't already have a Google Drive app registered, follow [these instructions][1].
+	- If you don't have a Microsoft Translator key, create a free [Microsoft Translator offer][1] and register an application [here][2] to obtain *client id* and *client secret*
+
 
 	c) Click *OK* on *Configure API* blade
 
-5. Click **OK**. Google Drive API is now added to the list of **Registered APIs** in your App Service Environment.  
+5. Click **OK**. Microsoft Translator API is now added to the list of **Registered APIs** in your App Service Environment. 
 
 <!--References-->
-[1]: https://console.developers.google.com/
+[1]: https://datamarket.azure.com/dataset/bing/search
+[2]: https://datamarket.azure.com/developer/applications/
+

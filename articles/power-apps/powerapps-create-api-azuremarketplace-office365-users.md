@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a new SharePoint Online API in your organization's App Service Environment"
-	description="Create a new SharePoint Online API in your organization's App Service Environment"
+	pageTitle="Create a new Office 365 Users API in your organization's App Service Environment"
+	description="Create a new Office 365 Users API in your organization's App Service Environment"
 	services="power-apps"
 	documentationCenter="" 
 	authors="LinhTran"
@@ -16,7 +16,7 @@
    ms.date="11/02/2015"
    ms.author="litran"/>
 
-#Create a new SharePoint Online API in your organization's App Service Environment
+#Create a new Office 365 Users API in your organization's App Service Environment
 
 1. In the Azure portal, open **PowerApps**. In PowerApps, select **Registered APIs** tile or select it from *Settings*:  
 
@@ -32,20 +32,20 @@
 	
 	c) Select **API** from Azure Marketplace.  
 
-4. Select *SharePoint Online* from Azure Marketplace
+4. Select *Office 365 Users* from Azure Marketplace
 
 	a) Select *Settings - Configure required settings*
 	
-	b) Enter *Client Id* and *App Key* for SharePoint Online
+	b) Enter *Client Id* and *Client Secret*
 		
 		Note the *Redirect URL*
 	- If you don't already have an Azure Application Directory app created, follow [these instructions][1].
-	- Following the instructions from the above tutorial, ensure that the application has delegated permissions to *Office 365 SharePoint Online*
+	- Following the instructions from the above tutorial, ensure that the application has delegated permissions to *Office 365 APIs*
 
 
 	c) Click *OK* on *Configure API* blade
 
-5. Click **OK**. SharePoint Online API is now added to the list of **Registered APIs** in your App Service Environment.
+5. Click **OK**. Office 365 Users API is now added to the list of **Registered APIs** in your App Service Environment.
 
 <!--References-->
 [1]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/  
