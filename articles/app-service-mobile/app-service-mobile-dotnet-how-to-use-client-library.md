@@ -19,12 +19,13 @@
 # How to use the managed client for Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-how-to](../../includes/app-service-mobile-selector-client-how-to.md)]
+&nbsp;
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview 
 
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial.
-
-[AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
 ##<a name="setup"></a>Setup and Prerequisites
 
