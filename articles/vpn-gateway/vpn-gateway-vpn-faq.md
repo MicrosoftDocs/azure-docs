@@ -246,11 +246,13 @@ If you have a virtual network with cross-premises connectivity configured, you c
 
 No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network will stay within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you'll want to verify that the DNS server you are using is resolving the name to the proper IP address.
 
+## Virtual Network FAQ
+
+[AZURE.INCLUDE virtual-networks-vnet-faq-include]
+
 ## Next Steps
 
 View more networking FAQs for additional details:
-
-- [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
 
 - [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)
 
