@@ -31,7 +31,7 @@ As of the week of November 6, 2015, the following capabilities have been added t
 
 | Query syntax            | Purpose |
 |-------------------------|---------|
-| has:preview             | Finds data assets that include a preview  |
+| has:previews             | Finds data assets that include a preview  |
 | has:documentation       | Finds data assets for which documentation has been provided |
 | has:tableDataProfiles   | Finds data assets with table-level data profile information |
 | has:columnsDataProfiles | Finds data assets with column-level data profile information |
