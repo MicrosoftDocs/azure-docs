@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="ggailey777"/>
 
 # Get started with Mobile Services

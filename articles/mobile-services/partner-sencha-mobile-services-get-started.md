@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
@@ -43,6 +43,7 @@ A screenshot from the completed app is shown below:
 - Download and install [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
 
 - Java Runtime Environment (JRE), or Java Development Kit (if you are creating Android apps)
+- Ruby and SASS gem.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
