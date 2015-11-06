@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Videos, samples, and tutorials in Azure Search | Microsoft Azure"
+	pageTitle="Videos, samples, and tutorials in Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Central list of all videos, samples, demos and tutorials created for Azure Search, a hosted cloud service on MIcrosoft Azure."
 	services="search"
 	documentationCenter=""

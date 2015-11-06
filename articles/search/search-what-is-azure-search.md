@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is Azure Search"
+	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Azure Search is a hosted cloud search service. Learn more in this technical overview and feature summary."
 	services="search"
 	documentationCenter=""
