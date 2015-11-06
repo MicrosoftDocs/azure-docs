@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Event Hubs"
+	pageTitle="Get Started with Event Hubs in C and C# | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
