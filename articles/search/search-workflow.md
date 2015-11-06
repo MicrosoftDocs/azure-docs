@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Typical workflow for Azure Search development | Microsoft Azure"
+	pageTitle="Typical workflow for Azure Search development | Microsoft Azure | Hosted cloud search service"
 	description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
