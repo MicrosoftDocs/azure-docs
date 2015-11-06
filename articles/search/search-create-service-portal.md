@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create an Azure Search service in the portal | Microsoft Azure"
+	pageTitle="Create an Azure Search service in the portal | Microsoft Azure | Hosted cloud search service"
 	description="Add free or standard Azure Search to an existing subscription using the Azure portal. Azure Search is cloud hosted search service for custom apps."
 	services="search"
 	documentationCenter=""
