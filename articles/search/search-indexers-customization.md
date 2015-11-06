@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Search Indexer Customization | Microsoft Azure" 
+	pageTitle="Azure Search Indexer Customization | Microsoft Azure | Hosted cloud search service" 
 	description="Learn how to customize settings and policies of indexers in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
