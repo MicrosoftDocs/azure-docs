@@ -31,23 +31,37 @@
 	c) Select **API** from Azure Marketplace.  
 
 4. Choose the API you want to add and configure that API's properties. Every API has different properties. For example, the SQL API can connect to an Azure SQL Database or an on-premises SQL Server. These options determine the settings or properties you configure. Currently, there are 15 APIs available from Azure Marketplace. 
-	- [Bing Search](powerapps-create-api-azuremarketplace-bingsearch.md)
-	- [Dynamics CRM Online Connection Provider](powerapps-create-api-azuremarketplace-crmonline.md)
-	- [Dropbox](powerapps-create-api-azuremarketplace-dropbox.md)
-	- [Excel]()
-	- [Google Drive](powerapps-create-api-azuremarketplace-googledrive.md)
-	- [Microsoft Translator]()
-	- [Office 365 Outlook]()
-	- [Office 365 Users]()
-	- [Office 365 Videos]()
-	- [OneDrive](powerapps-create-api-azuremarketplace-onedrive.md)
-	- [Salesforce](powerapps-create-api-azuremarketplace-saleforce.md)
-	- [SharePoint Online](powerapps-create-api-azuremarketplace-sharepointonline.md)
-	- [SharePoint Server]()
-	- [SQL Server]()
-	- [Twitter](powerapps-create-api-azuremarketplace-twitter.md)
+	- [Bing Search][1]
+	- [Dynamics CRM Online Connection Provider][2]
+	- [Dropbox][3]
+	- [Excel][4]
+	- [Google Drive][5]
+	- [Microsoft Translator][6]
+	- [Office 365 Outlook][7]
+	- [Office 365 Users][8]
+	- [OneDrive][9]
+	- [Salesforce][10]
+	- [SharePoint Online][11]
+	- [SharePoint Server][12]
+	- [SQL Server][13]
+	- [Twitter][14]
 	
 	> [AZURE.TIP] When you add an API, you're adding the API to your App Service environment. Once in the app service environment, it can be used by other apps within the same app service environment, especially PowerApps apps.
 
 5. Select **Add**. The connector is now added to your list of **Registered APIs** in your app service environment.  
 
+<!--References-->
+[1]: powerapps-create-api-azuremarketplace-bingsearch.md
+[2]: powerapps-create-api-azuremarketplace-crmonline.md
+[3]: powerapps-create-api-azuremarketplace-dropbox.md
+[4]: powerapps-create-api-azuremarketplace-excel.md
+[5]: powerapps-create-api-azuremarketplace-googledrive.md
+[6]: powerapps-create-api-azuremarketplace-microsofttranslator.md
+[7]: powerapps-create-api-azuremarketplace-office365-outlook.md
+[8]: powerapps-create-api-azuremarketplace-office365-users.md
+[9]: powerapps-create-api-azuremarketplace-onedrive.md
+[10]: powerapps-create-api-azuremarketplace-saleforce.md
+[11]: powerapps-create-api-azuremarketplace-sharepointonline.md
+[12]: powerapps-create-api-azuremarketplace-sharepointserver.md
+[13]: powerapps-create-api-azuremarketplace-sql.md
+[14]: powerapps-create-api-azuremarketplace-twitter.md
