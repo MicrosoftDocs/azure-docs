@@ -30,8 +30,8 @@ Azure stores the image under **My Images**. This is the same place where any ima
 
 These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
-- [Create a virtual machine from an Azure gallery image] []
-- [How to attach a data disk to a virtual machine] []
+- [Create a virtual machine from an image](virtual-machines-create-custom.md)
+- [How to attach a data disk to a virtual machine](storage-windows-attach-disk.md)
 
 > [AZURE.WARNING] This process deletes the original virtual machine after it's captured. 
 
@@ -78,8 +78,8 @@ This is not intended as a way to back up a virtual machine. One possible way to 
 
 The image is ready to be used to create virtual machines. To do this, you'll create a virtual machine by using the **From Gallery** menu item and selecting the image you just created. For instructions, see [Create a virtual machine from an image] [].
 
-[Create a virtual machine from an image]: virtual-machines-create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
+
+
 [How to sign in to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
