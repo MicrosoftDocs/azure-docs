@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a SQL Database elastic database pool with the Azure preview portal"
+	pageTitle="Create an Azure SQL Database elastic database pool with the Azure preview portal | Microsoft Azure"
 	description="Create an elastic database pool to share resources across multiple Azure SQL Databases."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/04/2015"
+	ms.date="11/06/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"

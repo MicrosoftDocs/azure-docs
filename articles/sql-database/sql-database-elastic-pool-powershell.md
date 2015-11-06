@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Create an Azure SQL Database elastic database pool with PowerShell" 
+    pageTitle="Create an Azure SQL Database elastic database pool with PowerShell | Microsoft Azure" 
     description="Create an elastic database pool to share resources across multiple Azure SQL Databases." 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/04/2015"
+    ms.date="11/06/2015"
     ms.author="adamkr; sstein"/>
 
 # Create an elastic database pool with PowerShell

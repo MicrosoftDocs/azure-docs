@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Create an Azure SQL Database elastic database pool with C#" 
-   description="This article shows you how to create an Azure SQL Database Elastic Database Pool with C# (using the Azure SQL Database Library for .NET)." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+    pageTitle="Create an Azure SQL Database elastic database pool with C# | Microsoft Azure" 
+    description="This article shows you how to create an Azure SQL Database Elastic Database Pool with C# (using the Azure SQL Database Library for .NET)." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="11/04/2015"
-   ms.author="sstein"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="powershell"
+    ms.workload="data-management" 
+    ms.date="11/06/2015"
+    ms.author="sstein"/>
 
 # Create an elastic database pool with C&#x23;
 
