@@ -386,7 +386,6 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
-Next step, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
 
 -  For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
 
