@@ -67,3 +67,4 @@ The following articles provide task specific guidance:
 ## Examples
 
 - This download contains both the sample application HelloKeyVault and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
+- Use this tutorial to help you learn how to use Azure Key Vault from a web application in Azure. [Use Azure Key Vault from a Web Application] (key-vault-use-from-web-application.md)
