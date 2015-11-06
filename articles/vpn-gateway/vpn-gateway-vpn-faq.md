@@ -255,6 +255,6 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 
 ## Next steps
 
-- You can view more information about VPN Gateways on the [VPN Gateway documentation page](https://azure.microsoft.com/documentation/services/vpn-gateway/).
+You can view more information about VPN Gateways on the [VPN Gateway documentation page](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
