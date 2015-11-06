@@ -19,10 +19,6 @@
 
 # DocumentDB .NET samples
 
-> [AZURE.SELECTOR]
-- [.NET](documentdb-dotnet-samples.md)
-- [Node.js](documentdb-nodejs-samples.md)
-
 Sample solutions that perform CRUD operations and other common operations on DocumentDB resources are included in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub repository. This article provides:
 
 - Links to the tasks in each of the sample c# project files. 
