@@ -30,21 +30,15 @@ To create a DevTest Lab, you will need:
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-3. Tap the **Marketplace** tile.
+1. Tap **Browse**.
 
-    ![Marketplace tile](./media/devtest-lab-create-lab/start-marketplace-tile.png)   
+1. Tap **DevTest Labs** from the list.
 
-2. On the **Marketplace** blade, tap **Everything**, enter **devtest labs** in the search box, and press the **Enter** key.
+1. On the **DevTest Labs** blade, tap **Add**.
 
-    ![Search the Marketplace for DevTest Lab](./media/devtest-lab-create-lab/search-marketplace-everything-for-devtestlab.png)
+    ![Add a DevTest Lab](./media/devtest-lab-create-lab/add-lab.png)
 
-3. Tap the **DevTest Labs** item.
-
-    ![Choose DevTest Lab](./media/devtest-lab-create-lab/choose-devtestlab-after-search.png)
-
-4. On the **DevTest Lab** blade, tap **Create**.
-
-5. On the **Create a DevTest Lab** blade:
+1. On the **Create a DevTest Lab** blade:
 
     1. Enter a **Lab Name** for the new lab.
     1. Select the **Subscription** to associate with the lab.

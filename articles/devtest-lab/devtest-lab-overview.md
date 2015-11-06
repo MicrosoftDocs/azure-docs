@@ -28,7 +28,7 @@ DevTest Lab provides the following benefits in creating, configuring, and managi
 
 ###Worry-Free Self-Service
 
-DevTest Lab makes it easier to control costs by allowing you to set limits on your lab - such as number of virtual machines (VM) per user and number of VMs per lab. DevTest Lab also enables you to create policies to automatically shut down and start VMs.
+DevTest Lab makes it easier to control costs by allowing you to set policies on your lab - such as number of virtual machines (VM) per user and number of VMs per lab. DevTest Lab also enables you to create policies to automatically shut down and start VMs.
 
 ###Quickly get to "Ready to Test"
 

@@ -24,7 +24,7 @@ You create a virtual machine in a DevTest Lab starting with an Azure base image 
 
 DevTest Lab *artifacts* let you specify actions that are performed when the VM is created. Artifact actions can perform procedures such as running Powershell and Bash commands, and installing software. Artifact *parameters* let you customize the artifact for your particular scenario.
 
-Your lab includes artifacts from the official DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository.
+Your lab includes artifacts from the Public DevTest Lab Artifact Repository as well as artifacts that are created and added to your own Artifact Repository.
 
 This article shows you how create a VM in your lab using artifacts.
 
