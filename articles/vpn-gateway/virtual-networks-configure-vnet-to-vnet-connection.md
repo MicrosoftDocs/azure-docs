@@ -110,7 +110,7 @@ VNet1: Address Space = 10.1.0.0/16; Region=US West
 
 VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
-1. Log in to the **Azure Classic Portal** (not the Preview Portal).
+1. Log in to the **Azure Portal** (not the Preview Portal).
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -166,7 +166,7 @@ When you create a VNet-to-VNet configuration, you need to configure each VNet to
 
 4. After configuring VNet1 as a local network, go back and configure VNet2 using the values that correspond to that VNet.
 
-5. Now you’ll point each VNet to the other as a local network. In the Azure Classic Portal, go to the **Configure** page for VNet1. Under **site-to-site connectivity**, select **Connect to the local network**, then select **VNET2** as the local network.
+5. Now you’ll point each VNet to the other as a local network. In the Azure Portal, go to the **Configure** page for VNet1. Under **site-to-site connectivity**, select **Connect to the local network**, then select **VNET2** as the local network.
 
   ![Connect to local network](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)  
 
