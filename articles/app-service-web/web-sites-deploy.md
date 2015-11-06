@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy a web app in Azure App Service"
-	description="Learn what methods are available for deploying content to Web Apps."
+	pageTitle="Azure App Service deployment documentation resources"
+	description="Find documentation that explains how to deploy your app to Azure App Service."
 	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
@@ -16,11 +16,11 @@
 	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
-#Deploy a web app in Azure App Service
+# Azure App Service deployment documentation resources
 
 ## Overview
 
-This topic provides a brief overview of the options for deploying your own content to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
+This article lists the methods available for deploying your own content to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This topic does not include how-to instructions, but links to articles and blogs that do contain such information. As additional articles are published, they will be added to this list. 
 
 The best way to deploy a web app is to set up a [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable.
 
