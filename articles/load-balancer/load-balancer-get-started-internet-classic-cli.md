@@ -112,6 +112,13 @@ The output will be:
 	data:    Network Endpoints 2 port 58081
 	info:    vm show command OK
 
+## Create a remote desktop endpoint for a virtual machine
+
+You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific vm using `azure vm endpoint create`.
+
+	azure vm endpoint create web1 54580 -k 3389 
+
+
 ## Remove virtual machine from load balancer
 
 You have to delete the endpoint associated to the load balancer set from the virtual machine. Once the endpoint is removed, the virtual machine doesn't belong to the load balancer set anymore. 
@@ -120,6 +127,8 @@ The command `azure vm endpoint delete` removes the endpoint. Using the example a
 
 
 	azure vm endpoint delete web1 tcp-80-80
+
+>[AZURE.NOTE] You can explore more options to manage endpoints using the command `azure vm endpoint --help`
 
 
 ## Next steps
