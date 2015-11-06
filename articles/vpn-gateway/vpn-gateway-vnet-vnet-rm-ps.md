@@ -242,7 +242,7 @@ If you already have created virtual networks in Azure Resource Manager mode and 
 
 - You have a gateway subnet of at least /29 or larger for each VNet.
 - The address ranges for your virtual networks do not overlap.
-- Your VNets are in the same subscription
+- Your VNets are in the same subscription.
 
 If you need to add gateway subnets to your VNets, use the sample below, replacing the values with your own. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, your VPN configuration will not work as expected. 
 
