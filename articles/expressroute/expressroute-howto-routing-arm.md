@@ -386,7 +386,7 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
-Next step, link a VNet to an ExpressRoute circuit. You can use [this template](https://azure.microsoft.com/documentation/templates/301-expressroute-circuit-vnet-connection/) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
+Next step, link a VNet to an ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
 
 
 -  For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
