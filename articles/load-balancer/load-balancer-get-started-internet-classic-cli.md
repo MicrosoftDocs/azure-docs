@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic mode using the Azure CLI | Microsoft Azure"
-   description="Learn how to create an Internet facing load balancer in classic mode using the Azure CLI"
+   pageTitle="Get started creating Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Azure"
+   description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -30,7 +30,7 @@
 
 ## Step by step creating an Internet facing load balancer using CLI
 
-This guide will show how to create an Internet load balancer based on the scenario above.
+This guide shows how to create an Internet load balancer based on the scenario above.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
