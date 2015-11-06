@@ -16,7 +16,7 @@
    ms.date="10/31/2015"
    ms.author="sstein"/>
 
-# Create a SQL Database elastic database pool with C&#x23;
+# Create an elastic database pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -24,7 +24,7 @@
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-This article shows you how to create an elastic database pool, which simplifies the process of creating, maintaining, and managing performance and cost for multiple databases. 
+This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) from an application using C#.
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers.
 
