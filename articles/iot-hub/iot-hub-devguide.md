@@ -418,9 +418,9 @@ The body is a JSON-serialized array of records, each with the following properti
 
 | Property | Description |
 | -------- | ----------- |
-| EnqueuedTime | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
-| CorrelationId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
-| StatusCode | **0** if success, **1** if the message expired, **2** if the maximum delivery count is exceeded, **3** if the message was rejected. |
+| EnqueuedTimeUtc | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
+| OriginalMessageId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
+message was rejected. |
 | Description | String values for the previous outcomes. |
 | DeviceId | **DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId | **DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
