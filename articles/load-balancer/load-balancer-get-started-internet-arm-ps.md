@@ -134,7 +134,7 @@ The example below creates the following items:
 - a load balancer that uses all the objects above.
 
 
-<sup>1</sup> NAT rules are associated to a specific instance virtual machine behind the load balancer. The network traffic coming to ports 3341 will be sent to a specific virtual machine RDP port associated with the NAT rule. 
+<sup>1</sup> NAT rules are associated to a specific instance virtual machine behind the load balancer. The network traffic coming to ports 3341 will be sent to a specific virtual machine 3389 port associated with the NAT rule.  
 
 ### Step 1
 
