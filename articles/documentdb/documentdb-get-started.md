@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/16/2015"
+	ms.date="11/05/2015"
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -76,6 +76,8 @@ First, add these references to the beginning of your C# application, in the Prog
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
+
+> [AZURE.IMPORTANT] In order to complete this application, make sure you add the dependencies above.
 
 Next, save the DocumentDB account endpoint and either the primary or secondary access key, which can be found in the [Azure Preview Portal](https://portal.azure.com).
 
