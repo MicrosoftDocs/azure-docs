@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a VNet-to-VNet connection using Azure Resource Manager and PowerShell | Microsoft Azure"
+   pageTitle="Create a VNet-to-VNet connection using Azure Resource Manager and PowerShell for VNets residing in the same subscription | Microsoft Azure"
    description="This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell"
    services="vpn-gateway"
    documentationCenter="na"
@@ -14,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/20/2015"
+   ms.date="11/06/2015"
    ms.author="cherylmc"/>
 
-# Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell
+# Configure a VNet-to-VNet connection using Azure Resource Manager and PowerShell for VNets in the same subscription
 
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-This article will walk you through the steps using the Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above.
+This article will walk you through the steps using the Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above. At this time, we don't have a solution for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment method. The team is currently working on a solution. When it is available, this article will reflect those steps.
 
->[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is very similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different regions. You can even combine VNet-to-VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below. 
 
@@ -252,3 +252,4 @@ After verifying that your gateway subnets are configured correctly, continue wit
 You can add virtual machines to your virtual networks. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-faq.md).
+For more information about Virtual Networks, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
