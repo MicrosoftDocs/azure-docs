@@ -25,7 +25,7 @@
 
 ##Overview 
 
-This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial.
+This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDK for the .NET backend, see [Work with .NET backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ##<a name="setup"></a>Setup and Prerequisites
 
