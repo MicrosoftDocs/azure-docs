@@ -329,5 +329,5 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 * [Service Bus AMQP 1.0 developer's guide](service-bus-amqp-dotnet.md)
-* [How to Use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+* [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
  

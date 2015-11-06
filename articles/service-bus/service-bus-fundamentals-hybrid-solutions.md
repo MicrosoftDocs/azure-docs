@@ -22,7 +22,7 @@ Whether an application or service runs in the cloud or on premises, it often nee
 
 ## Service Bus fundamentals
 
-Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. And in some cases, all that's really needed is a connection between applications&#151;queues aren't required. Service Bus provides all three options, letting your applications interact in several different ways.
+Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. In some cases, all that's really needed is a connection between applications; queues aren't required. Service Bus provides all three options, enabling your applications to interact in several different ways.
 
 Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. Figure 1 shows how this looks.
 
