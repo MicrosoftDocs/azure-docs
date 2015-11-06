@@ -36,7 +36,7 @@ To create a DevTest Lab, you will need:
 
 1. On the **DevTest Labs** blade, tap **Add**.
 
-    ![Add a DevTest Lab](./media/devtest-lab-create-lab/add-lab.png)
+    ![Add a DevTest Lab](./media/devtest-lab-create-lab/add-lab-button.png)
 
 1. On the **Create a DevTest Lab** blade:
 
