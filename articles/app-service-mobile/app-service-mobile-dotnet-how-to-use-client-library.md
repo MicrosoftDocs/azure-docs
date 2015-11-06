@@ -18,7 +18,7 @@
 
 # How to use the managed client for Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-how-to](../../includes/app-service-mobile-selector-client-how-to.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 &nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
