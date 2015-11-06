@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure Service Fabric How to report and check service health"
+   pageTitle="Service Fabric How to report and check health | Microsoft Azure"
    description="This article describes how you can send health reports from your service code and check your service's health using the Health Monitoring tools that Azure Service Fabric provides"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/27/2015"
+   ms.date="11/05/2015"
    ms.author="kunalds"/>
 
 
@@ -32,16 +32,16 @@ To deploy an application and check its health follow these steps:
 
 2. Create a project for a stateful service.
 
-  ![Create a Service Fabric Application with Stateful Service](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/CreateStatefulServiceApplication.png)
+  ![Create a Service Fabric Application with Stateful Service](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application.png)
 
 3. Press F5 to run the application in debug mode. The application will be deployed to the local cluster.
 
 4. Once the application is running, open Service Fabric Explorer and the application health should be displayed as in the image below. At this time the application should be health with no errors.
 
-  ![Healthy Application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/SFEHealthyApp.png)
+  ![Healthy Application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfe-healthy-app.png)
 
 5. You can also check the health using Powershell. You can check an application's health using ```Get-ServiceFabricApplicationHealth``` and service health can be queried by ```Get-ServiceFabricServiceHealth```. The health report for the same application in Powershell looks like this.
-![Healthy Application in Powershell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/PSHealthyApp.png)
+![Healthy Application in Powershell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app.png)
 
 ## Add custom health events to your service code
 The Service Fabric Visual Studio project templates contain sample code. The steps below show how you can report custom health events from your service code. Such reports will automatically show up in the standards tools for Health Monitoring that Service Fabric provides such as Service Fabric Explorer, Azure Portal health view and Powershell.
@@ -84,7 +84,10 @@ if(!result.HasValue)
 }
 ```
 5. Once the application is running, open Service Fabric Explorer to check health of the application. This time Service Fabric Explorer will show the application to be unhealthy. This is because of the error that was reported from the code that we added above.
-![Unhealthy Application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/SFEUnhealthyApp.png)
+![Unhealthy Application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfe-unhealthy-app.png)
 
 6. If you select the primary replica in the tree view of Service Fabric Explorer, you will see it shows the health to be in error too and also displays the health report details that were added to the 'HealthInformation` parameter in the code. You can see the same health reports in Powershell as well as the Azure Portal.
-![Replica Health in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ReplicaHealthErrorReport.png)
+![Replica Health in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report.png)
+
+## Next Steps
+[Deep dive on Service Fabric Health](service-fabric-health-introduction.md)

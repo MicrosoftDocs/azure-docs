@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure Service Fabric How to collect logs with Windows Azure Diagnostics and Operational Insights"
+   pageTitle="Service Fabric How to collect logs with Windows Azure Diagnostics and Operational Insights | Microsoft Azure"
    description="This article describes how you can setup Windows Azure Diagnostics and Operational Insights to collect logs from a Service Fabric cluster running in Azure"
    services="service-fabric"
    documentationCenter=".net"
@@ -43,7 +43,7 @@ The first step to collecting logs will be to deploy the WAD extension on each of
 
 ### Deploy WAD as part of cluster creation through the Portal
 To deploy WAD to the VMs in the cluster as part of cluster creation the Diagnostics Setting shown in the image below is used. It is ON by default.
-![WAD setting in Portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/PortalClusterCreationDiagnosticsSetting.png)
+![WAD setting in Portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
 ### Deploy WAD as part of cluster creation using ARM
 To create a cluster using ARM you need to add this WAD configuration JSON to the Full cluster ARM template before creating the cluster. Below is an example of a 5 VM Cluster ARM template with WAD configuration added to it. To see the WAD setting in the ARM template search for "wadConfig".
@@ -1125,16 +1125,16 @@ if ($existingConfig) {
 }
 ```
 Once you have configured the Operational Insights workspace to read from the Azure Tables in your storage account, you should log into the Azure Portal, and look up the Storage tab for the Operational Insights resource. It should show something like this:
-![Operational Insights Storage Cnfiguration in the Azure Portal](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/OIConnectedTables.png)
+![Operational Insights Storage Cnfiguration in the Azure Portal](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables.png)
 
 ### Search and View logs in Operational Insights
 After you have configured your Operational Insights workspace to read the logs from the specified storage account it may take up to 10 minutes for the logs to show up in Operational Insights UI. To ensure there are new logs generated you should deploy a Service Fabric application to your cluster since that will generate operational events from the Service Fabric platform.
 
 1) To view the logs, select LogSearch on the main page of the Operational Insights portal.
-![Operational Insights Log Search Option](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/LogSearchOptionOI.png)
+![Operational Insights Log Search Option](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/log-search-option-oi.png)
 
 2) In the log search page use this query "Type=ServiceFabricOperationalEvent" and you should see the logs from your cluster as shown below.
-![Operational Insights Log Query and View](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/ViewOILogs.png)
+![Operational Insights Log Query and View](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/view-oi-logs.png)
 
 ## Update WAD to collect and upload logs from new EventSource channels
 To update WAD to collect logs from a new EventSource channels representing a new application that you are about to deploy you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of WAD for an existing cluster. You will need to update the EtwEventSourceProviderConfiguration section in the WadConfigUpdate.json to add entries for the new EventSources before you apply the config update through the ARM command. The table for upload will be the same(ETWEventTable), since that is the table that is configured for Operational Insights to read application ETW events from.
