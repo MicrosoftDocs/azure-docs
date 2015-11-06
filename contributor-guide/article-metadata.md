@@ -21,7 +21,8 @@ The properties section uses the following syntax:
        authors="GitHub-alias-of-only-one-author"
        manager="manager-alias"
        editor=""
-       tags=""/>
+       tags="optional"
+       keywords="optional - use only to track target keywords on prioritized articles"/>
 
 The tags section uses the following syntax:
 
@@ -137,6 +138,8 @@ In articles that specify both a services value and a documentationCenter value, 
   - azure-service-management
   - billing
   - mysql
+
+![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. This attribute is meant to record keywords that the author has decided to specifically track and target to improve search results for the specific topic. The keywords are not published to the article and have no functionality impact. Validation does not require this attribute.
 
 ## Attributes and values for the tags section
 
