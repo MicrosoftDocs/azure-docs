@@ -48,7 +48,7 @@ You may want to connect virtual networks for the following reasons:
 	- If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
 	- For enterprises or service providers, you can enable cross organization communication with secure VPN technology within Azure.
 
-## VNet to VNet FAQ
+## VNet-to-VNet FAQ
 
 - The virtual networks can be in the same or different subscriptions.
 

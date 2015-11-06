@@ -250,7 +250,8 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ## Virtual Network FAQ
 
-[AZURE.INCLUDE virtual-networks-vnet-faq-include]
+[AZURE.INCLUDE [vnet-faq](../../includes/virtual-networks-vnet-faq-include.md)]
+
 
 ## Next Steps
 
