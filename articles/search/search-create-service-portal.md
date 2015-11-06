@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create an Azure Search service in the portal | Microsoft Azure"
-	description="Add a free or standard Azure Search service to an existing subscription using the Azure portal"
+	pageTitle="Create an Azure Search service in the portal | Microsoft Azure | Hosted cloud search service"
+	description="Add free or standard Azure Search to an existing subscription using the Azure portal. Azure Search is cloud hosted search service for custom apps."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure portal

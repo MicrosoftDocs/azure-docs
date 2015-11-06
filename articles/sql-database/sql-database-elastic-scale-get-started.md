@@ -16,7 +16,7 @@
 	ms.date="11/04/2015" 
 	ms.author="ddove;sidneyh"/>
 
-#Get started with Elastic Database tools
+# Get started with Elastic Database tools
 
 This document introduces you to the developer experience by running the sample app. The sample creates a simple sharded application and explores key capabilities of elastic database tools. The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md)
 
