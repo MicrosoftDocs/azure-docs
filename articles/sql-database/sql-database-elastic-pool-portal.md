@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal.
