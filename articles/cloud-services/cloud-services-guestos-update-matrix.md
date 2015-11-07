@@ -331,6 +331,7 @@ Because of the partial rollout of the last two releases, people on auto update o
 | 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | Oct 9 2013 | N/A | May 14 2014 |
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | Sept 23 2013 | N/A | May 14 2014 |
 
+
 [Azure Guest OS Update Settings]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
