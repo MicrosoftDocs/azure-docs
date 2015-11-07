@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Polymorphism in the Reliable Actor Framework | Microsoft Azure"
-   description="This article describes how you can implement hierarchical types and interfaces with the Reliable Actor framework."
+   pageTitle="Polymorphism in the Actor Framework | Microsoft Azure"
+   description="Build hierarchies of .NET interfaces and types in the Reliable Actors framework to reuse functionality and API definitions."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/14/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
 # Polymorphism in the Reliable Actor framework
