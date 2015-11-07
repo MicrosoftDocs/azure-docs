@@ -14,17 +14,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="11/06/2015"
+	ms.date="11/10/2015"
 	ms.author="v-marsma"/>
 
-# Manage Azure Batch accounts and monitor quotas with Batch Management .NET
+# Manage Azure Batch accounts and quotas with Batch Management .NET
 
-With the [Batch Management .NET][api_mgmt_net] library, you can add Batch account creation, deletion, key management, and quota discovery to your Azure Batch applications. Lower account maintenance overhead and proactively adjust compute resource allocation based on quota information discovered with the Batch Management API.
+> [AZURE.SELECTOR]
+- [Batch Management .NET](batch-management-dotnet.md)
+- [Account management in Azure portal](batch-account-create-portal.md)
 
-- **Create and delete Batch accounts** within any region. If, as an ISV for example, you provide a service for your clients in which each is assigned a separate Batch account for billing purposes, you can add account creation and deletion capabilities to your customer portal.
+Lower maintenance overhead with the [Batch Management .NET][api_mgmt_net] library by adding Batch account creation, deletion, key management, and quota discovery to your Azure Batch applications.
+
+- **Create and delete Batch accounts** within any region. If, as an independent software vendor (ISV) for example, you provide a service for your clients in which each is assigned a separate Batch account for billing purposes, you can add account creation and deletion capabilities to your customer portal.
 - **Retrieve and regenerate account keys** programmatically for any of your Batch accounts. This is particularly handy for maintaining compliance with security policies that might enforce the periodic rollover or expiry of account keys. When you have a number of a Batch accounts in various Azure regions, automation of this rollover process will increase your solution's efficiency.
 - **Check account quotas** and take the trial-and-error guesswork out of determining which Batch accounts have what limits. By checking your account quotas prior to starting jobs, creating pools, or adding compute nodes, you can proactively adjust where or when these compute resources are created. You can determine which accounts require quota increases prior to the allocation of additional resources in those accounts.
 - **Combine features of other Azure services** for a full-featured management experience by leveraging Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. Using these features and their APIs, you can provide a frictionless authentication experience, creation and deletion of Resource Groups, and the capabilities described above for an end-to-end management solution.
+
+> [AZURE.NOTE] While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. See [Create and manage an Azure Batch account in the Azure portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for more information.
 
 ## Create and delete Batch accounts
 
