@@ -35,19 +35,19 @@ Service Fabric makes it easy to develop stateful services that scale by offering
 
 Conceptually you can think about a partition of a stateful service being a scale unit that is highly reliable through [replicas](service-fabric-availability-services.md) that are distributed and balanced across the nodes in the cluster.
 
-To give you can example say we start with a 5 node cluster and a service configured to have 10 partitions and a target of three replicas. In this case Service Fabric would balance and distribute the replicas across the cluster and we would end up with 2 primary [replicas](service-fabric-availability-services.md) per node.
-If we now need to scale out our cluster to 10 nodes Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise if we scaled back to 5 nodes Service Fabric would rebalance all the replicas across the 5 nodes.  
+To give you can example say you start with a 5 node cluster and a service configured to have 10 partitions and a target of three replicas. In this case Service Fabric would balance and distribute the replicas across the cluster and you would end up with 2 primary [replicas](service-fabric-availability-services.md) per node.
+If you now need to scale out our cluster to 10 nodes Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise if you scaled back to 5 nodes, Service Fabric would rebalance all the replicas across the 5 nodes.  
 
 Figure 2 shows the distribution of 10 partitions before and after scaling the cluster.
 
 ![Stateful Service](./media/service-fabric-concepts-partitioning/scaledcluster.png)
 
 ## Planning for partitioning
-Before implementing a service you should always consider the partitioning strategy required to scale out. There are different ways, but all of them focus on the needs of the specific application, since partition must be done in the context of what the application needs to achive. For the context of this article let's consider some of the more important aspects.
+Before implementing a service you should always consider the partitioning strategy required to scale out. There are different ways, but all of them focus what the application needs to achieve. For the context of this article let's consider some of the more important aspects.
 
 A good approach is to think about the structure of the state that needs to be partitioned as the first step.
 
-Let's take a simple example. If you were to build a service for a county wide poll you could create a partition for each city in the county and then store the votes cast for every person in the city in the partition corresponding to that city. Figure 3 illustrates this by showing the distribution for people to a view cities.
+Let's take a simple example. If you were to build a service for a county wide poll you could create a partition for each city in the county and then store the votes for every person in the city in the partition corresponding to that city. Figure 3 illustrates this by showing the distribution for people to a view cities.
 
 ![Simple partition](./media/service-fabric-concepts-partitioning/citydistribution.png)
 
@@ -299,7 +299,7 @@ This service serves as a simple web interface that accepts the lastname as a que
     ```
 
     Remember for this example we are using 26 partitions with one partition key per partition.
-    Next we obtain the service partition `partition` for this key by using the `ResolveAsync` method on the `s_resolver` object. `servicePartitionResolver` is defined as
+    Next we obtain the service partition `partition` for this key by using the `ResolveAsync` method on the `servicePartitionResolver` object. `servicePartitionResolver` is defined as
 
     ```CSharp
     private static readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
@@ -325,7 +325,7 @@ This service serves as a simple web interface that accepts the lastname as a que
     ```
 
     One the processing is done we write the output back.
-    
+
 15. The last step is to test the service. Visual Studio uses application parameters for local and cloud deployment. To test the service with 26 partitions locally you need update the `Local.xml` file in the ApplicationParameters folder of the AlphabetPartitions project as shown below:
 
     ```xml
@@ -338,7 +338,7 @@ This service serves as a simple web interface that accepts the lastname as a que
 16. Once deployed you can check the service and all of its partitions in the Service Fabric Explorer.
 ![Service](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
 17. In a browser you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
-![Browser](./media/service-fabric-concepts-partitioning/browser.png)
+![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 The entire source code of the sample is available on [Github](www.github.com)
 
