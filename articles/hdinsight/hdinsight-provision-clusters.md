@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/29/2015"
+   ms.date="11/07/2015"
    ms.author="jgao"/>
 
 # Create Hadoop clusters in HDInsight
@@ -472,111 +472,109 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 1. Create a new C# console application in Visual Studio.
 2. Run the following Nuget command in the Nuget Package Management console.
 
+		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
 6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
-
-        using System;
-		using System.Collections.Generic;
-		using System.Diagnostics;
-		using System.Linq;
+		using System;
 		using System.Security;
-		using System.Text;
-		using System.Threading.Tasks;
-		using Hyak.Common;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Newtonsoft.Json;
-
-		namespace CreateHDICluster
+		
+		namespace CreateHDInsightCluster
 		{
-		    internal class Program
-		    {
-		        private static ProfileClient _profileClient;
-		        private static SubscriptionCloudCredentials _cloudCredentials;
-		        private static HDInsightManagementClient _hdiManagementClient;
-
-		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
-		        private const string ResourceGroupName = "<ResourceGroupName>";
-		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
-		        private const string ExistingStorageKey = "<account key>";
-		        private const string ExistingContainer = "<container name>";
-		        private const string NewClusterName = "<cluster name>";
-		        private const int NewClusterNumNodes = <number of nodes>;
-		        private const string NewClusterLocation = "<location>";		//must be same as the storage account
-		        private const OSType NewClusterOsType = OSType.Windows;
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-		        private const string NewClusterVersion = "3.2";
-		        private const string NewClusterUsername = "admin";
-		        private const string NewClusterPassword = "<password>";
-
-		        private static void Main(string[] args)
-		        {
-		            System.Console.WriteLine("Start cluster creation");
-
-		            _profileClient = GetProfile();
-		            _cloudCredentials = GetCloudCredentials();
-		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
-
-		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
-		            CreateCluster();
-		            System.Console.WriteLine("Done. Press any key to continue.");
-		            System.Console.ReadKey(true);
-		        }
-
-		        private static void CreateCluster()
-		        {
-		            var parameters = new ClusterCreateParameters
-		            {
-		                ClusterSizeInNodes = NewClusterNumNodes,
-		                UserName = NewClusterUsername,
-		                Password = NewClusterPassword,
-		                Location = NewClusterLocation,
-		                DefaultStorageAccountName = ExistingStorageName,
-		                DefaultStorageAccountKey = ExistingStorageKey,
-		                DefaultStorageContainer = ExistingContainer,
-		                ClusterType = NewClusterType,
-		                OSType = NewClusterOsType
-		            };
-
-		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
-		        }
-
-		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
-		        {
-		            var profileClient = new ProfileClient(new AzureProfile());
-		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
-		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-		            if (username != null && password != null)
-		                acct.Id = username;
-
-		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
-
-		            return profileClient;
-		        }
-
-		        private static SubscriptionCloudCredentials GetCloudCredentials()
-		        {
-		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
-
-		            Debug.Assert(sub != null, "subscription != null");
-		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-
-		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
-		        }
-
-		    }
+			class Program
+			{
+				private static HDInsightManagementClient _hdiManagementClient;
+		
+				private static Guid SubscriptionId = new Guid("<Azure Subscription ID");
+				private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
+				private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
+				private const string ExistingStorageKey = "<Default Storage Account Key>";
+				private const string ExistingBlobContainer = "<Default Blob Container Name>";
+				private const string NewClusterName = "<HDInsight Cluster Name>";
+				private const int NewClusterNumNodes = 1;
+				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+				private const OSType NewClusterOsType = OSType.Windows;
+				private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+				private const string NewClusterVersion = "3.2";
+				private const string NewClusterUsername = "admin";
+				private const string NewClusterPassword = "<HTTP User password";
+		
+				static void Main(string[] args)
+				{
+					System.Console.WriteLine("Running");
+		
+					var tokenCreds = GetTokenCloudCredentials();
+					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+				
+					var parameters = new ClusterCreateParameters
+					{
+						ClusterSizeInNodes = NewClusterNumNodes,
+						UserName = NewClusterUsername,
+						Password = NewClusterPassword,
+						Location = NewClusterLocation,
+						DefaultStorageAccountName = ExistingStorageName,
+						DefaultStorageAccountKey = ExistingStorageKey,
+						DefaultStorageContainer = ExistingBlobContainer,
+						ClusterType = NewClusterType,
+						OSType = NewClusterOsType
+					};
+		
+					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+				}
+				private static void CreateCluster()
+				{
+					var parameters = new ClusterCreateParameters
+					{
+						ClusterSizeInNodes = NewClusterNumNodes,
+						UserName = NewClusterUsername,
+						Password = NewClusterPassword,
+						Location = NewClusterLocation,
+						DefaultStorageAccountName = ExistingStorageName,
+						DefaultStorageAccountKey = ExistingStorageKey,
+						DefaultStorageContainer = ExistingBlobContainer,
+						ClusterType = NewClusterType,
+						OSType = NewClusterOsType
+					};
+		
+					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+				}
+		
+				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+				{
+					var authFactory = new AuthenticationFactory();
+		
+					var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+					if (username != null && password != null)
+						account.Id = username;
+		
+					var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+					var accessToken =
+						authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+							.AccessToken;
+		
+					return new TokenCloudCredentials(accessToken);
+				}
+		
+				public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+				{
+					return new TokenCloudCredentials(subId.ToString(), creds.Token);
+		
+				}
+			}
 		}
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster.
-
 
 ## Creating HDInsight cluster using on-premises SQL Server Integration Services
 
