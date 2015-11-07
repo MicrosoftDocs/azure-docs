@@ -568,7 +568,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster.
 
-## Creating HDInsight cluster using on-premises SQL Server Integration Services
+## Create using on-premises SQL Server Integration Services
 
 You can also use SQL Server Integration Services (SSIS) to create or delete an HDInsight cluster. The Azure Feature Pack for SSIS provides the following components that work with HDInsight clusters.
 
@@ -580,7 +580,7 @@ You can also use SQL Server Integration Services (SSIS) to create or delete an H
 Learn more about the Azure Feature Pack for SSIS [here][ssispack].
 
 
-##<a id="nextsteps"></a> Next steps
+##Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
 * [Get started with Azure HDInsight](hdinsight-get-started.md) - Learn how to start working with your HDInsight cluster
