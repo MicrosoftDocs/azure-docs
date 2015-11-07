@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/23/2015"
+   ms.date="10/15/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS Releases and SDK Compatibility Matrix
@@ -28,37 +28,6 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 
 ## News Updates
-
-###### **October 23 2015**
-On August 7, 2014, Microsoft announced that support will end for .NET Framework 4, 4.5, and 4.5.1 on January 12, 2016. It is recommended to customers and developers to complete the in-place update to .NET Framework 4.5.2 by January 12, 2016 to continue receiving technical support and security updates. Visit Microsoft .NET Framework Support Lifecycle Policy for more details.
-
-To ensure that your cloud services continue to be secure and protected, Azure will update the .NET Framework in Windows Azure Guest operating system (Guest OS) family 2.x, 3.x and 4.x to .NET Framework 4.5.2 in November Guest OS Release. Cloud services running on Guest OS family 2.x, 3.x and 4.x with automatic updates enabled will be updated to the November Guest OS with .NET Framework 4.5.2. 
-
-The following table captures the changes which will be applied in November Guest OS release. 
-
-| Guest OS Family | Installed .NET Framework prior to Guest OS 201511-02 Release | Installed .NET Framework after Guest OS 201511-02 Release | 
-| --------------- | ----------------------------------- | ----------------------------------- | 
-| OS Family 2.x based on Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 | 
-| OS Family 3.x based on Windows Server 2012	   | .NET 4.5           | .NET 4.5.2           | 
-| OS Family 4.x based on Windows Server 2012 R2 | .NET 4.5.1         | .NET 4.5.2           | 
-
-If you are on Guest OS manual update, there will be two Guest OS versions released for all Guest OS families in November. 
-
- •	  WA-GUEST-OS-4.26_201511-01, WA-GUEST-OS-3.33_201511-01, WA-GUEST-OS-2.45_201511-01
-
-   Includes the November MSRC and October Windows Rollups. 
-   
- •	   WA-GUEST-OS-4.26_201511-02, WA-GUEST-OS-3.33_201511-02, WA-GUEST-OS-2.45_201511-02 (Default)
-
-   Includes the November MSRC, October Windows Rollups with .NET Framework upgrade to .NET 4.5.2. 
-
-If you have concerns of possible application compatibility issues of upgrading to .NET 4.5.2, we would suggest you to validate your cloud service with .NET 4.5.2. Here are some of the options:
-
-1.	Install .NET 4.5.2 on your test cloud service role and conduct application compatibility validation
-   
-   Visit [Install .NET on a Cloud Service Role] for instructions.
-
-2.	Conduct application compatibility validation on a standalone VM either on premise or on Azure with .NET 4.5.2 installed
 
 ###### **October 15 2015**
 October Guest OS rollout is starting today October 15 2015, and projected to be released on November 13 2015.
