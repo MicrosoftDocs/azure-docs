@@ -68,6 +68,9 @@ The following table shows the differences of the business continuity features ac
 
 These features are provided to address the scenarios listed earlier. Please refer to the [Design for business continuity](sql-database-business-continuity-design.md) section for guidance how to select the specific feature. 
 
+> [AZURE.NOTE] : The ERT and RPO values are engineering goals and provide guidance only. They are not part of [SLA for SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+
+
 ###Point In Time Restore
 
 Point In Time Restore is designed to return your database to an earlier point in time. It uses the database backups, incremental backups and transaction log backups that the service automatically maintains for every user database. This capability is available for  all service tiers. You can go back 7 days with Basic, 14 days with Standard, and 35 days with Premium. Refer to [Recover from human error](sql-database-user-error-recovery.md) for details of how to use Point In Time Restore.

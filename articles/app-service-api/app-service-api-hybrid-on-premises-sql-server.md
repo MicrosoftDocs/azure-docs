@@ -361,7 +361,7 @@ The **Azure App Service Activity** window shows the deployment progress, and wil
 
 4. In the **API Apps** blade, locate your API app and click it.
 
-5. In your APII app's blade, click the value under **API app host**.  
+5. In your API app's blade, click the value under **API app host**.  
  
 	![API App blade](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
