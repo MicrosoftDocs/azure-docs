@@ -4,7 +4,7 @@
 	documentationCenter="" 
 	services="multi-factor-authentication" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Managing user settings with Azure Multi-Factor Authentication in the cloud

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -57,36 +57,14 @@ This lesson contains the following procedures:
 2.	From the **FILE** menu, click **New**, and then click **Project**.
 3.	From the New Project dialog, type or select  the following values:
 
-	<table border="1">
-	<tr>
-		<th>Name</th>
-		<th>Value</th>
-	</tr>
-	<tr>
-		<td>Template group</td>
-		<td>Installed/Templates/Visual C#/Windows Store</td>
-	</tr>
-	<tr>
-		<td>Template</td>
-		<td>Blank App (XAML)</td>
-	</tr>
-	<tr>
-		<td>Name</td>
-		<td>SSPlayer</td>
-	</tr>
-	<tr>
-		<td>Location</td>
-		<td>C:\SSTutorials</td>
-	</tr>
-	<tr>
-		<td>Solution Name</td>
-		<td>SSPlayer</td>
-	</tr>
-	<tr>
-		<td>Create directory for solution</td>
-		<td>(selected)</td>
-	</tr>
-	</table>
+Name|Value
+---|---
+Template group|Installed/Templates/Visual C#/Windows Store
+Template|Blank App (XAML)
+Name|SSPlayer
+Location|C:\SSTutorials
+Solution Name|SSPlayer
+Create directory for solution|(selected)
 
 4.	Click **OK**.
 
@@ -95,21 +73,10 @@ This lesson contains the following procedures:
 1.	From Solution Explorer, right-click **SSPlayer**, and then click **Add Reference**.
 2.	Type or select the following values:
 
-	<table border="1">
-	<tr>
-		<th>Name</th>
-		<th>Value</th>
-	</tr>
-	<tr>
-		<td>Reference group</td>
-		<td>Windows/Extensions</td>
-	</tr>
-	<tr>
-		<td>Reference</td>
-		<td>Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package 
-		</td>
-	</tr>
-	</table>
+Name|Value
+---|---
+Reference group|Windows/Extensions
+Reference|Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package
 	
 3.	Click **OK**. 
 
@@ -354,7 +321,7 @@ This lesson contains the following procedures:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	At the end of the <strong>mediaElement AdaptiveSourceOpened</strong> method, add the following code to subscribe to the events:
+4.	At the end of the **mediaElement AdaptiveSourceOpened** method, add the following code to subscribe to the events:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -999,6 +966,15 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
 5.	By default, all of the tracks of the video stream are selected. To experiment the bit rate changes, you can select the lowest bit rate available, and then select the highest bit rate available. You must click Submit after each change.  You can see the video quality changes.
 
 You have completed lesson 4.  In this lesson, you add the functionality to choose tracks.
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 
 ##Other Resources:

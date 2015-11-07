@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="09/28/2015" 
 	ms.author="juliako"/>
 
 
@@ -65,7 +65,7 @@ For more information on static and dynamic loading, see the official [OSMF plugi
 ###SS for OSMF Static Loading
 The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" static plugin.
 
-<pre><code>
+```
 package 
 {
 	
@@ -195,14 +195,14 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 
 ###SS for OSMF Dynamic Loading
 
 The code snippet below shows how to load the SS plugin for OSMF dynamically and play a basic video using the OSMF MediaFactory class. Before including the SS for OSMF code, copy the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" dynamic plugin to the project folder if you want to load using FILE protocol, or copy under a web server for HTTP load. There is no need to include "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" in the project references.
 
-<pre><code>
+```
 package 
 {
 	
@@ -334,7 +334,7 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 ##Strobe Media  Playback with the SS ODMF Dynamic Plugin
 The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
@@ -397,6 +397,14 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 7. 	Enjoy Smooth Streaming content inside Adobe&reg; Flash&reg; Player.
 
 For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 ##See Also

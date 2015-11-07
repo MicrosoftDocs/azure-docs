@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/07/2015"
+   ms.date="09/22/2015"
    ms.author="joliang"/>
 
-# SQL Data Warehouse solution partners #
+# SQL Data Warehouse solution partners
 
 To create your end-to-end data warehouse solution, choose from a  wide variety of industry-leading tools. This article lists partner companies that have solutions for SQL Data Warehouse.
 
@@ -46,19 +46,20 @@ To create your end-to-end data warehouse solution, choose from a  wide variety o
 | ![Yellowfin][21] |**Yellowfin**<br>Yellowfin is a top rated Cloud BI vendor for ad-hoc Reporting and Dashboards by BARC’s The BI Survey. Connect to Azure SQL Data Warehouse, then create and share beautiful reports and dashboards with award winning collaborative BI and location intelligence features. | [More][yellowfin_more] |
 
 ## Next Steps
+
 To learn more about integrating with SQL Data Warehouse, see [Build integrated solutions with SQL Data Warehouse][]. 
 
 
 <!--Image references-->
-[1]:  ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
-[2]:  ./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
-[3]:  ./media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
-[4]:  ./media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
-[5]:  ./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
-[6]:  ./media/sql-data-warehouse-integrate-solution-partners/dell_statistica_logo.png
-[7]:  ./media/sql-data-warehouse-integrate-solution-partners/dundas_software_logo.png
-[8]:  ./media/sql-data-warehouse-integrate-solution-partners/inbrein_logo.png
-[9]:  ./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_logo.png
+[1]: ./media/sql-data-warehouse-integrate-solution-partners/attunity_logo.png
+[2]: ./media/sql-data-warehouse-integrate-solution-partners/birst_logo.png
+[3]: ./media/sql-data-warehouse-integrate-solution-partners/bryte_systems_logo.png
+[4]: ./media/sql-data-warehouse-integrate-solution-partners/clearstory_data_logo.png
+[5]: ./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
+[6]: ./media/sql-data-warehouse-integrate-solution-partners/dell_statistica_logo.png
+[7]: ./media/sql-data-warehouse-integrate-solution-partners/dundas_software_logo.png
+[8]: ./media/sql-data-warehouse-integrate-solution-partners/inbrein_logo.png
+[9]: ./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_logo.png
 [10]: ./media/sql-data-warehouse-integrate-solution-partners/informatica_logo.png
 [11]: ./media/sql-data-warehouse-integrate-solution-partners/jinfonet_logo.png
 [12]: ./media/sql-data-warehouse-integrate-solution-partners/logianalytics_logo.png
@@ -71,6 +72,7 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [19]: ./media/sql-data-warehouse-integrate-solution-partners/tableau_logo.png
 [20]: ./media/sql-data-warehouse-integrate-solution-partners/targit_logo.png
 [21]: ./media/sql-data-warehouse-integrate-solution-partners/yellowfin_logo.png
+
 
 <!--Article links-->
 [Build integrated solutions with SQL Data Warehouse]: ./sql-data-warehouse-overview-integrate.md
@@ -98,4 +100,3 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [tableau_more]:http://www.tableau.com/
 [targit_more]:http://www.targit.com/en/
 [yellowfin_more]:http://www.yellowfinbi.com/
-

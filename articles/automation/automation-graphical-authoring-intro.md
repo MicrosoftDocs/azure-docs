@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="11/05/2015"
    ms.author="bwren" />
 
 # Graphical authoring in Azure Automation
@@ -61,6 +61,17 @@ The Configuration control is where you provide details for an object selected on
 The Test control is not displayed when the graphical editor is first started. It is opened when you interactively [test a graphical runbook](#graphical-runbook-procedures).  
 
 ## Graphical runbook procedures 
+
+### Exporting and importing a graphical runbook
+
+You can only export the published version of a graphical runbook.  If the runbook has not yet been published, then the **Export published** button will be disabled.  When you click the **Export published** button, the runbook is downloaded to your local computer.  The name of the file matches the name of the runbook with a *graphrunbook* extension.
+
+![Export published](media/automation-graphical-authoring-intro/runbook-export.png)
+
+You can import a graphical runbook file by selecting the **Import** option when adding a runbook.   When you select the file to import, you can keep the same **Name** or provide a new one.
+
+![Import runbook](media/automation-graphical-authoring-intro/runbook-import.png)
+
 
 ### Testing a graphical runbook
 
@@ -120,7 +131,7 @@ When you specify a value for a parameter, you select a data source to determine 
 |Automation Credential Asset|Select an Automation Credential as input.|  
 |Automation Certificate Asset|Select an Automation Certificate as input.|  
 |Automation Connection Asset|Select an Automation Connection as input.| 
-|PowerShell Expression|Specify simple PowerShell expression.  The expression will be evaluated before the activity and the result used for the parameter value.  You can use variables to refer to the output of an activity or a runbook input parameter.|
+|PowerShell Expression|Specify simple [PowerShell expression](#powershell-expressions).  The expression will be evaluated before the activity and the result used for the parameter value.  You can use variables to refer to the output of an activity or a runbook input parameter.|
 |Empty String|An empty string value.|
 |Null|A Null value.|
 |Unselect|Clears any value that was previously configured.|
@@ -230,6 +241,7 @@ You can also retrieve the output of an activity in a **PowerShell Expression** d
 
 The same guidance for setting [checkpoints](automation-powershell-workflow/#checkpoints) in your runbook applies to graphical runbooks.  You can add an activity for the Checkpoint-Workflow cmdlet where you need to set a checkpoint.  You should then follow this activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
 
+
 ## Authenticating to Azure resources
 
 Most runbooks in Azure Automation will require authentication to Azure resources.  The typical method used for this authentication is the Add-AzureAccount cmdlet with a [credential asset](http://msdn.microsoft.com/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.  This is discussed in [Configuring Azure Automation](automation-configuring.md).
@@ -275,8 +287,95 @@ Each input parameter is defined by the properties in the following table.
 Data created by any activity that does not have an outgoing link will be added to the [output of the runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx).  The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.  
 
 
+## PowerShell expressions
+
+One of the advantages of graphical authoring is providing you with the ability to build a runbook with minimal knowledge of PowerShell.  Currently, you do need to know a bit of PowerShell though for populating certain [parameter values](#activities) and for setting [link conditions](#links-and-workflow).  This section provides a quick introduction to PowerShell expressions for those users who may not be familiar with it.  Full details of PowerShell are available at [Scripting with Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). 
+
+
+### PowerShell expression data source
+
+You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#activities) with the results of some PowerShell code.  This could be a single line of code that performs some simple function or multiple lines that perform some complex logic.  Any output from a command that is not assigned to a variable is output to the parameter value. 
+
+For example, the following command would output the current date. 
+
+	Get-Date
+
+The following commands build a string from the current date and assign it to a variable.  The contents of the variable are then sent to the output 
+
+	$string = "The current date is " + (Get-Date)
+	$string
+
+The following commands evaluate the current date and return a string indicating whether the current day is a weekend or weekday. 
+
+	$date = Get-Date
+	if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+	else { "Weekday" }
+	
+ 
+
+### Activity output
+
+To use the output from a previous activity in the runbook, use the $ActivityOutput variable with the following syntax.
+
+	$ActivityOutput['Activity Label'].PropertyName
+
+For example, you may have an activity with a property that requires the name of a virtual machine in which case you could use the following expression.
+
+	$ActivityOutput['Get-AzureVm'].Name
+
+If the property that required the virtual machine object instead of just a property, then you would return the entire object using the following syntax.
+
+	$ActivityOutput['Get-AzureVm']
+
+You can also use the output of an activity in a more complex expression such as the following that concatenates text to the virtual machine name.
+
+	"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+
+
+### Conditions
+
+Use [comparison operators](https://technet.microsoft.com/library/hh847759.aspx) to compare values or determine if a value matches a specified pattern.  A comparison returns a value of either $true or $false.
+
+For example, the following condition determines whether the virtual machine from an activity named *Get-AzureVM* is currently *stopped*. 
+
+	$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+
+The following condition checks whether the same virtual machine is in any state other than *stopped*.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+
+You can join multiple conditions using a [logical operator](https://technet.microsoft.com/library/hh847789.aspx) such as **-and** or **-or**.  For example, the following condition checks whether the same virtual machine in the previous example is in a state of *stopped* or *stopping*.
+
+	($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
+
+
+### Hashtables
+
+[Hashtables](http://technet.microsoft.com/library/hh847780.aspx) are name/value pairs that are useful for returning a set of values.  Properties for certain activities may expect a hashtable instead of a simple value.  You may also see as hashtable referred to as a dictionary. 
+
+You create a hashtable with the following syntax.  A hashtable can contain any number of entries but each is defined by a name and value.
+
+	@{ <name> = <value>; [<name> = <value> ] ...}
+
+For example, the following expression creates a hashtable to be used in the data source for an activity parameter that expected a hashtable with values for an internet search.
+
+	$query = "Azure Automation"
+	$count = 10
+	$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+	$h
+
+The following example uses output from an activity called *Get Twitter Connection* to populate a hashtable.
+
+	@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+	  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+	  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+	  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+
+
+
 ## Related articles
 
 - [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
 - [Automation assets](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+- [Operators](https://technet.microsoft.com/library/hh847732.aspx)
  

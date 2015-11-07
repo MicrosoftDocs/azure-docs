@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with authentication (HTML 5) | Mobile Dev Center" 
-	description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+	pageTitle="Add authentication to your HTML/JavaScript app | Microsoft Azure" 
+	description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
@@ -53,7 +53,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 ##<a name="add-authentication"></a>Add authentication to the app
 
->[AZURE.NOTE]Because the login is performed in a popup, you should invoke the <strong>login</strong> method from a button's click event. Otherwise, many browsers will suppress the login window.
+>[AZURE.NOTE]Because the login is performed in a popup, you should invoke the **login** method from a button's click event. Otherwise, many browsers will suppress the login window.
 
 1. Open the project file index.html, locate the H1 element and under it add the following code snippet:
 
@@ -111,7 +111,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 	   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-	>[AZURE.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the <strong>Security</strong> tab of <strong>Internet Options</strong>, click <strong>Local Intranet</strong>, click <strong>Sites</strong>, and disable <strong>Automatically detect intranet network</strong>. Remember to change this setting back when you are done testing.
+	>[AZURE.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the **Security** tab of **Internet Options**, click **Local Intranet**, click **Sites**, and disable **Automatically detect intranet network**. Remember to change this setting back when you are done testing.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -133,7 +133,6 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

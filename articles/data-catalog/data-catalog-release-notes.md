@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Data Catalog release notes"
-   description="Release notes for the 13 July 2015 release of Azure Data Catalog"
+   description="Release notes for the 28 August 2015 public preview release of Azure Data Catalog."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="11/06/2015"
+   ms.author="maroche"/>
 
-# Notes for the 13 July 2015 release of Azure Data Catalog
+# Azure Data Catalog release notes
 
-Registering and Connecting to Oracle Database
+
+## Notes for the November 6, 2015 release of Azure Data Catalog
+
+### Users may encounter errors when launching the data source registration tool
+
+When launching the **Azure Data Catalog** data source registration tool from the **Azure Data Catalog** portal, users who have previously installed an older version of the tool may receive this message: "Application cannot be started. Contact the application vendor."
+
+Users who receive this message should use Windows control panel to remove the existing "Azure Data Catalog" application, and then re-launch the tool from the **Azure Data Catalog** portal.
+
+## Notes for the July 13, 2015 release of Azure Data Catalog
+
+### Registering and connecting to Oracle Database
+
 When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.
 
 -	When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used
@@ -32,9 +44,9 @@ Support for SQL Server Reporting Services (SSRS) data sources in the initial pre
 
 ### Opening data assets in Excel
 
-When opening data assets in Microsoft Excel from the Azure Data Catalog portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
+When opening data assets in Microsoft Excel from the **Azure Data Catalog** portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
 
-For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE). 
+For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### BLOB and UDT columns missing in previews
 
@@ -46,14 +58,14 @@ Users may encounter a situation where they can log on to the Azure Data Catalog 
 
 There are two potential causes for this problem behavior:
 
-**Cause 1: Active Directory Federation Services Configuration**
+**Cause 1: Active Directory Federation Services configuration**
 The data source registration tool uses Forms Authentication to validate user logons against Active Directory. For successful logon, Forms Authentication must be enabled in the Global Authentication Policy by an Active Directory administrator.
 
 In some situations, this error behavior may occur only when the user is on the company network, or only when the user is connecting from outside the company network. The Global Authentication Policy allows authentication methods to be enabled separately for intranet and extranet connections. Logon errors may occur if Forms Authentication is not enabled for the network from which the user is connecting.
 
-For more information, see [Configuring intranet forms-based authentication for devices that do not support WIA](https://technet.microsoft.com/library/dn727110.aspx). 
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/en-us/library/dn486781.aspx).
 
-**Cause 2: Network Proxy Configuration**
+**Cause 2: Network proxy configuration**
 If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy. Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:
 
 

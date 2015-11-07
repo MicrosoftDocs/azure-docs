@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Traffic Manager Overview"
+   pageTitle="What is Traffic Manager | Microsoft Azure"
    description="This article will help you understand what Traffic Manager is, and how it works"
    services="traffic-manager"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # What is Traffic Manager?
@@ -39,11 +39,11 @@ When you configure a Traffic Manager profile, the settings that you specify prov
 1. **User traffic to company domain name**: The client requests information using the company domain name. The goal is to resolve a DNS name to an IP address. Company domains must be reserved through normal Internet domain name registrations that are maintained outside of Traffic Manager. In Figure 1, the example company domain is *www.contoso.com*.
 2. **Company domain name to Traffic Manager domain name**: The DNS resource record for the company domain points to a Traffic Manager domain name maintained in Azure Traffic Manager. This is achieved by using a CNAME resource record that maps the company domain name to the Traffic Manager domain name. In the example, the Traffic Manager domain name is *contoso.trafficmanager.net*.
 3. **Traffic Manager domain name and profile**: The Traffic Manager domain name is part of the Traffic Manager profile. The user's DNS server sends a new DNS query for the Traffic Manager domain name (in our example, *contoso.trafficmanager.net*), which is received by the Traffic Manager DNS name servers.
-4. **Traffic Manager profile rules processed**: Traffic Manager uses the specified load balancing method and monitoring status to determine which Azure or other endpoint should service the request.
+4. **Traffic Manager profile rules processed**: Traffic Manager uses the specified traffic routing method and monitoring status to determine which Azure or other endpoint should service the request.
 5. **Endpoint domain name sent to user**: Traffic Manager returns a CNAME record that maps the Traffic Manager domain name to the domain name of the endpoint. The user's DNS server resolves the endpoint domain name to its IP address and sends it to the user.
 6. **User calls the endpoint**: The user calls the returned endpoint directly using its IP address.
 
-Since the company domain and resolved IP address are cached on the client machine, the user continues to interact with the chosen endpoint until its local DNS cache entry expires. It is important to note that the DNS client caches DNS host entries for the duration of their Time-to-Live (TTL). Retrieving host entries from the DNS client cache bypasses the Traffic Manager profile and you could experience connection delays if the endpoint becomes unavailable before the TTL expires. If the TTL of a DNS host entry in the cache expires and the client computer needs to resolve the company domain name again, it sends a new DNS query. The client computer may receive the IP address of a different endpoint depending on the load balancing method applied and the health of the endpoints at the time of the request.
+Since the company domain and resolved IP address are cached on the client machine, the user continues to interact with the chosen endpoint until its local DNS cache entry expires. It is important to note that the DNS client caches DNS host entries for the duration of their Time-to-Live (TTL). Retrieving host entries from the DNS client cache bypasses the Traffic Manager profile and you could experience connection delays if the endpoint becomes unavailable before the TTL expires. If the TTL of a DNS host entry in the cache expires and the client computer needs to resolve the company domain name again, it sends a new DNS query. The client computer may receive the IP address of a different endpoint depending on the traffic routing method applied and the health of the endpoints at the time of the request.
 
 ## How to implement Traffic Manager
 
@@ -55,16 +55,17 @@ Since the company domain and resolved IP address are cached on the client machin
 
 1. **Deploy your Azure cloud services, Azure websites, or other endpoints to your production environment**. When you create a Traffic Manager profile, it must be associated with a subscription. You then add endpoints for cloud services and Standard tier websites in production that are part of the same subscription. If an endpoint is in staging and is not in an Azure production environment or is not in the same subscription, it can be added as an external endpoint. For more information about cloud services, see [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For more information about websites, see [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Decide a name for your Traffic Manager domain**. Consider a name for your domain with a unique prefix. The latter part of the domain, trafficmanager.net, is fixed. For more information, see [Best practices](#best-practices).
-3. **Decide the monitoring configuration that you want to use**. Traffic Manager monitors endpoints to ensure that they are online, regardless of the load balancing method. After you configure monitoring settings, Traffic Manager will not direct traffic to endpoints that are offline according to the monitoring system unless it detects that all endpoints are offline or it cannot detect the status of any of the endpoints contained in the profile. For more information about monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
-4. **Decide the load balancing method that you want to use**. Three different load balancing methods are available. Take time to understand which method best fits your requirements. If you need to change the method later, you can do so at any time. Also note that each method requires slightly different configuration steps. For information about load balancing methods, see [About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md).
+3. **Decide the monitoring configuration that you want to use**. Traffic Manager monitors endpoints to ensure that they are online, regardless of the traffic routing method. After you configure monitoring settings, Traffic Manager will not direct traffic to endpoints that are offline according to the monitoring system unless it detects that all endpoints are offline or it cannot detect the status of any of the endpoints contained in the profile. For more information about monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
+4. **Decide the traffic routing method that you want to use**. Three different traffic routing methods are available. Take time to understand which method best fits your requirements. If you need to change the method later, you can do so at any time. Also note that each method requires slightly different configuration steps. For information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
 5. **Create your profile and configure settings**. You can use REST APIs, Windows PowerShell, or the Management Portal to create your Traffic Manager profile and configure settings. For more information, see [How to configure Traffic Manager settings](#how-to-configure-traffic-manager-settings). The following steps assume you will use **Quick Create** in the Management Portal. 
    - **Create your Traffic Manager profile** - To create a profile by using Quick Create in the Management Portal, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md).
-   - **Configure load balancing method settings** – While in Quick Create, you must select the load balancing method for your profile. This setting can be changed at any time after completing the Quick Create steps. For configuration steps, see the topic that corresponds to your load balancing method: [Configure Performance Load Balancing](traffic-manager-configure-performance-load-balancing.md), [Configure Failover Load Balancing](traffic-manager-configure-failover-load-balancing.md), [Configure Round Robin Load Balancing](traffic-manager-configure-round-robin-load-balancing.md).
-   >[AZURE.NOTE] The Round Robin method of load balancing now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) in the Azure blog.
+   - **Configure traffic routing method settings** – While in Quick Create, you must select the traffic routing method for your profile. This setting can be changed at any time after completing the Quick Create steps. For configuration steps, see the topic that corresponds to your traffic routing method: [Configure Performance traffic routing method](traffic-manager-configure-performance-load-balancing.md), [Configure Failover traffic routing method](traffic-manager-configure-failover-load-balancing.md), [Configure Round Robin traffic routing method](traffic-manager-configure-round-robin-load-balancing.md).
+   
+   >[AZURE.NOTE] The Round Robin method of traffic routing method now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) in the Azure blog.
 
-   - **Configure endpoints** – Endpoints are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know the endpoints. For steps to configure endpoints, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md)
+   - **Configure endpoints** – Endpoints are not configured during Quick Create. After creating your profile and specifying your traffic routing method, you must then let Traffic Manager know the endpoints. For steps to configure endpoints, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md)
 
-   - **Configure monitoring settings** – Monitoring settings are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know what to monitor. For steps to configure monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
+   - **Configure monitoring settings** – Monitoring settings are not configured during Quick Create. After creating your profile and specifying your traffic routing method, you must then let Traffic Manager know what to monitor. For steps to configure monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
 6. **Test your Traffic Manager profile**. Test that your profile and domain are working as expected. For information about how to do this, see [Testing Traffic Manager Settings](traffic-manager-testing-settings.md).
 7. **Point your company domain name’s DNS resource record to the profile to make it live**. For more information, see [Point a Company Internet Domain to a Traffic Manager Domain](traffic-manager-point-internet-domain.md).
 
@@ -79,7 +80,7 @@ Although each REST API element is not visible in the Management Portal, many set
 
 For more information about Windows PowerShell cmdlets for Traffic Manager, see [Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE] There is currently no support for configuring external endpoints (type = ‘Any’), weights for the Round Robin load balancing method, and nested profiles with the Management Portal. You must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE] There is currently no support for configuring external endpoints (type = ‘Any’), weights for the Round Robin traffic routing method, and nested profiles with the Management Portal. You must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
 ### Configuring settings in the Management Portal
 
@@ -90,8 +91,8 @@ You can configure the following settings in the Management Portal:
 - **DNS prefix** – A unique prefix that you create. Profiles are displayed in the Management portal by prefix.
 - **DNS TTL** – The DNS Time-to-Live (TTL) value controls how often the client’s local caching name server will query the Azure Traffic Manager DNS system for updated DNS entries.
 - **Subscription** – Select the subscription that your profile will correspond to. Note that this option only appears if you have multiple subscriptions.
-- **Load balancing method** – The way you want Traffic Manager to handle load balancing.
-- **Failover order** – When using the failover load balancing method, the order of endpoints.
+- **traffic routing method** – The way you want Traffic Manager to handle traffic routing.
+- **Failover order** – When using the failover traffic routing method, the order of endpoints.
 - **Monitoring** – Monitoring settings contain the protocol (HTTP or HTTPS), port, and relative path and file name.
 
 ### Configuring settings by using REST APIs
@@ -102,7 +103,7 @@ You can create and configure your Traffic Manager profile by using REST APIs. Fo
 - **Definition** – A definition contains policy settings and monitor settings. A definition corresponds to a profile. You can have only one definition per profile. The definition itself is not visible in the Management Portal, although many of the settings contained within the definition are visible and can be configured in the Management Portal.
 - **DNS Options** – Within each definition are DNS options. This is where the DNS TTL is configured.
 - **Monitors** – Within each definition are monitor settings. This is where the protocol, port, and relative path and file name are configured. Monitor settings are visible and can be configured in the Management Portal. For more information, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
-- **Policy** – Within each definition are policy settings. The policy is where load balancing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md).
+- **Policy** – Within each definition are policy settings. The policy is where traffic routing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
 
 ## Configuring settings by using Windows PowerShell
 
@@ -136,12 +137,12 @@ This allows you to configure Traffic Manager so that incoming DNS name queries a
 
 **Figure 3**
 
-You can nest up to 10 levels and each profile can be configured with a different load balancing method.
+You can nest up to 10 levels and each profile can be configured with a different traffic routing method.
 
 For example, you could create a configuration for the following:
 
-- At the top tier (the Traffic Manager profile that is mapped to your external DNS name), you could configure the profile with the performance load balancing method.
-- At the middle tier, a set of Traffic Manager profiles represent different datacenters and use the round-robin load balancing method.
+- At the top tier (the Traffic Manager profile that is mapped to your external DNS name), you could configure the profile with the performance traffic routing method.
+- At the middle tier, a set of Traffic Manager profiles represent different datacenters and use the round-robin traffic routing method.
 - At the bottom tier, a set of cloud service endpoints in each datacenter service the user's traffic requests.
 
 The result is that users are directed to a regionally appropriate datacenter based on performance and to a cloud service within that datacenter based on equal or weighted load distribution. For example, weighting could be used to distribute a small percentage of traffic to a new or trial deployment for testing or customer feedback.

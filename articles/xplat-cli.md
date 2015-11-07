@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
-- [Azure CLI](xplat-cli.md)
+- [Azure CLI](xplat-cli-install.md)
 
 The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of the same functionality found in the Azure Management Portal, such as the ability to manage websites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
@@ -252,9 +252,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 ## Additional resources
 
-* [List of detailed Service Management commands][Using the Azure CLI]
-
-* [Using the Azure CLI for Mac, Linux, and Windows](cli-cli-azure-resource-manager)
+* [Using the Azure CLI with Service Management][Using the Azure CLI]
 
 * [Using the Azure CLI with the Resource Manager][cliarm]
 

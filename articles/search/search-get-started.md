@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure" 
-	description="Get started with Azure Search" 
+	pageTitle="Get started with Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Get started with Azure Search, a cloud hosted search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
 
 This article gets you started with the Azure Search REST API. 
 
@@ -98,7 +98,7 @@ Standard search starts with one replica and partition each, but can be easily re
 
 Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
 
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](http://msdn.microsoft.com/library/azure/dn798934.aspx) for help in deciding how to configure partition and replica combinations.
+You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](search-limits-quotas-capacity.md) for help in deciding how to configure partition and replica combinations.
 
  ![][15]
 
@@ -334,7 +334,7 @@ Ready for the next step? The following links take you to additional material tha
 
 - [What is Azure Search?](search-what-is-azure-search.md)
 
-- [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
+- [Azure Search Service REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 

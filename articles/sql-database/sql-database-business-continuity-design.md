@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 #Design for business continuity
@@ -59,6 +59,8 @@ You can enable Geo-Replicatiom using Azure Portal or by calling REST API or Powe
 
 ###Azure Portal
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
 3. Navigate to your database blade, select the **Geo Replication map** and click **Configure Geo-Replication**.
@@ -68,7 +70,8 @@ You can enable Geo-Replicatiom using Azure Portal or by calling REST API or Powe
 7. Click **Create** to complete the configuration
 
 > [AZURE.NOTE] The DR paired region on the Geo-Replication blade will be marked as *recommended*. If you use a Premium tier database you can choose a different region. If you are using a Standard database you cannot change it. The Premium database will  have a choice of the secondary type (*Readable* or *Non-readable*). Standard database can only select a *Non-readable* secondary.
- 
+
+
 ###PowerShell
 
 Use the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell cmdlet to automate Geo-Replication configuration.
@@ -94,7 +97,6 @@ This API is asynchronous. After it returns use the [Get Database Copy](https://m
 
 ##How to choose the failover configuration 
 
-When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741328.aspx) for guidance.
-
+When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using  Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) for guidance.
 
  

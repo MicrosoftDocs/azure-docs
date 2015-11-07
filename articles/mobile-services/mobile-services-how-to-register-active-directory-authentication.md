@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Azure Active Directory authentication | Azure Mobile Services" 
+	pageTitle="Register for Azure Active Directory authentication | Microsoft Azure" 
 	description="Learn how to register for Azure Active Directory authentication in your Mobile Services application." 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2015" 
+	ms.author="ricksal"/>
 
 # Register your apps to use an Azure Active Directory Account login
 

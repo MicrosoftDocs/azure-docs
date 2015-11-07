@@ -1,25 +1,27 @@
 <properties 
 	pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment" 
 	description="Learn about how to securely connect to backend resources from an App Service Environment." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
-	ms.author="stefsh"/>	
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>	
 
 # Securely Connecting to Backend Resources from an App Service Environment #
 
 ## Overview ##
-Since an App Service Environment is always created in a subnet of a regional [virtual network][virtualnetwork], outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.  
+Since an App Service Environment is always created in a subnet of a regional classic "v1" [virtual network][virtualnetwork], outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.  
+
+**Note:**  An App Service Environment cannot be created in a "v2" virtual network.
 
 For example, there may be a SQL Server running on a cluster of virtual machines with port 1433 locked down.  The endpoint may be ACLd to only allow access from other resources on the same virtual network.  
 
@@ -27,12 +29,14 @@ As another example, sensitive endpoints may run on-premises and be connected to 
 
 For all of these scenarios, apps running on an App Service Environment will be able to securely connect to the various servers and resources.  Outbound traffic from apps running in an App Service Environment to private endpoints in the same virtual network (or connected to the same virtual network), will only flow over the virtual network.  Outbound traffic to private endpoints will not flow over the public Internet.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+
 ## Outbound Connectivity and DNS Requirements ##
-Note that for an App Service Environment to function properly, it requires outbound access to Azure Storage as well as Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
+Note that for an App Service Environment to function properly, it requires outbound access to Azure Storage worldwide, as well as connectivity to Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
 
 Customer may also have custom DNS servers configured in the virtual network.  App Service Environments need to be able to resolve Azure endpoints under *.database.windows.net, *.file.core.windows.net and *.blob.core.windows.net.  
 
-It is also recommended that any custom DNS servers on the virtual network be setup ahead of time prior to creating an App Service Environment.  If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.
+It is also recommended that any custom DNS servers on the virtual network be setup ahead of time prior to creating an App Service Environment.  If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.  If a custom DNS server exists on the other end of a VPN gateway, and the DNS server is unreachable or unavailable, the App Service Environment creation process will also fail. 
 
 ## Connecting to a SQL Server
 A common SQL Server configuration has an endpoint listening on port 1433:
@@ -95,12 +99,12 @@ For more information about the Azure App Service platform, see [Azure App Servic
  
 
 <!-- LINKS -->
-[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[SiteToSite]: https://msdn.microsoft.com/library/azure/dn133795.aspx
+[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[NetworkAccessControlLists]: https://msdn.microsoft.com/library/azure/dn376541.aspx
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
 [ControlInboundASE]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/ 

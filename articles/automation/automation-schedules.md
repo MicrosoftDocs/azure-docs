@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Schedules in Azure Automation"
+   pageTitle="Schedules in Azure Automation | Microsoft Azure"
    description="Automation schedules are used to schedule runbooks in Azure Automation to start automatically.  This article describes how to create schedules."
    services="automation"
    documentationCenter=""
@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Schedules in Azure Automation
 
 Automation Schedules are used to schedule runbooks to run automatically.  This could be either a single date and time for the runbook to run once.  Or it could be a recurring schedule to start the runbook multiple times.  Schedules are typically not accessed from runbooks.
+
+>[AZURE.NOTE]  Schedules do not currently support Azure Automation DSC configurations.
 
 ## Windows PowerShell Cmdlets
 

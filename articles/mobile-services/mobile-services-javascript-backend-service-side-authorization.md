@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Azure Mobile Services"
+	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Microsoft Azure"
 	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="05/20/2015"
+	ms.date="08/25/2015"
 	ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services

@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Node.js on Windows
@@ -41,32 +41,20 @@ The following software items must exist on your client development computer.
 
 ### Install the required modules
 
+Once you satisfy the requirements, make sure you are on Node.js version 0.8.9. You can check this by using the following command from your command line terminal: node -v.
+<br>In a **cmd.exe** command line window, navigate to your project directory- for example C:\NodeJSSQLProject. Enter the following commands in the sequence shown. 
 
-In a **cmd.exe** command line window, navigate to the directory where you have msnodesql. Enter the following commands in the sequence shown.
-
-
+	npm init
 	npm install msnodesql
-	npm install -g node-gyp
 
-
-Now that you have node-gyp installed, navigate to your directory *YourProjectDirectory*, then to **node_modules\msnodesql**. Then issue the following commands in your **cmd.exe** window.
-
-
-	node-gyp configure 
-	node-gyp build
-
-
-Next, navigate to the directory **build\release**. Copy the **sqlserver.node** file and paste it into the **msnodesql\lib** directory. Replace the old file if necessary.
-
-Check out our [team blog](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) and [video](https://www.youtube.com/watch?v=kQo_L-D_zk8) to learn how to install and setup aforementioned requirements.
-
+Next navigate to node_modules\msnodesql folder and run the **msnodesql-0.2.1-v0.8-ia32** executible. Follow the steps from the installation wizard and hit finish when you are done. At this point you should have the Node.js SQL Server driver installed. Follow the next steps to get your connection string and then you should be able to connect to Azure SQL DB from your Node.js application. 
 
 ### Create a database and retrieve your connection string
  
 See the [Get Started topic](sql-database-get-started.md) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below will only work with the **AdventureWorks schema**. 
 
 
-## Connect to your SQL Database
+## Connect to your SQL database
 
 
 - Copy the following code in a .js file located in your project directory.
@@ -233,3 +221,6 @@ For this code sample to work, you must first have or create a stored procedure t
 	});
 
  
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).

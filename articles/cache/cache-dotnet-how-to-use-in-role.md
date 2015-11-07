@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" 
+	pageTitle="How to use In-Role Cache (.NET) | Microsoft Azure" 
 	description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -445,5 +445,5 @@ follow these links to learn how to do more complex caching tasks.
 [Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Which Azure Cache offering is right for me?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  

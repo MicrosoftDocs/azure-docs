@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Starting a runbook in Azure Automation
 
@@ -49,7 +49,6 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">Azure Automation API</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Respond to Azure Alert</a></td>
+  <td>
+   <ul>
+    <li>Start a runbook in response to Azure alert.</li>
+    <li>Configure webhook for runbook and link to alert.</li>
+    <li>Authenticated with security token in URL.</li>
+    <li>Currently supports alert on Metrics only.</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Schedule</a></td>
   <td>

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Twitter authentication - Mobile Services" 
+	pageTitle="Register for Twitter authentication | Microsoft Azure" 
 	description="Learn how to use Twitter authentication with your Azure Mobile Services application." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 #Register your apps for Twitter login with Mobile Services
@@ -32,25 +32,19 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 2. Type the **Name**, **Description**, and **Website** values for your app, then type the URL of your mobile service appended with the path _/login/twitter_ in **Callback URL**.
 
-	>[AZURE.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-twitter_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-twitter</code>.
+	>[AZURE.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-twitter_. In this example, our mobile service would have the Callback URL ```https://todolist.azure-mobile.net/signin-twitter```.
 
    	![][2]
 
-3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 
-
-   	![][3]
+3.  At the bottom the page, read and accept the terms, and then click **Create your Twitter application**. 
 
    	This registers the app displays the application details.
 
-6. Make a note of the values of **Consumer key** and **Consumer secret**. 
-
-   	![][4]
+6. Click the **Keys and Access Tokens** tab in your app dashboard and make a note of the values of **Consumer key** and **Consumer secret**. 
 
     > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
-7. Click the **Settings** tab, scroll down and check **Allow this application to be used to sign in with Twitter**, then click **Update this Twitter application's settings**.
-
-	![][5]
+7. Click the **Settings** tab, scroll down and make sure the **Allow this application to be used to sign in with Twitter** checkbox is checked, then click **Update Settings**.
 
 You are now ready to use a Twitter login for authentication in your app by providing the consumer key and consumer secret values to Mobile Services.
 
@@ -59,9 +53,6 @@ You are now ready to use a Twitter login for authentication in your app by provi
 <!-- Images. -->
 [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
 [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
-[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
-[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
-[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
 

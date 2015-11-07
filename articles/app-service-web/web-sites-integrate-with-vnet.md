@@ -1,38 +1,41 @@
 <properties 
 	pageTitle="Integrate a web app with an Azure Virtual Network" 
 	description="Shows you how to connect an Azure web app in Azure App Service to a new or existing Azure virtual network" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Integrate a web app with an Azure Virtual Network #
+
 This document describes the virtual network integration preview feature and shows how to set it up with Web Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).  If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.  
 
 This integration gives your web app access to resources in your virtual network but does not grant access to your web app from the virtual network.  Some standard scenarios are where your web app needs access to a database or web services that are running in virtual machines in your virtual network or even in your own data center.  It does not allow you to mount a drive.  It also currently does not support enabling integration with authentication systems in your virtual network.  The feature is in Preview though and will continue to be improved before reaching GA.
 
 For more details on Azure Virtual Networks see Virtual Network Overview about the use cases and benefits of an Azure Virtual Network.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Getting started ##
 Here are some things to keep in mind before connecting your web app to a virtual network.
 
-1.	Web Apps can only be connected to a virtual network if they are running on an App Service Plan that’s in the ‘Standard’ pricing tier.  Web Apps in Free, Shared and Basic plans cannot connect to a virtual network.
+1.	Web Apps can only be connected to a virtual network if they are running on an App Service plan that’s in the **Standard** tier.  Web Apps in Free, Shared and Basic plans cannot connect to a virtual network.
 2.	If your target virtual network already exists, it must have point-to-site enabled with a Dynamic routing gateway before it can be connected to a Web App.  You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing.
-3.	You can only have up to 5 networks configured in your App Service Plan.  A web app can only be connected to one network at a time.  Those 5 networks can be used by any number of web apps in the same App Service Plan.  
+3.	You can only have up to 5 networks configured in your App Service plan.  A web app can only be connected to one network at a time.  Those 5 networks can be used by any number of web apps in the same App Service plan.  
 
 You have the option to connect to a new or existing virtual network.  If you create a new network then a gateway will be pre-configured for you.  Note that creating and configuring a new virtual network will take several minutes.  
 
-If your Web App is not on a Standard App Service Plan, then the UI lets you know and gives you access to the pricing tiers should you want to upgrade.
+If your Web App is not on a Standard-tier App Service plan, then the UI lets you know and gives you access to the pricing tiers should you want to upgrade.
 
 ![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png) 
 
@@ -50,7 +53,7 @@ To connect a web app to a virtual network go to your web app’s blade, click th
 
 ![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
-The system will then create a certificate to authenticate with your virtual network if it is the first web app in your subscription to establish a connection to that network.  To see the certificate go to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), navigate to Virtual Networks, select the network and select the Certificates tab.  
+The system will then create a certificate to authenticate with your virtual network if it is the first web app in your subscription to establish a connection to that network.  To see the certificate go to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), navigate to Virtual Networks, select the network and sele	ct the Certificates tab.  
 
 In the above image you can see a network named cantConnectVnet that is greyed out and cannot be selected.  There are only a two reasons that this should be the case.  It means that either you do not have point-to-site VPN enabled on your network or you have not provisioned a dynamic routing gateway in your virtual network.  When both items are satisfied then you will be able to select the virtual network for integration with your web app.
 
@@ -63,20 +66,20 @@ The creation of a new virtual network with configured gateways can take up to 30
 
 ![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
-Once the network has been joined to the web app, the web app will have access to resources in that virtual network over TCP or UDP.  If you wish to access resources in your on premise system that are available through Site-to-site VPN to your virtual network then you will need to add routes on your own corporate network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.
+Once the network has been joined to the web app, the web app will have access to resources in that virtual network over TCP or UDP.  If you wish to access resources in your on-premises system that are available through Site-to-site VPN to your virtual network then you will need to add routes on your own corporate network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.
 
 After successfully completing integration, the Azure Portal will display basic information about the connection, give a way to disconnect the web app from the network and also give you a way to synchronize the certificates used to authenticate the connection.  Synchronization may be required if a certificate has been expired or revoked.  
 
 ![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 ##Managing the virtual network connection##
-You can see a list of all virtual networks currently associated with web apps in an App Service Plan by visiting the App Service Plan’s blade.  You can have at most 5 networks associated with a 'Standard' App Service Plan.
+You can see a list of all virtual networks currently associated with web apps in an App Service plan by visiting the App Service plan’s blade.  You can have at most 5 networks associated with a Standard-tier App Service plan.
 
 Should the App Service Plan be scaled into a lower plan such as Free, Shared or Basic then the virtual network connections that are used by the web apps in that plan will be disabled.  Should the plan be scaled back up to a Standard plan then those network connections would be re-established.
 
 At this time it is not possible in Azure to take an existing virtual machine and move it into a virtual network.  The virtual machine needs to be provisioned into that virtual network during creation.  
 
-## Accessing on premise resources ##
+## Accessing on-premises resources ##
 When working with a virtual network that has been configured with Site-to-Site VPN there is an additional step required in order to provide access to your on-premise resources from your  Web App.  Routes need to be added to your on-premise network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.  To see your IP range for your Point-to-Site connectivity go to the Network area in the Azure Portal as shown here.
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)

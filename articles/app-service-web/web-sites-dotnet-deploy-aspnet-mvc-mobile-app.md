@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Deploy an ASP.NET MVC 5 mobile web app in Azure App Service" 
 	description="A tutorial that teaches you how to deploy a web app to Azure App Service using mobile features in ASP.NET MVC 5 web application." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin;riande"/>
 
 
@@ -23,7 +23,7 @@ This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 web app that is mobile-friendly and deploy it to Azure App Service. For this tutorial, you need 
 [Visual Studio Express 2013 for Web][Visual Studio Express 2013]
 or the professional edition of Visual Studio if you already
-have that.
+have that. You can use [Visual Studio 2015] but the screen shots will be different and you must use the ASP.NET 4.x templates.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -729,6 +729,7 @@ mobile-friendly Web applications. These include:
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
 [EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx

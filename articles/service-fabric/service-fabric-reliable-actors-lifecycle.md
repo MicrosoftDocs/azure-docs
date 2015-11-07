@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Lifecycle"
-   description="Explains Lifecycle and Garbage Colelction for Azure Service Fabric Actors"
+   pageTitle="Reliable Actors Lifecycle"
+   description="Explains Lifecycle and Garbage Collection for Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-#Actor lifecycle and Garbage Collection
+# Actor lifecycle and Garbage Collection
 An Actor is activated when the first call is made to it and it is deactivated (Garbage Collected by Actors runtime) if it is not used for some period of time. To configure this time period please see section on Actor Garbage Collection below.
 
 What happens on Actor Activation?
@@ -89,4 +89,3 @@ Please note that an actor will never get garbage collected while it is executing
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
- 

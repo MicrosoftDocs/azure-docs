@@ -159,13 +159,13 @@ Published article: [http://azure.microsoft.com/documentation/articles/web-sites-
 
 ## Technology and platform selectors
 
-Use technology and platform switchers in technical articles when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers. There are currently two different types of selectors, [simple selectors](#simple-selectors) and and [two-way selectors](#two-way-selectors).
+Use technology and platform switchers in technical articles when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers. There are currently two different types of selectors, [simple selectors](#simple-selectors) and [two-way selectors](#two-way-selectors).
 
->[AZURE.NOTE]Because the same selector markdown goes in each topic in the selection, we recommend placing the selector for your topic in an include, then referencing that include in all of your topics that use the same selector.
+Because the same selector markdown goes in each topic in the selection, we recommend placing the selector for your topic in an include, then referencing that include in all of your topics that use the same selector.
 
 ###<a id="simple-selectors"></a>Simple selectors
 
-Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java  
+Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java.  Use the custom markdown extension for any selectors - do not use HTML for selectors.  
 
 See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 
@@ -180,7 +180,7 @@ See [Get started with Notification Hubs](http://azure.microsoft.com/documentatio
 Example:
 
     > [AZURE.SELECTOR]
-    - [Windows Universal](../articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Universal Windows](../articles/notification-hubs-windows-store-dotnet-get-started/)
     - [Windows Phone](../articles/notification-hubs-windows-phone-get-started/)
     - [iOS](../articles/notification-hubs-ios-get-started/)
     - [Android](../articles/notification-hubs-android-get-started/)

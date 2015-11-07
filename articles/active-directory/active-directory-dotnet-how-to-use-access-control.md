@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Access Control (.NET) - Azure feature guide" 
-	description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." 
-	services="active-directory" 
-	documentationCenter=".net" 
-	authors="msmbaldwin" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="How to use Access Control (.NET) | Microsoft Azure"
+	description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/02/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -88,7 +88,7 @@ The following figure shows how ACS authentication works with a web application:
 To complete the tasks in this guide, you will need the following:
 
 -	Azure subscription
--	Microsoft Visual Studio 2012 
+-	Microsoft Visual Studio 2012
 -	Identity and Access Tool for Visual Studio 2012 (To download, see [Identity and Access Tool][])
 
 
@@ -98,12 +98,12 @@ To use Active Directory Access Control in Azure, create an Access Control namesp
 addressing ACS resources within your application.
 
 1.  Log into the [Azure Management Portal][] (https://manage.WindowsAzure.com).
-    
+
 2.  Click **Active Directory**.  
 
 	![][1]
 
-3.  To create a new Access Control namespace, click **New**. **App Services** and **Access Control** will be selected. Click **Quick Create**. 
+3.  To create a new Access Control namespace, click **New**. **App Services** and **Access Control** will be selected. Click **Quick Create**.
 
 	![][2]
 
@@ -135,7 +135,7 @@ In this step, you create a ASP.NET MVC application. In later steps, we'll integr
             if (!String.IsNullOrEmpty(User.Identity.Name))
             {
                 name = User.Identity.Name;
-            }    
+            }
             <text>
             Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -163,7 +163,7 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 1.	In Solution Explorer, right-click the MvcACS project, and then select **Identity and Access**.
 
-	If the **Identity and Access** option does not appear on the context menu, install the Identity and Access Tool. For information, see [Identity and Access Tool]. 
+	If the **Identity and Access** option does not appear on the context menu, install the Identity and Access Tool. For information, see [Identity and Access Tool].
 
 	![][4]
 
@@ -187,7 +187,7 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 	![][18]
 
-6.	Click **Symmetric Key**, click **Show Key**, and copy the key value. Then, click **Cancel** to exit the Edit Management Client page without making changes. 
+6.	Click **Symmetric Key**, click **Show Key**, and copy the key value. Then, click **Cancel** to exit the Edit Management Client page without making changes.
 
 	![][19]
 
@@ -197,7 +197,7 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 	Visual Studio uses the information about the namespace to connect to the ACS Management Portal and get the settings for your namespace, including the identity providers, realm, and return URL.
 
-8.	Select **Windows Live ID** (Microsoft account) and click OK. 
+8.	Select **Windows Live ID** (Microsoft account) and click OK.
 
 	![][5]
 
@@ -251,19 +251,19 @@ In this section we will modify the application to view the claims sent by ACS.  
         <table>
             <tr>
                 <td>
-                    IsAuthenticated: 
+                    IsAuthenticated:
                 </td>
                 <td>
-                    @ViewBag.ClaimsIdentity.IsAuthenticated 
+                    @ViewBag.ClaimsIdentity.IsAuthenticated
                 </td>
             </tr>
             <tr>
                 <td>
-                    Name: 
-                </td>        
+                    Name:
+                </td>
                 <td>
                     @ViewBag.ClaimsIdentity.Name
-                </td>        
+                </td>
             </tr>
         </table>
         <h3>Claims from ClaimsIdentity</h3>
@@ -304,7 +304,7 @@ You can review and change these configuration settings in the ACS Management Por
 
 1.	Log into the Windows [Azure Management Portal](http://manage.WindowsAzure.com).
 
-2.	Click **Active Directory**. 
+2.	Click **Active Directory**.
 
 	![][8]
 
@@ -340,11 +340,11 @@ Let's use the ACS Management Portal to change the authentication of our MvcACS a
 
 	![][13]
 
-2.	Click **Google** and then click **Next**. The MvcACS app checkbox is selected by default. 
+2.	Click **Google** and then click **Next**. The MvcACS app checkbox is selected by default.
 
 	![][14]
 
-3. Click Save. 
+3. Click Save.
 
 	![][15]
 
@@ -353,7 +353,7 @@ Done! If you go back to Visual Studio, open the project for the MvcACS app, and 
 
 ![][16]
 
-And, when you run your application, you'll see the effect. When an application supports more than one identity provider, the user's browser is first directed to a page hosted by ACS that prompts the user to choose an identity provider. 
+And, when you run your application, you'll see the effect. When an application supports more than one identity provider, the user's browser is first directed to a page hosted by ACS that prompts the user to choose an identity provider.
 
 ![][7]
 
@@ -362,7 +362,7 @@ After the user selects an identity provider, the browser goes to the identity pr
 ## What's Next
 
 You have created a web application that is integrated with ACS. But, this is just the beginning! You can expand on this scenario.
- 
+
 For example, you can add more identity providers for this RP or allow users registered in enterprise directories, such as Active Directory Domain Services, to log on to the web application.
 
 You can also add rules to your namespace that determine which claims are sent to an application for processing in the application business logic.
@@ -413,4 +413,3 @@ To further explore ACS functionality and to experiment with more scenarios, see 
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
- 

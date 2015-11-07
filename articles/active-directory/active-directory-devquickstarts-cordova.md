@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="10/13/2015"
 	ms.author="vittorib"/>
 
 # Integrate Azure AD with an Apache Cordova app
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -230,7 +232,7 @@ The concrete steps for running the app vary by platform.
 
    `cordova run windows`
 
-   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license]( https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
+   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
 
 
 ##### To build and run application on Windows Phone 8.1
@@ -266,8 +268,4 @@ For reference, the completed sample (without your configuration values) is provi
 
 [Secure a Node.js Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-For additional resources, check out:
-- [AzureADSamples on GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]

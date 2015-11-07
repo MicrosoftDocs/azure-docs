@@ -19,7 +19,7 @@
 #Windows Universal Apps Engagement SDK Integration
 
 > [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
 - [iOS](mobile-engagement-ios-integrate-engagement.md) 
 - [Android](mobile-engagement-android-integrate-engagement.md) 

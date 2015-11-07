@@ -1,6 +1,6 @@
 <properties
-	pageTitle="What is Azure Search"
-	description="Azure Search technical overview and feature summary."
+	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Azure Search is a hosted cloud search service. Learn more in this technical overview and feature summary."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -12,14 +12,14 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # What is Azure Search?
 
-Azure Search Service is a fully managed cloud service that allows developers to build rich search applications using a .NET SDK or REST APIs. It includes full-text search scoped over your content, plus advanced search behaviors similar to those found in commercial web search engines, such as type-ahead query suggestions based on a partial term input, hit-highlighting, and faceted navigation. Natural language support is built-in, using the linguistic rules that are appropriate to the specified language.
+Azure Search Service is a fully managed, hosted cloud search service that allows developers to build rich search applications using a .NET SDK or REST APIs. It includes full-text search scoped over your content, plus advanced search behaviors similar to those found in commercial web search engines, such as type-ahead query suggestions based on a partial term input, hit-highlighting, and faceted navigation. Natural language support is built-in, using the linguistic rules that are appropriate to the specified language.
 
 You can scale your service based on the need for increased search or storage capacity. For example, retailers can increase capacity to meet the extra volumes associated with holiday shopping or promotional events.
 
@@ -49,7 +49,7 @@ Documents are the detailed data returned by the search engine in search results.
 
 ##See it in action
 
-Watch our videos to learn about scenarios and capabilities. Visit [Azure Search: tutorials, video demos, and samples](https://msdn.microsoft.com/library/azure/dn818681.aspx) for links to video content.
+Watch our videos to learn about scenarios and capabilities. Visit [Azure Search: tutorials, video demos, and samples](search-video-demo-tutorial-list.md) for links to video content.
 
 ##Feature drilldown
 
@@ -69,7 +69,7 @@ Azure Search automatically spans indexes and documents across the partitions you
 
 Partitions and replicas are service-wide resources, with all indexes running on all replicas. If you need index isolation, or perhaps you have requirements for geographic dispersion of services and resources in different data centers, you could create a second service. 
 
-There are limits on storage, and on the number of indexes and documents loaded into the service. Your effective limit will be whichever comes first: exhausting physical storage, or meeting the upper limit on indexes and document counts. See [Limits and constraints (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx) for details.
+There are limits on storage, and on the number of indexes and documents loaded into the service. Your effective limit will be whichever comes first: exhausting physical storage, or meeting the upper limit on indexes and document counts. See [Limits and constraints (Azure Search)](search-limits-quotas-capacity.md) for details.
 
 ###Programmability
 
@@ -85,7 +85,7 @@ Authentication from your host application to Azure Search is through an admin ap
 
 ###Indexes and documents
 
-You can have multiple indexes (see [Limits and constraints (Azure Search)](https://msdn.microsoft.com/library/azure/dn798934.aspx) for limits based on pricing tiers). Note that there is currently no support for joining indexes. A search request can specify one index.
+You can have multiple indexes (see [Limits and constraints (Azure Search)](search-limits-quotas-capacity.md) for limits based on pricing tiers). Note that there is currently no support for joining indexes. A search request can specify one index.
 
 **Documents** contain fields and associated attributes. Fields include searchable text, values used predominantly (or even exclusively) in filters and scoring profiles, and very likely – URLs or pointers to content, such as images, in other data stores. Many search applications use multiple forms of storage. Images or videos can be stored more cheaply in other storage media, such as Azure Blob storage.
 
@@ -131,4 +131,4 @@ You can also try these tutorials:
 
 [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
 [Get Started with Azure Search .NET](search-get-started-dotnet.md)
-[Azure Search: tutorials, video demos, and samples](https://msdn.microsoft.com/library/azure/dn818681.aspx)
+[Azure Search: tutorials, video demos, and samples](search-video-demo-tutorial-list.md)

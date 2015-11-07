@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/03/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # How to view SAML returned by the Azure Access Control Service
@@ -25,7 +25,7 @@ This guide will show you how to view the underlying Security Assertion Markup La
 For more information on ACS, see the [Next steps](#next_steps) section.
 
 > [AZURE.NOTE]
-> The Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.
+> The Azure Access Services Control Filter is a community technology preview. As pre-release software, it is not formally supported by Microsoft.
 
 ## Prerequisites
 

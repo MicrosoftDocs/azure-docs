@@ -5,7 +5,7 @@ Cloud Services is an example of Platform-as-a-Service (PaaS). Like [App Services
 
 ![cs_diagram](./media/cloud-services-choose-me-content/diagram.png) 
 
-More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Websites compared to Cloud Services. 
+More control also means less ease of use; unless you need the  additional control options, it's typically quicker and easier to get a web application up and running in Web Apps in App Service compared to Cloud Services. 
 
 The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
 

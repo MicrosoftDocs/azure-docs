@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introduction to Azure Search | Azure" 
-	description="Learn how Azure Search can help you build rich search applications." 
+	pageTitle="Introduction to Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Learn how Azure Search, a hosted cloud search service, can help you build rich search applications." 
 	editor="monicar" 
 	manager="mblythe" 
 	services="search" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Introduction to Azure search #
 
-**Summary:** Learn about Azure Search, a fully-managed search service on Azure for supporting rich search experiences in web and mobile applications. Search is the default style of interaction with data on the web. It’s increasingly expected in all application situations.
+**Summary:** Learn how Azure Search, a fully-managed and hosted cloud service on Azure, can be used to enable rich search experiences in web and mobile applications. Search is the default style of interaction with data on the web. It’s increasingly expected in all application situations.
 
 **Contents:**
 

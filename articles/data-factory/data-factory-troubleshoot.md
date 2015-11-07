@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -52,44 +52,42 @@ Verify that the SQL Server is reachable from the machine where the gateway is in
 
 ## Problem: Input slices are in PendingExecution or PendingValidation state for ever
 
-The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **waitOnExternal** property is not specified in the **availability** section of the first table/dataset in the pipeline. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **waitOnExternal** property under **availability** section. This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
 
-See the following example for the usage of the **waitOnExternal** property. You can specify **waitOnExternal{}** without setting values for properties in the section so that the default values are used. 
+See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
 
 See Tables topic in [JSON Scripting Reference][json-scripting-reference] for more details about this property.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- To resolve the error, add the **waitOnExternal** section to the JSON definition of the input table and recreate the table. 
+ To resolve the error, add the **external** property and the optional **externalData** section to the JSON definition of the input table and recreate the table. 
 
 ## Problem: Hybrid copy operation fails
 To learn more details:
@@ -356,8 +354,6 @@ In this scenario, data set is in an error state due to a failure in Hive process
 
 
 [adfgetstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md

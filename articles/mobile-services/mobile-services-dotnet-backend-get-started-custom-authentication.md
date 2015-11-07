@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with custom authentication | Mobile Dev Center" 
+	pageTitle="Get started with custom authentication | Microsoft Azure" 
 	description="Learn how to authenticate users with a username and password." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Get started with custom authentication
@@ -166,7 +166,8 @@ At this point, you have everything you need to begin creating user accounts. In 
 
 ## Create the LoginProvider
 
-One of the fundamental constructs in the Mobile Services authentication pipeline is the **LoginProvider**. In this section, you will create your own `CustomLoginProvider`. It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.
+One of the fundamental constructs in the Mobile Services authentication pipeline is the **LoginProvider**. In this section, you will create your own `CustomLoginProvider`. It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.  
+If you use the visual studio 2013, you maybe need to install the `WindowsAzure.MobileServices.Backend.Security` nuget package to add the references to `LoginProvider` class.  
 
 1. Create a new class, `CustomLoginProvider`, which derives from **LoginProvider**, and add the following `using` statements:
 
@@ -392,7 +393,7 @@ This section describes the steps needed to access the custom authentication endp
 
 	You only need to call the **CustomRegistration** endpoint once to create an account for a given user, as long as you keep the user login information in the Accounts table. For examples of how to call a custom API on the various supported client platforms, see the article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
-	> [AZURE.IMPORTANT] Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion. For a public registration endpoint, you should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts. You can use Twilio to send SMS messages from Mobile services. For more information, see [How to: Send an SMS message](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). You can also use SendGrid to send emails from Mobile Services. For more inforation, see [Send email from Mobile Services with SendGrid](store-sendgrid-mobile-services-send-email-scripts.md). 
+	> [AZURE.IMPORTANT] Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion. For a public registration endpoint, you should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts. You can use Twilio to send SMS messages from Mobile services. You can also use SendGrid to send emails from Mobile Services. For more inforation on using SendGrid, see [Send email from Mobile Services with SendGrid](store-sendgrid-mobile-services-send-email-scripts.md). 
 	
 3. Use the appropriate **invokeApi** method again, this time to call the **CustomLogin** endpoint, passing the runtime-supplied username and password in the message body. 
 

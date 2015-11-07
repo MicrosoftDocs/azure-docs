@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Microsoft authentication - Mobile Services" 
+	pageTitle="Register for Microsoft authentication | Microsoft Azure" 
 	description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Register your app to use Microsoft account for authentication
@@ -54,13 +54,9 @@ Windows Store apps must first be registered with the Windows Dev Center.
 
 6. (Optional) For a universal Windows app, repeat steps 4 and 5 for the Windows Phone Store project. 
 
-6. Back in the Windows Dev Center page for your new app, click **Services**. 
+6. Back in the Windows Dev Center page for your new app, click **Services** > **Push notifications**. 
 
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit-app.png) 
-
-7. In the Services page, click **Live Services site** under **Azure Mobile Services**.
-
-	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit2-app.png) 
+7. In the **Push notifications** page, click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
 
 This displays the Microsoft account page for your app.
 
@@ -72,7 +68,7 @@ The first step in this section applies only to Windows Phone 8, Windows Phone 8.
 
    	This reserves you app name with Microsoft account and displays the Microsoft account page for your app.
 
-2. In the Microsoft account page for your app, click **API Settings**, select enable **Mobile or desktop client app**, set the mobile service URL as the **Target domain**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount/` in **Redirect URL**, then click **Save**.
+2. In the Microsoft account page for your app, click **API Settings**, select enable **Mobile or desktop client app**, set the mobile service URL as the **Target domain**, supply a value of `https://<mobile_service>.azure-mobile.net/` in **Redirect URL**, then click **Save**.
 
 	 >[AZURE.NOTE]For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-microsoft_ your mobile service as a .NET service, such as `https://todolist.azure-mobile.net/signin-microsoft`. 
 

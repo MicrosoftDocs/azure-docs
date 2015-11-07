@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Reentrancy"
-   description="Introduction to Reentrancy for Azure Service Fabric Actors"
+   pageTitle="Reliable Actors Reentrancy"
+   description="Introduction to Reentrancy for Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-# Actor Reentrancy
+# Reliable Actor Reentrancy
 Fabric Actors, by default, allow logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example if Actor A sends message to Actor B who sends message to Actor C. As part of the message processing if Actor C calls Actor A, the message is reentrant so will be allowed. Any other messages that are part of different call context will be blocked on Actor A until it completes processing.
 
 Actors that want to disallow logical call context-based reentrancy can disable it by decorating the actor class with `ReentrantAttribute(ReentrancyMode.Disallowed)`.
@@ -39,4 +39,3 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
     ...
 }
 ```
- 

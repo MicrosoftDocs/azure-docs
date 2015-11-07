@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Diagnose failures and exceptions in ASP.NET apps with Application Insights  
@@ -31,9 +31,8 @@ Click through one of the failed request types in the list to get to individual o
 
 ![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-*No exceptions showing? See [Capture exceptions](#exceptions).*
 
-Alternatively, you can start from the list of exceptions that you'll find further down the Failures blade. Keep clicking until you eventually get to individual exceptions.
+**Alternatively,** you can start from the list of exceptions that you'll find further down the Failures blade. Keep clicking until you eventually get to individual exceptions.
 
 
 ![Drill through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -51,15 +50,13 @@ From there you can look at the stack trace and detailed properties of each excep
 
 A *dependency* is a service that your application calls, typically through a REST API or database connection. [Application Insights Status Monitor][redfield] automatically monitors a variety of types of dependency call, measuring call duration and success or failure. 
 
-To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension][azure]. You can do this either 
+To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension][azure]. 
 
 Failed calls to dependencies are listed on the Failures blade, and you can also find them under Related Items in the request details and exception details.
 
 *No dependency failures? That's good. But to verify that you're getting dependency data, open the Performance blade and look at the Dependency Duration chart.*
 
-## Custom events
-
-Custom events are typically used for usage tracking, but you can also find them under "All telemetry for this request".
+ 
 
 ## Custom tracing and log data
 
@@ -69,8 +66,13 @@ You have several options:
 
 * [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search. Events are named, and can carry string properties and numeric metrics on which you can [filter your diagnostic searches][diagnostic].
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) lets you send longer data such as POST information.
-* [TrackException()](#exceptions) sends stack traces.
+* [TrackException()](#exceptions) sends stack traces. [More about exceptions](#exceptions).
 * If you already use a logging framework like Log4Net or NLog, you can [capture those logs][netlogs] and see them in diagnostic search alongside request and exception data.
+
+To see these events, open [Search][diagnostic], open Filter, and then choose Custom Event, Trace, or Exception.
+
+
+![Drill through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 ### How to see request POST data
 
@@ -416,15 +418,22 @@ Add the attribute to the service implementations:
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## Exception performance counters
 
+If you have [installed Status Monitor][redfield] on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
+
+Open a Metric Explorer blade, add a new chart, and select **Exception rate**, listed under Performance Counters. 
+
+The .NET framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval. 
+
+Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
 
 <!--Link references-->
 
@@ -435,6 +444,6 @@ Add the attribute to the service implementations:
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

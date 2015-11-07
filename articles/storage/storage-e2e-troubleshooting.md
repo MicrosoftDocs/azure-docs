@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer 
@@ -23,7 +23,7 @@ Diagnosing and troubleshooting is a key skill for building and supporting client
 
 In this tutorial, we will demonstrate how to identify client certain errors that may affect performance, and troubleshoot those errors from end-to-end using tools provided by Microsoft and Azure Storage, in order to optimize the client application. 
 
-This tutorial provides a hands-on exploration of an end-to-end troubleshooting scenario. For an in-depth conceptual guide to troubleshooting Azure storage applications, see [Monitor, diagnose, and troubleshoot Storage](../articles/storage-monitoring-diagnosing-troubleshooting.md). 
+This tutorial provides a hands-on exploration of an end-to-end troubleshooting scenario. For an in-depth conceptual guide to troubleshooting Azure storage applications, see [Monitor, diagnose, and troubleshoot Storage](storage-monitoring-diagnosing-troubleshooting.md). 
 
 ## Tools for troubleshooting Azure Storage applications
 
@@ -368,7 +368,7 @@ Now that you are familiar with using Message Analyzer to analyze your log data, 
 
 For more information about troubleshooting end-to-end scenarios in Azure Storage, see these resources:
 
-- [Monitor, diagnose, and troubleshoot Storage](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/)
+- [Monitor, diagnose, and troubleshoot Storage](storage-monitoring-diagnosing-troubleshooting.md)
 - [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [How to monitor a storage account](storage-monitor-storage-account.md)
 - [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)

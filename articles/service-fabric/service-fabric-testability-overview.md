@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Testability Overview"
-   description="This article describes the testability feature in Microsoft Azure Service Fabric."
+   pageTitle="Testability Overview | Microsoft Azure"
+   description="This article describes the testability feature in Microsoft Azure Service Fabric to induce faults and run test scenarios against your services."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/13/2015"
    ms.author="rsinha"/>
 
 # Testability overview

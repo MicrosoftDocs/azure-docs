@@ -1,11 +1,11 @@
 
 <properties
-   pageTitle="Service Fabric Application Upgrade: Upgrade Parameters"
-   description="This article describes the various parameters related to upgrading a Service Fabric application."
+   pageTitle="Application upgrade: upgrade parameters | Microsoft Azure"
+   description="Describes parameters related to upgrading a Service Fabric application, including health checks to perform and policies to automatically undo the upgrade."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 
 
-# Application Upgrade Parameters
+# Application upgrade parameters
 
 This article describes the various parameters that apply during the upgrade of a Service Fabric application.  The parameters include the name and version of the application, and are knobs that control the timeouts and health checks that are applied during the upgrade and specify the policies must be applied when an upgrade fails.
 

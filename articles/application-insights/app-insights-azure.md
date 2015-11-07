@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 #  Application Insights for Microsoft Azure apps
@@ -28,7 +28,7 @@ What type of app do you have?
 
 * [Azure Web App - web and worker roles](app-insights-cloudservices.md)
 * [Web app on IIS in Azure VM](../insights-perf-analytics.md)
-* [Application outside Azure](app-insights-get-started.md)
+* [Application outside Azure](app-insights-overview.md)
 
 
 

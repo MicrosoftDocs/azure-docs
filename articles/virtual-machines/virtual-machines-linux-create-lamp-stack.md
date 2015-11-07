@@ -1,11 +1,12 @@
 <properties
-	pageTitle="How to create a LAMP Stack with Microsoft Azure"
+	pageTitle="Create a LAMP Stack with Azure | Microsoft Azure"
 	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 #How to create a LAMP Stack with Microsoft Azure
 
 A "LAMP" stack is a group of open source software that is typically installed together to enable a server to host dynamic websites and web applications. This term is actually an acronym that represents the Linux operating system with the Apache web server. The site data is stored in a MySQL database, and dynamic content is processed by PHP.  
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 In this guide, we'll get a LAMP stack installed on a Linux image and deploy it on Microsoft Azure.  
 
@@ -145,6 +149,7 @@ To install Apache, open terminal and execute this command:
 Once it installs, start Apache with this command:  
 
 	sudo service httpd start
+
 ####Test Apache
 To check if Apache is successfully installed, browse to your Apache server’s DNS name (for the example URL in this article, http://lampdemo.cloudapp.net/). The page should display the words “It works!"
 ![][14]
@@ -467,4 +472,3 @@ When you restart the Apache server using one of the following commands:
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 

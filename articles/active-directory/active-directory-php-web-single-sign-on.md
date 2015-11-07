@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
 
 # Web Single Sign-On with PHP and Azure Active Directory
@@ -189,6 +189,9 @@ This tutorial has shown you how to create and configure a single tenant PHP appl
 
 A sample that shows how to use Azure Active Directory and single sign-on for PHP websites is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
+## Next steps
+
+For more information, see the [PHP Developer Center](/develop/php/).
 
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp

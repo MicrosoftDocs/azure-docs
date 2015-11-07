@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
 # Connecting to Media Services Account using Media Services SDK for .NET
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series. 
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-connect_programmatically.md)
+- [.NET](media-services-dotnet-connect_programmatically.md)
+
 
 This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services SDK for .NET.
 
@@ -170,20 +173,28 @@ It is a highly recommended practice to store connection values, especially sensi
 
 The following App.config file contains the required connection values. The values in the <appSettings> element are the required values that you got from the Media Services account setup process.
 
+	<configuration>
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
+	</configuration>
 
-<pre><code>
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
 
 To retrieve connection values from configuration, you can use the **ConfigurationManager** class and then assign the values to fields in your code:
 	
 	private static readonly string _accountName = ConfigurationManager.AppSettings["MediaServicesAccountName"];
 	private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+
+
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
 
 <!-- Anchors. -->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 #Encoding your media with Dolby Digital Plus
@@ -650,3 +650,11 @@ Each attribute is described below.
 
 **TruePeak** - This result contains the largest absolute true‐peak value in any channel since the metering was reset. Refer to ITU‐R BS.1770‐2 for a description of true peak. The values can range in -70 to 12.04 dBTP.
  
+
+##Media Services learning paths
+
+You can view AMS learning paths here:
+
+- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+

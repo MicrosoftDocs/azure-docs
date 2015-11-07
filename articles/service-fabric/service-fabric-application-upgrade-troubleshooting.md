@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Troubleshooting Service Fabric application upgrades"
+   pageTitle="Troubleshooting application upgrades | Microsoft Azure"
    description="This article covers some common issues around upgrading a Service Fabric application and how to resolve them."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/24/2015"
+   ms.date="08/11/2015"
    ms.author="subramar"/>
 
 # Troubleshoot application upgrades
