@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric How to collect logs with Windows Azure Diagnostics and Operational Insights | Microsoft Azure"
+   pageTitle="How to collect logs with WAD and Operational Insights | Microsoft Azure"
    description="This article describes how you can setup Windows Azure Diagnostics and Operational Insights to collect logs from a Service Fabric cluster running in Azure"
    services="service-fabric"
    documentationCenter=".net"
