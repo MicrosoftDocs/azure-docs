@@ -49,8 +49,8 @@ Select the countries that you want to block or allow for the path. For more info
 
 For example, the rule of blocking /Photos/Strasbourg/ will filter files including:
 
-	http://az123456.azureedge.net/Photos/Strasbourg/1000.jpg. 
-	http://az123456.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg. 
+	http://az123456.azureedge.net/Photos/Strasbourg/1000.jpg
+	http://az123456.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 
 ##Country codes

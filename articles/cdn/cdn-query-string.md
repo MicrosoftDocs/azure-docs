@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="CDN - Overriding default HTTP behavior using the rules engine " 
-	description="The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers." 
+	pageTitle="CDN - Controlling caching behavior of requests with query strings" 
+	description="Query string caching controls how files are to be cached when they contain query strings." 
 	services="cdn" 
 	documentationCenter=".NET" 
 	authors="camsoper" 
@@ -16,45 +16,34 @@
 	ms.date="10/31/2015" 
 	ms.author="casoper"/>
 
-#Override default HTTP behavior using the rules engine
+#Controlling caching behavior of requests with query strings
 
 ##Overview
 
-The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifing HTTP headers.  This tutorial will demonstrate the creation of a rule that will change the caching behavior of CDN assets.
+Query string caching controls how files are to be cached when they contain query strings. Three modes are available:
 
-##Tutorial
+- **standard-cache**:  This is the default mode.  The CDN edge node will pass the query string from the requestor to the origin on the first request and cache the asset.  All subsequent requests for that asset that are served from the edge node will ignore the query string until the cached asset expires.
+- **no-cache**:  In this mode, requests with query strings are not cached at the CDN edge node.  The assets are retrieved directly from the origin and passed to the requestor with each request.
+- **unique-cache**:  This mode treats each request with a query string as a unique asset with its own cache.  For example, the response from the origin for a request for *foo.ashx?q=bar* would be cached at the edge node and returned for subsequent caches with that same query string.  A request for *foo.ashx?q=somethingelse* would be cached as a separate asset with its own time to live.
+	>[AZURE.NOTE] This mode should not be used when the query string contains parameters that will change with every request, such as a session ID or a user name, since this would result in a very low cache hit ratio.
+
+##Changing query string caching settings
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-rules-engine/cdn-rules-manage-btn.png)
+	![CDN profile blade manage button](./media/cdn-query-string/cdn-manage-btn.png)
 	
 	The CDN management portal opens.
 	
-2. Click on the **HTTP Large** tab, followed by **Rules Engine**.
+2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Query-String Caching**.
 	
-	Options for a new rule are displayed.
+	Query string caching options are displayed.
 	
-	![CDN new rule options](./media/cdn-rules-engine/cdn-new-rule.png)
-
-3. Enter a name in the **Name / Description** textbox.
-
-4. Identify the type of requests the rule will apply to.  By default, the **Always** match condition is selected.  You'll use **Always** for this tutorial, so leave that selected.
-
-	![CDN match condition](./media/cdn-rules-engine/cdn-request-type.png)
+	![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
 	
-	>[AZURE.TIP] There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
-	
-5.  Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
+3. After making your selection, click the **Update** button.
 
-	![CDN match condition](./media/cdn-rules-engine/cdn-new-feature.png)
 
-	>[AZURE.NOTE] As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
-	
-6.  Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
-
-##Considerations
-
-- The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
 
 
 	

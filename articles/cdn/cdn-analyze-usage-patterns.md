@@ -35,7 +35,7 @@ The bandwidth report consists of a graph and data table indicating the bandwidth
 - Select Date range to view data for today/this week/this month, etc. or enter custom dates, then click "go" to make sure your selection is updated.
 - You can export and download the data by clicking the excel sheet icon located next to "go". 
  
-The report is updated every 5 minute. 
+The report is updated every 5 minutes. 
 
 ![Bandwidth report](./media/cdn-reports/cdn-bandwidth.png)
 
