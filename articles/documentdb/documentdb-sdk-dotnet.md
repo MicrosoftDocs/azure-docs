@@ -33,7 +33,7 @@ For reference documentation, refer to [.NET SDK Reference Documentation](https:/
 
 To get started with this SDK in code, refer to [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)
 
-## SDK Release & Retirement Dates
+## Release & Retirement Dates
 Microsoft will provide notification at least 12 months in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
 
 All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** will be retired on **January 15, 2016**, as announced in this [Microsoft Azure DocumentDB Blog post](). Any application attempting to connect to DocumentDB using a retired SDK will be blocked. 
