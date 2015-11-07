@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview) | Microsoft Azure" 
+pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview) | Microsoft Azure | Hosted cloud search service" 
 description="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 

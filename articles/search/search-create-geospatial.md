@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a geospatial search app using Azure Search | Microsoft Azure" 
+	pageTitle="Create a geospatial search app using Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Create a geospatial search app using Bing and Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 

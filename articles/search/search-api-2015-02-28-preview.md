@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure | Hosted cloud search service"
    description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene Query Syntax and moreLikeThis searches."
    services="search"
    documentationCenter="na"

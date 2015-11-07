@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Try Azure App Service with Azure Search | Microsoft Azure" 
+   pageTitle="Try Azure App Service with Azure Search | Microsoft Azure | Hosted cloud search service" 
    description="Try Azure Search, a hosted cloud search service, for free up to one hour, using the TryAzureAppService template." 
    services="search" 
    documentationCenter="" 
