@@ -43,7 +43,7 @@ Data used in search operations is stored with your search service in Azure, wher
 - The schema that defines your index is user-defined and will specify searchable fields, non-searchable fields that could be useful in a filter expression, and constructs like scoring profiles for tuning results.
 - Data can be auto-loaded by an Indexer (supported for Azure SQL Database or Azure DocumentDB only), or pushed to a search index via one of the Azure Search APIs. When you use the API, you can push data from any data source, as long as it’s in JSON format.
 
-In the [Try Azure App Service](https://tryappservice.azure.com/) option, the ASP.NET + Azure Search Site template provides source code for the Web application, modifiable in Visual Studio Online (available as a part of the one-hour session). No separate development tools are required to view or change the code.
+In the [Try Azure App Service](https://tryappservice.azure.com/) option, the ASP.NET + Azure Search Site template provides source code for the Web application, modifiable in Visual Studio Team Services (available as a part of the one-hour session). No separate development tools are required to view or change the code.
 
 Code is written in C#, using the [Azure Search .NET client library](https://msdn.microsoft.com/library/dn951165.aspx) to execute queries against the index, provide faceted navigation, and display counts and search results in a web page.
 
@@ -68,8 +68,8 @@ If you haven’t started your 1-hour session yet, follow these steps to get star
 
     ![][3]
 
-7. Choose **Edit with Visual Studio Online** to view the solution and browse the site. 
-9. In Visual Studio Online, expand the session options at the top of the page, and then click **Browse Web Site**.
+7. Choose **Edit with Visual Studio Team Services** to view the solution and browse the site. 
+9. In Visual Studio Team Services, expand the session options at the top of the page, and then click **Browse Web Site**.
 
     ![][4]
 
@@ -105,7 +105,7 @@ Azure Search has a configurable **searchMode** property that you can use to cont
 
 In this task, you will change the **searchMode** and compare search outcomes based on mode.
 
-1. Open the browser window containing the sample application, choose **Connect to Visual Studio Online**.
+1. Open the browser window containing the sample application, choose **Connect to Visual Studio Team Services**.
 
     ![][8]
 
