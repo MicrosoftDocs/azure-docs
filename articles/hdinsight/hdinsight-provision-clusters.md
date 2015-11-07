@@ -360,7 +360,7 @@ You can refer to the [basic configuration options](#basic-configuration-options)
 
 ## Create using ARM template
 
-Azure Resource Manager (ARM) template makes it easier to deploy and redeploy cluster. The following procedure creates a Hadoop cluster on the Linux operating system in the North Europe data center with 4 worker nodes.
+Azure Resource Manager (ARM) template makes it easier to deploy and redeploy cluster. The following procedure creates Linux-based HDInsight cluster.
 
 **To deploy a cluster using ARM template**
 
@@ -368,32 +368,36 @@ Azure Resource Manager (ARM) template makes it easier to deploy and redeploy clu
 2. Make the parameters if needed.
 3. Run the template using the following PowerShell script:
 
-		$resourceGroupName = "<ResourceGroupName>"
-		$Location = "<ResourceGroupLocation>"
+		$subscriptionId = "<Azure Subscription ID"
 		
-		$armDeploymentName = "<ARMDeploymentName>"
-		$clusterName = "<ClusterName>"
-		$clusterStorageAccountName = "<DefaultStorageAccountName>"
-		
+		$newResourceGroupName = "<Azure Resource Group Name>"
+		$Location = "EAST US 2" # for creating ARM group
+				
+		$armDeploymentName = "New-HDInsigt-Cluster-" + (Get-Date -Format MMdd)
+		$newClusterName = "<HDInsight Cluster Name>"
+		$clusterStorageAccountName = "<Default Storage Account Name>"
+				
 		# Connect to Azure
-		Switch-AzureMode -Name AzureResourceManager
-		Add-AzureAccount
-		
+		#Login-AzureRmAccount
+		#Select-AzureRmSubscription -SubscriptionId $subscriptionId
+				
 		# Create a resource group
-		New-AzureResourceGroup -Name $resourceGroupName -Location $Location
-		
+		New-AzureRmResourceGroup -Name $newResourceGroupName -Location $Location
+				
 		# Create cluster and the dependent storage accounge
-		$parameters = @{clusterName="$clusterName";clusterStorageAccountName="$clusterStorageAccountName"}
-		
-		New-AzureResourceGroupDeployment `
-		    -Name $armDeploymentName `
-		    -ResourceGroupName $resourceGroupName `
-		    -TemplateFile E:\Tutorials\HDIARMTemplates\ARMTemplate-create-hadoop-cluster-with-storage.json `
-		    -TemplateParameterObject $parameters
-		
+		$parameters = @{clusterName="$newClusterName";clusterStorageAccountName="$clusterStorageAccountName"}
+				
+		New-AzureRmResourceGroupDeployment `
+			-Name $armDeploymentName `
+			-ResourceGroupName $newResourceGroupName `
+			-TemplateFile E:\HDITutorials-ARM\Create-clusters\hdinsight-arm-template.json `
+			-TemplateParameterObject $parameters
+				
 		# List cluster
-		Get-AzureHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+		Get-AzureRmHDInsightCluster -ResourceGroupName $newResourceGroupName -ClusterName $newClusterName 
 
+	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the ARM template. 
+	
 For deploying an ARM template using other methods, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
 
@@ -408,64 +412,49 @@ The following procedures are needed to create an HDInsight cluster by using Azur
 - Create an Azure Blob container
 - Create an HDInsight cluster
 
+	$subscriptionId = "<Azure Subscription ID>"
+	
+	$newResourceGroupName = "<Azure Resource Group Name>"
+	$location = "<Azure Location>" # for example, "East US 2"
+	$newDefaultStorageAccountName = "<Azure Storage Account Name>"
+	$newClusterName = "<Azure HDInsight Cluster Name>"
+	$clusterSizeInNodes = 1
+	
+	###########################################
+	# login Azure
+	###########################################
+	Login-AzureRmAccount
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	###########################################
+	# Create the resource group
+	###########################################
+	New-AzureRmResourceGroup -Name $newRresourceGroupName -Location $location
+	
+	###########################################
+	# Preapre default storage account and container
+	###########################################
+	New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
+	
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+	New-AzureStorageContainer -Name $newClusterName -Context $defaultStorageContext #use the cluster name as the container name
+		
+	###########################################
+	# Create the cluster
+	###########################################
+	$httpCredential =Get-Credential -Message "Enter the HTTP account credential:"
+	New-AzureRmHDInsightCluster `
+		-ResourceGroupName $newResourceGroupName `
+		-ClusterName $newClusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential 
 
-		# Sign in
-		Add-AzureAccount
 
-		###########################################
-		# Create required items, if none exist
-		###########################################
-
-		# Select the subscription to use
-		$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
-		Select-AzureSubscription -SubscriptionName $subscriptionName
-
-		# Create an Azure Resource Group
-		$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
-		$location = "<Location>"                        # For example, "West US"
-		New-AzureResourceGroup -Name $resourceGroupName -Location $location
-
-		# Create an Azure Storage account
-		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
-
-		# Create an Azure Blob Storage container
-		$containerName = "<ContainerName>"              # Provide a container name
-		$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		New-AzureStorageContainer -Name $containerName -Context $destContext
-
-		###########################################
-		# Create an HDInsight Cluster
-		###########################################
-
-		# Skip these variables if you just created them
-		$resourceGroupName = "<ResourceGroupName>"      # Provide the Resource Group name
-		$storageAccountName = "<StorageAcccountName>"   # Provide the Storage account name
-		$containerName = "<ContainerName>"              # Provide the container name
-		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-
-		# Set these variables
-		$clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
-		$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
-		$credentials = Get-Credential
-
-		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
-
-		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
-									-ClusterName $clusterName `
-									-Location $location `
-									-ClusterSizeInNodes $clusterNodes `
-									-ClusterType Hadoop `
-									-OSType Windows `
-									-HttpCredential $credentials `
-									-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-									-DefaultStorageAccountKey $storageAccountKey `
-									-DefaultStorageContainer $containerName  
-
-	![HDI.CLI.Provision](./media/hdinsight-provision-clusters/HDI.ps.provision.png)
 
 ## Create using the HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
