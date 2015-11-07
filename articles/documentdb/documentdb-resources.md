@@ -205,7 +205,7 @@ After creating a collection, you can register stored procedures, triggers and UD
 	        })
 	};
 
-The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with DocumentDB resources](documentdb-interactions-with-resources.md). 
+The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with DocumentDB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
 
 	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
 	   .then(function(createdStoredProcedure) {
@@ -409,7 +409,7 @@ The only way to obtain a resource key is by creating a permission resource under
 As with all other resources, permissions in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a permission. 
 
 ## Next steps
-Learn more about working with resources by using HTTP commands in [RESTful interactions with DocumentDB resources](documentdb-interactions-with-resources.md).
+Learn more about working with resources by using HTTP commands in [RESTful interactions with DocumentDB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 
 [1]: media/documentdb-resources/resources1.png

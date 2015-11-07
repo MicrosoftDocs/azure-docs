@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -140,6 +140,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 + Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 + Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
++ If you edited ApplicationInsights.config, carefully check the configuration of TelemetryInitializers and TelemetryProcessors. An incorrectly-named type or parameter can cause the SDK to send no data.
 
 #### No data since I published the app to my server
 

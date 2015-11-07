@@ -79,7 +79,7 @@ For more information about defining the template, see [Authoring Azure Resource 
 
 For template schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 
-For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md).
+For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
 For guidance about how to structure your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md).
 
@@ -101,7 +101,7 @@ Resource Manager automatically logs user actions for auditing. For informatin ab
 
 For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](role-based-access-control-configure.md). This topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
 
-For examples of assigning roles, see [Managing access to resources](azure-portal/resource-group-rbac.md).
+For examples of assigning roles, see [Managing access to resources](resource-group-rbac.md).
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
@@ -127,7 +127,7 @@ For information about using the preview portal, see [Using the Azure Preview Por
 ## Next steps
 
 - To learn about creating templates, see [Authoring templates](./resource-group-authoring-templates.md)
-- To deploy the template you created, see [Deploying templates](azure-portal/resource-group-template-deploy.md)
+- To deploy the template you created, see [Deploying templates](resource-group-template-deploy.md)
 - To understand the functions you can use in a template, see [Template functions](./resource-group-template-functions.md)
 - For guidance on designing your templates, see [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md)
 
