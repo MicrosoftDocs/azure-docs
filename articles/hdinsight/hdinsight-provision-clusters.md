@@ -179,20 +179,25 @@ The clusters can't retain the changes due to re-image.  For more information, se
 The following is an Azure PowerShell script example of customizing a Hive configuration:
 
 	# hive-site.xml configuration
-	$hiveConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-	$hiveConfigValues.Configuration = @{ "hive.metastore.client.socket.timeout"="90" } #default 60
-
-	$config = New-AzureHDInsightClusterConfig `
-	            -ClusterSizeInNodes $clusterSizeInNodes `
-	            -ClusterType $clusterType `
-	          | Set-AzureHDInsightDefaultStorage `
-	            -StorageAccountName $defaultStorageAccount `
-	            -StorageAccountKey $defaultStorageAccountKey `
-	            -StorageContainerName $defaultBlobContainer `
-	          | Add-AzureHDInsightConfigValues `
-	            -Hive $hiveConfigValues
-
-	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $credential -OSType Windows -Config $config
+	$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+	
+	$config = New-AzureRmHDInsightClusterConfig `
+		| Set-AzureRmHDInsightDefaultStorage `
+			-StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+			-StorageAccountKey $defaultStorageAccountKey `
+		| Add-AzureRmHDInsightConfigValues `
+			-HiveSite $hiveConfigValues 
+	
+	New-AzureRmHDInsightCluster `
+		-ResourceGroupName $existingResourceGroupName `
+		-ClusterName $clusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential `
+		-Config $config 
 
 Some more samples on customizing other configuration files:
 
@@ -203,12 +208,10 @@ Some more samples on customizing other configuration files:
 	$CoreConfigValues = @{ "ipc.client.connect.max.retries"="60" } #default 50
 
 	# mapred-site.xml configuration
-	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
-	$MapRedConfigValues.Configuration = @{ "mapreduce.task.timeout"="1200000" } #default 600000
+	$MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 
 	# oozie-site.xml configuration
-	$OozieConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightOozieConfiguration'
-	$OozieConfigValues.Configuration = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
+	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
 For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creationg](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
@@ -355,13 +358,13 @@ You can refer to the [basic configuration options](#basic-configuration-options)
 	* **Tags** (![tag icon](./media/hdinsight-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
 
-## Create using Azure Resource Manager template
+## Create using ARM template
 
 Azure Resource Manager (ARM) template makes it easier to deploy and redeploy cluster. The following procedure creates a Hadoop cluster on the Linux operating system in the North Europe data center with 4 worker nodes.
 
 **To deploy a cluster using ARM template**
 
-1. Save the json file in the Appendix A to your workstation.
+1. Save the json file in [Appendix A](#appendix-a---arm-template) to your workstation.
 2. Make the parameters if needed.
 3. Run the template using the following PowerShell script:
 
