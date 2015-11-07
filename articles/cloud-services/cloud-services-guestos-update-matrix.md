@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/6/2015"
+   ms.date="11/06/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS Releases and SDK Compatibility Matrix
