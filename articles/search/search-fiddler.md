@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Azure"
+	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Azure | Hosted cloud search service"
 	description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs."
 	services="search"
 	documentationCenter=""

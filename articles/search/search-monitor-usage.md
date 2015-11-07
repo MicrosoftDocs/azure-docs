@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure" 
+   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure | Hosted cloud search service" 
    description="Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure." 
    services="search" 
    documentationCenter="" 
