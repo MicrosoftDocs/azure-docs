@@ -20,9 +20,8 @@
 # Prepare a RedHat-based Virtual Machine for Azure
 In this topic, you will learn how to prepare a RedHat-based Virtual Machine for Azure, you don't need read all of information, just choose and jump to the session for virtual machine you are using directly.
 
-
 ##Known issues:
-There are 2 known issues when you are using RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure, and RedHat will provide the fix for them very soon.
+There are 2 known issues when you are using RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.
 
 ###Issue 1: Provision time out
 This issue you may meet during booting up with RHEL in Hyper-V and Azure，especially with RHEL 6.6 .
@@ -40,15 +39,15 @@ How reproducible:
 
 Issue happens in the situation of frequent disk I/O operation in Hyper-V and Azure.
 
-For RHEL 7.1, the fix patch is delivered in RHEL update service, you could just run below command to install it:
-       
-    # sudo yum update
+    
+[AZURE.NOTE] These 2 known issues actually are already fixed by RedHat, you could run below command to download and install the fix through RHEL update service after installed RHEL 6 or 7 from ISO file in RedHat website:
 
+    # sudo yum update
 
 
 ##Prepare from ISO file in RedHat website manually 
 ###Prerequisites
-This section assumes that you have already installed an RHEL Linux operating system from ISO file on RedHat website to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
+This section assumes that you have already installed an RHEL Linux operating system from ISO file in RedHat website to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
 
 **RHEL Installation Notes**
 
