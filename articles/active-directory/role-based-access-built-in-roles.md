@@ -27,7 +27,7 @@ Click the corresponding link to see the **actions** and **not actions** properti
 
 | Role Name | Description |
 | --------- | ----------- |
-| [API-Management Service Contributor](#api-management-service-contributor) | Can manage Application Insights components |
+| [API-Management Service Contributor](#api-management-service-contributor) | Can manage API Management services |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components |
 | [Automation Operator](#automation-operator) | Able to start, stop, suspend, and resume jobs |
 | [BizTalk Contributor](#biztalk-contributor) | Can manage BizTalk services |
