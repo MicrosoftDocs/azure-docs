@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Data movement activities
@@ -51,7 +51,7 @@ Copy activity takes one input dataset (**source**) and copies data per activity 
 Copy activity provides the following capabilities:
 
 ### <a name="global"></a>Globally available data movement
-The data movement service powering copy activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
+Even though the Azure Data Factory itself is available only in the West US region, the data movement service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
 | Region | Geography |
 | ------ | --------- | 
@@ -66,6 +66,9 @@ The data movement service powering copy activity is available globally in the fo
 | West Europe | EMEA |
 | Southeast Asia | APAC |
 | Japan East | APAC |
+
+Note that in the case of copying data from an on-premises data source to cloud or vice-versa (for example: on-prem SQL Server -> Azure Blob), the data movement is actually done by the Data Management Gateway with no involvement from the Data Movement Service. Whereas, if you are copying from a cloud source to a cloud destination (for example: Azure Blob -> Azure SQL), the Data Movement Service picks the deployment that is closest to the sink location to do the transfer. 
+
 
 ### <a name="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
