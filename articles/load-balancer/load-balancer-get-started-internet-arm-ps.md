@@ -134,7 +134,7 @@ The example below creates the following items:
 - a load balancer that uses all the objects above.
 
 
-<sup>1</sup> NAT rules are associated to a specific instance virtual machine behind the load balancer. The network traffic coming to ports 3341 will be sent to a specific virtual machine RDP port associated with the NAT rule. 
+<sup>1</sup> NAT rules are associated to a specific virtual machine instance behind the load balancer. The incoming network traffic to port 3341 will be sent to a specific virtual machine on port 3389 associated with a NAT rule in the example below. You have to choose a protocol for NAT rule, UDP or TCP. Both protocols can't be assigned to the same port. 
 
 ### Step 1
 
