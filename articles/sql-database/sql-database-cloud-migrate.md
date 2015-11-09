@@ -18,7 +18,7 @@
 
 # Migrating a SQL Server database to Azure SQL Database
 
-Moving your on-premises database to Azure SQL Database varies in complexity based on your database and application design, and your tolerance for downtime. For compatible databases, migration to Azure SQL Database is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications. [Azure SQL Database V12](../sql-database-v12-whats-new.md) brings near-complete engine compatibility with SQL Server 2014 and SQL Server 2016. Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Azure SQL Database. This includes the SQL Server data types, operators, and the string, arithmetic, logical, cursor functions, and the other Transact-SQL elements that most applications depend upon. Partially or unsupported functions are usually related to differences in how SQL Database manages the database (such as file, high availability, and security features) or for special purpose features such as service broker. Because SQL Database isolates many features from dependency on the master database, many server-level activities are inappropriate and unsupported. Features deprecated in SQL Server are generally not supported in SQL Database. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering before they can be migrated. 
+Moving your on-premises database to Azure SQL Database varies in complexity based on your database and application design, and your tolerance for downtime. For compatible databases, migration to Azure SQL Database is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications. [Azure SQL Database V12](../sql-database-v12-whats-new.md) brings near-complete engine compatibility with SQL Server 2014 and SQL Server 2016. Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Azure SQL Database. This includes the SQL Server data types, operators, and the string, arithmetic, logical, cursor functions, and the other Transact-SQL elements that most applications depend upon. Partially or unsupported functions are usually related to differences in how SQL Database manages the database (such as file, high availability, and security features) or for special purpose features such as service broker. Because SQL Database isolates many features from dependency on the master database, many server-level activities are inappropriate and unsupported. Features deprecated in SQL Server are generally not supported in SQL Database. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering before they can be migrated.
 
 The workflow for migrating a SQL Server database to Azure SQL Database are:
 
@@ -108,19 +108,20 @@ The following list discusses the options for migrating a compatible database to 
 
 ### Migrating a compatible database with no downtime
 
-When you need to cannot afford to remove your your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. This method is currently in preview mode with [SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/). With transactional replication, all changes to your data or schema that happen between the moment you start migrating and the moment you complete the migration will show up in your Azure SQL Database. Once the migration is complete, you just need to change the connection string of your applications to point them to your Azure SQL Database instead of pointing them to your on premise database. Once transactional replication drains any changes left on your on-premises database and all your applications point to Azure DB, you can now safely uninstall replication leaving your Azure SQL Database as the production system.
+When you need to cannot afford to remove your your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. With transactional replication, all changes to your data or schema that happen between the moment you start migrating and the moment you complete the migration will show up in your Azure SQL Database. Once the migration is complete, you just need to change the connection string of your applications to point them to your Azure SQL Database instead of pointing them to your on premise database. Once transactional replication drains any changes left on your on-premises database and all your applications point to Azure DB, you can now safely uninstall replication leaving your Azure SQL Database as the production system.
 
  ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 
 Transactional replication is a technology built-in and integrated with SQL Server since SQL Server 6.5. It is a very mature and proven technology that most of DBAs know with which they have experience. With the [SQL Server 2016 preview](http://www.microsoft.com/server-cloud/products/sql-server-2016/), it is now possible to configure your Azure SQL Database as a [transactional replication subscriber](https://msdn.microsoft.com/library/mt589530.aspx) to your on-premises publication. The experience that you get setting it up from Management Studio is exactly the same as if you set up a transactional replication subscriber on an on-premises server. Support for this scenario is supported with the following SQL Server versions:
 
- - SQL14 SP1 CU3 and above
- - SQL14 RTM CU10 and above
- - SQL11 SP2 CU8 and above
- - SQL11 SP3 when it will release
+ - SQL Server 2016 CTP3 (preview) and above 
+ - SQL Server 2014 SP1 CU3 and above
+ - SQL Server 2014 RTM CU10 and above
+ - SQL Server 2012 SP2 CU8 and above
+ - SQL Server 2013 SP3 when it will release
 
-You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionially, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns. 
+You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionially, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
 
 ## Use Deploy Database to Microsoft Azure Database Wizard
 

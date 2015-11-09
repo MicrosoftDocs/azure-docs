@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Node.js on Windows
@@ -54,7 +54,7 @@ Next navigate to node_modules\msnodesql folder and run the **msnodesql-0.2.1-v0.
 See the [Get Started topic](sql-database-get-started.md) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below will only work with the **AdventureWorks schema**. 
 
 
-## Connect to your SQL Database
+## Connect to your SQL database
 
 
 - Copy the following code in a .js file located in your project directory.

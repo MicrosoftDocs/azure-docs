@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Provision an HDInsight cluster with Data Lake Store using Azure preview portal
@@ -24,8 +24,11 @@
 
 
 Learn how to use Azure Preview Portal to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
+
 * **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
+
 
 In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. Configuring HDInsight to work with Data Lake Store using the Azure Preview Portal involves the following steps:
 

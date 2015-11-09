@@ -19,14 +19,10 @@
 
 Use App Service Mobile Apps to easily build native and cross-platform apps, securely connect to enterprise systems (including those on premise), build offline-ready apps with sync, and send targeted and broadcast push notifications.
 
-To get started, follow these tutorials to create a to-do app that connects to a mobile backend on App Service. Choose your client platform:
+To get started, follow these tutorials to create a to-do app that connects to a mobile backend on App Service.  
+Choose your client platform:
 
-  * [iOS](../app-service-mobile-ios-get-started.md)
-  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
-  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
-  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
-  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
-  * [HTML](../app-service-mobile-html-get-started.md)
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ##Videos
 
