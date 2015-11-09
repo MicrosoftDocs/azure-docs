@@ -26,17 +26,20 @@
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
 
-###Download:
+##Download
 Download and install the [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package for the latest version of the DocumentDB Client Library for .NET. 
 
 This approach is recommended for ensuring that you have the most up-to-date client libraries.
 
-###Documentation: 
+##Documentation 
 For reference documentation, refer to [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 
-###Get Started: 
+##Get Started
 To get started with this SDK in code, refer to [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)
 
+
+| 			| 			|
+| ----		| -----		|
 | Download | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)| 
 | Documentation	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 | Get Started | [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/) |
