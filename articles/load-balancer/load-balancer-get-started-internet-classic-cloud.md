@@ -25,8 +25,6 @@
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model.If you are looking for Azure Resource Manager deployment model, go to [Get started creating Internet facing load balancer using resource manager](load-balancer-get-started-internet-arm-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
-
 
 Cloud services are automatically configured with a load balancer and can be customized via the service model.
 
