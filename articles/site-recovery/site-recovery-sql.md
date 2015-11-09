@@ -224,7 +224,7 @@ If you want to make the Availability Group again Primary on the on-premises SQL 
 After an unplanned failover reverse replication has to be triggered on the Availability Group to resume the replication. Till this is done the replication remains suspended.
 
 
-### Environments that are not managed by VMM
+### Environments not managed by VMM server
 
 For the environments that are not managed by a VMM Server, Azure Automation Runbooks can be used to configure a scripted failover of SQL Availability Groups. Below are the steps to configure that:
 
