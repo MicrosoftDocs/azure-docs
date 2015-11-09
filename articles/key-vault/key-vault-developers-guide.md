@@ -62,7 +62,7 @@ The following articles provide task specific guidance:
 
 ## Supporting Libraries
 
-[Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides IKey and IKeyResolver interfaces for locating keys from identifiers and performing operations with keys.
+- [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides IKey and IKeyResolver interfaces for locating keys from identifiers and performing operations with keys.
 
-[Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
+- [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
 
