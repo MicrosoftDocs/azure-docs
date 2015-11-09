@@ -86,7 +86,7 @@ This baseline configuration requires the following set of Azure services and com
 - One storage account.
 - One Azure subscription.
 
-Here are the virtual machines and the default sizes for this configuration.
+Here are the virtual machines and thier default sizes for this configuration.
 
 Item | Virtual machine description | Gallery image | Default size
 --- | --- | --- | ---

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
@@ -68,7 +68,7 @@ This baseline configuration requires the following set of Azure services and com
 - One cross-premises virtual network
 - Two storage accounts
 
-Here are the virtual machines and the default sizes for this configuration.
+Here are the virtual machines and thier default sizes for this configuration.
 
 Item | Virtual machine description | Gallery image | Default size 
 --- | --- | --- | --- 
