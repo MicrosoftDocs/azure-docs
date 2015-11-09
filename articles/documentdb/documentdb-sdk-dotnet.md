@@ -66,11 +66,11 @@ It is recommended that you begin application upgrades now in order to avoid bein
  - Implemented Upsert, Added UpsertXXXAsync methods
  - Performance improvements for all requests
  - LINQ Provider support for conditional, coalesce and CompareTo methods for strings
- - **[Fixed]** LINQ provider --> Contains method on a List. (now generates the same SQL as on IEnumerable and Array)
+ - **[Fixed]** LINQ provider --> Implement Contains method on List to generate the same SQL as on IEnumerable and Array
  - **[Obsolete]** UriFactory.CreateCollection --> should now use UriFactory.CreateDocumentCollection
  
 ### [1.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
- - Fixing localization issues when using non en culture info such as nl-NL etc. 
+ - **[Fixed]** Localization issues when using non en culture info such as nl-NL etc. 
  
 ### [1.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
   - ID Based Routing
@@ -91,7 +91,7 @@ It is recommended that you begin application upgrades now in order to avoid bein
   - Added support for spatial indexing and query
     - New Microsoft.Azure.Documents.Spatial namespace for serializing/deserializing spatial types like Point and Polygon
     - New SpatialIndex class for indexing GeoJSON data stored in DocumentDB
-  - Fixed : Incorrect SQL query generated from linq expression [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
+  - **[Fixed]** : Incorrect SQL query generated from linq expression [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
 ### [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Dependency on Newtonsoft.Json v5.0.7 
