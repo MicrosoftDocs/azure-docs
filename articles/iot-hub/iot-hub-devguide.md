@@ -430,11 +430,11 @@ The body is a JSON-serialized array of records, each with the following properti
 
     [
         {
-            "originalMessageId": "0987654321",
-            "description": "Success",
-            "deviceGenerationId": "abcdefghijklmnopqrstuvwxyz",
-            "deviceId": "123",
-            "enqueuedTimeUtc": "2015-07-28T16:24:48.789Z"
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+            "Description": "Success",
+            "DeviceId": "123",
+            "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
         },
         {
             ...
