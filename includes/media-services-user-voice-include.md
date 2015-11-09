@@ -1,0 +1,1 @@
+Use the [User Voice](http://go.microsoft.com/fwlink/?LinkId=698785) forum to provide feedback and make suggestions on how to improve Azure Media Services.

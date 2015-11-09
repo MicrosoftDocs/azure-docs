@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="krisragh"/>
 
 #Create an iOS app
