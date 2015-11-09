@@ -45,17 +45,17 @@ Before you deploy the template provided with this documentation, make sure you u
 
 1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic).
 2. Click **azuredeploy.json** to open the template file.
-3. Notice the *osType* parameter listed below. This parameter is used to select what VM image to use for the database server.
+3. Notice the *osType* parameter listed below. This parameter is used to select what VM image to use for the database server, along with multiple operating system related settings.
 
 	    "osType": {
-	      "type": "int",
-	      "defaultValue": 0,
+	      "type": "string",
+	      "defaultValue": "Windows",
 	      "allowedValues": [
-	        0,
-	        1
+	        "Windows",
+	        "Ubuntu"
 	      ],
 	      "metadata": {
-	        "description": "Type of OS to use for VMs: 0 - Windows; 1 - Ubuntu."
+	        "description": "Type of OS to use for VMs: Windows or Ubuntu."
 	      }
 	    },
 
@@ -63,12 +63,10 @@ Before you deploy the template provided with this documentation, make sure you u
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. Suppose you decide to deploy Windows VMs running SQL in the back end. Then the value for *osType* would be *0*, and the *dbVMSetting* variable would contain the element listed below, which represents the first value in the *dbVMSettings* variable.
+5. Suppose you decide to deploy Windows VMs running SQL in the back end. Then the value for *osType* would be *Windows*, and the *dbVMSetting* variable would contain the element listed below, which represents the first value in the *dbVMSettings* variable.
 
-	      {
+	      "Windows": {
 	        "vmSize": "Standard_DS3",
-	        "adminUsername": "adminuser",
-	        "adminPassword": "adminP@ssw0rd",
 	        "publisher": "MicrosoftSQLServer",
 	        "offer": "SQL2014SP1-WS2012R2",
 	        "sku": "Standard",
