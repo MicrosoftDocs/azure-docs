@@ -51,15 +51,15 @@ We strongly recommend that you upgrade to the latest version as early as possibl
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
 
 
-| Version                                                                      | Release Date                | Retirement Date |
-| ---------------------------------------------------------------------------- | --------------------------- | --------------- |
-| [1.5.0]()                  												   | Monday, October 05 2015     |                 |
-| [1.4.1]()                  												   | Tuesday, August 25 2015     |                 |
-| [1.4.0]()                  												   | Thursday, August 13 2015    |                 |
-| [1.3.0]()                  												   | Wednesday, August 05 2015   |                 |
-| [1.2.0]()                  												   | Monday, July 06 2015        |                 |
-| [1.1.0]()                  												   | Thursday, April 30 2015     |                 |
-| [1.0.0]()           												           | Wednesday, April 08 2015    | 				   |
+| Version                                                                  | Release Date                | Retirement Date |
+| ------------------------------------------------------------------------ | --------------------------- | --------------- |
+| [1.5.0](#1.5.0)          												   | Monday, October 05 2015     |                 |
+| [1.4.1](#1.4.1)          												   | Tuesday, August 25 2015     |                 |
+| [1.4.0]()                												   | Thursday, August 13 2015    |                 |
+| [1.3.0]()                												   | Wednesday, August 05 2015   |                 |
+| [1.2.0]()                												   | Monday, July 06 2015        |                 |
+| [1.1.0]()                												   | Thursday, April 30 2015     |                 |
+| [1.0.0]()       												           | Wednesday, April 08 2015    | 				   |
 | 0.9.3-prelease           												   | Wednesday, March 12 2015    | Friday, January 15 2016 |
 | 0.9.2-prelease                  										   | Wednesday, January 14 2015  | Friday, January 15 2016 |
 | 0.9.1-prelease                  										   | Monday, October 13 2014     | Friday, January 15 2016 |
@@ -67,14 +67,14 @@ It is recommended that you begin application upgrades now in order to avoid bein
 
 ## Release Notes
 
-### [1.5.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.0)
+### <a name="1.5.0"/>[1.5.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.0)
  - Implemented Upsert, Added UpsertXXXAsync methods
  - Performance improvements for all requests
  - LINQ Provider support for conditional, coalesce and CompareTo methods for strings
  - **[Fixed]** LINQ provider --> Implement Contains method on List to generate the same SQL as on IEnumerable and Array
  - **[Obsolete]** UriFactory.CreateCollection --> should now use UriFactory.CreateDocumentCollection
  
-### [1.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
+### <a name="1.4.1"/>[1.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
  - **[Fixed]** Localization issues when using non en culture info such as nl-NL etc. 
  
 ### [1.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
