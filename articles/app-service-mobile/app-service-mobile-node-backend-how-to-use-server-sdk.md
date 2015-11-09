@@ -96,20 +96,27 @@ You can find the code for this basic application in the [basicapp sample on GitH
 Visual Studio 2015 requires an extension to develop Node application within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
 
 1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
+
 2. Expand **Templates** > **JavaScript** > **Node.js**.
+
 3. Select the **Basic Azure Node.js Express 4 Application**.
+
 4. Fill in the project name.  Click on *OK*.
 
 	![Visual Studio 2015 New Project][1]
 
 5. Right-click on the **npm** node and select **Install New npm packages...**.
+
 6. You will need to refresh the npm catalog on creating your first Node application - click on **Refresh**.
+
 7. Enter _azure-mobile-apps_ in the search box.  Click on the **azure-mobile-apps 2.0.0** package, then click on **Install Package**.
 
 	![Install New npm packages][2]
 
 8. Click on **Close**.
+
 9. Open the _app.js_ file to add support for the Azure Mobile Apps SDK:
+
   a. At line 6, add the following code:
   
     ```
