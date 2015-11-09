@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/03/2015"
 	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs
@@ -82,7 +82,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 3. In **AppDelegate.cs**, add the following using statement:
 
-    using WindowsAzure.Messaging;
+    	using WindowsAzure.Messaging;
 
 4. Declare an instance of **SBNotificationHub**:
 
@@ -99,9 +99,17 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert |
-                UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+    			var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                       UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                       new NSSet ());
+
+			    UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+			    UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+			} else {
+			    UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+			    UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
+			}
 
             return true;
         }

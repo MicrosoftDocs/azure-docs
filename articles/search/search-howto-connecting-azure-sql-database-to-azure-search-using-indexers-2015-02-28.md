@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers" 
+	pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Azure | Hosted cloud search service" 
 	description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
 	services="search" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search Using Indexers
 
-Azure Search service makes it easy to provide a great search experience, but before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) in Azure Search can automate the indexing process. This means you have less code to write and less infrastructure to care about.
+Azure Search service is a hosted cloud search service that makes it easy to provide a great search experience. Before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) in Azure Search can automate the indexing process. This means you have less code to write and less infrastructure to care about.
 
 Currently, indexers only work with Azure SQL Database, SQL Server on Azure VMs, and [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). In this article, we’ll focus on indexers that work with Azure SQL Database. If you would like to see support for additional data sources, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
 

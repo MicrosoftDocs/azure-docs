@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="mimig"/>
 
 # Monitor a DocumentDB account by using the Azure preview portal 
@@ -21,7 +21,7 @@
 You can monitor your DocumentDB accounts in the [Microsoft Azure preview portal](https://portal.azure.com/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
 
 ## How to: View performance metrics for a DocumentDB account
-1.	In the [Azure preview portal](https://portal.azure.com/), click **Browse All**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
+1.	In the [Azure preview portal](https://portal.azure.com/), click **Browse**, **DocumentDB Accounts**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
 2.	Within the **Monitoring** lens you can, by default, see:
 	*	Total requests for the current day.
 	*	Average requests per second for the current day. 
@@ -30,7 +30,7 @@ You can monitor your DocumentDB accounts in the [Microsoft Azure preview portal]
 
 
 3.	Clicking on the **Total Requests** or **Average Requests per Second** part opens a detailed **Metric** blade.
-4.	The **Metric** blade shows you details about the metrics you have selected.  At the top of the blade is a graph and below that a table which shows aggregation values of the selected metrics such as average, minimum, and maximum.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).   
+4.	The **Metric** blade shows you details about the metrics you have selected.  At the top of the blade is a graph and below that a table that shows aggregation values of the selected metrics such as average, minimum, and maximum.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).   
 
 	![Screenshot of the Metric blade](./media/documentdb-monitor-accounts/madocdb2.png)
 

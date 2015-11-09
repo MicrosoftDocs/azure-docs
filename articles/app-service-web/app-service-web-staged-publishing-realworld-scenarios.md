@@ -317,7 +317,7 @@ In this section you will learn how to Umbraco CMS uses a custom modules to deplo
 Always remember to remove the `install` folder under your application and never upload it to stage or production web apps. For this tutorial, I will be using WebMatrix
 
 #### Setup a staging environment
-Create a deployment slot as mentioned above for Umbraco CMS web app, assuming you already have an Umbraco CMS web app up and running. If not you can create one from the marketplace. To learn more, click [here](web-sites-gallery-umbraco).
+Create a deployment slot as mentioned above for Umbraco CMS web app, assuming you already have an Umbraco CMS web app up and running. If not you can create one from the marketplace.
 
 Update the Connection strings for your stage deployment slot to point to newly created database, **umbraco-stage-db**. Your production web app (umbraositecms-1) and staging web app (umbracositecms-1-stage) **MUST** point to different databases.
 

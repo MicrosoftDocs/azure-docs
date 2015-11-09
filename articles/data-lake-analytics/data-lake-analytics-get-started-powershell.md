@@ -42,7 +42,7 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial]https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md). After you have installed Azure PowerShell 1.0 or above, you should run the following cmdlet to install the Azure Data Lake Analytics module.
 
 		Install-Module AzureRM.DataLakeStore

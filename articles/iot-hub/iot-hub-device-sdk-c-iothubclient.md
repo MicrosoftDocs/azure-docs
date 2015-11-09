@@ -237,7 +237,7 @@ Basically, the arguments of **IoTHubClient\_CreateFromConnectionString** are the
 
 > HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 
-There are basically four pieces of information here: IoT Hub name, IoT Hub suffix, device id, and shared access key. You get the fully qualified domain name (FQDN) of a IoT hub when you create your IoT hub instance in the Azure Management Portal— this gives you the IoT hub name (the first part of the FQDN) and the IoT hub Suffix (the rest of the FQDN). You get the Device Id and the Shared Access Key when you register your device with IoT Hub (as described in the [previous article](iot-hub-device-sdk-c-intro.md)).
+There are basically four pieces of information here: IoT Hub name, IoT Hub suffix, device id, and shared access key. You get the fully qualified domain name (FQDN) of a IoT hub when you create your IoT hub instance in the Azure preview portal — this gives you the IoT hub name (the first part of the FQDN) and the IoT hub Suffix (the rest of the FQDN). You get the Device Id and the Shared Access Key when you register your device with IoT Hub (as described in the [previous article](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** gives you one way to initialize the library.  But if you prefer, you can create a new **IOTHUB\_CLIENT\_HANDLE** by using these individual parameters rather than the connection string. This is done with the following code:
 

@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Editor

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor usage and statistics in an Azure Search service" 
-   description="Track resource consumption and index size for Azure Search" 
+   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure | Hosted cloud search service" 
+   description="Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="09/08/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Monitor usage and statistics in an Azure Search service

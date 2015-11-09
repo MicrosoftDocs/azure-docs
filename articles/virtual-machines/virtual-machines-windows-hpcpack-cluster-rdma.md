@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"

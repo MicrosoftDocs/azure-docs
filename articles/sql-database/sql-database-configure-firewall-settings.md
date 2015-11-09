@@ -56,7 +56,7 @@ Server-level firewall rules can be created and managed through the Microsoft Azu
 3. Server-level firewall rules can be selected, created, updated, or deleted from within the query window.
 4. To create or update server-level firewall rules, execute the sp_set_firewall rule stored procedure. The following example enables a range of IP addresses on the server Contoso.<br/>Start by seeing what rules already exist.
 
-		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+		SELECT * FROM sys.firewall_rules ORDER BY name;
 
 	Next, add a firewall rule.
 

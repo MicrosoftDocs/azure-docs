@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/26/2015"
+   ms.date="10/28/2015"
    ms.author="jgao"/>
 
 
@@ -23,7 +23,7 @@ Window functions were introduced to the ISO/ANSI SQL Standard in 2003. U-SQL ado
 
 Window functions are used to do computation within sets of rows called *windows*. Windows are defined by the  OVER clause. Window functions solve some key scenarios in a highly efficient manner.
 
-This tutorial/learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference]().
+This tutorial/learning guide uses two sample datasets to walk you through some sample scenario where you can apply window functions. For more information, see [U-SQL reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 The window functions are catagorized into: 
 
@@ -33,7 +33,7 @@ The window functions are catagorized into:
 
 **Prerequisites:**
 
-- Go through the following two tutorials
+- Go through the following two tutorials:
 
     - [Get started using Azure Data Lake Tools for Visual Studio](data-lake-analytics-use-data-lake-tools.md).
     - [Get started using U-SQL for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-get-started.md).
@@ -607,10 +607,10 @@ The results:
 There are 6 rows in the partition where partition key is “Web” (4th row and down):
 
 - There are 6 rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
-- There are 5 rows with the value equal or lower than 500, so the CUME_DIST equals to 5/6=0.83
-- There are 4 rows with the value equal or lower than 500, so the CUME_DIST equals to 5/6=0.66
-- There are 3 rows with the value equal or lower than 500, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
-- There are 1 rows with the value equal or lower than 500, so the CUME_DIST equals to 1/6=1. 
+- There are 5 rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
+- There are 4 rows with the value equal or lower than 300, so the CUME_DIST equals to 5/6=0.66
+- There are 3 rows with the value equal or lower than 200, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
+- There is 1 row with the value equal or lower than 100, so the CUME_DIST equals to 1/6=1. 
 
 
 **Usage notes:**
