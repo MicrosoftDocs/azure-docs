@@ -53,6 +53,9 @@ Copy activity provides the following capabilities:
 ### <a name="global"></a>Globally available data movement
 Even though the Azure Data Factory itself is available only in the West US region, the data movement service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
+
+if you are copying from a cloud source to a cloud destination (for example: Azure Blob -> Azure SQL), the Data Movement Service picks the deployment that is closest to the sink location to do the transfer. In the case of copying data from an on-premises data source to cloud or vice-versa (for example: on-prem SQL Server -> Azure Blob), the data movement is actually done by the Data Management Gateway with no involvement from the Data Movement Service.  
+
 | Region | Geography |
 | ------ | --------- | 
 | Central US | US |
@@ -67,7 +70,6 @@ Even though the Azure Data Factory itself is available only in the West US regio
 | Southeast Asia | APAC |
 | Japan East | APAC |
 
-Note that in the case of copying data from an on-premises data source to cloud or vice-versa (for example: on-prem SQL Server -> Azure Blob), the data movement is actually done by the Data Management Gateway with no involvement from the Data Movement Service. Whereas, if you are copying from a cloud source to a cloud destination (for example: Azure Blob -> Azure SQL), the Data Movement Service picks the deployment that is closest to the sink location to do the transfer. 
 
 
 ### <a name="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
