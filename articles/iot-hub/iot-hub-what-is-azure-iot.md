@@ -20,7 +20,7 @@
 
 ## Next steps
 
-You can use Azure IoT Hub, an Azure service that receives telemetry at scale from your devices and routes that data to a stream event processor, to implement your own solution backend. IoT Hub can also send cloud-to-device commands to specific devices. In addition, IoT Hub includes a device identity registry that you can use to provision devices and to manage which devices may connect to the hub. To learn more, see:
+You can use Azure IoT Hub, an Azure service that receives telemetry at scale from your devices and routes that data to a stream event processor, to implement your own solution back end. IoT Hub can also send cloud-to-device commands to specific devices. In addition, IoT Hub includes a device identity registry that you can use to provision devices and to manage which devices may connect to the hub. To learn more, see:
 
 - [What is IoT Hub?][lnk-iot-hub]
 - [Get started with IoT Hub][lnk-getstarted]

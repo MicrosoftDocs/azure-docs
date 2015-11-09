@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Steps for configuring an ExpressRoute circuit | Microsoft Azure"
+   pageTitle="Steps for configuring an ExpressRoute circuit using PowerShell| Microsoft Azure"
    description="This article walks you through the steps for creating and provisioning an ExpressRoute circuit. This article also shows you how to check the status, update, or delete and deprovision your circuit."
    documentationCenter="na"
    services="expressroute"
@@ -16,7 +16,7 @@
    ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Create and modify an ExpressRoute circuit
+# Create and modify an ExpressRoute circuit using PowerShell
 
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
