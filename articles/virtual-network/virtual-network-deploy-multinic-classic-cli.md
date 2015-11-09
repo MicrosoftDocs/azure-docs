@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs (classic) using the Azure CLI
