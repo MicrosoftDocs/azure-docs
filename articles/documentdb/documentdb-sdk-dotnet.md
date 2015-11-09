@@ -27,10 +27,10 @@
 
 ##DocumentDB .NET SDK
 
-| ----		| -----		|
 | Download | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) | 
 | Documentation	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 | Get Started | [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/) |
+| ----		| -----	|
 
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
