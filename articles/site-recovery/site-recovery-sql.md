@@ -139,10 +139,10 @@ When you replicate to Azure configuring multiple availability groups is challeng
 
 1. Create an Azure virtual network.
 2. Set up a site-to-site VPN between the on-premises site and this network.
-3. [Create a new SQL Server Azure virtual machine](https://msdn.microsoft.com/en-us/library/azure/dn133151.aspx) in the network and [configure it as an asynchronous availability group replica](https://microsoft-my.sharepoint.com/personal/abhiag_ntdev_microsoft_com/_layouts/15/start.aspx#/). If you need **high availability** for SQL Server tier after failover to Azure then **configure two asynchronous replica copies in Azure.**
+3. [Create a new SQL Server Azure virtual machine](virtual-machines-sql-server-infrastructure-services.md) in the network and configure it as an asynchronous availability group replica. If you need **high availability** for SQL Server tier after failover to Azure then **configure two asynchronous replica copies in Azure.**
 4. Set up a replica of the domain controller in the virtual network.
-5. Make sure that [virtual machine extensions](https://msdn.microsoft.com/en-us/library/azure/dn832621.aspx) are enabled on the virtual machine. **This is needed to push scripts specific to SQL Server in a recovery plan**.
-6. [Configure a SQL Server listener](https://msdn.microsoft.com/en-us/library/azure/dn425027.aspx) for the availability group using Azure's internal load balancer.
+5. Make sure that [virtual machine extensions](https://msdn.microsoft.com/library/azure/dn832621.aspx) are enabled on the virtual machine. **This is needed to push scripts specific to SQL Server in a recovery plan**.
+6. [Configure a SQL Server listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md) for the availability group using Azure's internal load balancer.
 7. Configure the application tier to use the listener to access the database tier. 
 
 
