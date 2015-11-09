@@ -189,18 +189,33 @@ You can further customize the recovery plan by moving virtual machines to differ
 
 Different failover options are available once an Availability Group has been added to a Recovery Plan.
 
-#### Planned Failover
+##### Planned Failover
 
 Planned Failover implies a no data loss failover. To achieve that SQL Availability Group’s Availability Mode is first set to Synchronous and then a failover is triggered to make the availability group Primary on to the virtual machine provided while adding the availability group to ASR. Once the failover is complete, Availability Mode is set to the same value as it was before the planned failover was triggered. 
 
-#### Unplanned Failover
+##### Unplanned Failover
 
 Unplanned Failover can result into data loss. While triggering unplanned failover the Availability mode of the Availability Group is not changed and the it is made primary on to the virtual machine provided while adding the availability group to ASR. Once unplanned failover is complete and the on-premises server running SQL Server is available again, Reverse Replication has to be triggered on the Availability Group. Note that this action is not available on the recovery plan and can be taken on SQL Availability Group under SQL Servers tab
 
-#### Test Failover
+##### Test Failover
 Test failover for SQL Availability group is not supported. If you trigger Test Failover of a Recovery Plan containing SQL Availability Group, failover would be skipped for Availability Group.
 
-#### Failback
+Consider these options as an alternative:
+
+######Option 1
+
+
+
+1. Perform a test failover of the application and front-end tiers.
+
+2. Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.
+
+######Option 2
+
+1.	Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network
+2.	Perform the test failover using the recovery plan.
+
+##### Failback
 
 If you want to make the Availability Group again Primary on the on-premises SQL Server then you can do so by triggering Planned Failover on the Recovery Plan and choosing the direction from Microsoft Azure to on-premises VMM Server
 
@@ -286,7 +301,21 @@ For the environments that are not managed by a VMM Server, Azure Automation Runb
 
 4.	When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the automation runbook to fail over availability groups.
 
-#### Configure SQL Server scripts for failover to a secondary site
+###On-premises to On-premises
+If the SQL Server is using availability groups for high availability, or a failover cluster instance, we recommend using availability groups on the recovery site as well. Note that this guidance is for applications that don't use distributed transactions.
+
+
+1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
+2. Create a new virtual network on secondary site.
+3. Set up a site-to-site VPN between the new virtual network and the primary site.
+4. Create a virtual machine on the recovery site and install SQL Server on it.
+5. Extend the existing AlwaysOn availability groups to the new SQL Server virtual machine. Configure this SQL Server instance as an asynchronous replica copy.
+6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
+7. Make sure that the application farm is setup using the listener. If It's setup up using the database server name, please update it to use the listener so you don't need to reconfigure it after the failover.
+
+For applications that use distributed transactions we recommendation you use [Site Recovery with SAN replication](site-recovery-vmm-san.md) or [VMWare site-to-site replication](site-recovery-vmware-to-vmware.md).
+
+####Recovery Plan considerations
 
 1. Add this sample script to the VMM library on the primary and secondary sites.
 
@@ -299,56 +328,11 @@ For the environments that are not managed by a VMM Server, Azure Automation Runb
 2. When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the script to fail over availability groups.
 
 
-### Test failover considerations
-
-If you're using AlwaysOn availability groups, you can't do a test failover of the SQL Server tier. Consider these options as an alternative:
-
-####Option 1
-
-
-
-1. Perform a test failover of the application and front-end tiers.
-
-2. Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.
-
-####Option 2
-
-1.	Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network
-2.	Perform the test failover using the recovery plan.
 
 ## Set up protection for a standalone SQL Server
 
 
 In this configuration we recommend you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is set up as a virtual machine or physical server, and whether you want to replicate to Azure or a secondary on-premises site. Get instructions for all deployment scenarios in the [Site Recovery Overview](site-recovery-overview.md).
-
-
-## Set up protection for SQL Server cluster (2012 or 2014 Enterprise)
-
-If the SQL Server is using availability groups for high availability, or a failover cluster instance, we recommend using availability groups on the recovery site as well. Note that this guidance is for applications that don't use distributed transactions.
-
-##### On-premises to on-premises
-
-1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
-2. Create a new virtual network on secondary site.
-3. Set up a site-to-site VPN between the new virtual network and the primary site.
-4. Create a virtual machine on the recovery site and install SQL Server on it.
-5. Extend the existing AlwaysOn availability groups to the new SQL Server virtual machine. Configure this SQL Server instance as an asynchronous replica copy.
-6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
-7. Make sure that the application farm is setup using the listener. If It's setup up using the database server name, please update it to use the listener so you don't need to reconfigure it after the failover.
-
-For applications that use distributed transactions we recommendation you use [Site Recovery with SAN replication](site-recovery-vmm-san.md) or [VMWare site-to-site replication](site-recovery-vmware-to-vmware.md).
-
-#### On-premises to Azure
-
-When you replicate to Azure configuring multiple availability groups is challenging because each availability group needs a dedicated listener, and configuring each listener requires a separate cloud service. We recommend that you configure one availability group with all the databases included.
-
-1. Create an Azure virtual network.
-2. Set up a site-to-site VPN between the on-premises site and this network.
-3. [Create a new SQL Server Azure virtual machine](virtual-machines-sql-server-infrastructure-services.md) in the network and configure it as an asynchronous availability group replica. If you need **high availability** for SQL Server tier after failover to Azure then **configure two asynchronous replica copies in Azure.**
-4. Set up a replica of the domain controller in the virtual network.
-5. Make sure that [virtual machine extensions](https://msdn.microsoft.com/library/azure/dn832621.aspx) are enabled on the virtual machine. **This is needed to push scripts specific to SQL Server in a recovery plan**.
-6. [Configure a SQL Server listener](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md) for the availability group using Azure's internal load balancer.
-7. Configure the application tier to use the listener to access the database tier. 
 
 
 ## Set up protection for SQL Server cluster (Standard or 2008 R2)
