@@ -22,27 +22,27 @@ This article walks you through the necessary account creation and registration p
 ## 1. Create a Microsoft account
 > [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the publishing portal and the Seller Dashboard. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
-The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@*yourcompany*.com). Payment, tax information, and reporting will be routed through this account.
+The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@example.com). Payment, tax information, and reporting will be routed through this account.
 
   > [AZURE.WARNING] Words like "Azure" and "Microsoft" are not supported for Microsoft account registration. Avoid using these words to complete the account creation and registration process.
 
 1. Create a distribution list (DL) or security group (SG) within your company's domain.
   - Add your onboarding team to the DL.
   - The DL must be live to receive a confirmation email.
-  - Use marketplace@*yourcompany*.com as the email address for the DL.
+  - Use marketplace@example.com as the email address for the DL.
   - This needs to be completed in your internal systems.
 2. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
 3. Register for a Microsoft account by using the DL email.
  - You can register for a Microsoft account at [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
- - Use marketplace@*yourcompany*.com as the email address.
- - Your Microsoft account ID is now marketplace@*yourcompany*.com.
+ - Use marketplace@example.com as the email address.
+ - Your Microsoft account ID is now marketplace@example.com.
 
-    ![drawing][img-msalive]
+    <!--[drawing][img-msalive]-->
 
 4. When registering, use a valid phone number. The system will send a verification code as a text message or an automated call if identity verification is required.
 5. Verify the email address sent to the DL.
 
-    ![drawing][img-email]
+    <!--[drawing][img-email]-->
 
 6. You’re now ready to use the new Microsoft account in the Seller Dashboard.
 
@@ -71,7 +71,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
     ![drawing][img-sd-url]
 
-3. Sign in with your company registration Microsoft account (e.g., marketplace@*yourcompany*.com).
+3. Sign in with your company registration Microsoft account (e.g., marketplace@example.com).
 
     ![drawing][img-signin]
 
@@ -83,7 +83,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
     ![drawing][img-sd-top]
 
-    ![drawing][img-sd-info]
+    <!--[drawing][img-sd-info]-->
 
 6. Register on behalf of your company by designating your account type as **Company**, not **Individual**. Click **Next**.
 
@@ -93,9 +93,9 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
     ![drawing][img-sd-mktg1]
 
-8. The company name in the details below is used by the publishing portal, so it should be accurate.
+8. The company name is used by the publishing portal, so it should be accurate.
 
-    ![drawing][img-sd-mktg2]
+    <!--[drawing][img-sd-mktg2]-->
 
 9. Use the address of your company headquarters.
 
@@ -151,7 +151,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
 1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 2.	Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
-3.	 Sign in with your company registration Microsoft account (i.e., marketplace@*yourcompany*.com), and you can add co-admins as necessary.
+3.	 Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
 4.	Read and accept the terms of the publisher agreement (first time signing in to the publishing portal), and you are done here.
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
