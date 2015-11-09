@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Client and server SDK versioning in Mobile Apps and Mobile Services | Azure App Service"
-	description="List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="lindydonna" 
-	manager="dwrede"
-	editor=""/>
+  pageTitle="Client and server SDK versioning in Mobile Apps and Mobile Services | Azure App Service"
+  description="List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps"
+  services="app-service\mobile"
+  documentationCenter=""
+  authors="lindydonna" 
+  manager="dwrede"
+  editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="donnam"/>
+  ms.service="app-service-mobile"
+  ms.workload="mobile"
+  ms.tgt_pltfrm="mobile-multiple"
+  ms.devlang="dotnet"
+  ms.topic="article"
+  ms.date="11/09/2015"
+  ms.author="donnam"/>
 
 # Client and server versioning in Mobile Apps and Mobile Services
 
@@ -25,7 +25,7 @@ The latest version of Azure Mobile Services is the **Mobile Apps** feature of Az
 
 The Mobile Apps client and server SDKs are originally based on those in Mobile Services, but they are *not* compatible with each other. That is, you must use a *Mobile Apps* client SDK with a *Mobile Apps* server SDK and similarly for *Mobile Services*. This contract is enforced through a special header value used by the client and server SDKs, `ZUMO-API-VERSION`.
 
-Note: whenever this document refers to a *Mobile Services* backend, it does not necessarily need to be hosted on Mobile Services. It is now possible to migrate a mobile service to run on App Service without any code changes, but the service would still be using *Mobile Services*  SDK versions. 
+Note: whenever this document refers to a *Mobile Services* backend, it does not necessarily need to be hosted on Mobile Services. It is now possible to migrate a mobile service to run on App Service without any code changes, but the service would still be using *Mobile Services*  SDK versions.
 
 To learn more about migrating to App Service without any code changes, see the article [Migrate a Mobile Service to Azure App Service].
 
@@ -35,10 +35,10 @@ The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the que
 
 For example:
 
-    GET https://service.azurewebsites.net/tables/TodoItem
-    HEADERS: ZUMO-API-VERSION: 2.0.0
+GET https://service.azurewebsites.net/tables/TodoItem
+HEADERS: ZUMO-API-VERSION: 2.0.0
 
-    POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0	
+POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## Opting out of version checking
 
@@ -48,14 +48,14 @@ You can opt out of version checking by setting a value of **true** for the app s
 
 # Summary of compatibility for all versions
 
-The chart below shows the compatibility between all client and server types. 
+The chart below shows the compatibility between all client and server types. A backend is classfied as either Mobile **Services** or Mobile **Apps** based on the server SDK that it uses.
 
 |                           | **Mobile Services** Node.js or .NET | **Mobile Apps** Node.js or .NET |
 | ----------                | -----------------------             |   ----------------              |
 | [Mobile Services clients] | Ok                                  | Error\*                         |
 | [Mobile Apps clients]     | Error\*                             | Ok                              |
 
-\*This can be controlled by specifying **MS_SkipVersionCheck**. 
+\*This can be controlled by specifying **MS_SkipVersionCheck**.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. --> 
@@ -64,22 +64,22 @@ The chart below shows the compatibility between all client and server types.
 
 # <a name="1.0.0"></a>Mobile Services client and server
 
-<a name="MobileServicesClients"></a>The following client SDKs are compatible with Mobile Services:
+<a name="MobileServicesClients"></a>The following client SDKs are compatible with **Mobile Services**.
 
-| Client platform                   | Version                                                                   |
-| -------------------               | ------------------------                                                  |
-| Managed client (Windows, Xamarin) | [1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | 
-| iOS                               | [2.2.2](http://aka.ms/gc6fex)                                             | 
-| Android                           | [2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126)                   |
-| HTML                              | [1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | 
+Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSION`. If the service receives this header or query string value, an error will be returned, unless you have explicitly opted out as described above.
+
+
+| Client platform                   | Version                                                                   | Version header value |
+| -------------------               | ------------------------                                                  | -------------------  |
+| Managed client (Windows, Xamarin) | [1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | n/a                  |
+| iOS                               | [2.2.2](http://aka.ms/gc6fex)                                             | n/a                  |
+| Android                           | [2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126)                   | n/a                  |
+| HTML                              | [1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/a     |
 
 These are the corresponding server SDK versions:
 - [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/)
 
 <!-- TODO: add Node and npm version -->
-
-
-The Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSION`. If the service receives this header or query string value, an error will be returned, unless you have explicitly opted out as described above.
 
 ## Behavior of Mobile Services backends
 
@@ -91,30 +91,33 @@ The Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSI
 
 # <a name="2.0.0"></a>Azure Mobile Apps client and server
 
-<a name="MobileAppsClients"></a>Version checking was introduced starting with the following versions of the client SDK for Azure Mobile Apps:
+<a name="MobileAppsClients"></a>Version checking was introduced starting with the following versions of the client SDK for **Azure Mobile Apps**:
 
-| Client platform                   | Version                                                                   |
-| -------------------               | ------------------------                                                  |
-| Managed client (Windows, Xamarin) | [2.0.0-beta-3](https://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta-3) | 
-| iOS                               | [3.0.0-beta4](http://go.microsoft.com/fwlink/?LinkID=529823)              | 
-| Android                           | 3.0.0-beta1 |
-| HTML                              | 2.0.0-beta2 | 
+| Client platform                   | Version                                                                   | Version header value |
+| -------------------               | ------------------------                                                  | -----------------    |
+| Managed client (Windows, Xamarin) | [2.0.0-beta-3](https://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta-3) | 2.0.0  |
+| iOS                               | [3.0.0-beta4](http://go.microsoft.com/fwlink/?LinkID=529823)              | 2.0.0                |
+| Android                           | 3.0.0-beta1                                                               | 2.0.0                |
+| HTML                              | 2.0.0-beta2                                                               | 2.0.0                |
 
 <!-- TODO: add Android and HTML versions when released -->
 
 Version checking was added to the following server SDK versions:
-- .NET: [Microsoft.Azure.Mobile.Server.* Version 0.3.x](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)
-- Node.js: [azure-mobile-apps Version 1.0-beta1](https://www.npmjs.com/package/azure-mobile-apps)
+
+| Server platform  | Version                                                                                                        | Accepted version header |
+| ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
+| .NET             | [Microsoft.Azure.Mobile.Server.* Version 0.3.x](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
+| Node.js          | [azure-mobile-apps Version 1.0-beta1](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
 
 ## Behavior of Mobile Apps backends
 
 | ZUMO-API-VERSION | Value of MS_SkipVersionCheck | Response |
 | ---------------- | ---------------------------- | -------- |
 | x.y.z or Null    | True                         | 200 - OK |
-| Null             | False/Not Specified          | 400 - Bad Request | 
-| 1.x.y            | False/Not Specified          | 400 - Bad Request | 
+| Null             | False/Not Specified          | 400 - Bad Request |
+| 1.x.y            | False/Not Specified          | 400 - Bad Request |
 | 2.0.0-2.x.y      | False/Not Specified          | 200 - OK |
-| 3.0.0-3.x.y      | False/Not Specified          | 400 - Bad Request | 
+| 3.0.0-3.x.y      | False/Not Specified          | 400 - Bad Request |
 
 
 # Next Steps
