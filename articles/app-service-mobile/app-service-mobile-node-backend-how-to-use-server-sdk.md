@@ -147,7 +147,8 @@ Azure App Service has specific advice for Node application that you should revie
 
 The azure-mobile-apps Node Server SDK provides mechanisms to expose data tables stored in SQL Azure as a WebAPI.  Five operations are provided.
 
-| ------------------------| --------------------------------|
+| Operation | Description |
+| --------- | ----------- |
 | GET /tables/_tablename_ | Get all records in the table |
 | GET /tables/_tablename_/:id | Get a specific record in the table |
 | POST /tables/_tablename_ | Create a new record in the table |
