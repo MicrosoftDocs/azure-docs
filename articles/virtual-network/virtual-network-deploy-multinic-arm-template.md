@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 # Deploy multi NIC VMs using a template
@@ -33,7 +33,7 @@ Since at this point in time you cannot have VMs with a single NIC and VMs with m
 
 Before you can deploy the back end servers, you need to deploy the main resource group with all the necessary resources for this scenario. To deploy these resources, follow the steps below.
 
-1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic).
+1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
 2. In the template page, to the right of **Parent resource group (see documentation)**, click **Deploy to Azure**.
 3. If needed, change the parameter values, then follow the steps in the Azure preview portal to deploy the resource group.
 
@@ -43,7 +43,7 @@ Before you can deploy the back end servers, you need to deploy the main resource
 
 Before you deploy the template provided with this documentation, make sure you understand what it does. The steps below provide a good overview of the template in question.
 
-1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic).
+1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
 2. Click **azuredeploy.json** to open the template file.
 3. Notice the *osType* parameter listed below. This parameter is used to select what VM image to use for the database server, along with multiple operating system related settings.
 
@@ -213,7 +213,7 @@ Before you deploy the template provided with this documentation, make sure you u
 
 > [AZURE.IMPORTANT] Make sure you follow the [pre-requisites](#Pre-requisites) steps before following the instructions below.
 
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic), to the right of **Backend resource group (see documentation)** click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC), to the right of **Backend resource group (see documentation)** click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 The figure below shows the contents of the new resource group, after deployment.
 
@@ -237,8 +237,8 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 3. Run the **New-AzureResourceGroup** cmdlet to create a resource group using the template.
 
 		New-AzureResourceGroup -Name IaaSStory-Backend -Location uswest `
-		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/azuredeploy.parameters.json'	
+		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
 
 	Expected output:
 
@@ -278,11 +278,11 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
 		info:    New mode is arm
 
-3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
+3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/azuredeploy.json -e parameters.json
+		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 
 	Expected output:
 
@@ -293,7 +293,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 		+ Initializing template configurations and parameters
 		+ Creating a deployment
 		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
+		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 		data:    Name:                IaaSStory-Backend
 		data:    Location:            westus
 		data:    Provisioning State:  Succeeded

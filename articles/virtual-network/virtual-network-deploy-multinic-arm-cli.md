@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs using the Azure CLI
@@ -33,7 +33,7 @@ Since at this point in time you cannot have VMs with a single NIC and VMs with m
 
 Before you can deploy the back end servers, you need to deploy the main resource group with all the necessary resources for this scenario. To deploy these resources, follow the steps below.
 
-1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic).
+1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
 2. In the template page, to the right of **Parent resource group (see documentation)**, click **Deploy to Azure**.
 3. If needed, change the parameter values, then follow the steps in the Azure preview portal to deploy the resource group.
 
@@ -51,7 +51,7 @@ Since VMs with single NICs and multiple NICs cannot coexist in the same resource
 
 ### Step 1 - Start you script
 
-You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/arm/multinic.sh). Follow the steps below to change the script to work in your environment.
+You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.sh). Follow the steps below to change the script to work in your environment.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 

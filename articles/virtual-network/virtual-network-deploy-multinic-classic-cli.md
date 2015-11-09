@@ -45,7 +45,7 @@ You will need to create the following resources for the backend VMs in this scen
 
 ### Step 1 - Start you script
 
-You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/classic/multinic.sh). Follow the steps below to change the script to work in your environment.
+You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.sh). Follow the steps below to change the script to work in your environment.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 

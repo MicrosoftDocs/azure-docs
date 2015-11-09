@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/09/2015"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs (classic) using PowerShell
@@ -41,7 +41,7 @@ Since VMs with single NICs and multiple NICs cannot coexist in the same cloud se
 
 ### Step 1 - Start you script
 
-You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/documentation-samples/multinic/classic/multinic.ps1). Follow the steps below to change the script to work in your environment.
+You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Follow the steps below to change the script to work in your environment.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
@@ -157,12 +157,12 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 
 		OperationDescription    OperationId                          OperationStatus
 		--------------------    -----------                          ---------------
-		New-AzureService        xxxxxxxx-xxxx-xxxx-bf4e-xxxxxxxxxxxx Succeeded      
-		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-bf4e-xxxxxxxxxxxx Succeeded      
+		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 		                                                                            
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 
 2. Fill out the information needed in the credentials prompt and click **OK**. The output below will be displayed.
 
-		New-AzureVM             xxxxxxxx-xxxx-xxxx-bf4e-xxxxxxxxxxxx Succeeded
-		New-AzureVM             xxxxxxxx-xxxx-xxxx-bf4e-xxxxxxxxxxxx Succeeded 
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
