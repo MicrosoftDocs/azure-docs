@@ -20,6 +20,8 @@
 
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
 
+>[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) is open source on GitHub. The repository contains the entire server SDK unit test suite as well as some sample projects.
+
 ## How to: Download and initialize the SDK
 
 The SDK is available on [NuGet.org]. This package includes the base functionality required to get started using the SDK. To initialize the SDK, you need to perform actions on the **HttpConfiguration** object. 
@@ -28,7 +30,7 @@ The SDK is available on [NuGet.org]. This package includes the base functionalit
 
 To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package, then click **Install**.  
 
-###Initialize the server project
+###<a name="server-project-setup"></a> Initialize the server project
 
 A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. To add this class in Visual Studio, right-click on your server project and select **Add** -> **New Item**, then **Web** -> **General** -> **OWIN Startup class**.
 

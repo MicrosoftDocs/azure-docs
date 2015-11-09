@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure"
+	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Learn how to perform REST searches using Azure Search, a cloud hosted search service on Microsoft Azure."
 	services="search"
 	documentationCenter=""

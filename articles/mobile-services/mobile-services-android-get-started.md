@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services for Android  (JavaScript backend)
@@ -29,6 +29,7 @@ This tutorial shows you how to add a cloud-based backend service to an Android a
 > [AZURE.VIDEO mobile-get-started-android]
 
 A screenshot from the completed app is below:
+
 ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Prerequisites

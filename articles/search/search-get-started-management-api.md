@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure Search Management REST API | Microsoft Azure" 
+	pageTitle="Get started with Azure Search Management REST API | Microsoft Azure | Hosted cloud search service" 
 	description="Administer your hosted cloud Azure Search service using a Management REST API" 
 	services="search" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create an Azure Search index in the portal | Microsoft Azure"
+	pageTitle="Create an Azure Search index in the portal | Microsoft Azure | Hosted cloud search service"
 	description="Add an index to Azure Search, a cloud hosted search service, by filling in field definitions in the Azure portal."
 	services="search"
 	documentationCenter=""
