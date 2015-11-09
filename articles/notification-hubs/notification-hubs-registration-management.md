@@ -20,20 +20,21 @@
 
 ##Overview
 
-This topic explains how to register devices with notification hubs in order to receive push notifications. The topic describes registrations at a high level, then introduces the two main patterns for registering devices: registering from the device directly to the notification hub, and registering through the application backend. 
+This topic explains how to register devices with notification hubs in order to receive push notifications. The topic describes registrations at a high level, then introduces the two main patterns for registering devices: registering from the device directly to the notification hub, and registering through an application backend. 
 
 
 ##What is device registration
 
 A registration is a sub-entity of a notification hub, and associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or GCM registration id. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-routing-tag-expressions.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates.md).
 
-It is important to note that registrations are transient. Similar to the PNS handles that they contain, registrations expire. You can set the time to live for a registration on the Notification Hub, up to a maximum of 90 days. This limit means that they must be periodically refreshed, and also that they should not be the only store for important information. This automatic expiration also simplifies cleanup when your mobile application is uninstalled.
-she most recent PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage the registration in the app back-end. The following section describes these two patterns.
+It is important to note that registrations and the PNS handles that they contain, do expire. You can set the time to live for a registration on the Notification Hub, up to a maximum of 90 days. This limit means that they must be periodically refreshed, and also that they should not be the only store for important information. This automatic expiration also simplifies cleanup when your mobile application is uninstalled.
+
+Registration must contain the most recent PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage the registration in the app back-end. The following section describes these two patterns.
 
 
 ##Registration IDs and installations
 
-When using one of the patterns for registration, you will register with the notification hub using a registration ID or installation ID. It is recommended that you use an installation ID to register with your notification hub. This is the latest and best approach. However, this approach is currently only supported by the Notification Hub SDKs from the backend. To register from the client device using an installation ID, you would need to use [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) at this time.
+When using one of the patterns for registration, you will register with the notification hub using a registration ID or installation ID. It is recommended that you use an installation ID to register with your notification hub. This is the latest and best approach. It helps eliminate stale and redundant registrations that can occur when using the registration ID approach. However, installation ID is currently only supported by the Notification Hub SDKs from the backend. To register from the client device using an installation ID, you would need to use [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) at this time.
 
 
 
