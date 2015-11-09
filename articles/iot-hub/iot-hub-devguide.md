@@ -420,7 +420,6 @@ The body is a JSON-serialized array of records, each with the following properti
 | -------- | ----------- |
 | EnqueuedTimeUtc | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
 | OriginalMessageId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
-message was rejected. |
 | Description | String values for the previous outcomes. |
 | DeviceId | **DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId | **DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
@@ -431,12 +430,11 @@ message was rejected. |
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
-            "Description": "Success",
-            "DeviceId": "123",
-            "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
+            "originalMessageId": "0987654321",
+            "description": "Success",
+            "deviceGenerationId": "abcdefghijklmnopqrstuvwxyz",
+            "deviceId": "123",
+            "enqueuedTimeUtc": "2015-07-28T16:24:48.789Z"
         },
         {
             ...
