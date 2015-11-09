@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="DocumentDB .NET SDK | Microsoft Azure" 
 	description="Learn all about the .NET SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
-	keywords="release notes, dotnet, .net, sdk, documentdb, azure, Microsoft Azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
