@@ -51,7 +51,7 @@ These steps assume that you've already created an Azure virtual machine using th
 	- Resets host name to localhost.localdomain
 	- Deletes the last provisioned user account (obtained from /var/lib/waagent) **and associated data**.
 
-	>[AZURE.NOTE] Deprovisioning deletes files and data in an effort to "generalize" the image. Only run this command on virtual machines that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
+	>[AZURE.NOTE] Deprovisioning deletes files and data in an effort to "generalize" the image. Only run this command on a virtual machine that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
 
 
 3. Type **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
