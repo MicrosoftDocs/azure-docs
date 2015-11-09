@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/09/2015"
    ms.author="jgao"/>
 
 # Tutorial: Analyze Website logs using Azure Data Lake Analytics
@@ -64,7 +64,7 @@ Before you can build and test any U-SQL scripts, you must first connect to Azure
 
 A U-SQL application is mostly a U-SQL script. To learn more about U-SQL, see [Get started with U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-You can add addition user-defined operators to the application.  For more information, see [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md).
+You can add addition user-defined operators to the application.  For more information, see [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
  
 **To create and submit a Data Lake Analytics job** 
 
