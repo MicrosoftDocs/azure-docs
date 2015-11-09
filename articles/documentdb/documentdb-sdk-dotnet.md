@@ -55,10 +55,10 @@ It is recommended that you begin application upgrades now in order to avoid bein
 | [1.3.0]()                  												   | Wednesday, August 05 2015   |                 |
 | [1.2.0]()                  												   | Monday, July 06 2015        |                 |
 | [1.1.0]()                  												   | Thursday, April 30 2015     |                 |
-| [0.9.3-prelease]()           												   | Wednesday, April 08 2015    | Friday, January 15 2015 |
-| [0.9.2-prelease]()                  										   | Wednesday, January 14 2015  | Friday, January 15 2015 |
-| [0.9.1-prelease]()                  										   | Monday, October 13 2014     | Friday, January 15 2015 |
-| [0.9.0-prelease]()                  										   | Thursday, August 21 2014    | Friday, January 15 2015 |
+| [0.9.3-prelease]()           												   | Wednesday, April 08 2015    | Friday, January 15 2016 |
+| [0.9.2-prelease]()                  										   | Wednesday, January 14 2015  | Friday, January 15 2016 |
+| [0.9.1-prelease]()                  										   | Monday, October 13 2014     | Friday, January 15 2016 |
+| [0.9.0-prelease]()                  										   | Thursday, August 21 2014    | Friday, January 15 2016 |
 
 ## Release Notes
 
