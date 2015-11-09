@@ -74,7 +74,8 @@ For each disk being backed up, Azure Backup reads the blocks on the disk and sto
 While a majority of the time is spent in reading and copying data, there are other operations that contribute to the total time taken to back up a VM:
 
 - Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms)
-- Queue wait time - Since the backup service is processing backups from multiple customers, your backup operation might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM back up time will be less than 24 hours for daily backup policies.
+- Snapshot Time - Time taken to trigger a snapshot. Snapshots are triggered close to scheduled backup time.
+- Queue wait time - Since the backup service is processing backups from multiple customers, copying backup data from snapshot to Azure backup vault  might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM back up time will be less than 24 hours for daily backup policies.
 
 ## How are protected instances calculated?
 Azure virtual machines that are backed up using Azure Backup are subject to [Azure Backup pricing](http://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine – excluding the “resource disk”. You are *not* billed based on the maximum size supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data stored with Azure Backup, which is the sum of the actual data in each recovery point.
