@@ -36,7 +36,7 @@ Operations against key vaults are authenticated and authorized by using Azure Ac
 The Key Vault management system for programmers consists of several interfaces, with REST as the foundation.
 [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
 |[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
