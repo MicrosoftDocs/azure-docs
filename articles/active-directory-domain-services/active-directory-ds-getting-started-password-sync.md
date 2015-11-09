@@ -44,19 +44,19 @@ After users have changed their password, the new password will be usable in Azur
 ### Synced tenants - Enable synchronization of NTLM and Kerberos credential hashes to Azure AD
 If the Azure AD tenant for your organization is set to synchronize with your on-premises directory using Azure AD Connect, you will need to configure Azure AD Connect to synchronize credential hashes required for NTLM and Kerberos authentication. These hashes are not synchronized to Azure AD by default and the following steps will enable you to enable synchronization of the hashes to your Azure AD tenant.
 
-#### Install Azure AD Connect
+#### Install or update Azure AD Connect
 
 You will need to install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you will need to update it to use the Azure AD Connect GA build. Ensure you use the current version of Azure AD Connect, in order to avoid known issues/bugs.
 
-  **[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-  Minimum recommended version: **1.0.9125** - published on November 3, 2015.
+Minimum recommended version: **1.0.9125** - published on November 3, 2015.
 
-> [AZURE.WARNING] You MUST install the latest recommended release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
+  > [AZURE.WARNING] You MUST install the latest recommended release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
+
+NOTE: You no longer need to create the 'EnableWindowsLegacyCredentialsSync' registry key with the latest version of Azure AD Connect (i.e. 1.0.9125 and above).
 
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
-
-> [AZURE.NOTE] You no longer need to create the 'EnableWindowsLegacyCredentialsSync' registry key with the latest version of Azure AD Connect (i.e. 1.0.9125 and above).
 
 
 #### Force full password synchronization to Azure AD
