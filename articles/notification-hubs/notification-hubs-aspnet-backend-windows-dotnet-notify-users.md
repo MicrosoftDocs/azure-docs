@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="11/09/2015"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users with .NET backend
@@ -293,6 +293,7 @@ In this section, you update the code in the project you completed for the [Get s
             if (statusCode != HttpStatusCode.Accepted)
             {
                 // log or throw
+				throw new System.Net.WebException(statusCode.ToString());
             }
         }
 
@@ -329,7 +330,7 @@ In this section, you update the code in the project you completed for the [Get s
                     }
                     else
                     {
-                        throw new Exception();
+						throw new System.Net.WebException(response.StatusCode.ToString());
                     }
                 }
             }
