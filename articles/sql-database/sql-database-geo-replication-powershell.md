@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Geo-Replication for Azure SQL Database using PowerShell" 
+    pageTitle="Configure Geo-Replication for Azure SQL Database using PowerShell | Microsoft Azure" 
     description="Geo-Replication for Azure SQL Database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/21/2015"
+    ms.date="11/09/2015"
     ms.author="sstein"/>
 
-# Geo-Replication for Azure SQL Database using PowerShell
+# Configure Geo-Replication for Azure SQL Database with the PowerShell
 
 
 
@@ -201,38 +201,6 @@ The following command retrieves status of the replication link between the prima
     $database = Get-AzureRMSqlDatabase –DatabaseName "mydb”
     $secondaryLink = $database | Get-AzureRMSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
-
-
-## Copy a database
-
-A new database is created in the same or different logical server using a default or user selected service objective, including a named elastic pool. As on option the user can decide to manually control the synchronization point.
-
-Auth: In order to initiate database copies, users should have write access to both the target server and the source database according to RBAC. See Role-based access control for details.
-
-This cmdlet replaces Start-AzureRMSqlDatabaseCopy for database copies.  It follows the same pattern as New-AzureRMSqlDatabase and will return when the copy operation is completed. Depending on the database size it may take from minutes to hours. 
-
-### Copy a database
-
-The following command creates a database named "db2” in server "srv2”.
-
-    $database = Get-AzureRMSqlDatabase –DatabaseName "db1” –ResourceGroupName "rg1” –ServerName "srv1”
-    $databaseCopy= $database | New-AzureRMSqlDatabaseCopy –CopyResourceGroupName "rg2”–CopyServerName "srv2” –CopyDatabaseName ”db2”
-
-
-### Copy a database into an elastic database pool
-
-The following command creates a database named "db2” in the elastic pool "MyPool” in logical server "srv2”.
-
-    $database = Get-AzureRMSqlDatabase –DatabaseName "db1” –ResourceGroupName "rg1” –ServerName "srv1”
-    $databaseCopy= $database | New-AzureRMSqlDatabaseCopy –CopyResourceGroupName "rg2”–CopyServerName "srv2” –CopyDatabaseName ”db2” –ElasticPoolName ""MyPool""" 
-
-
-
-## Monitor a database copy
-
-Since the database copy process is asynchronous the user can monitor the copy state transitions and the completion time.  
-
-The copy is created with [New-AzureRMSqlDatabaseCopy](https://msdns.microsoft.com/library/mt603644.aspx) and no monitoring cmdlet is provided. To monitor the database copy with Transact-SQL, see [Monitor a database copy using Transact-SQL](sql-database-geo-replication-transact-sql.md#monitor-a-database-copy).
 
 
    

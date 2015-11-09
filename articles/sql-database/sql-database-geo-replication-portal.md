@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Geo-Replication for Azure SQL Database (Azure Preview Portal)" 
-    description="Geo-Replication for Azure SQL Database using the Azure Preview Portal" 
+    pageTitle="Configure Geo-Replication for Azure SQL Database with the Azure preview portal | Microsoft Azure" 
+    description="Configure Geo-Replication for Azure SQL Database using the Azure preview portal" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="10/21/2015"
+    ms.date="11/09/2015"
     ms.author="sstein"/>
 
-# Geo-Replication for Azure SQL Database (Azure Preview Portal)
+# Configure Geo-Replication for Azure SQL Database with the Azure preview portal
 
 
 > [AZURE.SELECTOR]
@@ -29,7 +29,7 @@ This article shows you how to configure Geo-Replication for SQL Database with th
 
 
 
-> [AZURE.NOTE] Geo-replication is not available for Basic databases. Must have Standard or Premium. Standard must use the recommended target region and secondary is non-readable. Premium can use any target region and can have readable secondarys.
+> [AZURE.NOTE] Geo-replication is not available for Basic databases. Must have Standard or Premium. Standard must use the recommended target region and is non-readable. Premium can use any target region and can have readable secondaries.
 
 
 To configure Geo-Replication you need the following:

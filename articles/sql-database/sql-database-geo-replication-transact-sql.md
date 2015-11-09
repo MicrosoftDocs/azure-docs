@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Geo-Replication for Azure SQL Database using Transact-SQL"
-    description="Geo-Replication for Azure SQL Database using Transact-SQL"
+    pageTitle="Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Azure"
+    description="Configure Geo-Replication for Azure SQL Database using Transact-SQL"
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="10/21/2015"
+    ms.date="11/09/2015"
     ms.author="carlrab"/>
 
-# Geo-Replication for Azure SQL Database using Transact-SQL
+# # Configure Geo-Replication for Azure SQL Database with Transact-SQL
 
 
 
