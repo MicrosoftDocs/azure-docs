@@ -36,6 +36,7 @@ The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the que
 For example:
 
 GET https://service.azurewebsites.net/tables/TodoItem
+
 HEADERS: ZUMO-API-VERSION: 2.0.0
 
 POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
@@ -64,10 +65,11 @@ The chart below shows the compatibility between all client and server types. A b
 
 ## <a name="1.0.0"></a>Mobile Services client and server
 
-<a name="MobileServicesClients"></a>The client SDKs in the table below are compatible with **Mobile Services**.
+The client SDKs in the table below are compatible with **Mobile Services**.
 
 Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API-VERSION`. If the service receives this header or query string value, an error will be returned, unless you have explicitly opted out as described above.
 
+### <a name="MobileServicesClients"></a> Mobile *Services* client SDKs
 
 | Client platform                   | Version                                                                   | Version header value |
 | -------------------               | ------------------------                                                  | -------------------  |
@@ -76,10 +78,14 @@ Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API
 | Android                           | [2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126)                   | n/a                  |
 | HTML                              | [1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) | n/a     |
 
-These are the corresponding server SDK versions:
-- [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/)
+### Mobile *Services* server SDKs
 
-<!-- TODO: add Node and npm version -->
+| Server platform  | Version                                                                                                        | Accepted version header |
+| ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
+| .NET             | [WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **No version header ** |
+| Node.js          | (coming soon)                        | **No version header** |
+
+<!-- TODO: add Node npm version -->
 
 ### Behavior of Mobile Services backends
 
@@ -91,7 +97,9 @@ These are the corresponding server SDK versions:
 
 ## <a name="2.0.0"></a>Azure Mobile Apps client and server
 
-<a name="MobileAppsClients"></a>Version checking was introduced starting with the following versions of the client SDK for **Azure Mobile Apps**:
+### <a name="MobileAppsClients"></a> Mobile *Apps* client SDKs
+
+Version checking was introduced starting with the following versions of the client SDK for **Azure Mobile Apps**:
 
 | Client platform                   | Version                                                                   | Version header value |
 | -------------------               | ------------------------                                                  | -----------------    |
@@ -102,12 +110,14 @@ These are the corresponding server SDK versions:
 
 <!-- TODO: add Android and HTML versions when released -->
 
-Version checking was added to the following server SDK versions:
+### Mobile *Apps* server SDKs
+
+Version checking is included in following server SDK versions:
 
 | Server platform  | Version                                                                                                        | Accepted version header |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [Microsoft.Azure.Mobile.Server.* Version 0.3.x](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
-| Node.js          | [azure-mobile-apps Version 1.0-beta1](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
+| .NET             | [Microsoft.Azure.Mobile.Server.* Version 0.3.x (or later)](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
+| Node.js          | [azure-mobile-apps Version 1.0-beta1 (or later)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
 
 ### Behavior of Mobile Apps backends
 
@@ -130,5 +140,5 @@ Version checking was added to the following server SDK versions:
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrate a Mobile Service to Azure App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services
+[Migrate a Mobile Service to Azure App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 
