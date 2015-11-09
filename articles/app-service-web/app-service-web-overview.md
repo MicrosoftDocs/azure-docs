@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/27/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -27,7 +27,7 @@ Leverage the power of [App Service Web Apps](http://go.microsoft.com/fwlink/?Lin
 
 ## More than just websites##
 
-Modern enterprises interact with their customers in ever more sophisticated ways. Companies of all types regard their corporate Web presence as a critical part of their business, a major component in their business plan. To accommodate this importance, enterprises are looking for a platform that will provide them with the agility, security and scalability.Furthermore, they require the capability to link to their existing business system, be able to quickly deploy new code and spin up instances across the globe. With Azure App Service and Web Apps, organizations can delight their customers quickly and cost-effectively.
+Modern enterprises interact with their customers in ever more sophisticated ways. Companies of all types regard their corporate Web presence as a critical part of their business, a major component in their business plan. To accommodate this importance, enterprises are looking for a platform that will provide them with the agility, security and scalability. Furthermore, they require the capability to link to their existing business system, be able to quickly deploy new code and spin up instances across the globe. With Azure App Service and Web Apps, organizations can delight their customers quickly and cost-effectively.
 
 ## Why Web Apps? ##
 
@@ -39,7 +39,7 @@ Azure App Service Web Apps is a fully managed platform that enables you to build
 
 ## Web Apps Concepts ##
 
-- **Web Apps Gallery** - Select from an ever-growing list of existing web application templates. Leverage the best of the OSS app community with one-click installation of packages such as Wordpress, Joomla and Drupal. Get your application development process start right by leveraging frameworks like .NET MVC, Django and CakePHP.
+- **Web Apps Gallery** - Select from an ever-growing list of existing web application templates. Leverage the best of the OSS app community with one-click installation of packages such as Wordpress, Joomla and Drupal. Get your application development process started right by leveraging frameworks like .NET MVC, Django and CakePHP.
 - **Auto Scaling** - Web Apps enables you to quickly scale-up or out to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling to scale your servers based on load or schedule.
 - **Continuous Integration** - Set up continuous integration and deployment workflows with VSO, GitHub, TeamCity, Hudson or BitBucket – enabling you to automatically build, test and deploy your web app on each successful code check-in or integration tests.
 - **Deployment Slots** - Implement [Staged Deployment] [Slots] to verify your code in a pre-production environment which is identical to your production web app in Azure App Service. When satisfied, release a new version of your App with zero downtime by performing a swap operation. 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Exploring Metrics in Application Insights" 
-	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
+	description="How to interpret charts on metric explorer, and how to customize metric explorer blades." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 

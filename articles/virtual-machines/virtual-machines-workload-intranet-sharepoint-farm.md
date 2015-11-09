@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: Intranet SharePoint farm
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
 Set up your first or next SharePoint farm in Microsoft Azure and take advantage of ease of configuration and the ability to quickly expand the farm to include new capacity or optimization of key functionality. Many SharePoint farms grow from a standard, highly-available, three-tier configuration to a farm with possibly a dozen or more servers optimized for performance or separate roles, such as distributed caching or search.
 
@@ -49,9 +48,9 @@ You can create these dev/test environments for free with your [MSDN subscription
 
 ### Cloud-only virtual network
 
-A cloud-only virtual network is not connected to an on-premises network. If you just want to quickly create a basic or high-availability SharePoint farm, see [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md). The following example shows the basic SharePoint farm configuration.
+A cloud-only virtual network is not connected to an on-premises network. If you just want to quickly create a basic or high-availability SharePoint farm, see [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md). The following example shows the basic SharePoint farm configuration.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Cross-premises virtual network
 

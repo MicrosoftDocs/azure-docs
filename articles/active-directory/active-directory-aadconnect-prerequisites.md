@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prerequisites for Azure AD Connect | Microsoft Azure"
+   pageTitle="Prerequisites for Azure Active Directory Connect | Microsoft Azure"
    description="Article description that will be displayed on landing pages and in most search results"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
-# Prerequisites for Azure AD Connect
+# Prerequisites for Azure Active Directory Connect (Azure AD Connect)
 This topic describes the pre-requisites and the hardware requirements for Azure AD Connect.
 
 ## Before you install Azure AD Connect
@@ -31,8 +31,9 @@ Before you install Azure AD Connect, there are a few things that you will need.
 **On-premises servers and environment**
 
 - The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
+- If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
-- If you plan to use the feature password synchronization, the server must be on Windows Server 2008 R2 SP1 or later.
+- If you plan to use the feature **password synchronization**, the server must be on Windows Server 2008 R2 SP1 or later.
 - If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy will be installed must be Windows Server 2012 R2 or later. Windows remote management must be enabled on these servers for remote installation.
 - Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100.000 objects. If you need to manage a higher volume of directory objects, you need to point the installation process to a different version of SQL Server.
 Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
@@ -40,7 +41,7 @@ Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 20
 **Accounts**
 
 - An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with.
-- An Enterprise Administrator account for your local Active Directory if you use express settings.
+- An Enterprise Administrator account for your local Active Directory if you use express settings or upgrade from DirSync.
 - [Accounts is Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
 
 **Connectivity**

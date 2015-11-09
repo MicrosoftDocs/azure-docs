@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure Asset Delivery Policies using REST" 
-	description="This topic shows how to configure different asset delivery policies." 
+	pageTitle="Configure Asset Delivery Policies using Media Services REST API" 
+	description="This topic shows how to configure different asset delivery policies using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #How to: Configure Asset Delivery Policies
@@ -429,9 +429,8 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
- 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

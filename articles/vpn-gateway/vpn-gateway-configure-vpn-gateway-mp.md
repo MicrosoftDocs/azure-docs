@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configure a VPN gateway in the Azure portal
+
+>[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+
+This article was written for the classic deployment model and the Azure portal (not the Preview Portal). At this time, if you want to configure a VPN Gateway for the classic deployment model using a portal, you must use the Azure portal. 
 
 If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of gateways and the type of gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you'll have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway routing type. Additionally, you'll have to make sure the device you want to use for your site-to-site connection will support the gateway type that you want to create. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 

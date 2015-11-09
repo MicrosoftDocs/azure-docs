@@ -257,7 +257,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'

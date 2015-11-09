@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Managing your Service Fabric applications in Visual Studio"
-   description="You can manage your Microsoft Azure Service Fabric applications and services through Visual Studio."
+   pageTitle="Manage your applications in Visual Studio | Microsoft Azure"
+   description="Use Visual Studio to create, develop, package, deploy, and debug your Service Fabric applications and services."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Managing your Service Fabric applications in Visual Studio
+# Use Visual Studio to simplify writing and managing your Service Fabric applications
 
-You can manage your Microsoft Azure Service Fabric applications and services through Visual Studio. Once you've [setup your development environment](../service-fabric-setup-your-development-environment), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
+You can manage your Service Fabric applications and services through Visual Studio. Once you've [setup your development environment](service-fabric-setup-your-development-environment.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
 
-To manage your Service Fabric application, in the Solution Explorer right-click on your application project.
+To manage your application, in the Solution Explorer right-click on your application project.
 
 ![Manage your Service Fabric application by right-clicking on the Application project][manageservicefabric]
 
 ## Deploying your Service Fabric application
 
-Deploying a Service Fabric application combines the following steps into one simple operation.
+Deploying an application combines the following steps into one simple operation.
 
 1. Creating the application package
 2. Uploading the application package to the image store

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Customize Hadoop clusters for Advanced Analytics Process and Technology | Microsoft Azure" 
+	pageTitle="Customize Hadoop clusters for the Cortana Analytics Process | Microsoft Azure" 
 	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/13/2015" 
 	ms.author="hangzh;bradsev" />
 
-# Customize Azure HDInsight Hadoop clusters for Advanced Analytics Process and Technology
+# Customize Azure HDInsight Hadoop clusters for the Cortana Analytics Process 
 
 This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
 
