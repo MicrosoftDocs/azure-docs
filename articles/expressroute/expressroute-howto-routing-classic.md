@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to configure routing for an ExpressRoute circuit | Microsoft Azure"
+   pageTitle="How to configure routing for an ExpressRoute circuit for the classic deployment model using PowerShell | Microsoft Azure"
    description="This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit."
    documentationCenter="na"
    services="expressroute"
@@ -16,7 +16,7 @@
    ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Create and modify ExpressRoute routing configuration
+# Create and modify routing for an ExpressRoute circuit using PowerShell
 
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
