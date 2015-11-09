@@ -23,7 +23,7 @@ This article provides detailed information and examples showing how to work with
 Azure App Service Mobile Apps provides the capability to add a mobile-optimized data access Web API to a web application.  The Azure App 
 Service Mobile Apps SDK is provided for ASP.NET and NodeJS web application and provides the following operations:
 
-- Table operations (Read, Insert, Update, Dete) for data access
+- Table operations (Read, Insert, Update, Delete) for data access
 - Custom API operations
  
 Both operations provide for authentication across all identity providers allowed by Azure App Service, including social identity
@@ -147,6 +147,7 @@ Azure App Service has specific advice for Node application that you should revie
 
 The azure-mobile-apps Node Server SDK provides mechanisms to expose data tables stored in SQL Azure as a WebAPI.  Five operations are provided.
 
+| ------------------------| --------------------------------|
 | GET /tables/_tablename_ | Get all records in the table |
 | GET /tables/_tablename_/:id | Get a specific record in the table |
 | POST /tables/_tablename_ | Create a new record in the table |
