@@ -27,7 +27,6 @@
 
 ##DocumentDB .NET SDK
 
-|   	|   	|   	|   	|   	|
 |---	|---	|---	|---	|---	|
 | **Download**  	| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) |
 | **Documentation**  	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
