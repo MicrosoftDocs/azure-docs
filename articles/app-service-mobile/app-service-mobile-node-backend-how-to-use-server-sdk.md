@@ -49,9 +49,9 @@ available for Node.  You can create a basic ExpressJS Node application as follow
 	npm init
 	```
 		
-The npm init command will ask a set of questions to initialize the project.  See the example output below
+	The npm init command will ask a set of questions to initialize the project.  See the example output below
 
-![The npm init output][0]
+	![The npm init output][0]
 
 3. Install the express and azure-mobile-apps libraries from the npm repository.
 
