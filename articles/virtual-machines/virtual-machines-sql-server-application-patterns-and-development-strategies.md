@@ -18,6 +18,10 @@
 
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] 
+
+
+
 ## Summary:
 Determining which application pattern or patterns to use for your SQL Server based applications in Azure environment is an important design decision and it requires a solid understanding of how SQL Server and each infrastructure component of Azure work together. With SQL Server in Azure Infrastructure Services, you can easily migrate, maintain, and monitor your existing SQL Server applications built-on Windows Server to virtual machines in Azure.
 

@@ -26,6 +26,12 @@ This **menu** links to topics that describe how to use tools to explore data fro
 
 This document covers how to explore data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package.
 
+## Prerequisites
+This article assumes that you have:
+
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
+* Stored your data in an Azure blob storage account.
+
 ## Load the data into a Pandas data frame
 In order to do explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
 

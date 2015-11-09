@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="inhenk"/>
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="11/09/2015"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
@@ -21,9 +21,10 @@
 ## Guidelines to select an Azure virtual network
 When selecting a virtual network to use with Azure AD Domain Services, keep the following guidelines in mind:
 
-- Ensure you select a virtual network in a region that is supported by Azure AD Domain Services. The current list of supported Azure regions is available on the [regions page](active-directory-ds-regions.md).
+- Ensure you select a virtual network in a region that is supported by Azure AD Domain Services. The current list of supported Azure regions is available on the [regions page](https://azure.microsoft.com/regions/#services).
 - If you plan to use an existing virtual network, ensure that it is a regional virtual network. Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services. You will need to [migrate legacy virtual networks to regional virtual networks](../virtual-networks-migrate-to-regional-vnet.md).
 - Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services. You will not be able to move Domain Services to another virtual network later.
+- Azure AD Domain Services are not supported with virtual networks created using the Azure Resource Manager.
 
 
 ## Step 2: Create an Azure virtual network

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a new Application Insights resource" 
-	description="Set up for a new application and get a new instrumentation key. Application Insights monitors the performance and usage of live applications." 
+	description="Set up Application Insights monitoring for a new live application. Web-based approach." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Create a new Application Insights resource

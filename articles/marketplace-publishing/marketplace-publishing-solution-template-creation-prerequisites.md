@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="10/28/2015"
    ms.author="hascipio; v-divte" />
 
 # Technical prerequisites for creating a solution template for the Azure Marketplace
@@ -85,6 +85,15 @@ Ensure that you have defined parameters for the following values:
 5.	**User name**: User name for the virtual machine and potentially the application.  More than one user name can be requested from the customer, but at least one must be prompted.
 6.	**Password**: Password for the virtual machine and potentially the application.  More than one password can be requested from the customer for different virtual machines or applications, but at least one must be prompted.
 7.	**SSH public key (only for Linux virtual machines)**: SSH key for the virtual machine.  More than one key can be requested from the customer for different virtual machines, but at least one must be prompted.
+
+## Developing building blocks
+You must decide on the building blocks of your solution before you proceed with your Solution Template on the Publishing Portal. Below are some links to the documents that can help you in the process:
+
+1. [Best practices for designing Azure Resource Manager Templates](https://azure.microsoft.com/en-us/documentation/articles/best-practices-resource-manager-design-templates/)
+2. [Authoring Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/)
+3. Azure Quickstart templates
+  - [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/en-us/documentation/templates/)
+  - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Next steps
 Now that you reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your solution template offer as detailed in the [Guide to creating a solution template](marketplace-publishing-solution-template-creation.md)
