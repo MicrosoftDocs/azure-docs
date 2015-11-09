@@ -95,7 +95,7 @@ Here's what you need before you start:
 - If you want to set up recovery in Azure, you'll need to run the [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) tool on your SQL Server virtual machines to make sure they're compatible with Azure and Site Recovery.
 
 
-## Set up protection of Active Directory
+## Set up protection of AD
 
 You'll need Active Directory on the secondary recovery site for SQL Server to run properly. there are a couple of options:
 
@@ -329,13 +329,13 @@ For applications that use distributed transactions we recommendation you use [Si
 
 
 
-## Set up protection for a standalone SQL Server
+## Set up protection of a standalone SQL Server
 
 
 In this configuration we recommend you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is set up as a virtual machine or physical server, and whether you want to replicate to Azure or a secondary on-premises site. Get instructions for all deployment scenarios in the [Site Recovery Overview](site-recovery-overview.md).
 
 
-## Set up protection for SQL Server cluster (Standard or 2008 R2)
+## Set up protection of SQL Server cluster (Standard or 2008 R2)
 
 For a cluster running SQL Server Standard edition or SQL Server 2008 R2 we recommend you use Site Recovery replication to protect SQL Server.
 
