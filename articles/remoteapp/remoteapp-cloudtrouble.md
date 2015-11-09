@@ -13,14 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="vikbucha" />
 
 
 
 # Troubleshoot creating RemoteApp cloud collections
 
-Common errors seen in the Azure Management portal:
+If you are having problems creating a cloud collection, check out the following information.
+
+## Your image is invalid ##
+If you see a message like, "GoldImageInvalid" when you are waiting for Azure to provision your collection, it means that your template image doesn't meet the [defined image requirements](remoteapp-imagereqs.md). So, go read those [requirements](remoteapp-imagereqs.md), fix your image, and try to create your collection again.
+
+## Common errors seen in the Azure Management portal
 
 	DNS server could not be reached
 	ProvisioningTimeout

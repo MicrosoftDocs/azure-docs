@@ -26,7 +26,7 @@ There are many requirements and strategies for device provisioning (see [IoT Hub
 
 ## Field gateways
 
-A field gateway is a specialized device-appliance or general-purpose software that acts as a communication enabler and potentially, as a local device control system and device data processing hub. A field gateway, can perform local processing and control functions towards the devices; on the other side it can filter or aggregate the device telemetry and thus reduce the amount of data being transferred to the back end.
+A field gateway is a specialized device-appliance or general-purpose software that acts as a communication enabler and potentially, as a local device control system and device data processing hub. A field gateway, can perform local processing and control functions towards the devices; on the other side it can filter or aggregate the device telemetry and thus reduce the amount of data being transferred to the backend.
 
 The scope of a field gateway includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities and are usually location bound.
 A field gateway is different from a mere traffic router in that it has an active role in managing access and information flow. This means it is an application-addressed entity and network connection or session terminal (for example, gateways in this context may assist in device provisioning, data transformation, protocol translation and event rules processing). NAT devices or firewalls, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather route (or deny) connections or sessions made through them.
@@ -58,7 +58,7 @@ These are the main steps of the token service pattern.
 3. The token service returns a token, created as per [IoT Hub Developer Guide - Security][], using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated.
 4. The device uses the token directly with the IoT hub.
 
-The token service can set the token expiration as desired. At expiration, the IoT hub servers the connection, and the device must request a new token to the token service. Clearly a short expiration time will increase the load on both the device and the token service.
+The token service can set the token expiration as desired. At expiration, the IoT hub severs the connection, and the device must request a new token to the token service. Clearly a short expiration time will increase the load on both the device and the token service.
 
 It is worth specifying that for the device to be able to connect, the device identity still must be created in the IoT hub. This also means that per-device access control (by disabling device identities as per [IoT Hub Developer Guide - identity registry][]) is still functional, even if the device authenticates with a token. This mitigates the existence of long-lasting tokens.
 
