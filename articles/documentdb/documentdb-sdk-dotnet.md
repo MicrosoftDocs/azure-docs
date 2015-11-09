@@ -17,31 +17,35 @@
 	ms.date="11/06/2015" 
 	ms.author="ryancraw"/>
 
-# DocumentDB .NET SDK
+# DocumentDB SDK
 
 > [AZURE.SELECTOR]
-- [.NET](documentdb-sdk-dotnet.md)
-- [Node.js](documentdb-sdk-node.md)
-- [JavaScript Client](documentdb-sdk-js.md)
-- [Java](documentdb-sdk-java.md)
-- [Python](documentdb-sdk-python.md)
+- [.NET SDK](documentdb-sdk-dotnet.md)
+- [Node.js SDK](documentdb-sdk-node.md)
+- [JavaScript Client SDK](documentdb-sdk-js.md)
+- [Java SDK](documentdb-sdk-java.md)
+- [Python SDK](documentdb-sdk-python.md)
 
-**Download:** To download and install the [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package for the latest version of the DocumentDB Client Library for .NET. This approach is recommended for ensuring that you have the most up-to-date client libraries.
+###Download:
+Download and install the [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package for the latest version of the DocumentDB Client Library for .NET. 
 
-**Documentation:** For reference documentation, refer to [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)
+This approach is recommended for ensuring that you have the most up-to-date client libraries.
 
-**Get Started:** To get started with this SDK in code, refer to [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)
+###Documentation: 
+For reference documentation, refer to [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)
+
+###Get Started: 
+To get started with this SDK in code, refer to [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)
+
+| Download | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)| 
+| Documentation	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
+| Get Started | [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/) |
 
 ## Release & Retirement Dates
-Microsoft will provide notification at least 12 months in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft will provide notification at least **12 months** in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
 
+> [AZURE.WARNING]
 All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** will be retired on **January 15, 2016**, as announced in this [Microsoft Azure DocumentDB Blog post](). Any application attempting to connect to DocumentDB using a retired SDK will be blocked. 
-
-New features and functionality will only be available in the latest version of the SDK.
-
-**This includes the following versions:** 
-
-•	0.9.x (released prior to GA)
 
 We strongly recommend that you upgrade to the latest version as early as possible. 
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
@@ -55,10 +59,11 @@ It is recommended that you begin application upgrades now in order to avoid bein
 | [1.3.0]()                  												   | Wednesday, August 05 2015   |                 |
 | [1.2.0]()                  												   | Monday, July 06 2015        |                 |
 | [1.1.0]()                  												   | Thursday, April 30 2015     |                 |
-| [0.9.3-prelease]()           												   | Wednesday, April 08 2015    | Friday, January 15 2016 |
-| [0.9.2-prelease]()                  										   | Wednesday, January 14 2015  | Friday, January 15 2016 |
-| [0.9.1-prelease]()                  										   | Monday, October 13 2014     | Friday, January 15 2016 |
-| [0.9.0-prelease]()                  										   | Thursday, August 21 2014    | Friday, January 15 2016 |
+| [1.0.0]()           												           | Wednesday, April 08 2015    | 				   |
+| 0.9.3-prelease           												   | Wednesday, March 12 2015    | Friday, January 15 2016 |
+| 0.9.2-prelease                  										   | Wednesday, January 14 2015  | Friday, January 15 2016 |
+| 0.9.1-prelease                  										   | Monday, October 13 2014     | Friday, January 15 2016 |
+| 0.9.0-prelease                  										   | Thursday, August 21 2014    | Friday, January 15 2016 |
 
 ## Release Notes
 
