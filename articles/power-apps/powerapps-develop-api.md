@@ -57,7 +57,7 @@ This can take one of 3 values: “none” (default) | “advanced” | “intern
 This should be present on the paths that support subscriptions. It informs the Logic app what the payload of the notification will be so that the UI can reference the properties of the content.
  
 
-```json
+```javascript
 
 { 
     "paths": { 
@@ -69,7 +69,6 @@ This should be present on the paths that support subscriptions. It informs the L
                 } 
             }, 
             "get": { 
-    // For listing subscirptions 
             }, 
             "post": { 
                 "parameters": [ 
@@ -122,7 +121,6 @@ This should be present on the paths that support subscriptions. It informs the L
                     "description" :  "Any content to be included in the call" 
                 } 
             } 
-... 
 ```
 
 **x-ms-trigger**
@@ -145,8 +143,8 @@ The value is an object that contains the following properties:
 	o value-title: A path string in the object inside "value-collection" that refers to a description for the value.
 
 Example:
-	 
-```json
+```javascript
+
        "/api/tables/{table}/items": {
             "post": {
                 "operationId": "TableData_CreateItem",
@@ -162,13 +160,13 @@ Example:
                             "value-path": "Name",                           // field that contains the value
                             "value-title": "DisplayName"                    // field that contains a display name for the value
                         },
-``` 
+```
 
 **x-ms-dynamic-schema** 
 
 This is a hint to the client (PowerFlow) that the schema for this parameter (or response) is dynamic in nature.  The client  can invoke an operation as defined by the value of this field, and discover the schema dynamically.  The client can then display an appropriate UI to take inputs from the user or display available fields.  Example:
  
-```json
+```javascript
                     {
                         "name": "item",
                         "in": "body",
