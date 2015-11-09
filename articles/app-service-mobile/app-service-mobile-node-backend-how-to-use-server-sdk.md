@@ -38,16 +38,16 @@ available for Node.  You can create a basic ExpressJS Node application as follow
 
 1. In a command or PowerShell window, create a new directory for your project.
 
-```
-mkdir basicapp
-```
+	```
+	mkdir basicapp
+	```
 
 2. Run npm init to initialize the package structure.
 
-```
-cd basicapp
-npm init
-```
+	```
+	cd basicapp
+	npm init
+	```
 		
 The npm init command will ask a set of questions to initialize the project.  See the example output below
 
@@ -55,28 +55,28 @@ The npm init command will ask a set of questions to initialize the project.  See
 
 3. Install the express and azure-mobile-apps libraries from the npm repository.
 
-```
-npm install --save express azure-mobile-apps
-```
+	```
+	npm install --save express azure-mobile-apps
+	```
 
 4. Create an app.js file to implement the basic mobile server.
 
-```
-var express = require('express'),
-	azureMobileApps = require('azure-mobile-apps');
+	```
+	var express = require('express'),
+		azureMobileApps = require('azure-mobile-apps');
+		
+	var app = express(),
+		mobile = azureMobileApps();
+		
+	// Define a TodoItem table
+	mobile.tables.add('TodoItem');
 	
-var app = express(),
-	mobile = azureMobileApps();
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
 	
-// Define a TodoItem table
-mobile.tables.add('TodoItem');
-
-// Add the mobile API so it is accessible as a Web API
-app.use(mobile);
-
-// Start listening on HTTP
-app.listen(process.env.PORT || 3000);
-```
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+	```
 
 This application creates a simple mobile-optimized WebAPI with a single endpoint - /tables/TodoItem - that provides 
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
@@ -112,21 +112,21 @@ Visual Studio 2015 requires an extension to develop Node application within the 
 9. Open the _app.js_ file to add support for the Azure Mobile Apps SDK:
   a. At line 6, add the following code:
   
-```
-var bodyParser = require('body-parser');
-var azureMobileApps = require('azure-mobile-apps');
-```
+    ```
+    var bodyParser = require('body-parser');
+    var azureMobileApps = require('azure-mobile-apps');
+    ```
 
   b. At approximately line 27, add the following code:
   
-```
-app.use('/users', users);
-
-// Azure Mobile Apps Initialization
-var mobile = azureMobileApps();
-mobile.tables.add('TodoItem');
-app.use('mobile');
-```
+	```
+	app.use('/users', users);
+	
+	// Azure Mobile Apps Initialization
+	var mobile = azureMobileApps();
+	mobile.tables.add('TodoItem');
+	app.use('mobile');
+	```
 
   c. Save the file.
   
