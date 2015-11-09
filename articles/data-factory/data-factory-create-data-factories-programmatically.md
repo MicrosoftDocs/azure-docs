@@ -378,11 +378,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
 
 
-## See Also
 
-Article | Description
------- | ---------------
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for .NET class library, cmdlets, JSON script, functions, etc… 
+> [AZURE.NOTE] The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
 
 
 [data-factory-introduction]: data-factory-introduction.md

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Getting started with elastic database query | Microsoft Azure"
+	pageTitle="Getting started with elastic queries for sharding (horizontal partitioning) | Microsoft Azure"
 	description="how to use cross database database queries"
 	services="sql-database"
 	documentationCenter=""  
@@ -15,7 +15,7 @@
 	ms.date="10/15/2015"
 	ms.author="SilviaDoomra" />
 
-# Getting started with cross-database query
+# Getting started with elastic queries for sharding (horizontal partitioning)
 
 Elastic Database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. For more information about the Elastic Database query feature, please see the [feature overview page](sql-database-elastic-query-overview.md).
 

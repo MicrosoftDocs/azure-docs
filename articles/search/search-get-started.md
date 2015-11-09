@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure" 
-	description="Get started with Azure Search" 
+	pageTitle="Get started with Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Get started with Azure Search, a cloud hosted search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
 
 This article gets you started with the Azure Search REST API. 
 

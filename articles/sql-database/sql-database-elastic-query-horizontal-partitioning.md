@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Elastic queries for horizontal partitioning | Microsoft Azure"
+    pageTitle="Elastic database queries for sharding (horizontal partitioning) | Microsoft Azure"
     description="how to set up elastic queries over hotizontal partitions"    
     services="sql-database"
     documentationCenter=""  
@@ -15,7 +15,7 @@
     ms.date="10/15/2015"
     ms.author="sidneyh;torsteng" />
 
-# Elastic queries for horizontal partitioning
+# Elastic database queries for sharding (horizontal partitioning)
 
 This document explains how to setup elastic database queries for horizontal partitioning scenarios and how to perform your queries. For a definition of the horizontal partitioning scenario, see the [elastic database query overview (preview)](sql-database-elastic-query-overview.md).
 
