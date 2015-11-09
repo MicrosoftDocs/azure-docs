@@ -88,7 +88,7 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 
 ### Step 2 - Create necessary resources for your VMs
 
-You need to create a new resource group, a storage account for the data disks, and an availability set for all VMs. To create these resources, execute the following steps.
+You need to create a new resource group, a storage account for the data disks, and an availability set for all VMs. You alos need the local administrator account credentials for each VM. To create these resources, execute the following steps.
 
 1. Create a new resource group.
 
@@ -103,9 +103,13 @@ You need to create a new resource group, a storage account for the data disks, a
 
 		$avSet = New-AzureAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
 
+4. Get the local administrator account credentials to be used for each VM.
+
+		$cred = Get-Credential -Message "Type the name and password for the local administrator account."
+
 ### Step 3 - Create the NICs and backend VMs
 
-You need to use a loop to create as many VMs as you want, and create the necessary NICs and VMs within the loop. TO create the NICs and VMs, execute the following steps.
+You need to use a loop to create as many VMs as you want, and create the necessary NICs and VMs within the loop. To create the NICs and VMs, execute the following steps.
 
 1. Start a `for` loop to repeat the commands to create a VM and two NICs as many times as necessary, based on the value of the `$numberOfVMs` variable.
 
@@ -143,9 +147,8 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 		    Add-AzureVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
 
-6. Configure the credentials, operating system, and image o be used for the VM.
-
-		    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
+6. Configure the operating system, and image to be used for the VM.
+		    
 		    $vmConfig = Set-AzureVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 		    $vmConfig = Set-AzureVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
@@ -179,7 +182,7 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 		                    
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
 
-2. After a few minutes, fill out the credentials prompt. The prompt is shown once per VM being created. The output below represents a single VM. Notice the entire process took 8 minutes to complete.
+2. After a few minutes, fill out the credentials prompt and click **OK**. The output below represents a single VM. Notice the entire process took 8 minutes to complete.
 
 		ResourceGroupName            : 
 		Id                           : 

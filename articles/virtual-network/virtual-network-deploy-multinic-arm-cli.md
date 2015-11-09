@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NIcs int he same resource group, you will implement the back end servers in a resource group, and all other components in another security group. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
+Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NIcs in the same resource group, you will implement the back end servers in a resource group, and all other components in another resource group. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
 
 ## Prerequisites
 
@@ -183,7 +183,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 ### Step 4 - Run the script
 
-Now that you downloaded and changed the script based on your needs, runt he script to create the back end database VMs with multiple NICs.
+Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.
 
 1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
 
