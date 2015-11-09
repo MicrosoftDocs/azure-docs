@@ -7,7 +7,6 @@
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -37,10 +36,12 @@ For reference documentation, refer to [.NET SDK Reference Documentation](https:/
 ##Get Started
 To get started with this SDK in code, refer to [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)
 
+The table version:
 
-| 			| 			|
+
+| 		| 		|
 | ----		| -----		|
-| Download | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)| 
+| Download | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) | 
 | Documentation	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 | Get Started | [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/) |
 
@@ -56,17 +57,17 @@ It is recommended that you begin application upgrades now in order to avoid bein
 
 | Version                                                                  | Release Date                | Retirement Date |
 | ------------------------------------------------------------------------ | --------------------------- | --------------- |
-| [1.5.0](#1.5.0)          												   | Monday, October 05 2015     |                 |
-| [1.4.1](#1.4.1)          												   | Tuesday, August 25 2015     |                 |
-| [1.4.0]()                												   | Thursday, August 13 2015    |                 |
-| [1.3.0]()                												   | Wednesday, August 05 2015   |                 |
-| [1.2.0]()                												   | Monday, July 06 2015        |                 |
-| [1.1.0]()                												   | Thursday, April 30 2015     |                 |
-| [1.0.0]()       												           | Wednesday, April 08 2015    | 				   |
-| 0.9.3-prelease           												   | Wednesday, March 12 2015    | Friday, January 15 2016 |
-| 0.9.2-prelease                  										   | Wednesday, January 14 2015  | Friday, January 15 2016 |
-| 0.9.1-prelease                  										   | Monday, October 13 2014     | Friday, January 15 2016 |
-| 0.9.0-prelease                  										   | Thursday, August 21 2014    | Friday, January 15 2016 |
+| [1.5.0](#1.5.0) 							   | Monday, October 05 2015     |                 |
+| [1.4.1](#1.4.1) 							   | Tuesday, August 25 2015     |                 |
+| [1.4.0](#1.4.0) 							   | Thursday, August 13 2015    |                 |
+| [1.3.0](#1.3.0) 							   | Wednesday, August 05 2015   |                 |
+| [1.2.0](#1.2.0)       						   | Monday, July 06 2015        |                 |
+| [1.1.0](#1.1.0)       						   | Thursday, April 30 2015     |                 |
+| [1.0.0](#1.0.0)     						           | Wednesday, April 08 2015    | 		   |
+| 0.9.3-prelease        						   | Wednesday, March 12 2015    | Friday, January 15 2016 |
+| 0.9.2-prelease        						   | Wednesday, January 14 2015  | Friday, January 15 2016 |
+| 0.9.1-prelease                					   | Monday, October 13 2014     | Friday, January 15 2016 |
+| 0.9.0-prelease                					   | Thursday, August 21 2014    | Friday, January 15 2016 |
 
 ## Release Notes
 
@@ -80,7 +81,7 @@ It is recommended that you begin application upgrades now in order to avoid bein
 ### <a name="1.4.1"/>[1.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
  - **[Fixed]** Localization issues when using non en culture info such as nl-NL etc. 
  
-### [1.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
+### <a name="1.4.0"/>[1.4.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.0)
   - ID Based Routing
     - New UriFactory helper to assist with constructing ID based resource links
     - New overloads on DocumentClient to take in URI
@@ -91,7 +92,7 @@ It is recommended that you begin application upgrades now in order to avoid bein
     - **Array** - Concat, Contains, Count
     - **IN** operator
 
-### [1.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.3.0)
+### <a name="1.3.0"/>[1.3.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.3.0)
   - Added support for modifying indexing policies
     - New ReplaceDocumentCollectionAsync method in DocumentClient
     - New IndexTransformationProgress property in ResourceResponse<T> for tracking percent progress of index policy changes
@@ -101,7 +102,7 @@ It is recommended that you begin application upgrades now in order to avoid bein
     - New SpatialIndex class for indexing GeoJSON data stored in DocumentDB
   - **[Fixed]** : Incorrect SQL query generated from linq expression [#38](https://github.com/Azure/azure-documentdb-net/issues/38)
 
-### [1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
+### <a name="1.2.0"/>[1.2.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.2.0)
 - Dependency on Newtonsoft.Json v5.0.7 
 - Changes to support Order By
   - LINQ provider support for OrderBy() or OrderByDescending()
@@ -111,13 +112,13 @@ It is recommended that you begin application upgrades now in order to avoid bein
   
     	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
-### [1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
+### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
 - DataContract serialization
 - Guid support in LINQ provider
 - UDF support in LINQ
 
-#### [1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
+### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 - GA SDK
 
 ## FAQ
