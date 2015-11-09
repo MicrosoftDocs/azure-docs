@@ -18,8 +18,6 @@
 
 # Azure Active Directory Report Latencies
 
-There is some latency associated with the reports in Azure Active Directory. This is due to log processing time.
-
 Report                                                  | Minimum  | Average    | Maximum
 ------------------------------------------------------- | -------- | ---------- | ----------
 **Security Reports**                                    |          |            |
