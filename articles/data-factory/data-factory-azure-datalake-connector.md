@@ -554,7 +554,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifies the copy behavior. | <p>**PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.</p><p>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.</p><p>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.</p> | No |
+| copyBehavior | Specifies the copy behavior. | <p>**PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.</p><p>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.</p><p>**MergeFiles:** (this capability is coming shortly) merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.</p> | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
