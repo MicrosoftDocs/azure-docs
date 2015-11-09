@@ -27,9 +27,11 @@
 
 ##DocumentDB .NET SDK
 
-| **Download** 		 	| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)															|
-| **Documentation** 	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)									|
-| **Get Started** 		| [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/) 	|
+|   	|   	|   	|   	|   	|
+|---	|---	|---	|---	|---	|
+| **Download**  	| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) |
+| **Documentation**  	| [.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
+| **Get Started**  	| [Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/) |
 
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -40,20 +42,19 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
 We strongly recommend that you upgrade to the latest version as early as possible. 
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
 
-
-| Version                                         Release Date                    Retirement Date 			|
-| --------------------------------------------	| ----------------------------	| -----------------------	|
-| [1.5.0](#1.5.0) 							   	| Monday, October 05 2015   	|                 			|
-| [1.4.1](#1.4.1) 							   	| Tuesday, August 25 2015   	|                 			|
-| [1.4.0](#1.4.0) 							   	| Thursday, August 13 2015  	|                 			|
-| [1.3.0](#1.3.0) 							   	| Wednesday, August 05 2015 	|                 			|
-| [1.2.0](#1.2.0)       						| Monday, July 06 2015      	|                 			|
-| [1.1.0](#1.1.0)       						| Thursday, April 30 2015   	|                 			|
-| [1.0.0](#1.0.0)     						    | Wednesday, April 08 2015  	| 		   					|
-| 0.9.3-prelease        						| Wednesday, March 12 2015  	| Friday, January 15 2016 	|
-| 0.9.2-prelease        						| Wednesday, January 14 2015	| Friday, January 15 2016 	|
-| 0.9.1-prelease                				| Monday, October 13 2014     	| Friday, January 15 2016 	|
-| 0.9.0-prelease                				| Thursday, August 21 2014    	| Friday, January 15 2016 	|
+| Version | Release Date | Retirement Date
+| ---	  | ---	         | ---
+| [1.5.0](#1.5.0) | Monday, October 05 2015 |---
+| [1.4.1](#1.4.1) | Tuesday, August 25 2015 |---
+| [1.4.0](#1.4.0) | Thursday, August 13 2015 |---
+| [1.3.0](#1.3.0) | Wednesday, August 05 2015 |---
+| [1.2.0](#1.2.0) | Monday, July 06 2015 |---
+| [1.1.0](#1.1.0) | Thursday, April 30 2015 |---
+| [1.0.0](#1.0.0) | Wednesday, April 08 2015 |---
+| 0.9.3-prelease | Wednesday, March 12 2015 | Friday, January 15 2016
+| 0.9.2-prelease | Wednesday, January 14 2015 | Friday, January 15 2016
+| 0.9.1-prelease | Monday, October 13 2014 | Friday, January 15 2016
+| 0.9.0-prelease | Thursday, August 21 2014 | Friday, January 15 2016
 
 ## Release Notes
 
