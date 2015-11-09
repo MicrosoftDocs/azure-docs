@@ -167,6 +167,10 @@ In the Azure Management Portal, reports are categorized in the following ways:
 | :-------------     | :-------        |
 | Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
+This report includes sign ins to _all_ applications that your directory has access to, including pre-integrated Microsoft applications.
+
+Pre-integrated Microsoft applications include Office 365, Sharepoint, the Azure Management Portal, and others.
+
 ![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
