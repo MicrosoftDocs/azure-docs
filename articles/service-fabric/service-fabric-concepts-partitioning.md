@@ -23,17 +23,18 @@ This article provides an introduction to the basic concepts of partitioning Serv
 Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
 
 
-### Partitioning stateless services
-Partitioning a stateless service is a very rare scenarios, and most of the times when you would use it the problem can also be solved in other ways. For stateless services you can think about a partition being a logical unit that contains one or more instances of a service. Figure 1 shows a stateless service with 5 instances distributed across a cluster using one partition. This (multiple instances in one partition) is in fact the most common configuration for a stateless service. The only times you want to consider multiple partitions for stateless service instances is when you need to meet special routing requests. As an example, consider a case where users with ids in a certain range should only be served by a particular service instance. Another example of when you could partition a stateless service is when you have a truly partitioned backend, e.g. a sharded SQL database, and you want to control which service instance should write to the database shard or perform other preparation work within the stateless service that requires the same partitioning information as is used in the backend.
+### Partitioning Service Fabric stateless services
+For stateless services you can think about a partition being a logical unit that contains one or more instances of a service. Figure 1 shows a stateless service with 5 instances distributed across a cluster using one partition.
 
 ![Stateless Service](./media/service-fabric-concepts-partitioning/statelessservice.png)
 
+There are really two types of stateless service solutions. The first one being a service that persists its state externally, for example in Azure SQL database (like a website that stores the session information and data) and the second one being computation-only services (like a calculator or image thumbnailing) that do not manage any persistent state. In either case partitioning a stateless service is a very rare scenarios and scalability and availability is normally achieved by adding more instances. The only times you want to consider multiple partitions for stateless service instances is when you need to meet special routing requests. As an example, consider a case where users with ids in a certain range should only be served by a particular service instance. Another example of when you could partition a stateless service is when you have a truly partitioned backend, e.g. a sharded SQL database, and you want to control which service instance should write to the database shard or perform other preparation work within the stateless service that requires the same partitioning information as is used in the backend. Those types of scenarios can also be solved in different ways and do not necessarily require service partitioning.
+
 The remainder of this walkthrough focuses on stateful services.
 
-### Partitioning stateful services
-Service Fabric makes it easy to develop stateful services that scale by offering a first-class way to partition code and state (data). Just as with databases, partitioning in this case refers to the process of determining that a particular service partition (a partition is a set of [replicas](service-fabric-availability-services.md)) is responsible for a portion of the complete state of the service. As a result the scale out is achieved since requests from clients are distributed across machines and cores, the overall performance of the application is improved, and contention on access to chunks of data is reduced.
-
-Conceptually you can think about a partition of a stateful service being a scale unit that is highly reliable through [replicas](service-fabric-availability-services.md) that are distributed and balanced across the nodes in the cluster.
+### Partitioning Service Fabric stateful services
+Service Fabric makes it easy to develop scalable stateful services by offering a first-class way to partition state (data). Conceptually you can think about a partition of a stateful service being a scale unit that is highly reliable through [replicas](service-fabric-availability-services.md) that are distributed and balanced across the nodes in the cluster.
+Partitioning in the context of Service Fabric stateful services refers to the process of determining that a particular service partition (as mentioned before, partition is a set of [replicas](service-fabric-availability-services.md)) is responsible for a portion of the complete state of the service. A great thing about Service Fabric is that it places the partitions on different nodes allowing them to grow to a node's resource limit. As the data needs grow, partitions grow and Service Fabric re-balances partitions across nodes ensuring the continued efficient use of hardware resources.
 
 To give you can example say you start with a 5 node cluster and a service configured to have 10 partitions and a target of three replicas. In this case Service Fabric would balance and distribute the replicas across the cluster and you would end up with 2 primary [replicas](service-fabric-availability-services.md) per node.
 If you now need to scale out our cluster to 10 nodes Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise if you scaled back to 5 nodes, Service Fabric would rebalance all the replicas across the 5 nodes.  
@@ -42,23 +43,25 @@ Figure 2 shows the distribution of 10 partitions before and after scaling the cl
 
 ![Stateful Service](./media/service-fabric-concepts-partitioning/scaledcluster.png)
 
+As a result the scale out is achieved since requests from clients are distributed across machines, the overall performance of the application is improved, and contention on access to chunks of data is reduced.
+
 ## Planning for partitioning
 Before implementing a service you should always consider the partitioning strategy required to scale out. There are different ways, but all of them focus what the application needs to achieve. For the context of this article let's consider some of the more important aspects.
 
 A good approach is to think about the structure of the state that needs to be partitioned as the first step.
 
-Let's take a simple example. If you were to build a service for a county wide poll you could create a partition for each city in the county and then store the votes for every person in the city in the partition corresponding to that city. Figure 3 illustrates this by showing the distribution for people to a view cities.
+Let's take a simple example. If you were to build a service for a county wide poll you could create a partition for each city in the county and then store the votes for every person in the city in the partition corresponding to that city. Figure 3 illustrates a set of people and the city in which they reside.
 
-![Simple partition](./media/service-fabric-concepts-partitioning/citydistribution.png)
+![Simple partition](./media/service-fabric-concepts-partitioning/cities.png)
 
-As the population of cities varies widely you may end up with some partitions that contain lots of state (e.g. Seattle) and other partitions with very little state (e.g. Kirkland). So what is the impact of having partitions with uneven amounts of state?
+As the population of cities varies widely you may end up with some partitions that contain lots of data (e.g. Seattle) and other partitions with very little state (e.g. Kirkland). So what is the impact of having partitions with uneven amounts of state?
 
 If you think about the example again you can easily see that the partition that holds the votes for Seattle will get more traffic than the Kirkland one. By default Service Fabric makes sure that there is about the same number of primaries and secondary replicas on each node, so you may end up with nodes that hold replicas that serve more traffic and others that serve less traffic. You would preferably want to avoid hot and cold spots like this in a cluster.
 
 In order to avoid this you should do two things from a partitioning point of view:
 
 - Try to partition the state so that it is evenly distributed across all partitions.
-- [Report load from each of the replicas for the service (add topic)](). Service Fabric provides the capability to report load, such as amount of memory or number of records, on a service. Based on the load reported Service Fabric detects that some partitions are serving higher loads than others and hence balances the cluster by moving replicas more suitable nodes.
+- [Report metrics from each of the replicas for the service](service-fabric-reliable-services-advanced-usage.md). Service Fabric provides the capability to report metrics, such as amount of memory or number of records, on a service. Based on the metrics reported Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas more suitable nodes.
 
 Sometimes you cannot know how much data we will be in a given partition, and so a general recommendation is to do both, first by adopting a partitioning strategy that spreads the data evenly across the partitions and secondly by reporting load.  The first method prevents situations described in the voting example, while the second helps smooth out temporary differences in access or load over time.
 
@@ -66,18 +69,17 @@ Another aspect of partition planning is to choose the correct number of partitio
 From a Service Fabric perspective there is nothing preventing you from starting out with a higher number of partitions than anticipated for your scenario.
 In fact assuming the maximum number of partitions is a valid approach.
 
-In rare cases you may end up needing more partitions than you have initially chosen. As you cannot change the partition count after the fact you would need to apply some advanced partition approaches such as creating a new service instance of the same service type and implement some logic that routes the requests between the two service instances based on a hash.
+In rare cases you may end up needing more partitions than you have initially chosen. As you cannot change the partition count after the fact you would need to apply some advanced partition approaches such as creating a new service instance of the same service type and implement some client-side logic that routes the requests to the correct service instance based on client-side knowledge that your client code must maintain.
 
 Another consideration for partitioning planning is the available machine resources. As the state needs to be accessed and stored you are bound to following:
 
-- Estimated level on concurrent partition activity
 - Limits of network bandwidth
 - Limits of system memory
 - Limits of disk storage
 
-So what happens if run into resource constraints in a running cluster? The answer is that you can simply scale out our cluster to accommodate the new requirements.
+So what happens if you run into resource constraints in a running cluster? The answer is that you can simply scale out our cluster to accommodate the new requirements.
 
-[The capacity planning guide](manisdoc.md) offers sample calculations for how many partitions you can fit on node based on some input parameters.
+[The capacity planning guide](manisdoc.md) offers guidance for how to determine how many nodes your cluster needs.
 
 ## How to partition
 This section describes how to get started with partitioning your service.
@@ -91,7 +93,7 @@ Firstly Service Fabric has a choice of three partition schemes.
 Named and Singleton partitioning schemes are special forms of ranged partitions. By default the Visual Studio templates for Service Fabric use ranged partitioning as it is the most common and useful one. The remainder of this article focuses on the ranged partitioning scheme.
 
 ### Ranged partitioning scheme
-This is used to specify an integer range (identified by a low and a high key) and a number of partitions (n). It creates n partitions, each responsible for a non-overlapping subrange of the overall partition key range. For example: A ranged partitioning scheme (for a service with three replicas) with a low key of 0, a high key of 99 and a count of 4 would create 4 partitions as shown below.
+This is used to specify an integer range (identified by a low and a high key) and a number of partitions (n). It creates n partitions, each responsible for a non-overlapping subrange of the overall partition key range. For example: A ranged partitioning scheme with a low key of 0, a high key of 99 and a count of 4 would create 4 partitions as shown below.
 
 ![Range Partitioning](./media/service-fabric-concepts-partitioning/range-partitioning.png)
 
@@ -120,8 +122,8 @@ As we literally want to have one partition per letter we can use 0 as the low ke
 2. In the New Project dialog choose Service Fabric application
 3. Call the project AlphabetPartitions
 4. In the Create a Service dialog choose Stateful Service and call it Alphabet.Processing as shown in the image below.
-![alphabetstateful](./media/service-fabric-concepts-partitioning/alphabetstateful.png)
-5. Next set the number of partitions. Open the ApplicationManifest.xml in the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
+![alphabetstateful](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+5. Set the number of partitions. Open the ApplicationManifest.xml in the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
@@ -223,7 +225,7 @@ The listening URL is given to HttpListener. The published URL is the URL that is
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key and sends it to the Alphabet.Processing service for processing.
 11. In the Create a Service dialog choose Stateless service and call it Alphabet.WebApi as shown below.
-![alphabetstateless](./media/service-fabric-concepts-partitioning/alphabetstateless.png).
+![alphabetstateless](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
 12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below
 
     ```xml
