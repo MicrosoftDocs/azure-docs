@@ -19,12 +19,12 @@
 
 # Create an Azure Search index using a REST API
 > [AZURE.SELECTOR]
-- [Indexes in Azure Search](search-what-is-an-index.md)
-- [Create an Azure Search index in the portal](search-create-index-portal.md)
-- [Create an Azure Search index using.NET](search-create-index-dotnet.md)
-- [Create an Azure Search index using REST APIs](search-create-index-rest-api.md)
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
-This article shows you how to create an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Some of the content below is from [Create Index (Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Refer to the parent article for more context.
+This article shows you how to create an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Some of the content below is from [Create Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx). Refer to the parent article for more context.
 
 Prerequisites to creating an index include having previously established a connection to your search service, typically done via an 'httpClient'. 
 

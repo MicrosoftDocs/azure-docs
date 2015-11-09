@@ -19,10 +19,10 @@
 
 # Indexes in Azure Search
 > [AZURE.SELECTOR]
-- [Indexes in Azure Search](search-what-is-an-index.md)
-- [Create an Azure Search index in the portal](search-create-index-portal.md)
-- [Create an Azure Search index using.NET](search-create-index-dotnet.md)
-- [Create an Azure Search index using REST APIs](search-create-index-rest-api.md)
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
 Azure Search is a hosted cloud search service that provides a search engine, advanced search functionality, and search application data storage. Whether you develop applications for the web or applications that run on site, you can use Azure Search to provide full-text search, multi-language search, and controlled search that is responsive to user context through recommendations or history (currently a code-based implementation), or business goals that boost search rankings based on criteria you provide.
 
