@@ -20,13 +20,13 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application backend. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and how to access them from devices and cloud components.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and how to access them from devices and cloud components.
 
 This tutorial builds on the code presented in [Get started with IoT Hub] to present two patterns for processing device-to-cloud messages.
 
 The first pattern is reliable storage of device-to-cloud messages in [Azure Blobs]. This scenario is very common when implementing *cold path* analytics, where data stored in blobs is used as input to analytics driven by tools such as [Azure Data Factory] or the [Hadoop] stack.
 
-The second pattern is reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are called *interactive* when they are immediate triggers for a set of actions in the application backend, as opposed to a *data point* message that is fed into an analytics engine. For instance, an alarm coming from a device that has to trigger the insertion of a ticket in a CRM system is an *interactive* device-to-cloud message, as opposed to a telemetry message containing temperature samples, which is a *data point* message.
+The second pattern is reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are called *interactive* when they are immediate triggers for a set of actions in the application back end, as opposed to a *data point* message that is fed into an analytics engine. For instance, an alarm coming from a device that has to trigger the insertion of a ticket in a CRM system is an *interactive* device-to-cloud message, as opposed to a telemetry message containing temperature samples, which is a *data point* message.
 
 Since IoT Hub exposes a Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses [EventProcessorHost] to host an event processor class, which:
 

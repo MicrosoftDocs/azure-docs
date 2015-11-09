@@ -59,7 +59,7 @@ An IoT hub receives telemetry data from the coolers at a single end-point and ma
 
 The IoT hub exposes the telemetry data it receives through a consumer group end-point.
 
-The IoT Hub instance in this preconfigured solution corresponds to the **IoT backend application** in a typical IoT solution architecture.
+The IoT Hub instance in this preconfigured solution corresponds to the **IoT back end application** in a typical IoT solution architecture.
 
 ### Azure Stream Analytics
 
