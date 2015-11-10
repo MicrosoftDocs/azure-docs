@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/09/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ The latest information about resource limits for SQL Database is documented at:<
 A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For instance:
 
 
-- [Common Language Runtime (CLR) assemblies](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 - [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Change tracking](http://msdn.microsoft.com/library/bb933875.aspx)

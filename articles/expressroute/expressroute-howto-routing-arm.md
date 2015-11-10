@@ -3,8 +3,8 @@
    description="This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,23 +13,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/05/2015"
+   ms.author="cherylmc"/>
 
-# Create and modify ExpressRoute routing configuration
+# Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the ARM deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an  ExpressRoute circuit.
+This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit.
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
 ## Configuration prerequisites
 
-- You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
+- You will need the latest version of the Azure PowerShell modules, version 1.0 or later. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
@@ -41,11 +40,11 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 
 This section provides instructions on how to create, get, update, and delete the Azure private peering configuration for an ExpressRoute circuit. 
 
-### Create Azure private peering
+### To create Azure private peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
- 	You must install the latest Powershell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+ 	You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
 	    Install-Module AzureRM
 
@@ -55,7 +54,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 		Import-AzureRM
 
-	You can aslo just import a select modeule within the known semantic version range 
+	You can also just import a select module within the known semantic version range 
 		
 		Import-Module AzureRM.Network 
 
@@ -69,7 +68,9 @@ This section provides instructions on how to create, get, update, and delete the
 
 2. **Create an ExpressRoute circuit.**
 	
-	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. **If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections.** However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below. 
+	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. 
+
+	If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below. 
 
 3. **Check the ExpressRoute circuit to ensure it is provisioned.**
 
@@ -126,7 +127,7 @@ This section provides instructions on how to create, get, update, and delete the
 
 	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN, not customer ASN.
 
-### Get Azure private peering details
+### To get Azure private peering details
 
 You can get configuration details using the following cmdlet
 
@@ -135,7 +136,7 @@ You can get configuration details using the following cmdlet
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
 
 
-### Update Azure private peering configuration
+### To update Azure private peering configuration
 
 You can update any part of the configuration using the following cmdlet. In the example below, the VLAN ID of the circuit is being updated from 100 to 500.
 
@@ -144,24 +145,26 @@ You can update any part of the configuration using the following cmdlet. In the 
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Delete Azure private peering
+### To delete Azure private peering
 
 You can remove your peering configuration by running the following cmdlet.
+
+>[AZURE.WARNING] You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
 
 	Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
->[AZURE.IMPORTANT] You must ensure that all virtual networks are unlinked from the ExpressRoute circuit before running this cmdlet. 
+
 
 ## Azure public peering
 
 This section provides instructions on how to create, get, update and delete the Azure public peering configuration for an ExpressRoute circuit.
 
-### Create Azure public peering
+### To create Azure public peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
- 	You must install the latest Powershell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+ 	You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
 	    Install-Module AzureRM
 
@@ -171,7 +174,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 		Import-AzureRM
 
-	You can aslo just import a select modeule within the known semantic version range 
+	You can also just import a select module within the known semantic version range 
 		
 		Import-Module AzureRM.Network 
 
@@ -185,7 +188,9 @@ This section provides instructions on how to create, get, update and delete the 
 
 2. **Create an ExpressRoute circuit**
 	
-	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. **If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections.** However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
+	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. 
+
+	If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 
 3. **Check ExpressRoute circuit to ensure it is provisioned**
 
@@ -242,7 +247,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 	>[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
 
-### Get Azure public peering details
+### To get Azure public peering details
 
 You can get configuration details using the following cmdlet
 
@@ -251,7 +256,7 @@ You can get configuration details using the following cmdlet
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 
-### Update Azure public peering configuration
+### To update Azure public peering configuration
 
 You can update any part of the configuration using the following cmdlet
 
@@ -261,7 +266,7 @@ You can update any part of the configuration using the following cmdlet
 
 The VLAN ID of the circuit is being updated from 200 to 600 in the above example.
 
-### Delete Azure public peering
+### To delete Azure public peering
 
 You can remove your peering configuration by running the following cmdlet
 
@@ -272,11 +277,11 @@ You can remove your peering configuration by running the following cmdlet
 
 This section provides instructions on how to create, get, update and delete the Microsoft peering configuration for an ExpressRoute circuit. 
 
-### Create Microsoft peering
+### To create Microsoft peering
 
 1. **Import the PowerShell module for ExpressRoute.**
 	
- 	You must install the latest Powershell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
+ 	You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
 	    Install-Module AzureRM
 
@@ -286,7 +291,7 @@ This section provides instructions on how to create, get, update and delete the 
 
 		Import-AzureRM
 
-	You can aslo just import a select modeule within the known semantic version range 
+	You can also just import a select module within the known semantic version range 
 		
 		Import-Module AzureRM.Network 
 
@@ -300,7 +305,9 @@ This section provides instructions on how to create, get, update and delete the 
 
 2. **Create an ExpressRoute circuit**
 	
-	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. **If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections.** However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
+	Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have it provisioned by the connectivity provider. 
+
+	If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 
 3. **Check ExpressRoute circuit to ensure it is provisioned**
 
@@ -344,14 +351,14 @@ This section provides instructions on how to create, get, update and delete the 
 	- Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
 	- A MD5 hash, if you choose to use one. **This is optional.**
 	
-	You can run the following cmdlet to configure Microsoft pering for your circuit
+	You can run the following cmdlet to configure Microsoft peering for your circuit
 
 		Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MircosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MircosoftConfigCustomerAsn 23 -MircosoftConfigRoutingRegistryName "ARIN"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Get Microsoft peering details
+### To get Microsoft peering details
 
 You can get configuration details using the following cmdlet.
 
@@ -360,7 +367,7 @@ You can get configuration details using the following cmdlet.
 		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -Circuit $ckt
 
 
-### Update Microsoft peering configuration
+### To update Microsoft peering configuration
 
 You can update any part of the configuration using the following cmdlet.
 
@@ -369,7 +376,7 @@ You can update any part of the configuration using the following cmdlet.
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 		
 
-### Delete Microsoft peering
+### To delete Microsoft peering
 
 You can remove your peering configuration by running the following cmdlet.
 
@@ -379,7 +386,12 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
--  Next, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
--  For more information about workflows, see [ExpressRoute workflows](expressroute-workflows.md).
+Next step, link a VNet to an ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
+
+
+-  For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
+
 -  For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
+
+-  For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks-overview.md).
 

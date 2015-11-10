@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure"
+	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure | Hosted cloud search service"
 	description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
 	services="search"
 	documentationCenter=""
