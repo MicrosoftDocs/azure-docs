@@ -38,7 +38,7 @@
 
 [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Create and manage a Windows-based virtual machine by using Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
+[Create Windows virtual machines with Powershell and the classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Creating a custom VM running Linux by using the Azure Command-Line Interface (Azure CLI)](virtual-machines-linux-create-custom.md)
 

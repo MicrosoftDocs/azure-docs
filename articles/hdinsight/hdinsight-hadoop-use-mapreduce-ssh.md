@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Use MapReduce with Hadoop on HDInsight with SSH
@@ -72,7 +72,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 3. When the job completes, use the following command to list the output files that are stored at **wasb://example/data/WordCountOutput**:
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+		hdfs dfs -ls wasb:///example/data/WordCountOutput
 
 	This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
 
@@ -80,7 +80,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 4. To view the output, use the following command:
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
 	This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occured. The following is an example of the data that will be contained in the file:
 

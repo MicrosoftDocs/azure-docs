@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction to Azure Search | Microsoft Azure" 
+	pageTitle="Introduction to Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Learn how Azure Search, a hosted cloud search service, can help you build rich search applications." 
 	editor="monicar" 
 	manager="mblythe" 

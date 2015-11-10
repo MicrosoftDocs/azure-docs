@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure"
+	pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Use Chrome Postman with Azure Search, a hosted cloud search service. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
 	services="search"
 	documentationCenter=""

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure"
+	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure | Hosted cloud search service"
 	description="Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK."
 	services="search"
 	documentationCenter=""
