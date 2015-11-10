@@ -94,7 +94,7 @@ The following example shows how to use Azure CLI to generate a SAS token that gr
 
 2. Next, type the following command in Azure CLI to get the connection string for your account:
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. Create an environment variable with the connection string that you just generated:
 

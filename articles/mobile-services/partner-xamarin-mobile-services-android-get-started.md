@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/05/2015" 
+	ms.date="11/05/2015" 
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Get started with Mobile Services
@@ -26,7 +26,7 @@
 
 This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service.
 
-If you prefer to watch a video, the clip below follows the same steps as this tutorial.
+If you prefer to watch a video, the clip below follows the same steps on this tutorial.
 
 Video: "Getting Started with Xamarin and Azure Mobile Services" with Craig Dunn, developer evangelist for Xamarin  (duration: 10:05 min)
 
@@ -78,7 +78,7 @@ The final stage of this tutorial is to build and run your new app.
 
 3. Press the **Run** button to build the project and start the app. You will be asked to select an emulator or a connected USB device. 
 
-	> [AZURE.NOTE] To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
+	> [AZURE.NOTE] To be able to run the project in the Android emulator, you must define at least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 4. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 

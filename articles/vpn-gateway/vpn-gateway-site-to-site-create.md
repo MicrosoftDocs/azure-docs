@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/10/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using the Azure portal
@@ -25,7 +25,7 @@
 
 This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network. This article applies to the classic deployment model. 
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+>[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
 You can select the article for the deployment model and deployment tool by using the tabs located above. For example, if you want to create a site-to-site VPN gateway connection using the Azure Resource Manager model instead of using the classic model, click the **PowerShell - Resource Manager** tab (above) to navigate to [Create a site-to-site VPN connection using Azure Resource Manager and PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
@@ -34,11 +34,12 @@ You can select the article for the deployment model and deployment tool by using
 
 Verify that you have the following items before beginning configuration.
 
-- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-- An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+- A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
+
+-  An externally-facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
+
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
->[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.	
 
 ## Create your virtual network
 
@@ -84,6 +85,8 @@ Enter the following information, and then click the checkmark on the lower right
 - **Add gateway subnet**: Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration.
 
 Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Azure portal. After the VNet has been created, you can then configure your virtual network gateway.
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Configure your virtual network gateway
 

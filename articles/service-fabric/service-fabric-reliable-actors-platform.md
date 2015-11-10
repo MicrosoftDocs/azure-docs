@@ -18,8 +18,9 @@
 
 # How Reliable Actors use the Service Fabric platform
 
-## Service Fabric application model concepts for actors
-Actors use the Service Fabric application model to manage the application lifecycle. Every Actor type is mapped to a Service Fabric [Service type](service-fabric-application-model.md#describe-a-service). The actor code is [packaged](service-fabric-application-model.md#package-an-application) as a Service Fabric application and [deployed](service-fabric-deploy-remove-applications.md#deploy-an-application) to the cluster.
+Actors use the Service Fabric application model to manage the application lifecycle. Every Actor type is mapped to a Service Fabric [service type](service-fabric-application-model.md#describe-a-service). The actor code is [packaged](service-fabric-application-model.md#package-an-application) as a Service Fabric application and [deployed](service-fabric-deploy-remove-applications.md#deploy-an-application) to the cluster.
+
+## Example application model concept for actors
 
 Let's take the example of an actor project [created using Visual Studio](service-fabric-reliable-actors-get-started.md), to illustrate some of the above concepts.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="andrela"/>
 
 
@@ -38,7 +38,7 @@ After your machine is configured with FreeTDS, install Ruby if you do not alread
 
 If you have any issues with signatures, run the following command.
 
-    command curl -sSL https://rvm.io/mpapis.asc | gph --import - 
+    command curl -sSL https://rvm.io/mpapis.asc | gpg --import - 
 
 If there are no issues with signatures, run the following commands.  
 

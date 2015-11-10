@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
-	ms.author="stepsic"/>
+	ms.date="10/15/2015"
+	ms.author="stepsic"/> 
 	
 # Use Logic Apps features
 
@@ -29,7 +29,7 @@ Before you complete this topic, you should complete the steps in [Create a new l
 
 ## Reference material
 
-You may find the follow documents useful:
+You may find the following documents useful:
 
 - [Management and runtime REST APIs](https://msdn.microsoft.com/library/azure/dn948513.aspx) - including how to invoke Logic apps directly
 - [Language reference](https://msdn.microsoft.com/library/azure/dn948512.aspx) - a comprehensive list of all supported functions/expressions
