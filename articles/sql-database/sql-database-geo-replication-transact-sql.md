@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Azure"
-    description="Configure Geo-Replication for Azure SQL Database using Transact-SQL"
+    pageTitle="Configure geo-replication for Azure SQL Database with Transact-SQL | Microsoft Azure"
+    description="Configure geo-replication for Azure SQL Database using Transact-SQL"
     services="sql-database"
     documentationCenter=""
     authors="carlrabeler"
@@ -16,7 +16,7 @@
     ms.date="11/10/2015"
     ms.author="carlrab"/>
 
-# Configure Geo-Replication for Azure SQL Database with Transact-SQL
+# Configure geo-replication for Azure SQL Database with Transact-SQL
 
 
 
@@ -240,7 +240,7 @@ Use the following steps to forcibly remove geo-replicated secondary from a geo-r
 
 4. Click **Execute** to run the query.
 
-## Monitor Geo-Replication configuration and health
+## Monitor geo-replication configuration and health
 
 Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  You can use the **sys.dm_geo_replication_links** dynamic management view in the master database to return information about all exiting replication links for each database on the Azure SQL Database logical server. This view contains a row for each of the replication link between primary and secondary databases. You can use the **sys.dm_replication_status** dynamic management view to return a row for each Azure SQL Database that is currently engaged in a replication replication link. This includes both primary and secondary databases. If more than one continuous replication link exists for a given primary database, this table contains a row for each of the relationships. The view is created in all databases, including the logical master. However, querying this view in the logical master returns an empty set. You can use the **sys.dm_operation_status** dynamic management view to show the status for all database operations including the status of the replication links. For more information, see [sys.dm_geo_replication_links (Azure SQL Database)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Azure SQL Database)](https://msdn.microsoft.com/library/mt575504.aspx), and [sys.dm_operation_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx).
 
@@ -277,6 +277,6 @@ Use the following steps to monitor a geo-replication partnership.
 ## Additional resources
 
 - [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
-- [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
