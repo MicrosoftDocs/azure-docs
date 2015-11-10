@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="11/10/2015"
    ms.author="hegate"/>
 
 
@@ -106,7 +106,7 @@ Now choose which language would you like to use to continue your sample. In this
 
 8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
 
-8. Now go to the Command and control [section](#command) to learn how to change the temperature on your device from the remote monitoring solution.
+8. Now go to the [Command and control](#command) section to learn how to change the temperature on your device from the remote monitoring solution.
 
 
 ### Running your device on Windows
@@ -150,10 +150,7 @@ Now choose which language would you like to use to continue your sample. In this
 
 8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
 
-8. Now go to the Command and control [section](#command) to learn how to change the temperature on your device from the remote monitoring solution.
-
-
-8. Now go to the Command and control section to learn how to change the temperature on your device from the remote monitoring solution.
+8. Now go to the [Command and control](#command) section to learn how to change the temperature on your device from the remote monitoring solution.
 
 ### Running your device on mbed
 
@@ -236,7 +233,7 @@ The program starts executing. You may have to reset the board (press CTRL+Break 
 
 8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
 
-8. Now go to the Command and control [section](#command) to learn how to change the temperature on your device from the remote monitoring solution.
+8. Now go to the [Command and control](#command) section to learn how to change the temperature on your device from the remote monitoring solution.
 
 
 
