@@ -38,8 +38,9 @@ The following procedure will walk you through the steps to create a secure point
 
 A point-to-site connection requires a virtual network with a dynamic routing gateway. The following steps will walk you through the following:
 
-1. Create a virtual network
-1. Create a dynamic routing gateway
+Step 1 - Create a virtual network
+
+Step 2 - Create a dynamic routing gateway
 
 ### Step 1 - Create a virtual network
 
@@ -76,10 +77,13 @@ Certificates are used to authenticate VPN clients for point-to-site VPNs. Previo
 If you want to use a self-signed certificate, the steps below will walk you through the process. If you are planning to use an enterprise certificate solution, the steps within each section will be different, but you'll still need to do the following:
 
 
-1. Identify or generate a root certificate
-1. Upload the root certificate .cer file to Azure
-1. Generate a client certificate
-1. Export and install the client certificate
+Step 1 - Identify or generate a root certificate
+
+Step 2 - Upload the root certificate .cer file to Azure
+
+Step 3 - Generate a client certificate
+
+Step 4 - Export and install the client certificate
 
 
 ### Step 1 - Identify or generate a root certificate
@@ -129,9 +133,11 @@ To connect to the virtual network, you'll also need to configure your VPN client
 
 To configure your VPN client, do the following, in order:
 
-1. Create the VPN client configuration package.
-2. Install the VPN configuration package on the client and start the connection.
-3. Verify the connection.
+Step 1 - Create the VPN client configuration package.
+
+Step 2 - Install the VPN configuration package on the client and start the connection.
+
+Step 3 - Verify the connection.
 
 ### Step 1 - Create the VPN client configuration package
 
