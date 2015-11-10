@@ -92,7 +92,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 
 The following figure has an example of a high-level view of identity synchronization process. 
 
-![](./media/active-directory/hybrid-id-design-considerations/identitysync.png)
+![](./media/hybrid-id-design-considerations/identitysync.png)
 Identity synchronization process
 
 Review the following table to compare the synchronization options:

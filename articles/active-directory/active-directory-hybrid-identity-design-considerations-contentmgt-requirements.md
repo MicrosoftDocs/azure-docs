@@ -19,7 +19,8 @@
 # Determine content management requirements
 Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](http://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has his own device he might have also multiple credentials that will be alternating according to the application that he uses. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure his privacy and increase the protection against data leakage. Your identity solution will be leverage by different technical controls in order to provide content management as shown in the figure below:
  
-![](./media/active-directory/hybrid-id-design-considerations/securitycontrols.png)
+![](./media/hybrid-id-design-considerations/securitycontrols.png)
+
 Security controls that will be leveraging your identity management system
 
 In general, content management requirements will leverage your identity management system in the following areas:

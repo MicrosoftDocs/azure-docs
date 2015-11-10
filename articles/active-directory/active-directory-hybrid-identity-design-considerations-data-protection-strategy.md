@@ -103,7 +103,7 @@ It is important to mention that Azure AD does not have Group Policy as AD DS has
 
 Once the user is authenticated using Azure AD, it is important to evaluate the level of access that the user will have it. The level of access that the user will have over a resource can vary, while Azure AD can add an additional security layer by controlling access to some resources, you must also keep in mind that the resource itself can also have its own access control list separately, such as the access control for files located in a File Server. The figure below summarizes the levels of access control that you can have in a hybrid scenario:
 
-![](./media/active-directory/hybrid-id-design-considerations/accesscontrol.png)
+![](./media/hybrid-id-design-considerations/accesscontrol.png)
 
 
 Each interaction in the diagram showed in Figure X represents one access control scenario that can be covered by Azure AD. Below you have a description of each scenario:

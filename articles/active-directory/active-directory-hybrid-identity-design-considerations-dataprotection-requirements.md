@@ -18,9 +18,10 @@
 
 #Plan for enhancing data security through strong identity solution
 The first step to protect the data is identify who can access that data and as part of this process you need to have an identity solution that can integrates with your system to provide authentication and authorization capabilities. Authentication and authorization are often confused with each other and their roles misunderstood. In reality they are quite different, as shown in the figure below:
-![](./media/active-directory/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
+
+![](./media/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
  
-Mobile device management lifecycle stages
+**Mobile device management lifecycle stages**
 
 When planning your hybrid identity solution you must understand the data protection requirements for your business and which options are available to best fulfil these requirements.
  
@@ -34,10 +35,11 @@ However, there are some security aspects that should be explored and validated, 
 
 ## Data protection paths
 
-![](./media/active-directory/hybrid-id-design-considerations/data-protection-paths.png)
+![](./media/hybrid-id-design-considerations/data-protection-paths.png)
  
-Data protection paths
-In the diagram showed in Figure X, the identity component will be the first one to be verified before data is accessed. However, this data can be in different states during the time it was accessed. Each number on this diagram represents a path in which data can be located at some point in time. These numbers are explained below:
+**Data protection paths**
+
+In the above diagram, the identity component will be the first one to be verified before data is accessed. However, this data can be in different states during the time it was accessed. Each number on this diagram represents a path in which data can be located at some point in time. These numbers are explained below:
 
 1. Data protection at the device level.
 2. Data protection while in transit.
