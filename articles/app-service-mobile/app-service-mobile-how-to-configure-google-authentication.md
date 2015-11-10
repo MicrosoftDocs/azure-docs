@@ -56,7 +56,7 @@ To complete the procedure in this topic, you must have a Google account that has
 	The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
 
-## <a name="secrets"> </a>Add Google information to your Mobile App
+## <a name="secrets"> </a>Add Google information to your application
 
 	> [AZURE.NOTE]
 	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.

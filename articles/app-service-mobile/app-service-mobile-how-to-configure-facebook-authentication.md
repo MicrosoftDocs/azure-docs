@@ -65,7 +65,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 12. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **Status & Review** in the left navigation bar. Then click **Yes** to enable general public access.
 
 
-## <a name="secrets"> </a>Add Facebook information to your Mobile App
+## <a name="secrets"> </a>Add Facebook information to your application
 
 	> [AZURE.NOTE]
 	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
