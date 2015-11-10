@@ -18,27 +18,22 @@
 
 # SQL Database FAQ
 
-## How does the usage of single Basic, Standard or Premium databases show up on my bill? 
-With Basic, Standard and Premium, you are billed on a flat, predictable daily rate based on the edition and performance level. Actual usage is computed and pro-rated hourly, so your bill might show fractions of a day. For example, if a database exists for 12 hours in a month, your bill will show usage of 0.5 days and and you will be charged for that. Additionally, service tiers and performance level are broken out in the bill to make it easier to see the number of database days you incurred in a single month for each.
+## How does the usage of SQL Database show up on my bill? 
+SQL Databasee bills on a predictable hourly rate based on either the service tier + performance level or elastic database pool size. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill will show usage of 0.5 days. Additionally, service tiers and performance level and elastic database eDTUs are broken out in the bill to make it easier to see the number of database days you incurred in a single month for each.
 
 ## What if a single database is active for less than an hour or uses a higher service tier for less than an hour?
-You are billed for each hour a database exists using the highest rate that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a database and delete it 5 minutes later your bill will reflect a charge for 1 database hour. 
+You are billed for each hour a database exists using the highest performance level or eDTU pool size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a database and delete it 5 minutes later your bill will reflect a charge for 1 database hour. 
 
 Examples
 	
 - If you create a Basic database and then immediately upgrade it to Standard S1, you are charged at the Standard S1 rate for the first hour.
 
-- If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:00 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
+- If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:35 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
 
-- If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:00 p.m., then the database will be charged at the Premium rate through 2:00 p.m. when the downgrade is complete, and will then be charged at the Standard or Basic rates.
+- If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database will be charged at the Premium rate until 3:00 p.m. when the downgrade is complete, and will then be charged at the Standard or Basic rates.
 
 ## How does the use of the auditing feature impact my bill? 
-Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. To store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
-
-## If I use Automated Export will I be charged extra?
-EDITORIAL: DO WE EVEN HAVE THIS FEATURE ANYMORE? DO WE NEED TO MENTION IT?
-
-Automated export is used by many customers to periodically create logical backups of a database. Basic, Standard and Premium databases, which have built-in support for point-in-time restore, reduce the need to use automated export in many cases. Automated export creates copy of the database in the same service tier. This additional database exists for the duration of the export operation and is charged at the normal hourly rates while it exists. Depending on how often you export the database and the size of the database (large databases take longer to copy and export) you may significantly increase the effective cost of the database being exported.
+Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log. GUY TO CONFIRM STORAGE ACCOUNT TYPE?
 
 ## How do I figure out the right service tier and performance level for single databases and elastic databases? 
 There are a few tools available to you. 
@@ -54,15 +49,13 @@ You can change the service tier (between Basic, Standard, and Premium) or the pe
 The number of elastic DTUs allocated to a database pool can be adjusted once per day.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
-Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the database. In both cases, the database remains online and available during the move.
-
-## What does it mean to have up to 200% of your maximum provisioned database storage for backup storage? 
-Backup storage is the storage associated with your automated database backups that are used for Point-In-Time-Restore and Geo-Restore. Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you will be provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the database. In both cases, the database remains online and available during the move.  For more details see [Elastic pool reference] (https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool-reference/#latency-of-elastic-pool-operations) 
 
 ##When should I use SQL Database elastic databases vs single database? 
 Software-as-a-service (SaaS) providers often have challenges handling large numbers of databases. One architectural pattern for SaaS applications is to create one database per customer. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient, and managing many databases presents its own set of challenges. Microsoft designed the elastic database model to address this need and help you manage workloads with unpredictable resource demands across a large number of databases.
 
-
+## What does it mean to have up to 200% of your maximum provisioned database storage for backup storage? 
+Backup storage is the storage associated with your automated database backups that are used for Point-In-Time-Restore and Geo-Restore. Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you will be provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
 
 
