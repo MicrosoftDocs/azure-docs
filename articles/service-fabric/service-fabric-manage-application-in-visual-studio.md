@@ -36,6 +36,20 @@ Deploying an application combines the following steps into one simple operation.
 
 In Visual Studio, you can deploy an application by choosing Deploy Solution from the Build menu. Pressing **F5** will also deploy your application and attach the debugger to all application instances.
 
+### Preserve data between test runs
+
+Often, you test services locally by adding test data input, modifying a few code blocks, and then debugging locally again. The Visual Studio Service Fabric tooling provides a handy property called **Preserve Data on Start** to keep the data you entered in the previous session and let you use it again.
+
+### To enable the Preserve Data on Start property
+
+1. On the application project's shortcut menu, choose **Properties** (or choose the **F4** key).
+1. In the **Properties** window, set the **Preserve Data on Start** property to **Yes**.
+
+	![Set the Preserve Data on Start property][preservedata]
+
+When you run your application again, the deployment script now treats the deployment as an upgrade using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data you entered in a previous debug session.
+
+![Example of new application version with date appended][preservedate]
 
 ## Adding a service to your Service Fabric application
 
@@ -79,3 +93,5 @@ You can remove an application from your local cluster using Server Explorer.  Th
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
+[preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
+[preservedate]:./media/service-fabric-manage-application-in-visual-studio/preservedate.png

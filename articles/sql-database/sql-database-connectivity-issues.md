@@ -12,8 +12,8 @@
 	ms.workload="sql-database"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.topic="get-started-article"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -38,7 +38,7 @@ If your client program is using ADO.NET, your program is told about the transien
 ### Connection versus command
 
 
-When a transient error occurs during a connection try, the connection should be retried after delay for several seconds.
+When a transient error occurs during a connection try, the connection should be retried after delaying for several seconds.
 
 
 When a transient error occurs during an SQL query command, the command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
@@ -82,17 +82,10 @@ When your program communicates with Azure SQL Database through a 3rd party middl
 ### Interval increase between retries
 
 
-Your program should always wait at least 6-10 seconds before its first retry. Otherwise the cloud service can suddenly become flooded with requests it is not yet ready to process.
 
+We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
-If more than one retry is necessary, the interval must increase before each successive retry, up to a maximum. Two of the alternative strategies are:
-
-
-- Monotonic increase of the interval. For example, you could add another 5 seconds to each successive interval.
-
-
-- Exponential increase of the interval. For example, you could multiply each successive interval by 1.5.
-
+A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 You might also want to set a maximum number of retries before the program self-terminates.
 
@@ -312,7 +305,7 @@ Here are some Transact-SQL SELECT statements that query logs of error and other 
 
 | Query of log | Description |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | The [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, including connectivity failures related to reconfiguration, throttling, and excessive resource accumulation.<br/><br/>Ideally you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | The [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, including some that can cause transient faults or connectivity failures.<br/><br/>Ideally you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | The [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) view offers aggregated counts of event types, for additional diagnostics.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
 
 
