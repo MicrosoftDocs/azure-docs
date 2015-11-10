@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/09/2015"
+    ms.date="11/10/2015"
     ms.author="sstein"/>
 
 # Configure Geo-Replication for Azure SQL Database with PowerShell

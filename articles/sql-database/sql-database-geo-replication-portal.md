@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="11/09/2015"
+    ms.date="11/10/2015"
     ms.author="sstein"/>
 
 # Configure geo-replication for Azure SQL Database with the Azure preview portal
@@ -105,13 +105,13 @@ The operation permanently terminates the replication to the secondary database a
 
 
 
-## Initiate a failover from the primary database to the secondary database
+## Initiate a failover
 
-The secondary database can be switched to primary. It is designed for planned failover such as during disaster recovery drills. 
+The secondary database can be switched to become the primary.  
 
-1. In the [Azure preview portal](https://portal.azure.com) browse to any database in the geo-replication partnership.
+1. In the [Azure preview portal](https://portal.azure.com) browse to the primary database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
-3. In the **SECONDARIES** list select the database you want to remove from the geo-replication partnership.
+3. In the **SECONDARIES** list, select the database you want to become the new primary.
 4. Click **Failover**.
 
     ![failover][10]
@@ -122,7 +122,7 @@ The command performs the following workflow:
 
 2. Switch the primary and secondary roles of the two databases in the geo-replication partnership.  
 
-This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. 
+For planned failover, this sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. 
 
    
 
