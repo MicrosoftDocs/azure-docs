@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NIcs in the same cloud service, you will implement the back end servers in a cloud service, and all other components in another cloud service. The steps below use a cloud service named *IaaSStory* for the main resources, and *IaaSStory-BackEnd* for the back end servers.
+Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NICs in the same cloud service, you will implement the back end servers in a different cloud service than and all other components in the scenario. The steps below use a cloud service named *IaaSStory* for the main resources, and *IaaSStory-BackEnd* for the back end servers.
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ Before you can deploy the back end servers, you need to deploy the main cloud se
 
 ## Deploy the back end VMs
 
-You will need to create the following resources for the backend VMs in this scenario:
+The backend VMs depend on the creation of the resources listed below.
 
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use SSD, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
+- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
 - **NICs**. Each VM will have two NICs, one for database access, and one for management.
 - **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance. 
 
@@ -102,15 +102,15 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 4. Create the VM. Notice the usage of the `--nic-config` parameter, containing a list of all NICs with name, subnet, and IP address.
 
-    azure vm create $backendCSName $image $username $password \
-        --connect $backendCSName \
-        --vm-name $vmNamePrefix$suffixNumber \
-        --vm-size $vmSize \
-        --availability-set $avSetName \
-        --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
-        --virtual-network-name $vnetName \
-        --subnet-names $backendSubnetName \
-        --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
+		    azure vm create $backendCSName $image $username $password \
+		        --connect $backendCSName \
+		        --vm-name $vmNamePrefix$suffixNumber \
+		        --vm-size $vmSize \
+		        --availability-set $avSetName \
+		        --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
+		        --virtual-network-name $vnetName \
+		        --subnet-names $backendSubnetName \
+		        --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
 
 5. For each VM, create two data disks.
 

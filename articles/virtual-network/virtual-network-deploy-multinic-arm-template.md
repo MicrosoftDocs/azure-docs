@@ -29,12 +29,12 @@
 
 Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NIcs int he same resource group, you will implement the back end servers in a resource group, and all other components in another security group. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
 
-## Pre-requisites
+## Prerequisites
 
 Before you can deploy the back end servers, you need to deploy the main resource group with all the necessary resources for this scenario. To deploy these resources, follow the steps below.
 
-1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
-2. In the template page, to the right of **Parent resource group (see documentation)**, click **Deploy to Azure**.
+1. Navigate to [the template page](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. In the template page, to the right of **Parent resource group**, click **Deploy to Azure**.
 3. If needed, change the parameter values, then follow the steps in the Azure preview portal to deploy the resource group.
 
 > [AZURE.IMPORTANT] Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure. 
@@ -59,7 +59,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	      }
 	    },
 
-4. Scroll down to the list of variables, and check the definition for the *dbVMSetting* variables, listed below. It receives one of the array elements contained in the *dbVMSettings* variable.
+4. Scroll down to the list of variables, and check the definition for the *dbVMSetting* variables, listed below. It receives one of the array elements contained in the *dbVMSettings* variable. If you are familiar with software development terminology, you can view the *dbVMSettings* variable as a hashtable, or a dictionay.
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 

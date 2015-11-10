@@ -27,16 +27,20 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-The sample Azure PowerShell commands below can be used to create the backend subnet and multi NIC VMs used as database servers.
+Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NICs in the same cloud service, you will implement the back end servers in a different cloud service than and all other components in the scenario. The steps below use a cloud service named *IaaSStory* for the main resources, and *IaaSStory-BackEnd* for the back end servers.
+
+## Prerequisites
+
+Before you can deploy the back end servers, you need to deploy the main cloud service with all the necessary resources for this scenario. At minimum, you need to create a virtual network with a subnet for the backend. Visit [Create a virtual network by using PowerShell](virtual-networks-create-vnet-classic-ps.md) to learn how to deploy a virtual network.
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Deploy the back end VMs
 
-Since VMs with single NICs and multiple NICs cannot coexist in the same cloud service deployment, you need to create a different cloud service for the backend VMs. You also need the following resources in place to create the multiNIC VMs:
+The backend VMs depend on the creation of the resources listed below.
 
 - **Backend subnet**. The database servers will be part of a separate subnet, to segregate traffic. The script below expects this subnet to exist in a vnet named *WTestVnet*.
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use SSD, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
+- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
 - **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance. 
 
 ### Step 1 - Start you script
@@ -63,7 +67,7 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 
 ### Step 2 - Create necessary resources for your VMs
 
-You need to create a new cloud service, and a storage account for the data disks for all VMs. You also need to specify an image, and a local admin account for the VMs. To create these resources, execute the following steps.
+You need to create a new cloud service, and a storage account for the data disks for all VMs. You also need to specify an image, and a local administrator account for the VMs. To create these resources, execute the following steps.
 
 1. Create a new cloud service.
 

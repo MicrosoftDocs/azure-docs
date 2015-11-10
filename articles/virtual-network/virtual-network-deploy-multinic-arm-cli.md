@@ -27,14 +27,14 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NIcs in the same resource group, you will implement the back end servers in a resource group, and all other components in another resource group. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
+Since at this point in time you cannot have VMs with a single NIC and VMs with multiple NICs in the same resource group, you will implement the back end servers in a different resource group than all other components. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
 
 ## Prerequisites
 
 Before you can deploy the back end servers, you need to deploy the main resource group with all the necessary resources for this scenario. To deploy these resources, follow the steps below.
 
-1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
-2. In the template page, to the right of **Parent resource group (see documentation)**, click **Deploy to Azure**.
+1. Navigate to [the template page](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. In the template page, to the right of **Parent resource group**, click **Deploy to Azure**.
 3. If needed, change the parameter values, then follow the steps in the Azure preview portal to deploy the resource group.
 
 > [AZURE.IMPORTANT] Make sure your storage account names are unique. You cannot have duplicate storage account names in Azure. 
@@ -43,9 +43,9 @@ Before you can deploy the back end servers, you need to deploy the main resource
 
 ## Deploy the back end VMs
 
-Since VMs with single NICs and multiple NICs cannot coexist in the same resource group, you need to create a new resource group for the backend VMs. You also need the following resources in place to create the multiNIC VMs:
+The backend VMs depend on the creation of the resources listed below.
 
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use SSD, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
+- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
 - **NICs**. Each VM will have two NICs, one for database access, and one for management.
 - **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance. 
 
@@ -88,7 +88,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.INFO] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
+>[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
 
 4. Retrieve the id for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
 
@@ -106,7 +106,8 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 		azure storage account create $prmStorageAccountName \
 		    --resource-group $backendRGName \
-		    --location $location --type PLRS 
+		    --location $location \
+			--type PLRS 
 
 3. Create an availability set for the VMs.
 
@@ -161,7 +162,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 		        --admin-username $username \
 		        --admin-password $password
 
-5. For each VM, create two data disks.
+5. For each VM, create two data disks, and end the loop with the `done` command.
 
 		    azure vm disk attach-new --resource-group $backendRGName \
 		        --vm-name $vmNamePrefix$suffixNumber \        
