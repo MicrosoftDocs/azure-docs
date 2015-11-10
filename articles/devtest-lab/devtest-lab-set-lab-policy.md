@@ -42,21 +42,19 @@ In order to view (and change) the policies for a lab, follow these steps:
 
   1. Allowed VM Sizes - Specify the allowed size
 
-  1. [Maximum VMs](./#Define-max-VMs-per-lab-and-per-user) - 
+  1. [Maximum VMs](./#define-max-vms-per-lab-and-per-user) - 
 
   1. Auto shutdown - 
 
 
 ## Define max VMs per lab and per user
 
-1. Tap **Maximum VMs**.
+1. On the lab's **Settings** blade, under **Policies**, tap **Maximum VMs**.
 
-1. On the **Max VMs Policies** blade:
+1. To set the maximum number of VMs allowed per user, tap  **On** under **Policy per User** and - under **Maximum VMs Allowed per User** - enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
 
-	1. To set the maximum number of VMs allowed per user, tap  **On** under **Policy per User** and - under *Maximum VMs Allowed per User* - enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
-	
-	1. To set the maximum number of VMs allowed per lab, tap  **On** under **Policy per Lab** and - under *Maximum VMs Allowed per Lab* - enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
-	
-	1. Tap **Save**.
-	
-		![Settings](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
+1. To set the maximum number of VMs allowed per lab, tap  **On** under **Policy per Lab** and - under **Maximum VMs Allowed per Lab** - enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+
+1. Tap **Save**.
+
+	![Settings](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
