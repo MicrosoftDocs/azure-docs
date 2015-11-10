@@ -15,4 +15,4 @@ Resource Manager API request size|4194304 bytes|4194304 bytes
 
 <sup>2</sup>Limit can be increased by contacting support.
 
-<sup>3</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager.
+<sup>3</sup>These features are no longer required with Azure Resource Groups and the Azure Resource Manager. 
