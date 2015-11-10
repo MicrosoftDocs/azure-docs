@@ -282,12 +282,13 @@ Before deploying the extension please check the latest extension version and rep
 
 ### Azure Diagnostics
 
-Click here for an overview of [Azure Diagnostics Extension](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+Click here for more details on configuring [Azure Diagnostics Extension](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
