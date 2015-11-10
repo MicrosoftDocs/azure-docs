@@ -29,9 +29,9 @@ This article applies to point-to-site connections for virtual networks created u
 The following procedure will walk you through the steps to create a secure point-to-site connection to a virtual network. Although configuring a point-to-site connection requires multiple steps, it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. There are three main parts to configuring a point-to-site VPN: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that is used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
 
 
-1. [Create a virtual network and a VPN gateway](#create-a-virtual-network-and-a-vpn-gateway).
-2. [Generating and uploading certificates](#generate-and-upload-certificates).
-3. [Configure your VPN client](#configure-your-vpn-client).
+1. Create a virtual network and a VPN gateway
+2. Generate and upload certificates
+3. Configure your VPN client
 
 ## 1. Create a virtual network and a VPN gateway
 
