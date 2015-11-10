@@ -20,29 +20,7 @@
 # Prepare a RedHat-based Virtual Machine for Azure
 In this topic, you will learn how to prepare a RedHat-based Virtual Machine for Azure, you don't need read all of information, just choose and jump to the session for virtual machine you are using directly.
 
-##Known issues:
-There are 2 known issues when you are using RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.
 
-###Issue 1: Provision time out
-This issue you may meet during booting up with RHEL in Hyper-V and Azure，especially with RHEL 6.6 .
-
-How reproducible:
-
-Issue is intermittent. Most often reproduces on smaller VMs with a single vCPU, and more often on busier servers.
-
-
-###Issue 2: Disk I/O freeze 
-
-This issue you may meet during frequent storage disk I/O acitivities with RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.
-
-How reproducible:
-
-Issue happens in the situation of frequent disk I/O operation in Hyper-V and Azure.
-
-    
-[AZURE.NOTE] These 2 known issues actually are already fixed by RedHat, you could run below command to download and install the fix through RHEL update service after installed RHEL 6 or 7 from ISO file in RedHat website:
-
-    # sudo yum update
 
 
 ##Prepare from ISO file in RedHat website manually 
@@ -828,4 +806,26 @@ This section assumes that you have already installed an RHEL Linux operating sys
 
 7.	Wait for the installation to finish, when it’s finished, the VM will be shutdown automatically. Your Linux VHD is now ready to be uploaded to Azure.
 
+##Known issues:
+There are 2 known issues when you are using RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.
 
+###Issue 1: Provision time out
+This issue you may meet during booting up with RHEL in Hyper-V and Azure，especially with RHEL 6.6 .
+
+How reproducible:
+
+Issue is intermittent. Most often reproduces on smaller VMs with a single vCPU, and more often on busier servers.
+
+
+###Issue 2: Disk I/O freeze 
+
+This issue you may meet during frequent storage disk I/O acitivities with RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.
+
+How reproducible:
+
+Issue happens in the situation of frequent disk I/O operation in Hyper-V and Azure.
+
+    
+[AZURE.NOTE] These 2 known issues actually are already fixed by RedHat, you could run below command to download and install the fix through RHEL update service after installed RHEL 6 or 7 from ISO file in RedHat website:
+
+    # sudo yum update
