@@ -1,6 +1,6 @@
 <properties
    pageTitle="Creating an on-premises virtual machine image for the Azure Marketplace | Microsoft Azure"
-   description="Understand and execute the steps to create an on-premises virtual machine image and deploy to the Azure Marketplace for others to purchase."
+   description="Understand and execute the steps to create an on-premises VM image and deploy to the Azure Marketplace for others to purchase."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -19,7 +19,7 @@
 # Develop an on-premises virtual machine image for the Azure Marketplace
 We strongly recommend that you develop Azure virtual hard disks (VHDs) directly in the cloud by using Remote Desktop Protocol. However, if you must, it is possible to download a VHD and develop it by using on-premises infrastructure.  
 
-For on-premises development, you must download the operating system VHD of the created virtual machine. These steps would take place as part of step 3.3, above.  
+For on-premises development, you must download the operating system VHD of the created VM. These steps would take place as part of step 3.3, above.  
 
 ## Download a VHD image
 ### Locate a blob URL
@@ -27,7 +27,7 @@ In order to download the VHD, first locate the blob URL for the operating system
 
 Locate the blob URL from the new [Microsoft Azure portal](https://ms.portal.azure.com):
 
-1.	Go to **Browse** > **VMs**, and then select the deployed virtual machine.
+1.	Go to **Browse** > **VMs**, and then select the deployed VM.
 2.	Under **Configure**, select the **Disks** tile, which opens the Disks blade.
 
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img01.png)
@@ -37,7 +37,7 @@ Locate the blob URL from the new [Microsoft Azure portal](https://ms.portal.azur
 
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
 
-5.	Now, delete the deployed virtual machine without deleting the backing disks. You can also stop the virtual machine instead of deleting it. Do not download the operating system VHD when the virtual machine is running.
+5.	Now, delete the deployed VM without deleting the backing disks. You can also stop the VM instead of deleting it. Do not download the operating system VHD when the VM is running.
 
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
@@ -78,7 +78,7 @@ For example,
 > [AZURE.NOTE] **Save-AzureVhd** also has a **NumberOfThreads** option that can be used to increase parallelism to make the best use of available bandwidth for the download.
 
 ## Upload VHDs to an Azure storage account
-If you prepared your VHDs on-premises, you need to upload them into a storage account in Azure. This step takes place after creating your VHD on-premises but before obtaining certification for your virtual machine image.
+If you prepared your VHDs on-premises, you need to upload them into a storage account in Azure. This step takes place after creating your VHD on-premises but before obtaining certification for your VM image.
 
 ### Create a storage account and container
 We recommend that VHDs be uploaded into a storage account in a region in the United States. All VHDs for a single SKU should be placed in a single container within a single storage account.

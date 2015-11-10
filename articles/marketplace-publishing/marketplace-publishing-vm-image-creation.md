@@ -30,7 +30,7 @@ An offer is a "parent" to all of its SKUs. You can have multiple offers. How you
 
 - Azure preview portal: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
-A SKU is the commercial name for a virtual machine image. A virtual machine image contains one operating system disk and zero or more data disks. It is essentially the complete storage profile for a virtual machine. One VHD is needed per disk. Even blank data disks require a VHD to be created.
+A SKU is the commercial name for a VM image. A VM image contains one operating system disk and zero or more data disks. It is essentially the complete storage profile for a virtual machine. One VHD is needed per disk. Even blank data disks require a VHD to be created.
 
 Regardless of which operating system you use, add only the minimum number of data disks needed by the SKU. Customers cannot remove disks that are part of an image at the time of deployment but can always add disks during or after deployment if they need them.
 
@@ -51,18 +51,18 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 3. If you are using Windows-based SKUs, follow the suggested links to acquire the approved versions of Windows Server.
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
-This section focuses on best practices for creating a Linux-based virtual machine image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation: [Creating and uploading a virtual hard disk that contains the Linux operating system][link-azure-vm-1]
+This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation: [Creating and uploading a virtual hard disk that contains the Linux operating system][link-azure-vm-1]
 
 > [AZURE.TIP] Many of the following steps (for example, agent installation, kernel boot parameters) are already taken care of for Linux images available from the Microsoft Azure Image Gallery. Thus, starting with one of these images as a base can represent a time savings versus configuring a Linux image that is not Azure aware.
 
 ### 2.1 Choose the correct VHD size
-Published SKUs (virtual machine images) should be designed to work with all virtual machine sizes that support the number of disks for the SKU. You can provide guidance on recommended sizes, but these will be treated as recommendations and not enforced:
+Published SKUs (VM images) should be designed to work with all VM sizes that support the number of disks for the SKU. You can provide guidance on recommended sizes, but these will be treated as recommendations and not enforced:
 
-1. Linux operating system VHD: The Linux operating system VHD in your virtual machine image should be created as a 30 GB - 50 GB fixed-format VHD. It cannot be less than 30 GB. If the physical size is less than VHD size, the VHD should be sparse. Linux VHDs larger than 50 GB will be considered on a case-by-case basis. If you already have a VHD in a different format, you can use the [Convert-VHD PowerShell cmdlet to change the format][link-technet-1].
+1. Linux operating system VHD: The Linux operating system VHD in your VM image should be created as a 30 GB - 50 GB fixed-format VHD. It cannot be less than 30 GB. If the physical size is less than VHD size, the VHD should be sparse. Linux VHDs larger than 50 GB will be considered on a case-by-case basis. If you already have a VHD in a different format, you can use the [Convert-VHD PowerShell cmdlet to change the format][link-technet-1].
 2. Data disk VHD: Data disks can be as large as 1 TB. Data disk VHDs should be created as a fixed-format VHD. They should also be sparse. When deciding on the disk size, keep in mind that customers cannot resize VHDs within an image.
 
 ### 2.2 Ensure that the latest Azure Linux Agent is installed
-When preparing the operating system VHD, make sure that the latest [Azure Linux Agent][link-azure-vm-2] is installed. Using the RPM or Deb packages. The package is often named walinuxagent or WALinuxAgent, but check with your distribution to be certain. The agent provides key functions for deploying Linux IaaS deployments in Azure, such as virtual machine provisioning and networking capabilities.  
+When preparing the operating system VHD, make sure that the latest [Azure Linux Agent][link-azure-vm-2] is installed. Using the RPM or Deb packages. The package is often named walinuxagent or WALinuxAgent, but check with your distribution to be certain. The agent provides key functions for deploying Linux IaaS deployments in Azure, such as VM provisioning and networking capabilities.  
 
 Although the agent can be configured in a variety of ways, we recommend that you use a generic agent configuration to maximize compatibility. You can install the agent manually, but we strongly recommend that you use the preconfigured packages from your distribution if available.
 
@@ -96,7 +96,7 @@ This ensures that Azure Support can provide customers with serial console output
 We strongly recommend enabling SSH for the customer. If SSH Server is enabled, add the SSH keep alive to sshd config with the following option: **ClientAliveInterval 180**. Although 180 is recommended, the acceptable range is 30 through 235. Not all applications want to give customers direct SSH access to the virtual machine. If SSH is explicitly blocked, the **ClientAliveInterval** option does not need to be set.
 
 ### 2.7 Meet networking requirements
-The following are networking requirements for an Azure-compatible Linux virtual machine image:
+The following are networking requirements for an Azure-compatible Linux VM image:
 
 - In many cases, it is best to disable NetworkManager.  One exception is with systems based on CentOS 7.x (and derivatives), which should keep NetworkManager enabled.
 - Networking configuration should be controllable via the **ifup** and **ifdown** scripts. The Linux Agent may use these commands to restart networking during provisioning.
@@ -114,7 +114,7 @@ It is critical for SKUs in the Azure Marketplace to follow best practices in reg
 - Follow distribution security guidelines.
 - Avoid creating default accounts, which remain the same, across provisioning instances.
 - Clear bash history entries.
-- Include iptables (firewall) software, but do not enable any rules. This provides a seamless default experience for customers. Customers who want to use a virtual machine firewall for additional configuration can configure the iptables rules to meet their specific needs.
+- Include iptables (firewall) software, but do not enable any rules. This provides a seamless default experience for customers. Customers who want to use a VM firewall for additional configuration can configure the iptables rules to meet their specific needs.
 
 ### 2.9 Generalize the image
 All images in the Azure Marketplace must be reusable in a generic fashion, which requires stripping them of certain configuration specifics. To accomplish this in Linux, the operating system VHD must be deprovisioned.
@@ -134,15 +134,15 @@ We recommend setting the configuration file (/etc/waagent.conf) to ensure that t
 - Set Provisioning.RegenerateSshHostKeyPair to "y" in the configuration file to remove all SSH host keys.
 - Set Provisioning.DeleteRootPassword to "y" in the configuration file to remove the ‘root’ password from /etc/shadow. For documentation about the contents of the configuration file, see the “CONFIGURATION” section of the README file on the Agent Github repository page ([https://github.com/Azure/WALinuxAgent](https://github.com/Azure/WALinuxAgent) and scroll down).  
 
-At this point, you have completed generalizing of the Linux virtual machine. Turn off the virtual machine either from the Azure portal, command line, or from within the virtual machine.  When the virtual machine is off, continue at Step 3.4.
+At this point, you have completed generalizing of the Linux VM. Turn off the VM either from the Azure portal, command line, or from within the VM.  When the VM is off, continue at Step 3.4.
 
 ## 3. Create an Azure-compatible VHD (Windows-based)
 This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
 
 ### 3.1 Ensure that you are using the correct base VHDs
-The operating system VHD for your virtual machine image must be based on an Azure-approved base image that contains Windows Server or SQL Server.
+The operating system VHD for your VM image must be based on an Azure-approved base image that contains Windows Server or SQL Server.
 
-To begin, create a virtual machine from one of the following images, located at the [Microsoft Azure portal][link-azure-portal]:
+To begin, create a VM from one of the following images, located at the [Microsoft Azure portal][link-azure-portal]:
 
 - Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
 - SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
@@ -153,23 +153,23 @@ These links can also be found in the Publishing Portal under the SKU page.
 > [AZURE.TIP] If you are using the current Azure portal or PowerShell, Windows Server images published on September 8, 2014 and later are approved.
 
 
-### 3.2 Create your Windows-based virtual machine
-From the Microsoft Azure portal, you can create your virtual machine based on an approved base image in just a few simple steps. The following is an overview of the process:
+### 3.2 Create your Windows-based VM
+From the Microsoft Azure portal, you can create your VM based on an approved base image in just a few simple steps. The following is an overview of the process:
 
 1. From the base image page, select **Create Virtual Machine** to be directed to the new [Microsoft Azure portal][link-azure-portal].
 
     ![drawing][img-acom-1]
 
 2. Sign in to the portal with the Microsoft account and password for the Azure subscription you want to use.
-3. Follow the prompts to create a virtual machine by using the base image you have selected. You need to provide a host name (name of the computer), user name (registered as an administrator), and password for the virtual machine.
+3. Follow the prompts to create a VM by using the base image you have selected. You need to provide a host name (name of the computer), user name (registered as an administrator), and password for the VM.
 
     ![drawing][img-portal-vm-create]
 
-4. Select the size of the virtual machine to deploy:
+4. Select the size of the VM to deploy:
 
-    a.	If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller virtual machines.
+    a.	If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
 
-    b.	If you plan to develop the image in Azure, consider using one of the recommended virtual machine sizes for the selected image.
+    b.	If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
 
     c.	For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
 
@@ -181,7 +181,7 @@ From the Microsoft Azure portal, you can create your virtual machine based on an
 
     b.	Under **Storage Account**, you can optionally select the storage account in which the operating system VHD will be stored.
 
-    c.	Under **Resource Group**, you can optionally select the logical group in which to place the virtual machine.
+    c.	Under **Resource Group**, you can optionally select the logical group in which to place the VM.
 6. Select the **Location** for deployment:
 
     a.	If you plan to develop the VHD on-premises, the location does not matter because you will upload the image to Azure later.
@@ -190,7 +190,7 @@ From the Microsoft Azure portal, you can create your virtual machine based on an
 
     ![drawing][img-portal-vm-location]
 
-7. Click **Create**. The virtual machine starts to deploy. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
+7. Click **Create**. The VM starts to deploy. Within minutes, you will have a successful deployment and can begin to create the image for your SKU.
 
 ### 3.3 Develop your VHD in the cloud
 We strongly recommend that you develop your VHD in the cloud by using Remote Desktop Protocol (RDP). You connect to RDP with the user name and password specified during provisioning.
@@ -201,34 +201,34 @@ We strongly recommend that you develop your VHD in the cloud by using Remote Des
 **Connect via RDP using the [Microsoft Azure portal][link-azure-portal]**
 
 1. Select **Browse** > **VMs**.
-2. The Virtual machines blade opens. Ensure that the virtual machine that you want to connect with is running, and then select it from the list of deployed virtual machines.
-3. A blade opens that describes the selected virtual machine. At the top, click **Connect**.
+2. The Virtual machines blade opens. Ensure that the VM that you want to connect with is running, and then select it from the list of deployed VMs.
+3. A blade opens that describes the selected VM. At the top, click **Connect**.
 4. You are prompted to enter the user name and password that you specified during provisioning.
 
 **Connect via RDP using PowerShell**
 
-To download a remote desktop file to a local machine, use the [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]. In order to use this cmdlet, you need to know the name of the service and name of the virtual machine. If you created the virtual machine from the [Microsoft Azure portal][link-azure-portal], you can find this information under virtual machine properties:
+To download a remote desktop file to a local machine, use the [Get-AzureRemoteDesktopFile cmdlet][link-technet-2]. In order to use this cmdlet, you need to know the name of the service and name of the VM. If you created the VM from the [Microsoft Azure portal][link-azure-portal], you can find this information under VM properties:
 
 1. In the Microsoft Azure portal, select **Browse** > **VMs**.
-2. The Virtual machines blade opens. Select the virtual machine that you deployed.
-3. A blade opens that describes the selected virtual machine.
+2. The Virtual machines blade opens. Select the VM that you deployed.
+3. A blade opens that describes the selected VM.
 4. Click **Properties**.
-5. The first portion of the domain name is the service name. The host name is the virtual machine name.
+5. The first portion of the domain name is the service name. The host name is the VM name.
 
     ![drawing][img-portal-vm-rdp]
 
-6. The cmdlet to download the RDP file for the created virtual machine to the administrator's local desktop is as follows.
+6. The cmdlet to download the RDP file for the created VM to the administrator's local desktop is as follows.
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
 More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-**Configure a virtual machine and create your SKU**
+**Configure a VM and create your SKU**
 
-After the operating system VHD is downloaded, use Hyper­V and configure a virtual machine to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/library/hh846766.aspx).
+After the operating system VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### 3.4 Choose the correct VHD size
-The Windows operating system VHD in your virtual machine image should be created as a 128-GB fixed-format VHD.  
+The Windows operating system VHD in your VM image should be created as a 128-GB fixed-format VHD.  
 
 If the physical size is less than 128 GB, the VHD should be sparse. The base Windows and SQL Server images provided already meet these requirements, so do not change the format or the size of the VHD obtained.  
 
@@ -239,7 +239,7 @@ Data disks can be as large as 1 TB. When deciding on the disk size, remember tha
 The base images contain the latest patches up to their published date. Before publishing the operating system VHD you have created, ensure that Windows Update has been run and that all the latest Critical and Important security updates have been installed.
 
 ### 3.6 Perform additional configuration and schedule tasks as necessary
-If additional configuration is needed, consider using a scheduled task that runs at startup to make any final changes to the virtual machine after it has been deployed:
+If additional configuration is needed, consider using a scheduled task that runs at startup to make any final changes to the VM after it has been deployed:
 
 - It is a best practice to have the task delete itself upon successful execution.
 - No configuration should rely on drives other than drives C or D, because these are the only two drives that are always guaranteed to exist. Drive C is the operating system disk, and drive D is the temporary local disk.
@@ -254,19 +254,19 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 
   Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/).
 
-## 4. Deploy a virtual machine from your VHDs
-After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user virtual machine image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the virtual machine by providing the VHD URL.
+## 4. Deploy a VM from your VHDs
+After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user VM image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
 
-To learn more about virtual machine images, review the following blog posts:
+To learn more about VM images, review the following blog posts:
 
 - [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
-- [About virtual machine images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
+- [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### 4.1 Create a user virtual machine image
-To create a user virtual machine image from your SKU to begin deploying multiple virtual machines, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/library/azure/dn775054.aspx) to register VHDs as a virtual machine image.
+### 4.1 Create a user VM image
+To create a user VM image from your SKU to begin deploying multiple VMs, you need to use the [Create VM Image Rest API](http://msdn.microsoft.com/library/azure/dn775054.aspx) to register VHDs as a VM image.
 
-You can use the **Invoke-WebRequest** cmdlet to create a virtual machine image from PowerShell. The following PowerShell script shows how to create a virtual machine image with an operating system disk and one data disk. Note that a subscription and the PowerShell session should already be set up.
+You can use the **Invoke-WebRequest** cmdlet to create a VM image from PowerShell. The following PowerShell script shows how to create a VM image with an operating system disk and one data disk. Note that a subscription and the PowerShell session should already be set up.
 
         # Image Parameters to Specify
         $ImageName=’ENTER-YOUR-OWN-IMAGE-NAME-HERE’
@@ -315,15 +315,15 @@ You can use the **Invoke-WebRequest** cmdlet to create a virtual machine image f
         $response2.RawContent
 
 
-By running this script, you create a user virtual machine image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
+By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
 
-This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the virtual machine image has been created, you need to query for operation status. The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
+This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the VM image has been created, you need to query for operation status. The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
 
         $opId = #Fill In With Operation ID
         $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "opId"
         $response2 = Invoke‐WebRequest ‐Uri $uri2 ‐ContentType "application/xml" ‐Certificate $certificate ‐Headers $headers ‐Method GET
 
-To create a virtual machine image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
+To create a VM image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
 
         # Image Parameters to Specify
         $ImageName=’myVMImage’
@@ -373,15 +373,15 @@ To create a virtual machine image from an operating system VHD and an additional
         echo "Not Accepted"
         }
 
-By running this script, you create a user virtual machine image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
+By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage. It consists of one operating system disk and one data disk.
 
-This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the virtual machine image has been created, you need to query for operation status.  The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
+This API is an asynchronous operation and responds with a 202 "Accepted" code. In order to see whether the VM image has been created, you need to query for operation status.  The x-ms-request-id in the return response is the operation ID. This ID should be set in $opId below.
 
         $opId = #Fill In With Operation ID
         $uri2 = $SrvMngtEndPoint + "/" + $SubId + "/" + "operations" + "/" + "$opId"
         $response2 = Invoke-WebRequest -Uri $uri2 -ContentType "application/xml" Certificate $certificate -Headers $headers -Method GET
 
-To create a virtual machine image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
+To create a VM image from an operating system VHD and an additional empty data disks (you do not have the VHD for this disk created) by using the Create VM Image API, use the following script.
 
         # Image Parameters to Specify
         $ImageName=’myVMImage’
@@ -426,28 +426,28 @@ To create a virtual machine image from an operating system VHD and an additional
         { echo "Not Accepted"
         }
 
-By running this script, you create a user virtual machine image with the name you provided to the ImageName parameter, myVMImage.  It consists of one operating system disk, based on the VHD you passed, and one empty 32-GB data disk.
+By running this script, you create a user VM image with the name you provided to the ImageName parameter, myVMImage.  It consists of one operating system disk, based on the VHD you passed, and one empty 32-GB data disk.
 
-### 4.2 Deploy a virtual machine from a user virtual machine image
-To deploy a virtual machine from a user virtual machine image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
+### 4.2 Deploy a VM from a user VM image
+To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
 
-**Deploy a virtual machine from the current Azure portal**
+**Deploy a VM from the current Azure portal**
 
 1. Go to **New** > **Compute** > **Virtual machine** > **From gallery**.
 
     ![drawing][img-manage-vm-new]
 
-2. Go to **My images**, and then select the virtual machine image from which to deploy a virtual machine:
-  1. Pay close attention to which image you select, because the **My images** view lists both operating system images and virtual machine images.
-  2. Looking at the number of disks can help determine what type of image you are deploying, because the majority of virtual machine images have more than one disk. However, it is still possible to have a virtual machine image with only a single operating system disk, which would then have **Number of disks** set to 1.
+2. Go to **My images**, and then select the VM image from which to deploy a VM:
+  1. Pay close attention to which image you select, because the **My images** view lists both operating system images and VM images.
+  2. Looking at the number of disks can help determine what type of image you are deploying, because the majority of VM images have more than one disk. However, it is still possible to have a VM image with only a single operating system disk, which would then have **Number of disks** set to 1.
 
     ![drawing][img-manage-vm-select]
 
-3. Follow the virtual machine creation wizard and specify the virtual machine name, virtual machine size, location, user name, and password.
+3. Follow the VM creation wizard and specify the VM name, VM size, location, user name, and password.
 
-**Deploy a virtual machine from PowerShell**
+**Deploy a VM from PowerShell**
 
-To deploy a large virtual machine from the generalized virtual machine image just created, you can use the following cmdlets.
+To deploy a large VM from the generalized VM image just created, you can use the following cmdlets.
 
     $img = Get‐AzureVMImage ‐ImageName "myVMImage"
     $user = "user123"
@@ -455,23 +455,23 @@ To deploy a large virtual machine from the generalized virtual machine image jus
     $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
     New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
 
-## 5. Obtain certification for your virtual machine image
-The next step in preparing your virtual machine image for the Azure Marketplace is to have it certified.
+## 5. Obtain certification for your VM image
+The next step in preparing your VM image for the Azure Marketplace is to have it certified.
 
-This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your virtual machine image for certification.
+This process includes running a special certification tool, uploading the verification results to the Azure container where your VHDs reside, adding an offer, defining your SKU, and submitting your VM image for certification.
 
 ### 5.1 Download and run the Certification Test Tool for Azure Certified
-The certification tool runs on a running virtual machine, provisioned from your user virtual machine image, to ensure that the virtual machine image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
+The certification tool runs on a running VM, provisioned from your user VM image, to ensure that the VM image is compatible with Microsoft Azure. It will verify that the guidance and requirements about preparing your VHD have been met. The output of the tool is a compatibility report, which should be uploaded on the Publishing Portal while requesting certification.
 
-The certification tool can be used with both Windows and Linux virtual machines. It connects to Windows-based virtual machines via PowerShell and connects to Linux virtual machines via SSH.Net:
+The certification tool can be used with both Windows and Linux VMs. It connects to Windows-based VMs via PowerShell and connects to Linux VMs via SSH.Net:
 
 1. First, download the certification tool at the [Microsoft download site][link-msft-download].
 2. Open the certification tool, and then click the **Start New Test** button.
 3. From the **Test Information** screen, enter a name for the test run.
-4. Choose whether your virtual machine is on Linux or Windows. Depending on which you choose, select the subsequent
+4. Choose whether your VM is on Linux or Windows. Depending on which you choose, select the subsequent
 options.
 
-### **Connect the certification tool to a Linux virtual machine image**
+### **Connect the certification tool to a Linux VM image**
 
 1. Select the SSH authentication mode: password or key file.
 2. If using password-­based authentication, enter the Domain Name System (DNS) name, user name, and password.
@@ -481,14 +481,14 @@ options.
 
   ![Key file authentication of Linux VM Image][img-cert-vm-key-lnx]
 
-### **Connect the certification tool to a Windows-based virtual machine image**
+### **Connect the certification tool to a Windows-based VM image**
 
-1. Enter the fully qualified virtual machine DNS name (for example, MyVMName.Cloudapp.net).
+1. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
 2. Enter the user name and password.
 
   ![Password authentication of Windows VM Image][img-cert-vm-pswd-win]
 
-After you have selected the correct options for your Linux or Windows-based virtual machine image, select **Test Connection** to ensure
+After you have selected the correct options for your Linux or Windows-based VM image, select **Test Connection** to ensure
 that SSH.Net or PowerShell has a valid connection for testing purposes. After a connection is established, select **Next** to start the test.
 
 When the test is complete, you will receive the results (Pass/Fail/Warning) for each test element.
@@ -499,17 +499,17 @@ When the test is complete, you will receive the results (Pass/Fail/Warning) for 
 
 If any of the tests fail, your image will not be certified. If this occurs, review the requirements and make any necessary changes.
 
-After the automated test, you are asked to provide additional input on your virtual machine image via a questionnaire screen.  Complete the questions, and then select **Next**.
+After the automated test, you are asked to provide additional input on your VM image via a questionnaire screen.  Complete the questions, and then select **Next**.
 
 ![Certification Tool Questionnaire][img-cert-vm-questionnaire]
 
 ![Certification Tool Questionnaire][img-cert-vm-questionnaire-2]
 
-After you have completed the questionnaire, you can provide additional information such as SSH access information for the Linux virtual machine image and an explanation for any failed assessments. You can download the test results and log files for the executed test cases in addition to your answers to the questionnaire. Save the results in the same container as your VHDs.
+After you have completed the questionnaire, you can provide additional information such as SSH access information for the Linux VM image and an explanation for any failed assessments. You can download the test results and log files for the executed test cases in addition to your answers to the questionnaire. Save the results in the same container as your VHDs.
 
 ![Save certification test results][img-cert-vm-results]
 
-### 5.2 Get the shared access signature URI for your virtual machine images
+### 5.2 Get the shared access signature URI for your VM images
 
 During the publishing process, you specify the uniform resource identifiers (URIs) that lead to each of the VHDs you have created for your SKU. Microsoft needs access to these VHDs during the certification process. Therefore, you need to create a shared access signature URI for each VHD. This is the URI that should be entered in the
 **Images** tab in the Publishing Portal.
@@ -576,7 +576,7 @@ Instead of generating a shared access key by using code, you can also use storag
 10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
 11. Repeat these steps for each VHD in the SKU.
 
-### 5.3 Provide information about the virtual machine image and request certification in the Publishing Portal
+### 5.3 Provide information about the VM image and request certification in the Publishing Portal
 After you have created your offer and SKU, you should enter the image details associated with that SKU:
 
 1. Go to the [Publishing Portal][link-pubportal], and then sign in with your seller account.
@@ -590,7 +590,7 @@ After you have created your offer and SKU, you should enter the image details as
 6. In the **Operating system** box, describe the operating system. Consider a format such as operating system family, type, version, and updates. An example is "Windows Server Datacenter 2014 R2."
 7. Select three recommended virtual machine sizes. These are recommendations that get displayed to the customer in the Pricing tier blade in the Azure portal when they decide to purchase and deploy your image.
 
-  > [AZURE.NOTE] These are only recommendations. The customer is able to select any virtual machine size that accommodates the disks specified in your image.
+  > [AZURE.NOTE] These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.
 
 8. Enter the version. The version field encapsulates a semantic version to identify the product and its updates:
   -	Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
