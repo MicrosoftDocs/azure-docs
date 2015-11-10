@@ -37,7 +37,7 @@ This section assumes that you have already installed an RHEL Linux operating sys
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
-###RHEL 6.6
+###RHEL 6.6/6.7
 
 1.	In Hyper-V Manager, select the virtual machine.
 
@@ -214,7 +214,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 
 ##Prepare from qcow2 file in RedHat website manually 
-###RHEL 6.6
+###RHEL 6.6/6.7
 
 1.	Download the KVM image of RHEL 6.6 from Red Hat web site.
 
@@ -474,7 +474,7 @@ This section assumes that you have already installed an RHEL Linux operating sys
 
 - When creating the virtual hard disk, select **Store virtual disk as a single file**.
 
-###RHEL 6.6
+###RHEL 6.6/6.7
 1.	Uninstall NetworkManager by running the following command:
 
          # sudo rpm -e --nodeps NetworkManager
