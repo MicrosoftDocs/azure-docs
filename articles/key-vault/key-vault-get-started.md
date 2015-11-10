@@ -65,11 +65,11 @@ In the pop-up browser window, enter your Azure account user name and password. A
 
 If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
 
-    Get-AzureRmSubscription
+    Get-AzureRmContext
 
 Then, to specify the subscription to use, type:
 
-    Select-AzureRmSubscription -SubscriptionName <subscription name>
+    Set-AzureRmContext -SubscriptionName <subscription name>
 
 For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
