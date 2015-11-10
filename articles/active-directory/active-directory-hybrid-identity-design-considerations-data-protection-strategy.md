@@ -14,6 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="11/06/2015"
+	ms.author="femila"/>
 
 
 # Define Data Protection Strategy 
@@ -77,8 +78,6 @@ Depending on how you answered the questions in Task 2, you should be able to det
 | Centralized in the cloud (Azure RMS)                                                     | Easier to manage compared to the on-premises solution <br> Can be integrated with AD DS in a hybrid scenario <br>  Fully integrated with Azure AD <br> Doesn’t require a server on-premises in order to deploy the service <br> Supports on-premises Microsoft server products such as Exchange Server, SharePoint,Server, and file servers that run Windows Server and File Classification,Infrastructure (FCI) <br> IT,can have complete control over their tenant’s key with BYOK capability.                                                                                    | Your organization must have a cloud subscription that supports RMS <br> Your organization must have an Azure AD directory to support user authentication for RMS                                                                                  |
 | Hybrid (Azure RMS integrated with,On-Premises Active Directory Rights Management Server) | This scenario accumulates the advantages of both, centralized on-premises and in the cloud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Your organization must have a cloud subscription that supports RMS <br> Your organization must have an Azure AD directory to support user authentication for RMS, <br> Requires a connection between Azure cloud service and on-premises infrastructure |
 
-
-
 ## Define access control options
 By leveraging the authentication, authorization and access control capabilities available in Azure AD you will be able to enable your company to use a central identity repository while allowing users and partners to use single sign-on (SSO) as shown in the figure below:
 
@@ -116,8 +115,8 @@ Each interaction in the diagram showed in Figure X represents one access control
  - Leverage built in roles in Azure: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs. 
  - Granular access to resources: You can assign roles to users and groups for a particular subscription, resource  group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
 
-       >[AZURE.NOTE]
-       Read [Role-based access control in Azure Preview portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
+ >[AZURE.NOTE]
+  Read [Role-based access control in Azure Preview portal](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) to know more details about this capability. For developers that are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
 
 3. Conditional Access for Office 365 applications with Microsoft Intune:  IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing information workers on compliant devices to access the services. For more information, see [Conditional Access Device Policies for Office 365 services](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-device-policies/?rnd=1).
 
