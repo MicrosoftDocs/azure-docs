@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/15/2015"
+	ms.date="11/06/2015"
 	ms.author="juliako"/>
 
 
@@ -436,15 +436,49 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		        {
 		            // The following code configures PlayReady License Template using .NET classes
 		            // and returns the XML string.
-		             
+		
+		            //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user. 
+		            //It contains a field for a custom data string between the license server and the application 
+		            //(may be useful for custom app logic) as well as a list of one or more license templates.
 		            PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
+		
+		            // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
+		            // to be returned to the end users. 
+		            //It contains the data on the content key in the license and any rights or restrictions to be 
+		            //enforced by the PlayReady DRM runtime when using the content key.
 		            PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
+		            //Configure whether the license is persistent (saved in persistent storage on the client) 
+		            //or non-persistent (only held in memory while the player is using the license).  
+		            licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
+		           
+		            // AllowTestDevices controls whether test devices can use the license or not.  
+		            // If true, the MinimumSecurityLevel property of the license
+		            // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
+		            licenseTemplate.AllowTestDevices = true;
+		
+		
+		            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
+		            // It grants the user the ability to playback the content subject to the zero or more restrictions 
+		            // configured in the license and on the PlayRight itself (for playback specific policy). 
+		            // Much of the policy on the PlayRight has to do with output restrictions 
+		            // which control the types of outputs that the content can be played over and 
+		            // any restrictions that must be put in place when using a given output.
+		            // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
+		            //then the DRM runtime will only allow the video to be displayed over digital outputs 
+		            //(analog video outputs won’t be allowed to pass the content).
+		
+		            //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience. 
+		            // If the output protections are configured too restrictive, 
+		            // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
+		
+		            // For example:
+		            //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
 		
 		            responseTemplate.LicenseTemplates.Add(licenseTemplate);
 		
 		            return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
 		        }
-		
+
 		
 				static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 				{
@@ -558,12 +592,15 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		}
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##See also
 

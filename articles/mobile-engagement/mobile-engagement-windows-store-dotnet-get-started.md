@@ -159,15 +159,34 @@ You're all set for sending a toast. Now we will verify that you have correctly c
 
 ###Grant access to Mobile Engagement to send notifications
 
-1. You'll have to associate your app with a Windows Store App to obtain your **Package security identifier (SID)** and your **Secret Key** (Client Secret). You can create an app from the [Windows Store Dev Center] and then make sure to use **Associate App with Store** from Visual Studio.
+1. Open [Windows Store Dev Center] in your web browser, login and create an account if necessary.
+2. Click **Dashboard** at the top right corner and then click **Create a new app** from the left panel menu. 
 
-	![][7]
+	![][9]
 
-2. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left.
+2. Create your app by reserving its name. 
 
-3. Click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
+	![][10]
+
+3. Once the app has been created, navigate to **Services -> Push notifications** from the left menu.
+
+	![][11]
+
+4. In the Push notifications section, click on **Live Services site** link. 
+
+	![][12]
+
+5. You will be navigated to the Push credentials section. Make sure you are in the **App Settings** section and then copy your **Package SID** and **Client secret**
+
+	![][13]
+
+6. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left. Then, click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
 
 	![][6]
+
+8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. You need to click on **Associate App with Store** from Visual Studio to do this.
+
+	![][7]
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -181,7 +200,7 @@ If you are seeing an in-app notification but not a toast notification and you ar
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Windows Store Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Windows Store Dev Center]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -192,4 +211,10 @@ If you are seeing an in-app notification but not a toast notification and you ar
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
+
 
