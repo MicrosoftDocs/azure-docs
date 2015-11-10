@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/30/2015"
+      ms.date="11/10/2015"
       ms.author="hascipio; avikova" />
 
 # Data Service Publishing Guide for the Azure Marketplace
@@ -137,6 +137,8 @@ And then for each table
 If Web Service
 
   ![drawing](media/marketplace-publishing-data-service-creation/step-7.7.png)
+
+> [AZURE.IMPORTANT] Read [Mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) for detailed instructions and examples for creating a CSDL Web Service. 
 
 ## Next Steps
 Now that you've created your Data Service offer, please ensure that you complete the instructions in the [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) before you move forward to [Testing your Data Service in Staging](marketplace-publishing-data-service-test-in-staging.md).
