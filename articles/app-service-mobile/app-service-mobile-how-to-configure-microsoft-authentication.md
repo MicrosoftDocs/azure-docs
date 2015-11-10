@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # How to configure your application to use Microsoft Account login

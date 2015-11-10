@@ -62,35 +62,37 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 	This name must be unique in the azurewebsites.net domain because the URL of the web app will be {name}.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
 
-5. Select a **Resource Group** or create a new one.
+5. Select a **Subscription**.
+
+6. Select a **Resource Group** or create a new one.
 
 	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
 
-5. Select an **App Service plan/Location** or create a new one.
+7. Select an **App Service plan/Location** or create a new one.
 
 	For more information about App Service plans, see [Azure App Service plans overview](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. Click **Create**.
+8. Click **Create**.
    
 	![][portal-quick-create2]
 
 	In a short time, typically less than a minute, Azure finishes creating the new web app.
 
-7. Click **Web apps > {your new web app}**.
+9. Click **Web apps > {your new web app}**.
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
-8. In the **Web app** blade, click the **Deployment** part.
+10. In the **Web app** blade, click the **Deployment** part.
 
 	![][deployment-part]
 
-9. In the **Continuous Deployment** blade, click **Choose Source**
+11. In the **Continuous Deployment** blade, click **Choose Source**
 
-14. Click **Local Git Repository**, and then click **OK**.
+12. Click **Local Git Repository**, and then click **OK**.
 
 	![][setup-git-publishing]
 
-11. Set up deployment credentials if you haven't already done so.
+13. Set up deployment credentials if you haven't already done so.
 
 	a. In the Web app blade, click **Settings > Deployment credentials**.
 
@@ -100,7 +102,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-11. In the Web app blade, click **Settings**, and then click **Properties**.
+14. In the Web app blade, click **Settings**, and then click **Properties**.
  
 	To publish, you'll push to a remote Git repository. The URL for the repository is listed under **GIT URL**. You'll use this URL later in the tutorial.
 

@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="10/19/2015"
+	ms.date="11/03/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs using Baidu
