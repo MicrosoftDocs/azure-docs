@@ -93,6 +93,9 @@ You get your account key [here]( https://datamarket.azure.com/account/keys).
  
 ---
 
+##Batch APIs
+The Text Analytics service allows you to do sentiment and key-phrase extractions in batch mode. For GetSentimentBatch and GetKeyPhrasesBatch, each of the records scored counts as a transaction. So, for example, if you get sentiment for 1000 records in a single call, 1000 transactions will be deducted.
+
 ###GetSentimentBatch###
 
 **URL**	

@@ -40,9 +40,9 @@ You can configure a default consistency level on your database account that appl
  
 Strong consistency provides absolute guarantees on data consistency, but offers the lowest level of read and write performance.  
 
-**Bounded staleness**: Bounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K).  
+**Bounded staleness**: Bounded staleness consistency guarantees the total order of propagation of writes with the possibility that reads lag behind writes by at most K prefixes. The read is always acknowledged by a majority quorum of replicas. The response of a read request specifies its relative freshness (in terms of K). With   bounded staleness you can set configurable threshold of staleness (as prefixes or time) for reads to tradeoff latency and consistency in steady state.
 
-Bounded staleness provides more predictable behavior for read consistency while offering the lowest latency writes. As reads are acknowledged by a majority quorum, read latency is not the lowest offered by the system.    
+Bounded staleness provides more predictable behavior for read consistency while offering the lowest latency writes. As reads are acknowledged by a majority quorum, read latency is not the lowest offered by the system. Bounded Staleness is an option for scenarios where you want strong consistency but where strong consistency is not practical. If you configure the “staleness interval” for Bounded Staleness consistency to be arbitrary large, it will still preserve the total global order of writes. This provides a stronger guarantee than Session or Eventual.    
 
 >[AZURE.NOTE] Bounded staleness guarantees monotonic reads only on explicit read requests. The echoed server response for write requests does not offer bounded staleness guarantees.
 

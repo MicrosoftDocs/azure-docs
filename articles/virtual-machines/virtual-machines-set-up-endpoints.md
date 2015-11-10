@@ -19,7 +19,7 @@
 
 #How to set up endpoints to a virtual machine
 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
 
@@ -28,6 +28,10 @@ When you create a virtual machine in the Azure portal, endpoints for Remote Desk
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
 - [About network security groups](virtual-networks-nsg.md)
+
+Please note network security groups control access to the virtual machine, but they don't provide port forwarding capabilities. To do port forwarding, see the following article:
+
+- [Get started configuring an internet facing load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
 
 Each endpoint has a public port and a private port:
 
