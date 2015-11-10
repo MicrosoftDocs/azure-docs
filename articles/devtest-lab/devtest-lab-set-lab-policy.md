@@ -34,22 +34,26 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 1. Tap **Settings**.
 
-![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
+	![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
 
 1. On the **Settings** blade, there is a grouping of settings called **Policies**. Click on the desired policy from the list below to see how to change:
 
-  1. Cost Thresholds
+  - Cost Thresholds - This policy is not currently supported.
 
-  1. Allowed VM Sizes - Specify the allowed size
+  - [Allowed VM Sizes](./#set-allowed-vm-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
-  1. [Maximum VMs](./#define-max-vms-per-lab-and-per-user) - 
+  - [Maximum VMs](./#set-maximum-vms) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
 
-  1. Auto shutdown - 
+  - [Auto shutdown](./#set-auto-shutdown) - Specify the time that the current lab's VMs must shut down.
+
+## Set allowed VM sizes
 
 
-## Define max VMs per lab and per user
+## Set maximum VMs
 
 1. On the lab's **Settings** blade, under **Policies**, tap **Maximum VMs**.
+
+	![Settings](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
 
 1. In the **Policy per User** section:
  
@@ -65,4 +69,4 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 1. Tap **Save**.
 
-	![Settings](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
+## Set auto shutdown
