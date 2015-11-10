@@ -19,6 +19,8 @@
 
 # <a id="nonendorsed"> </a>Information for Non-Endorsed Distributions #
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 **Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](virtual-machines-../linux-endorsed-distributions.md) is used. All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.
 
@@ -39,7 +41,7 @@ The rest of this article will focus on general guidance for running your Linux d
 
 ## <a id="linuxinstall"> </a>General Linux Installation Notes ##
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+- The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
 - When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
@@ -72,9 +74,10 @@ VHD images on Azure must have a virtual size aligned to 1MB.  Typically, VHDs cr
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).”
 
-To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet.
+To remedy this you can resize the VM using either the Hyper-V Manager console or the [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet.  If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD.
 
-If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:
+> [AZURE.NOTE] There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower. Reference: https://bugs.launchpad.net/qemu/+bug/1490611
+
 
  1. Resizing the VHD directly using tools such as `qemu-img` or `vbox-manage` may result in an unbootable VHD.  So it is recommended to first convert the VHD to a RAW disk image.  If the VM image was already created as RAW disk image (the default for some Hypervisors such as KVM) then you may skip this step:
 

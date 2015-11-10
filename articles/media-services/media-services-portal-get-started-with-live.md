@@ -191,14 +191,14 @@ If you are done streaming events and want to clean up the resources provisioned 
 - You can stop your streaming endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in a stopped state, it will not incur any charges.
 
 
-##Next Steps
+##Next Steps: Media Services learning paths
 
-###Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### Looking for something else?
 

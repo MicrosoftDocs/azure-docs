@@ -83,20 +83,12 @@ When setting up Multi-Factor Authentication Server consider following:
 - It is not a requirement that the Azure Multi-Factor Authentication Server be installed on your AD FS federation server however the Multi-Factor Authentication Adapter for AD FS must be installed on a Windows Server 2012 R2 running AD FS. You can install the server on a different computer, as long as it is a supported version and install the AD FS adapter separately on your AD FS federation server. See the procedure below for instructions on installing the adapter separately.
 - The Multi-Factor Authentication AD FS Adapter installation wizard creates a security group called PhoneFactor Admins in your Active Directory and then adds the AD FS service account of your federation service to this group.It is recommended that you verify on your domain controller that the PhoneFactor Admins group is indeed created and that the AD FS service account is a member of this group. If necessary, add the AD FS service account to the PhoneFactor Admins group on your domain controller manually.
 
-### Users Portal
+### User Portal
 This portal runs in an Internet Information Server (IIS) web site, which allows self-service capabilities and provides a full set of user administration capabilities. Use the guidelines below to configure this component:
 
 - IIS 6 or greater is required
 - ASP.NET  v2.0.507207 have to be installed and registered
 - This server can be deployed in a perimeter network.
-- If there is a firewall filtering the communication between this server and Azure, TCP port 443 outbound is required to allow communication with the following URLs:
-	- https://pfd.phonefactor.net 
-	- https://pfd2.phonefactor.net 
-	- https://css.phonefactor.net
-- If outbound firewalls are restricted on port 443, the following IP address ranges will need to be allowed outbound:
-	- 134.170.116.0/25
-	- 134.170.165.0/25
-	- 70.37.154.128/25
 
 
 

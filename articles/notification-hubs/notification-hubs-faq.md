@@ -40,6 +40,9 @@ We have a number of customers using Notification Hubs with a few notable ones be
 * 7Digital - [CaseStudy - 7Digital]
 * Bing Apps – 10s of millions of devices, sending 3 million notifications/day
 
+###4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
+Go to the [Azure Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
+
 ##Design & Development
 ###1.	Which service side platforms do you support?
 We provide SDKs and samples for .NET, Java, PHP, Python, Node.js so that an app backend can be setup to communicate to Notification Hubs using any of these platforms. Notification Hubs APIs are based on REST interface so you can choose to directly talk to these. More details here - [NH - REST APIs]
@@ -119,6 +122,7 @@ Azure Notification Hubs enable viewing telemetry data in the Azure management po
 Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is upto the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
 It also provides the capability to export the telemetry programmatically (in Standard Tier). See this sample for details - [NH - Metrics sample]
 
+[Azure Portal]: https://manage.windowsazure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
