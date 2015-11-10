@@ -51,13 +51,15 @@ The Service Fabric Visual Studio project templates contain sample code. The step
 3. To report a health event for the lack of result representing a failure add the code below after the `myDictionary.TryGetValueAsync` call. We report the event as a `StatefulServiceReplicaHealthReport` since this is being reported from a stateful service. The PartitionId and ReplicaId that are passed in to the report event will help identify the source of this report when you see it in one of the Health Monitoring tools since when a stateful service is deployed it can have multiple partitions and each partition can have multiple replicas. The `HealthInformation` parameter provides information about the issue being reported.
 
 Add these namespaces to the **Stateful1.cs** file.
-```
+
+```csharp
 using System.Fabric;
 using System.Fabric.Health;
 ```
 
 Add this code after the `myDictionary.TryGetValueAsync` call.
-```
+
+```csharp
 if(!result.HasValue)
 {
     var replicaHealthReport = new StatefulServiceReplicaHealthReport(
@@ -71,7 +73,8 @@ if(!result.HasValue)
 ```
 
 4. Let's simulate this failure and see it show up in Health Monitoring tools. To simulate comment out the first line in the health reporting code you added above as shown below. This will now fire this health report each time RunAsync executes. After making the change run the application using F5.
-```
+
+```csharp
 //if(!result.HasValue)
 {
     var replicaHealthReport = new StatefulServiceReplicaHealthReport(
@@ -86,7 +89,7 @@ if(!result.HasValue)
 5. Once the application is running, open Service Fabric Explorer to check health of the application. This time Service Fabric Explorer will show the application to be unhealthy. This is because of the error that was reported from the code that we added above.
 ![Unhealthy Application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 
-6. If you select the primary replica in the tree view of Service Fabric Explorer, you will see it shows the health to be in error too and also displays the health report details that were added to the 'HealthInformation` parameter in the code. You can see the same health reports in Powershell as well as the Azure Portal.
+6. If you select the primary replica in the tree view of Service Fabric Explorer, you will see it shows the health to be in error too and also displays the health report details that were added to the `HealthInformation` parameter in the code. You can see the same health reports in Powershell as well as the Azure Portal.
 ![Replica Health in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
 ## Next Steps
