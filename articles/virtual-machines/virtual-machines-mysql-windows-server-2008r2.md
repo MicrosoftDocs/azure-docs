@@ -109,7 +109,7 @@ To configure an endpoint for the MySQL Server service:
 
 ## Add a Windows Firewall rule to allow MySQL traffic
 
-To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an elavted Windows PowerShell command prompt on the MySQL server virtual machine.
+To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an elevated Windows PowerShell command prompt on the MySQL server virtual machine.
 
 	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
