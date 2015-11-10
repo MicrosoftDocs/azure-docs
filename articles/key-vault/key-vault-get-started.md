@@ -85,7 +85,7 @@ For the **-Location** parameter, use the command [Get-AzureLocation](https://msd
 
 ## <a id="vault"></a>Create a key vault ##
 
-Use the [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/dn903602.aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
+Use the [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
 
 For example, if you use the vault name of **ContosoKeyVault**, the resource group name of **ContosoResourceGroup**, and the location of **East Asia**, type:
 
@@ -169,7 +169,7 @@ To register the application in Azure Active Directory:
 ## <a id="authorize"></a>Authorize the application to use the key or secret ##
 
 To authorize the application to access the key or secret in the vault, use the
- [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx) cmdlet.
+ [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet.
 
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
 
@@ -212,7 +212,7 @@ For more detailed instructions about how to generate this BYOK package, see [How
 
 ## <a id="delete"></a>Delete the key vault and associated keys and secrets ##
 
-If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/dn903603.aspx) cmdlet:
+If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx) cmdlet:
 
 	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
