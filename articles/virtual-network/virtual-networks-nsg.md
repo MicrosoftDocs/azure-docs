@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/10/2015"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
@@ -42,6 +42,12 @@ This article focuses on NSGs. For more information on the other traffic filterin
 
 ## How does an NSG work?
 
+An NSG contains two types of rules, **Inbound** and **Outbound**. When traffic flows into an Azure server hosting VMs or role instances, the host loads all inbound or outbound NSG rules, based on the direction of traffic. Then the hosts inspects each rule in order of priority. If a rule matches the packet the host is analyzing, the action for the rule (allow or deny) is applied. If no rules match the packet, the packet is dropped. The figure below shows this decision flow. 
+
+![NSG ACLs](./media/virtual-network-nsg-overview/figure3.png)
+
+>[AZURE.NOTE] The rules applied to a given VM or role instance can come from multiple NSGs, since you can associate an NSG to a VM (classic deployments), a NIC (Resource Manager deployments), or a subnet (all deployments). The [Associating NSGs](#Associating-NSGs) covers how rules from multiple NSGs are applied depending on the direction of traffic.
+
 NSGs contain the following properties.
 
 |Property|Description|Constraints|Considerations|
@@ -50,8 +56,6 @@ NSGs contain the following properties.
 |Region|Azure region where the NSG is hosted|NSGs can only be applied to resources within the region it is created|See [limits](#Limits) below to understand how many NSGs you can have in a region|
 |Resource group|Resource group the NSG belongs to|Although an NSG belongs to a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG|Resource groups are used to manage multiple resources together, as a deployment unit<br/>You may consider grouping the NSG with resources it is associated to|
 |Rules|Rules that define what traffic is allowed, or denied||See [NSG rules](#Nsg-rules) below| 
-
-An NSG contains two types of rules, **Inbound** and **Outbound**. The Inbound rules are applied on the incoming packets to a VM or role instance, and the Outbound rules are applied to the outgoing packets from the VM or role instance. The rules are applied at the host where the VM is located. An incoming or outgoing packet has to match an **Allow** rule for it be permitted, if not it will be dropped.
 
 >[AZURE.NOTE] Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md).
 
