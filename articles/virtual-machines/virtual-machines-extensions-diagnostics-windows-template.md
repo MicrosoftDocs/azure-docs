@@ -86,6 +86,8 @@ The diagnostics extension json snippet above assumes two parameters *diagnostics
 
 It is best practice to specify a diagnostics storage account in a different resource group than the resource group for the virtual machine. A resource group can be considered to be a deployment unit with its own lifetime, a virtual machine can be deployed and redeployed as new configurations updates are made it to it but you may want to continue storing the diagnostics data in the same storage account across those virtual machine deployments. Having the storage account in a different resource enables the storage account to accept data from various virtual machine deployments making it easy to troubleshoot issues across the various versions.
 
+>[AZURE.NOTE] If you create a windows virtual machine template from Visual Studio the default storage account might be set to use the same storage account where the virtual machine VHD is uploaded. This is to simplify initial setup of the VM. You should re-factor the template to use a different storage account that can be passed in as a parameter. 
+
 ## Diagnostics configuration variables
  
 The diagnostics extension json snippet above defines an *accountid* variable to simplify getting the storage account key for the diagnostics storage:   
