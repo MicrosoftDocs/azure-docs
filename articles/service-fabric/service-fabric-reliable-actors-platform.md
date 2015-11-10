@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How Reliable Actors use the platform | Microsoft Azure"
-   description="This articles describes how Reliable Actors use the features of the Service Fabric platform. It covers Service Fabric platform concepts from the point of view of actor developers."
+   pageTitle="Reliable Actors on Service Fabric | Microsoft Azure"
+   description="Describes how Reliable Actors use the features of the Service Fabric platform covering concepts from the point of view of actor developers."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"

@@ -80,7 +80,7 @@ The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE an
 
 For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][].
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage][].
+For an example of setting the environment variables in the Azure portal for an Azure Website, see [Node.js Web Application with Storage][].
 
 ## Create a topic
 
@@ -404,7 +404,7 @@ delivery attempts.
 ## Delete topics and subscriptions
 
 Topics and subscriptions are persistent, and must be explicitly deleted
-either through the Azure Management portal or programmatically.
+either through the Azure portal or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
