@@ -17,7 +17,7 @@
       ms.author="hascipio; v-divte" />
 
 # Guide to create a solution template for Azure Marketplace
-After completing Step 1, [Account creation and registration][link-acct-creation], we guided you on the creation of an Azure-compatible solution template at [Technical prerequisites for creating a solution template](marketplace-publishing-solution-template-creation-prerequisites.md). Now we will walk you through the steps for creating a solution template for multiple virtual machines on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
+After completing step 1, [Account creation and registration][link-acct-creation], we guided you on the creation of an Azure-compatible solution template at [Technical prerequisites for creating a solution template](marketplace-publishing-solution-template-creation-prerequisites.md). Now we will walk you through the steps for creating a solution template for multiple VMs on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
 ## Create your solution template offer in the Publishing Portal
 Go to  [https://publish.windowsazure.com](http://publish.windowsazure.com). When signing in for the first time to the [Publishing Portal](https://publish.windowsazure.com/), use the same account with which your company’s seller profile was registered. Later, you can add any employee of your company as a co-admin in the Publishing Portal.
@@ -67,10 +67,10 @@ Now that you created your solution template and submitted the zip file with the 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 
-**Virtual machine images**
+**VM images**
 - [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-**Virtual machine extensions**
+**VM extensions**
 - [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx)
 - [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
