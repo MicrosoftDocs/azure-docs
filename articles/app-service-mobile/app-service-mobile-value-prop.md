@@ -50,7 +50,7 @@ For more information on Azure App Service platform, see [Azure App Service].
 [Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Get Started]: app-service-mobile-ios-get-started-offline-data.md
+[Get Started]: app-service-mobile-ios-get-started.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
