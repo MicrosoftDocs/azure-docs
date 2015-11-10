@@ -22,7 +22,7 @@
 
 This article applies to point-to-site connections for virtual networks created using the classic deployment model (Service Management). 
 
-**At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are not supported.** This page will be updated when this feature is supported for the Resource Manager depolyment model.
+**At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are not supported.** This page will be updated when this feature is supported for the Resource Manager deployment model.
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
