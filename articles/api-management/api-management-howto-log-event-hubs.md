@@ -119,7 +119,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 	-	[log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	-	[Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)	
 
-## Watch a video walkthrough of this article
+## Watch a video walkthrough
 
 > [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
 
