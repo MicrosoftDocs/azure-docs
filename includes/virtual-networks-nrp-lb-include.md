@@ -1,7 +1,7 @@
 ## Load Balancer
 A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure8.png)
+![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
 
 | Property | Description |
 |---|---|
