@@ -13,10 +13,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/06/2015"
    ms.author="cherylmc"/>
 
-# Create and modify an ExpressRoute circuit
+# Create and modify an ExpressRoute circuit using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
