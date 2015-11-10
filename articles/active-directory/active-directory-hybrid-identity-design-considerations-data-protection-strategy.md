@@ -81,7 +81,7 @@ Depending on how you answered the questions in Task 2, you should be able to det
 ## Define access control options
 By leveraging the authentication, authorization and access control capabilities available in Azure AD you will be able to enable your company to use a central identity repository while allowing users and partners to use single sign-on (SSO) as shown in the figure below:
 
-![](./media/active-directory/hybrid-id-design-considerations/centralized-management.png)
+![](./media/hybrid-id-design-considerations/centralized-management.png)
 
 Centralized management and fully integration with other directories
 
