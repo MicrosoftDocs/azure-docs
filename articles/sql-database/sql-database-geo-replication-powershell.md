@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Configure Geo-Replication for Azure SQL Database using PowerShell | Microsoft Azure" 
-    description="Geo-Replication for Azure SQL Database using PowerShell" 
+    pageTitle="Configure geo-replication for Azure SQL Database using PowerShell | Microsoft Azure" 
+    description="geo-replication for Azure SQL Database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,7 +16,7 @@
     ms.date="11/10/2015"
     ms.author="sstein"/>
 
-# Configure Geo-Replication for Azure SQL Database with PowerShell
+# Configure geo-replication for Azure SQL Database with PowerShell
 
 
 
@@ -26,15 +26,15 @@
 - [Transact-SQL](sql-database-geo-replication-transact-sql.md)
 
 
-This article shows you how to configure Geo-Replication for SQL Database with PowerShell.
+This article shows you how to configure geo-replication for SQL Database with PowerShell.
 
-Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database. 
+Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
 
 Geo-replication is only available for Standard and Premium databases. 
 
 Standard databases can have one non-readable secondary and must use the recommended region. Premium databases can have up to four readable secondaries in any of the available regions.
 
-To configure Geo-Replication you need the following:
+To configure geo-replication you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL database - The primary database that you want to replicate to a different geographical region.
@@ -190,7 +190,7 @@ The following command switches the roles of the database named "mydb” to prima
 
 
 
-## Monitor Geo-Replication configuration and health
+## Monitor geo-replication configuration and health
 
 Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  
 
@@ -214,6 +214,7 @@ The following command retrieves status of the replication link between the prima
 
 ## Additional resources
 
-- [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
