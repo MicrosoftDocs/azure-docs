@@ -31,7 +31,7 @@ Service providers and enterprises, or any organization that maintains a populati
 When enabling IoT device management for your IoT solution, consider the following capabilities and determine the importance of each given your business objectives:
 
 * **[Device provisioning and discovery](#device-provisioning-and-discovery)**: Process through which a device is enrolled into the system.
-* **Device registry and device models[#device-registry-and-device-models](#device-registry-and-device-models)**: How the device models represent the structured use of metadata for device relationships, role in the system, and validation methods.
+* **[Device registry and device models](#device-registry-and-device-models)**: How the device models represent the structured use of metadata for device relationships, role in the system, and validation methods.
 * **[Device access management](#device-access-management)**: How devices control access to device resources from cloud services.
 * **[Remote control](#remote-control)**: How remote users gain access to devices and instruct devices to change.
 * **[Remote administration](#remote-administration-and-monitoring)**: Process through which an administrator defines device population health.  
