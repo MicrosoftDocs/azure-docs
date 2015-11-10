@@ -26,7 +26,7 @@ You are probably familiar with the use of firewalls and access control lists (AC
 	- Does **NOT** require a VNet (classic deployments).
 - **Network Security Groups (NSGs)**
 	- Allow or deny traffic based on direction, protocol, source address and port, and destination address and port.
-	- Can control inbound and outbound traffic on VMs or role instances (classic deployments), NICs (Resource Manager deployments) and subnets (all deployments).
+	- Can control inbound and outbound traffic on VMs or role instances (classic deployments), NICs (Resource Manager deployments) and subnets (all deployments). This includes any resources connected to subnets, such as cloud services and AppService environments.
 	- Can only be applied to resources connected to a regional VNet.
 	- Do **NOT** require management of a firewall appliance.
 	- Limited to 100 NSGs, each with 200 rules, per region.
