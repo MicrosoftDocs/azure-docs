@@ -1,6 +1,8 @@
-## Scenario
+The following tasks will be done in this scenario:
 
-The following scenario will show how to add a load balancer for 2 virtual machines named "web1" and "web2" using port 80 to receive Internet traffic, and send load balanced network traffic also to port 80 on the 2 servers.
+- Create a load balancer receiving network traffic on port 80 and send load balanced traffic to virtual machines "web1" and "web2".
+- Create NAT rules for remote desktop access for virtual machines behind the load balancer
+- Create health probes
 
 ![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 

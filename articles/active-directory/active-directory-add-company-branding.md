@@ -3,9 +3,9 @@
 	description="A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
+	authors="markusvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015" 
+	ms.date="10/30/2015" 
 	ms.author="MarkVi"/>
 
 # Add company branding to your Sign In and Access Panel pages

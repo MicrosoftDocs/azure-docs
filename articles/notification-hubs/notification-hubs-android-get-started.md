@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Android apps
@@ -157,7 +157,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     	}
 
 
-7. Add the **DialogNotify** method to the activity to display the notification when the app is running and visible. Also override **onStart** and **onStop** to determine whether the activity is visible to display the dialog.
+7. Add the `DialogNotify` method to the activity to display the notification when the app is running and visible. Also override `onStart`, `onPause`, `onResume` and `onStop` to determine whether the activity is visible to display the dialog.
 
 	    @Override
 	    protected void onStart() {
@@ -166,11 +166,22 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread

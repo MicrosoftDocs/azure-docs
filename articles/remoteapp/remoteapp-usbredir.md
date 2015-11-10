@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="How do you redirect USB devices in Azure RemoteApp?| Microsoft Azure" 
+    pageTitle="How do you redirect USB devices in Azure RemoteApp? | Microsoft Azure" 
     description="Learn how to use redirection for USB devices in Azure RemoteApp." 
     services="remoteapp" 
 	documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/19/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -66,8 +66,8 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 
 1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Open a Remote Desktop Connection and click **Show Options**.
-3. Click **Save as** to save the current connection settings to an RDP file.
-![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
+3. Click **Save as** to save the current connection settings to an RDP file.  
+	![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
 4. Choose a file name and a location, for example “MyConnection.rdp” and “This PC\Documents”, and save the file.
 5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
 
@@ -76,3 +76,6 @@ Now, use the instance ID in the following cmdlet:
 	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
 
 
+
+### Help us help you 
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
