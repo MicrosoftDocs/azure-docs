@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/28/2015"
+	ms.date="11/08/2015"
 	ms.author="juliako"/>
 
 
@@ -29,6 +29,12 @@ This tutorial walks you through the steps of implementing a Video-on-Demand (VoD
 
 
 The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.  
+
+
+##Download sample
+
+Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
 
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services SDK for .NET.
@@ -422,14 +428,14 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
 
-##Next Steps
+##Next Steps: Media Services learning paths
 
-###Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### Looking for something else?
 

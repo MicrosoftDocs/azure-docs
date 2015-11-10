@@ -3,7 +3,7 @@
 	description="Learn Azure SQL Database and SQL Server in Azure Virtual Machines. Review common business motivators for determining which SQL technology works best for your application." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
@@ -12,9 +12,9 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/19/2015" 
-	ms.author="selcint"/>
+	ms.author="jeffreyg"/>
 
 # Understanding Azure SQL Database and SQL Server in Azure VMs
 

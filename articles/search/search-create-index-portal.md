@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create an Azure Search index in the portal | Microsoft Azure"
-	description="Add an index to Azure Search service by filling in field definitions in the Azure portal"
+	pageTitle="Create an Azure Search index in the portal | Microsoft Azure | Hosted cloud search service"
+	description="Add an index to Azure Search, a cloud hosted search service, by filling in field definitions in the Azure portal."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -10,14 +10,19 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Create an Azure Search index in the Azure portal
+> [AZURE.SELECTOR]
+- [Overview](search-what-is-an-index.md)
+- [Portal](search-create-index-portal.md)
+- [.NET](search-create-index-dotnet.md)
+- [REST API](search-create-index-rest-api.md)
 
 You can quickly prototype an index in Azure Search by creating one in the Azure portal. Using the portal is great for proof-of-concept testing, but you can also use it to view schema definitions and resource usage for any index deployed to your service.
 

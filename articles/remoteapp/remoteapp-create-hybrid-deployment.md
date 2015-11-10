@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
@@ -54,7 +54,7 @@ You need to do the following before creating the collection:
 ## Step 1: Set up your virtual network
 You can deploy a hybrid collection that uses an existing Azure virtual network, or you can create a new virtual network. A virtual network lets your users access data on your local network through RemoteApp remote resources. Using an Azure virtual network gives your collection direct network access to other Azure services and virtual machines deployed to that virtual network.
 
-Make sure you review the [VNET planning](remoteapp-planvpn.md) and [VNET size](remoteapp-vnetsizing.md) information before you create your VNET.
+Make sure you review the [VNET planning](remoteapp-planvnet.md) and [VNET size](remoteapp-vnetsizing.md) information before you create your VNET.
 
 ### Create an Azure VNET and join it to your Active Directory deployment
 
@@ -86,6 +86,8 @@ You can find more information about creating Azure virtual machines and connecti
 5. Click **Create RemoteApp collection**.
 
 After your Azure RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
+
+Did something go wrong? Check out the [hybrid collection troubleshooting information](remoteapp-hybridtrouble.md).
 
 ## Step 3: Link your collection to the local domain ##
 

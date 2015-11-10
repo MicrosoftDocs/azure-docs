@@ -106,7 +106,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...

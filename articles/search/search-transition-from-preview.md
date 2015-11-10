@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transition from preview api-version=2014* to api-version=2015*" 
+	pageTitle="Transition from preview api-version=2014* to api-version=2015* | Microsoft Azure | Hosted cloud search service" 
 	description="Learn about breaking changes and how to migrate code written against 2014-07-31-preview or 2014-10-20-preview to Azure Search, api-version=2015-02-28." 
 	services="search" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Transition from preview api-version=2014* to api-version=2015*#
 
-The following guidance is for customers who built custom applications on the preview versions of Azure Search and are now migrating to the generally available release, 2015-02-28.
+Azure Search is hosted cloud search service on Microsoft Azure. The following guidance is for customers who built custom applications on the preview versions of Azure Search and are now migrating to the generally available release, 2015-02-28.
 
 As a preview customer, you might have used either one of these older preview versions:
 
