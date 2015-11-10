@@ -145,5 +145,5 @@
 
 ## See Also
 - [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Data Service OData Mapping Nodes](marketplace-publishng-data-service-creation-odata-mapping-nodes.md)
+- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
 - [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)

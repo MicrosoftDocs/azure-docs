@@ -311,5 +311,5 @@ Below example shows two APIs for Data base based API CSDL (can use views rather 
 
 ## See Also
 - [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
-- [Data Service OData Mapping Nodes](marketplace-publishng-data-service-creation-odata-mapping-nodes.md)
+- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
 - [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)

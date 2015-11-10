@@ -145,6 +145,9 @@ Now that you've created your Data Service offer, please ensure that you complete
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+- [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
 
 [link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
