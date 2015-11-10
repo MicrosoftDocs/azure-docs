@@ -34,7 +34,7 @@ If you already have a GitHub account and a repository that you want to link to A
 ## Step 2 – Set up source control in Azure Automation
 
 * From the Automation Account blade in the Azure preview portal, click **Set Up Source Control.**  
-![Set Up Source Control](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
+    ![Set Up Source Control](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
 * The **Source Control** blade opens, where you can configure your GitHub account details. Below is the list of parameters to configure:  
 
@@ -55,11 +55,11 @@ If you already have a GitHub account and a repository that you want to link to A
   
 
 * After you configure the parameters, they are displayed on the **Set Up Source Control blade.**  
-![Configure Blade](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
+    ![Configure Blade](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
 
 
 * Once you click OK, source control integration is now configured for your Automation account and should be updated with your GitHub information, you can now click on this part to view all of your source control sync job history. 
-![Repository Values](media/automation-source-control-integration/automation_03_RepoValues.png)
+    ![Repository Values](media/automation-source-control-integration/automation_03_RepoValues.png)
 
 * After you set up source control, the following Automation resources will be created in your Automation account:  
  Two [variable assets](automation-variables.md) are created.  
