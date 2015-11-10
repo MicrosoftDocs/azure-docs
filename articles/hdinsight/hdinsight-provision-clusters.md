@@ -753,7 +753,7 @@ The following Azure Resource Manger template creates a Hadoop cluster with the d
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.microsoft.com/en-US/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/en-US/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.microsoft.com/en-US/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.microsoft.com/en-US/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
