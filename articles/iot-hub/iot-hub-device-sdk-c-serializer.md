@@ -52,7 +52,7 @@ Models contain a definition of the events you can ingress to IoT Hub (the *data*
 
 What’s not demonstrated in this sample are additional data types that are supported by the SDK. We'll cover that next.
 
-> AZURE.NOTE IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
+> [AZURE.NOTE] IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
 
 ### Supported data types
 
