@@ -46,7 +46,7 @@ An NSG contains two types of rules, **Inbound** and **Outbound**. When traffic f
 
 ![NSG ACLs](./media/virtual-network-nsg-overview/figure3.png)
 
->[AZURE.NOTE] The rules applied to a given VM or role instance can come from multiple NSGs, since you can associate an NSG to a VM (classic deployments), a NIC (Resource Manager deployments), or a subnet (all deployments). The [Associating NSGs](#Associating-NSGs) covers how rules from multiple NSGs are applied depending on the direction of traffic.
+>[AZURE.NOTE] The rules applied to a given VM or role instance can come from multiple NSGs, since you can associate an NSG to a VM (classic deployments), a NIC (Resource Manager deployments), or a subnet (all deployments). The [Associating NSGs](#Associating-NSGs) section covers how rules from multiple NSGs are applied depending on the direction of traffic.
 
 NSGs contain the following properties.
 
