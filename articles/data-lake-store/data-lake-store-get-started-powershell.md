@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using Azure PowerShell
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Learn how to use Azure PowerShell to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
@@ -131,6 +132,7 @@ When prompted, enter **Y** to delete the account.
 
 - [Get Started with Data Lake Store using Portal](data-lake-store-get-started-portal.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Get Started with Data Lake Store using Azure CLI](data-lake-store-get-started-cli.md)
 
 
 ## Next steps

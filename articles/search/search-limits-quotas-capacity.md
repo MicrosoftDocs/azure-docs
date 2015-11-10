@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service limits in Azure Search | Microsoft Azure"
+	pageTitle="Service limits in Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""

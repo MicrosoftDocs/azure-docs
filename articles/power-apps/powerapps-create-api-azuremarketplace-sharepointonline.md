@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a new SharePoint Online API in your organization's App Service Environment"
-	description="Create a new SharePoint Online API in your organization's App Service Environment"
+	pageTitle="Create a new SharePoint Online API"
+	description=""
 	services="power-apps"
 	documentationCenter="" 
 	authors="LinhTran"
@@ -16,36 +16,34 @@
    ms.date="11/02/2015"
    ms.author="litran"/>
 
-#Create a new SharePoint Online API in your organization's App Service Environment
+# Create a new SharePoint Online API from Azure Marketplace
 
-1. In the Azure portal, open **PowerApps**. In PowerApps, select **Registered APIs** tile or select it from *Settings*:  
+1. Select SharePoint Online from Azure Marketplace
+![][1]  
+2. Select *Settings - Configure required settings*
+3. Enter *App Key* and *App Secret* for SharePoint Online
+	- If you don't have a SharePoint Online, go [here]() to obtain one.
+![][2]  
+4. Click *OK* on *Configure API* blade
+5. Click *OK* on *Create API* blade
 
+# Configure SharePoint Online Settings and API Definition
+1. Back in your API blade, select **All settings**, and select **General**:  
+![][3]  
+2. In General settings, set the following properties. Remember, the settings vary depending on the API you're using:  
 
-2. In the **Registered APIs** blade, select **Add** to add a new API
+	Property | Description
+--- | ---
+URL scheme | Select HTTP or HTTPS. HTTPS is recommended.
+Authenticate with backend service | Options include: <ul><li>None: No additional security is enabled when authenticating. This is similar to anonymous authentication.</li><li>Accessible via API management</li><li>HTTP Basic Authentication: Prompts for a username and password. If you choose this option, be sure to choose HTTPS for the URL scheme. Otherwise, the user name and password are passed in clear text.</li></ul> 
+OAuth Settings | When using a PaaS (Platform as a Service) API, that service may have additional username and password. Enter this username and password. When you do this, OAuth is enabled and allows the app to automatically authenticate with the PaaS.<br/><br/>Twitter is a great example. Enter your Twitter username and password. This allows the app to automatically authenticate with Twitter with no additional sign-in prompts. 
 
-3. Configure the API properties:  
+3. **Save** your changes.
 
+4. In these Settings, you can also upload a policy file and view the API definition, which is the Swagger file associated with your API. 
+![][4]  
 
-	a) Enter a descriptive **name** for your API. For example, if you're adding the SQL connector, you can name it *SQLOrdersDB*.  
-	
-	b) In **Source**, select **Marketplace** to select a pre-built connector. Select **Existing API** to choose a connector you created (the .json and .manifest files are needed).  
-	
-	c) Select **API** from Azure Marketplace.  
-
-4. Select *SharePoint Online* from Azure Marketplace
-
-	a) Select *Settings - Configure required settings*
-	
-	b) Enter *Client Id* and *App Key* for SharePoint Online
-		
-		Note the *Redirect URL*
-	- If you don't already have an Azure Application Directory app created, follow [these instructions][1].
-	- Following the instructions from the above tutorial, ensure that the application has delegated permissions to *Office 365 SharePoint Online*
-
-
-	c) Click *OK* on *Configure API* blade
-
-5. Click **OK**. SharePoint Online API is now added to the list of **Registered APIs** in your App Service Environment.
-
-<!--References-->
-[1]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/  
+[1]: ./media/powerapps-create-api-azuremarketplace-sharepointonline/marketplace.png
+[2]: ./media/powerapps-create-api-azuremarketplace-sharepointonline/configure.png
+[3]: ./media/powerapps-create-api-azuremarketplace-sharepointonline/generalsettings.png
+[4]: ./media/powerapps-create-api-azuremarketplace-sharepointonline/policy.png
