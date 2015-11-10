@@ -42,7 +42,7 @@ In order to view (and change) the policies for a lab, follow these steps:
 
   1. Allowed VM Sizes - Specify the allowed size
 
-  1. Maximum VMs - [Define the max VMs per lab and per user]().
+  1. [Maximum VMs](./#Define-max-VMs-per-lab-and-per-user) - 
 
   1. Auto shutdown - 
 
