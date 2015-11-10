@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
@@ -30,6 +30,8 @@ definition language that you can use to create policies. Then we will
 describe how you can apply these policies at different scopes and
 finally we will show some examples of how you can achieve this through
 REST API.
+
+Policy is currently available as a preview.
 
 ## How is it different from RBAC?
 
