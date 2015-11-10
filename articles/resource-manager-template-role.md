@@ -43,7 +43,7 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | Microsoft.Authorization/roleAssignments | The resource type to create. |
+| type | enum | Yes | **Microsoft.Authorization/roleAssignments** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-07-01** | The API version to use for creating the resource. |  
 | name | string | Yes | Globally-unique identifier | An identifier for the new role assignment. |
 | dependsOn | array | No |  A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this role assignment depends on. If assigning a role that scoped to a resource and that resource is deployed in the same template, include that resource name in this element to ensure the resource is deployed first. | 
@@ -53,9 +53,9 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted Values | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| roleDefinitionId   | string | Yes | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}  | The identifier of an existing role definition to be used in the role assignment. |
+| roleDefinitionId   | string | Yes | **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}**  | The identifier of an existing role definition to be used in the role assignment. |
 | principalId   | string | Yes | Globally-unique identifier | The identifier of an existing principal. This maps to the id inside the directory and can point to a user, service principal, or security group. |
-| scope | string | Yes | For resource group:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br />For resource:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | The scope at which this role assignment applies to. |
+| scope | string | Yes | For resource group:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />For resource:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | The scope at which this role assignment applies to. |
 
 
 ## How to use the lock resource
@@ -84,7 +84,7 @@ For a service principal named **exampleapp**:
  
 You can generate a new identifier for **name** with:
 
-    [System.Guid]::NewGuid().toString()
+    PS C:\> [System.Guid]::NewGuid().toString()
 
 ## Examples
 
@@ -97,8 +97,8 @@ The following example assigns a group to a role for the resource group.
             "roleDefinitionId": {
                 "type": "string"
             },
-	    "roleAssignmentId": {
-		"type": "string"
+            "roleAssignmentId": {
+                "type": "string"
 	    },
             "principalId": {
                 "type": "string"
