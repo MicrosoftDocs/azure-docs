@@ -277,6 +277,6 @@ If you browse to the directory using Server Explorer you can find working direct
 ## Next steps
 In this article you have learned how to package an existing application and deploy it to Service Fabric. As a next step you can check out additional content for this topic.
 
-See the package and deploy an existing application on [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-See how to package multiple applications on [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-See how to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Sample for packaging and deploying an existing application on [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), including the pre-release of the packaging tool
+- Sample for packaging multiple applications on [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
+- How to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
