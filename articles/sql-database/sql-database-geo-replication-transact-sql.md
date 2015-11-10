@@ -29,7 +29,7 @@
 This article shows you how to configure geo-replication for an Azure SQL Database using Transact-SQL.
 
 
-Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database. 
+Geo-replication enables creating up to 4 replica (secondary) databases in different data center locations (regions). Secondary databases are available in the case of a data center outage or the inability to connect to the primary database.
 
 Geo-replication is only available for Standard and Premium databases. 
 
@@ -276,6 +276,7 @@ Use the following steps to monitor a geo-replication partnership.
 
 ## Additional resources
 
+- [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
 - [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)

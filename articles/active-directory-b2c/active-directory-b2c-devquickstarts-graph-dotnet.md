@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
+	pageTitle="Azure AD B2C Preview: Using the Graph API | Microsoft Azure"
 	description="How to call the Graph API for a B2C tenant using an application identity to automate the process."
 	services="active-directory-b2c"
 	documentationCenter=".net"
