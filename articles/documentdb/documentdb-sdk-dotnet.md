@@ -21,12 +21,13 @@
 > [AZURE.SELECTOR]
 - [.NET SDK](documentdb-sdk-dotnet.md)
 - [Node.js SDK](documentdb-sdk-node.md)
-- [JavaScript Client SDK](documentdb-sdk-js.md)
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
+- [JavaScript Client SDK](documentdb-sdk-js.md)
 
 ##DocumentDB .NET SDK
 
+<br/>
 <table>
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
