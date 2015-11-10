@@ -64,30 +64,6 @@ The following considerations might help you decide on a size:
 
 *   Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
-## Performance considerations
-
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A11) VM being 1.0 and all other SKUs then represent how much faster that SKU can run a standard benchmark. 
-
->[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
-
-
-<br>
-
-
-
-|SKU Family	|ACU/Core |
-|---|---|
-|[Basic_A0](#basic-tier)	|50.0 |
-|[Basic_A1-4](#basic-tier)	|70.0 |
-|[Standard_A0 (Extra Small)](#standard-tier-a-series)	|50.0 |
-|[Standard_A1-4 (Small – Large)] (#standard-tier-a-series)	|100.0 |
-|[Standard_A5-7](#standard-tier-a-series)	|100.0 |
-|[A8-A11](#standard-tier-a-series)	|225.0 |
-|[D1-14](#standard-tier-d-series)	|160.0 |
-|[D1-14v2](#standard-tier-dv2-series)	|212.5 |
-|[DS1-14](#standard-tier-ds-series)	|160.0 |
-|[G1-5](#standard-tier-g-series)	|187.5 |
-|[GS1-5](#standard-tier-gs-series)	|187.5 |
 
 
 ## General limits
