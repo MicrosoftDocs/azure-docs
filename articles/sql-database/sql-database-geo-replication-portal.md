@@ -107,7 +107,7 @@ The operation permanently terminates the replication to the secondary database a
 
 ## Initiate a failover from the primary database to the secondary database
 
-The secondary database can be switched to primary. It is designed for planned failover such as during the DR drills. 
+The secondary database can be switched to primary. It is designed for planned failover such as during disaster recovery drills. 
 
 1. In the [Azure preview portal](https://portal.azure.com) browse to any database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **Geo-Replication**.
@@ -118,9 +118,9 @@ The secondary database can be switched to primary. It is designed for planned fa
 
 The command performs the following workflow: 
 
-1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary; 
+1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary. 
 
-2. Switch the roles of the two databases in the geo-replication relationship.  
+2. Switch the primary and secondary roles of the two databases in the geo-replication partnership.  
 
 This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. 
 
@@ -149,5 +149,4 @@ This sequence guarantees that no data loss will occur. There is a short period d
 [8]: ./media/sql-database-geo-replication-portal/stop-confirm.png
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
-[11]: ./media/sql-database-geo-replication-portal/.png
 
