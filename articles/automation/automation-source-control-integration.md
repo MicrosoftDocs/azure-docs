@@ -58,7 +58,7 @@ If you already have a GitHub account and a repository that you want to link to A
     ![Configure Blade](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
 
 
-* Once you click OK, source control integration is now configured for your Automation account and should be updated with your GitHub information, you can now click on this part to view all of your source control sync job history. 
+* Once you click OK, source control integration is now configured for your Automation account and should be updated with your GitHub information, you can now click on this part to view all of your source control sync job history.  
     ![Repository Values](media/automation-source-control-integration/automation_03_RepoValues.png)
 
 * After you set up source control, the following Automation resources will be created in your Automation account:  
