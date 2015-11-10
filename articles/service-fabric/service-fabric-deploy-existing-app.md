@@ -3,7 +3,7 @@
    description="Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca, bmscholl"
+   authors="bmscholl"
    manager="timlt"
    editor=""/>
 
