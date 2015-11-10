@@ -21,16 +21,16 @@
 
 > [AZURE.SELECTOR]
 - [Batch Management .NET](batch-management-dotnet.md)
-- [Account management in Azure portal](batch-account-create-portal.md)
+- [Azure preview portal](batch-account-create-portal.md)
 
-Lower maintenance overhead with the [Batch Management .NET][api_mgmt_net] library by adding Batch account creation, deletion, key management, and quota discovery to your Azure Batch applications.
+Lower maintenance overhead in your Azure Batch applications by using the [Batch Management .NET][api_mgmt_net] library to automate Batch account creation, deletion, key management, and quota discovery.
 
 - **Create and delete Batch accounts** within any region. If, as an independent software vendor (ISV) for example, you provide a service for your clients in which each is assigned a separate Batch account for billing purposes, you can add account creation and deletion capabilities to your customer portal.
 - **Retrieve and regenerate account keys** programmatically for any of your Batch accounts. This is particularly handy for maintaining compliance with security policies that might enforce the periodic rollover or expiry of account keys. When you have a number of a Batch accounts in various Azure regions, automation of this rollover process will increase your solution's efficiency.
 - **Check account quotas** and take the trial-and-error guesswork out of determining which Batch accounts have what limits. By checking your account quotas prior to starting jobs, creating pools, or adding compute nodes, you can proactively adjust where or when these compute resources are created. You can determine which accounts require quota increases prior to the allocation of additional resources in those accounts.
 - **Combine features of other Azure services** for a full-featured management experience by leveraging Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. Using these features and their APIs, you can provide a frictionless authentication experience, creation and deletion of Resource Groups, and the capabilities described above for an end-to-end management solution.
 
-> [AZURE.NOTE] While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. See [Create and manage an Azure Batch account in the Azure portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for more information.
+> [AZURE.NOTE] While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure preview portal][azure_portal]. See [Create and manage an Azure Batch account in the Azure preview portal](batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for more information.
 
 ## Create and delete Batch accounts
 
@@ -40,19 +40,19 @@ The following code snippet creates an account, obtains the newly created account
 
 ```
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("AccountMgmtSampleGroup",
+await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("AccountMgmtSampleGroup", "mynewaccount");
+BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
 AccountResource account = getResponse.Resource;
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("AccountMgmtSampleGroup", account.Name);
+await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
-> [AZURE.NOTE] For an example of creating a fully initialized instance of a [BatchManagementClient][net_mgmt_client], please see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
+> [AZURE.NOTE] For an example of creating a fully initialized instance of [BatchManagementClient][net_mgmt_client], please see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
 
 ## Retrieve and regenerate account keys
 
@@ -102,11 +102,11 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-> [AZURE.NOTE] In the above snippet, `context` is an instance of [AzureContext][common_azurecontext]. For more information on obtaining a valid AzureContext, see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
+> [AZURE.NOTE] In the snippet above, `context` is an instance of [AzureContext][common_azurecontext]. For more information on obtaining a valid AzureContext, see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
 
 ### Check a Batch account for compute resource quotas
 
-Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources you intend to allocate will not eclipse account quotas that are currently in place. In the code snippet below we print the quota information for the Batch account named `mybatchaccount`, but in your own application, you could use such information to determine whether the account can handle the additional resources you wish to create.
+Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources you intend to allocate will not eclipse account quotas that are currently in place. In the code snippet below we simply print the quota information for the Batch account named `mybatchaccount`, but in your own application, you could use such information to determine whether the account can handle the additional resources you wish to create.
 
 ```
 // First obtain the Batch account
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal][azure_portal]. For example, please see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
+> [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure preview portal][azure_portal]. For example, please see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 
 ## Batch Management .NET, Azure Active Directory, and the Resource Manager
 
@@ -133,7 +133,7 @@ In the sample project discussed below, the [Microsoft.Azure.Common.Authenticatio
 
 ### Resource Manager
 
-When creating Batch accounts with the Batch Management .NET library, you will typically be creating them within a [Resource Group][resman_overview]. You can create the resource group programmatically using the [ResourceManagementClient][resman_client] found within the [Resource Manager .NET][resman_api] library, or you can add an account to an existing resource group you've created previously using the [Azure portal][azure_portal].
+When creating Batch accounts with the Batch Management .NET library, you will typically be creating them within a [Resource Group][resman_overview]. You can create the resource group programmatically using the [ResourceManagementClient][resman_client] found within the [Resource Manager .NET][resman_api] library, or you can add an account to an existing resource group you've created previously using the [Azure preview portal][azure_portal].
 
 ## Sample project on GitHub
 
@@ -153,11 +153,11 @@ Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to s
   - Delete newly created account
 5. Delete the resource group
 
-Before deleting the newly created Batch account and resource group, you can inspect both in the [Azure portal][azure_portal]:
+Before deleting the newly created Batch account and resource group, you can inspect both in the [Azure preview portal][azure_portal]:
 
-![Azure portal displaying resource group and Batch account][1]
+![Azure preview portal displaying resource group and Batch account][1]
 <br />
-*Azure portal displaying new resource group and Batch account*
+*Azure preview portal displaying new resource group and Batch account*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
@@ -168,7 +168,7 @@ Before deleting the newly created Batch account and resource group, you can insp
 [azure_portal]: http://portal.azure.com
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [common_auth]: https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication
-[common_azurecontext]: http://THIS_ASSEMBLY_IS_NOT_ON_MSDN
+[common_azurecontext]: https://github.com/Azure/azure-sdk-for-net/blob/master/src/Authentication/Common.Authentication/Models/AzureContext.cs
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_list_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.listkeysasync.aspx
 [net_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.createasync.aspx
@@ -181,6 +181,5 @@ Before deleting the newly created Batch account and resource group, you can insp
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_overview]: ../resource-group-overview.md
-[resman_goups]: ../blah.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
