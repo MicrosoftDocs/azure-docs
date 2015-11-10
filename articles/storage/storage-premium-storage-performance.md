@@ -40,12 +40,12 @@ We assess whether an application is performing well or not using performance ind
 
 In this section, we will discuss the common performance indicators in the context of Premium Storage. In the following section, Gathering Application Requirements, you will learn how to measure these performance indicators for your application. Later in Optimizing Application Performance, you will learn about the factors affecting these performance indicators and recommendations to optimize them.
 
-### IOPS  
+## IOPS  
 IOPS is number of requests that your application is sending to the storage disks in one second. An input/output operation could be read or write, sequential or random. OLTP applications like an online retail website need to process many concurrent user requests immediately. The user requests are insert and update intensive database transactions, which the application must process quickly. Therefore, OLTP applications require very high IOPS. Such applications handle millions of small and random IO requests. If you have such an application, you must design the application infrastructure to optimize for IOPS. In the later section, *Optimizing Application Performance*, we discuss in detail all the factors that you must consider to get high IOPS.
 
 When you attach a premium storage disk to your high scale VM, Azure provisions for you a guaranteed number of IOPS as per the disk specification. For example, a P30 disk provisions 5000 IOPS. Each high scale VM size also has a specific IOPS limit that it can sustain. For example, a Standard GS5 VM has 80,000 IOPS limit.
 
-### Throughput  
+## Throughput  
 Throughput or Bandwidth is the amount of data that your application is sending to the storage disks in a specified interval. If your application is performing input/output operations with large IO unit sizes, it requires high Throughput. Data warehouse applications tend to issue scan intensive operations that access large portions of data at a time and commonly perform bulk operations. In other words, such applications require higher Throughput. If you have such an application, you must design its infrastructure to optimize for Throughput. In the next section, we discuss in detail the factors you must tune to achieve this.
 
 When you attach a premium storage disk to a high scale VM, Azure provisions Throughput as per that disk specification. For example, a P30 disk provisions 200 MB per second disk Throughput. Each high scale VM size also has as specific Throughput limit that it can sustain. For example, Standard GS5 VM has a maximum throughput of 2,000 MB per second.
@@ -56,7 +56,7 @@ There is a relation between Throughput and IOPS as shown in the formula below.
 
 Therefore, it is important to determine the optimal Throughput and IOPS values that your application requires. As you try to optimize one, the other also gets affected. In a later section, *Optimizing Application Performance*, we will discuss in more details about optimizing IOPS and Throughput.
 
-### Latency  
+## Latency  
 Latency is the time it takes an application to receive a single request, send it to the storage disks and send the response to the client. This is a critical measure of an application’s performance in addition to IOPS and Throughput. The Latency of a premium storage disk is the time it takes to retrieve the information for a request and communicate it back to your application. Premium Storage provides consistent low latencies. If you enable ReadOnly host caching on premium storage disks, you can get much lower read latency. We will discuss Disk Caching in more detail in later section on *Optimizing Application Performance*.
 
 When you are optimizing your application to get higher IOPS and Throughput, it will affect the Latency of your application. After tuning the application performance, always evaluate the Latency of the application to avoid unexpected high latency behavior.
@@ -144,7 +144,7 @@ The table below summarizes all the performance factors and the steps to optimize
 | **Multithreading** | Use multithreading to push higher number of requests to Premium Storage that will lead to higher IOPS and Throughput. For example, on SQL Server set a high MAXDOP value to allocate more CPUs to SQL Server. | |
 | **Queue Depth** | Larger Queue Depth yields higher IOPS. | Larger Queue Depth yields higher Throughput. | Smaller Queue Depth yields lower latencies. |
 
-#### Nature of IO Requests  
+## Nature of IO Requests  
 An IO request is a unit of input/output operation that your application will be performing. Identifying the nature of IO requests, random or sequential, read or write, small or large, will help you determine the performance requirements of your application. It is very important to understand the nature of IO requests, to make the right decisions when designing your application infrastructure.
 
 IO size is one of the more important factors. The IO size is the size of the input/output operation request generated by your application. The IO size has a significant impact on performance especially on the IOPS and Bandwidth that the application is able to achieve. The following formula shows the relationship between IOPS, IO size and Bandwidth/Throughput.  
@@ -178,7 +178,7 @@ To get IOPS and Bandwidth higher than the maximum value of a single premium stor
 
 To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the [Benchmarking](#_Benchmarking) section at the end of this article for more details.
 
-#### High Scale VM Sizes  
+## High Scale VM Sizes  
 When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS and GS series VMs.
 
 High Scale VMs are available in different sizes with a different number of CPU cores, memory, OS and temporary disk size. Each VM size also has maximum number of data disks that you can attach to the VM. Therefore, the chosen VM size will affect how much processing, memory, and storage capacity is available for your application. It also affects the Compute and Storage cost. For example, below are the specifications of the largest VM size in a DS series and a GS series:
@@ -215,7 +215,7 @@ With Azure Premium Storage, you get the same level of Performance for VMs runnin
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
-#### Premium Storage Disk Sizes  
+## Premium Storage Disk Sizes  
 Azure Premium Storage offers three disk sizes currently. Each disk size has a different scale limit for IOPS, Bandwidth and Storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the three disks sizes and their capabilities.
 
 | **Disk Type**       | **P10**           | **P20**           | **P30**           |
@@ -241,7 +241,7 @@ Determine the number of disks you will need by assessing application requirement
 
 Remember, the Premium Storage disks have higher performance capabilities compared to Standard Storage disks. Therefore, if you are migrating your application from Azure IaaS VM using Standard Storage to Premium Storage, you will likely need fewer premium disks to achieve the same or higher performance for your application.
 
-#### Disk Caching  
+## Disk Caching  
 High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
 To learn more about how BlobCache works, refer to the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
@@ -278,7 +278,7 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 2.  Configure “None” cache on premium storage disks hosting the log files.  
     a.  Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache.
 
-#### Disk Striping  
+## Disk Striping  
 When a high scale VM is attached with several premium storage persistent disks, the disks can be striped together to aggregate their IOPs, bandwidth, and storage capacity.
 
 On Windows, you can use Storage Spaces to stripe disks together. You must configure one column for each disk in a pool. Otherwise, the overall performance of striped volume can be lower than expected, due to uneven distribution of traffic across the disks.
@@ -297,7 +297,7 @@ Depending on the type of workload your application is running, choose an appropr
 >**Note:**  
 >You can stripe together a maximum of 32 premium storage disks on a DS series VM and 64 premium storage disks on a GS series VM.
 
-#### Multi-threading  
+## Multi-threading  
 Azure has designed Premium Storage platform to be massively parallel. Therefore, a multi-threaded application achieves much higher performance than a single-threaded application. A multi-threaded application splits up its tasks across multiple threads and increases efficiency of its execution by utilizing the VM and disk resources to the maximum.
 
 For example, if your application is running on a single core VM using two threads, the CPU can switch between the two threads to achieve efficiency. While one thread is waiting on a disk IO to complete, the CPU can switch to the other thread. In this way, two threads can accomplish more than a single thread would. If the VM has more than one core, it further decreases running time since each core can execute tasks in parallel.
@@ -310,7 +310,7 @@ For example, say your application using SQL Server is executing a large query an
 
 Learn more about [Degrees of Parallelism](https://technet.microsoft.com/library/ms188611(v=sql.105).aspx) in SQL Server. Find out such settings that influence multi-threading in your application and their configurations to optimize performance.
 
-#### Queue Depth  
+## Queue Depth  
 The Queue Depth or Queue Length or Queue Size is the number of pending IO requests in the system. The value of Queue Depth determines how many IO operations your application can line up, which the storage disks will be processing. It affects all the three application performance indicators that we discussed in this article viz., IOPS, Throughput and Latency.
 
 Queue Depth and multi-threading are closely related. The Queue Depth value indicates how much multi-threading can be achieved by the application. If the Queue Depth is large, application can execute more operations concurrently, in other words, more multi-threading. If the Queue Depth is small, even though application is multi-threaded, it will not have enough requests lined up for concurrent execution.
@@ -567,9 +567,10 @@ While the test runs, you will be able to see the number of combined read and wri
 *Maximum Combined Throughput*  
 To get the maximum combined Read and Write Throughput, use a larger block size and large queue depth with multiple threads performing reads and writes. You can use a block size of 64KB and queue depth of 128.
 
-## More Resources and References  
+## Next Steps  
+Learn more about Azure Premium Storage,
 - [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](https://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/)  
-- [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx)  
-- [Use Azure Premium Storage with SQL Server on Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-use-premium-storage/#overview)  
+
+For SQL Server users, read articles on Performance Best Practices for SQL Server, 
+- [Performance Best Practices for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133149.aspx) 
 - [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)  
-- [Azure Virtual Machine Sizes](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/)
