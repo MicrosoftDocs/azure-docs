@@ -184,3 +184,11 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - WOOJEON & HANDAN Co., Ltd
 - WOOX Innovations Limited
 - ZTE Corporation
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

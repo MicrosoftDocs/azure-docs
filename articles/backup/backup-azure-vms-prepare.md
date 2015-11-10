@@ -118,7 +118,7 @@ HttpProxy.Port=<proxy port>
 	![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
 2. In the *New Inbound Rule Wizard* choose the **Custom** option for the *Rule Type* and click Next. In the screen to select the *Program* choose **All Programs** and click Next.
 
-3. In the *Protcol and Ports* screen use the inputs in the table below and click Next:
+3. In the *Protocol and Ports* screen use the inputs in the table below and click Next:
 
 	![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
 
