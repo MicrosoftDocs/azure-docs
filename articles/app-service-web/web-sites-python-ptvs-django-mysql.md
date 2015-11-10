@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
