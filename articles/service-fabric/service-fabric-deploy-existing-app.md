@@ -123,7 +123,8 @@ Below is an example of a `ServiceManifest.xml`:
          <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
       </Endpoints>
    </Resources>
-</ServiceManifest>```
+</ServiceManifest>
+```
 
 Let's go over the different part of the file that you need to update:
 
@@ -270,7 +271,7 @@ If you navigate to the node and browse to the application, you will see the esse
 
 If you browse to the directory using Server Explorer you can find working directory and the service's logs folder as shown below.
 
-![location on disk](./media/service-fabric-deploy-existing-app/logfiles.png)
+![location on disk](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 
 ## Next steps
