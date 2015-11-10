@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/03/2015"
+   ms.date="11/09/2015"
    ms.author="joaoma"/>
 
 # What is Application Gateway?
@@ -52,7 +52,7 @@ HTTP layer 7 load balancing is useful for:
 
 Application Gateway is currently offered in 3 sizes: Small, Medium and Large. Small instance sizes are intended for development and testing scenarios. 
 
-You can create up to 10 application gateways per subscription and each application gateway can have up to 10 instances each. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
+You can create up to 50 application gateways per subscription and each application gateway can have up to 10 instances each. Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer.
 
 The table below shows an average performance throughput for each application gateway instance:
 
@@ -63,15 +63,14 @@ The table below shows an average performance throughput for each application gat
 |100k | 35 mbps | 100mbps| 200 mbps |
 
 
->[AZURE.NOTE] This is an average guidance for application gateway throughput. Environment variables such as location of the back end web instance, web site response back to the application gateway and page size have a role in the throughput numbers.
-
+>[AZURE.NOTE] This is an approximate guidance for an application gateway throughput. The actual throughput is dependent on various environment details such as average page size,  location of backend instances,  processing time to server a page to name a few.
 
 ## Health monitoring
  
 
-Application Gateway monitors the health status for back end IP addresses testing HTTP response from *HttpSettings* sections of gateway periodically. The health probe expects a successful HTTP response in 200-399 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
+Azure Application Gateway monitors the health of the back end instances every 30 seconds. It sends a HTTP health probe request to each instance at the port configured in *BackendHttpSettings* elements of the configuration. The health probe expects a successful HTTP response with response status code in range of 200-399.
 
-When a successful HTTP response is received, the back end server is marked as healthy. If the probe fails, the web instance IP address is removed from the healthy back end pool, and traffic stops flowing to this server. The health probe continues every 30 seconds to the failed web instance until it goes back as healthy. Until health validation succeeds, the failed back end server is explicitly removed from the back end pool. When the web instance responds successfully to the health probe, it is added back as healthy to the back end pool, and traffic starts flowing to the instance again.
+When a successful HTTP response is received, the back end server is marked as healthy and continues to receives traffic from Azure Application Gateway. If the probe fails, the back end instance is removed from the healthy pool, and traffic stops flowing to this server. The health probe still continues every 30 seconds to the failed back end instance to check its current health status. When the back end instance responds successfully to the health probe, it is added back as healthy to the back end pool, and traffic starts flowing to the instance again.
 
 ## Configuring and managing
 
