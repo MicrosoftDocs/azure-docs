@@ -4,7 +4,7 @@
 	documentationCenter=""
 	services="active-directory"
 	authors="femila"
-	manager="stevenpo"
+	manager="billmath"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="billmath"/>
 
 # Determine multi-factor authentication requirements
 In this world of mobility, with users accessing data and applications in the cloud and from any device, securing this information has become paramount.  Every day there is a new headline about a security breach.  Although, there is no guarantee against such breaches, multi-factor authentication, provides an additional layer of security to help prevent these breaches.
@@ -49,3 +49,11 @@ After answering the previous questions, you will be able to understand if there 
 - Does your company need to enable MFA for certain application for compliance reasons?
 - Does your company need to enable MFA for all eligible users of these application or only administrators?
 - Do you need have MFA always enabled or only when the users are logged outside of your corporate network?
+
+
+## Next step
+[Define a hybrid identity adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+
+
+## See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

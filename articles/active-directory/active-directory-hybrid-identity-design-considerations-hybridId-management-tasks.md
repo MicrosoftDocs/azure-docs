@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="11/11/2015"
 	ms.author="femila"/>
 
 # Plan for Hybrid Identity Lifecycle
@@ -60,3 +60,9 @@ To proper design the synchronization of your hybrid identity solution ensure tha
 •	What are the single sign on capabilities available?
 •	What are the options for identity federation between B2B and B2C?
 
+## Next step
+[Determine hybrid identity management adoption strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

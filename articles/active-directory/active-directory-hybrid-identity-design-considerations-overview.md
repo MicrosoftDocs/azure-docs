@@ -3,7 +3,7 @@
 	description="Overview and content map of Hybrid Identity design considerations guide"
 	documentationCenter=""
 	services="active-directory"
-	authors="yurid"
+	authors="yuridio"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/08/2015"
-	ms.author="yurid"/>
+	ms.date="11/10/2015"
+	ms.author="yuridio"/>
 
 # Azure Active Directory Hybrid Identity Design Considerations
 
@@ -40,7 +40,7 @@ This guide provides a series of steps and tasks that you can follow to design a 
 
 **Assumptions**: You have some experience with Windows Server, Active Directory Domain Services and Azure Active Directory. In this document, we assume you are looking for how these solutions can meet your business needs on their own or in an integrated solution.
 
-## Design Considerations Overview
+## Design considerations overview
 This document provides a set of steps and tasks that you can follow to design a hybrid identity solution that best meets your requirements. The steps are presented in an ordered sequence. Design considerations you learn in later steps may require you to change decisions you made in earlier steps, however, due to conflicting design choices. Every attempt is made to alert you to potential design conflicts throughout the document. 
 
 You will arrive at the design that best meets your requirements only after iterating through the steps as many times as necessary to incorporate all of the considerations within the document. 
@@ -49,4 +49,4 @@ You will arrive at the design that best meets your requirements only after itera
 |-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Determine identity requirements                                   | [Determine business needs](active-directory-hybrid-identity-design-considerations-business-needs.md)<br> [Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Define a hybrid identity adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)                       |
 | Plan for enhancing data security through strong identity solution | [Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Determine content management requirements](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Determine access control requirements](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)  |
-| Plan for Hybrid Identity Lifecycle                                | [Determine Hybrid Identity Management Tasks](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [Synchronization Management]((active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [Determine hybrid identity management adoption strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |                                                                  
+| Plan for Hybrid Identity Lifecycle                                | [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [Synchronization Management](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [Determine hybrid identity management adoption strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |                                                                  

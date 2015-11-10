@@ -3,7 +3,7 @@
 	description="When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="yuridio"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="yuridio"/>
 
 #Plan for enhancing data security through strong identity solution
 The first step to protect the data is identify who can access that data and as part of this process you need to have an identity solution that can integrates with your system to provide authentication and authorization capabilities. Authentication and authorization are often confused with each other and their roles misunderstood. In reality they are quite different, as shown in the figure below:
@@ -72,3 +72,11 @@ Regulations, laws and regulatory compliance requirements will vary according to 
  
 >[AZURE.NOTE]
 Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+
+## Next step
+ [Determine content management requirements](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
+
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+

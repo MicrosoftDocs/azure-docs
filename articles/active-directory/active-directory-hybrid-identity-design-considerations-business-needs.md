@@ -3,7 +3,7 @@
 	description="Identifythe company’s business needs that will lead you to define the requirements for the hybrid identity design."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="billmath"/>
 
 # Determine identity requirements
 The first step in designing a hybrid identity solution is to determine the requirements for the business organization that will be leveraging this solution.  Hybrid identity starts as a supporting role (it supports all other cloud solutions by providing authentication) and goes on to provide new and interesting capabilities that unlock new workloads for users.  These workloads or services that you wish to adopt for your users will dictate the requirements for the hybrid identity design.  These services and workloads need to leverage hybrid identity both on-premises and in the cloud.  
@@ -95,3 +95,9 @@ You also have to evaluate the user requirements. This evaluation is important to
 
 >[Note]
 Make sure to take notes of each answer and understand the rationale behind the answer. Task 4 will go over the options available and pros/cons of each option.  By having answered those questions you will select which option best suits your business needs.
+
+## Next steps
+[Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
+
+## See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

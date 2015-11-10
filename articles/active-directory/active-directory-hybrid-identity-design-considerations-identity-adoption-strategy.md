@@ -3,7 +3,7 @@
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.author="billmath"/>
 
 
 # Define a hybrid identity adoption strategy
@@ -107,7 +107,9 @@ It is very common for large and even small organizations to have multiple forest
 >[AZURE.NOTE]
 For more information about the different on-premises and Azure AD topologies with Azure AD Connect sync read the article [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md).
 
+
 ![](./media/hybrid-id-design-considerations/multi-forest.png) 
+
 Multi-Forest Scenario
 
 If this the case then the multi-forest-single Azure AD topology should be considered if the following items are true:
@@ -193,3 +195,9 @@ Multi-factor authentication is available by default for global administrators wh
 
 >[AZURE.NOTE]
 You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design. 
+
+##next step
+[Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
+
+## See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

@@ -3,7 +3,7 @@
 	description="Identify what requirements are needed for synchronizing all the users between on=premises and cloud for the enterprise."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="billmath"/>
 
 # Determine directory synchronization requirements
 Synchronization is all about providing users an identity in the cloud based on their on-premises identity. Whether or not they will use synchronized account for authentication or federated authentication, the users will still need to have an identity in the cloud.  This identity will need to be maintained and updated periodically.  The updates can take many forms, from title changes to password changes.  
@@ -59,3 +59,9 @@ You also need to determine the security requirements and constraints directory s
  
 >[AZURE.NOTE]
 Make sure to take notes of each answer and understand the rationale behind the answer. Task 4 will go over the options available. By having answered those questions you will select which option best suits your business needs.
+
+## Next step
+[Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+
+## See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

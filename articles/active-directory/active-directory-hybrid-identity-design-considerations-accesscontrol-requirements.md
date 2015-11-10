@@ -4,7 +4,7 @@
 	description="Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="yuridio"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="yuridio"/>
 
 # Determine access control requirements
 When an organization is designing their hybrid identity solution they can also use this opportunity to review access requirements for the resources that they are planning to make it available for users. The data access cross all four pillars of identity, which are:
@@ -65,3 +65,10 @@ While authentication and authorization are core elements to enable access to cor
  
 >[AZURE.NOTE]
 Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+
+## Next step
+
+[Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

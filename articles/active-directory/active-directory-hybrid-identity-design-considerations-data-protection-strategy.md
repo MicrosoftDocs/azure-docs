@@ -3,7 +3,7 @@
 	description="you’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="yuridio"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="yuridio"/>
 
 
 # Define Data Protection Strategy 
@@ -152,3 +152,10 @@ In addition to the core reporting capability available in Azure AD Premium that 
 - Adding or removing licenses
 
 Since the options for incident response use a multilayer approach, comparison between those options are not applicable for this task. Ensure that you are leveraging all options available for each scenario that requires you to use Azure AD reporting capability as part of your company’s incident response process.
+
+## Next step
+[Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)
+
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

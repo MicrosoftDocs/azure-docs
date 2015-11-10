@@ -3,7 +3,7 @@
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="yuridio"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.date="11/11/2015"
+	ms.author="yuridio"/>
 
 # Determine content management requirements
 Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](http://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has his own device he might have also multiple credentials that will be alternating according to the application that he uses. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure his privacy and increase the protection against data leakage. Your identity solution will be leverage by different technical controls in order to provide content management as shown in the figure below:
@@ -50,3 +50,10 @@ When planning your hybrid identity solution ensure that the following questions 
  
 >[AZURE.NOTE]
 Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+
+
+## Next step
+[Determine access control requirements](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

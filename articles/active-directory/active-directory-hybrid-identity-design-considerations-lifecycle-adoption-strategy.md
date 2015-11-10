@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="11/11/2015"
 	ms.author="femila"/>
 
 
@@ -93,6 +93,7 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 The following figure has an example of a high-level view of identity synchronization process. 
 
 ![](./media/hybrid-id-design-considerations/identitysync.png)
+
 Identity synchronization process
 
 Review the following table to compare the synchronization options:
@@ -103,4 +104,8 @@ Review the following table to compare the synchronization options:
 | Federation-based (through AD FS)           | Enabled by Security Token Service (STS). When you configure an STS to provide single sign-on access with a Microsoft cloud service, you will be creating a federated trust between your on-premises STS and the federated domain you’ve specified in your Azure AD tenant. <br> Allows end users to use the same set of credentials to obtain access to multiple resources <br>end users do not have to maintain multiple sets of credentials. Yet, the users have to provide their credentials to each one of the participating resources.,B2B and B2C scenarios supported.                                                                                                                                                                                                                                                                                                                                                                                                             | Requires specialized personnel for deployment and maintenance of dedicated on-prem AD FS servers. There are restrictions on the use of strong authentication if you plan to use AD FS for your STS. For more information, see [Configuring Advanced Options for AD FS 2.0](http://go.microsoft.com/fwlink/?linkid=235649). |
 
 >[AZURE.NOTE]
-For more information see, [Integrating your on-premises identities with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/).
+For more information see, [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)

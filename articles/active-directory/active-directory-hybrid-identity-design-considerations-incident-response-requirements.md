@@ -4,7 +4,7 @@
 	description="Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threats"
 	documentationCenter=""
 	services="active-directory"
-	authors="femila"
+	authors="yuridio"
 	manager="stevenpo"
 	editor=""/>
 
@@ -15,11 +15,11 @@
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
 	ms.date="11/06/2015"
-	ms.author="femila"/>
+	ms.author="yuridio"/>
 
 # Determine Incident Response Requirements
 
-Large or medium organizations most likely will have a [security incident response](https://technet.microsoft.com/en-us/library/cc700825.aspx) in place to help IT take actions accordingly to the level of incident. The identity management system is an important component in the incident response process because it can be used to help identifying who performed a specific action against the target. The hybrid identity solution must be able to provide monitoring and reporting capabilities that can be leveraged by IT to take actions to identify and mitigate a potential threat. In a typical incident response plan you will have the following phases as part of the plan:
+Large or medium organizations most likely will have a [security incident response](https://technet.microsoft.com/library/cc700825.aspx) in place to help IT take actions accordingly to the level of incident. The identity management system is an important component in the incident response process because it can be used to help identifying who performed a specific action against the target. The hybrid identity solution must be able to provide monitoring and reporting capabilities that can be leveraged by IT to take actions to identify and mitigate a potential threat. In a typical incident response plan you will have the following phases as part of the plan:
 
 1.	Initial assessment.
 2.	Incident communication.
@@ -56,3 +56,9 @@ During phase 3 (Damage control and risk reduction) it is important to quickly re
  
 >[AZURE.NOTE]
 Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+
+## Next step
+[Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
+
+## See Also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
