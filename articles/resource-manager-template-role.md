@@ -63,28 +63,28 @@ The following tables describe the values you need to set in the schema.
 You add a role assignment to your template when you need to add a user, group, or service principal to a role during deployment. Role assignments are inherited from higher levels of scope, so 
 if you have already added a principal to a role at the subscription level, you do not need to re-assign it for the resource group or resource.
 
+You can generate a new identifier for **name** with:
+
+    PS C:\> $name = [System.Guid]::NewGuid().toString()
 
 You can retrieve the globally-unique identifier for role definition with:
 
-    PS C:\> (Get-AzureRmRoleDefinition -Name Reader).id
+    PS C:\> $roledef = (Get-AzureRmRoleDefinition -Name Reader).id
 
 You can retrieve the identifier for the principal with one of the following commands.
 
 For a group named **Auditors**:
 
-    PS C:\> (Get-AzureRmADGroup -SearchString Auditors).id
+    PS C:\> $principal = (Get-AzureRmADGroup -SearchString Auditors).id
 
 For a user named **exampleperson**:
 
-    PS C:\> (Get-AzureRmADUser -SearchString exampleperson).id
+    PS C:\> $principal = (Get-AzureRmADUser -SearchString exampleperson).id
 
 For a service principal named **exampleapp**:
 
-    PS C:\> (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
+    PS C:\> $principal = (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
  
-You can generate a new identifier for **name** with:
-
-    PS C:\> [System.Guid]::NewGuid().toString()
 
 ## Examples
 
@@ -99,22 +99,22 @@ The following example assigns a group to a role for the resource group.
             },
             "roleAssignmentId": {
                 "type": "string"
-	    },
+            },
             "principalId": {
                 "type": "string"
             }
         },
         "resources": [
             {
-                "type": "Microsoft.Authorization/roleAssignments",
-                "apiVersion": "2015-07-01",
-                "name": "[parameters('roleAssignmentId')]",
-                "properties":
-                {
-                    "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', parameters('roleDefinitionId'))]",
-                    "principalId": "[parameters('principalId')]",
-                    "scope": "[concat(subscription().id, '/resourceGroups/', resourceGroup().name)]"
-                }
+              "type": "Microsoft.Authorization/roleAssignments",
+              "apiVersion": "2015-07-01",
+              "name": "[parameters('roleAssignmentId')]",
+              "properties":
+              {
+                "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', parameters('roleDefinitionId'))]",
+                "principalId": "[parameters('principalId')]",
+                "scope": "[concat(subscription().id, '/resourceGroups/', resourceGroup().name)]"
+              }
             }
         ],
         "outputs": {}
