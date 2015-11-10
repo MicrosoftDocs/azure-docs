@@ -77,9 +77,9 @@ To control these things select the Scale configuration item at the top.
 
 The quantity of compute resources in each pool and their size can be adjusted here.  Before making any changes though it is important to note a few things:
 
-- changes made can take hours to complete depending on how large is the change requested
+- changes made can take two to three hours to complete depending on how large is the change requested
 - when there is already a App Service Environment configuration change in work, you cannot start another change
-- if you change the size of the compute resources used in a worker pool you can cause outages for the web apps running in that worker pool
+- if you change the size of the compute resources used in a worker pool your web app instances will restart as they are migrated to the use the new worker sizes.  
 
 Adding additional instances to a worker pool is a benign operation and does not incur a system impact.  Changing the size of the compute resource used in a worker pool is another story though.  To avoid any app down time during a size change to a worker pool it is best to:
 

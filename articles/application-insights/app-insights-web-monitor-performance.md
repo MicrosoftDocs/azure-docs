@@ -135,7 +135,6 @@ If you specify an instance, it will be collected as a property "CounterInstanceN
 If you prefer, you can write code to have the same effect:
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)\# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);

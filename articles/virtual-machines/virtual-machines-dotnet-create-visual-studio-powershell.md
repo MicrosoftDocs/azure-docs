@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="kempb"
 	manager="douge"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +18,8 @@
 	ms.author="kempb"/>
 
 # Creating a virtual machine for a web application with Visual Studio
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 When you create a web application project for Azure, you can provision a virtual machine in Azure. You can then configure the virtual machine with additional software, or use the virtual machine for diagnostic or debugging purposes.
 

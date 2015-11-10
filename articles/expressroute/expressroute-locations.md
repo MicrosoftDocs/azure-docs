@@ -31,9 +31,9 @@ You will have access to Azure services across all regions within a geopolitical 
 |---|---|---|
 |**US**|All US Regions - East US, West US, East US 2, Central US, South Central US, North Central US|Atlanta, Chicago, Dallas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC|
 |**South America**|Brazil South|Sao Paulo|
-|**Europe**|North Europe, West Europe|Amsterdam, London|
+|**Europe**|North Europe, West Europe|Amsterdam, Dublin+, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
-|**Japan**|Japan West, Japan East|Tokyo|
+|**Japan**|Japan West, Japan East|Osaka, Tokyo|
 |**Australia**|Australia Southeast, Australia East|Melbourne, Sydney|
 |**India**|India West, India Central, India South|Chennai, Mumbai|
 
@@ -55,13 +55,14 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka Networks]( http://www.aryaka.com/)** | Supported | Not Supported | Silicon Valley, Singapore, Washington DC |
+| **[Aryaka Networks]( http://www.aryaka.com/)** | Supported | Not Supported | Amsterdam, Silicon Valley, Singapore, Washington DC |
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Amsterdam, London+, Dallas, Silicon Valley, Washington DC |
-| **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Supported | Amsterdam, London, Silicon Valley+, Washington DC |
+| **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Supported | Amsterdam, London, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Coming Soon | Not Supported | Hong Kong+ |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Not Supported | Amsterdam, London |
 | **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **CoreSite** | Supported | Not Supported | Los Angeles | 
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Not Supported | Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Supported | Not Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Not Supported | Amsterdam, London |
@@ -71,13 +72,14 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **MTN** | Supported | Not Supported | London |
 | **NTT Communications** | Supported | Not Supported | London+, Tokyo |
 | **NEXTDC** | Supported | Not Supported | Melbourne, Sydney+ |
-| **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, London, Silicon Valley, Washington DC |
+| **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supported | Not Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
-| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Supported | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Supported | Amsterdam, Chennai+, Hong Kong, London, Mumbai, Singapore |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supported | Supported | Amsterdam, London |
-| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne+, Sydney |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supported | Supported | London, Hong Kong, Silicon Valley, Sydney, Tokyo, Washington DC |
+| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Not Supported | Melbourne, Sydney |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supported | Supported | Hong Kong, London, Silicon Valley, Sydney, Washington DC |
+| **Vodafone** | Supported | Not Supported | London | 
 | **[Zayo Group]( http://www.zayo.com/)** | Supported | Not Supported | Chicago, Silicon Valley, Washington DC |
 
  **+** denotes coming soon

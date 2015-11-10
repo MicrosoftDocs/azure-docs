@@ -3,7 +3,7 @@
    description="Manage the SaaS apps you already use by enabling single sign-on authentication and user provisioning in Azure Active Directory."
    services="active-directory"
    documentationCenter=""
-   authors="kgremban"
+   authors="curtand"
    manager="stevenpo"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="10/16/2015"
-   ms.author="kgremban; liviodlc"/>
+   ms.author="kgremban; liviodlc;curtand"/>
 
 # Integrating Azure Active Directory SSO with existing apps
 

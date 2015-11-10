@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Android apps
@@ -52,7 +52,17 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ##Configure a new notification hub
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
+
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+<ol start="7">
+<li><p>Click the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then click <b>Save</b>.</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+
+Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
 ##<a id="connecting-app"></a>Connect your app to the notification hub
 
@@ -147,7 +157,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     	}
 
 
-7. Add the **DialogNotify** method to the activity to display the notification when the app is running and visible. Also override **onStart** and **onStop** to determine whether the activity is visible to display the dialog.
+7. Add the `DialogNotify` method to the activity to display the notification when the app is running and visible. Also override `onStart`, `onPause`, `onResume` and `onStop` to determine whether the activity is visible to display the dialog.
 
 	    @Override
 	    protected void onStart() {
@@ -156,11 +166,22 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
@@ -507,11 +528,6 @@ To learn more general information about Notification Hubs, see [Notification Hub
 
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
-[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png

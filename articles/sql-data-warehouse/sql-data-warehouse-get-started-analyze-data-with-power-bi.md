@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Analyze SQL Data Warehouse data with Power BI | Microsoft Azure"
-    description="Analyze SQL Data Warehouse data with Power BI"
+    pageTitle="Visualize SQL Data Warehouse data with Power BI | Microsoft Azure"
+    description="Visualize SQL Data Warehouse data with Power BI"
     services="sql-data-warehouse"
     documentationCenter="NA"
     authors="lodipalm"
@@ -13,16 +13,18 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="10/20/2015"
+    ms.date="10/21/2015"
     ms.author="lodipalm"/>
 
-# Analyze data with Power BI
+# Visualize data with Power BI
+
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
 > [AZURE.NOTE] To complete this tutorial, you need a SQL Data Warehouse database that is pre-loaded with the AdventureWorksDW sample database. [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) shows you how to create one. 
 > 
 > If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][].
 
+> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
 ## Connect to AdventureWorksDW
 
@@ -99,11 +101,11 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [12]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrate]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
-[load]: sql-data-warehouse-overview-load.md
-[load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-overview-load.md
+[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Azure preview portal]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md

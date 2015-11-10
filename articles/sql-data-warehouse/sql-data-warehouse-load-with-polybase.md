@@ -27,6 +27,7 @@ Warehouse database with the following steps:
 - Create PolyBase objects: external data source, external file format, and external table. 
 - Query data stored in Azure blob storage.
 - Load data from Azure blob storage into SQL Data Warehouse.
+- Export data from SQL Data Warehouse to Azure blob storage.
 
 
 ## Prerequisites
@@ -168,8 +169,6 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE] Please note that you cannot create statistics on an external table at this time.
-
 Reference topic: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 The objects you just created are stored in SQL Data Warehouse database. You can view them in the SQL Server Data Tools (SSDT) Object Explorer. 
@@ -228,7 +227,7 @@ Storing data directly removes the data transfer time for queries. Storing data w
 
 This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition. 
 
-CREATE TABLE AS SELECT is a highly performant Transact-SQL statement  that replaces INSERT...SELECT.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
+CREATE TABLE AS SELECT is a highly performant Transact-SQL statement that loads the data in parallel to all the compute nodes of your SQL Data Warehouse.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -246,6 +245,33 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 See [CREATE TABLE AS SELECT (Transact-SQL)][].
+
+
+## Export data to Azure blob storage
+This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes. 
+
+The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format. 
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
+
+
 
 
 ## Working around the PolyBase UTF-8 requirement

@@ -20,7 +20,7 @@
 
 This **menu** links to topics that describe how to sample data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduction
 

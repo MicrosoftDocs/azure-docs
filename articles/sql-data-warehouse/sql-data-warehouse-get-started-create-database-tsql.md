@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
@@ -54,9 +54,9 @@ SERVICE_OBJECTIVE will indicate the number of DWUs that your instance will start
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
 
 [Azure preview portal tutorial]: ./sql-data-warehouse-get-started-provision.md
-[connect and query]: ./sql-data-warehouse-get-started-connect-query.md
-[migrate]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
-[develop]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
-[load]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/
-[load sample data]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[pricing page]:https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
+[connect and query]: ./sql-data-warehouse-get-started-connect.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-overview-load.md
+[load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[pricing page]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/

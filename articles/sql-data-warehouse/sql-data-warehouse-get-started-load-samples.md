@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Load sample data into SQL Data Warehouse
@@ -78,18 +78,18 @@ Now that we've given you some time to warm up with the sample data check out how
 <!--Image references-->
 
 <!--Article references-->
-[migrate]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-migrate/
-[develop]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-develop/
-[load]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-overview-load/
-[connect and query]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migrate code]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-migrate-code/
-[load sample data manually]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[Azure Portal]: https://portal.azure.com
-[Power BI]: http://www.powerbi.com
-[connecting to SQL Data Warehouse]:https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-integrate-power-bi/
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-overview-load.md
+[connect and query]: ./sql-data-warehouse-get-started-connect.md
+[migrate code]: ./sql-data-warehouse-migrate-code.md
+[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[Azure Portal]: https://portal.azure.com/
+[Power BI]: http://www.powerbi.com/
+[connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]:http://www.microsoft.com/en-us/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[Sample Data Scripts]:https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip 
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/ 

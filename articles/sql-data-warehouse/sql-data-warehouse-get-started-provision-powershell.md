@@ -30,7 +30,7 @@ If you're not already set-up with Powershell, you can:
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
-3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell][]):
+3. If you have not already added your account to the machine, then run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell][]):
 
             Add-AzureAccount
 
