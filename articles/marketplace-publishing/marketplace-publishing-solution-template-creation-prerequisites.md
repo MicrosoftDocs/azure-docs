@@ -64,7 +64,7 @@ If you are new to Azure Resource Manager and its templates, it may be worthwhile
 
 Your solution will likely be expressed with a set of templates.  These templates are logical pieces of your topology.  There are many reasons to break up the topology expression into multiple files, from ease of development and manageability, to reusability of certain subsets, to modular testing and expansion of template solutions.  After working with many partners, one such breakdown proposed by the Azure team is to divide the topology into a template for common resources (such as VNets and storage accounts), called the Shared Resource template, zero or more templates for optional resources, called the Optional Resource template, and one or more templates for the topology specific resources, called Known Configuration Resource templates.
 
-A complete template solution in the Marketplace consist of the following items:
+A complete template solution in the Marketplace consists of the following items:
 
 1. **One main template (mainTemplate.json)**: This is the entry point to the overall deployment expressed in the Azure Resource Manager JSON templating file.  It is the first file that is evaluated for the template solution and the one used to stitch together (link) all the rest of the templates.  This file must also contain all desired input (parameters) from the customer.
 2. **Zero or more linked templates**: The rest of the templates that are linked from the main template to express the complete solution topology.
