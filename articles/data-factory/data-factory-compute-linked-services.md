@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -49,6 +49,7 @@ Note the following **important** points about on-demand HDInsight linked service
 	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
+		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
@@ -69,6 +70,7 @@ timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Speci
 version | Version of the HDInsight cluster | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
+osType | Type of operating system. Allowed values are: windows (default) and linux | No 
 
 ### Advanced Properties
 
