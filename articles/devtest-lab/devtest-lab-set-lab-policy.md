@@ -51,9 +51,17 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 1. On the lab's **Settings** blade, under **Policies**, tap **Maximum VMs**.
 
-1. To set the maximum number of VMs allowed per user, tap  **On** under **Policy per User** and - under **Maximum VMs Allowed per User** - enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+1. In the **Policy per User** section:
+ 
+	1. Tap **On** to enable this policy, and **Off** to disable it.
+	
+	1. If you enabled this policy, in the **Maximum VMs Allowed per User** text box, enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
 
-1. To set the maximum number of VMs allowed per lab, tap  **On** under **Policy per Lab** and - under **Maximum VMs Allowed per Lab** - enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+1. In the **Policy per Lab** section:
+ 
+	1. Tap **On** to enable this policy, and **Off** to disable it.
+	
+	1. If you enabled this policy, in the **Maximum VMs Allowed per Lab** text box, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
 
 1. Tap **Save**.
 
