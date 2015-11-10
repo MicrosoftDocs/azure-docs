@@ -85,7 +85,7 @@ These are the main steps of the token service pattern:
 3. The token service returns a token, created as per [IoT Hub Developer Guide - Security][lnk-devguide-security], using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated.
 4. The device uses the token directly with the IoT hub.
 
-The token service can set the token expiration as desired. At expiration, the IoT hub servers the connection, and the device must request a new token to the token service. Clearly a short expiration time will increase the load on both the device and the token service.
+The token service can set the token expiration as desired. At expiration, the IoT hub severs the connection, and the device must request a new token to the token service. Clearly a short expiration time will increase the load on both the device and the token service.
 
 It is worth specifying that for the device to be able to connect, the device identity still must be created in the IoT hub. This also means that per-device access control (by disabling device identities as per [IoT Hub identity registry][lnk-devguide-identityregistry]) is still functional, even if the device authenticates with a token. This mitigates the existence of long-lasting tokens.
 

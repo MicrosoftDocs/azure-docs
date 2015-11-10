@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
@@ -56,24 +56,27 @@ You can create up to 10 application gateways per subscription and each applicati
 
 The table below shows an average performance throughput for each application gateway instance:
 
+
 | Back end page response | Small | Medium | Large|
 |---|---|---|---|
 | 6K | 7.5 mbps | 13 mbps | 50 mbps |
 |100k | 35 mbps | 100mbps| 200 mbps |
 
 
->[AZURE.NOTE] Performance numbers also depends on the web application HTTP response back to application gateway. 
+>[AZURE.NOTE] This is an average guidance for application gateway throughput. Environment variables such as location of the back end web instance, web site response back to the application gateway and page size have a role in the throughput numbers.
 
 
-## Monitoring
+## Health monitoring
  
-Application Gateway monitors the health status of back end instances using probes ports, testing the HTTP response from HttpSettings sections of gateway periodically. The probe expects a successful HTTP response in 200-390 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
 
-When a successful HTTP response is received, the IP address is marked as healthy. If the probe fails, the IP address is removed from a healthy back end pool, and traffic stops flowing to this server. The health probe continues every 30 seconds to the failed web instance until it comes back online. When the web instance  responds successfully to the health probe, it is added back to the healthy back end pool, and traffic starts flowing to this instance again.
+Application Gateway monitors the health status for back end IP addresses testing HTTP response from *HttpSettings* sections of gateway periodically. The health probe expects a successful HTTP response in 200-399 response code range and tests the back end IP addresses every 30 seconds to check for the HTTP response. 
+
+When a successful HTTP response is received, the back end server is marked as healthy. If the probe fails, the web instance IP address is removed from the healthy back end pool, and traffic stops flowing to this server. The health probe continues every 30 seconds to the failed web instance until it goes back as healthy. Until health validation succeeds, the failed back end server is explicitly removed from the back end pool. When the web instance responds successfully to the health probe, it is added back as healthy to the back end pool, and traffic starts flowing to the instance again.
 
 ## Configuring and managing
 
 You can create and manage an application gateway by using REST APIs and by using PowerShell cmdlets.
+
 
 
 ## Next Steps

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure" 
+	pageTitle="Get started with Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Get started with Azure Search, a cloud hosted search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 

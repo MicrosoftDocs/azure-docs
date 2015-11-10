@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager"/>
+ tags="azure-resource-manager,hpc-pack"/>
 
 <tags
  ms.service="virtual-machines"
