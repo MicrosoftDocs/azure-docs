@@ -238,58 +238,37 @@ The following are the additional attributes that have been added to the CSDL spe
 
 XPath expression executed against the service output and extracts one property of the output.
 
-The XPath specified is relative to the repeating node that has been selected in the EntityType node’s XPath. It is also possible to specify an absolute XPath to allow including a static resource in each of the output nodes, like for example a copyright statement that is only found once in the original service output but should be present in each of the rows in the OData output.
+The XPath specified is relative to the repeating node that has been selected in the EntityType node’s XPath. It is also possible to specify an absolute XPath to allow including a static resource in each of the output nodes, like for example a copyright statement that is only found once in the original service output but should be present in each of the rows in the OData output. Example from the service:
 
-Example from the service:
-        <foo>
+        `<foo>
           <bar>
            <baz0>… value …</baz0>
            <baz1>… value …</baz1>
            <baz2>… value …</baz2>
           </bar>
-        </foo>
+        </foo>`
 
 The XPath expression here would be ./bar/baz0 to get the baz0 node from the content provider’s service.
 
-**d:CharMaxLength**
+**d:CharMaxLength** - For string type, you can specify the max length. See DataService CSDL Example
 
-For string type, you can specify the max length. See DataService CSDL Example
+**d:IsPrimaryKey** - Indicates if the column is the Primary key in the table/view. See DataService CSDL Example.
 
-**d:IsPrimaryKey**
+**d:isExposed** - Determines if the table schema is exposed (generally true). See DataService CSDL Example
 
-Indicates if the column is the Primary key in the table/view. See DataService CSDL Example.
+**d:IsView** *(Optional)* - true if this is based on a view rather than a table.  See DataService CSDL Example
 
-**d:isExposed**
+**d:Taleschema** - See DataService CSDL Example
 
-Determines if the table schema is exposed (generally true). See DataService CSDL Example
+**d:ColumnName** - Is the name of the column in the table/view.  See DataService CSDL Example
 
-**d:IsView**
+**d:IsReturned** - Is the Boolean that determines if the Service exposes this value to the client.  See DataService CSDL Example
 
-(Optional) true if this is based on a view rather than a table.  See DataService CSDL Example
+**d:IsQueryable** - Is the Boolean that determines if the column can be used in a database query.   See DataService CSDL Example
 
-**d:Taleschema**
+**d:OrdinalPosition** - Is the column’s numerical position of appearance, x, in the table or the view, where x is from 1 to the number of columns in the table.  See DataService CSDL Example
 
-See DataService CSDL Example
-
-**d:ColumnName**
-
-Is the name of the column in the table/view.  See DataService CSDL Example
-
-**d:IsReturned**
-
-Is the Boolean that determines if the Service exposes this value to the client.  See DataService CSDL Example
-
-**d:IsQueryable**
-
-Is the Boolean that determines if the column can be used in a database query.   See DataService CSDL Example
-
-**d:OrdinalPosition**
-
-Is the column’s numerical position of appearance, x, in the table or the view, where x is from 1 to the number of columns in the table.  See DataService CSDL Example
-
-**d:DatabaseDataType**
-
-Is the data type of the column in the database, i.e. SQL data type. See DataService CSDL Example
+**d:DatabaseDataType** - Is the data type of the column in the database, i.e. SQL data type. See DataService CSDL Example
 
 ## Supported Parameters/Property Types
 The following are the supported types for parameters and properties. (Case sensitive)
