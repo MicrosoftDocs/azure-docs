@@ -30,7 +30,7 @@ The guide assumes you are already familiar with using Azure Resource Manager (AR
 
 VM Scale Sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs.
 
-With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs are required – and as such make it easier to build large-scale services targeting big compute, big data, containerized workloads, and any applications which need to scale compute resources out and in. Scale operations are implicitly balanced across fault and update domains. For an introduction to VM Scale Sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/en-us/blog/azure-vm-scale-sets-public-preview).
+With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs are required – and as such make it easier to build large-scale services targeting big compute, big data, containerized workloads, and any applications which need to scale compute resources out and in. Scale operations are implicitly balanced across fault and update domains. For an introduction to VM Scale Sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
 
 ## Creating and Working with VM Scale Sets
 
@@ -64,7 +64,7 @@ Subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.C
 
 You can deploy VMSS templates and query resources using any current Azure PowerShell version.
 
-**Important Note:** The examples shown below are for [Azure PowerShell 1.0](https://azure.microsoft.com/en-us/blog/azps-1-0-pre/) which introduced the _AzureRm_ prefix to many commands. If you are using an earlier version of PowerShell such as 0.9.8 or below, remove " **Rm**" from the example commands. The examples also assume you have already established a login connection to Azure in your PowerShell environment (_Login-AzureRmAccount_).
+**Important Note:** The examples shown below are for [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/) which introduced the _AzureRm_ prefix to many commands. If you are using an earlier version of PowerShell such as 0.9.8 or below, remove " **Rm**" from the example commands. The examples also assume you have already established a login connection to Azure in your PowerShell environment (_Login-AzureRmAccount_).
 
 Examples:
 
@@ -110,9 +110,9 @@ An upcoming build of Azure PowerShell will include a set of imperative commands 
 
 You can deploy VMSS templates and query resources using any current Azure CLI version.
 
-The easiest way to install CLI is from a Docker container. For installing see: [https://azure.microsoft.com/en-us/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/](https://azure.microsoft.com/en-us/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/)
+The easiest way to install CLI is from a Docker container. For installing see: [https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/](https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/)
 
-For using CLI see: [https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/)
+For using CLI see: [https://azure.microsoft.com/documentation/articles/xplat-cli/](https://azure.microsoft.com/documentation/articles/xplat-cli/)
 
 ###
 VM Scale Set CLI examples
@@ -551,7 +551,7 @@ Here is an example which creates a VM scale set of VMs running IIS web server, a
 
 ## VM Scale Set instances with Azure Auto-Scale
 
-If you want to vary the instance count (_capacity_) of your VM scale set depending on CPU/Memory/Disk usage or other events, a rich set of autoscale settings are available from the Microsoft.Insights resource provider. You can read about the available settings in the Insights REST documentation: [https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx](https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx).
+If you want to vary the instance count (_capacity_) of your VM scale set depending on CPU/Memory/Disk usage or other events, a rich set of autoscale settings are available from the Microsoft.Insights resource provider. You can read about the available settings in the Insights REST documentation: [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx).
 
 The Insights Autoscale integrates directly with VM Scale Sets. To set it up you define a Microsoft.Insights/autoscaleSettings resource type which has a _targetResourceUri_ and _metricResourceUri_ that references back to the scale set. When you define the scale set you include an _extensionProfile_ which installs the Azure Diagnostics agent (WAD) on Windows or the Linux Diagnostic Extension (LDE) on Linux. Here's is a Linux example which adds VMs up to a pre-defined limit when average CPU usage is >50% with a time granularity of 1 minute over a sampling period of 5 minutes:
 
@@ -567,7 +567,7 @@ In a sense VM scale sets provide a true "worker role" or worker resource, in tha
 
 A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not _yet_ available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
 
-Here is an example of a Mesos cluster which deploys a VM Scale Set in the same VNET as a standalone VM. The standalone VM is a Mesos master, and the VM scale set represents a set of slave nodes: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Future versions of the [Azure Container Service](https://azure.microsoft.com/en-us/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+Here is an example of a Mesos cluster which deploys a VM Scale Set in the same VNET as a standalone VM. The standalone VM is a Mesos master, and the VM scale set represents a set of slave nodes: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
 
 ## Scaling a VM Scale Set out and in
 
@@ -593,7 +593,7 @@ A. 100 if you use platform images which can be distributed across multiple stora
 
 **What other resource limits exist for VM Scale Sets?**
 
-A. The existing Azure service limits apply: [https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/)
+A. The existing Azure service limits apply: [https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)
 
 You are also limited to creating no more than 500 VMs in multiple scale sets per region during the preview period.
 
@@ -655,11 +655,11 @@ Your feedback is very important to help us build a service that provides the fea
 
 | **Topic** | **Link** |
 | --- | --- |
-| Azure Resource Manager Overview | [https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/)   |
-| Azure Resource Manager Templates | [https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/) |
-| Azure Resource Manager Template Functions | [https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/) |
+| Azure Resource Manager Overview | [https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/)   |
+| Azure Resource Manager Templates | [https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) |
+| Azure Resource Manager Template Functions | [https://azure.microsoft.com/documentation/articles/resource-group-template-functions/](https://azure.microsoft.com/documentation/articles/resource-group-template-functions/) |
 | Example templates (github) | [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) |
-| VM Scale Set REST API guide | [https://msdn.microsoft.com/en-us/library/mt589023.aspx](https://msdn.microsoft.com/en-us/library/mt589023.aspx) |
+| VM Scale Set REST API guide | [https://msdn.microsoft.com/library/mt589023.aspx](https://msdn.microsoft.com/library/mt589023.aspx) |
 | VM Scale Set videos | [https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  [https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)  [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player) |
-| Autoscale settings (MSDN) | [https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx](https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx) |
-| Troubleshooting resource group deployments in Azure | [https://azure.microsoft.com/en-us/documentation/articles/resource-group-deploy-debug/](https://azure.microsoft.com/en-us/documentation/articles/resource-group-deploy-debug/) |
+| Autoscale settings (MSDN) | [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx) |
+| Troubleshooting resource group deployments in Azure | [https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/](https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/) |
