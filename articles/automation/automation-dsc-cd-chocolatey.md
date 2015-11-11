@@ -60,8 +60,7 @@ If you’re not starting with an ARM template, that’s also OK.  There are Powe
 
 At an authenticated (Add-AzureAccount) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
-    Switch-AzureMode -Name AzureResourceManager                     <-- assumes you are still running Azure PowerShell v0.9.x    
-    New-AzureResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 You can put your automation account into any of the following regions (aka location):  Japan East, East US 2, West Europe, Southeast Asia, South Central US.
@@ -92,7 +91,7 @@ Or, there’s the manual approach.  The folder structure of a PowerShell Integra
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
         
 
-The included example performs these steps for cChoco and xNetworking. See the Notes for special handling for cChoco.
+The included example performs these steps for cChoco and xNetworking. See the [Notes](#notes) for special handling for cChoco.
 
 ## Step 4: Adding the node configuration to the pull server
 
@@ -145,18 +144,18 @@ ISVBoxConfig.ps1:
 
 New-ConfigurationScript.ps1:
 
-    Import-AzureAutomationDscConfiguration ` 
+    Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
         -Published –Force
     
-    $jobData = Start-AzureAutomationDscCompilationJob ` 
+    $jobData = Start-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -ConfigurationName ISVBoxConfig 
     
     $compilationJobId = $jobData.Id
     
-    Get-AzureAutomationDscCompilationJob ` 
+    Get-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -Id $compilationJobId
 

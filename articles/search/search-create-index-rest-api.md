@@ -22,7 +22,7 @@
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST API](search-create-index-rest-api.md)
+- [REST](search-create-index-rest-api.md)
 
 This article shows you how to create an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx). Some of the content below is from [Create Index (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx). Refer to the parent article for more context.
 

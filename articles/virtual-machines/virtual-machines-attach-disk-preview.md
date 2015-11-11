@@ -31,7 +31,7 @@ This article shows you how to attach both new and existing disks to a virtual ma
 
 ## Find the virtual machine
 
-1. Sign in to the [Preview portal](https://portal.azure.com).
+1. Sign in to the Azure preview portal.
 
 2. On the Hub menu, click **Browse**.
 
