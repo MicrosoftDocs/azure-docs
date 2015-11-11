@@ -35,10 +35,11 @@ Management credentials are used to create a [**ShardMapManager**](https://msdn.m
 	); 
 
 The variable **smmAdminConnectionString** is a connection string that contains the management credentials. The user ID and password provides read/write access to both shard map database and individual shards. The management connection string also includes the server name and database name to identify the global shard map database. Here is a typical connection string for that purpose:
-        "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-Do not use User ID values in the form of "username@server" -- instead just use "username".  This is because credentials must work against both the Shard Map Manager database and individual shards, which may be on different servers.
-     
+	 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
+
+Do not use values in the form of "username@server"—instead just use the "username" value.  This is because credentials must work against both the shard map manager database and individual shards, which may be on different servers.
+
 ## Access credentials
   
 When creating a shard map manager in an application that does not administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials are used for [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown above: 
@@ -62,7 +63,11 @@ In this example, **smmUserConnectionString** holds the connection string for the
 
 	"User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-As with the admin credentials, do not use User ID values in the form of "username@server". Instead, just use "username".  Also note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name are not provided. 
+As with the admin credentials, do not values in the form of "username@server". Instead, just use "username".  Also note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name are not provided. 
+
+## Next steps
+
+Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement to add a user that authenticates at the database. Use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create roles. Then use the [GRANT PERMISSIONS](https://msdn.microsoft.com/en-us/library/ms188371.aspx) statement to assign the appropriate permissions to the role. Finally, use [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx) to add the user to the role. 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
