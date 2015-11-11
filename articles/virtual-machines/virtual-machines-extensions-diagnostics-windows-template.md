@@ -28,7 +28,7 @@ The Azure Diagnostics Extension provides the monitoring and diagnostics capabili
 
 To enable the diagnostics extension on a Windows Virtual Machine you need to add the extension as a VM resource in the Resource manager template.
 
-Add the extension to the *resources* array for the Virtual Machine: 
+For a simple Resource Manager based Virtual Machine add the extension configuration to the *resources* array for the Virtual Machine: 
 
 	"resources": [
                 {
@@ -49,16 +49,19 @@ Add the extension to the *resources* array for the Virtual Machine:
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
-                            "storageAccount": "[parameters('diagnosticsStorageAccountName')]"
+                            "storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
                         },
                         "protectedSettings": {
-                            "storageAccountName": "[parameters('diagnosticsStorageAccountName')]",
+                            "storageAccountName": "[parameters('existingdiagnosticsStorageAccountName')]",
                             "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
                             "storageAccountEndPoint": "https://core.windows.net"
                         }
                     }
                 }
             ]
+
+For Virtual Machine Scale Sets the extensions configuration goes under the *extensionProfile* property of the *VirtualMachineProfile*.
+   
 
 The *publisher* property with the value of **Microsoft.Azure.Diagnostics** and the *type* property with the value of **IaaSDiagnostics** uniquely identify the Azure Diagnostics extension.
 
@@ -72,16 +75,20 @@ The properties in *protectedSettings* (sometimes referred to as private configur
 
 ## Specifying diagnostics storage account as parameters 
 
-The diagnostics extension json snippet above assumes two parameters *diagnosticsStorageAccountName* and
-*diagnosticsStorageAccountName* to specify the diagnostics storage account where diagnostics data will be stored. Specifying the diagnostics storage account as a parameter makes it easy to change the diagnostics storage account across different environments e.g. you may want to use a different diagnostics storage account for testing and a different one for your production deployment.  
+The diagnostics extension json snippet above assumes two parameters *existingdiagnosticsStorageAccountName* and
+*existingdiagnosticsStorageAccountName* to specify the diagnostics storage account where diagnostics data will be stored. Specifying the diagnostics storage account as a parameter makes it easy to change the diagnostics storage account across different environments e.g. you may want to use a different diagnostics storage account for testing and a different one for your production deployment.  
 
-        "diagnosticsStorageAccountName": {
+        "existingdiagnosticsStorageAccountName": {
             "type": "string",
-            "minLength": 1
-        },
-        "diagnosticsStorageResourceGroup": {
+            "metadata": {
+        "description": "The name of an existing storage account to which diagnostics data will be transfered."
+			}        
+		},
+        "existingdiagnosticsStorageResourceGroup": {
             "type": "string",
-            "minLength": 1
+            "metadata": {
+        "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
+      		}
         }
 
 It is best practice to specify a diagnostics storage account in a different resource group than the resource group for the virtual machine. A resource group can be considered to be a deployment unit with its own lifetime, a virtual machine can be deployed and redeployed as new configurations updates are made it to it but you may want to continue storing the diagnostics data in the same storage account across those virtual machine deployments. Having the storage account in a different resource enables the storage account to accept data from various virtual machine deployments making it easy to troubleshoot issues across the various versions.
@@ -92,7 +99,7 @@ It is best practice to specify a diagnostics storage account in a different reso
  
 The diagnostics extension json snippet above defines an *accountid* variable to simplify getting the storage account key for the diagnostics storage:   
 	
-	"accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('diagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName'))]"
+	"accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
 
 
 The *xmlcfg* property for the diagnostics extension is defined using multiple variables that are concatenated together. The values of these variables are in xml so they need to be escaped correctly when setting the json variables.
