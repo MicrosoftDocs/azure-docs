@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/10/2015"
+      ms.date="11/11/2015"
       ms.author="hascipio; avikova" />
 
 # Understanding the nodes for mapping an existing web service to OData through CSDL
@@ -22,7 +22,6 @@
 The following are the high level CSDL elements (XML nodes) that are not going to be used by the Azure Marketplace backend during the import of the web service’s metadata. They can be present but will be ignored.
 
 | Element | Scope |
-|++++|++++|
 |----|----|
 | Using Element | The node, sub nodes and all attributes |
 | Documentation Element | The node, sub nodes and all attributes |
