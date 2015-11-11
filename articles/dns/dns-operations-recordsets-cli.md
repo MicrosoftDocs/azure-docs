@@ -237,6 +237,6 @@ The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 ##See Also
 
 [Delegate a domain to Azure DNS](dns-domain-delegation.md)<BR>
-[Perform operations on DNS zones](dns-operations-dnszones-cli.md)<BR>
+[Manage DNS zones](dns-operations-dnszones-cli.md)<BR>
 [Automate operations using .NET SDK](dns-sdk.md)
  

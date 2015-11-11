@@ -270,6 +270,6 @@ The record set object can also be piped instead of being passed as a parameter:
 ##See Also
 
 [Delegate a domain to Azure DNS](dns-domain-delegation.md)<BR>
-[Perform operations on DNS zones](dns-operations-dnszones.md)<BR>
+[Manage DNS zones](dns-operations-dnszones.md)<BR>
 [Automate operations using .NET SDK](dns-sdk.md)
  
