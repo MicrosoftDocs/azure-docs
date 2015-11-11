@@ -60,18 +60,19 @@ For a simple Resource Manager based Virtual Machine add the extension configurat
                 }
             ]
 
-For Virtual Machine Scale Sets the extensions configuration goes under the *extensionProfile* property of the *VirtualMachineProfile*.
-   
 
+Another common convention is add the extension configuration at the root resources node of the template instead of defining it under the virtual machine's resources node. With this approach you have to explicitly specify a hierarchical relation between the extension and the virtual machine with the *name* and *type* values. For example: 
+  
+	"name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+
+The extension is always associated with the virtual machine, you can either directly define it under the virtual machine's resource node directly or define it at the base level and use the hierarchical naming convention to associate it with the virtual machine.
+
+For Virtual Machine Scale Sets the extensions configuration is specified in the *extensionProfile* property of the *VirtualMachineProfile*.
+   
 The *publisher* property with the value of **Microsoft.Azure.Diagnostics** and the *type* property with the value of **IaaSDiagnostics** uniquely identify the Azure Diagnostics extension.
 
 The value of the *name* property can be used to refer to the extension in the resource group. Setting it specifically to **Microsoft.Insights.VMDiagnosticsSettings** will enable it to be easily identified by the Azure Portal portal ensuring that the monitoring charts show up correctly in the Azure Portal.
-
-Another common convention with the name is to append it after the virtual machine name. For example:
-  
-	"name": "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]"
-
-With this naming convention approach you can specify the extension configuration at the root resources node of the template instead of defining it under the virtual machine's resources node. The extension is always associated with the virtual machine, you can either directly define it under the virtual machine's resource node or define it at the base level and use the hierarchical naming convention to associate it with the virtual machine.
 
 The *typeHandlerVersion* specifies the version of the extension you would like to use. Setting *autoUpgradeMinorVersion* minor version to **true** ensures that you will get the latest Minor version of the extension that is available. It is highly recommended that you always set *autoUpgradeMinorVersion* to always be **true** so that you always get to use the latest available diagnostics extension with all the new features and bug fixes. 
 
