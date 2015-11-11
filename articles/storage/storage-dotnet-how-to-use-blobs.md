@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="tamram"/>
 
 
@@ -364,26 +364,21 @@ See [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.micro
 
 ## Next steps
 
-Now that you've learned the basics of blob storage, follow these links
-to learn about more complex storage tasks.
-<ul>
-<li>View the Blob service reference documentation for complete details about available APIs:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API reference</a></li>
-  </ul>
-</li>
-<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
-<li>View more feature guides to learn about additional options for storing data in Azure.
-  <ul>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
-  </ul>
-</li>
-</ul>
+Now that you've learned the basics of Blob storage, follow these links
+to learn more.
+
+### Blob storage reference documentation
+
+- [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+
+### Additional feature guides
+
+- [Get started with Table storage for .NET](storage-dotnet-how-to-use-tables.md)
+- [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
+- [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
+- [Use SQL Database to store relational data](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
