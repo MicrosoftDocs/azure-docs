@@ -22,7 +22,7 @@
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST API](search-create-index-rest-api.md)
+- [REST](search-create-index-rest-api.md)
 
 Azure Search is a hosted cloud search service that provides a search engine, search features that enable a Bing or Google-like experience in your custom application, .NET and REST APIs for integrating Azure Search with your Web or desktop application, and data storage of searchable data in the form of *indexes*.
 
