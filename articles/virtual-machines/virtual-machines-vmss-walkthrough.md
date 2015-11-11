@@ -22,21 +22,17 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
 
-## Azure VM Scale Sets – Walkthrough
-
 This document is a quick guide to getting started creating and managing your first Azure Virtual Machine Scale Sets during public preview.
 
 The guide assumes you are already familiar with using Azure Resource Manager (ARM) templates to deploy Azure resources such as virtual machines and VNETs. If not, the first 3 links in the Resources section provide a Resource Manager overview.
 
-Contents
-
-# What are VM Scale Sets and why use them?
+## What are VM Scale Sets and why use them?
 
 VM Scale Sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs.
 
 With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs are required – and as such make it easier to build large-scale services targeting big compute, big data, containerized workloads, and any applications which need to scale compute resources out and in. Scale operations are implicitly balanced across fault and update domains. For an introduction to VM Scale Sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/en-us/blog/azure-vm-scale-sets-public-preview).
 
-# Creating and Working with VM Scale Sets
+## Creating and Working with VM Scale Sets
 
 VM Scale Sets can be defined and deployed using JSON templates and REST calls just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used, and this document will take you through some examples.
 
@@ -141,11 +137,11 @@ azure resource show –n vmssname –r Microsoft.Compute/virtualMachineScaleSets
 
 An upcoming Azure CLI build will include imperative commands to deploy and manage VM scale sets directly without templates and perform operations on VMs in VM Scale Sets. You can track this build here: [https://github.com/AzureRT/azure-xplat-cli/releases/](https://github.com/AzureRT/azure-xplat-cli/releases/)
 
-# VM Scale Set Templates
+## VM Scale Set Templates
 
 This section walks through a simple Azure template to create a VM scale set, and contrasts it with templates used to create single-instance virtual machines. There is also a handy video dissection of a VM Scale Set template here: [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
-## Anatomy of a template
+### Anatomy of a template
 
 Let's start with a simple template that creates a VM scale set of Ubuntu virtual machines, and break it down into components. This example also creates the resources upon which a VM scale set depends such as VNET, storage account etc. The example can be found here: [https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json](https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json) - note that for this "hello world" example, there won't be a direct way to connect to VMs in the VM scale set from outside of your VNET as the VMs are assigned internal IP addresses. See the Scenarios section and examples in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates) for ways to connect from outside using load balancers or jump boxes.
 
@@ -517,7 +513,7 @@ When defining the network profile for a VMSS, remember both the NIC configuratio
 
 The simple example above didn't require an extension profile. You can see one in action in this template which deploys Apache and PHP using the CustomScript Extension: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) - note that in this example the network IP properties also reference a load balancer. Load balancers will be described more in the VM Scale Set Scenarios section.
 
-# VM Scale Set Scenarios
+## VM Scale Set Scenarios
 
 This section works through some typical VM scale set scenarios and example templates. Though they require templates for now, some of these will be integrated into the portal in future. Also some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios
 
@@ -557,7 +553,7 @@ Here is an example which creates a VM scale set of VMs running IIS web server, a
 
 If you want to vary the instance count (_capacity_) of your VM scale set depending on CPU/Memory/Disk usage or other events, a rich set of autoscale settings are available from the Microsoft.Insights resource provider. You can read about the available settings in the Insights REST documentation: [https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx](https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx).
 
-The Insights Autoscale integrates directly with VM Scale Sets. To set it up you define a Microsoft.Insights/autoscaleSettings resource type which has a _targetResourceUri_ and _metricResourceUri_ that references back to the scale set. When you define the scale set you include an _extensionProfile_ which installs the Windows Azure Diagnostics agent (WAD) on Windows or the Linux Diagnostic Extension (LDE) on Linux. Here's is a Linux example which adds VMs up to a pre-defined limit when average CPU usage is >50% with a time granularity of 1 minute over a sampling period of 5 minutes:
+The Insights Autoscale integrates directly with VM Scale Sets. To set it up you define a Microsoft.Insights/autoscaleSettings resource type which has a _targetResourceUri_ and _metricResourceUri_ that references back to the scale set. When you define the scale set you include an _extensionProfile_ which installs the Azure Diagnostics agent (WAD) on Windows or the Linux Diagnostic Extension (LDE) on Linux. Here's is a Linux example which adds VMs up to a pre-defined limit when average CPU usage is >50% with a time granularity of 1 minute over a sampling period of 5 minutes:
 
 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale).
 
@@ -579,7 +575,7 @@ To increase or decrease the number of virtual machines in a VM scale set, simply
 
 If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown here: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-# VM Scale Set Performance and Scale Guidance
+## VM Scale Set Performance and Scale Guidance
 
 - During the public preview, do not create more than 500 VMs in multiple VM Scale Sets at a time. This limit will be increased in the future.
 - Plan for no more than 40 VMs per storage account.
@@ -589,7 +585,7 @@ If you are redeploying a template to change the capacity, you could define a muc
 - The number of VMs you can create is limited by your Compute core quota in any region. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: _azure vm list-usage_, and the following PowerShell command: _Get-AzureRmVMUsage_ (if using a version of PowerShell below 1.0 use _Get-AzureVMUsage_).
 
 
-# VM Scale Set FAQ
+## VM Scale Set FAQ
 
 **Q. How many VMs can you have in a VM Scale Set?**
 
@@ -649,13 +645,13 @@ A. Not directly, but for the customScript extension, your script could wait for 
 
 A. Yes. A scale set is an implicit availability set with 3 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
 
-# Next Steps
+## Next Steps
 
 During the preview for VM Scale Sets, the documentation will be evolving and more integration features like portal and autoscale will be opened up.
 
 Your feedback is very important to help us build a service that provides the features you need. Please let us know what works, what doesn't and what could be improved. You can provide feedback to [vmssfeedback@microsoft.com](mailto:vmssfeedback@microsoft.com).
 
-# Resources
+## Resources
 
 | **Topic** | **Link** |
 | --- | --- |
