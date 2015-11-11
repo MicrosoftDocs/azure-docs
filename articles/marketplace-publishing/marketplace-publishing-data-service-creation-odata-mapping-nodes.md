@@ -42,28 +42,19 @@ Details about this node are found at [http://msdn.microsoft.com/en-us/library/cc
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
-**d:BaseUri**
-
-The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}
-
+**d:BaseUri** -
+The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}. 
 Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable).
 
-Example:     
-*d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"*
+	Example: *d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"*
 
-**Name**
+**Name** - The name of the imported function.  Cannot be the same as other defined names in the CSDL.  Ex. Name="GetModelUsageFile"
 
-The name of the imported function.  Cannot be the same as other defined names in the CSDL.  Ex. Name="GetModelUsageFile"
+**EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used.
 
-**EntitySet** *(optional)*
+	Example: *EntitySet="GetUsageStatisticsEntitySet"*
 
-If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used.
-
-*Example: EntitySet="GetUsageStatisticsEntitySet"*
-
- **ReturnType** *(Optional)*
-
-Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value.
+**ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value.
 
 The following are the supported types:
 
@@ -75,9 +66,7 @@ The following are the supported types:
 - ReturnType="Raw(text/plain)"
 - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
-**d:Paging**
-
-Specifies how paging is handled by the REST resource. The options available are:
+**d:Paging** - Specifies how paging is handled by the REST resource. The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size} The options available are:
 
 - **None:** no paging is available
 - **Skip:** paging is expressed through a logical “skip” and “take” (top). Skip jumps over M elements and take then returns the next N elements. Parameter value: $skip
@@ -85,11 +74,7 @@ Specifies how paging is handled by the REST resource. The options available are:
 - **PageSize:** paging is expressed through a logical page and size (items per page). Page represents the current page that is returned. Parameter value: $page
 - **Size:** size represents the number of items returned for each page. Parameter value: $size
 
-The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size}
-
-**d:AllowedHttpMethods** *(Optional)*
-
-Specifies which verb is handled by the REST resource. Also, restricts accepted verb to the specified value.  Default = POST.  The options available are:
+**d:AllowedHttpMethods** *(Optional)* - Specifies which verb is handled by the REST resource. Also, restricts accepted verb to the specified value.  Default = POST.  The options available are:
 
 - **GET:** usually used to return data
 - **POST:** usually used to insert new data
@@ -100,15 +85,11 @@ Specifies which verb is handled by the REST resource. Also, restricts accepted v
 
 Additional child nodes (not covered by the CSDL documentation) within the FunctionImport node are:
 
-**d:RequestBody** *(Optional)*
-The request body is used to indicate that the request expects a body to be sent. Parameters can be given within the request body. They are expressed within curly brackets, e.g. {parameterName}. These parameters are mapped from the user input into the body that is transferred to the content provider’s service.
-
-The requestBody element has an attribute with name httpMethod. The attribute allows two values:
+**d:RequestBody** *(Optional)* - The request body is used to indicate that the request expects a body to be sent. Parameters can be given within the request body. They are expressed within curly brackets, e.g. {parameterName}. These parameters are mapped from the user input into the body that is transferred to the content provider’s service. The requestBody element has an attribute with name httpMethod. The attribute allows two values:
 
 - **POST:** Used if the request is a HTTP POST
 - **GET:** Used if the request is a HTTP GET
 
-*Example:*
 Example:
         <d:RequestBody d:httpMethod="POST">
         <![CDATA[
@@ -120,32 +101,22 @@ Example:
         ]]>
         </d:RequestBody>
 
-**d:Namespaces** and **d:Namespace**
+**d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.**
 
-This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.**
-
-The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
+	The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
 
 -	**d:Prefix:** The prefix for the namespace, as seen in the XML results returned by the service, e.g. f:FirstName, f:LastName, where f is the prefix.
 - **d:Uri:** The full URI of the namespace used in the result document. It represents the value that the prefix is resolved to at runtime.
 
-**d:ErrorHandling** *(Optional)*
+**d:ErrorHandling** *(Optional)* - This node contains conditions for error handling. Each of the conditions is validated against the result that is returned by the content provider’s service. If a condition matches the proposed HTTP error code an error message is returned to the end-user.
 
-This node contains conditions for error handling. Each of the conditions is validated against the result that is returned by the content provider’s service. If a condition matches the proposed HTTP error code an error message is returned to the end-user.
-
-**d:ErrorHandling** *(Optional)* and **d:Condition** *(Optional)*
-
-A condition node holds one condition that is checked in the result returned by the content provider’s service. The following are the **required** attributes:
+**d:ErrorHandling** *(Optional)* and **d:Condition** *(Optional)* - A condition node holds one condition that is checked in the result returned by the content provider’s service. The following are the **required** attributes:
 
 - **d:Match:** An XPath expression that validates whether a given node/value is present in the content provider’s output XML. The XPath is run against the output and should return true if the condition is a match or false otherwise.
 - **d:HttpStatusCode:** The HTTP status code that should be returned by Marketplace in the case the condition matches. Marketplace signalizes errors to the user through HTTP status codes. A list of HTTP status codes are available at http://en.wikipedia.org/wiki/HTTP_status_code
 - **d:ErrorMessage:** The error message that is returned – with the HTTP status code – to the end-user. This should be a friendly error message that doesn’t contain any secrets.
 
-**d:Title** *(Optional)*
-
-Allows describing the title of the function.
-
-The value for the title is coming from
+**d:Title** *(Optional)* - Allows describing the title of the function. The value for the title is coming from
 
 - The optional map attribute (an xpath) which specifies where to find the title in the response returned from the service request.
 - -Or - The title specified as value of the node.
@@ -159,33 +130,28 @@ The value for the rights is coming from
 - The optional map attribute (an xpath) which specifies where to find the rights in the response returned from the service request.
 -	-Or - The rights specified as value of the node.
 
-**d:Description** *(Optional)*
-
-A short description for the function.
-
-The value for the description is coming from
+**d:Description** *(Optional)* - A short description for the function. The value for the description is coming from
 
 - The optional map attribute (an xpath) which specifies where to find the description in the response returned from the service request.
 - -Or – The description specified as value of the node.
 
-**d:EmitSelfLink**
-*See above example "FunctionIMport for 'Paging' through returned data"*
+**d:EmitSelfLink** - *See above example "FunctionImport for 'Paging' through returned data"*
 
-**d:EncodeParameterValue** Optional extension to OData
+**d:EncodeParameterValue** - Optional extension to OData
 
-**d:QueryResourceCost** Optional extension to OData
+**d:QueryResourceCost** - Optional extension to OData
 
-**d:Map** Optional extension to OData
+**d:Map** - Optional extension to OData
 
-**d:Headers** Optional extension to OData
+**d:Headers** - Optional extension to OData
 
-**d:Headers** Optional extension to OData
+**d:Headers** - Optional extension to OData
 
-**d:Value** Optional extension to OData
+**d:Value** - Optional extension to OData
 
-**d:HttpStatusCode** Optional extension to OData
+**d:HttpStatusCode** - Optional extension to OData
 
-**d:ErrorMessage** Optional Extension to OData
+**d:ErrorMessage** - Optional Extension to OData
 
 ## Parameter node
 
