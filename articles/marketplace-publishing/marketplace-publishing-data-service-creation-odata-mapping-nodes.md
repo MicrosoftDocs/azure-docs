@@ -222,7 +222,7 @@ Example:
 		...
         </EntityType>`
 
-| AttributeName | Is Required | Value |
+| AttributeName | Required | Value |
 |----|----|----|
 | Name | Yes | The name of the property. |
 | Type | Yes | The type of the property value. The property value type must be an **EDMSimpleType** or a complex type (indicated by a fully-qualified name) that is within scope of the model. For more information, see Conceptual Model Types (CSDL). |
