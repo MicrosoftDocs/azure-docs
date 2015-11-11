@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Hybrid Identity Design Considerations- Define a hybrid identity adoption strategy | Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Azure"
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
 	documentationCenter=""
 	services="active-directory"
@@ -13,11 +13,12 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="11/11/2015"
 	ms.author="billmath"/>
 
 
 # Define a hybrid identity adoption strategy
+
 In this task, you’ll define the hybrid identity adoption strategy for your hybrid identity solution to meet the business requirements that were discussed in :
 
 - [Determine business needs](active-directory-hybrid-identity-design-considerations-business-needs.md)
@@ -49,7 +50,7 @@ The following table will help in determining the advantages and disadvantages of
 | **Synchronized**     | On-premises password will authenticate both on-premises and cloud directories <br>Easier to manage for small, medium or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage | Some customers may be reluctant to synchronize their directories with the cloud due specific company’s police                                                                                                                                                                                                                                                  |
 | **Federated**        | Users can have single sign-on (SSO) <br>If a user is terminated or leaves, the account can,be immediately disabled and access revoked,<br> Supports advanced scenarios that cannot be,accomplished with synchronized                                           | More steps to setup and configure <br> Higher maintenance <br> May require additional hardware for the STS infrastructure <br> May require additional hardware to install the federation server.Additional software is required if AD FS is used <br> Require extensive setup for SSO <br> Critical point of failure if the federation server is down, users won’t be able to authenticate |
 
-### Client Experience
+### Client experience
 The strategy that you use will dictate the user sign-in experience.  The following tables provide you with information on what the users should expect their sign-in experience to be.  Note that not all federated identity providers support SSO in all scenarios.
 
 **Doman-joined and private network applications**:
@@ -90,13 +91,13 @@ For the most updated list read the article http://aka.ms/ssoproviders.
 ## Define synchronization strategy
 In this task you will define the tools that will be used to synchronize the organization’s on-premises data to the cloud and what topology you should use.  Because, most organizations use Active Directory, information on using Azure AD Connect to address the questions above is provided in some detail.  For environments that do not have Active Directory, there is information about using FIM 2010 R2 or MIM 2016 to help plan this strategy.  However, future releases of Azure AD Connect will support LDAP directories, so depending on your timeline, this information may be able to assist.
 
-###Synchronization Tools
+###Synchronization tools
 Over the years, several synchronization tools have existed and used for various scenarios.  Currently Azure AD Connect is the go to tool of choice for all supported scenarios.  AAD Sync and DirSync are also still around and may even be present in your environment now. 
 
 >[AZURE.NOTE]
 For the latest information regarding the supported capabilities of each tool, read [Directory integration tools comparison](active-directory-aadconnect-get-started-tools-comparison.md) article.  
 
-### Supported Topologies
+### Supported topologies
 When defining a synchronization strategy, the topology that is used must be determined. Depending on the information that was determined in step 2 you can determine which topology is the proper one to use. 
 The single forest, single Azure AD topology is the most common and consists of a single Active Directory forest and a single instance of Azure AD.  This is going to be used in a majority of the scenarios and is the expected topology when using Azure AD Connect Express installation as shown in the figure below.
  
@@ -130,7 +131,7 @@ If the above are not true and you have more than one active account or more than
  
 ![](./media/hybrid-id-design-considerations/multiforest-multipleAzureAD.png) 
  
-Muti-forest multiple AAD scenario
+**Multi-forest multiple Azure AD scenario**
 
 It is recommended to have just a single directory in Azure AD for an organization but it is supported it a 1:1 relationship is kept between an Azure AD Connect sync server and an Azure AD directory.  For each instance of Azure AD, you will need an installation of Azure AD Connect.  Also, Azure AD, by design is isolated and users in one instance of Azure AD will not be able to see users in another instance.
 
@@ -139,7 +140,7 @@ It is possible and supported to connect one on-premises instance of Active Direc
 ![](./media/hybrid-id-design-considerations/single-forest-flitering.png) 
  
 
-Single-Forest Filtering Scenario
+**Single-forest filtering scenario**
 
 In order to do this the following must be true:
 
@@ -162,7 +163,7 @@ Be aware that the following is not supported and should not be chosen as an impl
 
 
 >[AZURE.NOTE]
-If your organization restricts computers on your network from connecting to the Internet, this article lists the endpoints (FQDNs, IPv4, and IPv6 address ranges) that you should include in your outbound allow lists and Internet Explorer Trusted Sites Zone of client computers to ensure your computers can successfully use Office 365. For more information read [Office 365 URLs and IP address ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+If your organization restricts computers on your network from connecting to the Internet, this article lists the endpoints (FQDNs, IPv4, and IPv6 address ranges) that you should include in your outbound allow lists and Internet Explorer Trusted Sites Zone of client computers to ensure your computers can successfully use Office 365. For more information read [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 
 ## Define multi-factor authentication strategy
 In this task you will define the multi-factor authentication strategy to use.  Azure Multi-Factor Authentication comes in two different version.  One is a cloud-based and the other is on-premises based using the Azure MFA Server.  Based on the evaluation you did above you can determine which solution is the correct one for your strategy.  Use the table below to determine which design option best fulfill your company’s security requirement:
@@ -188,7 +189,7 @@ Even though you may have settled on a solution for your strategy, you still need
 | On-premises AD                                                      | Multi-Factor Authentication Server      |
 
 >[AZURE.NOTE]
-You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](https://azure.microsoft.com/en-us/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
+You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
 
 ## Multi-Factor Auth Provider
 Multi-factor authentication is available by default for global administrators who have a Azure Active Directory tenant. However, if you wish to extend multi-factor authentication to all of your users and/or want to your global administrators to be able to take advantage features such as the management portal, custom greetings, and reports, then you must purchase and configure Multi-Factor Authentication Provider.
@@ -196,7 +197,7 @@ Multi-factor authentication is available by default for global administrators wh
 >[AZURE.NOTE]
 You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design. 
 
-##next step
+##Next steps
 [Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## See also

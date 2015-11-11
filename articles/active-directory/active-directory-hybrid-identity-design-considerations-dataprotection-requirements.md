@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Hybrid Identity Design Considerations- Determine data protection requirements | Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine data protection requirements | Microsoft Azure"
 	description="When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements."
 	documentationCenter=""
 	services="active-directory"
@@ -17,6 +17,7 @@
 	ms.author="yuridio"/>
 
 #Plan for enhancing data security through strong identity solution
+
 The first step to protect the data is identify who can access that data and as part of this process you need to have an identity solution that can integrates with your system to provide authentication and authorization capabilities. Authentication and authorization are often confused with each other and their roles misunderstood. In reality they are quite different, as shown in the figure below:
 
 ![](./media/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
@@ -71,9 +72,9 @@ Regulations, laws and regulatory compliance requirements will vary according to 
 - Does the hybrid identity solution has built in capabilities that will enable your company to be compliant regulatory requirements? 
  
 >[AZURE.NOTE]
-Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
 
-## Next step
+## Next steps
  [Determine content management requirements](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 

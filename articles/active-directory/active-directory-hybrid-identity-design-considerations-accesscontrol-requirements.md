@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory Hybrid Identity Design Considerations- Determine access control requirements| Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations- determine access control requirements| Microsoft Azure"
 	description="Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment."
 	documentationCenter=""
 	services="active-directory"
@@ -17,7 +17,7 @@
 	ms.date="11/11/2015"
 	ms.author="yuridio"/>
 
-# Determine access control requirements
+# Determine access control requirements for your hybrid identity solution
 When an organization is designing their hybrid identity solution they can also use this opportunity to review access requirements for the resources that they are planning to make it available for users. The data access cross all four pillars of identity, which are:
 
 - Administration
@@ -25,7 +25,7 @@ When an organization is designing their hybrid identity solution they can also u
 - Authorization
 - Auditing
 
-The sections that follows will cover authentication and authorization in more details, administration and auditing are part of the hybrid identity lifecycle. Read Step 3, task 1 for more information about these capabilities.
+The sections that follows will cover authentication and authorization in more details, administration and auditing are part of the hybrid identity lifecycle. Read [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) for more information about these capabilities.
 
 >[AZURE.NOTE]
 Read [The Four Pillars of Identity - Identity Management in the Age of Hybrid IT](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) for more information about each one of those pillars.
@@ -35,7 +35,7 @@ There are different scenarios for authentication and authorization, these scenar
 
 - Will your organization authenticate and authorize only users located at their identity management system?
  - Are there any plans for B2B scenarios?
- - If yes, do you already know which protocols (SAML, OAuth, Kerberos, Tokens or Certificates) will be used to connect both business?
+ - If yes, do you already know which protocols (SAML, OAuth, Kerberos, Tokens or Certificates) will be used to connect both businesses?
 - Does the hybrid identity solution that you are going to adopt support those protocols?
 
 Another important point to consider is where the authentication repository that will be used by users and partners will be located and the administrative model to be used. Consider the following two core options:
@@ -47,7 +47,7 @@ Which model your organization will adopt will vary according to their business r
 - Does your organization currently have an identity management on-premises?
  - If yes, do they plan to keep it?
  - Are there any regulation or compliance requirements that your organization must follow that dictates where the identity management system should reside?
-- Does your organization use Single Sign-On for apps located on-premises or in the cloud?
+- Does your organization use single sign-on for apps located on-premises or in the cloud?
  - If yes, does the adoption of a hybrid identity model affect this process?
 
 ## Access Control
@@ -64,9 +64,9 @@ While authentication and authorization are core elements to enable access to cor
  - If yes, where are those target resources located (on-premises or in the cloud)?
  
 >[AZURE.NOTE]
-Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By answering those questions you will select which option best suits your business needs.
 
-## Next step
+## Next steps
 
 [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 

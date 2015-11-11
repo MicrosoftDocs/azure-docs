@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Hybrid Identity Design Considerations-Determine directory synchronization requirements | Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine directory synchronization requirements | Microsoft Azure"
 	description="Identify what requirements are needed for synchronizing all the users between on=premises and cloud for the enterprise."
 	documentationCenter=""
 	services="active-directory"
@@ -58,9 +58,9 @@ You also need to determine the security requirements and constraints directory s
 - If you have mutli-forest sync is the sync server able to get to each forest?
  
 >[AZURE.NOTE]
-Make sure to take notes of each answer and understand the rationale behind the answer. Task 4 will go over the options available. By having answered those questions you will select which option best suits your business needs.
+Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available. By having answered those questions you will select which option best suits your business needs.
 
-## Next step
+## Next steps
 [Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## See also

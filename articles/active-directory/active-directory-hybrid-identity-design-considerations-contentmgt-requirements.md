@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory Hybrid Identity Design Considerations- Determine content management requirements | Microsoft Azure"
-	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine content management requirements | Microsoft Azure"
+	description="Provides insight into how to determine the content management requirements of your business. Usually when a user has his own device he might have also multiple credentials that will be alternating according to the application that he uses. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure his privacy and increase the protection against data leakage."
 	documentationCenter=""
 	services="active-directory"
 	authors="yuridio"
@@ -16,12 +16,15 @@
 	ms.date="11/11/2015"
 	ms.author="yuridio"/>
 
-# Determine content management requirements
-Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](http://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has his own device he might have also multiple credentials that will be alternating according to the application that he uses. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure his privacy and increase the protection against data leakage. Your identity solution will be leverage by different technical controls in order to provide content management as shown in the figure below:
+# Determine content management requirements for your hybrid identity solution
+
+Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](http://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has his own device he might have also multiple credentials that will be alternating according to the application that he uses. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure his privacy and increase the protection against data leakage. 
+
+Your identity solution will be leveraged by different technical controls in order to provide content management as shown in the figure below:
  
 ![](./media/hybrid-id-design-considerations/securitycontrols.png)
 
-Security controls that will be leveraging your identity management system
+**Security controls that will be leveraging your identity management system**
 
 In general, content management requirements will leverage your identity management system in the following areas:
 
@@ -44,15 +47,15 @@ When planning your hybrid identity solution ensure that the following questions 
  - If yes, what type of resources?
  - If yes, what level of information is necessary?
  - If yes, where the audit log must reside? On-premises or in the cloud?
-- Does your company need to encrypt any emails that contain sensitive data (SSNs, Credit card numbers, etc)?
+- Does your company need to encrypt any emails that contain sensitive data (SSNs, credit card numbers, etc)?
 - Does your company need to encrypt all documents/contents shared with external business partners?
 - Does your company need to enforce corporate policies on certain kinds of emails (do no reply all, do not forward)?
  
 >[AZURE.NOTE]
-Make sure to take notes of each answer and understand the rationale behind the answer. Task 5 will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
+Make sure to take notes of each answer and understand the rationale behind the answer. [Define Data Protection Strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) will go over the options available and advantages/disadvantages of each option.  By having answered those questions you will select which option best suits your business needs.
 
 
-## Next step
+## Next steps
 [Determine access control requirements](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## See Also

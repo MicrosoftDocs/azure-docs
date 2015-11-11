@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory Hybrid Identity Design Considerations- Determine Identity Requirements | Microsoft Azure"
-	description="Identifythe company’s business needs that will lead you to define the requirements for the hybrid identity design."
+	pageTitle="Azure Active Directory ybrid identity design considerations - determine identity requirements | Microsoft Azure"
+	description="Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design."
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
@@ -16,7 +16,7 @@
 	ms.date="11/11/2015"
 	ms.author="billmath"/>
 
-# Determine identity requirements
+# Determine identity requirements for your hybrid identity solution
 The first step in designing a hybrid identity solution is to determine the requirements for the business organization that will be leveraging this solution.  Hybrid identity starts as a supporting role (it supports all other cloud solutions by providing authentication) and goes on to provide new and interesting capabilities that unlock new workloads for users.  These workloads or services that you wish to adopt for your users will dictate the requirements for the hybrid identity design.  These services and workloads need to leverage hybrid identity both on-premises and in the cloud.  
 
 You need to go over these key aspects of the business to understand what it is a requirement now and what the company plans for the future. If you don’t have the visibility of the long term strategy for hybrid identity design, chances are that your solution will not be scalable as the business needs grow and change.   T he diagram below shows an example of a hybrid identity architecture and the workloads that are being unlocked for users. This is just an example of all the new possibilities that can be unlocked and delivered with a solid hybrid identity strategy. 
@@ -27,10 +27,10 @@ Some components that are part of the hybrid identity architecture
 ## Determine business needs
 Each company will have different requirements, even if these companies are part of the same industry, the real business requirements might vary. You can still leverage best practices from the industry, but ultimately it is the company’s business needs that will lead you to define the requirements for the hybrid identity design. 
 
-Make sure to answer the following questions to identity your business needs:
+Make sure to answer the following questions to identify your business needs:
 
 - Is your company looking to cut IT operational cost?
-- Is your company looking to secure cloud assets (SaaS Apps, infrastructure)?
+- Is your company looking to secure cloud assets (SaaS apps, infrastructure)?
 - Is your company looking to modernize your IT?
   - Are your users more mobile and demanding IT to create exceptions into your DMZ to allow different type of traffic to access different resources?
   - Does your company have legacy apps that needed to be published to these modern users but are not easy to rewrite?
@@ -94,7 +94,7 @@ You also have to evaluate the user requirements. This evaluation is important to
 - How will users sign-in to the cloud?
 
 >[Note]
-Make sure to take notes of each answer and understand the rationale behind the answer. Task 4 will go over the options available and pros/cons of each option.  By having answered those questions you will select which option best suits your business needs.
+Make sure to take notes of each answer and understand the rationale behind the answer. [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) will go over the options available and pros/cons of each option.  By having answered those questions you will select which option best suits your business needs.
 
 ## Next steps
 [Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
