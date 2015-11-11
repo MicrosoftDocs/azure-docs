@@ -46,25 +46,27 @@ The following are the additional attributes (or additions to attributes) that ar
 The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}. 
 Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable).
 
-	Example: *d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"*
+	Example:
+	`d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name** - The name of the imported function.  Cannot be the same as other defined names in the CSDL.  Ex. Name="GetModelUsageFile"
 
 **EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used.
 
-	Example: *EntitySet="GetUsageStatisticsEntitySet"*
+	Example: 
+	`EntitySet="GetUsageStatisticsEntitySet"`
 
 **ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value.
 
-The following are the supported types:
+	The following are the supported types:
 
-- **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
-- **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg)
+	- **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
+	- **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg)
 
-*Examples:
+	Examples:
 
-- ReturnType="Raw(text/plain)"
-- ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
+	- ReturnType="Raw(text/plain)"
+	- ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
 **d:Paging** - Specifies how paging is handled by the REST resource. The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size} The options available are:
 
@@ -81,7 +83,8 @@ The following are the supported types:
 - **PUT:** usually used to update data
 - **DELETE:** used to delete data
 
-*Example: d:AllowedHttpMethods="GET"*
+	Example: 
+	`d:AllowedHttpMethods="GET"`
 
 Additional child nodes (not covered by the CSDL documentation) within the FunctionImport node are:
 
@@ -90,7 +93,7 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 - **POST:** Used if the request is a HTTP POST
 - **GET:** Used if the request is a HTTP GET
 
-Example:
+	Example:
         <d:RequestBody d:httpMethod="POST">
         <![CDATA[
         <req1:Request xmlns:r1="http://schemas.mysite.com//generic/requests/1" Version="1.0">
@@ -214,9 +217,10 @@ This node contains one property of the record.
 Details about this node are found at [http://msdn.microsoft.com/en-us/library/bb399546.aspx](http://msdn.microsoft.com/en-us/library/bb399546.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.)
 
 Example:  
-        <EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name" 	Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
-        </EntityType>
+		...
+        </EntityType>`
 
 | AttributeName | Is Required | Value |
 |----|----|----|
