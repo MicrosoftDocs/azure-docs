@@ -55,7 +55,12 @@ Before you begin this tutorial, you must have the following:
 
 **Files used in this tutorial**
 
-This tutorial uses the on-time performance of airline flight data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA] [rita-website]. The data has been uploaded to an Azure Blob storage container with the Public Blob access permission. Because it is a public Blob container, you do not need to link this Storage account to the HDInsight cluster running the Hive job. The HiveQL script is also uploaded to the same Blob container. If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see [Appendix A](#appendix-a) and [Appendix B](#appendix-b).
+This tutorial uses the on-time performance of airline flight data from 
+[Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA] [rita-website]. 
+A copy of the data has been uploaded to an Azure Blob storage container with the Public Blob access permission. 
+A part of your PowerShell script copies the data from the public blob container to the default blob container of 
+your cluster. The HiveQL script is also copied to the same Blob container. 
+If you want to learn how to get/upload the data to your own Storage account, and how to create/upload the HiveQL script file, see [Appendix A](#appendix-a) and [Appendix B](#appendix-b).
 
 The following table lists the files used in this tutorial:
 
@@ -63,32 +68,21 @@ The following table lists the files used in this tutorial:
 <tr><th>Files</th><th>Description</th></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>The HiveQL script file used by the Hive job that you will run. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</td></tr>
 <tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</td></tr>
-<tr><td>\tutorials\flightdelay\output</td><td>The output path for the Hive job. The default container is used for storing the output data.</td></tr>
-<tr><td>\tutorials\flightdelay\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
+<tr><td>\tutorials\flightdelays\output</td><td>The output path for the Hive job. The default container is used for storing the output data.</td></tr>
+<tr><td>\tutorials\flightdelays\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
 </table>
 
 
 ##Create cluster and run Hive/Sqoop jobs
 
-Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to create a cluster for the job, and delete the job after the job is completed. The following script covers the whole process. For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].
+Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to create a cluster for the job, 
+and delete the job after the job is completed. The following script covers the whole process. 
+For more information on creating an HDInsight cluster and running Hive jobs, see [Create Hadoop clusters in HDInsight][hdinsight-provision] and [Use Hive with HDInsight][hdinsight-use-hive].
 
 **To run the Hive queries by Azure PowerShell**
 
 1. Create an Azure SQL database and the table for the Sqoop job output by using the instructions in [Appendix C](#appendix-c).
-2. Prepare the parameters:
-
-	<table border="1">
-	<tr><th>Variable Name</th><th>Notes</th></tr>
-	<tr><td>$hdinsightClusterName</td><td>The HDInsight cluster name. If the cluster doesn't exist, the script will create one with the name entered.</td></tr>
-	<tr><td>$storageAccountName</td><td>The Azure Storage account that will be used as the default Storage account. This value is needed only when the script needs to create an HDInsight cluster. Leave it blank if you have specified an existing HDInsight cluster name for $hdinsightClusterName. If the Storage account with the value entered doesn't exist, the script will create one with the name.</td></tr>
-	<tr><td>$blobContainerName</td><td>The Blob container that will be used for the default file system. If you leave it blank, the $hdinsightClusterName value will be used. </td></tr>
-	<tr><td>$sqlDatabaseServerName</td><td>The Azure SQL database server name. It has to be an existing server. See <a href="#appendix-c">Appendix C</a> for information about creating one.</td></tr>
-	<tr><td>$sqlDatabaseUsername</td><td>The login name for the Azure SQL database server.</td></tr>
-	<tr><td>$sqlDatabasePassword</td><td>The login password for the Azure SQL database server.</td></tr>
-	<tr><td>$sqlDatabaseName</td><td>The SQL database where Sqoop will export data to. The default name is HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
-	</table>
-3. Open Windows PowerShell ISE.
-4. Run the following script:
+3. Open Windows PowerShell ISE, and run the following script:
 
 		$subscriptionID = "<Azure Subscription ID>"
 		$nameToken = "<Enter an Alias>" 
@@ -238,11 +232,6 @@ Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive 
 		# Delete the cluster
 		###########################################
 		Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
-
-
-5. Press **F5** to run the script. The output shall be similar to:
-
-	![HDI.FlightDelays.RunHiveJob.output][img-hdi-flightdelays-run-hive-job-output]
 
 6. Connect to your SQL database and see average flight delays by city in the AvgDelays table:
 
