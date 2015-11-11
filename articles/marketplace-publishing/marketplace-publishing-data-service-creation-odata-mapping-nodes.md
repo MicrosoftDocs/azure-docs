@@ -295,5 +295,5 @@ The following are the supported types for parameters and properties. (Case sensi
 
 ## See Also
 - [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Data Service OData Mapping Examples](marketplace-publishng-data-service-creation-odata-mapping-examples.md)
+- [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 - [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)
