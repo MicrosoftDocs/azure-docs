@@ -40,7 +40,7 @@ To configure geo-replication, you need the following:
 
 - An Azure subscription - If you do not have an Azure subscription, simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - A logical Azure SQL Database server <MyLocalServer> and a SQL database <MyDB> - The primary database that you want to replicate to a different geographical region.
-- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the parter servers in which you will create geo-replication secondary databases and a database copy.
+- One or more logical Azure SQL Database servers <MySecondaryServer(n)> - The logical servers that will be the partner servers in which you will create geo-replication secondary databases.
 - A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure geo-replication.
 - Newest version of SQL Server Management Studio - To obtain the newest version of SQL Server Management Studio (SSMS), go to [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx). For information on using SQL Server Management Studio to manage an Azure SQL Database logical servers and databases, see [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md)
 
@@ -100,7 +100,7 @@ allow connections from your local machine. You do this by adding your local mach
 You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure geo-replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
 
-> [AZURE.NOTE] If the secondary database exists on the specified parther server (for example, because a geo-replication relationship currently exists or previously existed, the command will fail.
+> [AZURE.NOTE] If the secondary database exists on the specified partner server (for example, because a geo-replication relationship currently exists or previously existed, the command will fail.
 
 
 ### Add non-readable secondary (single database)
@@ -200,7 +200,7 @@ The command performs the following workflow:
 This sequence guarantees that no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/).
 
 
-> [AZURE.NOTE]:  If the primary database is unavailable when the command is issued, the command will fail with the error message indicating that the primary server is not available. In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
+> [AZURE.NOTE] If the primary database is unavailable when the command is issued, the command will fail with the error message indicating that the primary server is not available. In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
 
 Use the following steps to initiate a planned failover.
 
@@ -224,7 +224,7 @@ This functionality is designed for disaster recovery when restoring availability
 
 However, because Point In Time Restore is not supported on the secondary databases, if the user wishes to recover data committed to the old primary database that had not been replicated to the new primary database before the forced failover occurred, the user will need to engage support to recover this lost data.
 
-> [AZURE.NOTE]: If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted. So some data loss may occur.
+> [AZURE.NOTE] If the command is issued when the both primary and secondary are online the old primary will become the new secondary but data synchronization will not be attempted. So some data loss may occur.
 
 
 If the primary database has multiple secondary databases, the command will succeed only on the secondary server on which the command was executed. However, the other secondaries will not know that the forced failover occurred. The user will have to manually repair this configuration using a “remove secondary” API and then reconfigure geo-replication on these additional secondaries.
