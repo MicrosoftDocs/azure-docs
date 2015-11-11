@@ -75,7 +75,8 @@ You can download the existing ARM template for creating a VNet and two subnets f
 	| **skuname** | sku instance size |
 	| **capacity** | number of instances |
 	| **backendaddress1** | IP address of the first web server |
-	| **backendaddress2** | IP address of the second web server|
+	| **backendaddress2** | IP address of the second web server |
+	| **backendaddress3** | IP address of the third web server |
 
 
 >[AZURE.IMPORTANT] ARM templates maintained in github can change over time. Make sure you check the template before using it.
