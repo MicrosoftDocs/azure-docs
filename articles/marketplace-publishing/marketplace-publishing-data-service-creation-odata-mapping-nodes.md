@@ -163,7 +163,7 @@ A very helpful details document page about the “Parameter Element” node is f
 
 | Parameter Attribute | Is Required | Value |
 |----|----|----|
-| Name | Yes | The name of the parameter. Case sensitive!  Match the BaseUri case. Example: *<Property **Name**="IsDormant" Type="Byte" />* |
+| Name | Yes | The name of the parameter. Case sensitive!  Match the BaseUri case. Example: *<Property *Name*="IsDormant" Type="Byte" />* |
 | Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx](http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx). **Example:** *<Property Name="LimitedPartnershipID " Type="Int32" />* |
 | Mode | No | **In**, Out, or InOut depending on whether the parameter is an input, output, or input/output parameter. (Only “IN” is available in Azure Marketplace.) **Example:** *<Parameter Name="StudentID" Mode="In" Type="Int32" />* |
 | MaxLength | No | The maximum allowed length of the parameter. **Example:** *<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />* |
