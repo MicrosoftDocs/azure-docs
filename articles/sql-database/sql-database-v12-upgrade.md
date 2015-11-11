@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/02/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sstein"/>
 
 
@@ -35,22 +35,24 @@ SQL Database V12 has many [advantages over the previous version](sql-database-v1
 
 For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool.
 
-You can easily [auto-migrate databases directly from V11 servers into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but you must first upgrade to a V12 server (following the directions in this article) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
+You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but it is a two-step process as you must first upgrade to a V12 server and then add a pool to the server. Follow the steps later in this article to create the pool after the server upgrade.
 
 
 Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
-## Plan and prepare to upgrade
+Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11. 
 
-The database will remain online but the upgrade process can run for hours to days depending on the size, edition, and number of databases in the server. This is especially true for servers that have databases larger than 50 GB, or at a non-premium service tier. Creating new databases on the server during the upgrade can also increase the upgrade duration.
+After upgrading to V12, [service tier recommendations](sql-database-service-tier-advisor.md) and [elastic pool recommendations](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) will not immediately be available until the service has time to evaluate your workloads on the new server. V11 server recommendation history does not apply to V12 servers so it is not retained.  
 
-Note that upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
+## Prepare to upgrade
 
-After upgrading to V12 new service tier and elastic pool recommendations will not immediately be available until telemetry data has time to repopulate. V11 server recommendation history does not apply to V12 servers so it is not retained.  
+### Upgrade all Web and Business databases 
+See [Upgrade all Web and Business databases](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) section below or use [PowerShell to upgrade databases and server](sql-database-upgrade-server.md).
+
 
 ### Review and suspend geo-replication
 
-If your Azure SQL database is configured for geo-replication you should document its current configuration and stop geo-replication. After the upgrade completes reconfigure your database for geo-replication.
+If your Azure SQL database is configured for geo-replication you should document its current configuration and [stop geo-replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for geo-replication.
 
 ### Ports to open if you have clients on an Azure VM
 
@@ -99,10 +101,23 @@ After all databases on the server are eligible you are ready to start the upgrad
 
     At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If an application has transient fault handling (retry logic) for connection terminations then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
-5. After the upgrade operation completes the **Latest Update** blade will display **Enabled**.
+5. After the upgrade operation completes the **Latest Update** blade will display **Enabled**. 
 
     ![V12 enabled][5]  
 
+## Migrate your updated databases into an elastic database pool
+
+If you have 2 or more databases you can now create an elastic database pool.
+
+In the [Azure preview portal](https://ms.portal.azure.com/) browse to the server you just upgraded and click **Add pool**.
+
+-or-
+
+If you see a message saying **Click here to view the recommended elastic database pools for this server**, click it to easily create a pool that is optimized for your server's databases. For details, see [Recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
+
+![Add pool to a server][7]
+   
+Follow the directions in the [Create an elastic database pool](sql-database-elastic-pool.md) article to finish creating your pool.
 
 ## Monitor databases after upgrading to SQL Database V12
 
@@ -142,6 +157,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 
 ## Next Steps
 
+- [Check for elastic database pool recommendations](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
 - [Create an elastic database pool](sql-database-elastic-pool-portal.md) and add some or all of your databases into a pool.
 - [Change the service tier and performance level of your database](sql-database-scale-up.md).
 
@@ -160,6 +176,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 [4]: ./media/sql-database-v12-upgrade/online-during-upgrade.png
 [5]: ./media/sql-database-v12-upgrade/enabled.png
 [6]: ./media/sql-database-v12-upgrade/recommendations.png
+[7]: ./media/sql-database-v12-upgrade/new-elastic-pool.png
 
 
 
