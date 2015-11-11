@@ -119,7 +119,7 @@ In this document you were introduced to Azure Security Center, its key capabilit
 
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.png
+[1]: ./media/security-center-intro/security-tile.PNG
 [2]: ./media/security-center-intro/security-policy.png
 [3]: ./media/security-center-intro/security-subscription.png
 [4]: ./media/security-center-intro/security-alerts.png
