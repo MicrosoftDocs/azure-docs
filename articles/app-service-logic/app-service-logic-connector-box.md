@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 # Get started with the Box Connector and add it to your Logic App 
 Connect to your Box to get, upload, delete. and more to your files. Connectors are used in Logic Apps as a part of a "workflow". 

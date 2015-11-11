@@ -13,10 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/10/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect FAQ
+
+## General installation
+**Q: Will installation work if the Azure AD Global Admin has 2FA enabled?**
+
+Installation will not work in this case. The Global Admin installing Azure AD Connect must not have MFA enabled. We are aware of this limitation and will support this in the future.
+
+**Q: Is there a way to install Azure AD Connect unattended?**
+
+It is only supported to install Azure AD Connect using the installation wizard. An unattended and silent installation is not supported.
 
 ## Express installation
 
@@ -26,7 +35,6 @@
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**
 
 All networking software, physical devices, or anything else that limits the maximum time connections can remain open should use a threshold of at least 5 minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This also applies to all previously released Microsoft Identity synchronization tools.
-
 
 **Q: What do I do if I receive an email that asking me to renew my Office 365 certificate**
 
