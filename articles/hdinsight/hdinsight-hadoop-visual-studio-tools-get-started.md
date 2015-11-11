@@ -184,10 +184,16 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 
 >[AZURE.NOTE] This feature only works on HDInsight cluster version 3.2 and newer.
 
-The HDInsight Tools used to submit Hive jobs via WebHCat (also know as Templeton). It took a long time to return job details and error information.
+The HDInsight Tools used to submit Hive jobs via WebHCat (also known as Templeton). It took a long time to return job details and error information.
 In order to solve this performance issue, the HDInsight Tools executes Hive jobs directly in the cluster through HiveServer2, so that it bypasses RDP/SSH. 
 In addition to better performance, users can also view Hive on Tez graphs, and the Task details.
 
+For HDInsight cluster version 3.2 or later, you can see a **Execute via HiveServer2** button:
+
+![hdinsight visual studio tools execute via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+And you can see the logs streamed back in realtime and see the job graphs if the Hive query is executed in Tez.
+ 
 ![hdinsight visual studio tools fast path hive execution](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
 
