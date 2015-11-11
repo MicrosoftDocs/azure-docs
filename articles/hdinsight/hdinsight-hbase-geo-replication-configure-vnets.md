@@ -38,7 +38,7 @@ To see it on video:
 This tutorial is a part of the [series][hdinsight-hbase-replication] on creating HBase geo-replication. 
 
 - Configure a VPN connectivity between two virtual networks (this tutorial)
-- [Configure DNS for the virtual networks][hdinsight-hbase-geo-replication-DNS]
+- [Configure DNS for the virtual networks][hdinsight-hbase-geo-replication-dns]
 - [Configure HBase geo replication][hdinsight-hbase-geo-replication]
 
 The following diagram illustrates the two virtual networks you will create in this tutorial:
