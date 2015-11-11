@@ -67,7 +67,7 @@ As with the admin credentials, do not values in the form of "username@server". I
 
 ## Next steps
 
-Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement to add a user that authenticates at the database. Use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create roles. Then use the [GRANT PERMISSIONS](https://msdn.microsoft.com/en-us/library/ms188371.aspx) statement to assign the appropriate permissions to the role. Finally, use [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx) to add the user to the role. 
+Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement to add a user that authenticates at the database. Use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create roles. Then use the [GRANT PERMISSIONS](https://msdn.microsoft.com/library/ms188371.aspx) statement to assign the appropriate permissions to the role. Finally, use [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx) to add the user to the role. 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
