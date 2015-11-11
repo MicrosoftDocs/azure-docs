@@ -262,7 +262,7 @@ The XPath expression here would be ./bar/baz0 to get the baz0 node from the cont
 
 **d:IsView** *(Optional)* - true if this is based on a view rather than a table.  See DataService CSDL Example
 
-**d:Taleschema** - See DataService CSDL Example
+**d:Tableschema** - See DataService CSDL Example
 
 **d:ColumnName** - Is the name of the column in the table/view.  See DataService CSDL Example
 
