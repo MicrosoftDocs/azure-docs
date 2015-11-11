@@ -142,7 +142,7 @@ Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags wi
 
 ## Tagging with REST API
 
-The portal and PowerShell both use the [Resource Manager REST API](https://msdn.microsoft.com/en-us/library/azure/dn848368.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
+The portal and PowerShell both use the [Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn848368.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
 
 
 ## Tagging and billing
