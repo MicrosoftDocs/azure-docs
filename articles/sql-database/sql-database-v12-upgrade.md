@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/01/2015" 
+	ms.date="11/02/2015" 
 	ms.author="sstein"/>
 
 
@@ -35,12 +35,18 @@ SQL Database V12 has many [advantages over the previous version](sql-database-v1
 
 For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool.
 
-You can easily [auto migrate databases directly from V11 servers into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but you must first upgrade to a V12 server (following the directions in this article) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
+You can easily [auto-migrate databases directly from V11 servers into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but you must first upgrade to a V12 server (following the directions in this article) -- then [add a pool to the server](sql-database-elastic-pool-portal.md#step-1-add-a-pool-to-a-server) and put some or all of the databases in the pool.
 
 
-Your databases will continue to work through the upgrade operation but at the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
+Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
-## Prepare to upgrade
+## Plan and prepare to upgrade
+
+The database will remain online but the upgrade process can run for hours to days depending on the size, edition, and number of databases in the server. This is especially true for servers that have databases larger than 50 GB, or at a non-premium service tier. Creating new databases on the server during the upgrade can also increase the upgrade duration.
+
+Note that upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
+
+After upgrading to V12 new service tier and elastic pool recommendations will not immediately be available until telemetry data has time to repopulate. V11 server recommendation history does not apply to V12 servers so it is not retained.  
 
 ### Review and suspend geo-replication
 
@@ -48,20 +54,7 @@ If your Azure SQL database is configured for geo-replication you should document
 
 ### Ports to open if you have clients on an Azure VM
 
-If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
-
-- 11000-11999
-- 14000-14999
-
-
-Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
-
-### upgrade considerations
-
-| Limitation | Description |
-| :--- | :--- |
-| Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The database will remain online the entire time but the upgrade process can run for hours to days. Especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
-| Upgrade to V12 cannot be undone | After an upgrade the server cannot be reverted to V11. |
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 

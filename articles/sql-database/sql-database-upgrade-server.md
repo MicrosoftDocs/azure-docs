@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/02/2015" 
 	ms.author="sstein"/>
 
 # Upgrade to Azure SQL Database V12 using PowerShell
@@ -38,7 +38,13 @@ You can easily [auto migrate databases directly from V11 servers into elastic da
 
 Your databases will continue to work through the upgrade operation but at the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
 
-## Prepare to upgrade
+## Plan and prepare to upgrade
+
+The database will remain online but the upgrade process can run for hours to days depending on the size, edition, and number of databases in the server. This is especially true for servers that have databases larger than 50 GB, or at a non-premium service tier. Creating new databases on the server during the upgrade can also increase the upgrade duration.
+
+Note that upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
+
+After upgrading to V12 new service tier and elastic pool recommendations will not immediately be available until telemetry data has time to repopulate. V11 server recommendation history does not apply to V12 servers so it is not retained.  
 
 ### Review and suspend geo-replication
 
@@ -46,22 +52,8 @@ If your Azure SQL database is configured for geo-replication you should document
 
 ### Ports to open if you have clients on an Azure VM
 
-If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-- 11000-11999
-- 14000-14999
-
-
-Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
-
-### upgrade considerations
-
-| Limitation | Description |
-| :--- | :--- |
-| Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The database will remain online the entire time but the upgrade process can run for hours to days. Especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
-| Upgrade to V12 cannot be undone | After an upgrade the server cannot be reverted to V11. |
-
- 
 
 
 ## Prerequisites 
