@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Using tags to organize your Azure resources"
+	pageTitle="Using tags to organize your Azure resources | Microsoft Azure"
 	description="Shows how to apply tags to organize resources for billing and managing."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -29,6 +29,27 @@ Each resource or resource group can have a maximum of 15 tags. The tag name is l
 
 > [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or [Service Management API](../services/api-management/)), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
 
+## Tags in templates
+
+Adding a tag to resource during deployment is very easy. Simply add the **tags** element to the resource you are deploying, and provide the tag name and value. The tag name and value do not need to pre-exist in your subscription. You can provide up to 15 tags for each resource.
+
+The following example shows a storage account with a tag.
+
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "dept": "Finance"
+            },
+            "properties": 
+            {
+                "accountType": "Standard_LRS"
+            }
+        }
+    ]
 
 ## Tags in the preview portal
 
