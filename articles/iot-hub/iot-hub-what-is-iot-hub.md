@@ -64,11 +64,9 @@ You can also implement other common patterns, such as file upload and download, 
 
 ## Gateways
 
-In an IoT solution, a [field gateway][lnk-field-gateway] sits between your devices and your IoT hub and is typically located close to your devices. Your devices communicate directly with the field gateway using a protocol supported by the devices, and the field gateway communicates with IoT Hub using a protocol supported by IoT Hub. A field gateway can be a specialized standalone device or software that runs on an existing piece of hardware.
+A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] deployed in the cloud or a [field gateway][lnk-field-gateway] deployed locally with your devices. A field gateway can be a specialized standalone device or software that runs on an existing piece of hardware. Both types of gateway act as an intermediary between your devices and your IoT Hub.
 
 A field gateway differs from a simple traffic routing device (such as a NAT device or firewall) because it typically performs an active role in managing access and information flow in your solution.
-
-> [AZURE.NOTE] While you typically deploy a field gateway local to your devices, in some scenarios you might deploy a [protocol gateway][lnk-gateway] in the cloud.
 
 ## How does IoT Hub work?
 
