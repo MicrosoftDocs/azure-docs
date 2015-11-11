@@ -138,9 +138,9 @@ With the cluster setup, you can now connect and begin deploying applications.
 
 	- Step 1 **connecting to an unsecure cluster**. 
 
-````
+```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10 
-````
+```
 
 Skip to the next step, if you not not connecting to a secure cluster.
 
@@ -150,30 +150,30 @@ Skip to the next step, if you not not connecting to a secure cluster.
 
 Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PS cmd
 
-````
+```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
             -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
             -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-````
+```
 
 Run the following PS to now connect to a secure cluster. The cert details are the same ones that you gave on the portal
 
-````
+```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
             -KeepAliveIntervalInSec 10 `
             -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
             -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
             -StoreLocation CurrentUser -StoreName My
-````
+```
 For example the PS command above should look similar to the following.
 
-````
+```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
             -KeepAliveIntervalInSec 10 `
             -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
             -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
             -StoreLocation CurrentUser -StoreName My
-````
+```
 
 
 3. Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine.
