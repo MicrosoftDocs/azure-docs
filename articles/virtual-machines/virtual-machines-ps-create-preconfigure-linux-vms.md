@@ -53,9 +53,9 @@ Replace everything within the quotes, including the < and > characters, with the
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 
-## Determine the ImageFamily
+## Find the image you want to use
 
-Next, you need to determine the ImageFamily value for the specific image corresponding to the Azure virtual machine you want to create. You can get the list of available ImageFamily values with the following command.
+Next, you need to determine the ImageFamily value for the image you wnat to use. You can get the list of available ImageFamily values with the following command.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
