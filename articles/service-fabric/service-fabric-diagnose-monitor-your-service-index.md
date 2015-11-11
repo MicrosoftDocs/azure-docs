@@ -20,7 +20,7 @@
 Monitoring, detecting, diagnosing and troubleshooting allows for services to continue with minimal disruption to user experience. To learn more, read:
 
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Setting up Application Insights for your Service Fabric application](service-fabric-diagnostics-application-insights-setup.md)
+- [Setting up Application Insights for your Service Fabric application](../app-insights-windows-desktop.md)
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
 - [Diagnostics and Performance Monitoring for Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 - [Diagnostics and Performance Monitoring for Reliable Services](service-fabric-reliable-services-diagnostics.md)
