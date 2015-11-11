@@ -35,7 +35,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 ### Service tiers for single databases
 For single databases there are multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Portal, with zero-downtime for your application. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
-Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple SQL databases, the expected performance characteristics of your database is not affected.
+Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple SQL databases, your database will still get a guaranteed set of resources, and the expected performance characteristics of your individual database is not affected.
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
