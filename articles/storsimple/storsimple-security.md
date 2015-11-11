@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/29/2015"
+   ms.date="11/11/2015"
    ms.author="v-sharos"/>
 
 # StorSimple security and data protection
@@ -167,7 +167,7 @@ To help ensure the security and integrity of data moved to the cloud, StorSimple
 - When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.
 - The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
 - Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
-- We recommend that you rotate cloud storage encryption key quarterly. However, the rotation of these keys will not be enforced.
+<!--- We recommend that you rotate the cloud storage encryption key quarterly. However, the rotation of these keys is not enforced.--->
 
 ### Additional security best practices
 
