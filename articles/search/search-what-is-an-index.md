@@ -26,8 +26,6 @@
 
 Azure Search is a hosted cloud search service that provides a search engine, search features that enable a Bing or Google-like experience in your custom application, .NET and REST APIs for integrating Azure Search with your Web or desktop application, and data storage of searchable data in the form of *indexes*.
 
-To create a schema, you can use the portal or write code that calls into the .NET SDK or REST API. 
-
 ##What is an index?
 
 An *index* is persisted storage of documents and other constructs used by an Azure Search service. 
@@ -45,7 +43,9 @@ The main sections of an index, which are described further on in this article, a
 
 As part of provisioning a search service for use by your application, you'll need to create an index. Creating an index is a task centered on defining its schema. Minimally, it consists of defining the fields and setting attributes. Optionally, you can define scoring profiles and suggestions to enhance the search experience.
 
-Once you create the index, populating it is a separate operation. For more about data ingestion after the index is created, see [Import data to Azure Search](search-what-is-data-import.md).
+To create a schema, you can use the portal or write code that calls into the .NET SDK or REST API. 
+
+Once you define the schema and create the index, populating it is a separate operation. For more about data ingestion after the index is created, see [Import data to Azure Search](search-what-is-data-import.md).
 
 ##How are indexes used in Azure Search?
 
