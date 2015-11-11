@@ -79,10 +79,15 @@ You can use the default options in the installer.
 -   Before you open the **Developer Command Prompt for VS2015**, install the Git command line tools. To install these tools, complete the following steps:
 
 	1. Launch the **Visual Studio 2015** setup program (or chose **Microsoft Visual Studio 2015** from the **Programs and Features** control panel and select **Change**).
+	
 	2. Make sure the **Git for Windows** feature is selected in the installer but you may also want to check the **GitHub Extension for Visual Studio** option to provide IDE integration:
+
   		![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+
 	3. Complete the setup wizard to install the tools.
+
 	4. Add the Git tools **bin** directory to the system **PATH** environment variable. On Windows, this looks like the following:
+
   		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
 When you run the **build\_proton.cmd** script from the command prompt, the script downloads the Proton source from its GitHub repository and then builds the Proton libraries.
