@@ -42,7 +42,7 @@ The installation wizard provides a configuration which is supposed to work for t
 - If you need to make any other change to an out-of-box rule, then make a copy of it and disable the original rule. The Sync Rule Editor will prompt you and help you with this.
 - Export your custom synchronization rules using the Synchronization Rules Editor. This provides you with a PowerShell script you can use to easily recreate them in the case of a disaster recovery scenario.
 
->[Azure.Warning] The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint will no longer match and you might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
+>[AZURE.WARNING] The out-of-box sync rules have a thumbprint. If you make a change to these rules, the thumbprint will no longer match and you might have problems in the future when you try to apply a new release of Azure AD Connect. Only make changes the way it is described in this article.
 
 ### Delete an unwanted Sync Rule
 Do not delete an out-of-box sync rule; it will be recreated during next upgrade.
