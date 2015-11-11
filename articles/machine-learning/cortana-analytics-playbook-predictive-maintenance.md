@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="11/11/2015"
 	ms.author="garye" />
 
 # Cortana Analytics Solution Accelerator Playbook for predictive maintenance
@@ -45,11 +45,11 @@ Learning](http://azure.microsoft.com/services/machine-learning/)
 pages.
 
 ## Playbook Overview and Target Audience  
-This playbook is organized in a way to provide benefit to both technical
+This playbook is organized to benefit both technical
 and non-technical audience with varying backgrounds and interests in
 predictive maintenance space. The playbook covers both high level
 aspects of the different types of predictive maintenance solutions and
-details of how to implement them. The content is balanced in a way to
+details of how to implement them. The content is balanced to
 cater both to the audience who are only interested in understanding the
 solution space and the type of applications as well as those who are
 looking to implement these solutions and are hence interested in the
@@ -74,16 +74,16 @@ modeling techniques for predictive maintenance applications and how to
 implement these models through examples from the use cases outlined in
 the first half of the playbook. This is illustrated by going through the
 steps of data preprocessing such as data labeling and feature
-engineering, model decision, training/testing and performance evaluation
+engineering, model selection, training/testing and performance evaluation
 best practices. These sections are suitable for technical audience.
 
 
 ## Predictive Maintenance in IoT
 The impact of unscheduled equipment downtime can be extremely
 destructive for businesses. It is critical to keep field equipment
-running in order to maximize utilization and performance and minimize
+running in order to maximize utilization and performance and by minimizing
 costly, unscheduled downtime. Simply, waiting for the failure to occur
-is not something that is affordable in today’s business operations
+is not affordable in today’s business operations
 scene. To remain competitive, companies look for new ways to maximize
 asset performance by making use of the data collected from various
 channels. One important way to analyze such information is to utilize
@@ -103,11 +103,11 @@ maintenance has been gaining increasing attention in the industry as the
 data collection and processing technologies has matured enough to
 generate, transmit, store and analyze all kinds of data in batches or in
 real-time. Such technologies enable easy development and deployment of
-end-to-end architectures with advanced analytics solutions such as
-predictive maintenance being the crux of these solutions providing
+end-to-end solutions with advanced analytics solutions, with
+predictive maintenance solutions providing
 arguably the largest amount of benefits.
 
-Customer problems in the predictive maintenance domain range from high
+Business problems in the predictive maintenance domain range from high
 operational risk due to unexpected failures and limited insight into the
 root cause of problems in complex business environments. The majority of
 these problems can be categorized to fall under the following business
@@ -140,11 +140,11 @@ dates for replacement of parts.
 ## Qualification Criteria for Predictive Maintenance
 It is important to emphasize that not all use cases or business problems
 can be effectively solved by predictive maintenance. Important
-qualification criteria include the problem to be predictive in nature,
-that a clear path of action exists in order to prevent failures if they
+qualification criteria include whether the problem is predictive in nature,
+that a clear path of action exists in order to prevent failures when they
 are detected beforehand and most importantly, data with sufficient
 quality to support the use case is available. Here, we focus on the data
-requirements for a successful predictive maintenance solution.
+requirements for building a successful predictive maintenance solution.
 
 When building predictive models, we use historical data to train the
 model which will then recognize hidden patterns and further identify
@@ -164,8 +164,8 @@ reflecting the health status of wheels, the mileage, car load, etc.).
 However, if the target is to predict train engine failures, we probably
 need another set of training data that has engine related features.
 Before building predictive models, we expect the business expert to
-understand the data relevancy requirement and provide us domain
-knowledge to select relevant subsets of data for the analysis.
+understand the data relevancy requirement and provide the domain
+knowledge that is needed to select relevant subsets of data for the analysis.
 
 There are three essential data sources we look for when qualifying a
 business problem to be suitable for a predictive maintenance solution:
@@ -203,9 +203,9 @@ conditions of the target asset of prediction. The decision of target is
 based on both business needs and data availability. Taking the train
 wheel failure prediction as example, we may predict "if the wheel is
 going to have a failure" or "if the whole train is going have a
-failure". The first one targets a more specific component where the
-second one targets failure of the train which is a more general question
-which will require a lot more dispersed data elements then the first one
+failure". The first one targets a more specific component whereas the
+second one targets failure of the train. The second one is a more general question
+that will require a lot more dispersed data elements then the first one,
 making it harder to build a model. Conversely, trying to predict wheel
 failures just by looking at the high level train condition data may not
 be feasible as it does not contain information at the component level.
@@ -255,11 +255,10 @@ maintenance codes that are recorded by the maintenance personnel.
 ##### *Business value of the predictive model*
 Using the available historical data, a predictive model was built using
 a multi-classification algorithm to predict the type of mechanical issue
-which will result in a delay or cancellation within the next 24 hours.
-By predicting the mechanical issue that may cause a cancelation for a
-certain aircraft beforehand, necessary maintenance actions can be taken
-to mitigate the risk while the aircrafts are being serviced to prevent
-the delay or cancellations from happening. Using Azure Machine Learning
+which will result in a delay or cancellation of a flight within the next 24 hours.
+By making this prediction, necessary maintenance actions can be taken
+to mitigate the risk while the aircrafts are being serviced and thus prevent
+possible delays or cancellations. Using Azure Machine Learning
 web service, the predictive models can seamless and easily be integrated
 into airlines’ existing operating platforms. 
 
@@ -291,7 +290,7 @@ operational risk to their businesses is unexpected failures of their
 assets. As an example, failure of machinery such as ATMs in banking
 industry is a very common problem that occurs frequently. These type of
 problems makes predictive maintenance solutions very desirable for
-manufacturers of such machinery. In this use case, prediction problem is
+operators of such machinery. In this use case, prediction problem is
 to calculate the probability that an ATM cash withdrawal transaction
 will get interrupted due to a failure in the cash dispenser such as a
 paper jam or a part failure. Major data sources for this case are sensor
@@ -322,11 +321,11 @@ of the major sources of energy generation and they usually cost millions
 of dollars. One of the key components of wind turbines is the generator
 motor which is equipped with many sensors that helps to monitor turbine
 conditions and status. The sensor readings contain valuable information
-which can be used to build a predictive model to predict critical KPIs
+which can be used to build a predictive model to predict critical Key Performance Indicators (KPIs)
 such as mean time to failure for components of the wind turbine. Data
 for this use case comes from multiple wind turbines that are located in
-3 different farm locations. Close to a hundred sensor values from each
-turbine was recorded every 10 seconds for one year. These readings
+3 different farm locations. Measurements from close to a hundred sensors from each
+turbine were recorded every 10 seconds for one year. These readings
 include measurements such as temperature, generator speed, turbine power
 and generator winding.
 
@@ -370,9 +369,8 @@ which will lead to less interruptions to the service.
 
 #### Use Case 4: Elevator door failures
 ##### *Business Problem and Data Sources*
-Most large elevator companies typically have millions of elevators running all over the world. To gain a competitive edge, they focus on reliability which is what matters most to their customers. Drawing on the potential of the Internet of Things, by connecting their elevators to the cloud and gathering data from elevator sensors and systems, they will be able to transform data into valuable business intelligence which will vastly improve operations by offering predictive and preemptive maintenance that is not something that is available to the competitors yet. The business requirement for this case is to provide a knowledge base predictive application that will predict the potential causes of door failures. The required data for this implementation consists of three parts which are elevator static features (e.g. identifiers, contract maintenance frequency, building type, etc.), usage information (e.g. number of door cycles, average door close time, etc.) and failure history (i.e. historical failure records and their causes).
+Most large elevator companies typically have millions of elevators running around the world. To gain a competitive edge, they focus on reliability which is what matters most to their customers. Drawing on the potential of the Internet of Things, by connecting their elevators to the cloud and gathering data from elevator sensors and systems, they will be able to transform data into valuable business intelligence which will vastly improve operations by offering predictive and preemptive maintenance that is not something that is available to the competitors yet. The business requirement for this case is to provide a knowledge base predictive application that will predict the potential causes of door failures. The required data for this implementation consists of three parts which are elevator static features (e.g. identifiers, contract maintenance frequency, building type, etc.), usage information (e.g. number of door cycles, average door close time, etc.) and failure history (i.e. historical failure records and their causes).
 
-##### *Business value of predictive model*
 A multiclass logistic regression model was built with Azure Machine
 Learning to solve the prediction problem, with the integrated static
 features and usage data as features, and the causes of historical
@@ -397,36 +395,39 @@ condition of the car subsystems. None of these approaches are successful
 in fully eliminating problems. The specific use case here is break disc
 failure prediction based on data collected through sensors installed in
 the tire system of a car which keep track of historical driving patterns
-and other conditions that the car is exposed to. Most influential data
+and other conditions that the car is exposed to. The most important data
 source for this case is the sensor data that measure, for instance,
 accelerations, breaking patterns, driving distances, velocity, etc. This
-information coupled with other static information such as car features
-help build good predictors to be used in a predictive model. Another set
+information, coupled with other static information such as car features,
+help build a good set of predictors that can be used in a predictive model. Another set
 of essential information is the failure data which is inferred from the
-part order database which keeps the spare part order dates and
-quantities as cars are being serviced in the dealerships.
+part order database (used to keep the spare part order dates and
+quantities as cars are being serviced in the dealerships).
 
 ##### *Business value of the predictive model*
-The business value of a predictive approach here is numerous. A
+The business value of a predictive approach here is substantial. A
 predictive maintenance system can schedule a visit to the dealer based
-on a predictive model which uses sensory information representing the
-current condition of the car and its subsystems based on driving
+on a predictive model. The model can be based on sensory information that is representing the
+current condition of the car and the driving
 history. This approach can minimize the risk of unexpected failures,
-which may as well occur before the next periodic maintenance operation,
-and also reduce the amount of unnecessary preventive maintenance
+which may as well occur before the next periodic maintenance.
+It can also reduce the amount of unnecessary preventive maintenance
 activities. Driver can proactively be informed that a change of parts
 might be necessary in a few weeks and supply the dealer with that
 information. The dealer could than prepare an individual maintenance
-package for the driver before the driver visits the dealership.
+package for the driver in advance.
 
 #### Use Case 2: Subway train door failures
 ##### *Business Problem and Data Sources*
 One of the major reasons of delays and problems on subway operations is
-door failures of train cars. Predicting if a train car will have a door
-failure tomorrow or being able to forecast the number of days till next
-door failure, is extremely important foresight into the operations as
-train doors can be serviced optimally according to the predictions to
-minimize downtime as much as possible. Three sources of data in this use
+door failures of train cars. Predicting if a train car may have a door
+failure, or being able to forecast the number of days till the next
+door failure, is extremely important foresight. It provides the opportunity
+to optimize train door servicing and reduce the train's down time.
+
+#### Data sources
+
+Three sources of data in this use
 case are train event data which is historical records of train events,
 maintenance data such as maintenance types, work order types, priority
 codes etc and records of failures.
@@ -482,7 +483,7 @@ voltage levels, geolocation or car features such as make, model, engine
 size, tire types, production facility etc.
 
 Given the above data sources, the two main data types we observe in
-predictive maintenance domain are time-stamped data and static data.
+predictive maintenance domain are temporal data and static data.
 Failure history, machine conditions, repair history, usage history
 almost always come with time-stamps indicating the time of collection
 for each piece of data. Machine features and operator features in
@@ -492,6 +493,7 @@ these features to change over time and if so they should be treated as
 time stamped data sources.
 
 ### Merging Data Sources
+
 Before getting into any type of feature engineering or labeling process,
 we need to first prepare our data in the form required to create
 features from. The ultimate goal is to generate a record for each time
@@ -562,8 +564,8 @@ be imputed by an indicator value for normal operation. This failure
 column will be used to create labels for the predictive model.
 
 ### Feature Engineering
-Before applying any machine learning algorithm, the first step is
-feature generation. The idea of feature generation is to conceptually
+The first step in modeling is feature engineering.
+The idea of feature generation is to conceptually
 describe and abstract a machine’s health condition at a given time using
 historical data that was collected up to that point in time. In the next
 section, we provide an overview of the type of techniques that can be
@@ -579,10 +581,10 @@ sources and provide examples from the use cases.
 As mentioned earlier, in predictive maintenance, historical data usually
 comes with timestamps indicating the time of collection for each piece
 of data. There are many ways of creating features from the data that
-comes with timestamps. In this section, we discuss some of these methods
+comes with timestamped data. In this section, we discuss some of these methods
 used for predictive maintenance. However, we are not limited by these
-methods alone as feature engineering is considered to be one of the most
-creative areas of predictive modeling so there can be many other ways
+methods alone. Since feature engineering is considered to be one of the most
+creative areas of predictive modeling, there could be many other ways
 to create features. Here, we provide some general techniques.
 
 ##### *Rolling Aggregates*
@@ -674,7 +676,7 @@ time unit is a day:
 
 ## Modeling Techniques
 Predictive Maintenance is a very rich domain often employing business
-questions which may be approached from many different angles from the
+questions which may be approached from many different angles of the
 predictive modeling perspective. In the next sections, we will provide
 main techniques that are used to model different business questions that
 can be answered with predictive maintenance solutions. Although there
@@ -729,9 +731,9 @@ classification models were built to predict the failure probability of a
 transaction in the next 10 minutes and also to predict the probability
 of failure in the next 100 notes dispensed. All transactions that
 happened within the last 10 minutes of the failure are labeled as 1 for
-the first model and all notes dispensed within the last 100 notes of a
+the first model. And all notes dispensed within the last 100 notes of a
 failure were labeled as 1 for the second model. For circuit breaker
-failures, the task was to predict the probability that the next circuit
+failures, the task is to predict the probability that the next circuit
 breaker command will fail in which case X is chosen to be one future
 command. For train door failures, the binary classification model was
 built to predict failures within the next 7 days. For wind turbine
@@ -770,28 +772,26 @@ failures in the data cannot be used for modeling as labelling is done
 in reference to a failure point and its calculation is not possible
 without knowing how long the asset survived before failure. This issue
 is best addressed by another statistical technique called Survival
-Analysis that is not discussed in this playbook due to the complications
-arise when applying the technique to predictive maintenance use cases
-that involve time-varying data with frequent intervals which is not
-usual for survival analysis applications.
+Analysis.
+We are not going to discuss Survival Analysis in this playbook because of the potential complications
+that may arise when applying the technique to predictive maintenance use cases
+that involve time-varying data with frequent intervals.
 
 ### Multi-Class Classification for Predictive Maintenance
 Multi-class classification for predictive maintenance can be used to
-predict two future outcomes. First one is to assign an asset to one of
+predict two future outcomes. The first one is to assign an asset to one of
 the multiple possible periods of time to give a range of time to failure
-for each asset. Second one is to identify the likelihood of failure in a
-future period due to one of the multiple root causes so that the
-maintenance personnel can be equipped with this knowledge in order to
-fix these problems efficiently in advance. A third multi-class modeling
-technique just focuses on the failures to determine the most likely root
-cause given a failure has occurred. This is more of a knowledge base
-application for recommending the top maintenance actions to fix a
-failure. This is also beneficial for maintenance technicians who take
-the first repair actions after failures by providing them a list of root
-causes and associated repair actions in the order of highest probability
-to lowest of what the root cause can be. They can then go through the
-list without having to manually look for the root cause which will
-introduce delays to the repair time.
+for each asset. The second one is to identify the likelihood of failure in a
+future period due to one of the multiple root causes. That allows
+maintenance personnel who are equipped with this knowledge to
+handle the problems in advance. Another multi-class modeling
+technique focuses on determining the most likely root
+cause of a given a failure. This allows
+recommendations to be given for the top maintenance actions
+to be taken in order to fix a failure.
+By having a ranked list of root causes and associated repair actions,  
+technicians can be more effective in taking
+their first repair actions after failures.
 
 #### Label Construction
 Given the two questions which are "What is the probability that an asset
@@ -822,25 +822,24 @@ problem P<sub>i</sub>" (label = P<sub>i</sub>) while labeling all other records 
 Figure 6. Labelling for Multiclass classification for root cause
 prediction
 
-The model will assign a failure probability due to each P<sub>i</sub> and also
-the probability of no failure. These probabilities can be sorted in the
-order of magnitude to decide on which problem is most likely to happen
-in the future. Aircraft component failure use case was formulated as a
-multiclass classification problem to predict the probabilities of
-failure due to two different pressure valve components within the next
+The model will assign a failure probability due to each P<sub>i</sub> as well as
+the probability of no failure. These probabilities can be ordered by
+magnitude to allow prediction of the problems that are most likely to occur
+in the future. Aircraft component failure use case was structured as a
+multiclass classification problem. This enables the prediction of the probabilities of
+failure due to two different pressure valve components occurring within the next
 month.
 
 For recommending maintenance actions after failures, labeling does not
-require a future horizon to be picked as the model is not predicting
+require a future horizon to be picked. This is because the model is not predicting
 failure in the future but it is just predicting the most likely root
 cause once the failure has already happened. Elevator door failures
-falls into the third case where the prediction problem is to predict the
-cause of the failure given historical data on operating conditions like
-door opening and closing times or error codes received, etc. This model
-will be used to predict the most likely root causes after a failure has
-occurred. One striking benefit of this model is that it will help
-unexperienced technicians easily diagnose and fix problems without
-having years’ worth of experience to diagnose the problem otherwise.
+falls into the third case where the goal is to predict the
+cause of the failure given historical data on operating conditions. This model
+will then be used to predict the most likely root causes after a failure has
+occurred. One key benefit of this model is that it will help
+unexperienced technicians to easily diagnose and fix problems that would otherwise
+need years’ worth of experience.
 
 ## Training, Validation and Testing Methods in Predictive Maintenance
 In predictive maintenance, similar to any other solution space
