@@ -56,7 +56,7 @@ The typical steps we suggest you to do to tune performance of your Azure Data Fa
 	If the performance you observe is below your expectations, you need to identify performance bottlenecks and perform optimizations to remove or reduce the impact of bottlenecks. A full description of the performance diagnosis is beyond the scope of this article but we are listing a few common considerations here as follows.
 	- [Source](#considerations-on-source)
 	- [Sink](#considerations-on-sink)
-	- [Serialization/Deserialization](#considerations-on-serialization-/-deserialization)
+	- [Serialization/Deserialization](#considerations-on-serializationdeserialization)
 	- [Compression](#considerations-on-compression)
 	- [Column mapping](#considerations-on-column-mapping)
 	- [Data Management Gateway](#considerations-on-data-management-gateway)
@@ -77,11 +77,9 @@ Points to note:
 - [TPC-H](http://www.tpc.org/tpch/) data set has been leveraged to calculate numbers above.
 - In case of Microsoft Azure data stores, source and sink are in the same Azure region.
 - In case of the hybrid (on-premises to cloud or cloud to on-premises) data movement, the Data Management Gateway (single instance) was hosted on a machine with the following configuration
-	| -------- | ------------------------------------ |
-	| CPU	32 | Cores 2.20GHz Intel Xeon® E5-2660 v2 |		  
-	| Memory | 128GB | 
-	| Network | Inbound: 10Gbps; Outbound: 40Gbps |
-	| Disk | SSD |   
+	| CPU | Memory | Network | Disk | 
+	| :-- | :----- | :------ | :--- |
+	| 32 Cores 2.20GHz Intel Xeon® E5-2660 v2 | 128GB | Inbound: 10Gbps; Outbound: 40Gbps | SSD |   
 
 - The gateway is running on a different system than the source/sink
 
@@ -89,7 +87,7 @@ Points to note:
 ### General
 Ensure that the underlying data store is not overwhelmed by other workloads running on/against it including but not limited to copy activity.
   
-For Microsoft data stores, refer to data store specific [monitoring and tuning topics]() which can help you understand the data store performance characteristics, minimize response times and maximize throughput.
+For Microsoft data stores, refer to data store specific [monitoring and tuning topics](#appendix-data-store-performance-tuning-reference) which can help you understand the data store performance characteristics, minimize response times and maximize throughput.
 
 ## Considerations on Sink
 ## Considerations on Serialization/Deserialization
