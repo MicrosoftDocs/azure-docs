@@ -168,8 +168,6 @@ To help ensure the security and integrity of data moved to the cloud, StorSimple
 - The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
 - Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
 
-<!--We recommend that you rotate the cloud storage encryption key quarterly. However, the rotation of these keys is not enforced.-->
-
 ### Additional security best practices
 
 - Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option. A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data. Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.
