@@ -176,7 +176,7 @@ The following are the attributes that have been added to the CSDL specification:
 | Parameter Attribute | Description |
 |----|----|
 | **d:Regex** *(Optional)* | A regex statement used to validate the input value for the parameter. If the input value doesn’t match the statement the value is rejected. This allows to specify also a set of possible values, e.g. ^[0-9]+?$ to only allow numbers. **Example:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:Enum** *(Optional)* | A pipe separated list of values valid for the parameter. The type of the values needs to match the defined type of the parameter. Example: english|metric|raw. Enum will display as a selectable dropdown list of parameters in the UI (service explorer). **Example:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
+| **d:Enum** *(Optional)* | A pipe separated list of values valid for the parameter. The type of the values needs to match the defined type of the parameter. Example: `english|metric|raw`. Enum will display as a selectable dropdown list of parameters in the UI (service explorer). **Example:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
 | **d:Nullable** *(Optional)* | Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. **Example:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
 | **d:SampleValue** *(Optional)* | A sample value to display as a note to the Client in the UI.  Can add several values, separate with the pipe, “|”. **Example:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:UriTemplate** | |
@@ -189,31 +189,22 @@ Details about this node are found at [http://msdn.microsoft.com/en-us/library/bb
 
 | Attribute Name | Is Required | Value |
 |----|----|----|
-| Name | Yes | The name of the entity type. **Example:** <EntityType Name="ListOfAllEntities" d:Map="//EntityModel"> |
-| BaseType | No | The name of another entity type that is the base type of the entity type that is being defined. **Example:** <EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord"> |
+| Name | Yes | The name of the entity type. **Example:** `<EntityType Name="ListOfAllEntities" d:Map="//EntityModel">` |
+| BaseType | No | The name of another entity type that is the base type of the entity type that is being defined. **Example:** `<EntityType Name="PhoneRecord" BaseType="dqs:RequestRecord">` |
 
 The following are the attributes that have been added to the CSDL specification:
 
-**d:Map**
+**d:Map** - An XPath expression executed against the service output. The assumption here is that the service output contains a set of elements that repeat, like an ATOM feed where there is a set of entry nodes that repeat. Each of these repeating nodes contains one record. The XPath is then specified to point at the individual repeating node in the content provider’s service result that holds the values for an individual record. Example output from the service:
 
-An XPath expression executed against the service output.
-
-The assumption here is that the service output contains a set of elements that repeat, like an ATOM feed where there is a set of entry nodes that repeat. Each of these repeating nodes contains one record.
-
-The XPath is then specified to point at the individual repeating node in the content provider’s service result that holds the values for an individual record.
-
-Example output from the service:
-        <foo>
+        `<foo>
           <bar> … content … </bar>
           <bar> … content … </bar>
           <bar> … content … </bar>
-        </foo>
+        </foo>`
 
 The XPath expression would be /foo/bar because each of the bar node is the repeating node in the output and it contains the actual content that is returned to the end-user.
 
-**Key**
-
-This attribute is ignored by Marketplace. REST based web services, in general don’t expose a primary key.
+**Key** - This attribute is ignored by Marketplace. REST based web services, in general don’t expose a primary key.
 
 
 ## Property node
