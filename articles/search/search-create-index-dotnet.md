@@ -22,7 +22,7 @@
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
-- [REST API](search-create-index-rest-api.md)
+- [REST](search-create-index-rest-api.md)
 
 This article shows you how to create an index using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). The content below is a subset of the [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md). Refer to the parent article for end-to-end steps.
 
