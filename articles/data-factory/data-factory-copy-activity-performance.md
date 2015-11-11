@@ -65,7 +65,7 @@ The typical steps we suggest you to do to tune performance of your Azure Data Fa
 	Once you are satisfied with the execution results and performance, you can expand the dataset definition and pipeline active period to cover the entire data in picture.
 
 ## Performance Reference
-> [AZURE.IMPORTANT] Disclaimer: Data below has been published for the sole purpose of guidance and planning. It assumes that bandwidth, hardware, configuration, etc. are among the best in their class. Use this as a reference only. The data movement throughput you observe will be affected by a range of variables. Refer to the sections later to learn about how you can possibly tune and achieve better performance for your data movement needs. These data will be updated when new features are available to boost the copy performance.
+> [AZURE.IMPORTANT] **Disclaimer:** Data below has been published for the sole purpose of guidance and planning. It assumes that bandwidth, hardware, configuration, etc. are among the best in their class. Use this as a reference only. The data movement throughput you observe will be affected by a range of variables. Refer to the sections later to learn about how you can possibly tune and achieve better performance for your data movement needs. These data will be updated when new features are available to boost the copy performance.
 
 ![Performance matrix](./media/data-factory-copy-activity-performance/performance-matrix.png)
 
@@ -105,6 +105,7 @@ For Microsoft data stores, refer to data store specific [monitoring and tuning t
 
 ### File-based data stores 
 *(Includes Azure Blob, Azure Data Lake, On-premises File System)*
+
 - **Average file size and file count**: Copy activity transfers data file by file.  With the same amount of data to be moved, the overall throughput will be slower if the data consists of a large number of small files instead of a small number of larger files because of the bootstrap phase for each file. Therefore, if possible, combine small files into larger files to gain higher throughput.
 - **File format and compression**: See the [considerations on serialization/deserialization](#considerations-on-serializationdeserialization) and [considerations on compression](#considerations-on-compression) sections for more ways to improve performance.
 - Additionally, for the **on-premises File System** scenario where the use of **Data Management Gateway** is required, see the [Considerations on Gateway](#considerations-on-data-management-gateway) section.
@@ -175,7 +176,7 @@ When your input or output dataset is a file, you can configure the copy activity
 **A consideration:** For copying large size of data between on-premises store and cloud, where the bandwidth corpnet and Azure is often the limiting factor, and you want both the input dataset and output dataset to be in uncompressed form, you can consider using an **interim Azure Blob** with compression.  More specifically, you can break a single copy activity into two copy activities: the first copy activity that copies from source to interim or staging blob in compressed form, and the second copy activity that copies compressed data from staging and decompresses while writing to sink.
 
 ## Considerations on Column Mapping
-**The “columnMappings” property in the copy activity can be used to map all or a subset of the input columns to the output columns. After reading the data from source, data movement service needs to perform column mapping on the data before writing it to the sink. This extra processing reduces copy throughput.
+The “columnMappings” property in the copy activity can be used to map all or a subset of the input columns to the output columns. After reading the data from source, data movement service needs to perform column mapping on the data before writing it to the sink. This extra processing reduces copy throughput.
 
 If your source data store is query-able, e.g. a relational store like Azure SQL/SQL Server or NoSQL store like Azure Table/Azure DocumentDB, you can consider pushing down the column filtering/re-ordering logic to the query property rather than using column mapping, which results in doing the projection during reading data from the source data store and is much more efficient.
 
@@ -202,7 +203,7 @@ To troubleshoot the performance issue, let’s firstly walkthrough how the data 
 
 1.	**Read data:** gateway opens connection to SQL Server and sends the query. SQL Server responds by sending the data stream to gateway via intranet.
 2.	Gateway **serializes** the data stream to CSV format, and **compresses** the data to a BZIP2 stream.
-3.	**Write data: **gateway uploads the BZIP2 stream to Azure Blob via internet.
+3.	**Write data:** gateway uploads the BZIP2 stream to Azure Blob via internet.
 
 As you can see, the data is being processed and moved in a streaming sequential manner: SQL Server -> LAN -> Gateway -> WAN -> Azure Blob, **the overall performance is gated by the minimum throughput across the pipeline**.
 
@@ -223,6 +224,7 @@ In this case, BZIP2 data compression could be slowing the whole pipeline. Switch
 
 ## Appendix – Data Store Performance Tuning Reference
 Here are some performance monitoring and tuning references for a few of the supported data stores:
+
 - Azure Storage (including Azure Blob and Azure Table): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage Performance and Scalability Checklist](../storage//storage-performance-checklist.md)
 - Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance) and check the Database Throughput Unit (DTU) percentage.
 - Azure SQL Data Warehouse: Its capability is measured by Data Warehouse Units (DWUs). Refer to [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale/).
