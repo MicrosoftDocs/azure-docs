@@ -20,7 +20,7 @@
 
 On rare occasions, you may see unusual values in the "Actor" or "User" fields in Azure AD Reports. This behavior is expected, and is caused by one of two events:
 
-### A Service Principal is acting on the directory, without a user context
+## A Service Principal is acting on the directory, without a user context
 
 In this case, a Service Principal (Application) is performing directory updates without actually signing in as a user. This causes the Service Principal's ID to show up as the Actor, instead of a UPN. Here's an example:
 
