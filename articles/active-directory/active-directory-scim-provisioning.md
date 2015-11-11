@@ -20,12 +20,56 @@
 
 ##Overview
 
-Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the [SCIM protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
+Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
 
 ![][1]
 *Figure: Provisioning from Azure Active Directory to an arbitrary identity store via a Web service*
 
-This capability can be used in conjunction with the “bring your own app” capability in Azure AD to enable single sign-on and automatic user provisioning for virtually any application that provides a user provisioning API.
+This capability can be used in conjunction with the “[bring your own app](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)” capability in Azure AD to enable single sign-on and automatic user provisioning for applications that provide or are fronted by a SCIM web service.
+
+There are two use cases for SCIM in Azure Active Directory:
+
+* **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and are capable of accepting an OAuth bearer token from Azure AD will work with Azure AD of the box.
+
+* **Provision users and groups to applications that support other API-based provisioning** - For non-SCIM applications, you can provide a SCIM endpoint to translate between Azure AD’s SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
+
+##Provisioning To Applications That Support SCIM
+
+Azure AD can be configured to automatically provision assiged users and groups to applications that implement a SCIM web service that matches the following profile:
+
+* SCIM implementation based on the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19)
+* Supports writes
+* Supports querying
+* Supports patching and filtering by externalId
+* Supports OAuth bearer tokens for authentication
+* Supports using Azure AD as the identity provider for the OAuth token (support for external identity providers coming soon)
+ 
+###Getting Started
+
+Applications that support the SCIM profile described above can be connected to Azure Active Directory using the "custom" app feature in the Azure AD applicaiton gallery.
+
+**To connect an applicaiton that supports SCIM:**
+
+1.	In a web browser, launch the Azure management portal at https://manage.windowsazure.com.
+2.	Browse to **Active Directory > Directory > [Your Directory] > Applications**, and select **Add > Add an application from the gallery**.
+3.	Select the **Custom** tab on the left, enter a name for your application, and click the checkmark icon to create an app object.
+
+![][2]
+
+4.	In the resulting screen, select the second **Configure account provisioning** button.
+5.	In the dialog, enter the URL of the application's SCIM endpoin.  
+6.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
+7.	If the attempts to connect to the application succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
+8.	In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
+9.	Once users and groups are assigned, click the **Configure** tab near the top of the screen.
+10.	Under **Account Provisioning**, confirm that the Status is set to On. 
+11.	Under **Tools**, click **Restart account provisioning** to kick-start the provisioning process.
+
+Note that 5-10 minutes may elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
+
+##Provision To Applications That Support Other API-based Provisioning
+
+By creating a SCIM web service that interfaces with Azure Active Directory, you can enable single sign-on and automatic user provisioning for virtually any application that provides a user provisioning API.
 
 Here’s how it works:
 
@@ -34,19 +78,19 @@ Here’s how it works:
 3.	The endpoint URL is registered in Azure AD as part of a custom application in the application gallery.
 4.	Users and groups are assigned to this application in Azure AD. Upon assignment, they are put into a queue to be synchronized to the target application. The synchronization process handling the queue runs every 5 minutes.
 
-##Code Samples
+###Code Samples
 
 To make this process easier, a set of [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided that create a SCIM web service endpoint and demonstrate automatic provisioning. One sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.  The other is of a provider that operates on the Amazon Web Services Identity and Access Management service.  
 
 
-###Prerequisites
+**Prerequisites**
 * Visual Studio 2013 or later
 * [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
 * [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/en-us/services/active-directory/)
 * The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). See the README file included with the sample for additional details
 
-##Getting Started
+###Getting Started
 
 The easiest way to implement a SCIM endpoint that can accept provisioning requests from Azure AD is to build and deploy the code sample that outputs the provisioned users to a comma-separated value (CSV) file.
 
@@ -80,9 +124,9 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 
 ![][2]
 
-4.	In the resulting screen, select the second Configure account provisioning button.
+4.	In the resulting screen, select the second **Configure account provisioning** button.
 5.	In the dialog, enter the internet-exposed URL and port of your SCIM endpoint. This would be something like http://testmachine.contoso.com:9000 or http://<ip-address>:9000/, where <ip-address> is the internet exposed IP address.  
-6.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCI endpoint. If the attempts fail, diagnostic information will be displayed.  
+6.	Click **Next**, and click on the **Start Test** button to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempts fail, diagnostic information will be displayed.  
 7.	If the attempts to connect to your Web service succeed, then click **Next** on the remaining screens, and click **Complete** to exit the dialog.
 8.	In the resulting screen, select the third **Assign Accounts** button. In the resulting Users and Groups section, assign the users or groups you want to provision to the application.
 9.	Once users and groups are assigned, click the **Configure** tab near the top of the screen.
@@ -224,7 +268,7 @@ To host the service within Internet Information Services, a developer would buil
     }
     }
 
-##Handling Endpoint Authentication
+###Handling Endpoint Authentication
 
 Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory on behalf of the expected Azure Active Directory tenant, for access to Azure Active Directory’s Graph Web service.  In the token, the issuer is identified by an iss claim, like, "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant on behalf of which the token was issued.  If the token was issued for accessing the Azure Active Directory’s Graph Web service, then the identifier of that service, 00000002-0000-0000-c000-000000000000, should be in the value of the token’s aud claim.  
 
