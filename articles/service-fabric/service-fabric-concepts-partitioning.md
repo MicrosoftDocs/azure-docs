@@ -17,7 +17,7 @@
    ms.author="bscholl"/>
 
 # How to partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services.
+This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services. The source code used in the article is also available on [Github (add final link)](http://Github.com). 
 
 ## What is partitioning
 Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
