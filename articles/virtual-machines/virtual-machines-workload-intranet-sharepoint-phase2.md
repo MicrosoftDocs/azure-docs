@@ -33,8 +33,8 @@ Item | Virtual machine name | Gallery image | Minimum size
 --- | --- | --- | ---
 1. | ______________ (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | A2 (Medium)
 2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 5. | ______________ (majority node for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
 6. | ______________ (first SharePoint application server, example APP1) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
 7. | ______________ (second SharePoint application server, example APP2) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
