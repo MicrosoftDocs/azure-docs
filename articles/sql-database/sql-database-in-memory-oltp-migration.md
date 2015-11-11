@@ -136,6 +136,7 @@ To use this migration option:
 6. Create the new memory-optimized copy of the table by running your edited CREATE TABLE script.
 
 7. Copy the data to your memory-optimized table by using INSERT...SELECT * INTO:
+	
 ```
 INSERT INTO <new_memory_optimized_table>
 		SELECT * FROM <old_disk_based_table>;
@@ -156,7 +157,7 @@ A natively compiled stored procedure must have the following options on its T-SQ
 - SCHEMABINDING: meaning tables that the stored procedure cannot have their column definitions changed in any way that would affect the stored procedure, unless you drop the stored procedure.
 
 
-Native modules must use [ATOMIC blocks](http://msdn.microsoft.com/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION.
+A native module must use one big [ATOMIC blocks](http://msdn.microsoft.com/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION.
 
 
 ### Typical CREATE PROCEDURE for natively compiled
@@ -206,7 +207,9 @@ The migration steps are:
 Run a workload in your test database that is similar to the workload that runs in your production database. This should reveal the performance gain achieved by your use of the In-Memory feature for tables and stored procedures.
 
 Major attributes of the workload are:
+
 - Number of concurrent connections.
+
 - Read/write ratio.
 
 
@@ -216,7 +219,7 @@ To tailor and run the test workload, consider using the handy ostress.exe tool, 
 To minimize network latency, run your test in the same Azure geographic region where the database exists.
 
 
-## Ste 7: Post-implementation monitoring
+## Step 7: Post-implementation monitoring
 
 Consider monitoring the performance effects of your In-Memory implementations in production:
 
