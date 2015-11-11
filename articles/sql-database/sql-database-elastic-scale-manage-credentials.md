@@ -18,17 +18,15 @@
 
 # Credentials used to access the Elastic Database client library
 
-The [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) uses credentials for these types of operations: 
+The [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) uses three different kinds  of credentials. The credentials are used to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
 
 * **Management credentials**: for creating or manipulating a shard map manager. (See the [glossary](sql-database-elastic-scale-glossary.md).) 
 * **Access credentials**: to access an existing shard map manager to obtain information about shards.
 * **Connection credentials**: to connect to shards. 
  
-These credentials types are discussed below. 
-
 ## Management credentials  
 
-Management credentials are used when creating a **ShardMapManager** object for applications that manipulate shard maps. (See [Shard map management](sql-database-elastic-scale-shard-map-management.md).)The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object: 
+Management credentials are used to create a **ShardMapManager** object for applications that manipulate shard maps. (For example, see [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md).) The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object: 
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -41,8 +39,9 @@ The variable **smmAdminConnectionString** is a connection string that contains t
 
 Do not use User ID values in the form of "username@server" -- instead just use "username".  This is because credentials must work against both the Shard Map Manager database and individual shards, which may be on different servers.
      
-## Access credentials   
-When instantiating the shard map manager in an application that is not going to administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials are used for [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown above: 
+## Access credentials
+  
+When creating a shard map manager in an application that does not administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials are used for [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown above: 
 
     // Obtain shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
