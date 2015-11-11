@@ -26,7 +26,7 @@ The [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Az
  
 ## Management credentials  
 
-Management credentials are used to create a **ShardMapManager** object for applications that manipulate shard maps. (For example, see [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md).) The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object: 
+Management credentials are used to create a [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) object for applications that manipulate shard maps. (For example, see [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md).) The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object (using [**GetSqlShardMapManager**](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -53,7 +53,7 @@ Note the use of the **smmReadOnlyConnectionString** to reflect the use of differ
 
 ## Connection credentials 
 
-Additional credentials are needed when using the **OpenConnectionForKey** method to access a shard associated with a sharding key. These credentials need to provide permissions for read-only access to the local shard map tables residing on the shard. This is needed to perform connection validation for data-dependent routing on the shard. This code snippet allows data access in the context of data dependent routing: 
+Additional credentials are needed when using the [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) method to access a shard associated with a sharding key. These credentials need to provide permissions for read-only access to the local shard map tables residing on the shard. This is needed to perform connection validation for data-dependent routing on the shard. This code snippet allows data access in the context of data dependent routing: 
  
 	using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
 	targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
