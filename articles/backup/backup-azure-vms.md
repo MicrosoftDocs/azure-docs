@@ -72,7 +72,7 @@ You register an Azure virtual machine to associate the it with the Azure Backup 
 
     ![register job](./media/backup-azure-vms/register-create-job.png)
 
-   The virtual machine also appears in the list of registered items along with the status of the registration operation.
+    The virtual machine also appears in the list of registered items along with the status of the registration operation.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
