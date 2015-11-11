@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Solution Accelerator Playbook for predictive maintenance | Microsoft Azure"
-	description="A Solution Accelerator with Microsoft Cortana Analytics for predictive maintenance."
+	pageTitle="Cortana Analytics Solution Template Playbook for predictive maintenance | Microsoft Azure"
+	description="A Solution Template with Microsoft Cortana Analytics for predictive maintenance."
 	keywords="solution accelerator;cortana analytics;predictive maintenance"
 	services="cortana-analytics"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="11/11/2015"
 	ms.author="garye" />
 
-# Cortana Analytics Solution Accelerator Playbook for predictive maintenance
+# Cortana Analytics Solution Template Playbook for predictive maintenance
 
 ## Executive Summary  
 Predictive maintenance is one of the most demanded applications of
