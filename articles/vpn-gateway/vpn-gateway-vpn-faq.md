@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # VPN Gateway FAQ
@@ -37,11 +37,11 @@ The following cross-premises connections are supported:
 
 - [Point-to-Site](vpn-gateway-point-to-site-create.md) – VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
 
-- [VNet-to-VNet](virtual-networks-configure-vnet-to-vnet-connection.md) - This type of connection is the same as a site-to-site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
+- [VNet-to-VNet](virtual-networks-configure-vnet-to-vnet-connection.md) – This type of connection is the same as a site-to-site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
 
-- [Multi-Site](vpn-gateway-multi-site.md) - This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.
+- [Multi-Site](vpn-gateway-multi-site.md) – This is a variation of a site-to-site configuration that allows you to connect multiple on-premises sites to a virtual network.
 
-- [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
+- [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
 ### What is the difference between a site-to-site connection and point-to-site?
 
@@ -71,6 +71,10 @@ We have validated a set of standard site-to-site VPN devices in partnership with
 
 If you do not see your device listed as a known compatible VPN device and want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Devices meeting the minimum requirements should work well with VPN gateways. Please contact your device manufacturer for additional support and configuration instructions.
 
+### Why does my policy-based VPN tunnel go down when traffic is idle?
+
+This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. But as soon as traffic starts flowing in either direction, the tunnel will be re-established immediately. If you have a route-based (also known as dynamic) VPN gateway, you will not experience this behavior.
+
 ### Can I use software VPNs to connect to Azure?
 
 We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site-to-site cross-premises configuration.
@@ -78,6 +82,8 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
 ## Point-to-site connections
+
+Presently, point-to-site connections are available only for the classic deployment model (also known as Service Management). We are working on a point-to-site solution for the Azure Resource Manager deployment model. When that is available, this page will be updated.
 
 ### What operating systems can I use with point-to-site?
 
@@ -93,7 +99,7 @@ The following operating systems are supported:
 
 ### Can I use any software VPN client for point-to-site that supports SSTP?
 
-No. Support is limited only to the Windows operating system versions listed above.
+No. Support is limited only to the Windows operating system versions listed above. The Windows 10 client is presently being verified.
 
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 
@@ -101,7 +107,7 @@ We support up to 128 VPN clients to be able to connect to a virtual network at t
 
 ### Can I use my own internal PKI root CA for point-to-site connectivity?
 
-At this time, only self-signed root certificates are supported.
+Yes. Previously, only self-signed root certificates could be used. You can still upload 20 root certificates.
 
 ### Can I traverse proxies and firewalls using point-to-site capability?
 
@@ -230,7 +236,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-coexist.md).
 
-## Connectivity and VMs
+## Cross-Premises connectivity and VMs
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
@@ -242,12 +248,13 @@ If you have a virtual network with cross-premises connectivity configured, you c
 
 No. Only the traffic that has a destination IP that is contained in the virtual network Local Network IP address ranges that you specified will go through the virtual network gateway. Traffic has a destination IP located within the virtual network will stay within the virtual network. Other traffic is sent through the load balancer to the public networks, or if forced tunneling is used, sent through the Azure VPN gateway. If you are troubleshooting, it's important to make sure that you have all the ranges listed in your Local Network that you want to send through the gateway. Verify that the Local Network address ranges do not overlap with any of the address ranges in the virtual network. Also, you'll want to verify that the DNS server you are using is resolving the name to the proper IP address.
 
-## Next Steps
 
-View more networking FAQs for additional details:
+## Virtual Network FAQ
 
-- [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
+You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
 
-- [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)
+## Next steps
+
+You can view more information about VPN Gateways on the [VPN Gateway documentation page](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  

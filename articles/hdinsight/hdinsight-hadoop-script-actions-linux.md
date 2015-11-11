@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # Script Action development with HDInsight
@@ -36,11 +36,14 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 
 - [Target the Hadoop version](#bPS1)
 - [Provide stable links to script resources](#bPS2)
+- [Use pre-compiled resources](#bPS4)
 - [Ensure that the cluster customization script is idempotent](#bPS3)
 - [Ensure high availability of the cluster architecture](#bPS5)
 - [Configure the custom components to use Azure Blob storage](#bPS6)
 - [Write information to STDOUT and STDERR](#bPS7)
 - [Save files as ASCII with LF line endings](#bps8)
+
+> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
@@ -56,6 +59,10 @@ The best practice is to download and archive everything in an Azure Storage acco
 
 For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account, which is a public, read-only container maintained by the HDInsight team.
 
+### <a name="bPS4"></a>Use pre-compiled resources
+
+To minimize the time it takes to run the script, avoid operations that compile resources from source code. Instead, pre-compile the resources and store the binary version in Azure Blob storage so that it can quickly be downloaded to the cluster from your script.
+
 ### <a name="bPS3"></a>Ensure that the cluster customization script is idempotent
 
 You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime, and that the cluster customization script will be used when this happens. The script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same state every time it is ran.
@@ -64,7 +71,7 @@ For example, if a custom script installs an application at /usr/local/bin on its
 
 ### <a name="bPS5"></a>Ensure high availability of the cluster architecture
 
-Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and Script Actions are ran for both nodes. If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster. The head nodes are named **headnode0** and **headnode1**.
+Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and Script Actions are ran for both nodes. If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster.
 
 > [AZURE.IMPORTANT] Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through Script Actions. If you need the components installed through a Script Action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.
 
