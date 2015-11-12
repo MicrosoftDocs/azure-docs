@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Add, disable, enable or delete endpoints
@@ -64,16 +64,13 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## Additional resources
 
-[Traffic Manager overview](traffic-manager-overview.md)
 
-[About Traffic Manager monitoring](traffic-manager-monitoring.md)
+[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
 
-[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
+[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
 
-[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
+[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
