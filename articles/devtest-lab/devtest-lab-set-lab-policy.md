@@ -76,7 +76,7 @@ The policy for maximum VMs allows you to specify the maximum number of VMs that 
  
 	1. Tap **On** to enable this policy, and **Off** to disable it.
 	
-	1. If you enabled this policy, in the **Maximum VMs allowed per User** text box, enter a numeric value indicating the maximum number of VMs that can be run concurrently by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+	1. If you enabled this policy, in the **Maximum VMs allowed per User** text box, enter a numeric value indicating the maximum number of VMs that can be created by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
 
 1. In the **Policy per Lab** section:
  
