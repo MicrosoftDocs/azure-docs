@@ -23,6 +23,8 @@ The [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Az
 * **Management credentials**: for creating or manipulating a shard map manager. (See the [glossary](sql-database-elastic-scale-glossary.md).) 
 * **Access credentials**: to access an existing shard map manager to obtain information about shards.
 * **Connection credentials**: to connect to shards. 
+
+See also [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md). 
  
 ## Management credentials  
 
@@ -65,9 +67,12 @@ In this example, **smmUserConnectionString** holds the connection string for the
 
 As with the admin credentials, do not values in the form of "username@server". Instead, just use "username".  Also note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name are not provided. 
 
-## Next steps
+## See also
+[Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
 
-Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement to add a user that authenticates at the database. Use the [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) statement to create roles. Then use the [GRANT PERMISSIONS](https://msdn.microsoft.com/library/ms188371.aspx) statement to assign the appropriate permissions to the role. Finally, use [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx) to add the user to the role. 
+[How to add a users to an elastic database pool](sql-database-elastic-jobs-add-logins-to-dbs.md)
+
+[Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
