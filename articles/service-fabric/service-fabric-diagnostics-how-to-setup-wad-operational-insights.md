@@ -1,4 +1,4 @@
-<properties
+f<properties
    pageTitle="How to collect logs with WAD and Operational Insights | Microsoft Azure"
    description="This article describes how you can setup Windows Azure Diagnostics and Operational Insights to collect logs from a Service Fabric cluster running in Azure"
    services="service-fabric"
@@ -1125,7 +1125,7 @@ if ($existingConfig) {
 }
 ```
 Once you have configured the Operational Insights workspace to read from the Azure Tables in your storage account, you should log into the Azure Portal, and look up the Storage tab for the Operational Insights resource. It should show something like this:
-![Operational Insights Storage Cnfiguration in the Azure Portal](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+![Operational Insights Storage Configuration in the Azure Portal](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
 ### Search and View logs in Operational Insights
 After you have configured your Operational Insights workspace to read the logs from the specified storage account it may take up to 10 minutes for the logs to show up in Operational Insights UI. To ensure there are new logs generated you should deploy a Service Fabric application to your cluster since that will generate operational events from the Service Fabric platform.
