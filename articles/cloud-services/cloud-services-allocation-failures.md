@@ -81,7 +81,7 @@ Here are the common allocation scenarios that cause an allocation request to be 
 
 4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group. 
 
-5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
 
 ## Additional resources
 ### Contact Azure Customer Support
