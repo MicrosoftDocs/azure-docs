@@ -96,7 +96,7 @@ Runbook check-in allows you to push the changes you have made to a runbook in Az
 
 * From your Automation Account, [create a new textual runbook](automation-first-runbook-textual.md), or [edit an existing, textual runbook](automation-edit-textual-runbook.md). This runbook can be either a PowerShell Workflow or a PowerShell script runbook.  
 
-* After you edit your runbook, save it and click **check-in** from the **Edit** blade.   
+* After you edit your runbook, save it and click **check-in** from the **Edit** blade.  
     ![Checkin Button](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
@@ -124,7 +124,7 @@ The sync button on the Runbook synchronization blade allows you to pull all the 
 * From the Automation Account where you set up source control, open the **Source Control Integration/Repository Synchronization blade** and click **Sync** then you will be prompted with a confirmation message, click **Yes** to continue.  
     ![Sync Button](media/automation-source-control-integration/automation_10_SyncButtonwithMessage.png)
 
-* Sync starts the runbook: **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. This runbook connects to GitHub and pulls the changes from your repository to Azure Automation. You should see a new job on the **Repository Synchronization** blade for this action. To view details about the sync job, click to open the job details blade. 
+* Sync starts the runbook: **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. This runbook connects to GitHub and pulls the changes from your repository to Azure Automation. You should see a new job on the **Repository Synchronization** blade for this action. To view details about the sync job, click to open the job details blade.  
     ![Sync Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
@@ -138,7 +138,7 @@ The sync button on the Runbook synchronization blade allows you to pull all the 
 
 ## Disconnecting source control
 
-To disconnect from your GitHub account, open the Repository Synchronization blade and click **Disconnect**. Once you disconnect source control, runbooks that were synced earlier will still remain in your Automation account but the Repository Synchronization blade will not be enabled.   
+To disconnect from your GitHub account, open the Repository Synchronization blade and click **Disconnect**. Once you disconnect source control, runbooks that were synced earlier will still remain in your Automation account but the Repository Synchronization blade will not be enabled.  
     ![Disconnect Button](media/automation-source-control-integration/automation_12_Disconnect.png)
 
 
