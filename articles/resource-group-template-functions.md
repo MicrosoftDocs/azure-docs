@@ -498,7 +498,7 @@ The following example converts the user-provided parameter value to upper case.
 
 ## trim
 
-**trim(stringToTrim)**
+**trim (stringToTrim)**
 
 Removes all leading and trailing white-space characters from the specified string.
 
@@ -554,14 +554,14 @@ The following example shows how to create a unique name for a storage account ba
 
 **uri (baseUri, relativeUri)**
 
-Creates a URI by combining the baseUri and the relativeUri string.
+Creates an absolute URI by combining the baseUri and the relativeUri string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | baseUri                            |   Yes    | The base uri string.
 | relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
 
-The following example shows how to use uri to create a absolute uri in template link. The result would be **http://contoso.com/resources/nested/azuredeploy.json**. 
+The following example shows how to create an absolute URI in template link. The result is **http://contoso.com/resources/nested/azuredeploy.json**. 
 
     "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
 
