@@ -23,12 +23,12 @@ Microsoft Azure Media Services enables you to secure your media from the time it
 
 - The following image demonstrates the "PlayReady and/or Widevine DRM dynamic common encryption" workflow. For details, see [Using PlayReady and/or Widevine DRM dynamic common encryption](media-services-protect-with-drm.md).
 
-	![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 
 - The following image demonstrates the "AES-128 dynamic encryption" workflow. For details, see [Use AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md).
 
-	![Protect with AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
+![Protect with AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
 >[AZURE.NOTE]To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
@@ -42,9 +42,9 @@ Depending on the type of content you want to upload, store, and deliver, Media S
 
 If you plan to deliver an MP4 using progressive download, use this option to upload your content.
 
-**StorageEncrypted** – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk. 
+**StorageEncrypted** – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
 
-In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, common encryption, or no encryption). 
+In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, common encryption, or no encryption).
 
 **CommonEncryptionProtected** - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification and are supported by AMS.
 
@@ -54,13 +54,13 @@ In order to deliver a storage encrypted asset, you must configure the asset’s 
 
 ###Dynamic encryption
 
-Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady and/or Widevine DRM. 
+Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady and/or Widevine DRM.
 
 Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.
 
-You also need to configure the asset's delivery policy. If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.  
+You also need to configure the asset's delivery policy. If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or common encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
@@ -88,11 +88,11 @@ When configuring the token restricted policy, you must specify the primary verif
 
 AMS also enables you to delivery MPEG DASH encrypted with Widevine DRM. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification. You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.
 
-Currently, Media Services does not provide a Widevine license server. You can use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Starting with the Media Services .NET SDK version 3.5.2, Media Services enables you to configure Widevine license template and get Widevine licenses. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##Common scenarios
 
-###Protect content in storage, deliver dynamically encrypted streaming media, use AMS key\license deliver service  
+###Protect content in storage, deliver dynamically encrypted streaming media, use AMS key\license deliver service
 
 1. Ingest a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
 2. Configure streaming endpoints.
@@ -137,4 +137,3 @@ For more information, see [How to integrate Azure PlayReady License service with
 [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
- 

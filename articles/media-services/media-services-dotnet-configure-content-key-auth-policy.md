@@ -410,9 +410,10 @@ To get a test token based on the token restriction that was used for the key aut
 
     public enum ContentKeyDeliveryType
     {
-        None = 0,
-        PlayReadyLicense = 1,
-        BaselineHttp = 2,
+      None = 0,
+      PlayReadyLicense = 1,
+      BaselineHttp = 2,
+      Widevine = 3
     }
 
 ###<a id="TokenType"></a>TokenType
