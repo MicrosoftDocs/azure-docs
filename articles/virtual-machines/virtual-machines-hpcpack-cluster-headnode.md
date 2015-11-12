@@ -64,7 +64,7 @@ Pack head node. You can use a variety of Azure tools to do these steps in the Az
 
     * For a simple proof of concept deployment, you can omit this step and later promote the head node VM as a domain controller.
 
-3. In the Azure Management Portal or Azure Preview Portal, create a classic VM by selecting the HPC Pack 2012 R2 image from the Azure Marketplace. (See steps for the Management Portal [here](virtual-machines-windows-tutorial-classic-portal.md).)
+3. In the Azure portal or Azure preview portal, create a classic VM by selecting the HPC Pack 2012 R2 image from the Azure Marketplace. (See steps for the Azure portal [here](virtual-machines-windows-tutorial-classic-portal.md).)
 
     **Considerations**
 

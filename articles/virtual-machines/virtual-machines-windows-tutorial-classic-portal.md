@@ -43,7 +43,7 @@ Here's a walkthrough of this tutorial.
 
 This section shows you how to use the **From Gallery** option in the Azure portal to create the virtual machine. This option provides more configuration choices than the **Quick Create** option. For example, if you want to join a virtual machine to a virtual network, you'll need to use the **From Gallery** option.
 
-> [AZURE.NOTE] You can also try the richer, customizable [Azure preview portal](https://portal.azure.com) to create a virtual machine, use enhanced monitoring and diagnostics, use Premium storage, and more. The available options for configuring a virtual machine in the two portals overlap substantially but aren't identical. For example, use the preview portal to configure a virtual machine with Premium storage.
+> [AZURE.NOTE] You can also try the richer, customizable Azure preview portal to create a virtual machine, use enhanced monitoring and diagnostics, use Premium storage, and more. The available options for configuring a virtual machine in the two portals overlap substantially but aren't identical. For example, use the Azure preview portal to configure a virtual machine with Premium storage.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 # Get started with the Box Connector and add it to your Logic App 
 Connect to your Box to get, upload, delete. and more to your files. Connectors are used in Logic Apps as a part of a "workflow". 
@@ -27,7 +27,7 @@ The Box gallery app provides you Actions as mechanisms to interact with Box:
 
 **Actions**: The actions lets you perform predefined actions on the Box account configured with the logic app. Following are the actions that can be performed on Box account using Box connector:
 
-a. *List Files:* This operation returns the information of all files in a folder. List of parameters required for the action:  
+a. *List Files:* This operation returns the information of all files in a folder. The list of parameters required for the action:  
 
 Parameter Name | Description | Required
 --- | --- | ---

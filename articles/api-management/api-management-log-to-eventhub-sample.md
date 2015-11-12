@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="10/30/2015"
+    ms.date="11/10/2015"
     ms.author="v-darmi"/>
 
 # Monitor your APIs with Azure API Management, Event Hubs and Runscope
@@ -257,3 +257,14 @@ In the following animated image, you can see a request being made to an API in t
 
 ## Summary
 Azure API Management service provides an ideal place to capture the HTTP traffic travelling to and from your APIs. Azure Event Hubs is a highly scalable, low cost solution for capturing that traffic and feeding it into secondary processing systems for logging, monitoring and other sophisticated analytics. Connecting to 3rd party traffic monitoring systems like Runscope is a simple as a few dozen lines of code.
+
+## Next steps
+-	Learn more about Azure Event Hubs
+	-	[Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+	-	[Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+	-	[Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+-	Learn more about API Management and Event Hubs integration
+	-	[How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
+	-	[Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	

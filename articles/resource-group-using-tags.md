@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Using tags to organize your Azure resources"
+	pageTitle="Using tags to organize your Azure resources | Microsoft Azure"
 	description="Shows how to apply tags to organize resources for billing and managing."
 	services="azure-resource-manager"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/28/2015"
+	ms.date="11/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,8 +25,31 @@ When you view resources with a particular tag, you see resources from all of you
 
 Each tag you add to a resource or resource group is automatically added to the subscription-wide taxonomy. You can also prepopulate the taxonomy for your subscription with tag names and values you'd like to use as resources are tagged in the future.
 
+Each resource or resource group can have a maximum of 15 tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
+
 > [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or [Service Management API](../services/api-management/)), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
 
+## Tags in templates
+
+Adding a tag to resource during deployment is very easy. Simply add the **tags** element to the resource you are deploying, and provide the tag name and value. The tag name and value do not need to pre-exist in your subscription. You can provide up to 15 tags for each resource.
+
+The following example shows a storage account with a tag.
+
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2015-06-15",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "dept": "Finance"
+            },
+            "properties": 
+            {
+                "accountType": "Standard_LRS"
+            }
+        }
+    ]
 
 ## Tags in the preview portal
 
@@ -140,7 +163,7 @@ Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags wi
 
 ## Tagging with REST API
 
-The portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
+The portal and PowerShell both use the [Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn848368.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
 
 
 ## Tagging and billing
