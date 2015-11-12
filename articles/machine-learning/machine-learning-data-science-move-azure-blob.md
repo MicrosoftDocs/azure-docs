@@ -22,7 +22,7 @@
 
 ## Introduction
 
-This topic describes the use of three technologies to move data to and from Azure Blob storage:
+Guidance on technologies used to move data to and/or from Azure Blob storage are linked here:
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 

@@ -27,26 +27,14 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 ## Step 1: Install Azure PowerShell
 
-You must also have Azure PowerShell version 1.0.0 or later. If you have not installed and configured Azure PowerShell, click [here](../powershell-install-configure.md) for instructions.
-
-You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell prompt.
-
-	Get-Module azure | format-table version
-
-Here is an example.
-
-	Version
-	-------
-	1.0.0
-
-If you do not have Version 1.0.0 or later, you must remove Azure PowerShell using Programs and Features from the Control Panel and then install the latest version. See [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) for more information.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Step 2: Set your subscription
 
 First, start an Azure PowerShell prompt.
 
 Login to your account.
-	
+
 	Login-AzureRmAccount
 
 Get your subscription name using the following command.
@@ -130,8 +118,8 @@ Use this command to list the existing availability sets.
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### NAT rules	
-	
+### NAT rules
+
 Resource Manager-based virtual machines can be configured with inbound NAT rules to allow incoming traffic from the Internet and be placed in a load balanced set. In both cases, you must specify a load balancer instance and other settings. For more information, see [Create a load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md).
 
 VMs created with the Resource Manager deployment model require a Resource Manager virtual network. If needed, create a new Resource Manager-based virtual network with at least one subnet for the new virtual machine. Here is an example for a new virtual network named **TestNet** with two subnets named **frontendSubnet** and **backendSubnet**.
@@ -191,7 +179,7 @@ Copy the following lines to your command set and specify the name for the NIC.
 
 ### Option 2: Specify a NIC name and a DNS domain name label
 
-Copy the following lines to your command set and specify the name for the NIC and the globally unique domain name label. 
+Copy the following lines to your command set and specify the name for the NIC and the globally unique domain name label.
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"

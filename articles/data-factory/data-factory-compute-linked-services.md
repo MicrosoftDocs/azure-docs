@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -49,6 +49,7 @@ Note the following **important** points about on-demand HDInsight linked service
 	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
+		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
@@ -69,6 +70,7 @@ timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Speci
 version | Version of the HDInsight cluster | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
+osType | Type of operating system. Allowed values are: windows (default) and linux | No 
 
 ### Advanced Properties
 
@@ -232,6 +234,40 @@ Property | Description | Required
 Type | The type property should be set to: **AzureML**. | Yes
 mlEndpoint | The batch scoring URL. | Yes
 apiKey | The published workspace model’s API. | Yes
+
+
+## Azure Data Lake Analytics Linked Service
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md) in a pipeline. 
+
+The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+The following table provides descriptions for the properties used in the JSON definition. 
+
+Property | Description | Required
+-------- | ----------- | --------
+Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
+accountName | Azure Data Lake Analytics Account Name. | Yes
+dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No 
+authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. | Yes 
+subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
+resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
+sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
 
 ## Azure SQL Linked Service

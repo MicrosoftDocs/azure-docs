@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,9 +28,10 @@
 
 This article provides directions for exporting a BACPAC of your Azure SQL database with PowerShell.
 
-A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
+A [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) is a .bacpac file that contains a database schema and data. The primary use case for a BACPAC is to move a database from one server to another, to [migrate a local database to the cloud](sql-database-cloud-migrate.md), and for archiving an existing database in an open format.
 
-> [AZURE.NOTE] Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+> [AZURE.NOTE] BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
+
 
 The BACPAC is exported into an Azure storage blob container that you can download once the operation successfully completes.
 
@@ -69,7 +70,7 @@ There are a few variables where you need to replace the example values with the 
 Replace the server and database names with the server and database that currently exists in your account. For the blob name enter the BACPAC filename that will be created. Enter whatever you want to name the BACPAC file but you must include the .bacpac extension.
 
     $ServerName = "servername"
-    $DatabaseName = "nameofdatabasetobackup"
+    $DatabaseName = "nameofdatabasetoexport"
     $BlobName = "filename.bacpac"
 
 In the [Azure Preview Portal](https://portal.azure.com) browse to your storage account to get these values. You can find the primary access key by clicking **All settings** and then **Keys** from your storage account's blade.
@@ -92,6 +93,9 @@ Running the **Get-Credential** cmdlet opens a window asking for your username an
 ## Export your database
 
 This command submits an export database request to the service. Depending on the size of your database the export operation may take some time to complete.
+
+> [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy-powershell.md) and then export the database copy. 
+
 
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     

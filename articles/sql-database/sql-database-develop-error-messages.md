@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -34,7 +34,8 @@ This topic lists several categories of error messages. Most categories are parti
 In your client program you have the option of providing your user with an alternative message customized by you, for any given error.
 
 
-**Tip:** Of extra importance is the section of *transient fault* errors. These errors should prompt your client program to run the *retry* logic you design to retry the operation.
+> [AZURE.TIP] Of extra importance is the following section about [*transient fault* errors](#bkmk_connection_errors).
+
 
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
@@ -44,19 +45,36 @@ In your client program you have the option of providing your user with an altern
 
 The following table covers the connection-loss errors, and other transient errors, that you might encounter while working over the Internet with Azure SQL Database.
 
-Transient errors are also called transient faults. When your program catches a `SqlException`, your program can check whether the `sqlException.Number` value is a value listed in this section of transient faults. If the `Number` value indicates a transient fault, your program can retry establishing a connection, and then retry querying through the connection. For code examples of retry logic, see:
+
+### Most common transient faults
+
+
+Transient fault errors typically manifest as one of the following error messages from your client programs:
+
+- Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>
+
+- Database <db_name> on server <Azure_instance> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <session_id>. (Microsoft SQL Server, Error: 40613)
+
+- An existing connection was forcibly closed by the remote host.
+
+- System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+
+Transient fault errors should prompt your client program to run *retry logic* that you design for retrying the operation. For code examples of retry logic, see:
 
 
 - [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-- [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [Actions to fix connection errors and transient faults in SQL Database](sql-database-connectivity-issues.md)
+
+
+### Transient fault error numbers
 
 
 | Error number | Severity | Description |
 | ---: | ---: | :--- |
 | 4060 | 16 | Cannot open database "%.&#x2a;ls" requested by the login. The login failed. |
 |40197|17|The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You will receive this error, when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting to your SQL Database server will automatically connect you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again.|
-|40501|20|The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database Throttling](http://msdn.microsoft.com/library/azure/dn338079.aspx).
+|40501|20|The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.<br/><br/>*Note:* For more information, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md).
 |40613|17|Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'.|
 |49918|16|Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
@@ -65,10 +83,12 @@ Transient errors are also called transient faults. When your program catches a `
 **Note:** Federation errors 10053 and 10054 might also deserve inclusion in your retry logic.
 
 
+<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
+
 ## Database copy errors
 
 
-The following table covers the various errors you can encounter while copying a database in Azure SQL Database. For more information, see [Copying Databases in Azure SQL Database](http://msdn.microsoft.com/library/azure/ff951624.aspx).
+The following table covers the various errors you can encounter while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
 
 
 |Error number|Severity|Description|
@@ -88,6 +108,8 @@ The following table covers the various errors you can encounter while copying a 
 |40571|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 
 
+<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
+
 ## Resource governance errors
 
 
@@ -103,13 +125,13 @@ The following table covers the errors caused by excessive use of resources while
 **Tip:** The following link provides more information that applies to most or all errors in this section:
 
 
-- [Azure SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx).
+- [Azure SQL Database resource limits](sql-database-resource-limits.md)
 
 
 |Error number|Severity|Description|
 |---:|---:|:---|
-|10928|20|Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database Resource Governance](http://msdn.microsoft.com/library/azure/dn338078.aspx). |
-|10929|20|Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database Resource Governance](http://msdn.microsoft.com/library/azure/dn338078.aspx).|
+|10928|20|Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md). |
+|10929|20|Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md).|
 |40544|20|The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.|
 |40549|16|Session is terminated because you have a long-running transaction. Try shortening your transaction.|
 |40550|16|The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction.|
@@ -121,20 +143,22 @@ The following table covers the errors caused by excessive use of resources while
 For additional discussion of resource governance and associated errors, see:
 
 
-- [Azure SQL Database Resource Governance](http://msdn.microsoft.com/library/azure/dn338078.aspx).
+- [Azure SQL Database resource limits](sql-database-resource-limits.md).
 
+
+<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
 
 ## Federation errors
 
 
-The following table covers the errors that you might encounter while working with federations. For more information, see [Managing Database Federations (Azure SQL Database)](http://msdn.microsoft.com/library/azure/hh597455.aspx).
+The following table covers the errors that you might encounter while working with federations.
 
 
 > [AZURE.IMPORTANT] The current implementation of Federations will be retired with Web and Business service tiers. Version V12 of Azure SQL Database does not support the Web and Business service tiers.
 > 
 > The Elastic Scale feature is designed to create sharding applications with minimal effort.
 > 
-> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](sql-database-elastic-scale-documentation-map.md). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Scaling Out Azure SQL Databases](http://msdn.microsoft.com/library/azure/dn495641.aspx).
+> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](sql-database-elastic-scale-documentation-map.md). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
 
 
 |Error number|Severity|Description|Mitigation|
@@ -163,6 +187,8 @@ The following table covers the errors that you might encounter while working wit
 |45022|16|<statement> operation failed. Specified boundary value already exists for federation key <distribution_name> and federation <federation_name>|Specify a value that is already a boundary value.|
 |45023|16|<statement> operation failed. Specified boundary value does not exists for federation key <distribution_name> and federation <federation_name>|Specify a value that is not already a boundary value.|
 
+
+<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
 
 ## General errors
 
@@ -239,5 +265,6 @@ The following table lists all the general errors that do not fall into any previ
 
 ## Related links
 
-- [Azure SQL Database General Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ee336245.aspx)
-- [Resource Management](http://msdn.microsoft.com/library/azure/dn338083.aspx)
+- [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md)
+- [Azure SQL Database resource limits](sql-database-resource-limits.md)
+

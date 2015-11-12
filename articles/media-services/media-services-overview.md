@@ -213,6 +213,10 @@ You can also scale your Media Services account by adding storage accounts to it.
 [Downloadable eBook](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##Service Level Agreement (SLA)
 
 - For Media Services Encoding, we guarantee 99.9% availability of REST API transactions.
