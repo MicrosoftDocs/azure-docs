@@ -554,7 +554,7 @@ The following example shows how to create a unique name for a storage account ba
 
 **uri (baseUri, relativeUri)**
 
-This function creates a Uri instance by combining the baseUri and the relativeUri string.
+Creates a URI by combining the baseUri and the relativeUri string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
