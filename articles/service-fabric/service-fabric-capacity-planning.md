@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Capacity Planning for Service Fabric Applications| Microsoft Azure"
+   pageTitle="Capacity Planning for Service Fabric Apps | Microsoft Azure"
    description="Describes how to identify the number of compute nodes required for a Service Fabric application"
    services="service-fabric"
    documentationCenter=".net"
