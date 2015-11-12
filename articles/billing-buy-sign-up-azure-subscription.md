@@ -43,7 +43,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
  ![cardverify](./media/billing-buy-sign-up-azure-subscription/VardVerify.png)</br>
 6. In the **Agreement** section, check the box if you agree to the subscription agreement, offer details and privacy statement. Then select **Sign up**.
-The example screenshots are for the English version of the agreement, the agreement form may vary by country.
+The example screenshot is for the English version of the agreement. The agreement form may vary by country.
 
  ![Signup](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br>
  It can take a few minutes to set up your subscription. If the subscription setup does not complete in 15 minutes contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance. </br>
