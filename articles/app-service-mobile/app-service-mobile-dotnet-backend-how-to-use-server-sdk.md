@@ -207,7 +207,7 @@ At this point, you can use the Notification Hubs client to send push notificatio
 
 Following the above **How to: Define a custom API controller**, you will want to set up a custom API on your backend to work with Notification Hubs to add tags to a specific device installation. Make sure you pass along the Installation ID stored on the client local storage and the tags you want to add (optional, since you can also specify tags directly on your backend). The following snippet should be added to your controller to work with Notification Hubs to add a tag to a device Installation ID.
 
-Using Azure Notification Hubs NuGet:
+Using [Azure Notification Hubs NuGet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)([reference](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
 
 		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
 
@@ -222,7 +222,7 @@ Using Azure Notification Hubs NuGet:
 		});
 	
 
-Using Azure Notification Hubs REST API:
+Using [Azure Notification Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx):
 
 		var request = WebRequest.CreateHttp("https://{my-namespace}.servicebus.windows.net/{my-hub}/installations/{my-installation-id}?api-version=2015-08");
 		request.Method = "PATCH";
