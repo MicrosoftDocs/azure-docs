@@ -51,5 +51,5 @@ The process for creating a Service Fabric cluster on a private data center will 
 ## Differences in Deploy Anywhere and Azure hosted Service Fabric clusters
 Running Service Fabric clusters using the Azure Hosted Service provides a few benefits over using the Deploy Anywhere option so if you don't have specific needs with regards to where you run your clusters then we suggest that you run them as Azure hosted clusters. On Azure we provide integration with other Azure features and services which makes operations and management of the cluster easier:
 * Azure Portal: Clusters can be created and managed through the Azure Portal which includes in-built auditing and 
-* Diagnostics: On Azure we provide you integration with WAD(Windows Azure Diagnostics) and Operational Insights for diagnostics.
+* Diagnostics: On Azure we provide you integration with WAD (Windows Azure Diagnostics) and Operational Insights for diagnostics.
 * Auto-scaling: For Azure hosted clusters we will provide built-in auto-scaling functionality. In other environments using Deploy Anywhere feature you will have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.

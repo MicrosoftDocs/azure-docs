@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the Azure CLI | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using the Azure CLI."
+   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the cross-platform Azure CLI | Microsoft Azure"
+   	description="Learn how to create Linux-based HDInsight clusters using the cross-platform Azure CLI, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components.."
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -25,7 +25,11 @@ The Azure CLI is a cross-platform command-line utility that allows you to manage
 
 Azure Resource Management templates are JSON documents that describe a __resource group__ and all resources in it (such as HDInsight.) This template based approach allows you to define all the resources that you need for HDInsight in one template, and to manage changes to the group as a whole through __deployments__ that apply changes to the group.
 
-The steps in this document walk through the process of creating a new HDInsight cluster using the Azure CLI and a template:
+The steps in this document walk through the process of creating a new HDInsight cluster using the Azure CLI and a template.
+
+> [AZURE.IMPORTANT] The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+>
+> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Prerequisites
 

@@ -24,7 +24,7 @@ Learn about how to use Visual Studio to securely access a Service Fabric cluster
 
 There are two types of connections supported by the Azure Service Fabric cluster: **non-secure** connections and **x509 certificate-based** secure connections. (For Service Fabric clusters hosted on-premises, **Windows** and **dSTS** authentications are also supported.) You have to configure the cluster connection type when the cluster is being created. Once created, the connection type can’t be changed.
 
-The Visual Studio Service Fabric Tools support all authentication types for connecting to a cluster for publishing. See [Creating a Cluster using portal](https://www.yammer.com/azureadvisors/uploaded_files/40947687) for instructions on how to set up a secure Service Fabric cluster.
+The Visual Studio Service Fabric Tools support all authentication types for connecting to a cluster for publishing. See [Setting up a Service Fabric Cluster from the Azure Portal](service-fabric-cluster-creation-via-portal.md) for instructions on how to set up a secure Service Fabric cluster.
 
 ## Configure cluster connections in publish profiles
 
@@ -34,7 +34,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
 
 ### To connect to a secure cluster
 
-1.	Make sure you can access one of the client certificates trusted by the destination cluster. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Creating a Cluster using portal](https://www.yammer.com/azureadvisors/uploaded_files/40947687) for how to configure the server for granting access to a client.
+1.	Make sure you can access one of the client certificates trusted by the destination cluster. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric Cluster from the Azure Portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server for granting access to a client.
 
 2.	Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates.
 

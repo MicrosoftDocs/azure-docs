@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="11/09/2015"
 	ms.author="juliako"/>
 
 
@@ -206,17 +206,19 @@ Some considerations apply:
 
 - Make sure the video has been published.
 - The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
- 
+
+![AMSPlayer][AMSPlayer]
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-![AMSPlayer][AMSPlayer]
+
 
 <!-- Images -->
 [portaloverview]: ./media/media-services-manage-content/media-services-content-page.png

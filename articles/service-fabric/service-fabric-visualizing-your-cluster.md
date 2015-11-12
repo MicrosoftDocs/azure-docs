@@ -24,6 +24,8 @@ Service Fabric Explorer is a web-based tool for inspecting and managing applicat
 
 If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer.
 
+>[AZURE.NOTE] If you are using Internet Explorer(IE) with Service Fabric Explorer to manage a remote cluster, you need to configure some IE settings. Go to **Tools -> Compatibility View Settings** and uncheck **Display intranet sites in Compatibility View** to ensure all information loads correctly.
+
 ## Understanding Service Fabric Explorer layout
 
 You can navigate Service Fabric Explorer using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.

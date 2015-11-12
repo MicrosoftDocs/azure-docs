@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Install and use Giraph on Hadoop clusters in HDInsight | Microsoft Azure"
-	description="Learn how to customize HDInsight cluster with Giraph. You'll use a Script Action configuration option to use a script to install Giraph."
+	pageTitle="Install and use Giraph on Linux-based HDInsight (Hadoop) | Microsoft Azure"
+	description="Learn how to install Giraph on Linux-based HDInsight clusters using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Install Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs
@@ -99,9 +99,13 @@ Once the cluster has finished creating, use the following steps to run the Simpl
 
 		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
 
-4. Run the SimpleShortestPathsComputation example using the following command:
+3. Use the following to get the fully qualified domain name (FQDN) of the cluster head node:
 
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnode0:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+        hostname -f
+        
+4. Run the SimpleShortestPathsComputation example using the following command. Replace __HEADNODE__ with the FQDN returned from the previous step:
+
+		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	The parameters used with this command are described in the following table.
 
@@ -110,7 +114,7 @@ Once the cluster has finished creating, use the following steps to run the Simpl
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | The jar file containing the examples. |
 	| `org.apache.giraph.GiraphRunner` | The class used to start the examples. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | The example that will be ran. In this case, it will compute the shortest path between ID 1 and all other IDs in the graph. |
-	| `-ca mapred.job.tracker=headnode0:9010` | The headnode for the cluster. |
+	| `-ca mapred.job.tracker=HEADNODE:9010` | The headnode for the cluster. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | The input format to use for the input data. |
 	| `-vip /example/data/tiny_graph.txt` | The input data file. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | The output format. In this case, ID and value as plain text. |

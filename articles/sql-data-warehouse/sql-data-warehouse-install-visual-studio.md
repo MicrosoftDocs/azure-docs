@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Install Visual Studio 2015 | Microsoft Azure"
-   description="Install Visual Studio and SSDT for Azure SQL Data Warehouse"
+   pageTitle="Install Visual Studio and/or SSDT for SQL Data Warehouse | Microsoft Azure"
+   description="Install Visual Studio and/or SSDT development tools for Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,35 +13,39 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
-   ms.author="twounder"/>
+   ms.date="10/21/2015"
+   ms.author="twounder;barbkess"/>
 
-# Install Visual Studio 2015
+# Install Visual Studio 2015 and/or SSDT for SQL Data Warehouse
 
-For development, the Azure SQL Data Warehouse team recommends using Visual Studio 2013 or later in combination with SQL Server Data Tools (SSDT). The following will outline how to download and update Visual Studio 2015 if you do not already have a viable version of Visual Studio installed. The following steps help you download and install the prerequisites for working with Azure SQL Data Warehouse.
+To develop applications for SQL Data Warehouse, we recommend using Visual Studio 2013 or a more recent version in combination with the most recent version of SQL Server Data Tools (SSDT). 
 
-+ [Download and Install Visual Studio 2015] (#Download-and-Install-Visual-Studio-2015)
-+ [Download and Install SQL Server Data Tools (SSDT) Preview] (#Download-and-Install-SQL-Server-Data-Tools-(SSDT)-Preview)
- 
-> [AZURE.NOTE] Visual Studio 2013 and SQL Server Data Tools (SSDT) preview can also be used with Azure SQL Data Warehouse.
- 
-##Download and Install Visual Studio 2015
+To run queries from the Visual Studio Integrated Development Environment (IDE), you only need to install SSDT. This will install the Visual Studio IDE along with SSDT so that you can use the SQL Server Object Explorer to connect to your Azure SQL server. You will then be able to view and run queries against your SQL Data Warehouse databases.
 
-To install Visual Studio 2015, follow the steps below
 
-1. [Download Visual Studio 2015](https://www.visualstudio.com/downloads) from Visual Studio online.
-2. Follow the [Installing Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) guide from MSDN choosing the default configurations 
+## Step 1: Download and install Visual Studio
 
-##Download and Install SQL Server Data Tools (SSDT) Preview
+If you choose to install Visual Studio, you can use either Visual Studio 2013 or Visual Studio 2015 with SQL Data Warehouse. If you already have Visual Studio 2013 or 2015 installed, skip to Step 2 to install SSDT. 
 
-Azure SQL Data Warehouse is utilizes the latest preview version of the SQL Server Data Tools (SSDT) available in the 
+To install Visual Studio 2015:
 
-1. [Download SQL Server Data Tools Preview](https://msdn.microsoft.com/mt429383.aspx) for either Visual Studio 2013 or 2015.
-2. Follow the installation instructions to install the data tools.
+1. [Download Visual Studio 2015](https://www.visualstudio.com/downloads) from Visual Studio online. 
+2. Install by following the [Installing Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) guide on MSDN and choose the default configurations.
 
+## Step 2: Download and install the most recent SQL Server Data Tools (SSDT) 
+
+Whether or not you have Visual Studio installed, you still need the most recent version of SQL Server Data Tools (SSDT) that supports SQL Data Warehouse.
+
+To install the latest version of SSDT:
+
+1. [Download SQL Server Data Tools Preview](https://msdn.microsoft.com/library/mt204009.aspx) for either Visual Studio 2013 or 2015.
+2. Install by following the installation instructions on the download site.
+
+## Next steps
+
+Now that you have the lastest version of SSDT, you are ready to [connect](./sql-data-warehouse-get-started-connect.md) to your database.
 
 <!--Anchors-->
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
 
