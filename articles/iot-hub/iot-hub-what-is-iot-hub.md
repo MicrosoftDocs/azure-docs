@@ -64,9 +64,11 @@ You can also implement other common patterns, such as file upload and download, 
 
 ## Gateways
 
-A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] deployed in the cloud or a [field gateway][lnk-field-gateway] deployed locally with your devices. A field gateway can be a specialized standalone device or software that runs on an existing piece of hardware. Both types of gateway act as an intermediary between your devices and your IoT Hub.
+A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] deployed in the cloud or a [field gateway][lnk-field-gateway] deployed locally with your devices. A protocol gateway performs protocol translation, for example MQTT to AMQP. A field gateway provides local management services for your devices and can be a specialized device or software running on an existing piece of hardware. Both types of gateway act as an intermediary between your devices and your IoT Hub.
 
 A field gateway differs from a simple traffic routing device (such as a NAT device or firewall) because it typically performs an active role in managing access and information flow in your solution.
+
+A solution may include both protocol and field gateways.
 
 ## How does IoT Hub work?
 

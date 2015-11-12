@@ -55,16 +55,15 @@ A field gateway differs from a simple traffic routing device (such as a NAT devi
 
 > [AZURE.NOTE] While you typically deploy a field gateway local to your devices, in some scenarios you might deploy a [protocol gateway][lnk-gateway] in the cloud.
 
-### Device registration and field gateways
+### Types of field gateways
 
-A field gateway is *transparent* if the devices that connect to IoT Hub through the field gateway have their identities stored in the IoT Hub identity registry.
+A field gateway can be *transparent* or *opaque*:
 
-A field gateway is *opaque* if the only identity stored in the IoT Hub identity registry is the identity of the field gateway.
-
-If you use an opaque gateway:
-
-- IoT Hub cannot provide [device identity anti-spoofing][lnk-devguide-antispoofing].
-- All the devices connected to the field gateway are subject to [throttles and quotas][lnk-throttles-quotas] as a single device.
+| &nbsp; | Transparent | Opaque |
+|--------|-------------|--------|
+| Identities stored in the IoT Hub identity registry | All connected devices | Only the identity of the field gateway |
+| IoT Hub can provide [device identity anti-spoofing][lnk-devguide-antispoofing] | Yes | No |
+| [Throttles and quotas][lnk-throttles-quotas] | Apply to each device | Apply to the  field gateway |
 
 ### Other considerations
 
