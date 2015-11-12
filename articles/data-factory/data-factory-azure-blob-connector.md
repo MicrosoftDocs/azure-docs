@@ -507,17 +507,3 @@ false | mergeFiles | <p>For a source folder Folder1 with the following structure
 
 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
-
-
-
-
-
-
-
-
-
-
-
-
