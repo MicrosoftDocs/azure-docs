@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Traffic Manager routing methods
@@ -123,16 +123,9 @@ If you want the figures in this topic as PowerPoint sides for your own presentat
 
 ## Next steps
 
-[What is Traffic Manager?](traffic-manager-overview.md)
+[Traffic Manager monitoring](traffic-manager-monitoring.md)
 
-[About Traffic Manager Monitoring](traffic-manager-monitoring.md)
+[Create a profile](traffic-manager-manage-profiles.md)
 
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769)
-
+[Add an endpoint](traffic-manager-endpoints.md)
  

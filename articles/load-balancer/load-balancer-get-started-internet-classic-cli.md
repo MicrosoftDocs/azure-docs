@@ -51,16 +51,22 @@ This guide will create a load balancer set using port 80 as public port and 80 a
 
 ### Step 1 
 
-Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1"
+Create the first endpoint and load balancer set using `azure vm endpoint create` for virtual machine "web1"
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+Parameters used:
 
+**-k** - local virtual machine port
+**-o** - protocol
+**-t** - probe port
+**-b** - load balancer name
+ 
 ## Step 2 
 
 Add a second virtual machine "web2" to the load balancer set.
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## Step 3 
 
