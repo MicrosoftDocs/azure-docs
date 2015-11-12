@@ -49,8 +49,8 @@ Use the following steps to prepare for using device writeback.
 
 Description:
 
-- If not existent, it creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configureation,<forest-dn>.
-- If not existent, it creates and configures new containers and objects under CN=RegisteredDevices,<domain-dn>. Device objects will be created in this container.
+- If not existent, it creates and configures new containers and objects under CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- If not existent, it creates and configures new containers and objects under CN=RegisteredDevices,[domain-dn]. Device objects will be created in this container.
 - Sets necessary permissions on the Azure AD Connector account, to manage devices on your Active Directory.
 - Only needs to run on one forest, even if Azure AD Connect is being installed on multiple forests.
 
@@ -62,7 +62,7 @@ Parameters:
 ## Part 3: Enable device writeback in Azure AD Connect
 Use the following procedure to enable device writeback in Azure AD Connect.
 
-1.	Run the instalaltion wizard again. Select **customize synchronization options** from the Additional Tasks page and click **Next**.
+1.	Run the installation wizard again. Select **customize synchronization options** from the Additional Tasks page and click **Next**.
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback2.png)
 2.	In the Optional Features page, device writeback will no longer be grayed out. Please note that if the Azure AD Connect prep steps are not completed device writeback will be grayed out in the Optional features page. Check the box for device writeback and click **next**. If the checkbox is still disabled, see the [troubleshooting section](#the-writeback-checkbox-is-still-disabled).
 ![Device Writeback](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback3.png)
