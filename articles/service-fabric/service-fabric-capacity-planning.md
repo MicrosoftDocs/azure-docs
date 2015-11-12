@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Capacity Planning| Microsoft Azure"
+   pageTitle="Capacity Planning for Service Fabric Applications| Microsoft Azure"
    description="Describes how to identify the number of compute nodes required for a Service Fabric application"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,7 +18,7 @@
    ms.author="subramar"/>
 
 
-# How many nodes do you need?
+# Capacity Planning for Service Fabric Applications: How many nodes do you need?
 
 This document teaches you how to estimate the amount of resources (CPU, RAM, disk storage) you need to run your Service Fabric applications. It is common for your resource requirements to change over time. You typically require few resources as you develop/test your service and then require more resources as you go into production and your application grows is popularity. When designing your application it is best to think about the long-term requirements today and make choices now that allow your service to easily scale to meet high-customer demand. When creating a Service Fabric cluster, you decide what kinds of virtual machines (VMs) you want making up the cluster. Each VM comes with a limited amount of resources in the form of CPU (cores and speed), network bandwidth, RAM, and disk storage. As your service grows over time, you can upgrade to VMs offering greater resources and/or add more VMs to your cluster. Of course, to do the latter, you must architect your service initially so it can take advantage of new VMs that get dynamically added to the cluster.
 
