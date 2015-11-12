@@ -147,7 +147,9 @@ Each Azure SQL Server starts with a single server administrator account which is
 4. In the **Active Directory admin (preview)** blade, click to review, and then click **OK** to accept the preview terms.
 5. In the **Active Directory admin (preview)** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
 6. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
+
 > [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the master database as a SQL Server authentication login. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication login is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
+
 7. At the top of the **Active Directory admin** blade, click **SAVE**. 
 	![choose admin][10]
 
