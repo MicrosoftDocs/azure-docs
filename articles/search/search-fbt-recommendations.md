@@ -26,7 +26,7 @@ In Azure Search applications, you can implement recommendations by writing some 
 
 In the rest of this article, I'll walk you through this code that adds 'Frequently Rented Together' recommendations using sample data about movie rentals.
 
-![1](../media/search-fbt-recommendations/product_recommendations.png)
+![1](./media/search-fbt-recommendations/product_recommendations.png)
 
 ## What is a Recommendation?
 
