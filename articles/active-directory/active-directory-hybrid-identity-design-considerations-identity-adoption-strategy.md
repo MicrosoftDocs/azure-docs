@@ -201,4 +201,4 @@ You should also ensure that the multi-factor authentication design option that y
 [Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Design considerations overview]((active-directory-hybrid-identity-design-considerations-overview.md)

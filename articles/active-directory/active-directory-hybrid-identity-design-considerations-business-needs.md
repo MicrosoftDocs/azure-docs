@@ -100,4 +100,4 @@ Make sure to take notes of each answer and understand the rationale behind the a
 [Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Design considerations overview]((active-directory-hybrid-identity-design-considerations-overview.md)
