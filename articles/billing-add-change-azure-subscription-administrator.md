@@ -61,8 +61,8 @@ Only the Account Administrator can change the Service Administrator for a subscr
 3. On the right side, click **Edit subscription** details. </br>
 ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
-4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new service administrator. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Change the Account Administrator (transfer ownership of the Azure account to another account)
+## Change the Account Administrator
 
-To transfer ownership of the Azure account to another. Account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).
+To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).
