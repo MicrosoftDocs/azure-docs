@@ -81,6 +81,7 @@ Device writeback should now be working properly. Be aware that it can take up to
 2.	Expand RegisteredDevices, within the Domain that is being federated.
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
 3.	Current registered devices will be listed there.
+
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
 ## Troubleshooting
