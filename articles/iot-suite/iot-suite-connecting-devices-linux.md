@@ -23,14 +23,12 @@
 
 ## Sending device data to the remote monitoring solution using C
 
-### Running your device on Windows
 
+### Running your device on Linux
 
-1. Set up your environment: if you have never used our device SDK before, learn  how to set up your environment on Windows [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#windows).
+1. Set up your environment: if you've never used our Device SDK before,  learn  how to set up your environment on Linux [here](https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux).
 
-1. Start a new instance of Visual Studio 2015. Open the **remote_monitoring.sln** solution in the **c\\serializer\\build\\windows** folder in your local copy of the repository.
-
-2. In Visual Studio, in **Solution Explorer**, navigate to the samples folder. In the **remote_monitoring** project, open the **remote_monitoring.c** file.
+1. Open the file **c/serializer/samples/serializer/remote_monitoring.c** in a text editor.
 
 2. Locate the following code in the file:
 
@@ -40,12 +38,10 @@
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+    
+3. Replace "[Device Id]", "[Device Key], with  your device data.
 
-3. Replace "[Device Id]", "[Device Key], with the data your device data.
-
-4. Use the IoT Hub Hostname device data to fill in IoTHub name and IoTHub Suffix. To do this, you need to split it in to like this:
-
-    If your IoT Hub Hostname is Contoso.azure-devices.net, Contoso will be your IoTHub name and everything after it will the the Suffix. It should look like this:
+4. Use the IoT Hub Hostname device data to fill in IoTHub name and IoTHub Suffix. To do this, you need to split in IoTHub + IoTHubSuffix. For example: if your IoT Hub Hostname is "Contoso.azure-devices.net", "Contoso" will be your IoTHub name and the rest is the Suffix. It should look like this:
 
     ```
     static const char* deviceId = "mydevice";
@@ -54,10 +50,16 @@
     static const char* hubSuffix = "azure-devices.net";
     ```
 
-6. In **Solution Explorer**, right-click the **remote_monitoring** project, click **Debug**, and then click **Start new instance** to build and run the sample. The console displays messages as the application sends device-to-cloud messages to IoT Hub.
+5. Save your changes and build the samples.  To build your sample you can run the the build.sh script in the **c/build_all/linux** directory.
+
+6. Run the **c/serializer/samples/remote_monitoring/linux/remote_monitoring** sample application.
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+
 
 [15]: ./media/iot-suite-connecting-devices/suite8a.png
 [16]: ./media/iot-suite-connecting-devices/mbed4a.png
 [17]: ./media/iot-suite-connecting-devices/suite9.png
+
+
+
