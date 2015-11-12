@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/05/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sstein"/>
 
 
@@ -32,11 +32,9 @@ SQL Database V12 has many [advantages over the previous version](sql-database-v1
 - Improved premium performance and new performance levels.
 - [Elastic database pools](sql-database-elastic-pool.md) for application developers using more than 1 database.
 
-This article provides directions for upgrading existing SQL Database V11 servers to SQL Database V12.
+This article provides directions for upgrading existing SQL Database V11 servers and databases to SQL Database V12.
 
-For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool.
-
-You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but it is a two-step process as you must first upgrade to a V12 server and then add a pool to the server. Follow the steps later in this article to create the pool after the server upgrade.
+For servers with 2 or more databases, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool. You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but it is a two-step process as you must first upgrade to a V12 server and then add a pool to the server. You can follow the steps later in this article to create the pool after the server upgrade if you have [databases that can benefit from a pool](sql-database-elastic-pool-guidance.md).
 
 
 Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
