@@ -41,3 +41,6 @@ Monitoring the following resources often provides the latest news and updates on
 - [Microsoft Intune blog](http://blogs.technet.com/b/microsoftintune/)
 - [Microsoft System Center Configuration Manager blog](http://blogs.technet.com/b/configurationmgr/)
 - [Microsoft System Center Configuration Manager Team blog](http://blogs.technet.com/b/configmgrteam/)
+
+## See also
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
