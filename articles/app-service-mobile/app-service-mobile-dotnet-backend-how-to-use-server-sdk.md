@@ -222,7 +222,7 @@ Using [Azure Notification Hubs NuGet](https://www.nuget.org/packages/Microsoft.A
 		});
 	
 
-Using [Azure Notification Hubs REST API](https://msdn.microsoft.com/en-us/library/azure/dn223264.aspx):
+Using [Azure Notification Hubs REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx):
 
 		var request = WebRequest.CreateHttp("https://{my-namespace}.servicebus.windows.net/{my-hub}/installations/{my-installation-id}?api-version=2015-08");
 		request.Method = "PATCH";
@@ -242,7 +242,7 @@ Using [Azure Notification Hubs REST API](https://msdn.microsoft.com/en-us/librar
 		    Assert.IsTrue(response.StatusCode == HttpStatusCode.OK, "Patch request failed");
 		}
 
-To push to these tags, work with [Notification Hubs APIs](https://msdn.microsoft.com/en-us/library/azure/dn495101.aspx).
+To push to these tags, work with [Notification Hubs APIs](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 You can also stand up your custom API to register device installations with Notification Hubs directly on your backend.
 
