@@ -107,7 +107,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
   a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your ImageRelay application (for example: *https://fabrikam.ImageRelay.com/*).
 
- b. Click **Next**.
+  b. Click **Next**.
 
 4. On the **Configure single sign-on at ImageRelay** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) <br>
