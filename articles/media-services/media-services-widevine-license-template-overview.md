@@ -18,6 +18,7 @@
 
 #Widevine License Template Overview
 
+##Overview
 
 Azure Media Services now enables you to configure and request Widevine licenses. When the end user player tries to play your Widevine protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 
@@ -46,7 +47,6 @@ Widevine license request is formatted as a JSON message.
 	      “license_duration_seconds”:<license duration>,
 	      “renewal_recovery_duration_seconds”:<renewal recovery duration>,
 	      “renewal_server_url”:”<renewal server url>”,
-	      Confidential - Google         Page 4 of 19  
 	   “renewal_delay_seconds”:<renewal delay>,
 	      “renewal_retry_interval_seconds”:<renewal retry interval>,
 	      “renew_with_usage”:<renew with usage>
@@ -56,7 +56,7 @@ Widevine license request is formatted as a JSON message.
 ##JSON message
 
 Name | Value | Description
--------
+---|---|---
 payload |Base64 encoded string |The license request sent by a client. 
 content_id | Base64 encoded string|Identifier used to derive KeyId(s) and Content Key(s) for each content_key_specs.track_type.
 provider |string |Used to look up content keys and policies. Required.
@@ -77,7 +77,7 @@ Each content_key_specs must be specified for all tracks, regardless of the optio
 
 
 Name | Value | Description
-------
+---|---|---
 content_key_specs. track_type | string | A track type name. If content_key_specs is specified in the license request, make sure to specify all track types explicitly. Failure to do so will result in failure to playback past 10 seconds. 
 content_key_specs  <br/> security_level | uint32 | Defines client robustness requirements for playback.  1 - Software-based whitebox crypto is required. <br/> 2 - Software crypto and an obfuscated decoder is required. <br/> 3 - The key material and crypto operations must be performed within a hardware backed trusted execution environment. <br/> 4 - The crypto and decoding of content must be performed within a hardware backed trusted execution environment.  <br/> 5 - The crypto, decoding and all handling of the media (compressed and uncompressed) must be handled within a hardware backed trusted execution environment.  
 content_key_specs <br/> required_output_protection.hdc | string - one of: HDCP_NONE, HDCP_V1, HDCP_V2 | Indicates whether HDCP is require
@@ -88,7 +88,7 @@ content_key_specs.key_id| Base64 encoded string  binary, 16 bytes | Unique ident
 ##Policy Overrides 
 
 Name | Value | Description
-------
+---|---|---
 policy_overrides. can_play | boolean. true or false | Indicates that playback of the content is allowed. Default is false.
 policy_overrides. can_persist | boolean. true or false |Indicates that the license may be persisted to non-volatile storage for offline use. Default is false.
 policy_overrides. can_renew | boolean true or false |Indicates that renewal of this license is allowed. If true, the duration of the license can be extended by heartbeat. Default is false. 
@@ -104,7 +104,7 @@ policy_overrides. renew_with_usage | boolean true or false |Indicates that the l
 ##Session Initialization
 
 Name | Value | Description
--------
+---|---|---
 provider_session_token | Base64 encoded string |This session token is passed back in the license and will exist in subsequent renewals.  The session token will not persist beyond sessions. 
 provider_client_token | Base64 encoded string | Client token to send back in the license response.  If the license request contains a client token, this value is ignored. The client token will persist beyond license sessions.
 override_provider_client_token | boolean. true or false |If false and the license request contains a client token, use the token from the request even if a client token was specified in this structure.  If true, always use the token specified in this structure.
