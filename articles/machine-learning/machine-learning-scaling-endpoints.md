@@ -41,7 +41,7 @@ The management UI allows to provide a custom concurrency number for scaling the 
 ![Navigate to web service](./media/machine-learning-scaling-endpoints/figure-1.png)
 
 - Click on the endpoint, and then click on the Configure tab
-![Navigate to endpoint configuration](http://neerajkh.blob.core.windows.net/images/ConfigureEndpointCapture.png)
+![Navigate to endpoint configuration](./media/machine-learning-scaling-webservice/machlearn-2.png)
 
 
 - Change the slider to increase the level of concurrency and click on Save.
