@@ -36,7 +36,7 @@ In order to route traffic for cloud services and websites (endpoints) that are l
 
 [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
 
-[Traffic Manager routing Methods](traffic-manager-routing-methods.md)
+[Traffic Manager routing methods](traffic-manager-routing-methods.md)
 
 [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
 

@@ -38,7 +38,7 @@ Note that Azure Websites already provides failover traffic routing method functi
 
 [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
 
-[Traffic Manager routing Methods](traffic-manager-load-balancing-methods.md)
+[Traffic Manager routing methods](traffic-manager-load-balancing-methods.md)
 
 [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
 

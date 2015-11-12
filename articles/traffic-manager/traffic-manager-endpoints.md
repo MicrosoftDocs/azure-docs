@@ -62,7 +62,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 >[AZURE.NOTE] You cannot delete external locations or Traffic Manager profiles as endpoints using the Azure portal. You must use Windows PowerShell. For more information, see [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
-## Additional resources
+## Next steps
 
 
 [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)

@@ -73,7 +73,7 @@ You can view the change history for your Traffic Manager profile in the Azure po
    - To view details for each individual change, select the row with the change that you want to view, and then click **Details** at the bottom of the page. In the **Operation Details** window, you can view the XML representation of the API object that was created or updated as part of the operation and copy the XML code to the clipboard.
 
 
-## Additional resources
+## Next steps
 
 [Add an endpoint](traffic-manager-endpoints.md)
 

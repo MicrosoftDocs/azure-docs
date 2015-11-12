@@ -204,7 +204,7 @@ This sequence can also be piped:
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
-## See Also
+## Next steps
 
 [Traffic Manager monitoring](traffic-manager-monitoring.md)
 
