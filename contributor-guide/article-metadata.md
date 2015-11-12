@@ -22,7 +22,7 @@ The properties section uses the following syntax:
        manager="manager-alias"
        editor=""
        tags="optional"
-       keywords="optional - use only to track target keywords on prioritized articles"/>
+       keywords="For use by SEO champs only. Separate terms with commas. Check with your SEO champ before you change content in this article containing these terms."/>
 
 The tags section uses the following syntax:
 
@@ -139,7 +139,7 @@ In articles that specify both a services value and a documentationCenter value, 
   - billing
   - mysql
 
-![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. This attribute is meant to record keywords that the author has decided to specifically track and target to improve search results for the specific topic. The keywords are not published to the article and have no functionality impact. Validation does not require this attribute.
+![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. For use by SEO champs only. Separate terms with commas. **Check with your SEO champ before you change or delete content in this article containing these terms.** This attribute records keywords the SEO champ has targeted and is tracking in order to improve search rank. The keywords do not render in the published HTML. Validation does not require this attribute.
 
 ## Attributes and values for the tags section
 
