@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
+
+## Notes for 11/12/2015 release of Stream Analytics ##
+
+This release contains the following update.
+
+Title | Description
+---|---
+New behavior of SELECT | SELECT in Stream Analytics has been extended to allow * as a property accessor of a nested record. For further information, consult [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Complex Data Types").
 
 ## Notes for 10/22/2015 release of Stream Analytics ##
 
