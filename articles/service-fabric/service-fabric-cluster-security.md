@@ -41,13 +41,13 @@ Service Fabric uses X509 Server certificates that you specify as a part of the N
  
 ## Acquire the x509 certificate(s)
 
-1. For clusters running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed x509 certificate to secure the cluster. For details on obtaining these certificates go to [http://msdn.microsoft.com/en-us/library/aa702761.aspx](http://msdn.microsoft.com/en-us/library/aa702761.aspx).
+1. For clusters running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed x509 certificate to secure the cluster. For details on obtaining these certificates go to [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
 2. For clusters that you use for test purposes only, you can choose to use a self signed certificate.
 
 
 ## Creating a self signed certificate for test purposes
 
-The details on creating a self signed cert are at [https://technet.microsoft.com/en-us/library/hh848633.aspx](https://technet.microsoft.com/en-us/library/hh848633.aspx) 
+The details on creating a self signed cert are at [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx) 
     
 Here is the PS I use for creating my Test certificates, but make sure to read the above document to make sure that it meets your needs.
 
@@ -59,7 +59,7 @@ New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName Chack
 
 ## Uploading the x509 certificate to Key Vault
 
-Instructions on how to upload a certificate to key vault is here [link to key vault documentation](https://azure.microsoft.com/en-us/documentation/articles/key-vault-get-started/).
+Instructions on how to upload a certificate to key vault is here [link to key vault documentation](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
 
 Make sure to take a note of the Source Vault URL, certificate URL and the certificate thumbprint. you will need these in setting up the secure Service Fabric cluster.The data you need will look like the following
 
@@ -80,7 +80,7 @@ The certificates that need to be used are specified at the NodeType level under 
 Mandatory parameters
 
 - **Security Mode** make sure to select 'x509 certificate'. it indicates to service fabric that you intend to set up a secure cluster. 
-- **Cluster protection level** refer to this [protection Level document](https://msdn.microsoft.com/en-us/library/aa347692.aspx) to understand what each of these values mean.Although we allow three values here - EncryptAndSign, Sign, None. It is best to keep the default of "EncryptAndSign", unless you know what you are doing.
+- **Cluster protection level** refer to this [protection Level document](https://msdn.microsoft.com/library/aa347692.aspx) to understand what each of these values mean.Although we allow three values here - EncryptAndSign, Sign, None. It is best to keep the default of "EncryptAndSign", unless you know what you are doing.
 - **Source Vault** refers to the Resource ID of the key vault, is should be in the format of 
 ```
 /subscriptions/<Sub ID>/resourceGroups/<Resource group name>/providers/Microsoft.KeyVault/vaults/<vault name>
@@ -132,7 +132,7 @@ There is a diagnostic event that lets you know if any of the certificates are ne
 
 ## What are X509 Certificates?
 
-X509 digital certificates are commonly used to authenticate clients and servers, encrypt, and digitally sign messages. For more details on these certificates, please go to [http://msdn.microsoft.com/en-us/library/ms731899.aspx](http://msdn.microsoft.com/en-us/library/ms731899.aspx)
+X509 digital certificates are commonly used to authenticate clients and servers, encrypt, and digitally sign messages. For more details on these certificates, please go to [http://msdn.microsoft.com/library/ms731899.aspx](http://msdn.microsoft.com/library/ms731899.aspx)
 
 **Note** 
 
