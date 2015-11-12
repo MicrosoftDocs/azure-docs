@@ -58,6 +58,8 @@ These benefits are generic to many communication patterns. IoT Hub currently ena
 
 You can also implement other common patterns, such as file upload and download, by taking advantage of IoT-specific features in IoT Hub, such as consistent device identity management, connectivity monitoring, and scale.
 
+The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
+
 ## How does IoT Hub work?
 
 Azure IoT Hub implements the [Service Assisted Communication][lnk-service-assisted-pattern] pattern to mediate the interactions between your devices and your solution back end. The goal of service assisted communication is to establish trustworthy, bi-directional communication paths between a control system such as IoT Hub and special-purpose devices deployed in untrusted physical space. The pattern establishes the following principles:
@@ -87,3 +89,4 @@ To learn more about Azure IoT Hub, see these links:
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Service Assisted Communication, blog post by Clemens Vasters"
+[lnk-compare]: iot-hub-compare-event-hubs.md
