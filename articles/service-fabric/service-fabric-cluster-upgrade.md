@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/3/2015"
+   ms.date="11/03/2015"
    ms.author="chackdan"/>
 
 # Upgrading a Service Fabric cluster

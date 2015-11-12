@@ -75,7 +75,7 @@ Before getting started, you need to do the following.
 
 ### Parameterize the Web Performance test
 
-You can parameterize the web performance test by converting it to a coded Web Performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test and [Add a data source to a web performance test](https://msdn.microsoft.com/en-us/library/ms243142.aspx) for information about how to bind data to a web performance test.
+You can parameterize the web performance test by converting it to a coded Web Performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test and [Add a data source to a web performance test](https://msdn.microsoft.com/library/ms243142.aspx) for information about how to bind data to a web performance test.
 
 For this example, we'll convert the Web Performance Test to a coded test so you can replace the airplane ID with a generated GUID and add more request to send flights to different locations.
 
@@ -98,7 +98,7 @@ A load test project is composed of one or more scenarios described by the Web Pe
 
 1. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 
-1. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test result. See [Load Testing](https://www.visualstudio.com/en-us/load-testing.aspx) for more information on how to connect to Visual Studio Online and run a load test.
+1. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test result. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Online and run a load test.
 
 ### Run load test using Visual Studio Online
 
@@ -120,7 +120,7 @@ As the load test progresses, the performance information is graphed. You should 
 
     The **Detail** tab shows virtual user and test scenario information for failed requests. This data can be useful if the load test includes multiple scenarios.
 
-See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/en-us/load-testing.aspx) for more information on viewing load testing results.
+See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load testing results.
 
 ## Automate your Load Test
 

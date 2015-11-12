@@ -18,24 +18,24 @@
 
 
 # Collecting logs from a Service Fabric cluster in Azure using WAD(Windows Azure Diagnostics) and Operational Insights
-When running a Service Fabric cluster in Azure you would want to collect the logs from all the nodes into a central location. Having the logs in a central location makes it easy to analyze and troubleshoot any issues that you may notice in your cluster or the applications and services running in that cluster. One of the ways to upload and collect logs is to use WAD(Windows Azure Diagnostics) extension which uploads logs to Azure Table storage. Operational Insights(part of the Microsoft Operations Management Suite) is a SaaS-based solution which makes it easy to analyze and search logs. The steps below describe how you can set up WAD on the VMs in the cluster to upload logs to a central store and then configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
+When running a Service Fabric cluster in Azure you would want to collect the logs from all the nodes into a central location. Having the logs in a central location makes it easy to analyze and troubleshoot any issues that you may notice in your cluster or the applications and services running in that cluster. One of the ways to upload and collect logs is to use WAD (Windows Azure Diagnostics) extension which uploads logs to Azure Table storage. Operational Insights (part of the Microsoft Operations Management Suite) is a SaaS-based solution which makes it easy to analyze and search logs. The steps below describe how you can set up WAD on the VMs in the cluster to upload logs to a central store and then configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
 
 ## Suggested Reading
-* [Windows Azure Diagnostics](https://msdn.microsoft.com/en-us/library/azure/gg433048.aspx)
-* [Operational Insights](https://azure.microsoft.com/en-us/services/operational-insights/)
-* [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/)
+* [Windows Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx)
+* [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
+* [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
 ## Prerequisites
 These tools will be used to perform some of the operations in this document:
-* [Azure Powershell](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/)
+* [Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
 * [ARM Client](https://github.com/projectkudu/ARMClient)
 
 ## Different log sources that you may want to collect
 1. Service Fabric logs: Emitted by the platform to standard ETW and EventSource channels. These can be one of these types:
   - Operational Events: These are logs for operations performed by the Service Fabric platform. Examples include creation of application and service, Node state changes and upgrade information.
-  - [Actor Programming Model events](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-actors-diagnostics/)
-  - [Reliable Services Programming Model events](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-reliable-services-diagnostics/)
-2. Application Events: These are the events emitted from your services code and written out using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application refer to this [article](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+  - [Actor Programming Model events](https://azure.microsoft.com/documentation/articles/service-fabric-reliable-actors-diagnostics/)
+  - [Reliable Services Programming Model events](https://azure.microsoft.com/documentation/articles/service-fabric-reliable-services-diagnostics/)
+2. Application Events: These are the events emitted from your services code and written out using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application refer to this [article](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 
 ## Deploy WAD(Windows Azure Diagnostics) to a Service Fabric cluster to collect and upload logs
@@ -1021,7 +1021,7 @@ Once WAD is setup on the cluster and is uploading logs to a storage account the 
 ### Create an Operational Insights Workspace
 To see the steps for creating an Operational Insights workspace see the article below. Note that it describes two different ways to create a workspace, choose the Azure Portal and Subscription based approach. You will need the name of the Operational Insights workspace in the later sections of this document.
 
-[Operational Insights Onboarding](https://technet.microsoft.com/en-us/library/mt484118.aspx)
+[Operational Insights Onboarding](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Configure Operational Insights workspace to show the cluster logs
 Once you have created the Operational Insights workspace as described above the next step is to configure the worksplace to pull the logs from the Azure tables where they are being uploaded from the cluster by WAD. Currently this configuration is not possible through the Operational Insights Portal and can only be done through Powershell commands. Run this PS script.
@@ -1137,4 +1137,4 @@ After you have configured your Operational Insights workspace to read the logs f
 ![Operational Insights Log Query and View](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/view-logs-oi.png)
 
 ## Update WAD to collect and upload logs from new EventSource channels
-To update WAD to collect logs from a new EventSource channels representing a new application that you are about to deploy you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of WAD for an existing cluster. You will need to update the EtwEventSourceProviderConfiguration section in the WadConfigUpdate.json to add entries for the new EventSources before you apply the config update through the ARM command. The table for upload will be the same(ETWEventTable), since that is the table that is configured for Operational Insights to read application ETW events from.
+To update WAD to collect logs from a new EventSource channels representing a new application that you are about to deploy you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of WAD for an existing cluster. You will need to update the EtwEventSourceProviderConfiguration section in the WadConfigUpdate.json to add entries for the new EventSources before you apply the config update through the ARM command. The table for upload will be the same (ETWEventTable), since that is the table that is configured for Operational Insights to read application ETW events from.
