@@ -69,7 +69,7 @@ The dataset slices in data factory can have one of the following status:
 
 <table>
 <tr>
-	<th align="left">**State**</th><th align="left">**Substate**</th><th align="left">**Description**</th>
+	<th align="left">State</th><th align="left">Substate</th><th align="left">Description</th>
 </tr>
 <tr>
 	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time has not come for the slice to run.</td>
