@@ -39,7 +39,7 @@ You can pay using credit or debit cards, or be approved to pay by invoice. For m
 6. Click **Next** to return to the Choose payment method page. If the card you added is valid, it will be added to the list of available payment methods. You can view all available credit cards by clicking the drop-down arrow next to the credit card.
 
 ## Change the credit card that you use to pay an Azure invoice
-1. Log on to the A [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
 2. Under **Click a subscription to view details and usage**, click the subscription for which you want to update the payment method.
 3. On the right side of the page, click **Change payment** method.
 4. On the Choose payment method page, click the drop-down arrow next to the credit card, select the credit card you want use, and then click ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png). This will close the window.
