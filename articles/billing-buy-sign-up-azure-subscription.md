@@ -37,7 +37,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
  **Note** You cannot use a VOIP phone number for the phone verification process.</br>
  ![the screenshot about phone verification](./media/billing-buy-sign-up-azure-subscription/PhoneVerify.png)</br>If you don't receive a text message or a call, try using a different phone number or contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help. </br>
-5. In the Verification by card section, enter the details of a valid credit card. This information is collected only to verify your identity.
+5. In the **Verification by card** section, enter the details of a valid credit card. This information is collected only to verify your identity.
 
  **Note** Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
 
