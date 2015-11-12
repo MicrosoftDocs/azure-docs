@@ -92,8 +92,6 @@ To configure and test Azure AD single sign-on with ImageRelay, you need to compl
 The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your ImageRelay application.
 
 
-
-
 **To configure Azure AD single sign-on with ImageRelay, perform the following steps:**
 
 1. In the Azure AD portal, on the **ImageRelay** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
@@ -102,8 +100,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to ImageRelay** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) <br>
+3. On the **Configure App Settings** dialog page, perform the following steps:<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) <br>
 
   a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your ImageRelay application (for example: *https://fabrikam.ImageRelay.com/*).
 
