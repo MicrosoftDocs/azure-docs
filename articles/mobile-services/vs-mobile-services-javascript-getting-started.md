@@ -3,7 +3,7 @@
 	description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 

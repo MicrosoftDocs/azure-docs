@@ -64,30 +64,6 @@ The following considerations might help you decide on a size:
 
 *   Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
-## Performance considerations
-
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A11) VM being 1.0 and all other SKUs then represent how much faster that SKU can run a standard benchmark. 
-
->[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
-
-
-<br>
-
-
-
-|SKU Family	|ACU/Core |
-|---|---|
-|[Basic_A0](#basic-tier)	|50.0 |
-|[Basic_A1-4](#basic-tier)	|70.0 |
-|[Standard_A0 (Extra Small)](#standard-tier-a-series)	|50.0 |
-|[Standard_A1-4 (Small – Large)] (#standard-tier-a-series)	|100.0 |
-|[Standard_A5-7](#standard-tier-a-series)	|100.0 |
-|[A8-A11](#standard-tier-a-series)	|225.0 |
-|[D1-14](#standard-tier-d-series)	|160.0 |
-|[D1-14v2](#standard-tier-dv2-series)	|212.5 |
-|[DS1-14](#standard-tier-ds-series)	|160.0 |
-|[G1-5](#standard-tier-g-series)	|187.5 |
-|[GS1-5](#standard-tier-gs-series)	|187.5 |
 
 
 ## General limits
@@ -108,7 +84,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Basic tier
 
-|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
+|Size – Azure portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks 1023 GB each)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|1|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x300|
 |A1\Basic_A1|1|1.75 GB|1|<p>OS = 1023 GB</p><p>Temporary = 40 GB</p>|2|2x300|
@@ -118,7 +94,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: A-series
 
-|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size – Azure portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |A0\ExtraSmall|1|768 MB|1|<p>OS = 1023 GB</p><p>Temporary = 20 GB</p>|1|1x500|
 |A1\Small|1|1.75 GB|1|<p>OS = 1023 GB</p><p>Temporary = 70 GB</p>|2|2x500|
@@ -135,7 +111,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: D-series
 
-|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size – Azure portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D1\same|1|3.5 GB|1|<p>OS = 1023 GB</p><p>Temporary (SSD) =50 GB</p>|2|2x500|
 |Standard_D2\same|2|7 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
@@ -148,7 +124,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: Dv2-series
 
-|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size – Azure portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D1_v2\same|1|3.5 GB|1|<p>OS = 1023 GB</p><p>Temporary (SSD) =50 GB</p>|2|2x500|
 |Standard_D2_v2\same|2|7 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
@@ -162,7 +138,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: DS-series*
 
-|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
+|Size – Azure portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|---|
 |Standard_DS1\same|1|3.5|1|<p>OS = 1023 GB</p><p>Local SSD disk = 7 GB</p>|2|43|<p>3,200</p><p>32 MB per second</p>|
 |Standard_DS2\same|2|7|2|<p>OS = 1023 GB</p><p>Local SSD disk = 14 GB</p>|4|86|<p>6,400</p><p>64 MB per second</p>|
@@ -177,7 +153,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: G-series
 
-|Size – Azure Portal\cmdlets &amp; APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size – Azure portal\cmdlets &amp; APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_G1\same|2|28 GB|1|<p>OS = 1023 GB</p><p>Local SSD disk = 384 GB</p>|4|4 x 500|
 |Standard_G2\same|4|56 GB|2|<p>OS = 1023 GB</p><p>Local SSD disk = 768 GB</p>|8|8 x 500|
@@ -187,7 +163,7 @@ The following tables show the sizes and the capacities they provide.
 
 ## Standard tier: GS-series
 
-|Size – Azure Portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
+|Size – Azure portal\cmdlets & APIs|CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|---|
 |Standard_GS1|2|28|1|<p>OS = 1023 GB</p><p>Local SSD disk = 56 GB</p>|4|264|<p>5,000</p><p>125 MB per second</p>|
 |Standard_GS2|4|56|2|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|8|528|<p>10,000</p><p>250 MB per second</p>|

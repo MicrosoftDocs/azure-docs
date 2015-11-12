@@ -170,7 +170,7 @@ It creates the front end IP configuration named "fipconfig01" and associates the
 
 ### Step 7
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
 It creates the listener name "listener01"; associates the front end port to the front end IP configuration and certificate.

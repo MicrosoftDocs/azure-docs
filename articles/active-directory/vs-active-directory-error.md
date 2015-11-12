@@ -3,7 +3,7 @@
 	description="The active directory connection wizard detected an incompatible authentication type" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   

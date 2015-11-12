@@ -9,7 +9,7 @@
    tags=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
