@@ -30,8 +30,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 3. In the **About you** section, enter your personal information.  
 ![The screenshot of personal information](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)
 
- **Note** You set the country when you initially sign up, You cannot change the country later. The email address and Country information that you provide when you sign up for an Azure subscription will always be associated with the subscription, and cannot be changed at a later time.
-
+ **Note** You set the country when you initially sign up, You cannot change the country later. The email address and Country information that you provide when you sign up for an Azure subscription will always be associated with the subscription, and cannot be changed at a later time.</br>
 4. In the **Verification by phone** section, you must provide a phone number to receive a verification code that you can provide to complete the verification process.
 
  You can choose to receive the verification code either as a text message or through a voice call. Make your choice by selecting either **Send text message** or **Call me**. Select the international dialing code for your country in the first box, and enter your phone number in the second box. After you receive the verification code, enter it in the third box, and then select the **Verify code** button.
