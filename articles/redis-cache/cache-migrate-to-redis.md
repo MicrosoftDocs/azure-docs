@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Cache Migrate to Redis"
-    description="Cache"
+    description="Learn how to migrate Managed Cache Service applications to Azure Redis Cache"
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"

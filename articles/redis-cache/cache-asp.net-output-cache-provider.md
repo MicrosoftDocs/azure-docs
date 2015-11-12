@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Cache ASP.NET Output Cache Provider"
-   description="Cache"
+   description="Learn how to cache ASP.NET Page Output using Azure Redis Cache"
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"

@@ -41,7 +41,7 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 | S1 | up to 8kb/hour per device | average of 4 messages/hour per device |
 | S2 | up to 4kb/min per device | average of 2 messages/min per device |
 
-When receiving device-to-cloud messages the application back-end can expect the following maximum throughput (across all readers).
+When receiving device-to-cloud messages the application back end can expect the following maximum throughput (across all readers).
 
 | Tier | Sustained throughput |
 | ---- | -------------------- |

@@ -960,3 +960,12 @@ In this section you will create and set up a C# Console Application project.
 ##Next Steps
 
 You can now use a traffic manager to route requests between the two data centers and thus failover in the case of any outages.
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

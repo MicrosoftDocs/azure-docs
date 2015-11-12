@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Integrate Azure Active Directory single sign-on with newly acquired apps |  Microsoft Azure"
+   pageTitle="Integrate Azure Active Directory single sign-on with SaaS apps |  Microsoft Azure"
    description="Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/20/2015"
+      ms.date="10/28/2015"
       ms.author="curtand"/>
 
-# Integrate Azure Active Directory single sign-on with newly acquired apps  
+# Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
@@ -56,7 +56,7 @@ When you integrate SSO for an application that’s already in use, it’s import
 
 SSO for some applications can be done on the application's sign in interface, but for other applications, the user will have to go through a central portal such as ([My Apps](http://myapps.microsoft.com) or [Office365](http://portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Another valuable resource is *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md#suppressing-user-consent) article.
+Another valuable resource is *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md) article.
 
 ## Next steps
 

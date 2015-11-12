@@ -227,6 +227,10 @@ For real apps, you can use an icon that is suitable for notifications per [Andro
 >[AZURE.TIP] To be sure to use correct icon resolutions, you can look at [these examples](https://www.google.com/design/icons).
 Scroll down to the **Notification** section, click an icon, and then click `PNGS` to download the icon drawable set. You can see what drawable folders with which resolution to use for each version of the icon.
 
+##Create a Google Cloud Messaging project with API key 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+
 ###Enable your app to receive GCM push notifications
 
 1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
@@ -274,7 +278,7 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 	  
 	![][17]
 
-4. In the pop-up, paste the GCM Server Key you obtained in the section [Enable Google Cloud Messaging](#register), and then click **Ok**.
+4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
 
 	![][18]
 
