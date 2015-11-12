@@ -16,7 +16,7 @@
  ms.date="11/10/2015"
  ms.author="dobett"/>
 
-# Design your Azure IoT Hub solution
+# Design your solution
 
 This article provides guidance how to design the following capabilities in your IoT solution:
 
