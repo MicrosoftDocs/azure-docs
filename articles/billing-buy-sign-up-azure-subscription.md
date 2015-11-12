@@ -1,4 +1,4 @@
-M<properties
+<properties
 	pageTitle="How to buy or sign up for an Azure subscription | Microsoft Azure"
 	description="Describes How to buy or sign up for an Azure subscription"
 	services="billing"
@@ -54,7 +54,7 @@ The example screenshots are for the English version of the agreement, the agreem
  **Sorry, we could not complete the operation. Please try again later or reload the web page** </br>
 
  In this case, try using another browser to complete the sign-up process. If the issue still occurs, contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help.</br>
- 
+
 7. When the subscription is ready, select **Start managing my service** to begin.</br>
  ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
