@@ -28,9 +28,9 @@ Azure Search is a hosted cloud search service that provides a search engine, sea
 
 ##What is an index?
 
-An *index* is persisted storage of *documents* and other constructs used by an Azure Search service. Documents are a basic unit of searachable data. For example, a retailer might have a document for each SKU, a news organization might have a document for each article, and a streaming media organization might have a document for each video or song in their library.
+An *index* is persisted storage of *documents* and other constructs used by an Azure Search service. Documents are a basic unit of searachable data. For example, a retailer might have a document for each SKU, a news organization might have a document for each article, and a streaming media organization might have a document for each video or song in their library. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-The index that contains documents is a flat dataset -- typically a subset of the data created or captured during normal business operations via by computerized processes, such as sales transactions, content publishing, purchasing acitvity -- often stored in relational or NoSQL databases. Mapping these concepts to more familiar database equivalents: an index is conceptually similar to a table, and documents are roughly equivalent to rows in a table.
+The index that contains documents is a flat dataset -- typically a subset of the data created or captured during normal business operations through computerized processes, such as sales transactions, content publishing, purchasing acitvity -- often stored in relational or NoSQL databases. An index gets its documents when you push or pull a dataset containing rows from other data sources in your overall solution.
 
 Understood in the narrower context of search engine operations, an index contains all searchable data used to process an index, execute a query, or return any of these: a search results list, a faceted navigation structure, a details page for  single document. In Azure Search, an index can also contain non-searchable data used internally in filter expressions or scoring profiles providing criteria used for boosting a search ranking score.
 
