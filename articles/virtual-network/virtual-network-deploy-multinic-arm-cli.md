@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs using the Azure CLI
@@ -49,7 +49,7 @@ The backend VMs depend on the creation of the resources listed below.
 - **NICs**. Each VM will have two NICs, one for database access, and one for management.
 - **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance. 
 
-### Step 1 - Start you script
+### Step 1 - Start your script
 
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.sh). Follow the steps below to change the script to work in your environment.
 
@@ -81,7 +81,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 		password='adminP@ssw0rd'
 		numberOfVMs=2
 
-3. Retrieve the id for the `BackEnd` subnet where the VMs will be created. You need to do this since the NICs to be associated to this subnet are in a different resource group.
+3. Retrieve the ID for the `BackEnd` subnet where the VMs will be created. You need to do this since the NICs to be associated to this subnet are in a different resource group.
 
 		subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
 		                --vnet-name $vnetName \
@@ -90,7 +90,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 >[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
 
-4. Retrieve the id for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
+4. Retrieve the ID for the `NSG-RemoteAccess` NSG. You need to do this since the NICs to be associated to this NSG are in a different resource group.
 
 		nsgId="$(azure network nsg show --resource-group $existingRGName \
 		                --name $remoteAccessNSGName|grep Id)"

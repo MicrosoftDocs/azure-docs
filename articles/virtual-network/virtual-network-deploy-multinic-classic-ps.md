@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="telmos" />
 
 #Deploy multi NIC VMs (classic) using PowerShell
@@ -43,7 +43,7 @@ The backend VMs depend on the creation of the resources listed below.
 - **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
 - **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance. 
 
-### Step 1 - Start you script
+### Step 1 - Start your script
 
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1). Follow the steps below to change the script to work in your environment.
 
