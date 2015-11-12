@@ -169,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-As SQL Data Warehouse does not support ANSI joins you cannot copy this code over without changing it slightly.
+Since SQL Data Warehouse does not support ANSI joins in the FROM clause of an UPDATE statement, you cannot copy this code over without changing it slightly.
 
 You can use a combination of a CTAS and an implicit join to replace this code:
 
@@ -206,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## ANSI join replacement for delete statements
-Sometimes the best approach for deleting data is to use CTAS. Rather than deleting the data simply select the data you want to keep. This especially true for DELETE statements that use ansi joining syntax as this is not supported on SQL Data Warehouse.
+Sometimes the best approach for deleting data is to use CTAS. Rather than deleting the data simply select the data you want to keep. This especially true for DELETE statements that use ansi joining syntax since SQL Data Warehouse does not support ANSI joins in the FROM clause of a DELETE statement.
 
 An example of a converted DELETE statement is available below:
 

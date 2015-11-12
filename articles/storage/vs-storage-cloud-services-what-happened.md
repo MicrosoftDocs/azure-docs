@@ -3,7 +3,7 @@
 	description="Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services"
     services="storage"
 	documentationCenter=""
-	authors="tarcher"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
