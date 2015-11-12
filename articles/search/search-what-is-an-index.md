@@ -39,11 +39,11 @@ The main sections of an Azure Search index, as articulated in the JSON data inte
 |Schema element|Description|
 |--------------|-----------|
 |Fields collection|Fields define a document. A dataset that you push or pull into an index must provide values or nulls for each field, compatible with the data type and field length expressed in the schema.|
-|[Attributes](#index-attributes)|Properties or annotations on a field that specify data type, length, value, and behaviors allowed for that field. You can specify whether a field is searchable, retrievable, or sortable, all on a field-by-field basis. You can also specify which language analyzer to use at the field level.
+|[Attributes](#index-attributes)|Properties or annotations on a field that specify data type, length, value, and behaviors allowed for that field. You can specify whether a field is searchable, retrievable, or sortable, all on a field-by-field basis. You can also specify language analyzer overrides at the field level.
 |[Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criteria used to boost the ranking of a search hit that has more of the characteristics set by the profile. For example, suppose a search term is matched in a product name and product description, you might want matches in product name to be ranked higher than those found in a description.|
 |[Suggesters](https://msdn.microsoft.com/library/azure/mt131377.aspx)|Also known as auto-complete or typeahead queries, are defined as a section in the index.|
 |[Default language analyzers]()|Optionally, you can be specify these at the index level, globally applicable to all fields.|
-|CORS options|Optionally, enables cross-origin resource sharing, wherein requests for a resource used by a web page issued across a domain boundary.|
+|CORS options|Optionally, enables cross-origin resource sharing, wherein requests for a resource used by a web page issued across a domain boundary. CORS is always off unless you specifically enable it for your index.|
 
 <a name="index-attributes"></a>
 ##Index attributes
