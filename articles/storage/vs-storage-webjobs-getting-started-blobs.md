@@ -3,7 +3,7 @@
 	description="How to get started using Blob storage in a WebJob project after connecting to an Azure storage using Visual Studio connected services."
 	services="storage"
 	documentationCenter=""
-	authors="tarcher"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 

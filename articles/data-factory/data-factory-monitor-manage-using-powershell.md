@@ -415,8 +415,6 @@ In this step, you will use the Azure PowerShell to monitor what’s going on in 
 
 See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets. 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md). 
 
 
 [adf-tutorial]: data-factory-tutorial.md

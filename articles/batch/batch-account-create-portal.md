@@ -30,7 +30,7 @@ This article shows you how to use the [Azure preview portal](https://portal.azur
 
 ## Create a Batch account
 
-1. Sign in to the [Azure Preview portal](https://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 2. Click **New** > **Compute** > **Batch Service**.
 
