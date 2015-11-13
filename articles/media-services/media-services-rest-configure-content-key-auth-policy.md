@@ -464,6 +464,7 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
         None = 0,
         PlayReadyLicense = 1,
         BaselineHttp = 2,
+        Widevine = 3
     }
 
 
