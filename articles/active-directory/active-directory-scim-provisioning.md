@@ -23,7 +23,7 @@
 Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory can send requests to create, modify and delete assigned users and groups to this Web service, which can then translate those requests into operations upon the target identity store. 
 
 ![][1]
-*Figure: Provisioning from Azure Active Directory to an arbitrary identity store via a Web service*
+*Figure: Provisioning from Azure Active Directory to an identity store via a Web service*
 
 This capability can be used in conjunction with the “[bring your own app](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)” capability in Azure AD to enable single sign-on and automatic user provisioning for applications that provide or are fronted by a SCIM web service.
 
@@ -31,22 +31,33 @@ There are two use cases for SCIM in Azure Active Directory:
 
 * **Provisioning users and groups to applications that support SCIM** - Applications that support SCIM 2.0 and are capable of accepting an OAuth bearer token from Azure AD will work with Azure AD of the box.
 
-* **Provision users and groups to applications that support other API-based provisioning** - For non-SCIM applications, you can provide a SCIM endpoint to translate between Azure AD’s SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
+* **Build your own provisioning solution for applications that support other API-based provisioning** - For non-SCIM applications, you can create a SCIM endpoint to translate between Azure AD’s SCIM endpoint and whatever API the application supports for user provisioning.  To aid in the development of a SCIM endpoint, we provide CLI libraries along with code samples that show you how to do provide a SCIM endpoint and translate SCIM messages.  
 
-##Provisioning To Applications That Support SCIM
+##Provisioning Users and Groups To Applications That Support SCIM
 
-Azure AD can be configured to automatically provision assiged users and groups to applications that implement a SCIM web service that matches the following profile:
+Azure Active Directory can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web service and accept OAuth bearer tokens for authentication. Witin the SCIM 2.0 specification, applications must meet these requirements:
 
-* SCIM implementation based on the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/draft-ietf-scim-api-19)
-* Supports writes
-* Supports querying
-* Supports patching and filtering by externalId
-* Supports OAuth bearer tokens for authentication
+* Supports creating users and/or groups, as per section 3.3 of the SCIM protocol.  
+
+* Supports modifying users and/or groups with patch requests as per section 3.5.2 of the SCIM protocol.  
+
+* Supports retrieving a known resource as per section 3.4.1 of the SCIM protocol.  
+
+*  Supports querying users and/or groups, as per section 3.4.2 of the SCIM protocol.  By default, users are queried by externalId and groups are queried by displayName.  
+
+* Supports querying user by ID and by manager as per section 3.4.2 of the SCIM protocol.  
+
+* Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
+
+* Accepts OAuth bearer tokens for authorization as per section 2.1 of the SCIM protocol.  
+
 * Supports using Azure AD as the identity provider for the OAuth token (support for external identity providers coming soon)
+
+You should check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
  
 ###Getting Started
 
-Applications that support the SCIM profile described above can be connected to Azure Active Directory using the "custom" app feature in the Azure AD applicaiton gallery.
+Applications that support the SCIM profile described above can be connected to Azure Active Directory using the "custom" app feature in the Azure AD application gallery. Once connected, Azure AD runs a synchronization process every 5 minutes where it queries the application's SCIM endpoint for assigned users and groups, and creates or modifies them according to the assignment details.
 
 **To connect an applicaiton that supports SCIM:**
 
@@ -67,9 +78,9 @@ Applications that support the SCIM profile described above can be connected to A
 
 Note that 5-10 minutes may elapse before the provisioning process will begin to send requests to the SCIM endpoint.  A summary of connection attempts is provided on the application’s Dashboard tab, and both a report of provisioning activity and any provisioning errors can be downloaded from the directory’s Reports tab.
 
-##Provision To Applications That Support Other API-based Provisioning
+##Building Your Own Provisioning Solution For Any Application
 
-By creating a SCIM web service that interfaces with Azure Active Directory, you can enable single sign-on and automatic user provisioning for virtually any application that provides a user provisioning API.
+By creating a SCIM web service that interfaces with Azure Active Directory, you can enable single sign-on and automatic user provisioning for virtually any application that provides a REST or SOAP user provisioning API.
 
 Here’s how it works:
 
