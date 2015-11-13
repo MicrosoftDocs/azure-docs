@@ -34,17 +34,17 @@ Note that tweaking throttle settings only influences the behavior of the Synchro
 
 The management UI allows to provide a custom concurrency number for scaling the endpoint beyond default concurrency of 20.
 
-- Open up manage.windowsazure.com
-- Navigate to the Machine Learning tab
-- Click on your workspace.
-- Navigate to the web service which has your endpoint
+1. Open up manage.windowsazure.com
+2. Navigate to the Machine Learning tab
+3. Click on your workspace.
+4. Navigate to the web service which has your endpoint
 ![Navigate to web service](./media/machine-learning-scaling-endpoints/figure-1.png)
 
-- Click on the endpoint, and then click on the Configure tab
+5. Click on the endpoint, and then click on the Configure tab
 ![Navigate to endpoint configuration](./media/machine-learning-scaling-webservice/machlearn-2.png)
 
 
-- Change the slider to increase the level of concurrency and click on Save.
+6. Change the slider to increase the level of concurrency and click on Save.
 
 
  
