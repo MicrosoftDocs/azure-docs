@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/12/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS Releases and SDK Compatibility Matrix
@@ -169,7 +169,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 4.26             | WA-GUEST-OS-4.26_201511-02 | Projected Dec 10 2015  | Will be updated when 4.28 is released | TBD |
-| 4.26             | WA-GUEST-OS-4.26_201511-02 | Projected Dec 10 2015  | Will be updated when 4.28 is released | TBD |
+| 4.26             | WA-GUEST-OS-4.26_201511-01 | Projected Dec 10 2015  | Will be updated when 4.28 is released | TBD |
 | 4.25             | WA-GUEST-OS-4.25_201510-01 | Nov 6 2015             | Will be updated when 4.27 is released | TBD |
 | 4.24             | WA-GUEST-OS-4.24_201509-01 | Oct 1 2015             | Will be updated when 4.26 is released | TBD |
 | 4.23             | WA-GUEST-OS-4.23_201508-02 | Sep 9 2015             | Dec 6 2015 | TBD |
