@@ -148,7 +148,7 @@ Note that 5-10 minutes may elapse before the provisioning process will begin to 
 
 The final step in verifying the sample is to open the TargetFile.csv file in the \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug folder on your Windows machine. Once the provisioning process is run, this file shows the details of all assigned and provisioned users and groups.
 
-##Development Libraries
+###Development Libraries
 
 To develop your own Web service that conforms to the SCIM specification, first familiarize yourself with the following libraries provided by Microsoft to help accelerate the development process: 
 
@@ -158,7 +158,7 @@ To develop your own Web service that conforms to the SCIM specification, first f
 
 **2:**  [Express route handlers](http://expressjs.com/guide/routing.html) are available for parsing node.js request objects representing calls (as defined by the SCIM specification), made to a node.js Web service.   
 
-##Building a Custom SCIM Endpoint
+###Building a Custom SCIM Endpoint
 
 Using the libraries described above, developers using those libraries can host their services within any executable Common Language Infrastructure assembly, or within Internet Information Services.  Here is sample code for hosting a service within an executable assembly, at the address http://localhost:9000: 
 
