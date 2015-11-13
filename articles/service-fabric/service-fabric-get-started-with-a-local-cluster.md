@@ -133,7 +133,7 @@ The new version of the application will now only count words that begin with a v
 
 1. Download the v2 package from [here](http://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the v1 package.
 
-2. Return to your PowerShell window and use the SDK's upgrade script to register the new version in the cluster and begin upgrading fabric:/WordCount.
+2. Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster and begin upgrading fabric:/WordCount.
 
   ```powershell
   Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\SFDemo\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount"
