@@ -16,6 +16,7 @@
 	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
+# MS STS - Admin Consent
 
 > 
 *Azure AD has a feature known as "admin_consent" which is used in provisioning flows for multi-tenant applications.  The admin consent feature is used for a few different scenarios today*:
@@ -34,7 +35,7 @@
 
 *This document describes how the admin_consent feature should work in app model v2.  It is written as a documentation article intended for customers.  Comments for engineering are provided in italicized chunks, like this one.*
 
-# MS STS - Admin Consent
+## Intro
 
 SaaS applications that support business customers will typically have a "sign-up your business" flow.  Dropbox is one good example of such an app:
 
