@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a ARM based VM with diagnostics turned on | Microsoft Azure"
-	description="Use a Resource Manager template and Azure PowerShell to create a new Windows virtual machine with Diagnostics turned on."
+	pageTitle="Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template | Microsoft Azure"
+	description="Use a Azure resource manager template to create a new Windows virtual machine with Azure diagnostics extension."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="sbtron"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="11/13/2015"
 	ms.author="saurabh"/>
 
 # Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template
@@ -110,7 +110,8 @@ The diagnostics extension json snippet above defines an *accountid* variable to 
 
 
 The *xmlcfg* property for the diagnostics extension is defined using multiple variables that are concatenated together. The values of these variables are in xml so they need to be escaped correctly when setting the json variables.
-The following describes the diagnostics configuration xml that collects standard system level performance counters along with some windows event logs and diagnostics infrastructure logs:
+
+The following describes the diagnostics configuration xml that collects standard system level performance counters along with some windows event logs and diagnostics infrastructure logs. It has been escaped and formatted correctly so that the configuration can directly be pasted into the variables section of your template. See the [Diagnostics Configuration Schema](https://msdn.microsoft.com/library/azure/dn782207.aspx) for a more human readable example of the configuration xml.
     
         "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
         "wadperfcounters1": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Processor Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU utilization\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Privileged Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU privileged time\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% User Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU user time\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Processor Information(_Total)\\Processor Frequency\" sampleRate=\"PT15S\" unit=\"Count\"><annotation displayName=\"CPU frequency\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\System\\Processes\" sampleRate=\"PT15S\" unit=\"Count\"><annotation displayName=\"Processes\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Process(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Count\"><annotation displayName=\"Threads\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Process(_Total)\\Handle Count\" sampleRate=\"PT15S\" unit=\"Count\"><annotation displayName=\"Handles\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Memory\\% Committed Bytes In Use\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Memory usage\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Memory\\Available Bytes\" sampleRate=\"PT15S\" unit=\"Bytes\"><annotation displayName=\"Memory available\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Memory\\Committed Bytes\" sampleRate=\"PT15S\" unit=\"Bytes\"><annotation displayName=\"Memory committed\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\Memory\\Commit Limit\" sampleRate=\"PT15S\" unit=\"Bytes\"><annotation displayName=\"Memory commit limit\" locale=\"en-us\"/></PerformanceCounterConfiguration><PerformanceCounterConfiguration counterSpecifier=\"\\PhysicalDisk(_Total)\\% Disk Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Disk active time\" locale=\"en-us\"/></PerformanceCounterConfiguration>",
@@ -158,17 +159,14 @@ Each WADMetrics table will contain the following columns:
 - **Count** : The total number of values reported for the performance counter.
 - **Average** : The average (total/count) value of the performance counter over the aggregation period.
 
-For a complete sample of an Windows virtual machine with diagnostics extension see [101-simple-windows-vm-monitoring-diagnostics](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm-monitoring-diagnostics)   
 
-## Additional Resources
+## Next Steps
 
-[Deploying Resource Manager Templates with Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- For a complete sample template of a Windows virtual machine with diagnostics extension see [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+- Deploy the resource manager template using [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) or [Azure Command Line](virtual-machines-deploy-rmtemplates-powershell.md)
+- Learn more about [authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
 
-[Deploying Resource Manager Templates with Azure Command Line](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
-
-[Azure Resource Manager Overview](resource-group-overview.md)
 
 
 
