@@ -68,6 +68,7 @@ Even though the Azure Data Factory itself is available only in the West US regio
 | Japan East | APAC |
 
 Note the following: 
+
 - If you are copying from a **cloud source** to a **cloud destination** (for example: Azure Blob -> Azure SQL), the **Data Movement Service** picks the deployment that is **closest to the sink location in the same geography** to do the transfer. For example, if you are copying from South East Asia to Japan West, the Data Movement Service deployment in Japan East is used to perform the copy. When source and destination are both in the same geography, and there is no Data Movement service available in that geography (for example Australia), the copy activity will fail instead of going through an alternative geography.
 - If you are copying data from an **on-premises data source** to **cloud** or vice-versa (for example: on-premises SQL Server -> Azure Blob), the data movement is actually done by the **Data Management Gateway** in your on-premises environment with no involvement from the Data Movement Service.
 
