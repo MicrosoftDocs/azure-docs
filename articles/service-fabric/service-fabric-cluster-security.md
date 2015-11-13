@@ -52,7 +52,10 @@ The details on creating a self signed cert are at [https://technet.microsoft.com
 Here is the PS I use for creating my Test certificates, but make sure to read the above document to make sure that it meets your needs.
 
 ```
-New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName ChackdanTestCertificate | Export-PfxCertificate -FilePath E:\MyCertificates\ChackdanTestCertificate
+$password = Read-Host -AsSecureString 
+```
+```
+New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName ChackdanTestCertificate | Export-PfxCertificate -FilePath E:\MyCertificates\ChackdanTestCertificate.pfx -Password $password
 ```
 
 **Note** The DnsName <String[]> Specifies one or more DNS names to put into the subject alternative name extension of the certificate when a certificate to be copied is not specified via the CloneCert parameter. The first DNS name is also saved as the Subject Name. If no signing certificate is specified, the first DNS name is also saved as the Issuer Name.
