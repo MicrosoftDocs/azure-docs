@@ -90,12 +90,8 @@ Points to note:
 	</tr> 
 	<tr>
 		<td>**Network**</td>
-		<td>Inbound: 10Gbps; Outbound: 40Gbps</td>  
+		<td>Internet: 10Gbps; Intranet: 40Gbps</td>  
 	</tr>
-	<tr>
-		<td>**Disk**</td>
-		<td>SSD</td>
-	</tr>    
 	</table>
 - The gateway is running on a different system than the source/sink
 
