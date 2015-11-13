@@ -13,10 +13,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
-# Create and modify ExpressRoute routing configuration
+# Create and modify routing for an ExpressRoute circuit using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
 [PowerShell - Classic](expressroute-howto-routing-classic.md)
@@ -133,7 +133,7 @@ You can get configuration details using the following cmdlet
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### To update Azure private peering configuration
@@ -386,7 +386,8 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
-Next step, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
+Next step, link a VNet to an ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
+
 
 -  For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
 

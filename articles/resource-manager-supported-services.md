@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/11/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -66,9 +66,9 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.DocumentDB) | Yes  | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) |   |
-| Storage | Yes     | [Yes](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) |         | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Storage | Yes     | [Yes](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) |         | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Storage account](resource-manager-template-storage.md) |
 | Redis Cache | Yes | [Yes](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Yes |   | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Yes  | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL Database | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Yes  | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.Search) | Yes   | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  |
 | SQL Data Warehouse | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) |   |   |      |
 | StorSimple | No   | No | -  | -        | -       |
@@ -138,6 +138,13 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Scheduler | Yes   | No |        |          | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Yes | No | Yes   |          |        |
 | IoTHubs | Yes     | [Yes](https://portal.azure.com/#create/Microsoft.IotHub) |               |          |        |
+
+## Resource Manager
+
+| Feature | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Authorization | Yes | N/A | N/A | [Management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Role-based access control](https://msdn.microsoft.com/library/azure/dn906885.aspx)  | [Resource lock](resource-manager-template-lock.md)<br />[Role assignments](resource-manager-template-role.md)  |
+| Resources | Yes | N/A | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Resource links](resource-manager-template-links.md) |
 
 
 ## Supported regions

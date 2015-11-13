@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/06/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -1284,10 +1284,10 @@ This section shows how to send events in real time to Azure Machine Learning Rec
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
   		<SessionId>11112222</SessionId>
   		<EventData>
-    	<EventData>
-      	<Name>RemoveShopCart</Name>
-      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    	</EventData>
+		  	<EventData>
+      				<Name>RemoveShopCart</Name>
+      				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    			</EventData>
   		</EventData>
 		</Event>
 
@@ -1297,21 +1297,26 @@ This section shows how to send events in real time to Azure Machine Learning Rec
 		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
 		<SessionId>11112222</SessionId>
 		<EventData>
-		<EventData>
-			<Name>Purchase</Name>
-			<PurchaseItems>
+			<EventData>
+				<Name>Purchase</Name>
 				<PurchaseItems>
-					<ItemId>ABBF8081-C5C0-4F09-9701-E1C7AC78304A</ItemId>
-					<Count>1</Count>
+					<PurchaseItem>
+						<ItemId>ABBF8081-C5C0-4F09-9701-E1C7AC78304A</ItemId>
+						<Count>1</Count>
+					</PurchaseItem>
+					<PurchaseItem>
+						<ItemId>21BF8088-B6C0-4509-870C-11C0AC7F304B</ItemId>
+						<Count>3</Count>
+					</PurchaseItem>
 				</PurchaseItems>
-				<PurchaseItems>
-					<ItemId>21BF8088-B6C0-4509-870C-11C0AC7F304B</ItemId>
-					<Count>3</Count>
-				</PurchaseItems>
-			</PurchaseItems>
-		</EventData>
+			</EventData>
 		</EventData>
 		</Event>
+		
+		
+		
+
+
 
 - Example sending 2 events, 'Click' and 'AddShopCart':
 
