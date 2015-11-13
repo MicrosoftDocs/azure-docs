@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/10/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sstein"/>
 
 
@@ -98,9 +98,9 @@ After all databases on the server are eligible you are ready to start the upgrad
 
     ![V12 enabled][5]  
 
-## Migrate your databases into an elastic database pool
+## Move your databases into an elastic database pool
 
-In the [Azure preview portal](https://ms.portal.azure.com/) browse to the server you just upgraded and click **Add pool**.
+In the [Azure preview portal](https://ms.portal.azure.com/) browse to the V12 server and click **Add pool**.
 
 -or-
 

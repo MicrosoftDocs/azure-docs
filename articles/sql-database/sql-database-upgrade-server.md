@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sstein"/>
 
 # Upgrade to Azure SQL Database V12 using PowerShell
