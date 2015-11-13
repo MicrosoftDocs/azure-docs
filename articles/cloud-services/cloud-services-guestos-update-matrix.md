@@ -47,11 +47,11 @@ If you are on Guest OS manual update, there will be two Guest OS versions releas
 
    • 	   WA-GUEST-OS-4.26_201511-01, WA-GUEST-OS-3.33_201511-01, WA-GUEST-OS-2.45_201511-01 (Default) 
 
-      These include the November MSRC and October Windows Rollups 
+   These include the November MSRC and October Windows Rollups 
 
    • 	   WA-GUEST-OS-4.26_201511-02, WA-GUEST-OS-3.33_201511-02, WA-GUEST-OS-2.45_201511-02 
 
-      These include the November MSRC, October Windows Rollups and .NET Framework upgraded to .NET 4.5.2 
+   These include the November MSRC, October Windows Rollups and .NET Framework upgraded to .NET 4.5.2 
 
 
 Prior to upgrading, here are some of options to help validate your Cloud Service with .NET 4.5.2: 
