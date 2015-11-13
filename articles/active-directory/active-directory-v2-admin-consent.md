@@ -1,3 +1,22 @@
+<properties
+	pageTitle="App Model v2.0 Admin Consent | Microsoft Azure"
+	description="A spec for the admin consent feature in the MS STS"
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/10/2015"
+	ms.author="dastrock"/>
+
+
 > 
 *Azure AD has a feature known as "admin_consent" which is used in provisioning flows for multi-tenant applications.  The admin consent feature is used for a few different scenarios today*:
 
@@ -146,4 +165,4 @@ Details of the permissions API on the Microsoft Graph are available [here]().
 
 When your app needs permissions from a directory administrator, you need to send the user to the `admin_consent`endpoint, following this general flow:
 
-![Admin Consent Swimlane](./media/active-directory-v2-admin-consent/admin_consent_swimlane.PNG)
+![Admin Consent Swimlane](./media/active-directory-v2-admin-consent/admin_consent_swimlane.png)
