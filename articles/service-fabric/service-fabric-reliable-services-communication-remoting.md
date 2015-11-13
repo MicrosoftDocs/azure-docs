@@ -66,6 +66,7 @@ The remoting framework propagates exceptions thrown at the service to the client
  
 ## Next steps
 
-* [WCF based communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-wcf.md)
+* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-reliable-services-communication-webapi.md)
+* [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+

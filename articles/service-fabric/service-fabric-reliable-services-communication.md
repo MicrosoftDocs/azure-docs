@@ -224,9 +224,10 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## Next Steps
-* [Default communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
+* [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-default.md)
 
-* [WCF based communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-wcf.md)
+* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-reliable-services-communication-webapi.md)
+* [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+
  
