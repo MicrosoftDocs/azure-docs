@@ -1253,6 +1253,7 @@ Creates a public ip resource. You will create the public ip resource and associa
 
 
 Parameter options:
+
 	-h, --help                                   output usage information
 	-v, --verbose                                use verbose output
 	--json                                       use json output
