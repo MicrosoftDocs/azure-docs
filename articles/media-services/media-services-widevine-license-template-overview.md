@@ -24,6 +24,8 @@ Azure Media Services now enables you to configure and request Widevine licenses.
 
 Widevine license request is formatted as a JSON message.  
 
+Note that you can choose to create an empty message with no values just "{}" and a license template will be created with all defaults.  
+
 	{  
 	   “payload”:“<license challenge>”,
 	   “content_id”: “<content id>” 
@@ -47,7 +49,7 @@ Widevine license request is formatted as a JSON message.
 	      “license_duration_seconds”:<license duration>,
 	      “renewal_recovery_duration_seconds”:<renewal recovery duration>,
 	      “renewal_server_url”:”<renewal server url>”,
-	   “renewal_delay_seconds”:<renewal delay>,
+	      “renewal_delay_seconds”:<renewal delay>,
 	      “renewal_retry_interval_seconds”:<renewal retry interval>,
 	      “renew_with_usage”:<renew with usage>
 	   }

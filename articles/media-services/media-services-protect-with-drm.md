@@ -46,7 +46,9 @@ The following are general steps that you would need to perform when protecting y
 1. Create an asset and upload files into the asset. 
 1. Encode the asset containing the file to the adaptive bitrate MP4 set.
 1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key. 
-1. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client. 
+1. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client.
+
+	When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template). 
 1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL. 
  
 	You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
@@ -338,15 +340,15 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-		        {
-		            new ContentKeyAuthorizationPolicyRestriction
-		            {
-		                Name = "Open",
-		                KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-		                Requirements = null
-		            }
-		        };
-		
+			        {
+			            new ContentKeyAuthorizationPolicyRestriction
+			            {
+			                Name = "Open",
+			                KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+			                Requirements = null
+			            }
+			        };
+			
 		            // Configure PlayReady and Widevine license templates.
 		            string newLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 		

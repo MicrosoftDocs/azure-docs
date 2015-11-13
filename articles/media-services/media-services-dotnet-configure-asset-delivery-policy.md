@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2015"  
+	ms.date="11/12/2015"  
 	ms.author="juliako"/>
 
 #Configure Asset Delivery Policies with .NET SDK
