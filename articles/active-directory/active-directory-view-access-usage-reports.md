@@ -17,7 +17,7 @@
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
-# Reporting Documentation Articles
+## Reporting Documentation Articles
 
  - [Reporting API](active-directory-reporting-api-getting-started.md)
  - [Audit Events](active-directory-reporting-audit-events.md)
