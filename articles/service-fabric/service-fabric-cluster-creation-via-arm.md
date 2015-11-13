@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Setting up a Service Fabric Cluster from the Azure Portal | Microsoft Azure"
-   description="Setting up a Service Fabric Cluster from the Azure Portal."
+   pageTitle="Setting up a Service Fabric Cluster using an ARM Template | Microsoft Azure"
+   description="Setting up a Service Fabric Cluster using an ARM Template."
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -22,7 +22,8 @@ This page helps you with setting up of a Service Fabric Cluster. It is assumed t
 
 ## Prerequisites
 
-- If you want to set up a secure cluster, make sure to have uploaded an X509 certificate to your key vault. you will need the Source Vault URL, Certificate URL and the Certificate thumbprint. Refer to [Service Fabric Cluster security](service-fabric-cluster-security.md) for more details on how to.
+- If you want to set up a secure cluster, make sure to have uploaded an X509 certificate to your key vault. you will need the Source Vault URL, Certificate URL and the Certificate thumbprint
+- instructions on how to is here (link to key vault documentation)
 
 ## Creating the cluster
 
@@ -68,14 +69,13 @@ This page helps you with setting up of a Service Fabric Cluster. It is assumed t
 
 Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, it will be open to anyone who knows your endpoint URL.
 
-At this time, Service Fabric only supports securing clusters via an X509 certificate. Before starting this process, you will need to upload your certificate to KeyVault. Refer to [Service Fabric Cluster security](service-fabric-cluster-security.md) for more details on how to.
+At this time, Service Fabric only supports securing clusters via an X509 certificate. Before starting this process, you will need to upload your certificate to KeyVault.
 
 1. Navigate to the Security Configurations blade.
 
 2. Fill in the details for the certificate that you uploaded to KeyVault. Use the help icon beside each field for formatting instructions.
 
   ![SecurityConfigs][SecurityConfigs]
-
 
 ## Optional: Configuring diagnostics
 
