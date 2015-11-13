@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties
    pageTitle="Try Azure Search for free with Azure App Service "
    description="Try Azure Search for free, up to one hour, using the Azure App Service  template."
@@ -6,15 +5,6 @@
    documentationCenter=""
    authors="HeidiSteen"
    manager="mblythe"
-=======
-<properties
-   pageTitle="Try Azure App Service with Azure Search | Microsoft Azure | Hosted cloud search service"
-   description="Try Azure Search, a hosted cloud search service, for free up to one hour, using the TryAzureAppService template."
-   services="search"
-   documentationCenter=""
-   authors="HeidiSteen"
-   manager="mblythe"
->>>>>>> refs/remotes/Azure/master
    editor=""/>
 
 <tags
@@ -22,13 +12,10 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-<<<<<<< HEAD
    ms.workload="search"
    ms.date="07/13/2015"
-=======
    ms.workload="search"
    ms.date="11/04/2015"
->>>>>>> refs/remotes/Azure/master
    ms.author="heidist"/>
 
 # Try Azure Search for free with Azure App Service
