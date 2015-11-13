@@ -34,7 +34,7 @@ Before moving ahead, you might want to take a few minutes review a few key point
 
 ##Facts about the code and Azure Search
 
-Azure Search is a fully managed [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) service that makes it easy for developers to integrate great search experiences in web and mobile applications. Data used in search operations is stored with your search service in Azure, where proximity of data to operations ensures low latency and consistent search behaviors. Drilling into this a bit further:
+Azure Search is a fully managed Platform as a Service [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) service that makes it easy for developers to integrate great search experiences in web and mobile applications. Data used in search operations is stored with your search service in Azure, where proximity of data to operations ensures low latency and consistent search behaviors. Drilling into this a bit further:
 
 - Searchable data is stored in an index managed by Azure Search
 - The schema that defines your index is user-defined and will specify searchable fields, non-searchable fields that could be useful in a filter expression, and constructs like scoring profiles for tuning results.
