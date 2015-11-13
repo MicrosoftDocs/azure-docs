@@ -49,6 +49,7 @@ The objective of this tutorial is to enable you to test Azure AD single sign-on 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding ImageRelay from the gallery
+
 2. Configuring and testing Azure AD single sign-on
 
 
@@ -106,46 +107,47 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
      ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) <br>
 
-  a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your ImageRelay application (for example: *https://fabrikam.ImageRelay.com/*).
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your ImageRelay application (for example: *https://fabrikam.ImageRelay.com/*).
 
-  b. Click **Next**.
+    b. Click **Next**.
 
 4. On the **Configure single sign-on at ImageRelay** page, perform the following steps:
 
     ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) <br>
 
-  a. Click **Download certificate**, and then save the file on your computer.
+    a. Click **Download certificate**, and then save the file on your computer.
 
-  b. Click **Next**.
+    b. Click **Next**.
 
 5. In another browser window, sign in to your ImageRelay company site as an administrator.
 
-  a. In the toolbar on the top, click the **Users & Permissions** workload.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) <br>
+    a. In the toolbar on the top, click the **Users & Permissions** workload.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) <br>
 
-  b. Click **Create New Permission**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) <br>
+    b. Click **Create New Permission**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) <br>
 
-  c. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) <br>
+    c. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) <br>
 
-  d. Go to **Account Settings**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) <br>
+    d. Go to **Account Settings**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) <br>
 
-  e. Go to the **Single Sign On Settings** workload.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)<br>
+    e. Go to the **Single Sign On Settings** workload.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)<br>
 
-  f. Fill out the form as indicated, and then click **Save**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)<br>
+    f. Fill out the form as indicated, and then click **Save**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)<br>
 
-  - **Login URL (SSO)**: It is the single sign-on service URL from Azure Active Directory.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_13.png)<br>
+    - **Login URL (SSO)**: It is the single sign-on service URL from Azure Active Directory.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_13.png)<br>
 
-  - **Logout Service URL**: It is the single sign-out service from Azure Active Directory.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_14.png)<br>
+    - **Logout Service URL**: It is the single sign-out service from Azure Active Directory.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_14.png)<br>
 
-  - Under **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_15.png)<br>
+    - Under **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_15.png)<br>
 
-  - Under **Binding Options for Requests from the Service Provider (Image Relay)**, select **POST Binding**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_16.png)<br>  
-  - Under **x.509 Certificate**, click **Update Certificate**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)<br>
+    - Under **Binding Options for Requests from the Service Provider (Image Relay)**, select **POST Binding**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_16.png)<br>  
 
-  - In Notepad, open the certificate downloaded from Azure Active Directory in step 4, and then copy and paste the content of the certificate here.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)<br>
+  	- Under **x.509 Certificate**, click **Update Certificate**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)<br>
 
-  - In **Just-In-Time User Provisioning**, select the **Enable Just-In-Time User Provisioning** check box.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)<br>
+    - In Notepad, open the certificate downloaded from Azure Active Directory in step 4, and then copy and paste the content of the certificate here.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)<br>
 
-  - Select the permission group (For example, **SSO Basic**) which will be allowed to sign in only through single sign-on.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
+    - In **Just-In-Time User Provisioning**, select the **Enable Just-In-Time User Provisioning** check box.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)<br>
+
+    - Select the permission group (For example, **SSO Basic**) which will be allowed to sign in only through single sign-on.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 
