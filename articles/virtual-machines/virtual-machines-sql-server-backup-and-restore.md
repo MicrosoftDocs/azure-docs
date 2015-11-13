@@ -1,4 +1,4 @@
-star<properties
+<properties
 	pageTitle="Backup and Restore for SQL Server | Microsoft Azure"
 	description="Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines."
 	services="virtual-machines"
