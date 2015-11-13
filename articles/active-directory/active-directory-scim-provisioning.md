@@ -35,7 +35,7 @@ There are two use cases for SCIM in Azure Active Directory:
 
 ##Provisioning Users and Groups To Applications That Support SCIM
 
-Azure Active Directory can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web service and accept OAuth bearer tokens for authentication. Witin the SCIM 2.0 specification, applications must meet these requirements:
+Azure Active Directory can be configured to automatically provision assigned users and groups to applications that implement a [System for Cross-domain Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) Web service and accept OAuth bearer tokens for authentication. Within the SCIM 2.0 specification, applications must meet these requirements:
 
 * Supports creating users and/or groups, as per section 3.3 of the SCIM protocol.  
 
