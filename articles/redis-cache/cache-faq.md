@@ -49,7 +49,7 @@ From this table we can draw the following conclusions.
 
 | Pricing tier         | Size   | Available bandwidth        | 1 KB Key size                  |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Standard cache sizes** | &nbsp;       |      **(Mbps)**                      | **Requests per second (RPS)**            |
+| **Standard cache sizes** | &nbsp;       |**Megabits per second (Mbps)** | **Requests per second (RPS)**            |
 | C0                   | 250 MB | 5                          | 600                            |
 | C1                   | 1 GB   | 100                        | 12200                          |
 | C2                   | 2.5 GB | 200                        | 24000                          |

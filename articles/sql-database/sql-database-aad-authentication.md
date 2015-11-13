@@ -152,6 +152,8 @@ Each Azure SQL Server starts with a single server administrator account which is
 
 	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
 
+> [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the master database as a SQL Server authentication login. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication login is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
+
 To later remove an Admin, at the top of the **Active Directory admin** blade, click **Remove admin**.
 
 ### Provision an Azure AD administrator for Azure SQL Server by using PowerShell 
