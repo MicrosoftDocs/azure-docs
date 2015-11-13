@@ -89,14 +89,14 @@ The Service Fabric SDK includes a rich set of frameworks and developer tooling f
   The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via an ASP.NET WebAPI. A stateful service keeps track of the number of words counted, partitioned based on the first character of the word. The application that we deployed contains a four partitions, so words beginning with A through G are stored in the first partition, H through N are stored in the second partition, and so on.
 
 
-## View the application details and status in PowerShell
+## View application details and status
 
 With the application deployed, let's look at some of the app details in PowerShell.
 
 1. Query all deployed applications on the cluster:
 
   ```powershell
-  Get-ServiceFabricApplication -ApplicationName
+  Get-ServiceFabricApplication
   ```
 
   Assuming that you have only deployed the WordCount app, you will see something like this:
@@ -119,7 +119,11 @@ With the application deployed, let's look at some of the app details in PowerShe
 
   The set of commands you just used, like all Service Fabric PowerShell commands, are available for any cluster that you might connect to, local or remote.
 
-  >[AZURE.NOTE] For a more visual way to interact with the cluster, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+  For a more visual way to interact with the cluster, you can use the web-based Service Fabric Explorer tool by navigating to http://localhost:19080/Explorer in the browser.
+
+  ![View application details in Service Fabric Explorer][sfx-service-overview]
+
+  >[AZURE.NOTE] To learn more about Service Fabric Explorer, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ## Upgrade an application
 
@@ -181,3 +185,4 @@ The new version of the application will now only count words that begin with a v
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [deployed-app-UI-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
+[sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
