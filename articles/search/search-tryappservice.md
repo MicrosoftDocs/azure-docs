@@ -14,8 +14,6 @@
    ms.tgt_pltfrm="na"
    ms.workload="search"
    ms.date="07/13/2015"
-   ms.workload="search"
-   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Try Azure Search for free with Azure App Service
