@@ -72,7 +72,7 @@ To get sampling on the data from web pages, put an extra line in the [Applicatio
 	}); 
 ```
 
-* Set a percentage (10 in these examples) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10 (=100/5). 
+* Set a percentage (10 in these examples) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), or 10 (=100/10). 
 * If you have a lot of data, you can use very low sampling rates, such as 0.1.
 * If you set sampling in both web page and server, make sure to set the same sampling percentage in both sides.
 * Client and server sides will coordinate to select related items.
