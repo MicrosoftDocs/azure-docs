@@ -20,13 +20,13 @@
 
 # Application upgrade tutorial
 
-The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next upgrade domain or fail the upgrade based on the health policies. A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST.
+The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next upgrade domain or fail the upgrade based on the health policies. A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST. For instructions on performing an upgrade using Visual Studio, please see [uprading your application using Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
 
-Service Fabric monitored rolling upgrade allows the application administrator to configure the health evaluation policy that Service Fabric uses to determine the application is healthy. In addition, it also allows the administrator to configure the action to be taken when the health evaluation fails such as automatically roll-back. This section walkthrough a monitored upgrade for one of the SDK samples.
+Service Fabric monitored rolling upgrade allows the application administrator to configure the health evaluation policy that Service Fabric uses to determine the application is healthy. In addition, it also allows the administrator to configure the action to be taken when the health evaluation fails such as automatically roll-back. This section walkthrough a monitored upgrade for one of the SDK samples using PowerShell.
 
 ## Step 1: Build and deploy the Visual Objects sample
 
-These steps can be done by opening the project in Visual Studio, and right clicking on the Solution and selecting the deploy command in the Service Fabric menu item.  See [managing your Service Fabric application in Visual Studio](service-fabric-manage-application-in-visual-studio.md) for more information.  Alternatively, one may use PowerShell.
+These steps can be done by opening the project in Visual Studio, and right clicking on the Solution and selecting the deploy command in the Service Fabric menu item.  See [managing your Service Fabric application in Visual Studio](service-fabric-manage-application-in-visual-studio.md) for more information.  Alternatively, one may use PowerShell to deploy your application.
 
 > [AZURE.NOTE] Before any of the Service Fabric commands may be used in PowerShell, one has to first connect to the cluster by using the `Connect-ServiceFabricCluster` cmdlet. Similarly, it is assumed that the Cluster has already been setup on your local machine. See the article on [setting up your Service Fabric development environment](service-fabric-get-started.md).
 
@@ -38,33 +38,31 @@ Now, you can use [Service Fabric Explorer to view the cluster and the applicatio
 
 You might notice that with the version that was deployed in Step 1, the visual objects do not rotate. Let us upgrade this application to one where the visual objects also rotate.
 
-Select the VisualObjects.DataService project within the VisualObjects solution, and open the VisualObjects.cs file in that project. Within that file navigate to the method `CreateMovedObject`, and find the line where rotation of the visual objects is set (search for the following lines in the `CreateMovedObject` method). Comment out the line `nextObject.Rotation = 1`, and uncomment the line below it. Your code should look like the following after the changes are made:
+Select the VisualObjects.ActorService project within the VisualObjects solution, and open the StatefulVisualObjectActor.cs file. Within that file navigate to the method `MoveObject`, and comment out `this.State.Move()` and uncomment `this.State.Move(true)`. This change will make the objects rotate after the service is upgraded.
 
-```c#
-            //nextObject.Rotation = 1;
+We also need to update the *ServiceManifest.xml* file (under PackageRoot) of the project **VisualObjects.ActorService**. Update the *CodePackage* and the service version to 2.0, and the corresponding lines in the *ServiceManifest.xml* file.
+You can use the Visual Studio *Edit Manifest Files* option after you right-click on the solution to make the manifest file changes - see [uprading your application using Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
 
-            // Once that's deployed, uncomment this line and upgrade the application:
 
-             nextObject.Rotation = (nextObject.Rotation + 10) % 360;
-```
-
-We also need to update the *ServiceManifest.xml* file (under PackageRoot) of the project **VisualObjects.DataService**. Update the *CodePackage* and the service version to 2.0, and the corresponding lines in the *ServiceManifest.xml* file should look like the following (highlighted portions show the changes):
+After the changes are made, the manifest should look like the following (highlighted portions show the changes):
 
 ```xml
-<ServiceManifestName="VisualObjects.DataService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 <CodePackageName="Code"Version="2.0">
 ```
 
-Now, we need to update the *ApplicationManifest.xml* file (found under the **VisualObjects** project under the **VisualObjects** solution) to use version 2.0 of the **VisualObjects.DataService** project and also update the Application version to 2.0.0.0 from 1.0.0.0. Now, the corresponding lines in the *ApplicationManifest.xml* should read like the following:
+Now, we need to update the *ApplicationManifest.xml* file (found under the **VisualObjects** project under the **VisualObjects** solution) to use version 2.0 of the **VisualObjects.ActorService** project and also update the Application version to 2.0.0.0 from 1.0.0.0. Now, the corresponding lines in the *ApplicationManifest.xml* should read like the following:
 
 ```xml
 <ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
- <ServiceManifestRefServiceManifestName="VisualObjects.DataService"ServiceManifestVersion="2.0" />
+ <ServiceManifestRefServiceManifestName="VisualObjects.ActorService"ServiceManifestVersion="2.0" />
 ```
 
-Now, build the project by selecting the **VisualObjects** project and right clicking and selecting build in Visual Studio (if you select Rebuild all, you might have to update the versions for the **VisualObjects.WebService** project as well in its *ServiceManifest.xml* and in the *ApplicationManifest.xml*, since the code would have changed). Now let's package the updated application by right clicking on the *VisualObjects* project, selecting the Service Fabric Menu and choosing Package. This should create an application package that can be deployed.  Your updated application is ready to be deployed now.
+
+Now, build the project by selecting just the **ActorService** project and right clicking and selecting build in Visual Studio (if you select Rebuild all, you might have to update the versions for the **VisualObjects.WebService** and **VisualObjects.Common" project as well in its *ServiceManifest.xml* and in the *ApplicationManifest.xml*, since the code would have changed). Now let's package the updated application by right clicking on *VisualObjectsApplication*, selecting the Service Fabric Menu and choosing Package. This should create an application package that can be deployed.  Your updated application is ready to be deployed now.
+
 
 ## Step 3:  Decide on health policies and upgrade parameters
 
@@ -77,6 +75,8 @@ HealthCheckStableDurationSec = 60
 UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
+
+You can set these through Visual Studio as well, by selecting *Publish* on the solution, followed by selecting *Upgrade Application*.
 
 ## Step 4: Prepare application for upgrade
 
@@ -116,6 +116,10 @@ You may want to try changing the versions and moving from version 2 to version 3
 
 
 ## Next steps
+
+[Uprading your Application Using Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
+
+[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
