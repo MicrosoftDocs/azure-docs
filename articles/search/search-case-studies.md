@@ -35,7 +35,7 @@ How does a small search engine for Albanian speakers take on today’s search gi
 
 JLL (formerly Jones Lang LaSalle) is looking to change the way its applications are designed and hosted by taking advantage of the cloud. Using Microsoft Azure, JLL can better serve its global workforce and customers in a more agile and scalable way, and it can focus on solutions instead of infrastructure. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18662)
 
-##[![XOMNI][6]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
+##[![XOMNI]](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
 
 It’s a classic tech startup story: developers with an idea see a market and want to jump. The market? Retail engagement. The idea? Back-end services for web and mobile application development to revive a flagging in-store retail experience. XOMNI used Microsoft Azure to rapidly implement a NoSQL database and a full-text search service, so customers now have a scalable platform for developing client software apps, integrating with social networks, and analyzing data to promote rich, interactive consumer experiences. [Learn more...](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)
 
@@ -59,4 +59,4 @@ Learn how one Swedish start-up built an infomedia portal that connects shoppers 
 [3]: ./media/search-case-studies/JLL_m.png
 [4]: ./media/search-case-studies/medihoo_m.png
 [5]: ./media/search-case-studies/weichert_m.png
-[6]: ./media/search-case-studies/xomni_m.png
+[xomni]: ./media/search-case-studies/xomni_m.png
