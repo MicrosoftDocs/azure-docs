@@ -54,6 +54,7 @@ If you are on Guest OS manual update, there will be two Guest OS versions releas
    These include the November MSRC, October Windows Rollups and .NET Framework upgraded to .NET 4.5.2 
 
 
+
 Prior to upgrading, here are some of options to help validate your Cloud Service with .NET 4.5.2: 
 
 1. 	Deploy a test Cloud Service Role to 201511-02 release and conduct application compatibility validation. 
@@ -61,6 +62,7 @@ Prior to upgrading, here are some of options to help validate your Cloud Service
 2. 	Install .NET 4.5.2 on a test Cloud Service Role and conduct application compatibility validation. Visit [Install .NET on a Cloud Service Role] for instructions. 
 
 3. 	Conduct application compatibility validation on a standalone VM, either on premise, or on an Azure VM with .NET 4.5.2 installed. 
+
 
 
 
