@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Default communication stack provided by Service Fabric"
-   description="This article describes the default communication stack provided by the Reliable Service's Framework for Services and clients to communicate."
+   pageTitle="Service remoting in Service Fabric | Microsoft Azure"
+   description="Service Fabric remoting allows clients and services to communicate with services using remote procedure call."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,96 +13,59 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
+   ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
-# Default communication stack provided by Reliable Services Framework
-For service authors who are not tied to a particular implementation of communication stack(WebAPI, WCF etc), the framework provides Client and Service side communication pieces that can be used to setup communication between the Service and Client.
+# Service remoting with Reliable Services
+For services that are not tied to a particular communication protocol or stack, such as WebAPI, WCF, or others, the framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.
 
-> [AZURE.NOTE] Please update to the latest nuget packges to get the features mentioned below.
+## Set up remoting on a service
+Setting up remoting for a service is done in two simple steps.
 
-## Service Communication Listener
-The default communication listener for the service is implemented in the `ServiceCommunicationListener` class
+1. Create an interface for your service to implement. This interface defines the methods that will be available for remote procedure call on your service, and must be Task-returning asynchronous methods. The interface must implement `Microsoft.ServiceFabric.Services.Remoting.IService` to signal that the service has a remoting interface. 
+2. Use `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener` in your service. This is an `ICommunicationListener` implementation that provides remoting capabilities.
 
-```csharp
-
-public class ServiceCommunicationListener<TServiceImplementation> : ICommunicationListener where TServiceImplementation : class
-{
-    public ServiceCommunicationListener(TServiceImplementation serviceImplementationType);
-    public ServiceCommunicationListener(TServiceImplementation serviceImplementationType, string endpointResourceName);
-
-    public void Abort();
-    public Task CloseAsync(CancellationToken cancellationToken);
-    public void Initialize(ServiceInitializationParameters serviceInitializationParameters);
-    public Task<string> OpenAsync(CancellationToken cancellationToken);
-}
-
-```
-The methods that the service service implements and wants to expose to its clients are defined as asynchronous methods in an interface which inherits from the `IService` interface. The service can then just instantiate the `ServiceCommunicationListener` object and return it in the [`CreateCommunicationListener` method](service-fabric-reliable-services-communication.md). For example, the HelloWorld service code to setup this communication stack may be defined as follows.
+For example, this Hello World service exposes a single method to get "Hello World" over remote procedure call:
 
 ```csharp
-
-[DataContract]
-public class Message
+public interface IHelloWorldStateful : IService
 {
-    [DataMember]
-    public string Content;
+    Task<string> GetHelloWorld();
 }
 
-public interface IHelloWorld : IService
+internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 {
-    Task<Message> GetGreeting();
-}
-
-public class HelloWorldService : StatelessService, IHelloWorld
-{
-    public const string ServiceTypeName = "HelloWorldUsingDefaultCommunicationType";
-
-    private Message greeting = new Message() { Content = "Default greeting" };
-
-    protected override ICommunicationListener CreateCommunicationListener()
+    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new ServiceCommunicationListener<HelloWorldService>(this);
+        return new[] { new ServiceReplicaListener(parameters => new ServiceRemotingListener<HelloWorldStateful>(parameters, this)) };
     }
 
-    public Task<Message> GetGreeting()
+    public Task<string> GetHelloWorld()
     {
-        return Task.FromResult(this.greeting);
+        return Task.FromResult("Hello World!");
     }
 }
 
 ```
-> [AZURE.NOTE] The arguments and the return types in the Service Interface, for example the Message class above, are expected to be serializable by the .net [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
+> [AZURE.NOTE] The arguments and the return types in the service interface can any simple, complex, or custom types, but they must be serializable by the .net [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
 
 
-## Writing Clients to communicate with ServiceCommunicationListener
-For clients to communicate to services using the `ServiceCommunicationListener`, the framework provides a `ServiceProxy` class.
+## Call remote service methods
+Calling methods on a service using the remoting stack is done using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` creates a local proxy using the same interface that the service implements. With that proxy, you can simply call methods on the interface remotely.
+
 
 ```csharp
 
-public abstract class ServiceProxy : IServiceProxy
-{
-...
+IHelloWorldStateful helloWorldClient = ServiceProxy.Create<IHelloWorldStateful>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
-    public static TServiceInterface Create<TServiceInterface>(Uri serviceName);
-
-...
-}
+string message = await helloWorldClient.GetHelloWorld();
 
 ```
 
-Clients can instantiate a service proxy object that implements the corresponding Service Interface and invoke methods on the proxy object.
-
-```csharp
-
-var helloWorldClient = ServiceProxy.Create<IHelloWorld>(helloWorldServiceName);
-
-var message = await helloWorldClient.GetGreeting();
-
-Console.WriteLine("Greeting is {0}", message.Content);
-
-
-```
-
->[AZURE.NOTE] The communication framework takes care of propagating exceptions thrown at the service to the client. So exception handling logic at the client using ServiceProxy can directly handle for execeptions that the service can potentially throw.
+The remoting framework propagates exceptions thrown at the service to the client. So exception handling logic at the client using `ServiceProxy` can directly handle execeptions that the service throws.
  
+## Next steps
+
+* [WCF based communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-wcf.md)
+
+* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-reliable-services-communication-webapi.md)
