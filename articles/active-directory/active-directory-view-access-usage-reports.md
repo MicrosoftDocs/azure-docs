@@ -13,8 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/13/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
+
+
+# Reporting Documentation Articles
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [Audit Events](active-directory-reporting-audit-events.md)
+ - [Retention](active-directory-reporting-retention.md)
+ - [Previews](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Backfill](active-directory-reporting-backfill.md)
+ - [Latencies](active-directory-reporting-latencies.md)
+ - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
 
 # View your access and usage reports
 
