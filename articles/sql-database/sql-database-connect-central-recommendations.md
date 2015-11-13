@@ -30,7 +30,7 @@ This topic is a good place to get started with client connectivity to Azure SQL 
 
 
 - [Guidelines for Connecting to Azure SQL Database Programmatically](http://msdn.microsoft.com/library/azure/ee336282.aspx) - discussions include the following:
- - [Ports and Firewalls](sql-database-configure-firewall-settings.md/)
+ - [Ports and Firewalls](sql-database-configure-firewall-settings.md)
  - Connection strings
 - [Azure SQL Database Resource Management](http://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
  - Resource governance
