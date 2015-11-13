@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# How to reset a password or the Remote Desktop service for Windows virtual machines
+# How to reset a password or the Remote Desktop service for a Windows VM
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 

@@ -27,8 +27,8 @@
 >[AZURE.NOTE] The retention policy for app metrics varies by granularity.
 
 - **Minute** granularity metrics are retained for **24 hours**
-- **Hour** granultarity metris are retained for **7 days**
-- **Day** granularity metrics are ratianed for **30 days**
+- **Hour** granularity metrics are retained for **7 days**
+- **Day** granularity metrics are retained for **30 days**
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 

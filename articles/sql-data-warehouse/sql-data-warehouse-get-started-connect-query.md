@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
+   ms.date="10/20/2015"
    ms.author="twounder"/>
 
 # Connect and query with Visual Studio
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect-query.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-query-sqlcmd.md)
+- [Visual Studio](sql-data-warehouse-get-started-connect.md)
+- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using Visual Studio. In this walkthrough, you will:
 

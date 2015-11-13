@@ -3,7 +3,7 @@
 	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="cenkdin,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
@@ -240,19 +240,22 @@ Other considerations related to working with channels and related components:
 
 ##How to create channels that receive multi-bitrate live stream from on-premises encoders
 
-For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##Related topics

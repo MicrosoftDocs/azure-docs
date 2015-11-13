@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Automating Azure virtual machine deployment with Chef
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef is a great tool for delivering automation and desired state configurations.
 
 With our latest cloud-api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.

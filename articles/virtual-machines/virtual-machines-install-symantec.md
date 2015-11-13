@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# How to install and configure Symantec Endpoint Protection on an Azure VM
+# How to install and configure Symantec Endpoint Protection on a Windows VM
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -88,7 +88,7 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Portal]: http://manage.windowsazure.com
 
-[Create]: virtual-machines-windows-tutorial.md
+[Create]: virtual-machines-windows-tutorial-classic-portal.md
 
 [PS]: ../powershell-install-configure.md
 

@@ -31,7 +31,8 @@ To complete this tutorial you also need:
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure storage account](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 It takes about 30 minutes to do these steps.
 

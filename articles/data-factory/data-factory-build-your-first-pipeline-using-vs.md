@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Visual Studio
@@ -205,7 +205,11 @@ When you publish the solution in the next step, the HQL file is uploaded to the 
 
 21. In the Configure data factory page, do the following: 
 	1. select **Create New Data Factory** option.
-	2. Enter **FirstPipelineUsingVS** for **Name**.
+	2. Enter **FirstPipelineUsingVS** for **Name**. 
+	
+		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstPipelineUsingVS” is not available** when publishing, change the name (for example, yournameFirstPipelineUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts. 
+		> 
+		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 	3. Select the right subscription for the **Subscription** field. 
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
@@ -239,5 +243,3 @@ See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) fo
 ## Next Steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-get-started.md).
   
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md). 

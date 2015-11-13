@@ -1,4 +1,4 @@
-## Send a cloud-to-device message from the app back-end
+## Send a cloud-to-device message from the app back end
 
 In this section, you'll write a Windows console app that sends cloud-to-device messages to the simulated device app.
 
@@ -50,7 +50,7 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
     ![][21]
 
 ## Receiving delivery feedback
-It is possible to request delivery (or expiration) ackownledgments from IoT Hub for each cloud-to-device message. This enables the cloud back-end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
+It is possible to request delivery (or expiration) ackownledgments from IoT Hub for each cloud-to-device message. This enables the cloud back end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
 
 In this section, you will modify the **SendCloudToDevice** app to request feedback and receive them from IoT Hub.
 

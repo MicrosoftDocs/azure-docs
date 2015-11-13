@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -65,7 +65,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName** - Name of the cloud service that new compute node VMs will be added to.
 
-* **ImageName** -Azure VM image name, which can be obtained through the AzurePortal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
+* **ImageName** -Azure VM image name, which can be obtained through the Azure portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
 
     1. A Windows operating system must be installed.
 

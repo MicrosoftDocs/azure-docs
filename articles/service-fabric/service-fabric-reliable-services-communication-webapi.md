@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Web API Services with OWIN self-host | Microsoft Azure"
-   description="This Service Fabric article explains how to implement service communication using ASP.NET Web API with OWIN self-hosting in Reliable Services."
+   pageTitle="Service communication with ASP.NET Web API | Microsoft Azure"
+   description="Learn how to implement service communication step-by-step using ASP.NET Web API with OWIN self-hosting in the Reliable Services API."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"

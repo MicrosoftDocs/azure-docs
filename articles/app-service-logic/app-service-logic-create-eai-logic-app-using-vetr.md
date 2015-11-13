@@ -51,12 +51,12 @@ Next, let's add triggers and actions.
 
 
 ## Add HTTP Trigger
-
+1. Select **Create from Scratch**.
 1. Select **HTTP Listener** from the gallery to create a new listener. Call it **HTTP1**.
 2. Leave **Send response automatically?** setting as false. Configure the trigger action by setting _HTTP Method_ to _POST_ and setting _Relative URL_ to _/OneWayPipeline_:  
 
 	![HTTP Trigger][2]
-
+3. Click the green checkmark.
 
 ## Add Validate Action
 
@@ -74,7 +74,7 @@ Similarly, let's add the rest of the actions.
 ## Add Transform action
 Let's configure transforms to normalize the incoming data.
 
-1. Add **Transform** from the gallery.
+1. Add **BizTalk Transform Service** from the gallery.
 2. To configure a transform to transform the incoming XML messages, select the **Transform** action as the action to carry out when this API is called and select ```triggers(‘httplistener’).outputs.Content``` as the value for _inputXml_. *Map* is an optional parameter since the incoming data is matched with all configured transforms, and only those that match the schema are applied.
 3. Lastly, the Transform runs only if Validate succeeds. To configure this condition, click the gear icon on the top right and select _Add a condition to be met_. Set the condition to ```equals(actions('xmlvalidator').status,'Succeeded')```:  
 
@@ -85,7 +85,8 @@ Let's configure transforms to normalize the incoming data.
 Next, let's add the destination--a Service Bus Queue--to write data to.
 
 1. Add a **Service Bus Connector** from the gallery. Set the **Name** to _Servicebus1_, set **Connection String** to the connection string to your service bus instance, set **Entity Name** to _Queue_, and skip **Subscription name**.
-2. Select the **Send Message** action and set the **Message** field for the action to _actions('transformservice').outputs.OutputXml_.
+2. Select the **Send Message** action and set the **Content** field for the action to _actions('transformservice').outputs.OutputXml_.
+3. Set the **Content Type** field to application/xml
 
 ![Service Bus][5]
 
@@ -94,12 +95,15 @@ Next, let's add the destination--a Service Bus Queue--to write data to.
 Once pipeline processing is done, send back an HTTP response for both success and failure with the following steps:
 
 1. Add an **HTTP Listener** from the gallery and select the **Send HTTP Response** action.
-2. Set **Response Content** to *Pipeline processing completed*, **Response Status Code** to *200* to indicate HTTP 200 OK, and **Condition** to the following expression:  
-	```@equals(actions('servicebusconnector').status,'Succeeded')```  <br/>
+2. Set **Response ID** to Send *Message*.
+2. Set **Response Content** to *Pipeline processing completed*.
+3. **Response Status Code** to *200* to indicate HTTP 200 OK.
+4. Click on the drop down menu on the top right and select **Add a condition to be met**.  Set the condition to the following expression:  
+	```@equals(actions('azureservicebusconnector').status,'Succeeded')```  <br/>
+5. Repeat these steps to send an HTTP response on failure as well. Change **Condition** to  the following expression:  
+```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. Click **OK** then click **Create**
 
-
-Repeat these steps to send an HTTP response on failure as well. Change **Condition** to  the following expression:  
-```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Completion
