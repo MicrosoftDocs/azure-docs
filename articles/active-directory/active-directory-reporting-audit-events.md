@@ -53,14 +53,14 @@ Add role member to Role              | Added a user to a directory role.
 Remove role member from Role         | Removed a user from a directory role.
 Set Company contact information      | Set company-level contact preferences. This includes email addresses for marketing, as well as technical notifications about Microsoft Online Services.
 **B2B events**                       |
-Batch invites uploaded.              | An administrator has uploaded a file containing invitations to be sent to partner users
-Batch invites processed.             | A file containing invitations to partner users has been processed
-Invite external user.                | An external user has been invited to the directory
-Redeem external user invite.         | An external user has redeemed their invitation to the directory
-Add external user to group.          | An external user has been assigned membership to a group in the directory
-Assign external user to application. | An external user has been assigned direct access to an application
-Viral tenant creation.               | A new tenant has been created in Azure AD by the invitation redemption
-Viral user creation.                 | A user has been created in an existing tenant in Azure AD by the invitation redemption
+Batch invites uploaded.              | An administrator has uploaded a file containing invitations to be sent to partner users.
+Batch invites processed.             | A file containing invitations to partner users has been processed.
+Invite external user.                | An external user has been invited to the directory.
+Redeem external user invite.         | An external user has redeemed their invitation to the directory.
+Add external user to group.          | An external user has been assigned membership to a group in the directory.
+Assign external user to application. | An external user has been assigned direct access to an application.
+Viral tenant creation.               | A new tenant has been created in Azure AD by the invitation redemption.
+Viral user creation.                 | A user has been created in an existing tenant in Azure AD by the invitation redemption.
 **Directory events**                 |
 Add partner to company               | Added a partner to the directory.
 Remove Partner from company          | Removed a partner from the directory.
