@@ -21,7 +21,11 @@
 # How to: Configure firewall settings on SQL Database using TSQL
 
 
-[AZURE.INCLUDE [sql-database-configure-includes-selector-method](../../includes/sql-database-configure-includes-selector-method.md)]
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [TSQL](sql-database-configure-firewall-settings-tsql.md)
+- [PowerShell](sql-database-configure-firewall-settings-powershell.md)
+- [REST API](sql-database-configure-firewall-settings-rest.md)
 
 
 Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.
