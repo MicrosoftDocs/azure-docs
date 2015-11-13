@@ -161,7 +161,7 @@ Details of the permissions API on the Microsoft Graph are available [here]().
  > 
 - *A permissions API is out of scope for the MS STS Office scenarios GA*
 
-# In Summary
+## In Summary
 
 When your app needs permissions from a directory administrator, you need to send the user to the `admin_consent`endpoint, following this general flow:
 
