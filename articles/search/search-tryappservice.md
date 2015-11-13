@@ -527,7 +527,6 @@ The following screenshot shows the schema used to create the index used in this 
       ]
     }
 
-
 <!--Image references-->
 [1]: ./media/search-tryappservice/AzSearch-TryAppService-TemplateTile.png
 [2]: ./media/search-tryappservice/AzSearch-TryAppService-LoginAccount.png
