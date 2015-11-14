@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/13/2015" 
 	ms.author="asteen"/>
 
 # Deploying Password Management and training users to use it
@@ -54,6 +54,8 @@ You have several options on how to specify data for users in your organization t
 - Require users to register for password reset when they sign in to the Access Panel at [http://myapps.microsoft.com](http://myapps.microsoft.com) by setting the **Require users to register SSPR** configuration option to **Yes**.
 
 Users need not register for password reset for the system to work.  For example, if you have existing phone numbers in your local directory, you can synchronize them in Azure AD and we will use them for password reset automatically.
+
+You can also read more about [how data is used by password reset and how you can populate individual authentication fields fields](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
 ## What is the best way to roll out password reset for users?
 The following are the general rollout steps for password reset:

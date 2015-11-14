@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/13/2015" 
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
@@ -46,7 +46,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Directory Name</p>
+                <div id="directory-name">
+                  <p>Directory Name</p>
+                </div>
               </td>
               <td>
                 <p>Determines what organizational name users or admins see on password reset email communications</p>
@@ -72,7 +74,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Sign in and access panel page appearance</p>
+                <div id="sign-in-and-access-panel-page-appearance">
+                  <p>Sign in and access panel page appearance</p>
+                </div>
               </td>
               <td>
                 <p>Determines if users visiting the password reset page see the Microsoft logo or your own custom logo.  This configuration item also adds your branding to the access panel and sign in page.</p>
@@ -134,7 +138,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Users enabled for password reset</p>
+                <div id="users-enabled-for-password-reset">
+                  <p>Users enabled for password reset</p>
+                </div>
               </td>
               <td>
                 <p>Determines if password reset is enabled for users in this directory. </p>
@@ -166,7 +172,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Restrict access to password reset</p>
+                <div id="restrict-access-to-password-reset">
+                  <p>Restrict access to password reset</p>
+                </div>
               </td>
               <td>
                 <p>Determines whether only a particular group of users is allowed to use password reset. (Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
@@ -194,7 +202,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Group that can perform password reset</p>
+                <div id="group-that-can-perform-password-reset">
+                  <p>Group that can perform password reset</p>
+                </div>
               </td>
               <td>
                 <p>Determines what group of end users is allowed to use password reset. </p>
@@ -231,7 +241,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Authentication methods available to users</p>
+                <div id="authentication-methods-available-to-users">
+                  <p>Authentication methods available to users</p>
+                </div>
               </td>
               <td>
                 <p>Determines which challenges a user is allowed to use to reset his or her password.</p>
@@ -295,7 +307,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Number of authentication methods required</p>
+                <div id="number-of-authentication-methods-required">
+                  <p>Number of authentication methods required</p>
+                </div>
               </td>
               <td>
                 <p>Determines the minimum number of the available authentication methods a user must go through to reset his or her password.</p>
@@ -332,7 +346,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Number of questions required to register</p>
+                <div id="number-of-questions-required-to-register">
+                  <p>Number of questions required to register</p>
+                </div>
               </td>
               <td>
                 <p>Determines the minimum number of questions a user must answer when registering for the security questions option.</p>
@@ -361,7 +377,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Number of questions required to reset </p>
+                <div id="number-of-questions-required-to-reset">
+                  <p>Number of questions required to reset </p>
+                </div>
               </td>
               <td>
                 <p>Determines the minimum number of questions a user must answer when resetting a password.</p>
@@ -393,7 +411,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Knowledge based security questions</p>
+                <div id="knowledge-based-security-questions">
+                  <p>Knowledge based security questions</p>
+                </div>
               </td>
               <td>
                 <p>Defines the pre-canned security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
@@ -442,7 +462,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Custom Security questions</p>
+                <div id="custom-security-questions">
+                  <p>Custom Security questions</p>
+                </div>
               </td>
               <td>
                 <p>Defines the security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
@@ -493,13 +515,21 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Require users to register when signing in to the access panel?</p>
+                <div id="require-users-to-register-when-signing-in">
+                  <p>Require users to register when signing in?</p>
+                </div>
                 <p>
                   
                 </p>
               </td>
               <td>
-                <p>Determines if a user is required to register contact data for password reset the next time he or she signs in to the access panel.</p>
+                <p>Determines if a user is required to register contact data for password reset the next time he or she signs in.  
+                </p>
+                <p>This capability works on any sign-in page that uses a work or school account.  Such pages include all of Office 365, the Azure Management Portal, the Access Panel, and any federated or custom-developed applications that use Azure AD to sign in. You'll be able to use this feature anywhere you see the following logo: <img src="./media/active-directory-passwords-customize/001.jpg"></p>
+                <p>
+                  
+                </p>
+                <p>Enforced registration will only apply to users who are enabled for password reset, so if you have used the "restrict access to password reset" feature and scoped password reset to a specific group of users, then only users in that group will be required to register for password reset when signing in.</p>
                 <p>
                   
                 </p>
@@ -534,7 +564,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Number of days before users must confirm their contact data</p>
+                <div id="number-of-days-before-users-must-confirm-their-contact-data">
+                  <p>Number of days before users must confirm their contact data</p>
+                </div>
               </td>
               <td>
                 <p>When <strong>require users to register</strong> is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. </p>
@@ -568,7 +600,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Customize the contact your administrator link?</p>
+                <div id="customize-the-contact-your-administrator-link">
+                  <p>Customize the contact your administrator link?</p>
+                </div>
               </td>
               <td>
                 <p>Controls whether or not the contact your administrator link (shown to the left) that appears on the password reset portal when an error occurs or a user waits too long on an operation points to a custom URL or email address.</p>
@@ -612,7 +646,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Custom email address or URL</p>
+                <div id="custom-email-address-or-URL">
+                  <p>Custom email address or URL</p>
+                </div>
               </td>
               <td>
                 <p>Controls the email address or URL to which the <strong>contact your administrator</strong> link points. </p>
@@ -644,14 +680,16 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Write back password to on-premises directory</p>
+                <div id="write-back-passwords-to-on-premises-directory">
+                  <p>Write back passwords to on-premises directory</p>
+                </div>
               </td>
               <td>
                 <p>Controls whether or not Password Writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service.</p>
                 <p>
                   
                 </p>
-                <p>This is useful if you want to temporarily disable the service due to an outage.</p>
+                <p>This is setting is useful if you want to temporarily disable the service without re-configuring Azure AD Connect.</p>
               </td>
               <td>
                 <p>
@@ -688,6 +726,38 @@ The following table describes how each control affects the experience for users 
                 </ul>
               </td>
             </tr>
+             <tr>
+              <td>
+                <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
+                  <p>Allow users to unlock accounts without resetting their password</p>
+                </div>
+              </td>
+              <td>
+              
+              <p>Designates whether or not users who visit the password reset portal should be given the option to unlock their on-premises Active Directory accounts without resetting their password. By default, Azure AD will always unlock accounts when performing a password reset, this setting allows you to separate those two operations.</p>
+              
+              <p>If set to “yes”, then users will be given the option to reset their password and unlock the account, or to unlock without resetting the password. </p>
+              
+              <p>If set to “no”, then users will only be able to perform a combined password reset and account unlock operation.</p>
+
+              </td>
+              <td>
+                <p>
+                  <strong>Note:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												In order to use this feature, you must install the August 2015 or later release of Azure AD Connect (v. 1.0.8667.0 or greater).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Click here to download the latest version of Azure AD Connect.</a></li>
+                </ul>
+                <p>
+                  <strong>Password reset portal:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												After enabling this option, when a user with an on-premises account that is locked arrives at the password reset portal, he or she will be given the option to unlock their account without resetting their password.<br><br>Note that if you are using password writeback, accounts are already automatically unlocked when the password is reset, and that this option simply decouples those operations.<br><br>This is an especially useful option to enable if you find that many of your helpdesk calls are generated by account unlock requests.</li>
+                </ul>
+              </td>
+            </tr>
           </tbody></table>
 
 ## Password Management notifications
@@ -713,7 +783,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Notify admins when other admins reset their own passwords</p>
+                <div id="notify-admins-when-other-admins-reset-their-own-passwords">
+                  <p>Notify admins when other admins reset their own passwords</p>
+                </div>
               </td>
               <td>
                 <p>Determines whether or not all global admins will be notified via an email to their primary email address when another admin of any type resets his or her own password.</p>
@@ -741,7 +813,9 @@ The following table describes how each control affects the experience for users 
             </tr>
             <tr>
               <td>
-                <p>Notify users and admins when their own password has been reset</p>
+                <div id="notify-users-and-admins-when-their-own-password-has-been-reset">
+                  <p>Notify users and admins when their own password has been reset</p>
+                </div>
               </td>
               <td>
                 <p>Determines whether or not end users or admins who reset their own passwords will receive an email notification that their password has been reset.</p>
@@ -779,3 +853,6 @@ The following table describes how each control affects the experience for users 
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
 * [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+
+
+[001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
