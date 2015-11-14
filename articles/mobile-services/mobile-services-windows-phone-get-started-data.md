@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/25/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   	This creates a new instance of **MobileServiceClient** that is used to access your mobile service.
 
-6. In the file MainPage.xaml.cs, add or uncomment the following `using` statements:
+6. In the file MainPage.cs, add or uncomment the following `using` statements:
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. In this same file, replace the **TodoItem** class definition with the following code:
+7. In this DataModel folder, replace the **TodoItem** class definition with the following code:
 
         public class TodoItem
         {

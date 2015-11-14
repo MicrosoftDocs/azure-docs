@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -217,14 +217,17 @@ You might want to disable web tests while you are performing maintenance on your
 
 ## Questions? Problems?
 
-
-* *Is there a difference between "web tests" and "availability"?*
-
-    We use the two terms interchangeably.
-
 * *Can I call code from my web test?*
 
     No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are a number of plug-ins that you might find helpful.
+
+* *Is HTTPS supported?*
+
+    Currently, we support SSL 3.0 and TLS 1.0.
+
+* *Is there a difference between "web tests" and "availability tests"?*
+
+    We use the two terms interchangeably.
 
 ## <a name="video"></a>Video
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL information
@@ -29,7 +29,6 @@ This topic discusses the features that are available with SQL Database when upgr
 
 SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however the WITH ENCRYPTION option of CREATE PROCEDURE is not available. Refer to the linked syntax topics for details about the supported areas of each statement.
 
-- CLR assemblies: [CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMV's are generally available for features that are available
 - Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -76,6 +75,8 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - SHUTDOWN
 - sp_addmessage
 - sp_configure options and RECONFIGURE
+- sp_helpuser
+- sp_migrate_user_to_contained
 - SQL Server audit (use SQL Database auditing instead)
 - SQL Server Profiler
 - SQL Server trace

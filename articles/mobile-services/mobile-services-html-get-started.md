@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
@@ -91,7 +91,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows** (Windows computers)
+	+ **.\start-iisexpress.ps1** (Windows computers)
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
@@ -107,7 +107,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
    	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.
+	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the page.js file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 

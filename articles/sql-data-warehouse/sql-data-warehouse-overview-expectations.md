@@ -62,7 +62,7 @@ Based on telemetry data, we estimate the current reliability of Azure SQL Data W
 
 ### Service uptime
 
-Azure SQL Data Warehouse may have up to 4 maintenance events per month to install critical fixes. Each event may cause query failures for up to 2 hours. The time will depend on the number of DWUs allocated to the service. We will make every attempt to notify these events 48 hours in advance.
+Azure SQL Data Warehouse may have up to 4 maintenance events per month to install critical fixes. Each event may cause query failures for up to 2 hours. The time will depend on the number of DWUs allocated to the service.
 
 
 ## Next steps

@@ -38,7 +38,7 @@ In this tutorial you will:
 
 2. Click **New** > **Data + Storage** > **SQL Data Warehouse**.
 
-	![Create a data warehouse](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Create](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Enter a name for your database in the SQL Data Warehouse blade. In this example, we name the database AdventureWorksDW.
 

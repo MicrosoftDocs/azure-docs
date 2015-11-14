@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Windows Phone
@@ -120,7 +120,7 @@ You can send notifications by using Notification Hubs from any backend via the <
 
 	This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
 
-4. Right-click the , click **Tools**, click **Library Package Manager**, and then click **Package Manager Console**.
+4. Click **Tools**, click **Library Package Manager**, and then click **Package Manager Console**.
 
 	This displays the Package Manager Console.
 
