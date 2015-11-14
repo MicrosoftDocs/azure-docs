@@ -184,11 +184,10 @@ To install Azure PowerShell, please follow the steps in the previous section **I
     1.	Under **Certificates - Local Computer**, expand **Personal**, then choose **Certificates**.
     1.	Find your certificate in the list.
     1.	Right-click your certificate and then choose **All Tasks** > **Manage Private Keys**.
-
-![](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
-
     1.	Choose the **Add** button, then enter **Local Service** and choose **Check Names**.
     1.	Choose the **OK** button and then close the certificate manager.
+
+![](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 ### Register your build agent
 
