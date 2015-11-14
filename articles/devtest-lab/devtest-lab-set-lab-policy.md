@@ -52,7 +52,7 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 ## Set allowed VM sizes
 
-The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VMs from this list can be created.
+The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
 
 1. On the lab's **Settings** blade, under **Policies**, tap **Allowed VM Sizes**.
 
