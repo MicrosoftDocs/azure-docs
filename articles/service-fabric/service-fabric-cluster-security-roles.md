@@ -76,7 +76,7 @@ The administrator access control type has full access to all the FabricClient AP
 * **NodeControl** : starting; stopping; and restarting nodes 							
 * **MoveReplicaControl** : Move replicas from one node to another 							
 
-### Miscellaneous operation
+### Miscellaneous operations
 * **Ping** : client pings 							
 * **Query** : all queries allowed
 * **NameExists** : Naming URI existence checks 							
