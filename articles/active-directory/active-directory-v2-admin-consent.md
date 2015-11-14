@@ -37,27 +37,29 @@
 
 ## Intro
 
-SaaS applications that support business customers will typically have a "sign-up your business" flow.  Dropbox is one good example of such an app:
+In Azure AD, there are certain permissions which can only be granted to application by an administrator of an organization.  These include:
+
+#### Admin-only delegated permissions
+
+APIs that accept tokens from the MS STS can specify that a permission for their API as an ["admin-only" delegated permissions](#admin-only-delegated-permissions).  This restricts any regular employees from granting this permission to an application through [consent]().  An example of one such permission is the `[Directory.ReadWrite]()` permission on the Microsoft Graph, which allows an application to update any data within an Azure AD tenant.  These "admin-only" permissions are [delegated permissions]() - that is, they are acquired on behalf of a user and can only be used in the context of that user.  For instance, an application acting on behalf of a regular employee would not be able to remove an employee of the company, even if the application had been granted the `Directory.ReadWrite` permission.  The regular employee does not have authorization to perform such actions themselves.
+
+#### Direct application permissions
+
+APIs can also expose "application permissions".  As opposed to delegated permissions, application permissions are granted directly to your application, not on behalf of any particular user.  These permissions are typically used for [daemon scenarios](), or long-running background processes that do not require a user to sign in. As an example, the Microsoft Graph exposes a `Directory.Read` application permission, which allows an application to read all data in an Azure AD tenant without requiring user sign in.  Only administrators of a company are able to grant application permissions to an application.
+
+#### Pre-granted permissions for all users
+
+Administrators of a company also have the ability to "pre-grant" any permission for all employees in their company.  When an admin consents to permissions for all employees, the employees themselves do not have to grant the application the permissions that it requests.  Effecitvely, this action supresses the consent page that users would normally see for a given application.
+
+If you are building an application that requires any of these permissions, you will need to engage company administrators to review & grant those pemrmissions to your app:
+
+For [line of business applications]() that target only a single company, you can follow the steps below to configure your app and get a company administrator to visit the [Azure AD app gallery]().
+
+For [multi-tenant SaaS applications](), you will need to build the permission request flow into the application itself.  Often, SaaS applications that support business customers have a "sign-up your business" flow.  Dropbox is one good example:
 
 ![Business Sign Up Button](./media/active-directory-v2-admin-consent/dropbox_business.PNG)
 
-During this sign-up flow (or at later point in time), your app can provide a way for users to connect the app to their company's Azure AD directory, [if they have one](determining-if-a-user-has-aad.md).  In most applications, any employee of a company will be able to connect your app to their Azure AD directory simply by signing into the app with their work account and [consenting to the permissions the app requires.](consent-overview.md)
-
-However, there are a few scenarios in which connecting the application will require administrative privileges:
-
-## Admin-only delegated permissions
-
-- If your app requires ["admin-only" delegated permissions](#admin-only-delegated-permissions)
-
-## Direct application permissions
-
-- If your app requires [direct permissions](#direct-application-permissions), not delegated by any user.
-
-## Pre-granting permissions for all users
-
-- If you want the admin to [pre-grant consent for all users](#pre-granting-consent-for-all-users) in the company.
-
-For each of these scenarios, you can use the [Azure AD app gallery]() to allow the admin to grant your application the permissions that it needs.
+This sign up flow is a good opportunity to provide a way for admins to connect the app to their company's Azure AD directory, [if they have one](determining-if-a-user-has-aad.md).  But of course, you can choose to engage admins at whatever point in your application makes the most sense.  Whenever you choose to acquire permissions from the admin, you can use the [Azure AD app gallery]() to perform the permissions request.  The steps below outline the process you can take to successfully acquire the permissions your app needs.
 
 ## 1. Declare permissions your app needs
 
