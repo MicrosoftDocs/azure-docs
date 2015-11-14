@@ -127,15 +127,15 @@ See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](h
 Visual Studio Online Load Test provides APIs to enable you to manage load tests and analyze results in a VSO account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
 
 ## Next Steps
-- [Using ElasticSearch as a Service Fabric Application Trace Store](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+- [Monitoring and Diagnosing Services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[0]: ./media\service-fabric-vso-load-test/OverviewDiagram.png
-[1]: ./media\service-fabric-vso-load-test/NewProjectDialog.png
-[2]: ./media\service-fabric-vso-load-test/Project.png
-[3]: ./media\service-fabric-vso-load-test/AddRecording.png
-[4]: ./media\service-fabric-vso-load-test/AddRecording2.png
-[5]: ./media\service-fabric-vso-load-test/ActionSequence.png
-[6]: ./media\service-fabric-vso-load-test/StopRecording.png
-[7]: ./media\service-fabric-vso-load-test/RunTest.png
-[8]: ./media\service-fabric-vso-load-test/RunTest2.png
-[9]: ./media\service-fabric-vso-load-test/Graph.png
+[0]: ./media/service-fabric-vso-load-test/OverviewDiagram.png
+[1]: ./media/service-fabric-vso-load-test/NewProjectDialog.png
+[2]: ./media/service-fabric-vso-load-test/Project.png
+[3]: ./media/service-fabric-vso-load-test/AddRecording.png
+[4]: ./media/service-fabric-vso-load-test/AddRecording2.png
+[5]: ./media/service-fabric-vso-load-test/ActionSequence.png
+[6]: ./media/service-fabric-vso-load-test/StopRecording.png
+[7]: ./media/service-fabric-vso-load-test/RunTest.png
+[8]: ./media/service-fabric-vso-load-test/RunTest2.png
+[9]: ./media/service-fabric-vso-load-test/Graph.png

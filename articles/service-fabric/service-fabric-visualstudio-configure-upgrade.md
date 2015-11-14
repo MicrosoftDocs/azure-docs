@@ -17,11 +17,11 @@
 
 # Configure the upgrade of a Service Fabric application in Visual Studio
 
-Visual Studio Service Fabric tools provide upgrade support for publishing to local or remote clusters. There are two advantages for upgrading your application to a newer version instead of replacing the application during testing and debugging: firstly test data can be persisted on the cluster so no additional work is needed to load test data, and secondly high availability is achieved as there won't be any service interruption during upgrade. Tests can be run against an application while it's being upgraded. 
+Visual Studio Service Fabric Tools provide upgrade support for publishing to local or remote clusters. There are two advantages for upgrading your application to a newer version instead of replacing the application during testing and debugging: firstly application data won't be lost during the upgrade, and secondly high availability is achieved as there won't be any service interruption during upgrade if there are enough service instances spread across upgrade domains. Tests can be run against an application while it's being upgraded. 
 
 ## Parameters needed to upgrade
 
-There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade while health check policies measure the results of the upgrade. See [Service Fabric Application Upgrade: Upgrade Parameters](service-fabric-application-upgrade-parameters.md) for more details.
+There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade while health check policies determine whether the upgrade was successful or not. See [Service Fabric Application Upgrade: Upgrade Parameters](service-fabric-application-upgrade-parameters.md) for more details.
 
 There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *Manual*.
 
@@ -29,13 +29,13 @@ There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *Manual*.
 
   - An* UnmonitoredAuto* upgrade automates the upgrade, but skips the application health check.
 
-  - When you do a *Manual* upgrade, you need to manually move the upgrade to the next upgrade domain.
+  - When you do a *Manual* upgrade, you need to manually upgrade each upgrade domain.
 
 Each upgrade mode requires different sets of parameters. See [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md) to learn more about the available upgrade options.
 
 ## Upgrade a Service Fabric application in Visual Studio
 
-If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fabric application, you can specify a publish process to be an upgrade rather than a regular deployment by checking the **Upgrade the application** checkbox.
+If you’re using the Visual Studio Service Fabric Tools to upgrade a Service Fabric application, you can specify a publish process to be an upgrade rather than a regular deployment by checking the **Upgrade the application** checkbox.
 
 ### To configure the upgrade parameters
 
@@ -43,13 +43,13 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 
 2. Select the upgrade mode you want to use and then fill out the parameter grid.
 
-    Each parameter has default values. The *DefaultServiceTypeHealthPolicy* parameter needs a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
+    Each parameter has default values. The optional parameter *DefaultServiceTypeHealthPolicy* parameter takes a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
 
 	```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
 	```
 	
-    *ServiceTypeHealthPolicyMap* is another parameter that requires a hash table input in the following format:
+    *ServiceTypeHealthPolicyMap* is another optional parameter that takes a hash table input in the following format:
 
 	```    
 	@ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
