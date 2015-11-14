@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Reliable Actors: The canonical HelloWorld walk-through scenario
@@ -59,18 +59,14 @@ A typical Reliable Actors solution is composed of 3 projects:
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld.Interfaces
+namespace MyActor.Interfaces
 {
-    public interface IHelloWorld : IActor
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+
+    public interface IMyActor : IActor
     {
-        Task<string> SayHello(string greeting);
+        Task<string> HelloWorld();
     }
 }
 
@@ -80,22 +76,18 @@ namespace HelloWorld.Interfaces
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using HelloWorld.Interfaces;
-using Microsoft.ServiceFabric;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld
+namespace MyActor
 {
-    public class HelloWorld : Actor, IHelloWorld
+    using System;
+    using System.Threading.Tasks;
+    using Interfaces;
+    using Microsoft.ServiceFabric.Actors;
+
+    internal class MyActor : StatelessActor, IMyActor
     {
-        public Task<string> SayHello(string greeting)
+        public Task<string> HelloWorld()
         {
-            return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
+            throw new NotImplementedException();
         }
     }
 }
@@ -106,26 +98,34 @@ The Actor Service project contains the code to create a Service Fabric service, 
 
 ```csharp
 
-public class Program
+namespace MyActor
 {
-    public static void Main(string[] args)
-    {
-        try
-        {
-            using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-            {
-                fabricRuntime.RegisterActor(typeof(HelloWorld));
+    using System;
+    using System.Fabric;
+    using System.Threading;
+    using Microsoft.ServiceFabric.Actors;
 
-                Thread.Sleep(Timeout.Infinite);
+    internal static class Program
+    {
+        private static void Main()
+        {
+            try
+            {
+                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
+                {
+                    fabricRuntime.RegisterActor<MyActor>();
+
+                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
+                }
+            }
+            catch (Exception e)
+            {
+                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+                throw;
             }
         }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e);
-            throw;
-        }
     }
-}  
+}
 
 ```
 
@@ -133,7 +133,7 @@ If you start from a new project in Visual Studio and you have only one Actor def
 
 ```csharp
 
-fabricRuntime.RegisterActor(typeof(MyNewActor));
+fabricRuntime.RegisterActor<MyActor>();
 
 
 ```
