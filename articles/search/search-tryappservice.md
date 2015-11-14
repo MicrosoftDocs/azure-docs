@@ -1,6 +1,6 @@
 <properties
    pageTitle="Try Azure Search for free with Azure App Service | Microsoft Azure"
-   description="Try Azure Search for free, up to one hour, using the Azure App Service  template."
+   description="Try Azure Search for free, up to one hour, using the Azure App Service template."
    services="search"
    documentationCenter=""
    authors="HeidiSteen"
