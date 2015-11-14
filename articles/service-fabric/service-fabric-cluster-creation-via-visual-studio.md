@@ -35,7 +35,7 @@ After hitting OK button Visual Studio will ask you to select the ARM template to
 Select "Service Fabric Cluster" template and hit OK button again. The project and the ARM template will now be created.
 
 ## Preparing the template for deployment
-Before the template is deployed to create the cluster, you must provide values for required template parameters. These parameter values are read from `ServiceFabricCluster.param.dev.json` file, which is located under `Templates` folder of the Resource Group project. Open the file and provide the following values (set :
+Before the template is deployed to create the cluster, you must provide values for required template parameters. These parameter values are read from `ServiceFabricCluster.param.dev.json` file, which is located under `Templates` folder of the Resource Group project. Open the file and provide the following values:
 
 |Parameter Name           |Description|
 |-----------------------  |--------------------------|
