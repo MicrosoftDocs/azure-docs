@@ -528,4 +528,3 @@ The following screenshot shows the schema used to create the index used in this 
 [12]: ./media/search-tryappservice/AzSearch-TryAppService-searchmodeWAState.png
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
-
