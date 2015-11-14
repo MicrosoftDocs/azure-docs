@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
@@ -87,7 +87,7 @@ Once the notification message has been received by the respective PNS then it is
 If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. 
 Source - [APNS guidance] & [GCM guidance]
 
-With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (e.g. for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers which are passes as is to the respective PNS. 
+With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (e.g. for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers which are passed as is to the respective PNS. 
 
 ##Self-diagnose tips
 
@@ -117,7 +117,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 
 	![][8]
  
-	> [AZURE.NOTE] Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations. If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (Only available in Standard Tier)
+	> [AZURE.NOTE] Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations. If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Service Bus explorer**
 
