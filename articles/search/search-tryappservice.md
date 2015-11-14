@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Try Azure Search for free with Azure App Service "
+   pageTitle="Try Azure Search for free with Azure App Service | Microsoft Azure"
    description="Try Azure Search for free, up to one hour, using the Azure App Service  template."
    services="search"
    documentationCenter=""
@@ -32,7 +32,7 @@ To help you get the most out of your one hour session, the following instruction
 
 Before moving ahead, you might want to take a few minutes review a few key points about the code, service, and searchable data. Having a little background could prove useful if you’re not already familiar with Azure Search.
 
-##Facts about the code and Azure Search
+## Facts about the code and Azure Search
 
 Azure Search is a fully managed Platform as a Service [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) service that makes it easy for developers to integrate great search experiences in web and mobile applications. Data used in search operations is stored with your search service in Azure, where proximity of data to operations ensures low latency and consistent search behaviors. Drilling into this a bit further:
 
@@ -48,7 +48,7 @@ Code is written in C#, using the [Azure Search .NET client library](https://msdn
 
 Other code, not included in the template, was used to build and load the USGS search index. Because the service is read-only, all operations requiring write-access had to be completed in advance. You can see a [copy of the schema](#schema) used to build the schema at the end of this article.
 
-##Get started
+## Get started
 
 If you haven’t started your 1-hour session yet, follow these steps to get started.
 
@@ -81,7 +81,8 @@ If you haven’t started your 1-hour session yet, follow these steps to get star
     ![][6]
 
 
-##What to do first
+## What to do first
+
 Since the search index is fully operational, a good first step is to try out a few queries. Azure
 Search supports all of the standard search operators (+, -, |), quotation marks for literal matches, wildcard (*), and precedence operators. You can review the query syntax reference for the full list of operators.
 
@@ -93,7 +94,7 @@ Search supports all of the standard search operators (+, -, |), quotation marks 
 
 Ready to move on? Let’s change a few lines of code to see the impact on full-text search operations.
 
-##Change searchMode.All
+## Change searchMode.All
 
 Azure Search has a configurable **searchMode** property that you can use to control search operator behavior. Valid values for this property are `Any` (default) or `All`. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) for more guidance on setting these options.
 
@@ -130,7 +131,7 @@ Admittedly, this is perhaps an unlikely scenario, but it illustrates the effects
 
 To continue with this tutorial, revert **searchMode** back to its original value (set to `All` on line 39), run the program, and use the rebuilt app for the remaining tasks.
 
-##Add a global filter for Washington State
+## Add a global filter for Washington State
 
 Normally, if you wanted to search over a subset of available data, you would set the filter at the data source when importing data. For learning purposes, working with read-only data, we’ll set the filter in our application to return just the documents that include Washington State.
 
@@ -161,7 +162,7 @@ Filters are specified using OData syntax and are frequently used with faceted na
 
    ![][12]
 
-##Add Hit Highlighting
+## Add hit highlighting
 
 Now that you have made a series of one-line code changes, you might want to try deeper modifications that require code changes in multiple places. The following version of **Search.cshtml** can be pasted right over the Search.cshtml file in your current session.
 
@@ -308,7 +309,7 @@ You might want to save a copy of the original **Search.cshtml** file to see how 
     }
 
 
-##Next steps
+## Next steps
 
 Using the read-only service provided in [Try Azure App Service](https://tryappservice.azure.com/) site, you have seen the query syntax and full-text search in action, learned about searchMode and filters, and added hit-highlighting to your search application. As your next step, consider moving on to creating and updating indexes. This adds the ability to:
 
@@ -321,13 +322,13 @@ To perform all these tasks, you’ll need an Azure subscription so that you can 
 To learn more about Azure Search, visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) on [http://azure.microsoft.com](http://azure.microsoft.com) or check out any number of [samples and videos](search-video-demo-tutorial-list.md) that explore the full range of Azure Search functionality.
 
 <a name="Schema"></a>
-##About the schema
+## About the schema
 
 The following screenshot shows the schema used to create the index used in this template.
 
    ![][13]
 
-###Schema.json file
+### Schema.json file
 
     {
       "@odata.context": "https://tryappservice.search.windows.net/$metadata#indexes/$entity",
