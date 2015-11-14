@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
     ms.date="10/05/2015" 
-    ms.author="mimig"/>
+    ms.author="arramac"/>
 
 
 # DocumentDB indexing policies

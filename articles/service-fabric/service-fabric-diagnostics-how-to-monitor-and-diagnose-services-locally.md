@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 

@@ -21,6 +21,8 @@
 
 #Selecting User Names for Linux on Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 When you provision a Linux virtual machine on Azure you must specify the name of a non-root user that you can later use to log into the VM. You may choose the name of the new user, or if provisioning via the management portal you can accept the default name "azureuser".
 
 In most cases this user won't exist on the base image and is created during the provisioning process. If the user exists on the base VM image, then the Azure Linux agent simply configures the password (and/or SSH key) for that user based on the information you specified when creating the VM.

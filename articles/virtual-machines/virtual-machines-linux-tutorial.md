@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/13/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Create a Virtual Machine Running Linux
@@ -22,6 +22,10 @@
 > [AZURE.SELECTOR]
 - [Azure Portal](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
+
+<br>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface for Mac, Linux, and Windows (the Azure CLI) to create quickly an Ubuntu Server VM running in Azure, connect to it using **ssh**, and creating and mounting a new disk. (This topic uses an Ubuntu Server VM, but you can also create Linux VMs using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).)
 
@@ -39,9 +43,9 @@ The first step is to [install the Azure CLI](../xplat-cli-install.md).
 
 Good. Now make sure you're in the Resource Manager mode by typing `azure config mode arm`.
 
-Even better. Now [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts.
+Even better. Now [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account.
 
-> [AZURE.NOTE] If you receive an error logging in, you may need to [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can use `azure login -u` along with the work or school ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md).
 
 ## Create your Azure VM
 
@@ -60,7 +64,20 @@ Type `azure group create <my-group-name> westus` replacing _&lt;my-group-name&gt
 	data:
 	info:    group create command OK
 
-Now create your VM by typing `azure vm quick-create`, and you'll receive prompts to input the remaining parameters. Use the name of the resource group that you just created, above, and for the **ImageURN** value, use `canonical:ubuntuserver:14.04.2-LTS:latest`, so that your experience looks something like:
+Now create your VM by typing `azure vm quick-create`, and you'll receive prompts to input the remaining parameters. Use the name of the resource group that you just created, above, and for the **ImageURN** value, use `canonical:ubuntuserver:14.04.2-LTS:latest`, so that your experience looks something like the following. Note that the `azure vm quick-create` command prompts for basic information it requires to create, host, and connect to a Linux VM, including:
+
+- the resource group name and VM name
+- a deployment location
+- the operating system type and the image URN string
+- a username and password
+
+and then creates the infrastructure necessary to host the VM. This includes:
+
+- An Azure storage account for VHD storage and extra disks
+- A NIC for the VM
+- a vnet with a subnet
+- a public IP address
+- a subdomain
 
 	azure vm quick-create
 	info:    Executing command vm quick-create
@@ -147,7 +164,9 @@ Your VM is up and running and waiting for you to connect.
 
 ## Connecting to your VM
 
-With Linux VMs, you typically connect using **ssh**. This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
+With Linux VMs, you typically connect using **ssh**. 
+
+> [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
 
 If you're not familiar with connecting with **ssh**, the command takes the form `ssh <username>@<publicdnsaddress> -p <the ssh port>`. In this case, we use the username and password from the previous step and port 22, which is the default **ssh** port.
 
@@ -293,7 +312,7 @@ The data disk is now ready to use as `/datadrive`.
 
 ## Next Steps
 
-Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
+Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file. If you want, you can add several more disks and [configure RAID](virtual-machines-linux-configure-raid.md). 
 
 To learn more about Linux on Azure, see:
 
