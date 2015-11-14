@@ -50,7 +50,6 @@ Service Fabric uses X509 Server certificates that you specify as a part of the N
 The details on creating a self signed cert are at [https://technet.microsoft.com/en-us/library/hh848633.aspx](https://technet.microsoft.com/en-us/library/hh848633.aspx) 
     
 Here is the PS I use for creating my Test certificates, but make sure to read the above document to make sure that it meets your needs.
-
 ```
 $password = Read-Host -AsSecureString 
 ```
