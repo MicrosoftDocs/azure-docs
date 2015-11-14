@@ -22,8 +22,7 @@ This page helps you with setting up of a Service Fabric cluster. It is assumed t
 
 ## Prerequisites for setting up a secure cluster
 
-- If you want to set up a secure cluster, make sure to have uploaded the X509 certificates to your key vault. 
-- Instructions on how to upload/Add  a certificate to key vault is here [link to key vault documentation](https://azure.microsoft.com/en-us/documentation/articles/key-vault-get-started/). You do not need to the "Register an application" or "Authorize the application.." Steps described in the above link. 
+- If you want to set up a secure cluster, make sure to have uploaded an X509 certificate to your key vault. you will need the Source Vault URL, Certificate URL and the Certificate thumbprint. Refer to [Service Fabric Cluster security](service-fabric-cluster-security.md) for more details on how to. 
 
 Make sure to take a note of the Source Vault URL, Certificate URL and the Certificate thumbprint. you will need these in setting up the secure service fabric cluster.The data you need will look like the following
 
@@ -31,11 +30,6 @@ Make sure to take a note of the Source Vault URL, Certificate URL and the Certif
 1. **Resource ID of the KeyVault/Source Vault URL** : /subscriptions/6c653126-e4ba-42cd-a1dd-f7bf96af7a47/resourceGroups/chackdan-keyvault/providers/Microsoft.KeyVault/vaults/chackdan-kmstest
 2. **URL to the Certificate location in the key Vault** : https://chackdan-kmstest.vault.azure.net:443/secrets/MyCert/dcf17bdbb86b42ad864e8e827c268431 
 3. **Certificate ThumbPrint** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
-
-<<<<<<< HEAD
-- If you want to set up a secure cluster, make sure to have uploaded an X509 certificate to your key vault. you will need the Source Vault URL, Certificate URL and the Certificate thumbprint. Refer to [Service Fabric Cluster security](service-fabric-cluster-security.md) for more details on how to.
-=======
->>>>>>> 066439e02d06bfe414505a6004785847f896f21d
 
 ## Creating the cluster
 
