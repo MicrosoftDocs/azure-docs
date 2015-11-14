@@ -95,4 +95,4 @@ For more information see, [Integrating your on-premises identities with Azure Ac
 
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)

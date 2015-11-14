@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Accessing publisher support for Azure Marketplace | Microsoft Azure"
-   description="How to access and submit publisher support requests for Azure Marketplace"
+   pageTitle="Accessing publisher support for the Azure Marketplace | Microsoft Azure"
+   description="How to access and submit publisher support requests for the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -17,75 +17,75 @@
    ms.author="v-jeana; hascipio"/>
 
 
-# Accessing publisher support for Azure Marketplace
+# Accessing publisher support for the Azure Marketplace
 
-Microsoft provides support for a wide variety of products and services, and ensuring your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios which should help you route your query to the appropriate team.
+Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
 
-- If you are a publisher in the Marketplace and are still developing your VM, you should engage with your Microsoft Onboarding or Compute teams.
+- If you are a publisher in the Azure Marketplace and are still developing your VM, you should engage with your Microsoft onboarding or compute teams.
 
-- If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://ms.portal.azure.com/
+- If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://ms.portal.azure.com/.
 
 - If you are a publisher in the Marketplace and have a question relating to your app or service, continue reading below.
 
-## This article will show you how to:
+This article will show you how to:
 
-- Sign-in to your Microsoft account
-- Navigate to the Publisher Support pages
-- Select the Problem Type and Category
-- Request Support
-- Provide Contact Information
-- Describe the problem
+- Sign in to your Microsoft account.
+- Navigate to the publisher support pages.
+- Select the problem type and category.
+- Request support.
+- Provide contact information.
+- Describe the problem.
 
-## 1. Sign-in to your Microsoft account
+## 1. Sign in to your Microsoft account
 
-Navigate to https://publish.windowsazure.com/ and sign-in with your Microsoft account credentials
+Navigate to https://publish.windowsazure.com/ and sign in with your Microsoft account credentials.
 
-  ![Login screen][1]
+  ![Sign-in screen][1]
 
-## 2. Navigate to Publisher Support pages
+## 2. Navigate to the publisher support pages
 
-From the upper right-hand menu, select "Get Support"
+From the upper-right menu, select **Get Support**.
 
-  ![Get Support][2]
+  ![Get support][2]
 
-## 3. Select Problem Type and Category
+## 3. Select the problem type and category
 
-![Problem Type & Category][3]
+![Problem type & category][3]
 
-Available Problem Types are as follows:
+Available problem types are as follows:
 
-  - Account Management
-  - Reports and Insights
-  - VM Image Certification
-  - Managing Customers
-  - Managing Offers
-  - Payouts
-  - Seller Dashboard
-  - Other
+  - **Account Management**
+  - **Reports and Insights**
+  - **VM Image Certification**
+  - **Managing Customers**
+  - **Managing Offers**
+  - **Payouts**
+  - **Seller Dashboard**
+  - **Other**
 
 ## 4. Request support
 
-After selecting the Problem Type and Category, click the "Start request" button
+After you select the problem type and category, click the **Start request** button.
 
-![Start Support][4]
+![Start support][4]
 
 ## 5. Provide contact information and describe the problem
 
-Describe the problem as fully as you can, and provide any files (e.g. screenshots, network traces, etc.) which may be helpful in solving your issue.
+Describe the problem as fully as you can, and provide any files (screenshots, network traces, etc.) that may be helpful in solving your issue.
 
 ![Describe problem][5]
 
 ## 6. Submission confirmation
 
-Once you have submitted your issue, we will acknowledge receipt within 24 hours, and assign your issue a priority and severity. Our dedicated team of Support Engineers will assist with its resolution according to our Service Level Agreement response times.
+Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times.
 
 ![Confirmation][6]
-+ If you need to talk to us about your issue, use the Confirmation Number in all correspondence
-+ You can view progress on your issue at any time
++ If you need to talk to us about your issue, use the confirmation number in all correspondence.
++ You can view progress on your issue at any time.
 
 ## Next steps
 
-To learn how to resolve specific support issues, please visit: [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).
+To learn how to resolve specific support issues, see [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png
