@@ -28,6 +28,61 @@ The two client roles (administrator or client) are specified at the time of clus
 
 ## Default access control settings
 
+
+The administrator access control type has full access to all the FabricClient APIs. It can perform any read and write operation against the Service Fabric cluster including the following:
+
+### Application and service operations 
+* **CreateService** : service creation 							
+* **CreateServiceFromTemplate** : service creatin from template 							
+* **UpdateService** : service updates 							
+* **DeleteService** : service deletion 							
+* **ProvisionApplicationType** : application type provisioning 							
+* **CreateApplication** : application creation 							
+* **DeleteApplication** : application deletion 							
+* **UpgradeApplication** : starting or interrupting application upgrades 							
+* **UnprovisionApplicationType** : application type unprovisioning 							
+* **MoveNextUpgradeDomain** : resuming application upgrades with an explicit Upgrade Domain 							
+* **ReportUpgradeHealth** : resuming application upgrades with the current upgrade progress 							
+* **ReportHealth** : reporting health 							
+* **PredeployPackageToNode** : Predeployment api 							
+* **CodePackageControl** : restarting code packages 							
+* **RecoverPartition** : recovering a partition 							
+* **RecoverPartitions** : recovering partitions 							
+* **RecoverServicePartitions** : recovering service partitions 							
+* **RecoverSystemPartitions** : recovering system service partitions 							
+
+
+### Cluster operations
+* **ProvisionFabric** : MSI and/or Cluster Manifest provisioning 							
+* **UpgradeFabric** : starting cluster upgrades 							
+* **UnprovisionFabric** : MSI and/or Cluster Manifest unprovisioning 							
+* **MoveNextFabricUpgradeDomain** : resuming cluster upgrades with an explicity Upgrade Domain 							
+* **ReportFabricUpgradeHealth** : resuming cluster upgrades with the current upgrade progress 							
+* **StartInfrastructureTask** : starting infrastructure tasks 							
+* **FinishInfrastructureTask** : finishing infrastructure tasks 							
+* **InvokeInfrastructureCommand** : infrastructure task management commands 							
+* **ActivateNode** : activation a node 							
+* **DeactivateNode** : deactivating a node 							
+* **DeactivateNodesBatch** : deactivating multiple nodes 							
+* **RemoveNodeDeactivations** : reverting deactivation on multiple nodes 							
+* **GetNodeDeactivationStatus** : checking deactivation status 							
+* **NodeStateRemoved** : reporting node state removed 							
+* **ReportFault** : reporting fault 							
+* **FileContent** : image store client file transfer (external to cluster) 							
+* **FileDownload** : image store client file download initiation (external to cluster) 							
+* **InternalList** : image store client file list operation (internal) 							
+* **Delete** : image store client delete operation 							
+* **Upload** : image store client upload operation 							
+* **NodeControl** : starting; stopping; and restarting nodes 							
+* **MoveReplicaControl** : Move replicas from one node to another 							
+
+### Miscellaneous operation
+* **Ping** : client pings 							
+* **Query** : all queries allowed
+* **NameExists** : Naming URI existence checks 							
+
+
+
 The user access control type is by default limited to the following operations (the admin access control also allows access to these operations:
 
 * **EnumerateSubnames** : naming URI enumeration 							
@@ -44,55 +99,6 @@ The user access control type is by default limited to the following operations (
 * **List** : image store client file list operation 							
 * **ResetPartitionLoad** : reset load for a failoverUnit 							
 * **ToggleVerboseServicePlacementHealthReporting: Toggling verbose service placement health reporting 							
-
-The administrator access control type has full access to all the FabricClient APIs. It can perform any read and write operation against the Service Fabric cluster including the following:
-
-* **CreateService** : service creation 							
-* **CreateServiceFromTemplate** : service creatin from template 							
-* **UpdateService** : service updates 							
-* **DeleteService** : service deletion 							
-* **ProvisionApplicationType** : application type provisioning 							
-* **CreateApplication** : application creation 							
-* **DeleteApplication** : application deletion 							
-* **UpgradeApplication** : starting or interrupting application upgrades 							
-* **UnprovisionApplicationType** : application type unprovisioning 							
-* **MoveNextUpgradeDomain** : resuming application upgrades with an explicit Upgrade Domain 							
-* **ReportUpgradeHealth** : resuming application upgrades with the current upgrade progress 							
-* **ReportHealth** : reporting health 							
-* **ProvisionFabric** : MSI and/or Cluster Manifest provisioning 							
-* **UpgradeFabric** : starting cluster upgrades 							
-* **UnprovisionFabric** : MSI and/or Cluster Manifest unprovisioning 							
-* **MoveNextFabricUpgradeDomain** : resuming cluster upgrades with an explicity Upgrade Domain 							
-* **ReportFabricUpgradeHealth** : resuming cluster upgrades with the current upgrade progress 							
-* **StartInfrastructureTask** : starting infrastructure tasks 							
-* **FinishInfrastructureTask** : finishing infrastructure tasks 							
-* **ActivateNode** : activation a node 							
-* **DeactivateNode** : deactivating a node 							
-* **DeactivateNodesBatch** : deactivating multiple nodes 							
-* **RemoveNodeDeactivations** : reverting deactivation on multiple nodes 							
-* **GetNodeDeactivationStatus** : checking deactivation status 							
-* **NodeStateRemoved** : reporting node state removed 							
-* **RecoverPartition** : recovering a partition 							
-* **RecoverPartitions** : recovering partitions 							
-* **RecoverServicePartitions** : recovering service partitions 							
-* **RecoverSystemPartitions** : recovering system service partitions 							
-* **ReportFault** : reporting fault 							
-* **InvokeInfrastructureCommand** : infrastructure task management commands 							
-* **FileContent** : image store client file transfer (external to cluster) 							
-* **FileDownload** : image store client file download initiation (external to cluster) 							
-* **InternalList** : image store client file list operation (internal) 							
-* **Delete** : image store client delete operation 							
-* **Upload** : image store client upload operation 							
-* **GetStagingLocation** : image store client staging location retrieval 							
-* **GetStoreLocation** : image store client store location retrieval 							
-* **NodeControl** : starting; stopping; and restarting nodes 							
-* **CodePackageControl** : restarting code packages 							
-* **UnreliableTransportControl** : Unreliable Transport for adding and removing behaviors 							
-* **MoveReplicaControl** : Move replica 							
-* **PredeployPackageToNode** : Predeployment api 							
-* **Ping** : client pings 							
-* **Query** : queries 							
-* **NameExists** : Naming URI existence checks 							
 
 ## Changing default settings for client roles
 
