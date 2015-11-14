@@ -116,7 +116,7 @@ You may want to try changing the versions and moving from version 2 to version 3
 
 ## Next steps
 
-[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md).
+[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 

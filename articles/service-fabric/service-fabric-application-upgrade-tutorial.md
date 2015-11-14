@@ -69,7 +69,7 @@ You may want to try changing the versions and moving from version 2.0.0 to versi
 
 ## Next steps
 
-[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial.md).
+[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
