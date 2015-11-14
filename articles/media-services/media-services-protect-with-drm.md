@@ -376,14 +376,10 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
 		            contentKey = contentKey.UpdateAsync().Result;
 		        }
-		
+				
 		        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
 		        {
 		            string tokenTemplateString = GenerateTokenRequirements();
-		
-		            IContentKeyAuthorizationPolicy policy = _context.
-		                                    ContentKeyAuthorizationPolicies.
-		                                    CreateAsync("HLS token restricted authorization policy").Result;
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
 		            {
@@ -395,23 +391,28 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		                }
 		            };
 		
-		            // Configure PlayReady license template.
-		            string newLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+		            // Configure PlayReady and Widevine license templates.
+		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 		
-		            IContentKeyAuthorizationPolicyOption policyOption =
+		            string WidevyLicenseTemplate = ConfigureWidevineLicenseTemplate();
+		
+		            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
 		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
 		                    ContentKeyDeliveryType.PlayReadyLicense,
-		                        restrictions, newLicenseTemplate);
+		                        restrictions, PlayReadyLicenseTemplate);
+		
+		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+		                    ContentKeyDeliveryType.Widevine,
+		                        restrictions, WidevyLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
 		                        ContentKeyAuthorizationPolicies.
-		                        CreateAsync("Deliver Common Content Key with no restrictions").
+		                        CreateAsync("Deliver Common Content Key with token restrictions").
 		                        Result;
 		
-		            policy.Options.Add(policyOption);
-		
-		            // Add ContentKeyAutorizationPolicy to ContentKey
-		            contentKeyAuthorizationPolicy.Options.Add(policyOption);
+		            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
+		            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 		
 		            // Associate the content key authorization policy with the content key
 		            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
