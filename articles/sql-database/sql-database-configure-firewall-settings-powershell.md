@@ -18,7 +18,7 @@
 	ms.author="rickbyh"/>
 
 
-# How to: Configure firewall settings on SQL Database using the Azure Portal
+# How to: Configure firewall settings on SQL Database using PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -33,26 +33,30 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 > [AZURE.IMPORTANT] To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). You may have to open some additional TCP ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-### Manage server-level firewall rules through the New Azure Portal
+## Manage server-level firewall rules through Azure PowerShell
+1. Launch Azure PowerShell.
+2. Server-level firewall rules can be created, updated, and deleted using Azure PowerShell. 
+
+	To create a new server-level firewall rule, execute the New-AzureSqlDatabaseServerFirewallRule cmdlet. The following example enables a range of IP addresses on the server Contoso.
+ 
+		New-AzureSqlDatabaseServerFirewallRule –StartIPAddress 192.168.1.1 –EndIPAddress 192.168.1.10 –RuleName ContosoFirewallRule –ServerName Contoso
+ 
+	To modify an existing server-level firewall rule, execute the Set-AzureSqlDatabaseServerFirewallRule cmdlet. The following example changes the range of acceptable IP addresses for the rule named ContosoFirewallRule.
+ 
+		Set-AzureSqlDatabaseServerFirewallRule –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –RuleName ContosoFirewallRule –ServerName Contoso
+
+	To delete an existing server-level firewall rule, execute the Remove-AzureSqlDatabaseServerFirewallRule cmdlet. The following example deletes the rule named ContosoFirewallRule.
+
+		Remove-AzureSqlDatabaseServerFirewallRule –RuleName ContosoFirewallRule –ServerName Contoso
 
 
-[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
+## Manage firewall rules using PowerShell
 
-
-## Manage server-level firewall rules through Management Portal 
-
-1. From the Management Portal, click **SQL Databases**. All databases and their corresponding servers are listed here.
-2. Click **Servers** at the top of the page.
-3. Click the arrow beside the server for which you want to manage firewall rules.
-4. Click **Configure** at the top of the page.
-
-	*  To add the current computer, click Add to the Allowed IP Addresses.
-	*  To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
-	*  To modify an existing rule, click any of the fields in the rule and modify.
-	*  To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
-5. Click **Save** at the bottom of the page to save the changes.
-
-
+* [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx)
+* [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx)
+* [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx)
+* [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx)
+ 
 ## Next steps
 
 For a tutorial on creating a database, see [Create your first Azure SQL Database](sql-database-get-started.md).
