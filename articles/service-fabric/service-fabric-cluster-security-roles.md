@@ -100,5 +100,6 @@ In the cluster manifest file, one could provide admin capabilities to the client
 
 ## Next steps
 
-[Service Fabric Cluster Security](service-fabric-cluster-security.md).
-[Service Fabric Cluster Creation](service-fabric-cluster-creation-via-portal.md).
+[Service Fabric Cluster Security](service-fabric-cluster-security.md)
+
+[Service Fabric Cluster Creation](service-fabric-cluster-creation-via-portal.md)
