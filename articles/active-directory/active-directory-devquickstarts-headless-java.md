@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Java Getting Started | Microsoft Azure"
-	description="How to build a Java web app that signs users in with a work or school account."
+	description="How to build a Java command line app that signs users in to access an API."
 	services="active-directory"
 	documentationCenter="java"
 	authors="brandwe"
@@ -17,7 +17,7 @@
 	ms.author="brandwe"/>
 
 
-# Java Web App Sign In & Sign Out with Azure AD
+# Java Command Line App To Access An API with Azure AD
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -53,7 +53,7 @@ To enable your app to authenticate users, you'll first need to register a new ap
 Once in the portal for your app create an **Application Secret** for your application and copy it down.  You will need it shortly.
 
 
-## 2. Set up your app to use ADAL4J library and prerequisities using Maven
+## 2. Set up your app to use ADAL4J library and prerequisites using Maven
 Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol.  ADAL4J will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 -	In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencies for Maven` and replace with the following:
