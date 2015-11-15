@@ -21,47 +21,35 @@
 
 [AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Azure PowerShell and the HDInsight .NET SDK from a workstation to run Sqoop to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
+Learn how to use Sqoop in HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
 > [AZURE.NOTE] The steps in this article can be used with either a Windows-based or Linux-based HDInsight cluster; however, these steps will only work from a Windows client.
 >
 > If you are using a Linux, OS X, or Unix client and a Linux-based HDInsight server, see [Use Sqoop with Hadoop in HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
-##What is Sqoop?
+Although Hadoop is a natural choice for processing unstructured and semistructured data, 
+such as logs and files, there may also be a need to process structured data that is 
+stored in relational databases.
 
-Although Hadoop is a natural choice for processing unstructured and semistructured data, such as logs and files, there may also be a need to process structured data that is stored in relational databases.
+[Sqoop][sqoop-user-guide-1.4.4] is a tool designed to transfer data between Hadoop 
+clusters and relational databases. You can use it to import data from a relational 
+database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop 
+distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and 
+then export the data back into an RDBMS. In this tutorial, you are using a SQL Server 
+database for your relational database.
 
-[Sqoop][sqoop-user-guide-1.4.4] is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into an RDBMS. In this tutorial, you are using a SQL Server database for your relational database.
+For Sqoop versions that are supported on HDInsight clusters, 
+see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
 
-For Sqoop versions that are supported on HDInsight clusters, see [What's new in the cluster versions provided by HDInsight?][hdinsight-versions].
-
-##Prerequisites
+###Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
 - **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
- To execute Azure PowerShell scripts, you must run Azure PowerShell as an administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **Azure HDInsight cluster**: See [Create HDInsight clusters][hdinsight-provision]. 
+- **Azure SQL database or Microsoft SQL Server**
 
-- **Azure HDInsight cluster**: For instructions about cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You need the following data to go through the tutorial:
-
-	<table border="1">
-	<tr><th>Cluster property</th><th>Azure PowerShell variable name</th><th>Value</th><th>Description</th></tr>
-	<tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>Your HDInsight cluster name.</td></tr>
-	<tr><td>Azure Storage account name</td><td>$storageAccountName</td><td></td><td>An Azure Storage account that is available to the HDInsight cluster. For this tutorial, use the default storage account that you specified during the cluster provisioning process.</td></tr>
-	<tr><td>Azure blob container name</td><td>$containerName</td><td></td><td>For this example, use the name of the blob that is used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
-	</table>
-
-- **Azure SQL database or Microsoft SQL Server
-
-	- **Azure SQL database**: You must configure a firewall rule for the Azure SQL database server to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. This article provides a Windows PowerShell script for creating the Azure SQL database table that you need for this tutorial.
-	
-		<table border="1">
-		<tr><th>Azure SQL database property</th><th>Azure PowerShell variable name</th><th>Value</th><th>Description</th></tr>
-		<tr><td>Azure SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>The Azure SQL database server to which Sqoop will export data to or import data from. </td></tr>
-		<tr><td>Azure SQL database login name</td><td>$sqlDatabaseLogin</td><td></td><td>Your login name for the Azure SQL database.</td></tr>
-		<tr><td>Azure SQL database login password</td><td>$sqlDatabasePassword</td><td></td><td>Your login password for the Azure SQL database.</td></tr>
-		<tr><td>Azure SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL database to which Sqoop will export data to or import data from. </td></tr>
-		</table>
+	- **Azure SQL database**: You must configure a firewall rule for the Azure SQL database server to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. 
 	
 		> [AZURE.NOTE] By default an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure preview portal. For instruction about creating an Azure SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue].
 	
@@ -90,10 +78,9 @@ Before you begin this tutorial, you must have the following:
 		</table>
 
 
-> [AZURE.NOTE] Fill-in the values in the previous tables. It will be helpful for going through this tutorial.
-
 ##Understand the scenario
-An HDInsight cluster comes with some sample data. You will use the following two samples:
+
+HDInsight cluster comes with some sample data. You will use the following two samples:
 
 - A log4j log file, which is located at */example/data/sample.log*. The following logs are extracted from the file:
 
@@ -102,52 +89,13 @@ An HDInsight cluster comes with some sample data. You will use the following two
 		2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
 		...
 
-- A Hive table named *hivesampletable*, which references the data file located at */hive/warehouse/hivesampletable*. The table contains some mobile device data. The Hive table schema is:
+- A Hive table named *hivesampletable*, which references the data file located at */hive/warehouse/hivesampletable*. The table contains some mobile device data. 
 
-	<table border="1">
-	<tr><th>Field</th><th>Data type</th></tr>
-	<tr><td>clientid</td><td>string</td></tr>
-	<tr><td>querytime</td><td>string</td></tr>
-	<tr><td>market</td><td>string</td></tr>
-	<tr><td>deviceplatform</td><td>string</td></tr>
-	<tr><td>devicemake</td><td>string</td></tr>
-	<tr><td>devicemodel</td><td>string</td></tr>
-	<tr><td>state</td><td>string</td></tr>
-	<tr><td>country</td><td>string</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
-
-You will first export *sample.log* and *hivesampletable* to the Azure SQL database or to SQL Server, and then import the table that contains the mobile device data back to HDInsight by using the following path:
+You will first export *sample.log* and *hivesampletable* to the Azure 
+SQL database or to SQL Server, and then import the table that contains the 
+mobile device data back to HDInsight by using the following path:
 
 	/tutorials/usesqoop/importeddata
-
-###Understand HDInsight storage
-
-HDInsight uses Azure Blob storage for data storage. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
-
-When you provision an HDInsight cluster, an Azure Storage account and a specific blob storage container from that account are designated as the default file system, like in HDFS. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or from different Azure subscriptions during the provision process.
-
-For instructions about adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simply the Windows PowerShell script used in this tutorial, all of the files are stored in the default file system container located at */tutorials/usesqoop*. By default, this container has the same name as the HDInsight cluster name.
-The syntax is:
-
-	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
-
-> [AZURE.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters.
-
-> [AZURE.NOTE] The *wasb://* path is a virtual path. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
-
-A file that is stored in the default file system blob can be accessed from HDInsight by using any of the following URIs (the following examples use sample.log):
-
-	wasb://mycontainer@mystorageaccount.blob.core.windows.net/example/data/sample.log
-	wasb:///example/data/sample.log
-	/example/data/sample.log
-
-If you want to access the file directly from the storage account, the blob name for the file is:
-
-	example/data/sample.log
-
 
 ##Prepare the tutorial
 
@@ -157,7 +105,7 @@ You will create two tables in the Azure SQL database or in SQL Server. These are
 
 **For an Azure SQL database**
 
-1. Open the Windows PowerShell ISE (on the Start screen in Windows 8, type **PowerShell_ISE**, and then click **Windows PowerShell ISE**. See [Start Windows PowerShell on Windows 8 and Windows][powershell-start]).
+1. Open the Windows PowerShell ISE or Windows PowerShell console:
 
 2. Copy the following script into the script pane, and then set the first four variables:
 
