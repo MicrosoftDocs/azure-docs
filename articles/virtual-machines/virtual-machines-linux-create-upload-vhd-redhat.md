@@ -132,9 +132,10 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 16.	Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
  
+
 ###RHEL 7.0/7.1
 
-1.	In Hyper-V Manager, select the virtual machine.
+1. In Hyper-V Manager, select the virtual machine.
 
 2.	Click Connect to open a console window for the virtual machine.
 
@@ -336,6 +337,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
  
+
 ###RHEL 7.0/7.1
 
 1.	Download the KVM image of RHEL 7.0 from the Red Hat web site.
@@ -572,6 +574,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
     Convert the raw disk to fixed-sized vhd:
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
 
 ###RHEL 7.0/7.1
 
