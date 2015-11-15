@@ -51,44 +51,53 @@ The Service Fabric Visual Studio project templates contain sample code. The step
 
 1. Re-open the application you created above in Visual Studio or create a new application with a stateful service from the VS templates.
 2. Open the **Stateful1.cs** file. Find this declaration `var myDictionary` and this line right below this declaration. The `fabricClient` object created here will be used later to report health.
-```csharp
-var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
-```
-Also add this namespace to the **Stateful1.cs** file.
-```csharp
-using System.Fabric;
-```
-3. Next look up this call `myDictionary.TryGetValueAsync` in the *RunAsync* method. You can see this returns a `result` that holds the current value of the counter, as the key logic in this application is to keep a count running. If this was a real application and if the lack of result represented a failure then you would want to report that to the Health Manager.
-4. To report a health event for the lack of result representing a failure add the code below after the `myDictionary.TryGetValueAsync` call. We report the event as a `StatefulServiceReplicaHealthReport` since this is being reported from a stateful service. The PartitionId and ReplicaId that are passed in to the report event will help identify the source of this report when you see it in one of the Health Monitoring tools since when a stateful service is deployed it can have multiple partitions and each partition can have multiple replicas. The `HealthInformation` parameter provides information about the issue being reported.
-Add this namespace to the **Stateful1.cs** file.
-```csharp
-using System.Fabric.Health;
-```
-Add this code after the `myDictionary.TryGetValueAsync` call.
-```csharp
-if(!result.HasValue)
-{
-    var replicaHealthReport = new StatefulServiceReplicaHealthReport(
-        this.ServiceInitializationParameters.PartitionId,
-        this.ServiceInitializationParameters.ReplicaId,
-        new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
 
-    fabricClient.HealthManager.ReportHealth(replicaHealthReport);
-}
-```
-5. Let's simulate this failure and see it show up in Health Monitoring tools. To simulate comment out the first line in the health reporting code you added above as shown below. This will now fire this health report each time RunAsync executes. After making the change run the application using F5.
-```csharp
-//if(!result.HasValue)
-{
-    var replicaHealthReport = new StatefulServiceReplicaHealthReport(
-        this.ServiceInitializationParameters.PartitionId,
-        this.ServiceInitializationParameters.ReplicaId,
-        new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
-
+    ```csharp
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
-    fabricClient.HealthManager.ReportHealth(replicaHealthReport);
-}
-```
+    ```
+
+Also add this namespace to the **Stateful1.cs** file.
+
+    ```csharp
+    using System.Fabric;
+    ```
+
+3. Next look up this call `myDictionary.TryGetValueAsync` in the *RunAsync* method. You can see this returns a `result` that holds the current value of the counter, as the key logic in this application is to keep a count running. If this was a real application and if the lack of result represented a failure then you would want to report that to the Health Manager.
+4. To report a health event for the lack of result representing a failure add the code below after the `myDictionary.TryGetValueAsync` call. We report the event as a `StatefulServiceReplicaHealthReport` since this is being reported from a stateful service. The PartitionId and ReplicaId that are passed in to the report event will help identify the source of this report when you see it in one of the Health Monitoring tools since when a stateful service is deployed it can have multiple partitions and each partition can have multiple replicas. The `HealthInformation` parameter provides information about the issue being reported. Add this namespace to the **Stateful1.cs** file.
+
+    ```csharp
+    using System.Fabric.Health;
+    ```
+
+Add this code after the `myDictionary.TryGetValueAsync` call.
+
+    ```csharp
+    if(!result.HasValue)
+    {
+        var replicaHealthReport = new StatefulServiceReplicaHealthReport(
+            this.ServiceInitializationParameters.PartitionId,
+            this.ServiceInitializationParameters.ReplicaId,
+            new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
+    
+        fabricClient.HealthManager.ReportHealth(replicaHealthReport);
+    }
+    ```
+
+5. Let's simulate this failure and see it show up in Health Monitoring tools. To simulate comment out the first line in the health reporting code you added above as shown below. This will now fire this health report each time RunAsync executes. After making the change run the application using F5.
+
+    ```csharp
+    //if(!result.HasValue)
+    {
+        var replicaHealthReport = new StatefulServiceReplicaHealthReport(
+            this.ServiceInitializationParameters.PartitionId,
+            this.ServiceInitializationParameters.ReplicaId,
+            new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error));
+    
+        var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
+        fabricClient.HealthManager.ReportHealth(replicaHealthReport);
+    }
+    ```
+
 6. Once the application is running, open Service Fabric Explorer to check health of the application. This time Service Fabric Explorer will show the application to be unhealthy. This is because of the error that was reported from the code that we added above.
 ![Unhealthy Application in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 
