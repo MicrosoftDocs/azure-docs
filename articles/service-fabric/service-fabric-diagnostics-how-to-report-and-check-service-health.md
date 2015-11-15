@@ -83,7 +83,7 @@ The Service Fabric Visual Studio project templates contain sample code. The step
     }
     ```
 
-5. Let's simulate this failure and see it show up in Health Monitoring tools. To simulate comment out the first line in the health reporting code you added above, after commenting out the first line the code will look as shown below. This will now fire this health report each time RunAsync executes. After making the change run the application using F5.
+5. Let's simulate this failure and see it show up in Health Monitoring tools. To simulate the failure comment out the first line in the health reporting code you added above, after commenting out the first line the code will look as shown below. This will now fire this health report each time RunAsync executes. After making the change run the application using F5.
 
     ```csharp
     //if(!result.HasValue)
