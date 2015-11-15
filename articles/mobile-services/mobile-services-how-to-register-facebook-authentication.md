@@ -55,7 +55,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
 	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authenication will not succeed. 
+	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed. 
 
        
 9. Click **Status & Review** > **Yes** to enable general public access to your app.

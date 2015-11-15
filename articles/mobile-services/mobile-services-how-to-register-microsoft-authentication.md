@@ -59,7 +59,7 @@ The first step in this section applies only to Windows Phone 8, Windows Phone 8.
 	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-microsoft`
 	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` 
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authenication will not succeed. The **Root domain** should fill in automatically.
+	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed. The **Root domain** should fill in automatically.
 &nbsp;
 
     ![Microsoft account API settings](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png)

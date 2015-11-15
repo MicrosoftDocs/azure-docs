@@ -40,7 +40,7 @@ To complete the procedure in this topic, you must have a Google account that has
 	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-google`
 	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/google` 
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authenication will not succeed. 
+	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed. 
 
 8. On the next screen, make a note of the values of the client ID and client secret.
 

@@ -33,7 +33,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
 	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/twitter` 
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authenication will not succeed. 
+	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed. 
 	&nbsp; 
 
    	![][2]
