@@ -24,7 +24,7 @@ A pipeline in an Azure data factory processes data in linked storage services by
  
 See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
 
-## JSON for HDInsight Activity using HDInsight MapReduce Activity 
+## JSON for HDInsight MapReduce Activity 
 
 In the JSON definition for the HDInsight Activity: 
  
@@ -97,6 +97,122 @@ You can use the HDInsight MapReduce Activity to run any MapReduce jar file on an
 ## Sample
 You can download a sample for using the HDInsight MapReduce Activity from: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
+## Running the Word Count program
+The pipeline in this example runs the Word Count Map/Reduce program on your Azure HDInsight cluster.   
+
+## Linked Services
+First, you create a linked service to link the Azure Storage that is used by the Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, do not forget to replace **account name** and **account key** with the name and key of your Azure Storage. 
+
+### Storage Linked Service
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "description": "",
+	        "hubName": "mrfactory_hub",
+	        "type": "AzureStorage",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
+	        }
+	    }
+	}
+
+### Azure HDInsight Linked Service
+Next, you create a linked service to link your Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, replace **HDInsight cluster name** with the name of your HDInsight cluster, and change user name and password values.   
+
+	{
+	    "name": "HDInsightLinkedService",
+	    "properties": {
+	        "description": "",
+	        "hubName": "mrfactory_hub",
+	        "type": "HDInsight",
+	        "typeProperties": {
+	            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
+	            "userName": "admin",
+	            "password": "**********",
+	            "linkedServiceName": "StorageLinkedService"
+	        }
+	    }
+	}
+
+
+## Datasets
+
+### Output dataset
+The pipeline in this example does not take any inputs. You will need to specify an output dataset for the HDInsight MapReduce Activity. This is just a dummy dataset that is required to drive the pipeline schedule.  
+
+	{
+	    "name": "MROutput",
+	    "properties": {
+	        "published": false,
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "fileName": "WordCountOutput1.txt",
+	            "folderPath": "example/data/",
+	            "format": {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            }
+	        },
+	        "availability": {
+	            "frequency": "Day",
+	            "interval": 1
+	        }
+	    }
+	}
+
+## Pipeline
+The pipeline in this example has only one activity that is of type: HDInsightMapReduce. Some of the important properties in the JSON are: 
+
+Property | Notes
+:-------- | :-----
+type | The type must be set to **HDInsightMapReduce**. 
+className | Name of the class is: **wordcount**
+jarFilePath | Path to the jar file containing the above class. If you copy/paste the following code, don't forget to change the name of the cluster. 
+jarLinkedService | Azure Storage linked service that contains the jar file. This is the storage that is associated with the HDInsight cluster. 
+arguments | The wordcount program takes two arguments, an input and an output. The input file is the davinci.txt file.
+frequency/interval | The values for these properties match the output dataset. 
+linkedServiceName | refers to the HDInsight linked service you had created earlier.   
+
+	{
+	    "name": "MRSamplePipeline",
+	    "properties": {
+	        "description": "Sample Pipeline to Run the Word Count Program",
+	        "activities": [
+	            {
+	                "type": "HDInsightMapReduce",
+	                "typeProperties": {
+	                    "className": "wordcount",
+	                    "jarFilePath": "<HDInsight cluster name>/example/jars/hadoop-examples.jar",
+	                    "jarLinkedService": "StorageLinkedService",
+	                    "arguments": [
+	                        "/example/data/gutenberg/davinci.txt",
+	                        "/example/data/WordCountOutput1"
+	                    ]
+	                },
+	                "outputs": [
+	                    {
+	                        "name": "MROutput"
+	                    }
+	                ],
+	                "policy": {
+	                    "timeout": "01:00:00",
+	                    "concurrency": 1,
+	                    "retry": 3
+	                },
+	                "scheduler": {
+	                    "frequency": "Day",
+	                    "interval": 1
+	                },
+	                "name": "MRActivity",
+	                "linkedServiceName": "HDInsightLinkedService"
+	            }
+	        ],
+	        "start": "2014-01-03T00:00:00Z",
+	        "end": "2014-01-04T00:00:00Z"
+	    }
+	}
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
