@@ -67,4 +67,38 @@ HTTP endpoints are automatically ACL'd by Service-Fabric.
   </Resources>
 </ServiceManifest>
 ```
+
+## Specifying a HTTPS endpoint for your service
+
+The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable this on your Service Fabric service, when defining the service, the protocol is specified in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown above. 
+
+>[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade, since this would be a breaking change. 
+
  
+Here is an example ApplicationManifest that you need to set for HTTPS (you will need to provide the thumbpring for your certificate). The EndpointRef is a reference to EndpointResource in ServiceManifest for which you set the HTTPS protocol.  
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ApplicationManifest ApplicationTypeName="CalculatorApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Description>Calculator Application</Description>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="CalculatorServicePackage" ServiceManifestVersion="1.0"/>
+      <Policies>
+       <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="StatelessCalculatorEndpoint1"/>
+        <EndpointBindingPolicy CertificateRef="TestCert2" EndpointRef="StatelessCalculatorEndpoint2"/>
+      </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessCalculatorService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
+  <Certificates>
+    <EndpointCertificate Name="TestCert1" X509FindType="FindByThumbprint" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F0"/>
+    <EndpointCertificate Name="TestCert2" X509FindType="FindByThumbprint" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F1"/>
+    <SecretsCertificate Name="TestCert" X509FindType="FindByThumbprint" X509FindValue="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF F2"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
+
