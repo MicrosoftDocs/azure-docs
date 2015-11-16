@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # How to secure back-end services using mutual certificate authentication in Azure API Management
@@ -54,7 +54,7 @@ Click **Upload** to upload the certificate.
 
 ![Certificate uploaded][api-management-certificate-uploaded]
 
-Once the certificate is uploaded, it appears on the **Client certificates** tab. If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a mutual certificate for proxy authentication][] section.
+Once the certificate is uploaded, it appears on the **Client certificates** tab. If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a mutual certificate for gateway authentication][] section.
 
 ## <a name="step1a"> </a>Delete a client certificate
 
@@ -70,7 +70,7 @@ If the certificate is in use by an API, then a warning screen is displayed. To d
 
 ![Confirm delete][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configure an API to use a mutual certificate for proxy authentication
+## <a name="step2"> </a>Configure an API to use a mutual certificate for gateway authentication
 
 Click **APIs** from the **API Management** menu on the left, click the name of the desired API, and click the **Security** tab.
 
@@ -90,7 +90,7 @@ Click **Save** to save the configuration change to the API.
 
 ![Save API changes][api-management-save-api]
 
->When a certificate is specified for proxy authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.
+>When a certificate is specified for gateway authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.
 
 ![Certificate policy][api-management-certificate-policy]
 
@@ -133,7 +133,7 @@ For more information, see the following video.
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configure an API to use a mutual certificate for proxy authentication]: #step2
+[Configure an API to use a mutual certificate for gateway authentication]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
