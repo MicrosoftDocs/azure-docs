@@ -111,6 +111,7 @@ If you have run through steps 1 through 3 in this article and need additional he
 ## Troubleshooting Endpoint Connectivity problems
 
 If you have problems when connecting to an Endpoint such as Remote Desktop  Endpoint, you can try the following general troubleshooting steps:
+
 - Restart virtual machine
 - Recreate Endpoint
 - Connect from different location
