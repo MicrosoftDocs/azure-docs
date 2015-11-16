@@ -39,6 +39,11 @@ This topic would be useful to developers that work on applications that deliver 
 
 >[AZURE.NOTE]To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
+
+##Download sample
+
+You can download the sample described in this article from [here](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+
 ##Configuring Dynamic Common Encryption and DRM License Delivery Services
 
 The following are general steps that you would need to perform when protecting your assets with PlayReady, using the Media Services license delivery service, and also using dynamic encryption.
@@ -130,11 +135,16 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 
 ##<a id="example"></a>Example
 
-1. Create a new Console project.
-1. Use NuGet to install and add Azure Media Services .NET SDK Extensions. Installing this package, also installs Media Services .NET SDK and adds all other required dependencies.
-2. Add additional references: System.Runtime.Serialization and System.Configuration.
-2. Add config file that contains the account name and key information:
 
+The following sample demonstrates functionality that was introduced in Azure Media Services SDK for .Net -Version 3.5.2 (specifically, the ability to define a Widevine license template and request a Widevine license from Azure Media Services). The following Nuget package command was used to install the package:
+
+	PM> Install-Package windowsazure.mediaservices -Version 3.5.2
+
+
+1. Create a new Console project.
+1. Use NuGet to install and add Azure Media Services .NET SDK.
+2. Add additional references: System.Configuration.
+2. Add config file that contains the account name and key information:
 	
 		<?xml version="1.0" encoding="utf-8"?>
 		<configuration>
@@ -151,6 +161,8 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 			  </appSettings>
 		</configuration>
 
+1. Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see: [configure streaming endpoints](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+
 1. Overwrite the code in your Program.cs file with the code shown in this section.
 	
 	Make sure to update variables to point to folders where your input files are located.
@@ -166,7 +178,7 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 		using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
 		using Newtonsoft.Json;
-		
+
 		namespace DynamicEncryptionWithDRM
 		{
 		    class Program
@@ -340,29 +352,29 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
-			        {
-			            new ContentKeyAuthorizationPolicyRestriction
-			            {
-			                Name = "Open",
-			                KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
-			                Requirements = null
-			            }
-			        };
-			
-		            // Configure PlayReady and Widevine license templates.
-		            string newLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+		            {
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Open",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                    Requirements = null
+		                }
+		            };
 		
-		            string widevineconfig = ConfigureWidevineLicenseTemplate();
+		            // Configure PlayReady and Widevine license templates.
+		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+		
+		            string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
 		
 		            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
 		                _context.ContentKeyAuthorizationPolicyOptions.Create("",
 		                    ContentKeyDeliveryType.PlayReadyLicense,
-		                        restrictions, newLicenseTemplate);
+		                        restrictions, PlayReadyLicenseTemplate);
 		
-		            IContentKeyAuthorizationPolicyOption WideVinePolicy =
+		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
 		                _context.ContentKeyAuthorizationPolicyOptions.Create("", 
 		                    ContentKeyDeliveryType.Widevine, 
-		                    restrictions, widevineconfig);
+		                    restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
 		                        ContentKeyAuthorizationPolicies.
@@ -371,7 +383,7 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		
 		
 		            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
-		            contentKeyAuthorizationPolicy.Options.Add(WideVinePolicy);
+		            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 		            // Associate the content key authorization policy with the content key.
 		            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
 		            contentKey = contentKey.UpdateAsync().Result;
@@ -380,10 +392,6 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
 		        {
 		            string tokenTemplateString = GenerateTokenRequirements();
-		
-		            IContentKeyAuthorizationPolicy policy = _context.
-		                                    ContentKeyAuthorizationPolicies.
-		                                    CreateAsync("HLS token restricted authorization policy").Result;
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
 		            {
@@ -395,23 +403,28 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		                }
 		            };
 		
-		            // Configure PlayReady license template.
-		            string newLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+		            // Configure PlayReady and Widevine license templates.
+		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 		
-		            IContentKeyAuthorizationPolicyOption policyOption =
+		            string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
+		
+		            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
 		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
 		                    ContentKeyDeliveryType.PlayReadyLicense,
-		                        restrictions, newLicenseTemplate);
+		                        restrictions, PlayReadyLicenseTemplate);
+		
+		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+		                    ContentKeyDeliveryType.Widevine,
+		                        restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
 		                        ContentKeyAuthorizationPolicies.
-		                        CreateAsync("Deliver Common Content Key with no restrictions").
+		                        CreateAsync("Deliver Common Content Key with token restrictions").
 		                        Result;
 		
-		            policy.Options.Add(policyOption);
-		
-		            // Add ContentKeyAutorizationPolicy to ContentKey
-		            contentKeyAuthorizationPolicy.Options.Add(policyOption);
+		            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
+		            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 		
 		            // Associate the content key authorization policy with the content key
 		            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
@@ -506,30 +519,29 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 		            return configuration;
 		        }
 		
-			    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-			    {
-			        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-			        Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
-
-			        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-			            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-			        {
-			            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-			            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
-			
-			        };
-			
-			        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-			                "AssetDeliveryPolicy",
-			            AssetDeliveryPolicyType.DynamicCommonEncryption,
-			            AssetDeliveryProtocol.Dash,
-			            assetDeliveryPolicyConfiguration);
-			
-			
-			        // Add AssetDelivery Policy to the asset
-			        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-			
-			    }
+		        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+		        {
+		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+		            Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+		                {
+		                    {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+		                    {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		
+		                };
+		
+		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+		                    "AssetDeliveryPolicy",
+		                AssetDeliveryPolicyType.DynamicCommonEncryption,
+		                AssetDeliveryProtocol.Dash,
+		                assetDeliveryPolicyConfiguration);
+		
+		
+		            // Add AssetDelivery Policy to the asset
+		            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+		
+		        }
 		
 		
 		        /// <summary>
