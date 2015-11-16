@@ -17,7 +17,7 @@
    ms.author="bscholl"/>
 
 # How to partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services. The source code used in the article is also available on [Github (add final link)](http://Github.com). 
+This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services. The source code used in the article is also available on [Github](http://Github.com).
 
 ## What is partitioning
 Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
@@ -61,7 +61,7 @@ If you think about the example again you can easily see that the partition that 
 In order to avoid this you should do two things from a partitioning point of view:
 
 - Try to partition the state so that it is evenly distributed across all partitions.
-- [Report metrics from each of the replicas for the service](service-fabric-reliable-services-advanced-usage.md). Service Fabric provides the capability to report metrics, such as amount of memory or number of records, on a service. Based on the metrics reported Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas more suitable nodes.
+- [Report metrics from each of the replicas for the service](service-fabric-resource-balancer-dynamic-load-reporting.md). Service Fabric provides the capability to report metrics, such as amount of memory or number of records, on a service. Based on the metrics reported Service Fabric detects that some partitions are serving higher loads than others and rebalances the cluster by moving replicas more suitable nodes.
 
 Sometimes you cannot know how much data we will be in a given partition, and so a general recommendation is to do both, first by adopting a partitioning strategy that spreads the data evenly across the partitions and secondly by reporting load.  The first method prevents situations described in the voting example, while the second helps smooth out temporary differences in access or load over time.
 
@@ -79,7 +79,7 @@ Another consideration for partitioning planning is the available machine resourc
 
 So what happens if you run into resource constraints in a running cluster? The answer is that you can simply scale out our cluster to accommodate the new requirements.
 
-[The capacity planning guide](manisdoc.md) offers guidance for how to determine how many nodes your cluster needs.
+[The capacity planning guide](service-fabric-capacity-planning.md) offers guidance for how to determine how many nodes your cluster needs.
 
 ## How to partition
 This section describes how to get started with partitioning your service.
