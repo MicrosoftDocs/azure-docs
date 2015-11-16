@@ -33,9 +33,15 @@ Prior to import, the index must already exist. See [Indexes in Azure Search](sea
 
 This approach refers to taking an existing dataset that conforms to the index schema, and posting it to your search service. For applications having very low latency requirements (for example, if you need search operations to be in synch with inventory databases), a push model is your only option.
 
+You can use the REST API or .NET SDK to push data to an index. There is currently no tool support for pushing data via the portal.
+
+This approach is more flexible than a pull model because you upload documents individually or in batches (up to 1000 per batch or 16 MB, whichever limit comes first).
+
 ##Pull (crawl) data 
 
 A pull model crawls a supported data source and loads the index for you. In Azure Search, this capability is implemented through *indexers*, currently available for Azure SQL database, DocumentDB, and SQL Server on Azure VMs. See [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) to learn about uploading Azure SQL data.
+
+You can use the portal, REST API, or .NET SDK to pull data into an index.
 
 ##Dataset requirements
 
