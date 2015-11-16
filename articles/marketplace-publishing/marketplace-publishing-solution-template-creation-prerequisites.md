@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -27,8 +27,6 @@ You must decide on the building blocks of your solution before you proceed with 
 3. Azure Quickstart templates
   - [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/en-us/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
-
-
 
 ## Next Steps
 Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Solution Template offer as detailed in the [Guide to creating a Solution Template](marketplace-publishing-solution-template-creation.md)

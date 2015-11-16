@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Get started with Azure DNS using CLI
@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+- [PowerShell](dns-getstarted-create-dnszone.md)
 
 
 The domain ‘contoso.com’ can contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website). A DNS zone is used to host the DNS records for a particular domain.

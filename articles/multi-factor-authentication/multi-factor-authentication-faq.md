@@ -125,6 +125,12 @@ The Azure Multi-Factor Authentication service sends text messages through SMS ag
 
 Text message verifications are also more reliable in some countries such as the United States and Canada. Users that experience difficulty receiving text messages reliably when using Azure Multi-Factor Authentication are encouraged to select the mobile app or phone call methods instead. The mobile app is great because mobile app notifications can be received over both cellular and Wi-Fi connections, and the mobile app passcode is displayed even when the device has no signal at all.  The Azure Authenticator app is available for [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
+**Q:  Can I use hardware tokens with the Azure MFA server?**
+
+If you are using the Azure MFA Server, third-party OATH TOTP tokens can be imported and used for MFA. We currently support the import of third-party OATH TOTP tokens in an older PSKC format that Gemalto can produce for their tokens and support importing tokens in CSV format. When importing tokens in CSV format, the CSV file must contain a serial number, secret key in Base32 format and a time interval (generally 30 seconds). 
+
+So, if the ActiveIdentity tokens are OATH TOTP tokens and you can get the secret key file into a CSV file that can be imported into the Azure MFA Server, then you will be able to use them. OATH tokens can be used with AD FS, with RADIUS when the client system can process Access Challenge responses and with IIS Forms-based authentication.
+
 
 ## Errors
 

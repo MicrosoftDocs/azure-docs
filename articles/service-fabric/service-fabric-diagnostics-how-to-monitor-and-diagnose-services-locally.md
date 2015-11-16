@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 
@@ -75,6 +75,5 @@ The same tracing code that you added to your application above for local diagnos
 ## Next steps
 
 * [Service Fabric Health Introduction](service-fabric-health-introduction.md)
-* [Application Insights setup](service-fabric-diagnostics-application-insights-setup.md)
 * [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)

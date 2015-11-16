@@ -50,7 +50,7 @@ Depending on the template, it can take some time for Azure to build the workload
 
 ### Azure PowerShell
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace **New-AzureRMResourceGroup** with **New-AzureResourceGroup**, replace **New-AzureResourceGroupDeployment** with **New-AzureResourceGroupDeployment**, and add the **Switch-AzureMode AzureResourceManager** command before the **New-AzureResourceGroup** command. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace **New-AzureRMResourceGroup** with **New-AzureResourceGroup**, replace **New-AzureRMResourceGroupDeployment** with **New-AzureResourceGroupDeployment**, and add the **Switch-AzureMode AzureResourceManager** command before the **New-AzureResourceGroup** command. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the < and > characters.
 
@@ -122,7 +122,7 @@ Depending on the template, it can take some time for Azure to build the workload
 
 ### Azure PowerShell
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace **New-AzureRMResourceGroup** with **New-AzureResourceGroup**, replace **New-AzureResourceGroupDeployment** with **New-AzureResourceGroupDeployment**, and add the **Switch-AzureMode AzureResourceManager** command before the **New-AzureResourceGroup** command. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace **New-AzureRMResourceGroup** with **New-AzureResourceGroup**, replace **New-AzureRMResourceGroupDeployment** with **New-AzureResourceGroupDeployment**, and add the **Switch-AzureMode AzureResourceManager** command before the **New-AzureResourceGroup** command. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the < and > characters.
 

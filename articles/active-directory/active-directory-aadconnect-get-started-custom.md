@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -46,7 +46,7 @@ When you install the synchronization services, you can leave the optional config
 Optional Configuration  | Description
 ------------- | ------------- |
 SQL Server Name | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use.
-Service Account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. |
+Service Account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 Permissions | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
 
 
@@ -91,7 +91,7 @@ Setting | Description
 ------------- | ------------- |
 [My users are only represented once across all forests](active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) | All users are created as individual objects in Azure AD.<br> The objects are not joined in the metaverse.
 [Mail attribute](active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) | This option joins users and contacts if the mail attribute has the same value in different forests. It is recommended to use this option when your contacts have been created using GALSync.
-[ObjectSID and msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|This option joins an enabled user in an account forest with a disabled user in an Exchange resource forest. This is also known as linked mailbox in Exchange.
+[ObjectSID and msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|This option joins an enabled user in an account forest with a disabled user in an Exchange resource forest. This is also known as linked mailbox in Exchange. This option can also be used if you only use Lync and Exchange is not present in the resource forest.
 sAMAccountName and MailNickName|This option joins on attributes where it is expected the login ID for the user can be found.
 My own attribute|This option allows you to select your own attribute.  **Limitation:** Make sure to pick an attribute which will already exist in the metaverse. If you pick a custom attribute the wizard will not be able to complete.
 

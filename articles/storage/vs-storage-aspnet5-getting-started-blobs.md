@@ -3,7 +3,7 @@
 	description="How to get started using Azure Blob storage in a Visual Studio ASP.NET 5 project after you have created a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Get started with Azure Blob storage and Visual Studio connected services (ASP.NET 5)
 

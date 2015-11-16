@@ -3,7 +3,7 @@
 	description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Getting Started with with a Javascript mobile app after adding Azure Mobile Services by using Visual Studio Connected Services
 

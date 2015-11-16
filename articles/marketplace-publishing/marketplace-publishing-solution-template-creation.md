@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/27/2015"
+      ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
 # Guide to create a Solution Template for Azure Marketplace
@@ -48,7 +48,6 @@ Upload a zip file containing all required files to provision that particular ver
 - Any linked templates and all required scripts.
 
 After uploading the zip file, click on **Request Certification**. The Microsoft certification team will review the files and certify the topology.
-
 
 > [AZURE.TIP] While your developers work on creating the Solution Template topologies and getting them certified, the Business/Marketing/Legal department of your company can work on the marketing and legal content.
 
