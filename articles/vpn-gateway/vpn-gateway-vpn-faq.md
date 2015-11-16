@@ -98,9 +98,11 @@ The following operating systems are supported:
 
 - Windows Server 2012
 
+- Windows 10
+
 ### Can I use any software VPN client for point-to-site that supports SSTP?
 
-No. Support is limited only to the Windows operating system versions listed above. The Windows 10 client is presently being verified.
+No. Support is limited only to the Windows operating system versions listed above.
 
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 
