@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="11/16/2015"
    ms.author="danlep"/>
 
 # Get Started with Docker and Compose to spin up a multi-container application on an Azure virtual machine
@@ -104,7 +104,7 @@ wordpress_wordpr   /entrypoint.sh     Up                 0.0.0.0:8080->80
 ess_1              apache2-for ...                       /tcp
 ```
 
-You can now connect to WordPress directly on the VM by browsing to `http://localhost:8080`. If you want to connect to the VM over the Internet, first configure an HTTP endpoint on the VM that maps public port 80 to private port 8080. For example, in an Azure Service Management deployment, run the following Azure CLI command:
+You can now connect to WordPress directly on the VM by browsing to `http://localhost:8080`. If you want to connect to the VM over the Internet, first configure an HTTP endpoint on the VM that maps public port 80 to private port 8080. For example, in your Azure Service Management deployment, run the following Azure CLI command:
 
 ```
 $ azure vm endpoint create <machine-name> 80 8080

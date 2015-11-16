@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
+	ms.date="11/16/2015"
 	ms.author="danlep"/>
 
 # Get started with fleet on a CoreOS VM cluster on Azure
