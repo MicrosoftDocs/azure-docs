@@ -22,7 +22,7 @@
 
 ## Verify the current payment method
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
-2. Under **Click a subscription to view details and usage**, click the subscription for which you want to verify the payment method.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to verify the payment method.
 
  ![selectsub](./media/billing-verify-and-make-payment/selectsub.png)
 3. Select **Change payment method**.
@@ -31,7 +31,7 @@
 4. You will see the current payment method listed. Select it to verify the information you need.
 
  ![changecard](./media/billing-verify-and-make-payment/changecard.png)
- 
+
 ## Make payments
 
 If you have set up a credit card or a debit card as your payment method, the payment will be made automatically.  To change the card at any time, see [How to change Payments or Credits for an azure subscription](../billing-how-to-change-credit-card.md).
