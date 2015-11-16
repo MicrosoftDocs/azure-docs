@@ -34,60 +34,68 @@ In the JSON definition for the HDInsight Activity:
 5. Specify the linked service that refers to the Azure Blob Storage that contains the JAR file for **jarLinkedService** property.   
 6. Specify any arguments for the MapReduce program in the **arguments** section. At runtime, you will see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc... are options immediately followed by  their values).
 
- 
-
 		{
-		  "name": "MahoutMapReduceSamplePipeline",
-		  "properties": {
-		    "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
-		    "activities": [
-		      {
-		        "name": "MyMahoutActivity",
-		        "description": "Custom Map Reduce to generate Mahout result",
-		        "inputs": [
-		          {
-		            "Name": "MahoutInput"
-		          }
+		    "name": "MahoutMapReduceSamplePipeline",
+		    "properties": {
+		        "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+		        "activities": [
+		            {
+		                "type": "HDInsightMapReduce",
+		                "typeProperties": {
+		                    "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
+		                    "jarFilePath": "adfsamples/Mahout/jars/mahout-examples-0.9.0.2.2.7.1-34.jar",
+		                    "jarLinkedService": "StorageLinkedService",
+		                    "arguments": [
+		                        "-s",
+		                        "SIMILARITY_LOGLIKELIHOOD",
+		                        "--input",
+		                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/input",
+		                        "--output",
+		                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/output/",
+		                        "--maxSimilaritiesPerItem",
+		                        "500",
+		                        "--tempDir",
+		                        "wasb://adfsamples@spestore.blob.core.windows.net/Mahout/temp/mahout"
+		                    ]
+		                },
+		                "inputs": [
+		                    {
+		                        "name": "MahoutInput"
+		                    }
+		                ],
+		                "outputs": [
+		                    {
+		                        "name": "MahoutOutput"
+		                    }
+		                ],
+		                "policy": {
+		                    "timeout": "01:00:00",
+		                    "concurrency": 1,
+		                    "retry": 3
+		                },
+		                "scheduler": {
+		                    "frequency": "Hour",
+		                    "interval": 1
+		                },
+		                "name": "MahoutActivity",
+		                "description": "Custom Map Reduce to generate Mahout result",
+		                "linkedServiceName": "HDInsightLinkedService"
+		            }
 		        ],
-		        "outputs": [
-		          {
-		            "Name": "MahoutOutput"
-		          }
-		        ],
-		        "linkedServiceName": "HDInsightLinkedService",
-		        "type": "HDInsightMapReduce",
-		        "typeProperties": {
-		          "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
-		          "jarFilePath": "<container>/Mahout/Jars/mahout-core-0.9.0.2.1.3.2-0002-job.jar",
-		          "jarLinkedService": "StorageLinkedService",
-		          "arguments": [
-		            "-s",
-		            "SIMILARITY_LOGLIKELIHOOD",
-		            "--input",
-		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Input/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            "--output",
-		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Output/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            "--maxSimilaritiesPerItem",
-		            "500",
-		            "--tempDir",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/temp/mahout"
-		          ]
-		        },
-		        "policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "OldestFirst",
-		          "retry": 3,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ]
-		  }
+		        "start": "2014-01-03T00:00:00Z",
+		        "end": "2014-01-04T00:00:00Z",
+		        "isPaused": false,
+		        "hubName": "mrfactory_hub",
+		        "pipelineMode": "Scheduled"
+		    }
 		}
+	
+	
 
 You can use the MapReduce transformation to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
 
 ## Sample
-You can download a sample for using the HDInsight Activity with MapReduce Transformation from: [Data Factory Samples on GitHub](data-factory-samples.md).  
+You can download a sample for using the HDInsight Activity with MapReduce Transformation from: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
