@@ -42,11 +42,11 @@ Use the guidance that is outlined in the article here to resolve to [here](activ
 
 **Q: Are SLDs (Single Label Domains) supported?**
 
-No, Azure AD Connect does not support on-prem forests/domains using SLDs.
+No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
 **Q: Are "dotted" NetBios named supported?**
 
-No, Azure AD Connect does not support on-prem forests/domains where the NetBios name contains a period "." in the name.
+No, Azure AD Connect does not support on-premises forests/domains where the NetBios name contains a period "." in the name.
 
 ## Environment
 
