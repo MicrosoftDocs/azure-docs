@@ -158,6 +158,8 @@ Before you begin the instructions in this article, you must have the following:
 - **Hive/Oozie metastore**
 
 	The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. Using the metastore helps you to retain your Hive and Oozie metadata, so that you don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, you have a cluster created with a Hive metastore. You created some Hive tables. After you delete the cluster, and recreat the cluster using the same Hive metastore, you will be able to see the Hive tables you created in the original cluster.
+    
+    > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 ## Advanced configuration options
 
@@ -302,6 +304,7 @@ You can refer to the [basic configuration options](#basic-configuration-options)
   		
 		* **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
  
+            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
