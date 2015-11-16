@@ -161,7 +161,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
 There is a [PowerShell method of setting alerts](app-insights-alerts.md/#set-alerts-by-using-powershell).
 
 
-## My example
+## An example
 
 Here's the complete component, web test and web test alert template that I created:
 
@@ -188,7 +188,7 @@ Here's the complete component, web test and web test alert template that I creat
       "location": "Central US",
       "name": "[parameters('appName')]",
       "properties": {
-        "TenantId": "9122605a-75a5-4fa2-91f0-471fc50f8438",
+        "TenantId": "9122605a-471fc50f8438",
         "Application_Type": "web",
         "Flow_Type": "Brownfield",
         "Request_Source": "VSIX3.3.1.0",
@@ -230,7 +230,14 @@ Here's the complete component, web test and web test alert template that I creat
           }
         ],
         "Configuration": {
-          "WebTest": "[concat('<WebTest   Name=\"', parameters('webTestName'), '\"         Id=\"32cfc791-aaad-4b50-9c8d-993c21beb218\"         Enabled=\"True\"         CssProjectStructure=\"\"         CssIteration=\"\"         Timeout=\"120\"         WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"         CredentialUserName=\"\"         CredentialPassword=\"\"         PreAuthenticate=\"True\"         Proxy=\"default\"         StopOnError=\"False\"         RecordedResultFile=\"\"         ResultsLocale=\"\">        <Items>        <Request         Method=\"GET\"         Guid=\"a6f2c90b-afb2-9724-61bf-b28ee0602969\"         Version=\"1.1\"         Url=\"', parameters('Url'), '\"         ThinkTime=\"0\"         Timeout=\"300\"         ParseDependentRequests=\"True\"         FollowRedirects=\"True\"         RecordResult=\"True\"         Cache=\"False\"         ResponseTimeGoal=\"0\"         Encoding=\"utf-8\"         ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\"         ReportingName=\"\"         IgnoreHttpStatusCode=\"False\" />        </Items>        <ValidationRules>        <ValidationRule         Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\"         DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"         ExectuionOrder=\"BeforeDependents\">        <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"', parameters('text'), '\" />        <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />        <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />        <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />        </RuleParameters>        </ValidationRule>        </ValidationRules>        </WebTest>')]"
+          "WebTest": "[concat(
+             '<WebTest   Name=\"', 
+                parameters('webTestName'), 
+              '\"  Id=\"32cfc791-aaad-4b50-9c8d-993c21beb218\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"         Guid=\"a6f2c90b-61bf-b28hh06gg969\"  Version=\"1.1\"  Url=\"', 
+              parameters('Url'), 
+              '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"', 
+              parameters('text'), 
+              '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
         },
         "SyntheticMonitorId": "[variables('testName')]"
       }
