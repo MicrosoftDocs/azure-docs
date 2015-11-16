@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric service manifest resources"
-   description="How to describe resources in a service manifest"
+   pageTitle="Specifying Service Fabric Service Endpoints"
+   description="How to describe endpoint resources in a service manifest including setting up HTTPS endpoints"
    services="service-fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -16,7 +16,7 @@
    ms.date="08/26/2015"
    ms.author="sumukhs"/>
 
-# Service Manifest Resources
+# Specifying Resources in a Service Manifest 
 
 ## Overview
 
@@ -38,7 +38,7 @@ When an Endpoint resource is defined in the service manifest, Service Fabric ass
 
 Refer to [configuring stateful Reliable Services](../Service-Fabric/service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).
 
-## Sample
+## Example: Specifying a HTTP endpoing for your service
 The following service manifest defines 1 TCP endpoint resource and 2 HTTP endpoint resources in the &lt;Resources&gt; element.
 
 HTTP endpoints are automatically ACL'd by Service-Fabric.
@@ -68,7 +68,7 @@ HTTP endpoints are automatically ACL'd by Service-Fabric.
 </ServiceManifest>
 ```
 
-## Specifying a HTTPS endpoint for your service
+## Example: Specifying a HTTPS endpoint for your service
 
 The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable this on your Service Fabric service, when defining the service, the protocol is specified in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown above. 
 
