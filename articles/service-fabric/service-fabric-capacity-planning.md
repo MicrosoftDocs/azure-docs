@@ -60,7 +60,7 @@ Now, based on all this information, the spreadsheet shows that you could physica
 
 ## Next steps
 
-[Partitioning Service Fabric Services][10]
+Check out [Partitioning Service Fabric Services][10] to learn more about partitioning your service.
 
 
 
@@ -68,4 +68,4 @@ Now, based on all this information, the spreadsheet shows that you could physica
 [Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
-Check out [10]: service-fabric-concepts-partitioning.md to learn more about partitioning your service.
+[10]: service-fabric-concepts-partitioning.md
