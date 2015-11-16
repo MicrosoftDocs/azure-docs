@@ -68,4 +68,4 @@ Now, based on all this information, the spreadsheet shows that you could physica
 [Image1]: ./media/SF-Cost.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
-[10]: service-fabric-concepts-partitioning.md
+Check out [10]: service-fabric-concepts-partitioning.md to learn more about partitioning your service.

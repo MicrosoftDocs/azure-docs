@@ -116,15 +116,13 @@ You may want to try changing the versions and moving from version 2 to version 3
 
 ## Next steps
 
-[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md)
+[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 
-[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
-[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
+Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md)
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
 
-[Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
- 

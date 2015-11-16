@@ -69,15 +69,15 @@ You may want to try changing the versions and moving from version 2.0.0 to versi
 
 ## Next steps
 
-[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial.md)
+[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 
-[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
+Make your application upgrades compatible by learning how to use [Data Serialization](service-fabric-application-upgrade-data-serialization.md).
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md)
+Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-[Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
  
 
 
