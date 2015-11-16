@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Introduction to Reliable Collections in Service Fabric stateful services
@@ -157,6 +157,7 @@ Here are some things to keep in mind:
 
 - The default timeout is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
 - The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
+- The key type parameter (TKey) for a Reliable Dictionary must correctly implement GetHashCode() and Equals(). Keys must be immutable.
 - Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections are not consistent across collections.
 - To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
 
