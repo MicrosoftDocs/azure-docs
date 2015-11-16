@@ -20,7 +20,7 @@
 #Data Warehouse Migration Utility (Preview)
 
 > [AZURE.SELECTOR]
-- [Download](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
 
 The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse.  During schema migration, the tool automatically maps the corresponding schema from source to destination.  After the schema has been migrated, users are also presented with the option of moving data through automatically generated scripts.
 
