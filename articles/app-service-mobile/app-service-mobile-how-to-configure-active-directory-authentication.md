@@ -50,8 +50,6 @@ You can also choose to provide configuration settings manually. This is the pref
 
 1. Log on to the [Preview Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Azure Active Directory app.
 
-    ![][1]
-
 3. Sign in to the [Azure Management Portal] and navigate to **Active Directory**.
 
     ![][2] 
@@ -104,7 +102,8 @@ You are now ready to use Azure Active Directory for authentication in your app.
 
 <!-- Images. -->
 
-[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-settings.png
+[0]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-express-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/mobile-app-aad-advanced-settings.png
 [2]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-navigate-aad.png
 [3]: ./media/app-service-mobile-how-to-configure-active-directory-authentication/app-service-aad-app-configure.png
 
