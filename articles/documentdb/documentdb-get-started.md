@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/19/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: DocumentDB C# console application 

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Power BI tutorial for DocumentDB connector | Microsoft Azure" 
 	description="Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the DocumentDB and Power BI connector." 
+	keywords="power bi tutorial, visualize data, power bi connector"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="11/18/2015" 
 	ms.author="hawong"/>
 
 # Power BI tutorial for DocumentDB: Visualize data using the Power BI connector
