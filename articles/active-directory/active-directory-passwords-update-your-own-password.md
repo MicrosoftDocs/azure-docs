@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to change or reset your own password: Azure AD Password Management | Microsoft Azure" 
+	pageTitle="How to: Change or Reset your Azure AD Password | Microsoft Azure" 
 	description="Learn how to register for password reset, how to change your password, and how to reset your own password in case you ever forget it." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # How to update your own password
@@ -33,21 +33,21 @@ The fastest way to register for password reset is to go to http://aka.ms/ssprset
  2. Enter your username and password.
  3. Choose an option to register for by clicking **set it up now**.  In this case, I'll demonstrate registering my **authentication phone**.
  
-   ![][011]
+    ![][011]
    
  4. Select your country code from the dropdown and enter your **full phone number + area code**.
  
-   ![][012] 
-   ![][013]
+    ![][012] 
+    ![][013]
    
  5. Select one of the **text me** or **call me** options.  In this case, I'll select **text me**, which will send a 6 digit code to my phone.  Wait for the code to arrive on your phone.
  
-   ![][014]
+    ![][014]
  
  6. Once the code arrives, enter it into the input box, then click "verify".
  7. When you see **thanks**, that's it!  Now you can use what you registered for to reset your password at any time by going to https://passwordreset.microsoftonline.com.
  
-   ![][015]
+    ![][015]
 
  >[AZURE.IMPORTANT] If your admin lets you register for more than one option, we highly recommend you also register a back-up option in case you lose your phone or access to your email.
 
@@ -84,11 +84,11 @@ Follow the steps below to reset your work or school account password from any wo
 
  1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
  
-   ![][001]
+    ![][001]
  
  2. On the "who are you?" page, enter your work or school account id and prove you aren't a robot by passing the captcha.
  
-   ![][002]
+    ![][002]
  
  3. Click the "next" button.
  4. Choose an option to reset your password.  Depending on how your admin has configured the system, you might see one or more of the following choices:
@@ -98,29 +98,29 @@ Follow the steps below to reset your work or school account password from any wo
 	 * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
 	 * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
-   ![][003]
+    ![][003]
 	 
  5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
  
-   ![][004]
+    ![][004]
  
  6. When you recieve the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
  
-   ![][009]
+    ![][009]
  
  8. Now, enter the code you just recieved on your phone into the input box on the page.
  
-   ![][005]
+    ![][005]
  
  9. Your admin may require a second verification step, in which case repeat step 4 with a different optionm selected.
  10. On the "choose a new password" screen, select a new password and confirm your choice, then click **Finish**.
  
-   ![][006]
-   ![][007]
+    ![][006]
+    ![][007]
   
  11. Once you see the success page, you are good to go!  You can now sign in with your new password.
  
-   ![][008]
+    ![][008]
  
 Run into a problem resetting your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
@@ -134,11 +134,11 @@ Follow the steps below to unlock your local account from any work or school acco
 
  1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
  
-   ![][001]
+    ![][001]
  
  2. On the "who are you?" page, enter your work or school account id and prove you aren't a robot by passing the captcha.
  
-   ![][002]
+    ![][002]
  
  3. Click the "next" button.
  4. Choose an option to unlock your account.  Depending on how your admin has configured the system, you might see one or more of the following choices:
@@ -148,25 +148,25 @@ Follow the steps below to unlock your local account from any work or school acco
 	 * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
 	 * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
-   ![][003]
+    ![][003]
 	 
  5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
  
-   ![][004]
+    ![][004]
  
  6. When you recieve the text, make sure you use the verification code in the message body, not the number the code was sent from.  It might take a few minutes to get the text, so grab a coffee!
  
-   ![][009]
+    ![][009]
  
  8. Now, enter the code you just recieved on your phone into the input box on the page.
  
-   ![][005]
+    ![][005]
  
  9. Your admin may require a second verification step, in which case repeat step 4 with a different option selected.
  
  11. Once you see the success page, you are good to go!  Your on-premises account has been unlocked and you can now sign in once more.
  
-   ![][010]
+    ![][010]
   
  >[AZURE.IMPORTANT] Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
  
