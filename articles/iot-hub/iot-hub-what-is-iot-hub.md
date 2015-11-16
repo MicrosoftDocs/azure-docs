@@ -62,6 +62,8 @@ These benefits are generic to many communication patterns. IoT Hub currently ena
 
 You can also implement other common patterns, such as file upload and download, by taking advantage of IoT-specific features in IoT Hub, such as consistent device identity management, connectivity monitoring, and scale.
 
+The article [Comparison of IoT Hub and Event Hubs][lnk-compare] describes the key differences between these two services and highlights the advantages of using IoT Hub in your IoT solutions.
+
 ## Gateways
 
 A gateway in an IoT solution is typically either a [protocol gateway][lnk-gateway] deployed in the cloud or a [field gateway][lnk-field-gateway] deployed locally with your devices. A protocol gateway performs protocol translation, for example MQTT to AMQP. A field gateway provides local management services for your devices and can be a specialized device or software running on an existing piece of hardware. Both types of gateway act as an intermediary between your devices and your IoT Hub.
@@ -99,6 +101,7 @@ To learn more about Azure IoT Hub, see these links:
 [lnk-d2c]: iot-hub-csharp-csharp-process-d2c.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Service Assisted Communication, blog post by Clemens Vasters"
+[lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-gateway]: iot-hub-protocol-gateway.md
 [lnk-field-gateway]: iot-hub-guidance.md#field-gateways
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
