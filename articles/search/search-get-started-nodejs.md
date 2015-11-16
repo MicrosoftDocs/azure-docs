@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure"
-	description="Walk through building a custom Azure Search application using NodeJS as your programming language."
+	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure | Hosted cloud search service"
+	description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Get started with Azure Search in NodeJS
