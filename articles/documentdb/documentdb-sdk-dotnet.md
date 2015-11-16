@@ -27,8 +27,6 @@
 
 ##DocumentDB .NET SDK
 
-**Latest released version [1.5.0](#1.5.0)**
-
 <table>
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
