@@ -20,11 +20,11 @@
 This article describes how to invoke a **MapReduce** program from an Azure Data Factory pipeline by using the **HDInsight MapReduce Activity**. 
 
 ## Introduction 
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the MapReduce transformation of the HDInsight Activity.
+A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the HDInsight MapReduce Activity.
  
-See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using Pig/Hive transformations of the HDInsight Activity. 
+See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
 
-## JSON for HDInsight Activity using MapReduce transformation 
+## JSON for HDInsight Activity using HDInsight MapReduce Activity 
 
 In the JSON definition for the HDInsight Activity: 
  
@@ -92,10 +92,10 @@ In the JSON definition for the HDInsight Activity:
 	
 	
 
-You can use the MapReduce transformation to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
+You can use the HDInsight MapReduce Activity to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
 
 ## Sample
-You can download a sample for using the HDInsight Activity with MapReduce Transformation from: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
+You can download a sample for using the HDInsight MapReduce Activity from: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
