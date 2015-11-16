@@ -113,7 +113,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
   - Modify the ACRs, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
   - Modify the list of ACRs after the volume is offline.
  
-    > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
+    > [AZURE.NOTE] You cannot change the **Enable a default backup for this volume** option for the volume.
 
 6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
