@@ -54,7 +54,7 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 	- To set the passwords of all users in the organization so that they will expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
-## Set a password not to expire
+## Set a password to never expire
 
 1. Connect to Windows PowerShell using your company administrator credentials.
 
