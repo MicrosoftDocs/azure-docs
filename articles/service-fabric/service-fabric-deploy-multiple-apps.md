@@ -17,7 +17,7 @@
    ms.author="bscholl"/>
 
 
-# Deploy mulitple existing applications
+# Deploy multiple existing applications
 
 This article shows how to package and deploy multiple applications to Service Fabric using the preview version of the Service Fabric packaging tool, which is available at http://aka.ms/servicefabricpacktool.
 

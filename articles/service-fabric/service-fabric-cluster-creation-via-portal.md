@@ -52,7 +52,7 @@ Make sure to take a note of the Source Vault URL, Certificate URL and the Certif
 
 7. Select a **location** from the dropdown (if you want to create it another location, else it will default to West US)
 
-8. Configure your **Node Type**. The Node Type can be seen as equivalents to "Roles" in Cloud Services or PaaS v1. Your cluster can have more than one Node Type. The only constraint is that you will need atleast one NodeType (primary or the first one you define on the portal) to be of atleast 5 VMs.
+8. Configure your **Node Type**. The Node Type can be seen as equivalents to "Roles" in Cloud Services or PaaS v1. Your cluster can have more than one Node Type. The only constraint is that you will need at least one NodeType (primary or the first one you define on the portal) to be of at least 5 VMs.
 	1. Select the VM size /Pricing tier you need. (default is D4 Standard, if you are just going to use this cluster for testing your application, it is fine to select D2 or any smaller size VM )	
 	2. Choose the number of VMs, You can scale up or down the number of VMs in a NodeType later on, however the primary or the first node type has to have atleast 5 VMs
 	3. Choose a name for your NodeType (1 to 12  characters in length containing only alphabets and numbers)	
@@ -66,7 +66,7 @@ Make sure to take a note of the Source Vault URL, Certificate URL and the Certif
 
   	![CreateNodeType][CreateNodeType]
 
-9. **Application ports**- If you plan to deploy your applications to the cluster right away, then Let us now add ports you want to open for your applications on this Node type (or the nodeTypes you have created). You can add  ports to the Node Type later on by  modifying the load balancer assocaited with this Node Type (you need to add a probe and then add the probe to the load blanancer rules). Doing it now, it a bit easier, since the portal automation will add the needed probes and rules to the LB. 
+9. **Application ports**- If you plan to deploy your applications to the cluster right away, then add ports you want to open for your applications on this Node type (or the nodeTypes you have created). You can add  ports to the Node Type later on by  modifying the load balancer assocaited with this Node Type (you need to add a probe and then add the probe to the load blanancer rules). Doing it now, it a bit easier, since the portal automation will add the needed probes and rules to the LB. 
 	1. You can find the application ports in your service manifests that are a part of the application package. Go to each of your applications, open up the service manifests and take note of all the  "input" endpoints your applications needs to communicate to the outside world.
 	2. Add all the ports , comma separated  in the "Application input endpoints" field. The  TCP client connection end point - 19000 by default, so you do not need to specify them. For example my application needs port "83" to be open. You will find this in the servicemanifest.xml in your  application package (there could be more than one servicemanifest.xml).
 
@@ -139,17 +139,17 @@ With the cluster setup, you can now connect and begin deploying applications.
 2. Run one of the following sets of PS commands depending on whether you created a secure or non-secure cluster.
  
 
-	- Step 1 **connecting to an unsecure cluster**. 
+- Option 1 **connecting to an unsecure cluster**. 
 
 ```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10 
 ```
 
-Skip to the next step, if you not not connecting to a secure cluster.
+Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine.
 
+  ![DeployApplication][DeployApplication]
 
-
-- Step 2 **Connecting to a secure cluster**
+- Option 2 **Connecting to a secure cluster**
 
 Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PS cmd
 
@@ -179,7 +179,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.a
 ```
 
 
-3. Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine.
+Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine.
 
   ![DeployApplication][DeployApplication]
 
