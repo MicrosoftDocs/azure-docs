@@ -91,8 +91,7 @@ Creating wordpress_wordpress_1...
 
 >[AZURE.NOTE] Be sure to use the **-d** option on start-up so that the containers run in the background continuously.
 
-To verify that the containers are up, type `docker-compose ps`. You should see s
-omething like:
+To verify that the containers are up, type `docker-compose ps`. You should see something like:
 
 ```
 Name             Command             State              Ports
