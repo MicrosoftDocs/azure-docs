@@ -180,6 +180,23 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 
 	![Hadoop tools: HDInsight Visual Studio Tools view Hive jobs][12]
 
+### Faster path Hive execution via HiveServer2
+
+>[AZURE.NOTE] This feature only works on HDInsight cluster version 3.2 and newer.
+
+The HDInsight Tools used to submit Hive jobs via WebHCat (also known as Templeton). It took a long time to return job details and error information.
+In order to solve this performance issue, the HDInsight Tools executes Hive jobs directly in the cluster through HiveServer2, so that it bypasses RDP/SSH. 
+In addition to better performance, users can also view Hive on Tez graphs, and the Task details.
+
+For HDInsight cluster version 3.2 or later, you can see a **Execute via HiveServer2** button:
+
+![hdinsight visual studio tools execute via hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+And you can see the logs streamed back in realtime and see the job graphs if the Hive query is executed in Tez.
+ 
+![hdinsight visual studio tools fast path hive execution](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Tez Hive job performance graph
 
 The HDInsight Visual Studio Tools support showing performance graphs for the Hive jobs ran by the Tez execution engine. For information on enabling Tez, see [use Hive in HDInsight][hdinsight.hive]. After you submit a Hive job in Visual Studio, Visual Studio shows you the graph when the job is completed.  You might need to click the **Refresh** button to get the latest job status.
@@ -189,6 +206,14 @@ The HDInsight Visual Studio Tools support showing performance graphs for the Hiv
 ![hadoop hive tez performance graph](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 To help you understand your Hive query better, the tool add the Hive Operator view in this release. You just need to double click on the vertices of the job graph and you can see all the operators inside the vertex. You can also hover on a particular operator to view more details of this operator.
+
+### Task execution view for Hive on Tez jobs
+
+The Task execution view for Hive on Tez jobs can be used to get structured & visualized information for Hive jobs, and get more job details. When 
+there are performance issues, you can use the view to get further details. For example, how each task operates and the detailed information about each task 
+(data read/write, schedule/start/end time, etc.), so that you can tune job configurations or system architecture based on the visualized information.
+
+![hdinsight visual studio tools task execution view](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Run Pig scripts
 

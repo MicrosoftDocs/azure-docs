@@ -3,7 +3,7 @@
 	services="cloud-services"
 	description="Investigate performance issues in cloud services with the Visual Studio profiler" 
 	documentationCenter=""
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"
 	tags="" 
@@ -16,7 +16,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/14/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 

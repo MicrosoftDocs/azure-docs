@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Editor
@@ -385,8 +385,6 @@ topic on MSDN Library.
  
 To do this tutorial using Azure PowerShell, see [Create and monitor a data factory using Azure PowerShell][monitor-manage-using-powershell].  
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md). 
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

@@ -105,7 +105,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 	![Quick Start Icon](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
-2. In the dropdown list, select **Between an on-premises Hyper-V site and Microsoft Azure**.
+2. In the dropdown list, select **Between an on-premises VMM site and Microsoft Azure**.
 3. In **Prepare VMM Servers**, click **Generate registration key** file. The key file is generated automatically and is valid for 5 days after it's generated. If you're not accessing the Azure portal from the VMM server you'll need to copy this file to the server.
 
 	![Registration key](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)

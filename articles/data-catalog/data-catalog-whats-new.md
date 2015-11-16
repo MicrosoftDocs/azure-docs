@@ -13,18 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/30/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
+## What's new for the week of November 6, 2015 release
+
+As of the week of November 6, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for preview for Teradata data sources. When registering Teradata tables and views, users can choose to include snapshot records with the metadata extracted from the data source.
+- Support for "Open in Excel" for Azure SQL Data Warehouse data sources.
+- Support for defining and editing column-level schemas for manually registered data assets. After manually creating a data asset using the **Azure Data Catalog** portal, users can add column definitions in the data asset properties.
+- Support for "has" queries when searching **Azure Data Catalog**, to enable the discovery of registered data assets that possess specific metadata. **Azure Data Catalog** query syntax now includes:
+
+| Query syntax            | Purpose |
+|-------------------------|---------|
+| has:previews             | Finds data assets that include a preview  |
+| has:documentation       | Finds data assets for which documentation has been provided |
+| has:tableDataProfiles   | Finds data assets with table-level data profile information |
+| has:columnsDataProfiles | Finds data assets with column-level data profile information |
+
+
 ## What's new for the week of October 30, 2015 release
 
 As of the week of October 30, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
-- Support for encryption at rest of data previews and data profiles for registered data sources. Azure Data Catalog will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
+- Support for encryption at rest of data previews and data profiles for registered data sources. **Azure Data Catalog** will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
 
 ## What's new for the week of October 23, 2015 release
 

@@ -126,7 +126,7 @@ In this section, you will create a Windows console app that reads device-to-clou
 [Azure Storage account]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 
 <!-- Images -->

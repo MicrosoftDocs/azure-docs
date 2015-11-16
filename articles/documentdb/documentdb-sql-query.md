@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
-	ms.author="mimig"/>
+	ms.date="11/10/2015" 
+	ms.author="arramac"/>
 
 # SQL query within DocumentDB
 Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) over hierarchical JSON documents. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 
 While designing the query language for DocumentDB we had two goals in mind:
 
--	**Embrace SQL** – Instead of inventing a new query language, we wanted to embrace SQL. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
--	**Extend SQL** – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
+-	Instead of inventing a new query language, we wanted to support SQL. SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
+-	As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, spatial queries, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
@@ -189,7 +189,8 @@ Every query consists of a SELECT clause and optional FROM and WHERE clauses per 
     
     SELECT <select_list> 
     [FROM <from_specification>] 
-    [WHERE <filter_condition>]    
+    [WHERE <filter_condition>]
+    [ORDER BY <sort_specification]    
 
 
 ## FROM clause
@@ -558,7 +559,7 @@ For other comparison operators such as >, >=, !=, < and <=, the following rules 
 If the result of the scalar expression in the filter is Undefined, the corresponding document would not be included in the result, since Undefined doesn't logically equate to "true".
 
 ### BETWEEN keyword
-You can also use the BETWEEN keyword to express queries against ranges of values like in ANSI SQL. BETWEEN can be used against any JSON primitive type (numbers, strings, Booleans and nulls). 
+You can also use the BETWEEN keyword to express queries against ranges of values like in ANSI SQL. BETWEEN can be used against strings or numbers.
 
 For example, this query returns all family documents in which the first child's grade is between 1-5 (both inclusive). 
 
