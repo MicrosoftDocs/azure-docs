@@ -25,9 +25,11 @@
 2. Under **Click a subscription to view details and usage**, select the subscription for which you want to verify the payment method.
 
  ![selectsub](./media/billing-verify-and-make-payment/selectsub.png)
+
 3. Select **Change payment method**.
 
  ![changepayment](./media/billing-verify-and-make-payment/changepayment.png)
+ 
 4. You will see the current payment method listed. Select it to verify the information you need.
 
  ![changecard](./media/billing-verify-and-make-payment/changecard.png)
