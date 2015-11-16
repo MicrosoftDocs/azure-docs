@@ -161,8 +161,8 @@ Support for SSL|X|X|X|For App Service web apps, SSL for custom domain names is o
 Visual Studio integration|X|X|X|
 Remote Debugging|X|X|X|
 Deploy code with TFS|X|X|X|
-Network isolation with [Azure Virtual Network](../services/virtual-network/)|X|X|X|See also [Azure Websites Virtual Network Integration](../blog/2014/09/15/azure-websites-virtual-network-integration/)
-Support for [Azure Traffic Manager](../services/traffic-manager/)|X|X|X|
+Network isolation with [Azure Virtual Network](/services/virtual-network/)|X|X|X|See also [Azure Websites Virtual Network Integration](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Support for [Azure Traffic Manager](/services/traffic-manager/)|X|X|X|
 Integrated Endpoint Monitoring|X|X|X|
 Remote desktop access to servers||X|X|
 Install any custom MSI||X|X|

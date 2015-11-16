@@ -50,7 +50,6 @@ These basic steps can help resolve most of the common Remote Desktop connection 
 
 - Check VM's Resource Health for any platform issues. 
 	Click Browse all > Virtual Machines (classic) > your Windows virtual machine > **Check Health**
--  
 
 ## Steps to fix common Remote Desktop errors in Resource Manager deployment model
 

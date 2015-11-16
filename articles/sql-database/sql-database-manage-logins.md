@@ -79,7 +79,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### Using new logins
 
-In order to connect to Microsoft Azure SQL Database using the logins you create, you must first grant each login database-level permissions by using the ``CREATE USER`` command. For more information, see [Granting Database-Level Permissions to a Login](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms).
+In order to connect to Microsoft Azure SQL Database using the logins you create, you must first grant each login database-level permissions by using the ``CREATE USER`` command. For more information, see the **Granting database access to a login** section below.
 
 Because some tools implement tabular data stream (TDS) differently, you may need to append the Azure SQL Database server name to the login in the connection string using the ``<login>@<server>`` notation. In these cases, separate the login and Azure SQL Database server name with the ``@`` symbol. For example, if your login was named **login1** and the fully qualified name of your Azure SQL Database server is **servername.database.windows.net**, the username parameter of your connection string should be: **login1@servername**. This restriction places limitations on the text you can choose for the login name. For more information, see [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 

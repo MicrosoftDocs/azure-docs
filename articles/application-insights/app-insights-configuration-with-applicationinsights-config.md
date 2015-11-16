@@ -147,9 +147,20 @@ Telemetry processors can filter and modify each telemetry item just before it is
 
 You can [write your own telemetry processors](app-insights-api-filtering-sampling.md#filtering).
 
-There is one standard processor (from 2.0.1):
+There is also a standard [sampling telemetry processor](app-insights-api-filtering-sampling.md#sampling) (from 2.0.1):
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` - [Sampling](app-insights-api-filtering-sampling.md#sampling) reduces the volume of telemetry while still allowing you to navigate between related telemetry items for diagnosis.
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
