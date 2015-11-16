@@ -27,8 +27,10 @@ This topic shows you how to configure Azure App Service to use Facebook as an au
 
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
+
 	> [AZURE.NOTE]
 	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+
 
 ## <a name="register"> </a>Register your application with Facebook
 
@@ -59,16 +61,20 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 11. Click the **Advanced** tab and add your application's **Redirect URI** to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your application appended with the path, _/.auth/login/facebook/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
 
+
 	> [AZURE.NOTE]
 	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-facebook_ path.
+
 
 12. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **Status & Review** in the left navigation bar. Then click **Yes** to enable general public access.
 
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 
+
 	> [AZURE.NOTE]
 	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
+
 
 13. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 

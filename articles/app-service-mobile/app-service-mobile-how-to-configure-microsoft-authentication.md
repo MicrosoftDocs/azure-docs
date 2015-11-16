@@ -25,8 +25,10 @@
 
 This topic shows you how to configure Azure App Service to use Microsoft Account as an authentication provider.
 
+
 	> [AZURE.NOTE]
 	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+
 
 ## <a name="register"> </a>Register your application with Microsoft Account
 
@@ -53,8 +55,10 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your application
 
+
 	> [AZURE.NOTE]
 	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
+
 
 7. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 

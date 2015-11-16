@@ -22,8 +22,10 @@
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider. 
 
+
 	> [AZURE.NOTE]
 	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. If using the gateway, please see the [alternative method]. Differences that apply to using the gateway are called out in notes throughout that section.
+
 
 ## <a name="express"> </a>Configure Azure Active Directory using express settings
 
@@ -79,8 +81,10 @@ You can also choose to provide configuration settings manually. This is the pref
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your application
 
+
 	> [AZURE.NOTE]
 	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
+
 
 13. Back in the [Preview Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 
