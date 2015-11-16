@@ -40,6 +40,8 @@ If you're a user (not an admin) in an organization that uses Office 365 or Micro
 ##ADMINS: Learn about how to get started with Azure AD Password Reset
 If you're an admin who wants to enable Azure AD Password Reset, or just learn more about it, start with the links below to get to what you're interested in.
 
+| Topic |  |
+| --------- | --------- |
 | Supported scenarios | [What is possible with Azure AD Password Reset?](#what-is-possible-with-azure-ad-password-reset) |
 | Why use it? | [Why use Azure AD Password Reset?](#why-use-azure-ad-password-reset) |
 | Pricing and availability | [Pricing and availability](#pricing-and-availability) |
@@ -52,7 +54,7 @@ If you're an admin who wants to enable Azure AD Password Reset, or just learn mo
 | Troubleshoot a problem  | [Troubleshoot a problem](#troubleshoot-a-problem) |
 | FAQ | [Read a FAQ](#read-a-faq) |
 | Technical details | [Understand the technical details](#understand-the-technical-details) |
-| Newly released features | [Recent service updates](#Recent-service-updates) |
+| Newly released features | [Recent service updates](#recent-service-updates) |
 | Links to other documentation | [Links to password reset documentation](#links-to-password-reset-documentation) |
 
 ### What is possible with Azure AD Password Reset?
