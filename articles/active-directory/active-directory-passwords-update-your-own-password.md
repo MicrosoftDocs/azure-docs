@@ -20,7 +20,7 @@
 If you are unsure how to manage your Work or School account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
 
 * [**How to register for password reset**](#how-to-register-for-password-reset)
-* [**How to change your password from Office 365**](#how-to-change-your-password-from-O365)
+* [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
 * [**How to change your password from the access panel**](#how-to-change-your-password-from-the-access-panel)
 * [**How to reset your password**](#how-to-reset-your-password)
 * [**How to unlock your account**](#how-to-unlock-your-account)

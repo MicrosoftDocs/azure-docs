@@ -31,7 +31,7 @@ If you're a user (not an admin) in an organization that uses Office 365 or Micro
 | Topic |  |
 | --------- | --------- |
 | I want to register for password reset | [How to register for password reset](active-directory-passwords-update-your-own-password.md#how-to-register-for-password-reset) |
-| I want to change my password from O365 | [How to change your password from Office365](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-O365) |
+| I want to change my password from O365 | [How to change your password from Office365](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-o365) |
 | I want to change my password from myapps.microsoft.com | [How to change your password from the access panel](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-the-access-panel) |
 | I forgot my password and want to reset it | [How to reset your password](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password) |
 | I can't sign in and want to unlock my account | [How to unlock your on-premises account](active-directory-passwords-update-your-own-password.md#how-to-unlock-your-account) |
@@ -79,7 +79,7 @@ Azure AD Password Reset is available in 3 tiers, depending on which subscription
 
 - **Azure AD Free** - cloud-only administrators can reset their own passwords
 - **Azure AD Basic or any Paid O365 Subscription** - cloud-only users and cloud-only administrators can reset their own passwords
-- **Azure AD Premium** - any user or administrator, including cloud-only, federated, or password synced users, can reset their own passwords (requires password writeback to be enabled)
+- **Azure AD Premium** - any user or administrator, including cloud-only, federated, or password synced users, can reset their own passwords (requires [password writeback to be enabled](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords))
 
 For more information on Azure AD Premium or Basic pricing, visit the [Active Directory Pricing Details](https://azure.microsoft.com/pricing/details/active-directory/) page.
 
