@@ -19,7 +19,7 @@
 
 # Create an Azure Search service in the Azure portal
 
-Microsoft Azure Search is a cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you access and manage using the Azure portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](seach-what-is-search.md).
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](seach-what-is-search.md).
 
 ## Add Azure Search to your subscription for free
 
@@ -52,19 +52,6 @@ As an administrator, you can add Azure Search to an existing Azure subscription 
 
 Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
-<a id="sub-2"></a>
-## Find the service name and api-keys of your Azure Search service
-
-After the service is created, you can return to the Azure portal to get the URL or `api-key`. Connections to your Azure Search service requires that you have both the URL and an `api-key` to authenticate the call.
-
-1. In the Jumpbar, click **Home** and then click the Azure Search service to open the service dashboard.
-
-2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
-
-  	![][3]
-
-3. Copy the service URL and an admin key. You will need them for your next task, [Test service operations](#sub-4).
-
 <a id="sub-3"></a>
 ## Add a Standard tier search service to get dedicated resources
 
@@ -87,6 +74,20 @@ An Azure Search service at the standard tier is created with one replica and par
 Additional replicas and partitions are billed in terms of search units. The total search units required to support any particular resource configuration are shown on the page, as you add resources.
 
 You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](search-limits-quotas-capacity.md) for help in deciding how to configure partition and replica combinations.
+
+<a id="sub-2"></a>
+## Find the service name and api-keys of your Azure Search service
+
+After the service is created, you can return to the Azure portal to get the URL or `api-key`. Connections to your Azure Search service requires that you have both the URL and an `api-key` to authenticate the call.
+
+1. In the Jumpbar, click **Home** and then click the Azure Search service to open the service dashboard.
+
+2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
+
+  	![][3]
+
+3. Copy the service URL and an admin key. You will need them for your next task, [Test service operations](#sub-4).
+
 
 <a id="sub-4"></a>
 ## Test service operations
