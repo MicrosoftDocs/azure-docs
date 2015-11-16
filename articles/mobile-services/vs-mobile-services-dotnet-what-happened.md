@@ -3,7 +3,7 @@
 	description="Describes what happened in your Visual Studio .NET project after adding Azure Mobile Services by using Connected Services " 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # What happened to my Visual Studio .NET project after adding Azure Mobile Services by using Connected Services?
 

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="SQL Database Service Tiers"
-   description="Compare performance and business continuity features of Azure SQL Database service tiers to find the right balance of cost and capability as you scale on demand with no downtime."
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="SQL Database Service Tiers"
+	description="Compare performance and business continuity features of Azure SQL Database service tiers to find the right balance of cost and capability as you scale on demand with no downtime."
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/10/2015"
+	ms.author="jroth"/>
 
 # SQL Database service tiers
  
@@ -35,7 +35,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 ### Service tiers for single databases
 For single databases there are multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Portal, with zero-downtime for your application. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
-Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). 
+Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple SQL databases, your database will still get a guaranteed set of resources, and the expected performance characteristics of your individual database is not affected.
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
@@ -45,7 +45,7 @@ For a better understanding of DTUs, see the [DTU section](#understanding-dtus) i
 >[AZURE.NOTE] For a detailed explanation of all other rows in this service tiers table, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ### Service tiers for elastic database pools
-In addition to creating and scaling a single database, you also have the option of managing multiple databases within an [elastic database pool](sql-database-elastic-pool.md). All of the databases in an elastic database pool share a common set of resources. The performance characteristics are measured by *elastic Database Transaction Units* (eDTUs). As with single databases, elastic database pools come in three performance tiers: **Basic**, **Standard**, and **Premium**. For elastic databases these three service tiers still define the overall performance limits and several features.  
+In addition to creating and scaling a single database, you also have the option of managing multiple databases within an [elastic database pool](sql-database-elastic-pool.md). All of the databases in an elastic database pool share a common set of resources. The performance characteristics are measured by *elastic Database Transaction Units* (eDTUs). As with single databases, elastic database pools come in three service tiers: **Basic**, **Standard**, and **Premium**. For elastic databases these three service tiers still define the overall performance limits and several features.  
 
 Elastic database pools allow these databases to share and consume DTU resources without needing to assign a specific performance level to the databases in the pool. For example, a single database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU (either 100 eDTUs defined by the service tier or a custom number that you configure). This allows multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. 
 
