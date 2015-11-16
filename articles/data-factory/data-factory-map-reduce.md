@@ -100,10 +100,10 @@ You can download a sample for using the HDInsight MapReduce Activity from: [Data
 ## Running the Word Count program
 The pipeline in this example runs the Word Count Map/Reduce program on your Azure HDInsight cluster.   
 
-## Linked Services
+### Linked Services
 First, you create a linked service to link the Azure Storage that is used by the Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, do not forget to replace **account name** and **account key** with the name and key of your Azure Storage. 
 
-### Storage Linked Service
+#### Storage Linked Service
 
 	{
 	    "name": "StorageLinkedService",
@@ -117,7 +117,7 @@ First, you create a linked service to link the Azure Storage that is used by the
 	    }
 	}
 
-### Azure HDInsight Linked Service
+#### Azure HDInsight Linked Service
 Next, you create a linked service to link your Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, replace **HDInsight cluster name** with the name of your HDInsight cluster, and change user name and password values.   
 
 	{
@@ -136,9 +136,9 @@ Next, you create a linked service to link your Azure HDInsight cluster to the Az
 	}
 
 
-## Datasets
+### Datasets
 
-### Output dataset
+#### Output dataset
 The pipeline in this example does not take any inputs. You will need to specify an output dataset for the HDInsight MapReduce Activity. This is just a dummy dataset that is required to drive the pipeline schedule.  
 
 	{
@@ -162,7 +162,7 @@ The pipeline in this example does not take any inputs. You will need to specify 
 	    }
 	}
 
-## Pipeline
+### Pipeline
 The pipeline in this example has only one activity that is of type: HDInsightMapReduce. Some of the important properties in the JSON are: 
 
 Property | Notes
