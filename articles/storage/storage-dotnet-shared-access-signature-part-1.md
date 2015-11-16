@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tamram"/>
 
 
@@ -51,6 +51,8 @@ Additionally, you will need to use a SAS to authenticate the source object in a 
 - When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file. With version 2015-04-05, you can optionally use a SAS to authenticate the destination file as well.
 - When you copy a blob to a file, or a file to a blob, you must use a SAS to authenticate the source object, even if the source and destination objects reside within the same storage account.
 
+>[AZURE.NOTE] Currently account SAS is supported only for the Blob and File services. It will be supported for the Table and Queue services in the near future.
+
 ## Types of shared access signatures
 
 Version 2015-04-05 of Azure Storage introduces a new type of shared access signature, the account SAS. You can now create either of two types of shared access signatures:
@@ -72,7 +74,7 @@ The account SAS and service SAS tokens include some common parameters, and also 
 - **Start time.** This is the time at which the SAS becomes valid. The start time for a shared access signature is optional; if omitted, the SAS is effective immediately. 
 - **Expiry time.** This is the time after which the SAS is no longer valid. Best practices recommend that you either specify an expiry time for a SAS, or associate it with a stored access policy (see more below).
 - **Permissions.** The permissions specified on the SAS indicate what operations the client can perform against the storage resource using the SAS. Available permissions differ for an account SAS and a service SAS.
-- **IP.** An optional parameter that specifies an IP address or a range of IP addresses from which to accept requests. 
+- **IP.** An optional parameter that specifies an IP address or a range of IP addresses outside of Azure (see the section [Routing session configuration state](../expressroute/expressroute-workflows.md#routing-session-configuration-state) for Express Route) from which to accept requests. 
 - **Protocol.** An optional parameter that specifies the protocol permitted for a request. Possible values are both HTTPS and HTTP (https,http), which is the default value, or HTTPS only (https). Note that HTTP only is not a permitted value.
 - **Signature.** The signature is constructed from the other parameters specified as part token and then encrypted. It's used to authenticate the SAS.
 

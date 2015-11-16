@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/27/2015" 
 	ms.author="tdykstra"/>
 
 # Protect an API app: Add Azure Active Directory or social provider authentication

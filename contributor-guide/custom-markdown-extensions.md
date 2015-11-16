@@ -37,7 +37,7 @@ Our articles use GitHub flavored markdown for most article formatting - paragrap
 
 You can choose from 4 types of notes and tips:
 
-- AZURE.NOTE
+- >[AZURE.NOTE]
 - AZURE.WARNING
 - AZURE.TIP
 - AZURE.IMPORTANT

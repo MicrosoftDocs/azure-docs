@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -289,7 +289,7 @@ In DevOps, repeatability and predictability are keys to any successful deploymen
 
 ## Next Steps ##
 
-Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md).
+Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md) and advanced deployment techniques like [flighting deployment](app-service-web-test-in-production-controlled-test-flight.md) easily.
 
 <a name="resources"></a>
 ## More resources ##

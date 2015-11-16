@@ -1,5 +1,5 @@
 ## Public IP address
-A public IP address resource provides either a reserved or dynamic public IP address. Although you can create a public IP address as a stand alone object, you need to associate it to another object to actually use the address. You can associate a public IP address to a load balancer, application  gateway, or a NIC to provide Internet access to those resources.  
+A public IP address resource provides either a reserved or dynamic Internet facing IP address. Although you can create a public IP address as a stand alone object, you need to associate it to another object to actually use the address. You can associate a public IP address to a load balancer, application  gateway, or a NIC to provide Internet access to those resources.  
 
 |Property|Description|Sample values|
 |---|---|---|
@@ -39,4 +39,3 @@ Sample public IP address in JSON format:
 - Get more information about [public IP addresses](virtual-networks-reserved-public-ip.md).
 - Learn about [instance level public IP addresses](virtual-networks-instance-level-public-ip.md).
 - Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163638.aspx) for public IP addresses.
-

@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/01/2015"
 	ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Manage virtual machines
+# Manage and monitor backup of Azure virtual machines
 
 ## Manage protected virtual machines
 

@@ -1,8 +1,8 @@
 <properties
- pageTitle="IoT Device Management | Microsoft Azure"
- description="A overview of Azure IoT Hub Device Management"
+ pageTitle="Manage your IoT devices | Microsoft Azure"
+ description="A overview of using IoT Hub and IoT Suite to manage your IoT devices"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 

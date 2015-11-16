@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -72,7 +72,7 @@ The attributes are grouped by the related Azure AD app.
 | facsimiletelephonenumber| X| X|  |  |
 | givenName| X| X|  |  |
 | homePhone| X| X|  |  |
-| info| X| X| X|  |
+| info| X| X| X| This attribute is currently not consumed for groups.|
 | Initials| X| X|  |  |
 | l| X| X|  |  |
 | legacyExchangeDN| X| X| X|  |
@@ -98,11 +98,11 @@ The attributes are grouped by the related Azure AD app.
 | msExchELCExpirySuspensionStart| X|  |  |  |
 | msExchELCMailboxFlags| X|  |  |  |
 | msExchEnableModeration| X|  | X|  |
-| msExchExtensionCustomAttribute1| X| X| X|  |
-| msExchExtensionCustomAttribute2| X| X| X|  |
-| msExchExtensionCustomAttribute3| X| X| X|  |
-| msExchExtensionCustomAttribute4| X| X| X|  |
-| msExchExtensionCustomAttribute5| X| X| X|  |
+| msExchExtensionCustomAttribute1| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute2| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute3| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute4| X| X| X| This attribute is currently not consumed by Exchange Online. |
+| msExchExtensionCustomAttribute5| X| X| X| This attribute is currently not consumed by Exchange Online. |
 | msExchHideFromAddressLists| X| X| X|  |
 | msExchImmutableID| X|  |  |  |
 | msExchLitigationHoldDate| X| X| X|  |
@@ -410,9 +410,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 - When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, e.g. mail, will be synchronized with the Azure AD attribute userPrincipalName.
 
 
-## Additional Resources
+## Next steps
+Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-* [Azure AD Connect sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-<!--Image references-->
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

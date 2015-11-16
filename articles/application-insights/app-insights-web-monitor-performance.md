@@ -135,7 +135,6 @@ If you specify an instance, it will be collected as a property "CounterInstanceN
 If you prefer, you can write code to have the same effect:
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)\# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -189,7 +188,7 @@ Here are a few tips for finding and diagnosing performance issues:
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
  

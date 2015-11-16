@@ -21,7 +21,7 @@
 
 This article describes how to create and manage Windows virtual machines using Azure PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a Windows VM with the classic deployment model. You can also create a Windows VM with the [Resource Manager deployment model](virtual-machines-deploy-rmtemplates-powershell.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-deploy-rmtemplates-powershell.md).
 
 
 

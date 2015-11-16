@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure" 
-	description="Learn how to use one Windows PowerShell script to provision an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster." 
+	pageTitle="Analyze flight delay data with Hive on Linux-based HDInsight | Microsoft Azure" 
+	description="Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #Analyze flight delay data by using Hive in HDInsight

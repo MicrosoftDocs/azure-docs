@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Azure IoT device SDK for C - More about IoTHubClient"
-	description="Additional detail on the IoTHubClient library in the Azure IoT device SDK for C"
+	pageTitle="Azure IoT device SDK for C - IoTHubClient | Microsoft Azure"
+	description="Learn more about using the IoTHubClient library in the Azure IoT device SDK for C"
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -73,7 +73,7 @@ To understand this better, let’s look at an example:
 
 When you call **IoTHubClient\_SendEventAsync** what you're actually doing is putting the event in a buffer. The background thread created when you call **IoTHubClient\_CreateFromConnectionString** continually monitors this buffer and sends any data that it contains to IoT Hub. This happens in the background at the same time that the main thread is performing other work.
 
-Similarly when you register a callback function for messages using **IoTHubClient\_SetMessageCallback**, you're cuing the SDK to have the background thread invoke the callback function when a message is received—independent of the main thread. 
+Similarly when you register a callback function for messages using **IoTHubClient\_SetMessageCallback**, you're instructing the SDK to have the background thread invoke the callback function when a message is received—independent of the main thread.
 
 The “LL” APIs don’t create a background thread. Instead, a new API must be called to explicitly send and receive data from IoT Hub. Once again, let’s take a look at an example…
 

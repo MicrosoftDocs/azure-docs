@@ -18,7 +18,7 @@
 
 # Authenticating identities without passwords through Microsoft Passport
 
-The current methods of authentication with passwords alone are not sufficient to keep users safe. Users reuse and forget passwords. Passwords are breachable, phishable, prone to cracks, and guessable. They also get difficult to remember and prone to attacks like “pass the hash”.
+The current methods of authentication with passwords alone are not sufficient to keep users safe. Users reuse and forget passwords. Passwords are breachable, phishable, prone to cracks, and guessable. They also get difficult to remember and prone to attacks like “Pass the Hash”. Pass the Hash is a hacking technique that allows an attacker to authenticate to a remote server/service by using the underlying NTLM and/or LanMan hash of a user's password, instead of requiring the associated plaintext password as is normally the case. For more information on Pass the Hash, see [Pass the Hash](https://technet.microsoft.com/en-us/dn785092.aspx).
 
 ## What is Microsoft Passport
 Microsoft Passport is a new private/public key or certificate-based authentication approach for organizations and consumers that goes beyond passwords. This form of authentication relies on these key pair credentials that can replace passwords and be resistant to breaches, thefts and phishing Microsoft Passport lets users authenticate to a Microsoft account, an Active Directory account, a Microsoft Azure Active Directory (AD) account, or non-Microsoft service that supports Fast ID Online (FIDO) authentication. After an initial two-step verification during Microsoft Passport enrollment, a Microsoft Passport is set up on the user's device and the user sets a gesture, which can be Windows Hello or a PIN. The user provides the gesture to verify identity; Windows then uses Microsoft Passport to authenticate users and help them to access protected resources and services.
@@ -38,7 +38,7 @@ By enabling Microsoft Passport, enterprises can make their resources even more s
 ## How does it work
 1. Keys are generated on the hardware. A lot of machines have a built-in trusted platform module (TPM) chip that secures the hardware by integrating cryptographic keys into devices. The TPM 1.2 or TPM 2.0 is used to generate keys or certificates that will be keyed out of the keys generated.
 
-2. These hardware-bound keys are attested by the TPM and enterprises can 
+2. These hardware-bound keys are attested by the TPM.
 
 3. Single unlock gesture will unlock the device and this gesture will be allowed to get access to multiple resources if the device is domain-joined or Azure AD Joined. 
 
@@ -70,4 +70,5 @@ At the user level
 
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+* [Manage identity verification using Microsoft Passport](https://technet.microsoft.com/library/mt219735(v=vs.85).aspx)
 

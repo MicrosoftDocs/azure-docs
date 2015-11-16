@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="09/29/2015" 
+	ms.date="10/14/2015" 
 	ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication #
@@ -52,50 +52,34 @@ You need the following to complete this tutorial:
 <a name="bkmk_sample"></a>
 ## Use sample application for line-of-business template ##
 
-The sample application in this tutorial, [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet), is created by the Azure Active Directory team and can be used as a template to create new line-of-business applications with ease. It has the following built-in features:
+The sample application in this tutorial, [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims), is created by the Azure Active Directory team and can be used as a template to create new line-of-business applications with ease. It has the following built-in features:
 
 - Uses [OpenID Connect](http://openid.net/connect/) to authenticate with Azure Active Directory
-- `Roles` controller that contains an Azure Active Directory search filter and enables you to easily map Azure Active Directory users or groups to application roles.
-- Sample `TaskTracker` controller that demonstrates how you can authorize different roles for specific actions in the application, including the standard usage of `[Authorize]`. 
-
-![](./media/web-sites-dotnet-lob-application-azure-ad/role-management.png)
+- Contains a sample `TaskTracker` controller that demonstrates how you can authorize different roles for specific actions in an application, including the standard usage of `[Authorize]`. 
+- Is a multitenant application with pre-defined roles that you can immediately assign your users and groups. 
 
 <a name="bkmk_run" />
 ## Run the sample application ##
 
-1.	Clone or download the sample solution at [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) to your local directory.
+1.	Clone or download the sample solution at [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) to your local directory.
 
-2.	Follow the instructions at [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md) to set up the Azure Active Directory application and project.
+2.	Follow the instructions at [How To Run The Sample as a Single Tenant App](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) to set up the Azure Active Directory application and project.
+Be sure to follow all the instructions to convert the application from multi-tenant to single-tenant.
 
-	> [AZURE.NOTE] The permissions configured in the Azure Active Directory application requires the <strong>User</strong> role; not **Global Administrator**.
-	
-3.	Once you're finished configuring the application, type `F5` to run the application.
+3.	In the [Azure portal](https://manage.windowsazure.com) view for your Azure Active Directory application you just created, click the **USERS** tab. Then, assign the desired users to the desired roles.
 
-4.	Once the application loads, click **Sign In**. 
+	>[AZURE.NOTE] If you want to assign roles to groups in addition to users, you must upgrade your Azure Active Directory tenant to [Azure Active Directory Premium](/pricing/details/active-directory/). In your application's portal UI, if you see the **USERS** tab instead of the **USERS AND GROUPS tab, you can try Azure Active Directory Premium by going to your Azure Active Directory tenant's **LICENCES** tab. 
+
+3.	Once you're finished configuring the application, type `F5` in Visual Studio to run the ASP.NET application.
+
+4.	Once the application loads, click **Sign In** and sign in with a user that has the Admin role in the Azure portal. 
 
 5.	If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner. 
 	
-	> [AZURE.NOTE] In Startup.Auth.cs of the sample project, note that the application has a method called <code>AddOwnerAdminClaim</code>, which it uses to add the application owner into the Admin role. This enables you to immediately start managing application roles in the <code>Roles</code> controller.
-	
-4.	Once signed in, click **Roles** to manage application roles.
-
-5.	In **Search for Users/Groups**, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your Azure Active Directory tenant.
-
-	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png) 
-
-	> [AZURE.NOTE] In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called <code>AadPicker</code> (defined in Scripts\AadPickerLibrary.js) to access the <code>Search</code> action in the <code>Roles</code> controller.
-		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
-	...
-    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		In Controllers\RolesController.cs, you will see the <code>Search</code> action, which sends the actual request to the Azure Active Directory Graph API and returns the response back to the page.
-		Later, you will use the same method to create simple functionality in your application.
-
-6.	Select a user or group from the dropdown, select a role, and click **Assign Role**.
-
 <a name="bkmk_deploy"></a>
 ## Deploy the sample application to App Service Web Apps
 
-Here, you will publish the application to a web app in Azure App Service. There are already instructions at [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/GroupClaims/README.md) for deploying to App Service Web Apps, but those steps also annul the configuration for your local debug environment. I'll show you how to deploy while preserving the debug configuration.
+Here, you will publish the application to a web app in Azure App Service. There are already instructions at [README.md](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims/blob/master/README.md) for deploying to App Service Web Apps, but those steps also annul the configuration for your local debug environment. I'll show you how to deploy while preserving the debug configuration.
 
 1. Right-click your project and select **Publish**.
 
@@ -103,7 +87,7 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 2. Select **Microsoft Azure Web Apps**.
 
-3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
+3. If you haven't signed in to Azure, click **Add an account** and use the Microsoft account for your Azure subscription to sign in.
 
 4. Once signed in, click **New** to create a new web app in Azure.
 
@@ -119,7 +103,9 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 8. Clear the **Enable Organizational Authentication** checkbox.
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/6-disable-organizational-authentication.png)
+	![](./media/web-sites-dotnet-lob-application-azure-ad/6-enable-code-first-migrations.png)
+
+8. Expand **RoleClaimContext** and select **Execute Code First Migrations (runs on application start)**. [Code First Migrations](https://msdn.microsoft.com/data/jj591621.aspx) helps update your app's database schema in Azure when you define additional Code First data models later.
 
 9. Instead of clicking **Publish** to go through with the web publish, click **Close**. Click **Yes** to save the changes to the publishing profile.
 
@@ -127,19 +113,25 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 2. Click **Add** at the bottom of the page.
 
+2. Click **Add an application my organization is developing**.
+
 3. Select **Web Application And/Or Web API**.
 
 4. Give the application a name and click **Next**.
 
-5. In App Properties, set **Sign-On URL** to the web app URL that you saved earler (e.g. `https://<site-name>.azurewebsites.net`), and the **APP ID URI** to `https://<aad-tenanet-name>/<app-name>`. Then, click **Complete**.
+5. In App Properties, set **Sign-On URL** to the web app URL that you saved earler (e.g. `https://<site-name>.azurewebsites.net/`), and the **APP ID URI** to `https://<aad-tenanet-name>/<app-name>`. Then, click **Complete**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-app-properties.png)
 
-6. Once the application is created, click **Configure**.
+2.	Once the application is created, update the application manifest the same way the you did earlier from the instructions at [Define your Application Roles](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles).
+
+3.	In the [Azure portal](https://manage.windowsazure.com) view for your Azure Active Directory application you just created, click the **USERS** tab. Then, assign the desired users to the desired roles.
+
+6. Click the **CONFIGURE** tab.
 
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
 
-8. Under **Permissions to other applications**, for the **Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
+8. Under **Permissions to other applications**, for the **Azure Active Directory** entry, select **Sign-in and read user profile** and **Read directory data** in the **Delegated Permissions** dropdown.
 
 	> [AZURE.NOTE] The exact permissions you need here depends on the desired functionality of your application. Some permissions require the **Global Administrator** role to set, but the permissions required by this tutorial only requires the **User** role.
 
@@ -173,11 +165,11 @@ If you want to attach the published web app to the debugger (you must upload deb
 
 In this part of the tutorial, you will learn how to build out the desired line-of-business functionality based on the sample application. You will create a simple CRUD work items tracker, similar to the TaskTracker controller but using standard CRUD scaffolding and design pattern. You will also use the included Scripts\AadPickerLibrary.js to enrich your application with data from the Azure Active Directory Graph API.  
 
-5.	In the Models folder, create a new model called WorkItem.cs, and replace the code with the code below:
+5.	In the Models folder, create a new [Code First](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) model called WorkItem.cs, and replace the code with the code below:
 
 		using System.ComponentModel.DataAnnotations;
 		
-		namespace WebAppGroupClaimsDotNet.Models
+		namespace WebApp_RoleClaims_DotNet.Models
 		{
 		    public class WorkItem
 		    {
@@ -198,13 +190,12 @@ In this part of the tutorial, you will learn how to build out the desired line-o
 		    }
 		}
 
-6.	Open DAL\GroupClaimContext.cs and add the highlighted code:  
+6.	Open DAL\RoleClaimContext.cs and add the highlighted code:  
 	<pre class="prettyprint">
-    public class GroupClaimContext : DbContext
+    public class RoleClaimContext : DbContext
     {
-        public GroupClaimContext() : base("GroupClaimContext") { }
+        public RoleClaimContext() : base("RoleClaimContext") { }
 
-        public DbSet&lt;RoleMapping&gt; RoleMappings { get; set; }
         public DbSet&lt;Task&gt; Tasks { get; set; }
         <mark>public DbSet&lt;WorkItem&gt; WorkItems { get; set; }</mark>
         public DbSet&lt;TokenCacheEntry&gt; TokenCacheEntries { get; set; }
@@ -256,23 +247,35 @@ In this part of the tutorial, you will learn how to build out the desired line-o
         ...
 	}</pre>
 
-	Since you take care of role mappings in the Roles controller, all you need to do is make sure that each action authorizes the right roles.
+	Since you take care of role mappings in the Azure portal UI, all you need to do is make sure that each action authorizes the right roles.
 
 	> [AZURE.NOTE] You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail anti-forgery token validation because:
 	> + Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.
 	> + If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.
 	> You will take care of this in the next step.
 
-12.  In App_Start\Startup.Auth.cs, add the following line of code in the `ConfigureAuth` method:
+12.  In App_Start\Startup.Auth.cs, add the following line of code in the `ConfigureAuth` method. Right-click on each naming resolution error to fix it.
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
 	`ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure Active Directory does supply. Now that you have taken care of the authorization part (seriously, that didn't take long), you can devote your time to the actual functionality of the actions. 
 
-13.	In Create() and Edit() add following code to make some variables available to your JavaScript later:
-            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
-            ViewData["tenant"] = ConfigHelper.Tenant;
+13.	In Create() and Edit() add following code to make some variables available to your JavaScript later. Right-click on each naming resolution error to fix it.
 
+        ViewData["token"] = AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+        ViewData["tenant"] = ConfigHelper.Tenant;
+
+13.	The `AcquireToken()` method is not defined yet, so define it in the `WorkItemsController` class now. Right-click on each naming resolution error to fix it.
+
+        static string AcquireToken(string userObjectId)
+        {
+            ClientCredential cred = new ClientCredential(ConfigHelper.ClientId, ConfigHelper.AppKey);
+            Claim tenantIdClaim = ClaimsPrincipal.Current.FindFirst(Globals.TenantIdClaimType);
+            AuthenticationContext authContext = new AuthenticationContext(String.Format(CultureInfo.InvariantCulture, ConfigHelper.AadInstance, tenantIdClaim.Value), new TokenDbCache(userObjectId));
+            AuthenticationResult result = authContext.AcquireTokenSilent(ConfigHelper.GraphResourceId, cred, new UserIdentifier(userObjectId, UserIdentifierType.UniqueId));
+            return result.AccessToken;
+        }
+		
 14.	In Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and modify it as follows:  
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 	{
@@ -324,12 +327,11 @@ In this part of the tutorial, you will learn how to build out the desired line-o
 	    <mark>&lt;script&gt;
 	            // People/Group Picker Code
 	            var maxResultsPerPage = 14;
-	            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
 	            var input = document.getElementById("AssignedToName");
 	            var token = "@ViewData["token"]";
 	            var tenant = "@ViewData["tenant"]";
 	
-	            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
+	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
 	            // Submit the selected user/group to be asssigned.
 	            $("#submit-button").click({ picker: picker }, function () {
@@ -341,9 +343,11 @@ In this part of the tutorial, you will learn how to build out the desired line-o
 	
 	}</pre>
 
-	In the script, the AadPicker object searches the `~/Roles/Search` action for Azure Active Directory users and groups that match the input. Then, when the submit button is clicked, the AadPicker object saves the user ID to the hidden `AssignedToID` field.  
+	In the script, the AadPicker object calls [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) to search for users and groups that match the input.  
 
-15. Now either run the app in the Visual Studio debugger or publish to Azure App Service Web Apps. Log in as the application owner and navigate to `~/WorkItems/Create`. For my published line-of-business app, I navigate to `https://mylobapp.azurewebsites.net/WorkItems/Create`. You'll see now that you you can use the same AadPicker search filter to pick an Azure Active Directory user.
+15. Open the [Package Manger Console](http://docs.nuget.org/Consume/Package-Manager-Console) and run **Enable-Migrations –EnableAutomaticMigrations**. Similar to the option you selected when you published the app to Azure, this command helps update your app's database schema in [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) when you debug it in Visual Studio.
+
+15. Now, either run the app in the Visual Studio debugger or publish again to App Service Web Apps. Log in as the application owner and navigate to `https://<webappname>.azurewebsites.net/WorkItems/Create`. You'll see now that you can pick an Azure Active Directory user or group from the drop down list, or type in something to filter the list.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
@@ -355,7 +359,7 @@ In this part of the tutorial, you will learn how to build out the desired line-o
 
 That's it!
 
-Now that you have configured the authorizations and line-of-business functionality for the different actions in the WorkItems controller, you can try to log in as users of different application roles.
+Now that you have configured the authorizations and line-of-business functionality for the different actions in the WorkItems controller, you can try to log in as users of different application roles to see how the application responds.
 
 ![](./media/web-sites-dotnet-lob-application-azure-ad/11-edit-unauthorized.png)
 

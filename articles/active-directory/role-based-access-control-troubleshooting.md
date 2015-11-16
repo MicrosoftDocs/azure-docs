@@ -3,19 +3,18 @@
 	description="Working with different resource types for role based access control."
 	services="azure-portal"
 	documentationCenter="na"
-	authors="stepsic-microsoft-com"
-	writer=""
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="azure-portal"
-	ms.workload="multiple"
+	ms.service="active-directory"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.date="10/06/2015"
+	ms.author="inhenk"/>
 
 # Role based access control troubleshooting
 

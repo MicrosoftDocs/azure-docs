@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
-	ms.author="mandia"/>
+	ms.date="10/15/2015" 
+	ms.author="mandia"/> 
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
 Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 

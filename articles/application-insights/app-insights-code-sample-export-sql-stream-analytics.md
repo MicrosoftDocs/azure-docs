@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Continuously export Application Insights data to SQL using Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
@@ -258,7 +258,7 @@ Replace the default query with:
       ,A.context.location.province as province
       ,A.context.location.city as city
     INTO
-      AIOuput
+      AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
@@ -310,6 +310,6 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

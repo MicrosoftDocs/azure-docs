@@ -19,6 +19,12 @@
 
 # Python Flask Web Application Development with DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 To highlight how customers can efficiently leverage Azure DocumentDB to
 store and query JSON documents, this document provides an end-to-end Python web application
 tutorial showing how to build a voting web application using Azure DocumentDB.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # Defining dependencies in Azure Resource Manager templates
@@ -51,6 +51,8 @@ This element is not needed if the reference function is used to get a representa
 option to use a reference vs. dependsOn, the guidance is to use the reference function and have implicit references. The rationale here again is performance.  References define implicit dependencies 
 that are known to be required as they're referenced within the template. By their presence, they are relevant, avoiding again optimizing for performance and to avoid the potential risk of 
 distracting the deployment engine from avoiding parallelism unnecessarily.
+
+If you need to define a dependency between a resource and resources that are created through a copy loop, you can set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 ## resources
 

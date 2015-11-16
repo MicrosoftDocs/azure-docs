@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -17,7 +18,6 @@
    ms.author="yurid"/>
 
 #Best practices for software updates on Microsoft Azure IaaS
-
 
 Before diving into any kind of discussion on best practices for an Azure IaaS environment, it is important to understand what the scenarios are that will have you managing software updates. The diagram below should help with this:
 
@@ -71,7 +71,7 @@ In large organizations, it is often helpful to divide the computers in your ente
 
 After you perform an initial audit of the software in use in your enterprise, you should determine the best method for receiving notifications of new software updates for each software product and version. Depending on the software product, the best notification method might be e-mail notifications, Web sites, or computer publications.
 
-For example, the Microsoft Security Response Center (MSRC) responds to all security-related concerns about Microsoft products and provides the Microsoft Security Bulletin Service, a free e-mail notification of newly identified vulnerabilities and software updates that are released to address these vulnerabilities. You can subscribe to this service at <http://www.microsoft.com/technet/security/bulletin/notify.mspx>
+For example, the Microsoft Security Response Center (MSRC) responds to all security-related concerns about Microsoft products and provides the Microsoft Security Bulletin Service, a free e-mail notification of newly identified vulnerabilities and software updates that are released to address these vulnerabilities. You can subscribe to this service at http://www.microsoft.com/technet/security/bulletin/notify.mspx.
 
 ## Software update considerations
 
@@ -99,7 +99,7 @@ Some backup options for Azure IaaS include:
 
 -   [Azure IaaS workload protection using Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Back up Azure virtual machines](https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/)
+-   [Back up Azure virtual machines](../backup/backup-azure-vms.md)
 
 ### Monitoring
 

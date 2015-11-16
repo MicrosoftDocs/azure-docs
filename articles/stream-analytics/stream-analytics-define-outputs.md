@@ -2,7 +2,7 @@
 	pageTitle="Define Outputs | Microsoft Azure" 
 	description="Understanding Stream Analytics Outputs" 
 	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
-	services="stream-analytics" 
+	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
 	manager="paulettm" 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/14/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs

@@ -5,7 +5,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="Curtis"
 	tags="azure-classic-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -30,9 +30,7 @@
 Here are some topics that will provide some additional information on Azure Active Directory 
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-
 * [What is Azure Active Directory?](active-directory-whatis.md)
-
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 

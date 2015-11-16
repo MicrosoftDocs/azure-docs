@@ -3,7 +3,7 @@
    description="Tips for using temporary tables in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="10/19/2015"
+   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Temporary tables in SQL Data Warehouse
 Temporary tables exist at the session level in SQL Data Warehouse. They are defined as local temporary tables and unlike SQL Server tables they can be accessed from anywhere inside the session.
@@ -34,7 +34,7 @@ The stored procedure below generates the DDL required to update the statistics o
 ```
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
-,   @sample_pct     tinyint
+	,@sample_pct     tinyint
 )
 AS
 
@@ -49,10 +49,10 @@ BEGIN;
 END;
 
 CREATE TABLE #stats_ddl
-WITH    (   DISTRIBUTION = HASH([seq_nmbr])
-        ,   LOCATION     = USER_DB
-        )
-WITH t1
+WITH
+(
+	DISTRIBUTION = HASH([seq_nmbr])
+)
 AS
 (
 SELECT

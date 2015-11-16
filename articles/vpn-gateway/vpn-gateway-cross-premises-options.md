@@ -66,8 +66,6 @@ A site-to-site VPN allows you to create a secure connection between your on-prem
 
 For information about configuring a site-to-site VPN gateway connection, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md). 
 
-If you want to create a site-to-site VPN gateway connection using RRAS, see [Configure a site-to-site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx).
-
 
 ## Point-to-site connections
 

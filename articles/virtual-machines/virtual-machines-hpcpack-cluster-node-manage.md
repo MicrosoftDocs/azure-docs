@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to managing a resource created with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 If you created an HPC Pack cluster in Azure VMs, you might want ways to easily add, remove,
 start (provision), or stop (deprovision) a number of compute node VMs in the

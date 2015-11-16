@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Import a BACPAC to an Azure SQL Database using PowerShell" 
-    description="Import a BACPAC to an Azure SQL Database using PowerShell" 
+    pageTitle="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
+    description="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/23/2015"
+    ms.date="10/13/2015"
     ms.author="sstein"/>
 
-# Import a BACPAC to a SQL Database using PowerShell
+# Import a BACPAC file to create a new Azure SQL database using PowerShell
 
 **Single database**
 
@@ -25,11 +25,11 @@
 - [PowerShell](sql-database-import-powershell.md)
 
 
-This article shows you how to create a SQL database by importing a BACPAC with PowerShell.
+This article provides directions for creating an Azure SQL database by importing a BACPAC with PowerShell.
 
 A BACPAC is a .bacpac file that contains a database schema and data. For details, see Backup Package (.bacpac) in [Data-tier Applications](https://msdn.microsoft.com/library/ee210546.aspx).
 
-The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-backup.md).
+The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export-powershell.md).
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
@@ -38,7 +38,9 @@ To import a SQL database you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - A .bacpac file (BACPAC) of the database you want to restore. The BACPAC needs to be in an [Azure Storage account (classic)](storage-create-storage-account.md) blob container.
-- Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+
+
+> [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
 
 

@@ -172,7 +172,7 @@ In this section you run the application locally to verify it works prior to depl
 
 In this section you create a local Git repository and push from that repository to Azure in order to deploy your sample application to the API app running in Azure App Service.
 
-1. If Git is not installed, install it from [the Git download page](http://git-scm.com/download%20target="_blank").
+1. If Git is not installed, install it from [the Git download page](http://git-scm.com/download).
 
 1. From the command-line, change directories to the sample application directory and enter the following commands to initialize a local Git repository.
 

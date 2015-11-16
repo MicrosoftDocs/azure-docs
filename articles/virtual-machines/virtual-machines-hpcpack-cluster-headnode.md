@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Create the head node of an HPC Pack cluster in an Azure VM with a Marketplace image
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article applies to creating a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This article shows you how to use the [Microsoft HPC Pack virtual machine image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) in the Azure Marketplace
 to create the head node of a Windows HPC cluster in Azure in the classic (Service Management) deployment model. The head node needs to be joined to an Active Directory domain in an Azure virtual network. You can use this head node for a proof of concept deployment of HPC Pack in Azure and add compute resources to the cluster to run HPC workloads.

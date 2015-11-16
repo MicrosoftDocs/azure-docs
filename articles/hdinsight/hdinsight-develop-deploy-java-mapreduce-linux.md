@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Develop Java MapReduce programs for Hadoop | Microsoft Azure"
-	description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight."
+	pageTitle="Develop Java MapReduce programs for Linux-based HDInsight | Microsoft Azure"
+	description="Learn how to develop Java MapReduce programs and deploy them to Linux-based HDInsight."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Develop Java MapReduce programs for Hadoop on HDInsight

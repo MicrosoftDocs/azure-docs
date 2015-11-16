@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume
@@ -21,7 +21,7 @@
 
 The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
-  ![Backup catalog page](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
+![Backup catalog page](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
 
 This tutorial describes how you can use a backup set to clone an individual volume. It also explains the difference between *transient* and *permanent* clones. 
 
@@ -41,11 +41,11 @@ You can create a clone on the same device, another device, or even a virtual mac
 
 4. In the Clone Volume wizard, under **Specify name and location**:
 
-  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the dropdown list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on to a virtual device.
+  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the drop-down list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on a virtual device.
 
         >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
-  3. Click the arrow icon ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png)to proceed to the next page.
+  3. Click the arrow icon ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) to proceed to the next page.
 
 5. Under **Specify hosts that can use this volume**:
 
@@ -86,7 +86,6 @@ To watch a video that demonstrates how you can use the clone and restore feature
 ### Testing in the production environment with a permanent clone
 
 You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment. For increased performance, you need to take a cloud snapshot of this clone. The cloned volume is now independent, which results in faster performance. In this scenario, a permanent clone is used.
-
 
 ## Next steps
 - Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).

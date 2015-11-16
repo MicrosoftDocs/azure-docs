@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Diagnose failures and exceptions in ASP.NET apps with Application Insights  
@@ -418,11 +418,10 @@ Add the attribute to the service implementations:
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -445,6 +444,6 @@ Note that it will be different from the 'Exceptions' count calculated by the App
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

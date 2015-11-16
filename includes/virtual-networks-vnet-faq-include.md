@@ -20,7 +20,7 @@ Use VNets to:
 
 ### How do I know if I need a virtual network?
 
-Visit the [Virtual Network Overview](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) to see a decision table that will help you decide the best network design option for you.
+Visit the [Virtual Network Overview](virtual-networks-overview.md) to see a decision table that will help you decide the best network design option for you.
 
 ### How do I get started?
 

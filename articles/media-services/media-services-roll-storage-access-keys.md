@@ -3,7 +3,7 @@
 	description="This articles give you guidance on how to update Media Services after rolling storage access keys." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,milangada,cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys
@@ -85,9 +85,48 @@ After this update existing locators (that have dependency on the old storage key
 
 ##Step 3: Update locators 
 
-After 30 minutes you can update existing locators so they take dependency on the new secondary storage key.  
+After 30 minutes you can recreate your OnDemand locators so they take dependency on the new secondary storage key and maintain the existing URL.  
 
-To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
+Note that when you update (or recreate) a SAS locator, the URL will always change. 
+
+>[AZURE.NOTE] To make sure you preserve the existing URLs of your OnDemand locators, you need to delete the existing locator and create a new one with the same ID. 
+ 
+The .NET example below shows how to recreate a locator with the same ID.
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##Step 5: Regenerate  primary storage access key
 
@@ -101,9 +140,9 @@ Use the same procedure as described in [step 2](media-services-roll-storage-acce
 
 ##Step 7: Update locators  
 
-After 30 minutes you can update existing locators so they take dependency on the new primary storage key.  
+After 30 minutes you can recreate your OnDemand locators so they take dependency on the new primary storage key and maintain the existing URL.
 
-To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
+Use the same procedure as described in [step 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
  
 ##Media Services learning paths
@@ -113,3 +152,7 @@ You can view AMS learning paths here:
 - [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+
+###Acknowledgments 
+
+We would like to acknowledge the following people who contributed towards creating this document: Cenk Dingiloglu, Milan Gada, Seva Titov.

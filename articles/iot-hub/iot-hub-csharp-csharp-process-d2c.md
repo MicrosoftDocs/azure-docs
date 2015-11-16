@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Processing IoT Hub device-to-cloud messages
+# Tutorial: How to process IoT Hub device-to-cloud messages
 
 ## Introduction
 
@@ -73,7 +73,7 @@ Now you are ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to reliably process *data point* and *interactive* device-to-cloud messages using [EventProcessorHost]. Ananlogous message processing logic can be implemented with 
+In this tutorial, you learned how to reliably process *data point* and *interactive* device-to-cloud messages using [EventProcessorHost]. Analogous message processing logic can be implemented with:
 
 - [Uploading files from devices], describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
@@ -116,8 +116,4 @@ Additional information on IoT Hub:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT Developer Center]: http://www.azure.com/iotdev
-
-
-
- 
+[Azure IoT Developer Center]: http://www.azure.com/develop/iot

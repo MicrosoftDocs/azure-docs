@@ -165,26 +165,26 @@ To learn more about Blob storage, see [How to use Blob storage from .NET](../sto
 
 		static void CreateFiles()
 		{
-			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-				ConfigurationManager.AppSettings["StorageConnectionString"]);
-			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-			CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+		  CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+			ConfigurationManager.AppSettings["StorageConnectionString"]);
+		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
 
-			CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
-			CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
-			CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
-			taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
-			taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
-			taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+		  CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+		  CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+		  CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
 
 			CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
 			storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
 
 			CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
-			dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
 
-			Console.WriteLine("Uploaded the files. Press Enter to continue.");
-			Console.ReadLine();
+		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
+		  Console.ReadLine();
 		}
 
 2. Add this code to Main that calls the method you just added:
@@ -195,7 +195,7 @@ To learn more about Blob storage, see [How to use Blob storage from .NET](../sto
 
 ## Step 2. Add a pool to your Batch account
 
-A pool of compute nodes is the first set of resources that you must create when you want to run tasks.
+A pool of compute nodes is the first set of resources that you must create when you want to run tasks.  
 
 1.	Add these using directives to the top of Program.cs in the GettingStarted project:
 

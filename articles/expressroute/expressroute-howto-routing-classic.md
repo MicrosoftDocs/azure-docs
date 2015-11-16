@@ -13,23 +13,23 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="cherylmc"/>
 
 # Create and modify ExpressRoute routing configuration
 
 This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell cmdlets and the classic deployment model.  The steps below will also show you how to check the status, update, or delete and deprovision peerings for an  ExpressRoute circuit.
 
->[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
+>[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
 
 ## Configuration prerequisites
 
 - You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
-- You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed with instructions below. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
+- You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
->[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically IPVPN), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+>[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
 
 You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
 
@@ -258,16 +258,16 @@ This section provides instructions on how to create, get, update and delete the 
 
 4. **Configure Microsoft peering for the circuit**
 
-	Ensure that you have the following information before you proceed further.
+	Make sure that you have the following information before you proceed.
 
 	- A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
 	- A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR.
 	- A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
 	- AS number for peering. You can use both 2-byte and 4-byte AS numbers. You must use public AS numbers only. You must own the AS number.
-	- **Advertised prefixes:** You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. You can send a comma separated list if you plan to send a set of prefixes. These prefixes must be registered to you in an RIR / IRR.
-	- **Customer ASN:** If you are advertising prefixes that are registered to the peering AS number, you can specify the AS number to which they are registered. **This is optional**.
-	- **Routing Registry Name:** You can specify the RIR / IRR against which the AS number and prefixes are registered.
-	- MD5 hash if you choose to use one. **This is optional**.
+	- Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. You can send a comma separated list if you plan to send a set of prefixes. These prefixes must be registered to you in an RIR / IRR.
+	- Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered. **This is optional**.
+	- Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
+	- A MD5 hash, if you choose to use one. **This is optional.**
 	
 	You can run the following cmdlet to configure Microsoft pering for your circuit
 
@@ -308,4 +308,7 @@ You can remove your peering configuration by running the following cmdlet.
 
 ## Next steps
 
-For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md)
+-  Next, [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md).
+-  For more information about workflows, see [ExpressRoute workflows](expressroute-workflows.md).
+-  For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
+

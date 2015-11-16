@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="06/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # .NET on-premises/cloud hybrid application using Azure Service Bus relay
@@ -644,8 +644,7 @@ application.
 
 To learn more about Service Bus, see the following resources:  
 
-* [Azure Service Bus][sbmsdn]  
-* [Service Bus How To's][sbwacom]  
+* [Azure Service Bus][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
 
@@ -654,7 +653,7 @@ To learn more about Service Bus, see the following resources:
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
-  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
+  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
   [Azure portal]: http://manage.windowsazure.com
@@ -700,7 +699,6 @@ To learn more about Service Bus, see the following resources:
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
-  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md

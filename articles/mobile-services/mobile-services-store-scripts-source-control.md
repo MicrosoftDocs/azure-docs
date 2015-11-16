@@ -94,9 +94,7 @@ Now that you have created your local repository, you can make changes to server 
 
 	You should see a series of commands that indicates that the commit is deployed to the mobile service.
 
-6. Back in the Management Portal, click the **Data** tab, then click the **TodoItem** table, click  **Script**, then select the **Insert** operation.
-7.
-	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
+6. Back in the Management Portal, click the **Data** tab, then click the **TodoItem** table, click  **Script**, then select the **Insert** operation. Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
 ##<a name="use-npm"></a>Leverage shared code and Node.js modules in your server scripts
 

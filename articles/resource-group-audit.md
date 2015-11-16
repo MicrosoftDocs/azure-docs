@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
 	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
 	services="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Audit operations with Resource Manager
@@ -28,16 +28,18 @@ You can retrieve information from the audit logs through Azure PowerShell, Azure
 
 ## PowerShell
 
-To retrieve log entries, you run the **Get-AzureResourceGroupLog** command. You provide additional parameters to filter the list of entries . 
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+To retrieve log entries, run the **Get-AzureRmLog** command  (or **Get-AzureResourceGroupLog** for PowerShell versions earlier than 1.0 Preview). You provide additional parameters to filter the list of entries . 
 
 The following example shows how to use the audit log to research actions taken during the lifecycle of the solution. You can see when the action occurred and who requested it.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
 Depending on the start time you specify, the previous command can return a long list actions for that resource group. You can filter the results for what you are looking for by providing search criteria. For example, if you
 are trying to research how a web app was stopped you could run the following command and see that a stop action was performed by someone@example.com.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -57,11 +59,11 @@ are trying to research how a web app was stopped you could run the following com
 
 In the next example, we'll just look for failed actions after the specified start time. We'll also include the **DetailedOutput** parameter to see the error messages.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
     
 If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **properties** property.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -71,7 +73,7 @@ If this command returns too many entries and properties, you can focus your audi
 
 And, you can further refine the results by looking at the status message.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.

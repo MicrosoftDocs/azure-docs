@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy an API app in Azure App Service 
 
 ## Overview
 
-In this tutorial, you'll deploy the Web API project that you created in the [previous tutorial](app-service-dotnet-create-api-app.md) to a new [API app](app-service-api-apps-why-best-platform.md). You'll use Visual Studio to create the API app resource in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and to deploy your Web API code to the Azure API app. 
+In this tutorial, you deploy the Web API project that you created in the [previous tutorial](app-service-dotnet-create-api-app.md) to a new [API app](app-service-api-apps-why-best-platform.md). You use Visual Studio to create the API app resource in [Azure App Service](../app-service/app-service-value-prop-what-is.md) and to deploy your Web API code to the Azure API app. 
 
 ### Other deployment options
 
@@ -121,5 +121,8 @@ Next, you'll make a change to the API definition and see the change reflected in
 
 ## Next steps
 
-You've seen how the direct deployment capabilities in Visual Studio make it easy to iterate and deploy rapidly and test that your API works correctly. In the [next tutorial](../app-service-dotnet-remotely-debug-api-app.md), you'll see how to debug your API app while it runs in Azure.
- 
+You've seen how the direct deployment capabilities in Visual Studio make it easy to test that your API works correctly. In the [next tutorial](../app-service-dotnet-remotely-debug-api-app.md), you'll see how to debug your API app while it runs in Azure.
+
+API apps are web apps with extra features for hosting APIs, which means you can use any deployment method that works with web apps. For more information about deployment options for web apps, see [Deploy a web app in Azure App Service](../app-service-web/web-sites-deploy.md).
+
+For information about API Apps features, see [What are API apps?](app-service-api-apps-why-best-platform.md).

@@ -12,10 +12,12 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/28/2015"
+      ms.date="10/26/2015"
       ms.author="tamram" />
 
 # How to use Azure File storage with Windows
+
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## Overview
 
@@ -34,6 +36,12 @@ For information on scalability targets for File storage, see [Azure Storage Scal
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+
+## Video: Using Azure File storage with Windows
+
+Here's a video that demonstrates how to create and use Azure File shares on Windows.
+
+> [AZURE.VIDEO azure-file-storage-with-windows]
 
 ## About this tutorial
 
@@ -186,7 +194,7 @@ To mount the file share from an on-premises client, you must first take these st
 - Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premises client and the Azure file share in the cloud. 
 - Open Internet access for port 445 (TCP Outbound) in your local network, as is required by the SMB protocol. 
 
-[AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
+> [AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
 
 ## Develop with File storage
 
@@ -519,8 +527,9 @@ You can enable metrics for File storage from the Azure portal. You can also enab
 
 See these links for more information about Azure File storage.
 
-### Conceptual articles
+### Conceptual articles and videos
 
+- [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage

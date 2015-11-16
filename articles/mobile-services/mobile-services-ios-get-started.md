@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/07/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
 
 This tutorial shows you how to add a cloud-based backend service to an iOS app using Azure Mobile Services.
 
@@ -60,6 +63,8 @@ Learn how to perform additional important tasks in Mobile Services:
 
 * [Add push notifications to an existing app]
 	<br/>Learn how to send a very basic push notification to your app.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 
 <!-- Anchors. -->

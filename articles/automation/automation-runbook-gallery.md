@@ -100,13 +100,13 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 6. You are returned to the Azure preview portal in a **Custom deployment** pane.  Specify whether you will install the module in a **New or Existing Automation Account** and the **Automation Account Name**.  The **Automation Account Location** is ignored if you use an existing account. 
 7. Select **Resource group** and either specify a existing resource group or create a new one for the module.
 6. You must select **Legal terms** and click **Buy**.  Note that despite the name of this button you are not actually charged for installing a module.
-7. Click **Create** to import the module.  
+7. Click **Create** to import the module.  This may take a couple of minutes since each activity needs to be extracted.  
 8. You will receive a notification that the module is being deployed and a notification when it has completed. 
 
 
 ## Requesting a runbook or module
 
-You can send requests to [User Voice](http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+You can send requests to [User Voice](http://feedback.azure.com/forums/246290-azure-automation).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Related articles
 
