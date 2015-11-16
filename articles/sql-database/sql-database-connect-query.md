@@ -2,7 +2,7 @@
 	pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
 	description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
 	services="sql-database"
-	keywords="c# database query, c# query"
+	keywords="c# database query, c# query, connect to database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -18,7 +18,7 @@
 	ms.author="genemi"/>
 
 
-# Write a program in C&#x23; to query and connect to your SQL Database
+# Write a program in C&#x23; to query and connect to a SQL Database
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
@@ -27,7 +27,7 @@
 
 Learn how to write a program in C# to query and connect to an Azure SQL database in the cloud.
 
-This article describes every step for people who are new to Azure SQL Database, C, and ADO.NET. Others who are experienced with Microsoft SQL Server and C# may skip some steps and focus on those that are particular to SQL Database.
+This article describes every step for people who are new to Azure SQL Database, C#, and ADO.NET. Others who are experienced with Microsoft SQL Server and C# may skip some steps and focus on those that are particular to SQL Database.
 
 
 ## Prerequisites
@@ -127,7 +127,7 @@ Our C# sample uses the .NET Framework assembly **System.Configuration.dll**, so 
 ## Step 4: Get the connection string
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to copy the connection string for your database.
+Use the [Azure preview portal](http://portal.azure.com/) to copy the connection string needed to connect to the SQL database.
 
 Your first use will be to connect Visual Studio to your Azure SQL Database **AdventureWorksLT** database.
 
@@ -295,7 +295,7 @@ namespace ConnectAndQuery_Example
 
 2. Gathers user name and password from the keyboard, and adds them to complete the connection string.
 
-3. Uses the connection string, and ADO.NET classes, to connect to the **AdventureWorksLT** demonstration database on Azure SQL Database.
+3. Uses the connection string, and ADO.NET classes, to connect to the **AdventureWorksLT** demonstration database on SQL Database.
 
 4. Issues an SQL **SELECT** to read from the **SalesLT** table.
 
@@ -313,7 +313,7 @@ We try to keep the C# sample short. Yet we added code to read a config file to h
 ## Step 7: Add allowed IP address range in the server firewall
 
 
-Your client C# program cannot connect to Azure SQL Database until the IP address of the client computer has been added in the SQL Database firewall. Your program will fail with a handy error message that states the necessary IP address.
+Your client C# program cannot connect to SQL Database until the IP address of the client computer has been added in the SQL Database firewall. Your program will fail with a handy error message that states the necessary IP address.
 
 
 You can use the [Azure preview portal](http://portal.azure.com/) to add the IP address.
