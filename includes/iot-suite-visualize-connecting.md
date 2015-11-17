@@ -1,40 +1,44 @@
-## Visualize your registered device and the data
+## View device telemetry in the dashboard
 
-7. Go back to your remote monitoring solution dashboard. You should the device has changed the status to Running on the Devices list.
+The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
 
-    ![][18]
+1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 
-8. Click on the dashboard to see data coming. The sample is configured to send 50 units for internal temperature, 55 units for external temperature and 50 for humidity. Please note that the dashboard only shows temperature and humidity by default.
+1. In the **Devices list**, you should see that the status of your device is now **Running**.
 
-8. Now go to the [Command and control](#command) section to learn how to change the temperature on your device from the remote monitoring solution.
+  ![][18]
 
-## <a name="command"></a>Command and control your device from the dashboard
+2. In the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity. Note that by default the dashboard displays only temperature and humidity values.
 
-Now that your device is connected and sending self-generated temperature data from your device, you can command and control your device remotely from IoT Hub. You can implement multiple types of commands that fit your business application. In this case, we've implemented a change in temperature, as if there was a need to control it from the solution. To send the command, you should:
+  ![][img-telemetry]
 
--  Click on your device ID on the Devices list (you can find the device section on the left side menu).
+## Send a command to your device
 
-    ![][13]
+The dashboard in the remote monitoring solution enables you to request IoT Hub to send commands to your devices. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
 
-- On the right menu where device details are shown, click on "Send command"
+1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
 
+2.  Click **Device ID** for your device in the **Devices list**.
 
-- Select the command you want to run: In this case, we choose "Set temperature", since we want to change the temperature the device is set at. Select that command and choose the temperature value. Click on Send Command and the new temperature will be pushed to the device. Note: you will see that in the command history the result of the command is "Pending". This is because, for simplicity purposes, this samples hasn't implemented any logic in the device to respond to IoT Hub. You can do this extending the solution.
+3. In the **Device details** panel, click **Commands**.
 
-    ![][14]
+  ![][13]
 
-- Go back to the dashboard and ensure that the updated data is coming through. You should see updated statistics on temperature and the new data being displayed in the telemetry history.
+4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.
+
+  ![][14]
+
+  > [AZURE.NOTE] The command history initially shows the command status as **Pending**. When the device acknowledges the command, the status changes to **Success**.
+
+5. On the dashboard, verify that the device is now sending 75 as the new temperature value.
 
 ## Next steps
 
-There are multiple ways to extend the functionality of this sample: connect real sensor to your device to send real date, implement command and control functionality,etc. Please use our [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) on how to extend the remote monitoring solution to learn more about this.
-
+The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
 [18]: ./media/iot-suite-visualize-connecting/suite10.png
-
-
-[lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
-[lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
-[lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
+[lnk-customize]: ../articles/iot-suite/
+[lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
