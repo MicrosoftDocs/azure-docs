@@ -67,7 +67,7 @@ In the above example, **ExternalBackupStore** is the sample class that is used t
 
 One can classify the restoration scenarios where the running service has to restore data from the backup store into the following:
 
-1. Service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted/wiped. The new primary may need to restore data from a backup.
+1. The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted/wiped. The new primary may need to restore data from a backup.
 
 2. The entire service is lost. For example, an administrator removes the entire service and thus the service and the data needs to be restored.
 
@@ -134,7 +134,6 @@ Now steps in "Deleted Service" can be used to restore the state of the service b
 ## Under the hood: More details on Backup and Restore
 
 ### Backup
-
 The Reliable State Manager provides the ability to create consistent backups without blocking any read or write operations. To do so, it utilizes a checkpoint and log persistence mechanism.  The Reliable State Manager takes fuzzy (lightweight) checkpoints at certain points to relieve pressure from the transactional log and improve recovery times.  When IReliableStateManager.**BackupAsync** is called, the Reliable State Manager instructs all Reliable Objects to copy their latest checkpoint files to a local backup folder.  Then, the Reliable State Manager copies all log records starting from the "start pointer" to the latest log record into the backup folder.  Since all the log records up to the latest log record are included in the backup and Reliable State Manager preserves Write Ahead Logging, Reliable State Manager guarantees that all transactions that are committed (CommitAsync has returned successfully) are included in the backup.
 
 Any transaction that commits after the **BackupAsync** has been called, may or may not be in the backup.  Once the local backup folder has been populated by the platform (i.e., local backup completed by the runtime), the service's backup callback is invoked.  This callback is responsible for moving the backup folder to an external location such as Azure Storage.
@@ -142,6 +141,7 @@ Any transaction that commits after the **BackupAsync** has been called, may or m
 ### Restore
 
 Reliable State Manager provides ability to restore from a backup by using the IReliableStateManager.RestoreAsync API.  The RestoreAsync method can only be called inside the **OnDataLossAsync** method.  The bool returned by **OnDataLossAsync** indicates whether the service restored its state from an external source.  If the **OnDataLossAsync** returns true, Service Fabric will rebuild all other replicas from this Primary.  Service Fabric ensures that replicas that are to receive **OnDataLossAsync** first transition to the Primary role, but are not granted Read Status or Write Status.  This implies that for StatefulService implementers, RunAsync will not be called until **OnDataLossAsync** completes successfully.  Then, **OnDataLossAsync** will be invoked on the new Primary. Until a service completes this API successfully (by returning true or false) and finishes the relevant reconfiguration, the API will keep being called one at a time.
+
 
 RestoreAsync first drops all existing state in the Primary replica that it was called on.  After, the Reliable State Manager creates all the Reliable Objects that exists in the backup folder.  Next, the Reliable Objects are instructed to restore from their checkpoints in the backup folder.  Finally, Reliable State Manager recovers its own state from the log records in the backup folder and performs recovery.  As part of the recovery process, operations starting from the "starting point" that have commit log records in the backup folder are replayed to the Reliable Objects.  This step ensures that the recovered state is consistent.
 
