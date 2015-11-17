@@ -3,7 +3,7 @@
    description="How to describe endpoint resources in a service manifest including setting up HTTPS endpoints"
    services="service-fabric"
    documentationCenter=".net"
-   authors="sumukhs"
+   authors="sumukhs; mani-ramaswamy"
    manager="timlt"
    editor=""/>
 
