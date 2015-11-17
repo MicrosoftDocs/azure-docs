@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Disk Encryption for Windows and Linux IaaS VMs| Microsoft Azure"
-   description="This article provides an overview of Microsoft Azure Disk Encryption for for Windows and Linux IaaS VMs."
+   description="The paper provides an overview of Microsoft Azure Disk Encryption for for Windows and Linux IaaS VMs."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
    authors="YuriDio"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/17/2015"
-   ms.author="yuridio"/>
+   ms.author="yurid"/>
 
 #Azure Disk Encryption for Windows and Linux IaaS VMs
 
@@ -30,21 +30,21 @@ Azure Disk Encryption is a new capability that lets you encrypt your Windows and
 
 The Azure Disk Encryption solution supports the following 3 customer encryption scenarios:
 
-1.  Enable encryption on new IaaS VM’s created from Customer Encrypted VHD and encryption keys
+- Enable encryption on new IaaS VM’s created from Customer Encrypted VHD and encryption keys
 
-2.  Enable encryption on new IaaS VM’s created from the Azure Gallery
+- Enable encryption on new IaaS VM’s created from the Azure Gallery
 
-3.  Enable encryption on existing IaaS VM’s already running in Azure
+- Enable encryption on existing IaaS VM’s already running in Azure
 
 The solution supports the following for IaaS VMs for public preview release when enabled in Microsoft Azure:
 
-1. Integration with Azure Key Vault
+- Integration with Azure Key Vault
 
-2. Standard [A, D and G series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- Standard [A, D and G series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
-3. Enable encryption on IaaS VMs created using [Azure Resource Manager](resource-group-overview.md) model
+- Enable encryption on IaaS VMs created using [Azure Resource Manager](resource-group-overview.md) model
 
-4. All Azure public [regions](https://azure.microsoft.com/regions/)
+- All Azure public [regions](https://azure.microsoft.com/regions/)
 
 
 The solution does not support the following scenarios, features and technology in the public preview release:
@@ -66,17 +66,17 @@ The solution does not support the following scenarios, features and technology i
 
 When you enable and deploy Azure disk encryption for Azure IaaS VMs, the following capabilities are enabled, depending on the configuration provided:
 
-1.  Encryption of OS volume to protect boot volume at rest in customer storage
+- Encryption of OS volume to protect boot volume at rest in customer storage
 
-2.  Encryption of Data volume/s to protect the data volumes at rest in customer storage
+- Encryption of Data volume/s to protect the data volumes at rest in customer storage
 
-3.  Safeguarding the encryption keys and secrets in customer Azure key vault subscription
+- Safeguarding the encryption keys and secrets in customer Azure key vault subscription
 
-4.  Reporting encryption status of the encrypted IaaS VM
+- Reporting encryption status of the encrypted IaaS VM
 
-5.  Removal of disk encryption configuration settings from the IaaS virtual machine
+- Removal of disk encryption configuration settings from the IaaS virtual machine
 
-The Azure disk encryption for IaaS VMS for Windows and Linux solution includes the disk encryption extension for Windows, disk encryption extension for Linux, disk encryption PowerShell cmdlets, disk encryption CLI cmdlets and disk encryption Azure Resource Manager templates. The Azure disk encryption solution is supported on IaaS VMs running Windows or Linux OS. For more details on the supported OS’es, see pre-requisites section below.
+The Azure disk encryption for IaaS VMS for Windows and Linux solution includes the disk encryption extension for Windows, disk encryption extension for Linux, disk encryption PowerShell cmdlets, disk encryption CLI cmdlets and disk encryption Azure Resource Manager templates. The Azure disk encryption solution is supported on IaaS VMs running Windows or Linux OS. For more details on the supported Operating Systems, see pre-requisites section below.
 
 There is no charge for encrypting VM disks with Azure Disk Encryption during the public preview. We also expect this to continue to be the case after Disk Encryption is generally available. However, pricing is subject to change based on market and competitive landscape.
 
@@ -102,7 +102,7 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 
 3. Customer grants access to Azure platform to read the encryption key material (BitLocker Encryption Keys for Windows systems and Passphrase for Linux) from their key vault to enable encryption on the IaaS VM
 
-4. Customer provide AAD identity to write the encryption key material to their key vault to enable encryption on the IaaS VM for scenarios 2 and 3 above.
+4. Customer provide Azure AD identity to write the encryption key material to their key vault to enable encryption on the IaaS VM for scenarios 2 and 3 above.
 
 5.  Azure service management updates the VM service model with encryption and key vault configuration and provisions encrypted VM for the customer
 
@@ -177,7 +177,7 @@ Use the terminology table as reference to understand some of the common terms us
 
 | Terminology           | Definition                                                                                                                                                                                                                                   |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AAD                   | AAD is [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). AAD account is a pre-requisite for authenticating, storing, and retrieving secrets from the Key Vault.                                                                                                        |
+| Azure AD                   | Azure AD is [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Azure AD account is a pre-requisite for authenticating, storing, and retrieving secrets from the Key Vault.                                                                                                        |
 | Azure Key Vault [AKV] | Azure Key Vault is a cryptographic key management service based on FIPS-validated Hardware Security Modules to safeguard your cryptographic keys and sensitive secrets securely.,Refer to [Key Vault](https://azure.microsoft.com/services/key-vault/) documentation for more details.          |
 | ARM                   | Azure Resource Manager                                                                                                                                                                                                                       |
 | BitLocker             | [BitLocker](https://technet.microsoft.com/library/hh831713.aspx) is an industry recognized Windows volume encryption technology used to enable disk encryption on Windows IaaS VMs                                                                                                                  |
@@ -189,7 +189,7 @@ Use the terminology table as reference to understand some of the common terms us
 
 ##Disk Encryption deployment scenarios and user experiences
 
-There are many scenarios that you can enable disk encryption and the steps may vary according to the scenario. The sections that follows will cover in more details these scenarios.
+There are many scenarios that you can enable disk encryption and the steps may vary according to the scenario. The sections that follow will cover in more details these scenarios.
 
 ###Enable encryption on new IaaS VM’s created from the Azure Gallery
 
@@ -197,7 +197,7 @@ Disk encryption can be enabled on new IaaS Windows VM from Azure gallery in Azur
 
 **Note:** This template creates a new encrypted Windows VM using the Windows Server 2012 gallery image.
 
-You can see the ARM template parameters details for new VM from Azure gallery scenario using AAD Client ID in the table below:
+You can see the ARM template parameters details for new VM from Azure gallery scenario using Azure AD Client ID in the table below:
 
 | Parameter                        | Description|
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -207,8 +207,8 @@ You can see the ARM template parameters details for new VM from Azure gallery sc
 | vmSize                        | Size of the VM. Currently, only Standard A, D and G series are supported                                                                                          |
 | virtualNetworkName            | Name of the VNet to which the VM NIC should belong to.                                                                                                            |
 | subnetName                    | Name of the subnet in the vNet to which the VM NIC should belong to                                                                                               |
-| AADClientID                   | Client ID of the AAD app that has permissions to write secrets to Key Vault                                                                                       |
-| AADClientSecret               | Client Secret of the AAD app that has permissions to write secrets to Key Vault                                                                                   |
+| AADClientID                   | Client ID of the Azure AD app that has permissions to write secrets to Key Vault                                                                                       |
+| AADClientSecret               | Client Secret of the Azure AD app that has permissions to write secrets to Key Vault                                                                                   |
 | keyVaultResourceID,ResourceID | Identify the key vault resource in ARM. You can get it using the PowerShell cmdlet: (Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).ResourceId               |
 | keyVaultURL                   | URL of the Key Vault to which BitLocker key should be uploaded to. You can get it using the cmdlet: (Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).VaultURI |
 | keyEncryptionKeyURL           | URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional.                                                               |
@@ -227,8 +227,8 @@ Disk encryption can be enabled on customer encrypted VHD using the ARM template 
 
 The ARM template parameters details for customer encrypted VHD scenario are described in the table below:
 
-| ​Parameter               | ​Description                                                                                                                                                                                                    
-|
+| ​Parameter               | ​Description
+|-----------------------|------------------------------------------------------------------                                                                                                                                                                                                   
 | newStorageAccountName | Name of the storage account to store encrypted OS vhd. This storage account should have already been created in the same resource group and same location as the VM                                                     |
 | osVhdUri              | URI of OS vhd from storage account                                                                                                                                                                                      |
 | osType                | OS product type (Windows/Linux)                                                                                                                                                                                         |
@@ -247,7 +247,7 @@ Follow the steps below to enable disk encryption for this scenario using CLI com
 
 1. Set access policies on Key Vault:
 	- Set ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-	- Set permissions to AAD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
+	- Set permissions to Azure AD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
 2. To enable encryption on an existing/running VM, type: 
 	*azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
 3. Get encryption status: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”* 
@@ -266,12 +266,12 @@ In this scenario you can enable encrypting by using the ARM template, [PowerShel
 
 Disk encryption can be enabled on existing/running IaaS Windows VM in Azure using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
 
-The ARM template parameters details for existing/running VM scenario using AAD Client ID are available in the table below:
+The ARM template parameters details for existing/running VM scenario using Azure AD Client ID are available in the table below:
 
 | Parameter                 | Description|
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​AADClientID            | ​Client ID of the AAD app that has permissions to write secrets to Key Vault                                                                                                                                              |
-| AADClientSecret         | ​Client Secret of the AAD app that has permissions to write secrets to Key Vault                                                                                                                                          |
+| ​AADClientID            | ​Client ID of the Azure AD app that has permissions to write secrets to Key Vault                                                                                                                                              |
+| AADClientSecret         | ​Client Secret of the Azure AD app that has permissions to write secrets to Key Vault                                                                                                                                          |
 | **​**keyVaultResourceID | ResourceID identifying the key vault resource in ARM. You can get it using the PowerShell cmdlet: (Get-AzureRmKeyVault -VaultName &lt;yourKeyVaultName&gt; -ResourceGroupName &lt;yourResourceGroupName&gt;).ResourceId   |
 | ​keyVaultURL            | ​URL of the Key Vault to which BitLocker key should be uploaded to. You can get it using the cmdlet: (Get-AzureRmKeyVault -VaultName &lt;yourKeyVaultName&gt; -ResourceGroupName &lt;yourResourceGroupName&gt;). VaultURI |
 | ​ keyEncryptionKeyURL   | ​URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional                                                                                                                       |
@@ -288,7 +288,7 @@ Follow the steps below to enable encryption on existing/running IaaS Windows VM 
 
 1. Set access policies on Key Vault:
 	- Set ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-	- Set permissions to AAD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
+	- Set permissions to Azure AD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
 2. To enable encryption on an existing/running VM, type: 
 	*azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
 3. Get encryption status: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”* 
@@ -303,12 +303,12 @@ Follow the steps below to enable encryption on existing/running IaaS Windows VM 
 
 Disk encryption can be enabled on existing/running IaaS Linux VM in Azure using the ARM template published  here. Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
 
-The ARM template parameters details for existing/running VM scenario using AAD Client ID are described in the table below:
+The ARM template parameters details for existing/running VM scenario using Azure AD Client ID are described in the table below:
 
 | Parameter                 | Description                                                                                                                                                          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​AADClientID            | ​Client ID of the AAD app that has permissions to write secrets to Key Vault                                                                                                                                              |
-| AADClientSecret         | ​Client Secret of the AAD app that has permissions to write secrets to Key Vault                                                                                                                                          |
+| ​AADClientID            | ​Client ID of the Azure AD app that has permissions to write secrets to Key Vault                                                                                                                                              |
+| AADClientSecret         | ​Client Secret of the Azure AD app that has permissions to write secrets to Key Vault                                                                                                                                          |
 | **​**keyVaultResourceID | ResourceID identifying the key vault resource in ARM. You can get it using the PowerShell cmdlet: (Get-AzureRmKeyVault -VaultName &lt;yourKeyVaultName&gt; -ResourceGroupName &lt;yourResourceGroupName&gt;).ResourceId   |
 | ​keyVaultURL            | ​URL of the Key Vault to which BitLocker key should be uploaded to. You can get it using the cmdlet: (Get-AzureRmKeyVault -VaultName &lt;yourKeyVaultName&gt; -ResourceGroupName &lt;yourResourceGroupName&gt;). VaultURI |
 | ​ keyEncryptionKeyURL   | ​URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional                                                                                                                       |
@@ -331,7 +331,7 @@ Disk encryption can be enabled on customer encrypted VHD using the CLI command i
 
 1. Set access policies on Key Vault:
 	- Set ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-	- Set permissions to AAD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
+	- Set permissions to Azure AD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
 2. To enable encryption on an existing/running VM, type:
 	*azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
 3. Get encryption status: “azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json” 
@@ -438,33 +438,31 @@ The Azure platform needs access to the encryption keys or secrets in your Azure 
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName <yourVaultName> -ResourceGroupName <yourResourceGroup> -EnabledForDiskEncryption
 
-####Setting “enabledForDiskEncryption” property on the Key Vault using Azure Resource Explorer
-
 You must set the *enabledForDiskEncryption* property on your Key Vault as mentioned before. You can set the property by visiting https://resources.azure.com. Ensure that the properties detailed above are set correctly otherwise the deployment will fail.
 
-###Setup the AAD Application in Azure Active Directory
+###Setup the Azure AD Application in Azure Active Directory
 
-When encryption needs to be enabled on a running VM in Azure, Azure disk encryption generates and writes the encryption keys to your Key Vault. Managing encryption keys in Key Vault needs AAD authentication.
+When encryption needs to be enabled on a running VM in Azure, Azure disk encryption generates and writes the encryption keys to your Key Vault. Managing encryption keys in Key Vault needs Azure AD authentication.
  
-For this purpose, an AAD application should be created. Detailed steps for registering an application can be found here, in the section “Get an Identity for the Application” section in this [blog post](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx).  This post also contains a number of helpful examples on provisioning and configuring your Key Vault. For authentication purposes, either client secret based authentication or client certificate-based AAD authentication can be used. 
+For this purpose, an Azure AD application should be created. Detailed steps for registering an application can be found here, in the section “Get an Identity for the Application” section in this [blog post](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx).  This post also contains a number of helpful examples on provisioning and configuring your Key Vault. For authentication purposes, either client secret based authentication or client certificate-based Azure AD authentication can be used. 
 
-####Client secret based authentication for AAD:
+####Client secret based authentication for Azure AD
 
-The sections that follows have the necessary steps to configure a client secret based authentication for AAD.
+The sections that follow have the necessary steps to configure a client secret based authentication for Azure AD.
 
-#####Create a new AAD app using Azure PowerShell
+#####Create a new Azure AD app using Azure PowerShell
 
-Use the PowerShell cmdlet below to create a new AAD app:
+Use the PowerShell cmdlet below to create a new Azure AD app:
 
     $aadClientSecret = “yourSecret”
     $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
-**Note:** $azureAdApplication.ApplicationId is the AAD ClientID and $aadClientSecret  is the client Secret that you should use later to enable ADE.
+**Note:** $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret  is the client Secret that you should use later to enable ADE.
 
-#####Provisioning the AAD client ID and secret from the Azure Service Management Portal
+#####Provisioning the Azure AD client ID and secret from the Azure Service Management Portal
 
-AAD Client ID and secret can also be provisioned using the Azure Service Management Portal at https://manage.windowsazure.com, follow the steps below to perform this task:
+Azure AD Client ID and secret can also be provisioned using the Azure Service Management Portal at https://manage.windowsazure.com, follow the steps below to perform this task:
 
 1.Click the Active Directory tab as shown in Figure below:
 
@@ -478,11 +476,11 @@ AAD Client ID and secret can also be provisioned using the Azure Service Managem
 
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
 
-4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the AAD Client ID is located in the bottom of the page as shown in figure below.
+4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the Azure AD Client ID is located in the bottom of the page as shown in figure below.
  
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
 
-5.Save the AAD client secret by click in the Save button. Click the save button and note the secret from the keys textbox, this is the AAD client secret. You should safeguard the AAD client secret appropriately.
+5.Save the Azure AD client secret by click in the Save button. Click the save button and note the secret from the keys textbox, this is the Azure AD client secret. You should safeguard the Azure AD client secret appropriately.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
 
@@ -500,13 +498,13 @@ In order to execute the commands below you need the Azure AD PowerShell module, 
     connect-msolservice
     New-MsolServicePrincipalCredential -AppPrincipalId $aadClientID -Type password -Value $clientSecret
 
-####Certificate based authentication for AAD
+####Certificate based authentication for Azure AD
 
-The sections that follows have the necessary steps to configure a certificate based authentication for AAD.
+The sections that follow have the necessary steps to configure a certificate based authentication for Azure AD.
 
-#####Create a new AAD app
+#####Create a new Azure AD app
 
-Execute the PowerShell cmdlets below to create a new AAD app:
+Execute the PowerShell cmdlets below to create a new Azure AD app:
 
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
@@ -515,7 +513,7 @@ Execute the PowerShell cmdlets below to create a new AAD app:
 
 Once you finish this step, upload a .pfx file to Key Vault and enable the access policy needed to deploy that certificate to a VM.
 
-#####Use an existing AAD app
+#####Use an existing Azure AD app
 If you are configuring certificate based authentication for an existing app, use the PowerShell cmdlets below. Make sure to execute them from a new PowerShell window.
 
     $certLocalPath = 'C:\certs\myaadapp.cer' 
@@ -571,16 +569,16 @@ After finishing uploading the PFX, use the steps below to deploy a certificate i
     Update-AzureRmVM -VM $vm  -ResourceGroupName $resourceGroupName
 
 
-###Setting Key Vault Access policy for the AAD Application
+###Setting Key Vault Access policy for the Azure AD Application
 
-Your AAD application needs rights to access the keys or secrets in the vault. Use the [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx) cmdlet to grant permissions to the application, using the Client Id (which was generated when the application was registered) as the –ServicePrincipalName parameter value. You can read [this blog post](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) for some examples on that. Below you also have an example of how to perform this task via PowerShell:
+Your Azure AD application needs rights to access the keys or secrets in the vault. Use the [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx) cmdlet to grant permissions to the application, using the Client Id (which was generated when the application was registered) as the –ServicePrincipalName parameter value. You can read [this blog post](http://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) for some examples on that. Below you also have an example of how to perform this task via PowerShell:
 
     $keyVaultName = ‘yourKeyVaultName’
     $aadClientID = '<youAadAppClientID>'
     Set-AzureKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys all -PermissionsToSecrets all
 
 ###Preparing a pre-encrypted Windows VHD
-The sections that follows are necessary in order to prepare a pre-encrypted Windows VHD for deployment as an encrypted VHD in Azure IaaS. The steps are used to prepare and boot a fresh windows VM (vhd) on Hyper-V or Azure.
+The sections that follow are necessary in order to prepare a pre-encrypted Windows VHD for deployment as an encrypted VHD in Azure IaaS. The steps are used to prepare and boot a fresh windows VM (vhd) on Hyper-V or Azure.
 
 ####Update group policy to allow non-TPM for OS protection
 You need to configure the BitLocker Group Policy setting called BitLocker Drive Encryption, located under Local Computer Policy \Computer Configuration\Administrative Templates\Windows Components. Change this setting to: *Operating System Drives - Require additional authentication at startup - Allow BitLocker without a compatible TPM* as shown in the figure below:
