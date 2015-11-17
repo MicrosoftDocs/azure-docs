@@ -296,7 +296,7 @@ The output will be the following:
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE] The informational message **This is a NIC without publicIP configured** is expected since the NIC created for the load balancer will connect to Internet through the load balancer public IP address. 
+>[AZURE.NOTE] The informational message **This is a NIC without publicIP configured** is expected since the NIC created for the load balancer connecting to Internet using the load balancer public IP address. 
 
 Since the *lb-nic1-be* NIC is associated with the *rdp1* NAT rule, you can connect to *web1* using RDP through port 3441 on the load balancer.
 

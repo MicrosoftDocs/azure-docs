@@ -118,7 +118,7 @@ Create a front end IP pool named *LB-Frontend* that uses the *PublicIp* PIP.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
-### step 2 
+### Step 2 
 
 Create a back end address pool named *LB-backend*. 
 
