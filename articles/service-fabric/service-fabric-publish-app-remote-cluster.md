@@ -18,7 +18,7 @@
 
 # Publish an application to a remote cluster using Visual Studio
 
-Visual Studio Service Fabric tools provide an easy, repeatable, and scriptable way to publish an application to a Service Fabric cluster. This is done by using a PowerShell deployment script with publish profiles. Publish profiles are .xml format files that store essential publishing information. The Publish Service Fabric Application dialog box has also been added to the publish profile to ensure that any setting changes made through the Publish dialog are captured in the publish profiles. This enables you to use manually edited publish settings in an automation process later.
+Visual Studio Service Fabric Tools provide an easy, repeatable, and scriptable way to publish an application to a Service Fabric cluster. This is done by using a PowerShell deployment script with publish profiles. Publish profiles are .XML format files that store essential publishing information. The **Publish Service Fabric Application** dialog box has also been added to enable users easily publishing an application to a local or remote cluster. Any setting changes made through the Publish dialog are captured in the publish profiles. This enables you to use manually edit publish settings in an automation process later.
 
 ## Artifacts needed to publish an application to a Service Fabric cluster
 
@@ -28,16 +28,16 @@ This is a PowerShell script that uses a publish profile path as a parameter for 
 
 ### Publish profiles
 
-A folder in the Service Fabric Application project called **PublishProfiles** contains the files **Cloud.xml** and **Local.xml**. These are "publish profiles" that store essential information for publishing an application, such as:
+A folder in the Service Fabric Application project called **PublishProfiles** contains the files **Cloud.XML** and **Local.XML**. These are "publish profiles" that store essential information for publishing an application, such as:
 - Service Fabric cluster connection parameters
 - Path to an application parameter file
 - Upgrade settings
 
 ### Application parameter files
 
-A folder in the Service Fabric application project called **ApplicationParameters** contains xml files for user-specified application manifest parameter values. Application manifest files can be parameterized so that you can use different values for deployment settings.
+A folder in the Service Fabric application project called **ApplicationParameters** contains XML files for user-specified application manifest parameter values. Application manifest files can be parameterized so that you can use different values for deployment settings.
 
-For example, you can change the partition count to fit into different environments for each deployment. When you create a project, the settings in the application manifest, such as **TargetReplicaSetSize** and **PartitionCount**, are converted to parameters. The default value of these parameters is specified in the **Parameters** section of the application manifest file (ApplicationManifest.xml, located in the Service Fabric application project). Any values you add to the application parameter file will override the default values in the application manifest file.
+For example, you can change the partition count to fit into different environments for each deployment. When you create a project, the settings in the application manifest, such as **TargetReplicaSetSize** and **PartitionCount**, are converted to parameters. The default value of these parameters is specified in the **Parameters** section of the application manifest file (ApplicationManifest.XML, located in the Service Fabric application project). Any values you add to the application parameter file will override the default values in the application manifest file.
 
 >[AZURE.NOTE] For Actor services, you should build the project first to generate the parameters in the manifest file.
 
@@ -67,7 +67,7 @@ Here is an example application manifest file.
 
 ## Publish an application to a Service Fabric cluster using the Publish Service Fabric Application dialog box
 
-The following steps demonstrate how to publish an application by using use the **Publish Service Fabric Application** dialog provided by the Visual Studio Service Fabric tools.
+The following steps demonstrate how to publish an application by using use the **Publish Service Fabric Application** dialog provided by the Visual Studio Service Fabric Tools.
 
 1. On the shortcut menu of the Service Fabric Application project, choose **Publish…** to view the **Publish Service Fabric Application** dialog box.
 
@@ -81,7 +81,7 @@ The following steps demonstrate how to publish an application by using use the *
 
     Once you choose an endpoint, Visual Studio validates the connection to the selected Service Fabric cluster. If the cluster isn't secure, Visual Studio can connect to it immediately. However, if the cluster is secure, you'll need to install a certificate on your local machine before proceeding. See [How to configure secure connections](service-fabric-visualstudio-configure-secure-connections.md) for more information. When you're done, choose the **OK** button. The selected cluster appears in the **Publish Service Fabric Application** dialog.
 
-1. The **Application Parameters File** dropdown list box lets you navigate to an application parameters file. An application parameters file holds user-specified values for parameters in the application manifest file. To add or change a parameter, choose the **Edit** button. Enter or change the parameter's name and value in the **Parameters** grid. When you're done, choose the **Save** button.
+1. The **Application Parameters File** dropdown list box lets you navigate to an application parameters file. An application parameters file holds user-specified values for parameters in the application manifest file. To add or change a parameter, choose the **Edit** button. Enter or change the parameter's value in the **Parameters** grid. When you're done, choose the **Save** button.
 
     ![][2]
 
@@ -91,7 +91,7 @@ The following steps demonstrate how to publish an application by using use the *
 
     ![][3]
 
-    If the application and service versions follow semantic versioning format such as 1.0.0 or 1.0.0.0, select the **Automatically update application and service versions** option. When you choose this option, the service and application version numbers are automatically updated whenever a code, config, or data package is updated. If you prefer to edit the versions manually, clear the checkbox to disable this feature.
+    If the application and service versions use semantic versioning such as 1.0.0 or numerical values in the format of 1.0.0.0, select the **Automatically update application and service versions** option. When you choose this option, the service and application version numbers are automatically updated whenever a code, config, or data package version is updated. If you prefer to edit the versions manually, clear the checkbox to disable this feature.
 
     >[AZURE.NOTE] For all package entries to appear for an Actor project, first build the project to generate the entries in the Service Manifest files.
 

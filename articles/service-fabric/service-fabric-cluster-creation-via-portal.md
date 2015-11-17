@@ -13,24 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="11/16/2015"
    ms.author="chackdan"/>
 
 # Setting up a Service Fabric Cluster from the Azure Portal
 
 This page helps you with setting up of a Service Fabric cluster. It is assumed that your subscription has enough cores to deploy the IaaS VMs that will make up this cluster
-
-## Prerequisites for setting up a secure cluster
-
-- If you want to set up a secure cluster, make sure to have uploaded the X509 certificates to your key vault. 
-- Instructions on how to upload/Add  a certificate to key vault is here [link to key vault documentation](https://azure.microsoft.com/en-us/documentation/articles/key-vault-get-started/). You do not need to the "Register an application" or "Authorize the application.." Steps described in the above link. 
-
-Make sure to take a note of the Source Vault URL, Certificate URL and the Certificate thumbprint. you will need these in setting up the secure service fabric cluster.The data you need will look like the following
-
-
-1. **Resource ID of the KeyVault/Source Vault URL** : /subscriptions/6c653126-e4ba-42cd-a1dd-f7bf96af7a47/resourceGroups/chackdan-keyvault/providers/Microsoft.KeyVault/vaults/chackdan-kmstest
-2. **URL to the Certificate location in the key Vault** : https://chackdan-kmstest.vault.azure.net:443/secrets/MyCert/dcf17bdbb86b42ad864e8e827c268431 
-3. **Certificate ThumbPrint** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 
 
 ## Creating the cluster
@@ -45,7 +33,7 @@ Make sure to take a note of the Source Vault URL, Certificate URL and the Certif
 4. Navigate to the Service Fabric Cluster Blade and click on **Create** and provide details on your cluster
 5. Create a **new Resource Group (RG)** - make it the same as the Cluster name - it is better for finding them later. it is especially useful, when you are trying to make changes to your deployment and/or delete your cluster.
 
-  	Note - Although you can decide to use an existing resource group, it is a good practice to create a new resource group. 
+  	Note - Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes deleting of clsuters you do not need very easy
 
  	 ![CreateRG][CreateRG]
 
@@ -54,7 +42,7 @@ Make sure to take a note of the Source Vault URL, Certificate URL and the Certif
 
 7. Select a **location** from the dropdown (if you want to create it another location, else it will default to West US)
 
-8. Configure your **Node Type**. The Node Type can be seen as equivalents to "Roles" in Cloud Services or PaaS v1. Your cluster can have more than one Node Type. The only constraint is that you will need at least one NodeType (primary or the first one you define on the portal) to be of at least 5 VMs.
+8. Configure your **Node Type**. The Node Type can be seen as equivalents to "Roles" in Cloud Services. They define the VM Sizes, the number of VMs and its properties.  Your cluster can have more than one Node Type. The only constraint is that you will need at least one NodeType (primary or the first one you define on the portal) to be of at least 5 VMs.
 	1. Select the VM size /Pricing tier you need. (default is D4 Standard, if you are just going to use this cluster for testing your application, it is fine to select D2 or any smaller size VM )	
 	2. Choose the number of VMs, You can scale up or down the number of VMs in a NodeType later on, however the primary or the first node type has to have atleast 5 VMs
 	3. Choose a name for your NodeType (1 to 12  characters in length containing only alphabets and numbers)	
@@ -78,16 +66,19 @@ Make sure to take a note of the Source Vault URL, Certificate URL and the Certif
 
 
 
-1. **Optional:  Placement Properties**- you do not need to add any configurations here, a default placement property of the "NodeTypeName" is added by the sytem. If can choose to add more if your applcication has a need. 
+1. **Optional:  Placement Properties**- you do not need to add any configurations here, a default placement property of the "NodeTypeName" is added by the system. If can choose to add more if your application has such a need. 
 
   
 ## Security Configurations
 
-Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, Then you need to set the Security Mode to "None".   
+At this time, Service Fabric only supports securing clusters via an X509 certificate. Before starting this process, you will need to upload your certificate to KeyVault. Refer to [Service Fabric Cluster security](service-fabric-cluster-security.md) for more details on how to.
+
+Securing your cluster is optional but is highly recommended. If you choose not to secure your cluster, Then you need to toggle the Security Mode to "None".   
 
 Details on security considerations and how to are documented at [Service Fabric Cluster security](service-fabric-cluster-security.md)
 
 ![SecurityConfigs][SecurityConfigs]
+
 
 
 ## Optional: Configuring diagnostics
@@ -103,8 +94,8 @@ By default, diagnostics are enabled on your cluster to assist with troubleshooti
 This is an advanced option, that allows you to change the default settings for the service fabric cluster. it is recommended that you **not change** the defaults unless you are certain that your application and/or Cluster must have it.
 
 ## Completing cluster creation
-
-After you have provided the mandatory settings, the create button will be enabled and you can start the cluster creation process.
+You can click the **Summary** to see the configs you have provided or download the ARM template that will be used to deploy your cluster. After you have provided the mandatory settings, the create button will be enabled and you can start the cluster creation process. 
+ 
 
 You can see the progress in the NOTIFICATIONS (Click on the "Bell" icon near the status bar towards right of your screen). If you had clicked on the "Pin to Startboard" while creating the cluster, you will see "Deploying Service Fabric Cluster" pinned to the start board
 
@@ -144,9 +135,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAlive
 
 Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine.
 
-  ![DeployApplication][DeployApplication]
-
-- Option 2 **Connecting to a secure cluster**
+ - Option 2 **Connecting to a secure cluster**
 
 Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PS cmd
 
@@ -176,9 +165,34 @@ Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.a
 ```
 
 
-Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine.
+Run the following commands to deploy your application, replacing the paths shown with the appropriate ones on your machine. The example below is deploying the word count sample application.
 
-  ![DeployApplication][DeployApplication]
+Copy the package to the cluster you connected to in the previous step.
+
+
+```powershell
+$applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
+```
+
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
+````
+Register your application type with service fabric.
+
+```powershell
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
+````
+
+Create a new instance on the Applcation type that you just registered.
+
+```powershell
+New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+````
+
+Now open up the browser of your choice and connect to the end point that the application is listening on. For my sample application count, the URL looks likes this.
+
+http://sfcluster4doc.westus.cloudapp.azure.com:31000
+
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -198,4 +212,4 @@ Run the following commands to deploy your application, replacing the paths shown
 [BrowseCluster]: ./media/service-fabric-cluster-creation-via-portal/browse.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
-[DeployApplication]: ./media/service-fabric-cluster-creation-via-portal/DeployApplication.png
+
