@@ -91,15 +91,15 @@ You must be an AAD global administrator to change roles for a user:
 
 **I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I do this?**
 
-1) Go to the [Azure Management portal][lnk-classic-portal], click **Settings** in the list of services on the left-hand side.
+1. Go to the [Azure Management portal][lnk-classic-portal], click **Settings** in the list of services on the left-hand side.
 
-2) Select the subscription you'd like to change the directory mapping to.
+2. Select the subscription you'd like to change the directory mapping to.
 
-3) Click **Edit Directory**.
+3. Click **Edit Directory**.
 
-4) Select the **Directory** you would like to use in the dropdown. Click the forward arrow.
+4. Select the **Directory** you would like to use in the dropdown. Click the forward arrow.
 
-5) Confirm the directory mapping and affected co-administrators. Note that if you are moving from another directory, all the co-administrators from the original directory are removed.
+5. Confirm the directory mapping and affected co-administrators. Note that if you are moving from another directory, all the co-administrators from the original directory are removed.
 
 **I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?**
 
@@ -109,13 +109,13 @@ Ask a global administrator to assign you as a global administrator on the AAD te
 
 You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-monitoring> and redeploy with a newly created AAD tenant. Since you are by default a global administrator when you create a new AAD tenant, you will have access for adding users and assigning roles to those users.
 
-1) Create a new AAD directory in the [Azure Management portal][lnk-classic-portal].
+1. Create a new AAD directory in the [Azure Management portal][lnk-classic-portal].
 
-2) Go to <https://github.com/Azure/azure-iot-remote-monitoring>. For more information on Cloud deployments, see [Cloud deployment][lnk-wiki-clouddeployment]).
+2. Go to <https://github.com/Azure/azure-iot-remote-monitoring>. For more information on Cloud deployments, see [Cloud deployment][lnk-wiki-clouddeployment].
 
-3) Run `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (For example, `build.cmd cloud debug myRMSolution`)
+3. Run `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (For example, `build.cmd cloud debug myRMSolution`)
 
-4) When prompted, set the **tenantid** to be your newly created tenant instead of your previous tenant.
+4. When prompted, set the **tenantid** to be your newly created tenant instead of your previous tenant.
 
 **Why am I seeing this error?** *Your account does not have the proper permissions to create a solution. Please check with your account administrator or try with a different account.*
 
@@ -138,4 +138,4 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-add-coadmin]: https://msdn.microsoft.com/library/azure/gg456328.aspx
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeploymen]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
+[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
