@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and upload a RedHat Linux VHD in Azure" 
+	pageTitle="Create and upload a Red Hat Enterprise Linux VHD for use in Azure" 
 	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a RedHat Linux operating system." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -25,7 +25,7 @@ In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL)
 
 ##Prepare an image from Hyper-V Manager 
 ###Prerequisites
-This section assumes that you have already installed a RHEL image from an ISO file obtained from RedHats website to a virtual hard disk (VHD). For more details on how to use Hyper-V manager to install an operating system image , see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
+This section assumes that you have already installed a RHEL image from an ISO file obtained from Red Hat's website to a virtual hard disk (VHD). For more details on how to use Hyper-V manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
 
 **RHEL Installation Notes**
 
@@ -36,6 +36,9 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 - Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk. More information about this can be found in the steps below.
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
+
+- When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
+
 
 ###RHEL 6.6/6.7
 
@@ -74,11 +77,11 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 
         # sudo chkconfig network on
 
-8.	Register Red Hat subscription to enable installation of packages from the RHEL repository:
+8.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	Enable the epel repository, since WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository:
+9.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -132,9 +135,10 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 16.	Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
  
+
 ###RHEL 7.0/7.1
 
-1.	In Hyper-V Manager, select the virtual machine.
+1. In Hyper-V Manager, select the virtual machine.
 
 2.	Click Connect to open a console window for the virtual machine.
 
@@ -157,7 +161,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         # sudo chkconfig network on
 
-6.	Register Red Hat subscription to enable installation of packages from the RHEL repository:
+6.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -181,7 +185,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         ClientAliveInterval 180
 
-10.	Enable the epel repository, since the WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 7 repository.
+10.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -260,7 +264,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         # chkconfig network on
 
-8.	Register Red Hat subscription to enable installation of packages from the RHEL repository:
+8.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -294,7 +298,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 		# service sshd restart
 
-12.	Enable the epel repository since the WALinuxAgent package `WALinuxAgent-<version>`  has been pushed to the **Fedora EPEL 6** repository:
+12.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -330,12 +334,20 @@ The Azure Linux Agent can automatically configure swap space using the local res
          # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
          # qemu-img resize rhel-6.6.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
  
+
+
 ###RHEL 7.0/7.1
 
 1.	Download the KVM image of RHEL 7.0 from the Red Hat web site.
@@ -378,7 +390,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         # chkconfig network on
 
-7.	Register Red Hat subscription to enable installation of packages from the RHEL repository:
+7.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -416,7 +428,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         systemctl restart sshd	
 
-12.	Enable the epel repository since the WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the **Fedora EPEL 7** repository:
+12.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -456,6 +468,11 @@ The Azure Linux Agent can automatically configure swap space using the local res
          # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
+
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
 
          # qemu-img resize rhel-7.0.raw $rounded_size
 
@@ -506,11 +523,11 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         # sudo chkconfig network on
 
-6.	Register Red Hat subscription to enable installation of packages from the RHEL repository:
+6.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Enable the epel repository since the WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository:
+7.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command::
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -567,11 +584,17 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+
         # qemu-img resize rhel-6.6.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
 
 ###RHEL 7.0/7.1
 
@@ -594,7 +617,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         # sudo chkconfig network on
 
-4.	Register Red Hat subscription to enable installation of packages from the RHEL repository:
+4.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -629,7 +652,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         ClientAliveInterval 180
 
-9.	Enable the epel repository, since WALinuxAgent package `WALinuxAgent-<version>`  has been pushed to the Fedora EPEL 7 repository.
+9.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -665,6 +688,11 @@ This section assumes that you have already installed a RHEL virtual machine in V
         # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
+
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
 
         # qemu-img resize rhel-7.0.raw $rounded_size
 
@@ -823,7 +851,7 @@ This issue may occur during frequent storage disk I/O acitivities with RHEL 6.6,
 
 Repro Rate:
 
-Issue is intermittent however occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
+This issue is intermittent, however occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
 
     
 [AZURE.NOTE] These 2 known issues are already addressed by Red Hat.  To install the associated fixes, you can run below command:
