@@ -37,9 +37,9 @@ Before you create a Virtual Machine Scale Set, you need a resource group and a s
 
 3.	**Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
 
-4.	**Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmss-test1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/en-us/library/mt603739.aspx).
+4.	**Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmss-test1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-5.	**Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/en-us/library/mt607148.aspx) to create a storage account named **vmssstore1**. Keep the Azure PowerShell window open for steps later in this tutorial.
+5.	**Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmssstore1**. Keep the Azure PowerShell window open for steps later in this tutorial.
 
 ## Step 2: Create the template
 An Azure Resource Manager template makes it possible for you to deploy and manage Azure resources together by using a JSON description of the resources and associated deployment parameters.
@@ -150,7 +150,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
  - Microsoft.Insights.VMDiagnosticsSettings
  - Microsoft.Insights/autoscaleSettings
 
-	For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-azurerm-versus-azuresm/).
+	For more information about Resource Manager resources, see [Azure Compute, Network, and Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
 
 	Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended 5 storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the suffix that you provide in the parameters for the template.
 
