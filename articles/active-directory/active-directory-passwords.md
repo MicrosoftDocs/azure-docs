@@ -239,7 +239,7 @@ Below are some of the cool features we're working on right now!
 - Today, we support reminding users to update their registered data when accessing myapps.microsoft.com, but we're working on the ability to do so for all sign ins.
 
 ## Links to password reset documentation
-You can get started with a pilot of Azure AD Password Management in under five minutes, and can have it deployed to your entire organization in hours.  Below are some helpful resources to get you going with the service: 
+Below are links to all of the Azure AD Password Reset documentation pages: 
 
 * [**Reset your own password**](active-directory-passwords-update-your-own-password) - learn about how to reset or change your own password as a user of the system
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
