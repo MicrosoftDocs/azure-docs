@@ -46,12 +46,12 @@ This guide shows how to create an Internet load balancer based on the scenario a
 ## Create endpoint and load balancer set 
 
 The scenario assumes the virtual machines "web1" and "web2" were created. 
-This guide will create a load balancer set using port 80 as public port and 80 as local port. A probe port is also configured on port 80 and called the load balancer set "lbset"
+This guide will create a load balancer set using port 80 as public port and port 80 as local port. A probe port is also configured on port 80 and named the load balancer set "lbset".
 
 
 ### Step 1 
 
-Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1"
+Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1".
 
 	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
@@ -64,7 +64,7 @@ Add a second virtual machine "web2" to the load balancer set.
 
 ## Step 3 
 
-Verify the load balancer configuration using `azure vm show` 
+Verify the load balancer configuration using `azure vm show` .
 
 	azure vm show web1
 
