@@ -30,9 +30,19 @@ Azure Search is a hosted cloud search service that provides a search engine, sea
 
 An *index* is persisted storage of *documents* and other constructs used by an Azure Search service. Documents are a basic unit of searachable data. For example, a retailer might have a document for each SKU, a news organization might have a document for each article, and a streaming media organization might have a document for each video or song in their library. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-The index that contains documents is a flat dataset -- typically a subset of the data created or captured during normal business operations through computerized processes, such as sales transactions, content publishing, purchasing acitvity -- often stored in relational or NoSQL databases. An index gets its documents when you push or pull a dataset containing rows from other data sources in your overall solution.
+The index that contains documents is a flat dataset -- typically a subset of the data created or captured during normal business operations through computerized processes, such as sales transactions, content publishing, purchasing activity -- often stored in relational or NoSQL databases. An index gets its documents when you push or pull a dataset containing rows from other data sources to your index.
 
-Understood in the narrower context of search engine operations, an index contains all searchable data used to process an index, execute a query, or return any of these: a search results list, a faceted navigation structure, a details page for  single document. In Azure Search, an index can also contain non-searchable data used internally in filter expressions or scoring profiles providing criteria used for boosting a search ranking score.
+Understood within the bounds of search engine operations, an index contains all searchable data used to process an index, execute a query, or return any of these: a search results list, a faceted navigation structure, a details page for  single document. In Azure Search, an index can also contain non-searchable data used internally in filter expressions or in the scoring profiles that provide criteria used for boosting a search ranking score.
+
+##When do I create an index?
+
+As part of provisioning a search service for use by your application, you'll need to create an index. Creating an index is a task mostly centered on defining its schema. Minimally, it consists of defining fields and setting attributes. Optionally, you can extend an index to include scoring profiles, suggestions, and customized default values.
+
+To create a schema that defines an index, you can use the portal or write code that calls into the .NET SDK or REST API. 
+
+Once you define the schema and create the index, populating it is a separate operation. For more about data ingestion after the index is created, see [Import data to Azure Search](search-what-is-data-import.md).
+
+##JSON schema specification of an index
 
 The main sections of an Azure Search index, as articulated in the JSON data interchange format, are as follows.
 
@@ -48,7 +58,7 @@ The main sections of an Azure Search index, as articulated in the JSON data inte
 <a name="index-attributes"></a>
 ##Index attributes
 
-This section enumerates the attributes you can set on field definitions in an index schema.
+Attributes are set on individual fields to specify how the field is used. The following table enumerates the attributes you can specify.
 
 |**Property**|Description|
 |------------|-----------|
@@ -59,14 +69,6 @@ This section enumerates the attributes you can set on field definitions in an in
 |**Key**|A string that provides the unique ID of each document, used for document look up. Every index must have one key. Only one field can be the key, and it must be set to Edm.String.|
 |**Searchable**|Marks the field as full-text searchable.|
 
-
-##When do I create an index?
-
-As part of provisioning a search service for use by your application, you'll need to create an index. Creating an index is a task mostly centered on defining its schema. Minimally, it consists of defining fields and setting attributes. Optionally, you can extend an index to include scoring profiles, suggestions, and customized default values.
-
-To create a schema that defines an index, you can use the portal or write code that calls into the .NET SDK or REST API. 
-
-Once you define the schema and create the index, populating it is a separate operation. For more about data ingestion after the index is created, see [Import data to Azure Search](search-what-is-data-import.md).
 
 ##How are indexes used in Azure Search?
 
@@ -82,7 +84,15 @@ As you design your index, take your time in the planning phase to think through 
 
 Having a solid understanding of the original source data is essential to creating a good schema. You will want to match up data types, know which field to use as a *key* that uniquely identifies each document in the index, and which fields should be exposed in a search results list or detail page. 
 
-Image, audio, or video content should be stored elsewhere as long as the index includes a representative field with a URL to the resource. Any content, especially binary content, that is not searchable should be stored in cheaper storage, and then referenced by URI in a field in your index.
+**Starting with relational data**
+
+Relational data can be hard to transform into a flat dataset. If possible, try use your company's data warehouse or reporting database, if one is available. It's usually the better choice because the model is already denormalized. Otherwise, you'll have to rely on queries to get the rowset you need. For an example and explanation of how to do this, see [Modeling the AdventureWorks Inventory Database for Azure Search](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx).
+
+**Including binary data**
+
+You might want image, audio, or video content in your search results. In this case, the files should be stored elsewhere, with the index including a representative field with a URL to the resource. Any content, especially binary content, that is not searchable should be stored in cheaper storage, and then referenced by URI in a field in your index.
+
+**Synchronizing data**
 
 As you can imagine, the index must be regularly synchronized with other data sources used in your solution. In an online retail catalog, the inventory database that captures sales transactions must have the same SKUs, pricing, and availability as the data surfaced via search results. Depending on how much latency is acceptable for your solution, you might find that data synchronization can be once a week, once a day, or in near real-time using concurrent writes to both an inventory database and an Azure Search index. [Import data to Azure Search](search-what-is-data-import.md) explains the available options in detail.
 
