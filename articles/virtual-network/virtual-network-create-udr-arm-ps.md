@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="telmos" />
 
 #Create User Defined Routes (UDR) in PowerShell
@@ -34,25 +34,33 @@ The sample PowerShell commands below expect a simple environment already created
 ## Create the UDR for the front end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
+
 3. Create a route used to send all traffic destined to the back end subnet (192.168.2.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Create a route table named **UDR-FrontEnd** in the **westus** region that contains the route created above.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Create a variable that contains the VNet where the subnet is. In our scenario, the VNet is named **TestVNet**.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associate the route table created above to the **FrontEnd** subnet.
 		
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
+
+>[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the **Set-AzureVirtualNetwork** cmdlet to save these settings to Azure.
+
+7. Save the new subnet configuration in Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Expected output:
 
@@ -92,7 +100,7 @@ To create the route table and route needed for the front end subnet based on the
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
@@ -100,26 +108,30 @@ To create the route table and route needed for the front end subnet based on the
 		                        "ProvisioningState": "Succeeded"
 		                      },
 								...
-		                    ]
+		                    ]	
 
 ## Create the UDR for the back end subnet
 To create the route table and route needed for the back end subnet based on the scenario above, follow the steps below.
 
 1. Create a route used to send all traffic destined to the front end subnet (192.168.1.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
 
-		$route = New-AzureRMRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Create a route table named **UDR-BackEnd** in the **uswest** region that contains the route created above.
 
-		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Associate the route table created above to the **BackEnd** subnet.
 
-		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
+
+7. Save the new subnet configuration in Azure.
+
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
 	Expected output:
 
@@ -159,7 +171,7 @@ To create the route table and route needed for the back end subnet based on the 
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
 		                        },
 		                        "RouteTable": {
 		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
@@ -173,12 +185,12 @@ To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
 
 1. Create a variable that contains the settings for the NIC used by FW1. In our scenario, the NIC is named **NICFW1**.
 
-		$nicfw1 = Get-AzureRMNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Enable IP forwarding, and save the NIC settings.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureRMNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureNetworkInterface -NetworkInterface $nicfw1
 
 	Expected output:
 

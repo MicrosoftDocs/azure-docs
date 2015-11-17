@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Connect multiple on-premises sites to a virtual network
+
+>[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+
+This article applies to VNets and VPN Gateways created using the classic deployment model (Service Management).
 
 You can connect multiple on-premises sites to a single virtual network. This is especially attractive for building hybrid cloud solutions. Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other site-to-site connections. In fact, you can use an existing Azure VPN gateway, provided you have a route-based (or dynamic routing) VPN gateway configured for your virtual network. 
 
@@ -167,7 +173,7 @@ Before you begin configuration, verify that you have the following:
 		OperationId               : 7893b329-51e9-9db4-88c2-16b8067fed7f
 		OperationStatus           : Succeeded
 
-## Next Steps
+## Next steps
 
 To learn more about VPN Gateways, see [About VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 

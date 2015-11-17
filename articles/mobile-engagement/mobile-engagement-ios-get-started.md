@@ -33,7 +33,6 @@ This tutorial requires the following:
 
 + XCode 6 or XCode 7, which you can install from your MAC App Store
 + the [Mobile Engagement iOS SDK]
-+ Push notification certificate (.p12) that you can obtain on your Apple Dev Center
 
 Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps.
 

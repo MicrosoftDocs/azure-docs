@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/03/2015"
 	ms.author="sdanie"/>
 
 # How to protect a Web API backend with Azure Active Directory and API Management

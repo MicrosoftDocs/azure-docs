@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream" 
-	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream." 
+	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Portal" 
+	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream 
+#Create channels that perform live encoding from a single-bitrate to multi-bitrate stream using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -259,12 +259,15 @@ If you are done streaming events and want to clean up the resources provisioned 
 - Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
 - Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 [standard0]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png

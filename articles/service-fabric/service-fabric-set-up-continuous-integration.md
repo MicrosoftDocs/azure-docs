@@ -38,7 +38,7 @@ Before you can set up the build machine, you need to create a "Service Principal
 ### Install Azure PowerShell and sign in
 
 1.	Install Azure PowerShell.
-    - Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/en-us/download/details.aspx?id=48729), which includes PowerShellGet.
+    - Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
     >[AZURE.NOTE] You can skip this step if you are running Windows 10 with the latest updates.
 
 1.	Install and update the AzureRM module.
@@ -109,7 +109,7 @@ Note that the build definition you create from these instructions doesn't suppor
 
 ### Install Visual Studio 2015
 
-1.	If you have already provisioned a machine (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) on that machine.
+1.	If you have already provisioned a machine (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) on that machine.
 2.	If you don't yet have a machine, you can quickly provision an Azure virtual machine (VM) with Visual Studio 2015 pre-installed. To do this:
     1.	Log in to the [Azure Management Portal](http://portal.azure.com).
     1.	Choose the **New** command in the top-left corner of the screen.
@@ -317,7 +317,7 @@ Choose the **Queue Build** command to start a build. Builds will also be trigger
 The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, do the following steps.
 
 1.	Manually create a test cluster through the Azure Management Portal or Azure PowerShell. You can refer to the "ProvisionAndDeploy-SecureCluster.ps1" script as a reference.
-1.	Configure your publish profile to support application upgrade by following these instructions: https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/service-fabric-visualstudio-configure%20upgrade/.
+1.	Configure your publish profile to support application upgrade by following [these instructions](service-fabric-visualstudio-configure-upgrade.md).
 
 1.	Replace the **Provision and Deploy to Secure Cluster** step with a step that calls Deploy-FabricApplication.ps1 directly (and passes it your publish profile).
 1.	Remove both of the **Remove Cluster Resource Group** build steps from your build definition.
@@ -325,6 +325,6 @@ The previous instructions create a new cluster for each build and remove it at t
 ## Next steps
 
 To learn more about continuous integration with Service Fabric applications, read the following articles.
-- [Build documentation home](https://msdn.microsoft.com/en-us/Library/vs/alm/Build/overview)
+- [Build documentation home](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
 - [Deploy a build agent](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Create and configure a build definition](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)

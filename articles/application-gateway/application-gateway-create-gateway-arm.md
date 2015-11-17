@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,9 +22,9 @@ Application Gateway is load balancer layer 7. It provides failover, performance 
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
+- [Azure Classic PowerShell steps](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template ](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -120,7 +120,11 @@ Assigns the Address range 10.0.0.0/24 to subnet variable to be used to create a 
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
+
+### Step 3
 	
+	$subnet=$vnet.Subnets[0]
+
 ## Create public IP address for front end configuration
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -875,7 +875,9 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion		| 1.0 |
 |||
-| Request Body | <ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding WhiteList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>For adding PerSeedBlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+| Request Body | 
+<ins>Whenever providing Item Ids for business rules, make sure to use the External Id of the item (the same Id that you used in the catalog file)</ins><br>
+<ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding WhiteList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>For adding PerSeedBlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Response**:
 
@@ -1282,29 +1284,39 @@ This section shows how to send events in real time to Azure Machine Learning Rec
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
   		<SessionId>11112222</SessionId>
   		<EventData>
-    	<EventData>
-      	<Name>RemoveShopCart</Name>
-      	<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-    	</EventData>
+		  	<EventData>
+      				<Name>RemoveShopCart</Name>
+      				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
+    			</EventData>
   		</EventData>
 		</Event>
 
 - Example for event 'Purchase':
+
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
 		<SessionId>11112222</SessionId>
 		<EventData>
-		<EventData>
-			<Name>Purchase</Name>
-			<PurchaseItems>
-			<PurchaseItems>
-				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-				<Count>3</Count>
-			</PurchaseItems>
-		</PurchaseItems>
-		</EventData>
+			<EventData>
+				<Name>Purchase</Name>
+				<PurchaseItems>
+					<PurchaseItem>
+						<ItemId>ABBF8081-C5C0-4F09-9701-E1C7AC78304A</ItemId>
+						<Count>1</Count>
+					</PurchaseItem>
+					<PurchaseItem>
+						<ItemId>21BF8088-B6C0-4509-870C-11C0AC7F304B</ItemId>
+						<Count>3</Count>
+					</PurchaseItem>
+				</PurchaseItems>
+			</EventData>
 		</EventData>
 		</Event>
+		
+		
+		
+
+
 
 - Example sending 2 events, 'Click' and 'AddShopCart':
 
@@ -2806,7 +2818,7 @@ Notes:
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemIds=%27<itemIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
@@ -2876,7 +2888,7 @@ Note: Tthere is no user recommendation for FBT build.
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
 
 
 
