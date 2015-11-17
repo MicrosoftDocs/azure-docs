@@ -83,7 +83,7 @@ Allows defining functions (SPROCs) and entities that are exposed through a datab
 - Preview: [http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx][PreviewLink]
 [PreviewLink]:http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx
 - Data types: [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLlink]:http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx
+[DataTypesLink]:http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx
 
 The following shows the detailed Left to Right flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back:
 
@@ -142,7 +142,7 @@ Relating the CSDL terms to the [Publishing Portal](https://publish.windowsazure.
 **Hierarchy:**
   A Company (Content Provider) owns Offer(s) which have Plan(s), namely service(s), which line up with an API.
 
-###WebService CSDL Example
+### WebService CSDL Example
 
 Connects to a service that is exposing an web application endpoint (like a C# application)
 
