@@ -67,9 +67,11 @@ Verify that you have the following items below before beginning your configurati
 
 - The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/). This documentation was written for PowerShell 1.0 or later. The necessary cmdlets for this configuration are not present in earlier versions.
 
+- If you aren't familiar with using Azure Resource Manager and PowerShell, please see [this article](../articles/powershell-azure-resource-manager.md) for more information.
+
 ### Configuration steps
 
-1. In the PowerShell console, log in and connect to your subscription. 
+1. In the PowerShell console, login to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings to they are available to Azure PowerShell.
 
 		Login-AzureRmAccount 
 
@@ -77,7 +79,6 @@ Verify that you have the following items below before beginning your configurati
 
 		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
 		
-
 3. Create a resource group.
 
 		New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
