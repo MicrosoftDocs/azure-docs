@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/17/2015"
-   ms.author="yurid"/>
+   ms.author="devtiw"/>
 
 #Azure Disk Encryption for Windows and Linux IaaS VMs
 
@@ -299,9 +299,9 @@ Follow the steps below to enable encryption on existing/running IaaS Windows VM 
 	- key-encryption-key-url <key-encryption-key-url>
 
 
-###Enable encryption on existing/running IaaS Linux VM in Azure:
+###Enable encryption on existing/running IaaS Linux VM in Azure
 
-Disk encryption can be enabled on existing/running IaaS Linux VM in Azure using the ARM template published  here. Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
+Disk encryption can be enabled on existing/running IaaS Linux VM in Azure using the ARM template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
 
 The ARM template parameters details for existing/running VM scenario using Azure AD Client ID are described in the table below:
 
@@ -319,11 +319,6 @@ The ARM template parameters details for existing/running VM scenario using Azure
                                                                                                                                                                                                                                                       
                                                                                                                                                             
 **Note:** KeyEncryptionKeyURL is an optional parameter. You can bring your own KEK to further safeguard the data encryption key (Passphrase secret) in Key Vault.
-
-####PowerShell
-Disk encryption can be enabled on customer encrypted VHD using the PS cmdlets published [here](https://msdn.microsoft.com/library/azure/mt622707.aspx). You can use *get-command diskencryption* to confirm the Azure Disk Encryption cmdlets are installed. You should see an output containing the Disk Encryption cmdlets.
-
-**Note:** Make sure that you have [Azure PowerShell](powershell-install-configure.md) installed.
 
 ####CLI Commands
 
