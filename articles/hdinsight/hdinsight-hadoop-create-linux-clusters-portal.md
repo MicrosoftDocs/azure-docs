@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 
@@ -99,8 +99,6 @@ The Azure preview portal is a web-based management tool for services and resourc
     	>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
 
 	* Click **External Metastores** to specify SQL database that you want to use to save Hive and Oozie metadata associated with the cluster.
-    
-        > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 		![Custom metastores blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.7.png "Specify external metastores")
 

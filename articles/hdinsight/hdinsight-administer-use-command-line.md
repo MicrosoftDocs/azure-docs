@@ -116,8 +116,6 @@ Once you have the Storage account and the Blob container prepared, you are ready
 ##Create clusters using configuration files
 Typically, you create an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you create a cluster.  
 
-> [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
-
 	azure hdinsight cluster config create <file>
 
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Analytics for iOS apps | Microsoft Azure"
-    description="Analyze usage and performance of your iOS app."
+    pageTitle="Application Insights for iOS apps | Microsoft Azure"
+    description="Analyze usage and performance of your iOS app with Application Insights."
     services="application-insights"
     documentationCenter="ios"
     authors="alancameronwills"
-    manager="douge"/>
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
@@ -12,15 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="11/15/2015"
+    ms.date="04/27/2015"
     ms.author="awills"/>
 
-# Analytics for iOS apps
+# Application Insights for iOS apps
 
 Visual Studio Application Insights lets you monitor your mobile application for usage, events, and crashes.
-
-
-> [AZURE.NOTE] We recommend [HockeyApp](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios) to get crash reports, analytics, distribution and feedback management.
 
 ## Requirements
 
@@ -38,13 +35,75 @@ In the [Azure portal][portal], create a new Application Insights resource. Pick 
 
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
-## Setup
+## Download Application Insights for Mac
 
-Please follow the [setup guide](https://github.com/Microsoft/ApplicationInsights-iOS#setup) to install the SDK in your app.
+(If you didn't do this already.)
+
+1. Download [Application Insights for Mac](http://go.microsoft.com/fwlink/?LinkID=533209).
+
+2. Extract the zip file.
+
+3. Click the app icon to start Application Insights for Mac.
+
+## <a name="signin"></a>Sign in to Azure
+
+1. Click **Sign In**.
+
+2. Sign in with your Azure account.
+
+## Install the SDK in your application
+
+1. Click **Integrate** to start the SDK integration.
+
+2. Select your Xcode project from the list or click **Open Other** to find your project, then click **Integrate**.
+
+3. Choose the folder for the Application Insights SDK, then click **Install**.
+
+4. Add this run script to your build phases:    [Add Run Script Phase](http://hockeyapp.net/help/runscriptbuildphase/).
+
+5. Add the missing frameworks to your Xcode project.
+
+6. Drag the Application Insights framework to your Xcode project, then click **Next**.
+
+7. Select **Integrate SDK into Target** for your target.
+
+8. Click **Create New Component** to create your app in the Application Insights portal.
+
+9. Select your subscription, resource group, and enter a component name. In most cases, this should match your app's name. Confirm with the **Create Resource** button.
+
+10. Make sure the right component is selected, then click **Next**.
+
+11. Modify your source code as shown in the wizard, then click **Finish**.
+
+12. Launch your app in the iOS simulator with **Build & Run**.
+
+## Insert telemetry calls
+
+Once `[MSAIApplicationInsights start]` is called, the SDK begins tracking sessions, page views, and any unhandled exceptions or crash.
+
+You can add additional events as follows:
+
+    // Send an event with custom properties and measuremnts data
+    [MSAITelemetryManager trackEventWithName:@"Hello World event!"
+                                  properties:@{@"Test property 1":@"Some value",
+                                             @"Test property 2":@"Some other value"}
+                                 measurements:@{@"Test measurement 1":@(4.8),
+                                             @"Test measurement 2":@(15.16),
+                                             @"Test measurement 3":@(23.42)}];
+
+    // Send a message
+    [MSAITelemetryManager trackTraceWithMessage:@"Test message"];
+
+    // Manually send pageviews (note: this will also be done automatically)
+    [MSAITelemetryManager trackPageView:@"MyViewController"
+                               duration:300
+                             properties:@{@"Test measurement 1":@(4.8)}];
+
+    // Send custom metrics
+    [MSAITelemetryManager trackMetricWithName:@"Test metric"
+                                        value:42.2];
 
 ## View your data in Application Insights
-
-Run your app to generate some telemetry.
 
 Return to http://portal.azure.com and browse to your Application Insights resource.
 
