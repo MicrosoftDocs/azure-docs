@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/12/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -47,9 +47,9 @@ From this table we can draw the following conclusions.
 -	With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. Eg. If you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS
 -	Throughput for bigger key sizes is higher in Premium tier as compared to Standard Tier.
 
-| Pricing tier         | Size   | Available bandwidth (Mbps) | 1 KB Key size                  |
+| Pricing tier         | Size   | Available bandwidth        | 1 KB Key size                  |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Standard cache sizes** | &nbsp;       |      &nbsp;                      | **Requests per second (RPS)**            |
+| **Standard cache sizes** | &nbsp;       |**Megabits per second (Mbps)** | **Requests per second (RPS)**            |
 | C0                   | 250 MB | 5                          | 600                            |
 | C1                   | 1 GB   | 100                        | 12200                          |
 | C2                   | 2.5 GB | 200                        | 24000                          |

@@ -141,9 +141,9 @@ Of course it is possible to combine and benefit from both approaches; indeed it 
 In this article we will use the **Microsoft.Diagnostic.Listeners library** and the in-process trace capturing to send data from a Service Fabric application to ElasticSearch cluster.
 
 ## Using the Listeners library to send diagnostic data to ElasticSearch
-Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric application [TODO: final sample URL here]. To use it:
+Microsoft.Diagnostic.Listeners library is part of Party Cluster sample Fabric application. To use it:
 
-1. Download the Party Cluster sample
+1. Download [the Party Cluster sample](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster) from GitHub.
 
 2. Copy the Microsoft.Diagnostics.Listeners and Microsoft.Diagnostics.Listeners.Fabric projects (whole folders) from the Party Cluster sample directory to the solution folder of the application that is supposed to send the data to ElasticSearch.
 

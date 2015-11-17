@@ -3,7 +3,7 @@
 	description="How to get started with Azure Mobile Services in a Visual Studio .NET project"
 	services="mobile-services"
 	documentationCenter=""
-	authors="tarcher"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 

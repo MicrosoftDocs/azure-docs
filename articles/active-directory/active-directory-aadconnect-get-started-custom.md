@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -46,7 +46,7 @@ When you install the synchronization services, you can leave the optional config
 Optional Configuration  | Description
 ------------- | ------------- |
 SQL Server Name | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use.
-Service Account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. |
+Service Account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 Permissions | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
 
 
