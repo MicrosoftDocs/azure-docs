@@ -151,4 +151,4 @@ If you have verified the connectivity exists, and you continue to see this issue
 
 ## Next steps
 
-Learn more about [Update 1.2 release](storsimple-update1-release-notes.md) 
+Learn more about [Update 1.2 release](storsimple-update1-release-notes.md).
