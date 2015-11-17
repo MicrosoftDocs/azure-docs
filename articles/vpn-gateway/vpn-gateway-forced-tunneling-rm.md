@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="11/17/2015"
    ms.author="cherylmc" />
 
 # Configure forced tunneling using PowerShell and Azure Resource Manager
@@ -73,14 +73,16 @@ Verify that you have the following items below before beginning your configurati
 
 		Login-AzureRmAccount 
 
+2. If you have more than one subscription, specify the subscription that you want to use.
+
 		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
 		
 
-1. Create a resource group.
+3. Create a resource group.
 
 		New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
 
-1. Create virtual networks and VNet subnets. 
+4. Create virtual networks and VNet subnets. 
 
 		$s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
 		$s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
@@ -88,20 +90,20 @@ Verify that you have the following items below before beginning your configurati
 		$s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
 		$vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "North Europe" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
 
-1. Create the route table and route rule.
+5. Create the route table and route rule.
 
 		New-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" –Location "North Europe"
 		$rt = Get-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" 
 		Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
 
-5. Associate the route table to the Midtier and Backend subnets.
+6. Associate the route table to the Midtier and Backend subnets.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
 		Set-AzureRmVirtualNetworkSubnetConfig -Name "MidTier" -VirtualNetwork $vnet -AddressPrefix "10.1.1.0/24" -RouteTable $rt
 		Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-6. Create the Gateway with a default site.
+7. Create the Gateway with a default site. This step takes some time to complete because you are creating the gateways and creating a gateway is complicated and takes a while. The GatewayDefaultSite is the cmdlet that allows this configuration to work, so you won't want to skip this one.  Note that it's only available in PowerShell 1.0 or later.
 
 		$pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
 		$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
