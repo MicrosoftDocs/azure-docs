@@ -146,7 +146,7 @@ Note that the IDs entered into the system are the IDs returned by the system. Th
 
 In the POST call below, we are requesting for the sentiments of the following phrases: "Hello World", "Hello Foo World", "Hello My World" in the body of the request
 
-    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
 
 Body:
 
