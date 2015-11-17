@@ -286,4 +286,4 @@ The application manifest below shows many of the different settings described ab
 * [Specifying Resources in a Service Manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/CopyToOutput.png
+[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
