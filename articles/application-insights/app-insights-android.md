@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Analytics for Android apps | Microsoft Azure"
-    description="Analyze usage and performance of your Android app."
+    pageTitle="Application Insights for Android apps | Microsoft Azure"
+    description="Analyze usage and performance of your Android app with Application Insights."
     services="application-insights"
     documentationCenter="android"
     authors="alancameronwills"
-    manager="douge"/>
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
@@ -12,14 +12,12 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="11/14/2015"
+	ms.date="04/28/2015"
     ms.author="awills"/>
 
-# Analytics for Android apps
+# Application Insights for Android apps
 
 Visual Studio Application Insights lets you monitor your mobile application for usage, events, and crashes.
-
-> [AZURE.NOTE] We recommend [HockeyApp](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk) to get crash reports, analytics, distribution and feedback management.
 
 ## Requirements
 
@@ -37,9 +35,69 @@ In the [Azure portal][portal], create a new Application Insights resource. Pick 
 
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
-## Setup
+## Install the Application Insights plugin into Android Studio
 
-Please follow the [setup guide](https://github.com/Microsoft/ApplicationInsights-Android#-3-setup).
+(If you didn't do this already.)
+
+1.  Start Android Studio and configure plugins.
+
+    ![Choose Configure](./media/app-insights-android/01-configure.png)
+
+2.  Select and install the Application Insights Android Studio plugin.
+
+    ![Select the plugin](./media/app-insights-android/03-select-plugin.png)
+
+## <a name="sdk"></a>Install the SDK in your application
+
+
+1.  Select **Tool** > **Integrate Application Insights SDK**.
+
+    ![Integrate Application Insights](./media/app-insights-android/04-tools-integrate.png)
+
+3.  Create a component in your subscription
+
+    ![Create a component](./media/app-insights-android/07-create-component.png)
+
+    Use the instrumentation key you got from your Application Insights resource.
+
+4.  Sync gradle to download the SDK and integrate with your project
+
+    ![Sync gradle files to download the SDK](./media/app-insights-android/08-successful-integration.png)
+
+    (Additional information is available from the [usage page](http://go.microsoft.com/fwlink/?LinkID=533220).)
+
+At this point, the following reference was added to the modules build.gradle, permissions for `INTERNET` and `ACCESS_NETWORK_STATE`, and a metadata tag containing the component's instrumentation key were added to the modules's `AndroidManifest.xml`
+
+```java
+
+    dependencies {
+    compile 'com.microsoft.azure:applicationinsights-android:+'
+    }
+```
+
+```xml
+
+    <manifest>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <meta-data
+            android:name="com.microsoft.applicationinsights.instrumentationKey"
+            android:value="${AI_INSTRUMENTATION_KEY}" />
+    </application>
+    </manifest>
+```
+
+#### Optional: set instrumentation key in code
+
+It is also possible to set the instrumentation key in code. This will override the one set in `AndroidManifest.xml`
+
+```java
+
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
+```
 
 
 ## Use the SDK
