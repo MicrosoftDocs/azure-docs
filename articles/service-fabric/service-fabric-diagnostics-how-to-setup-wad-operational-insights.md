@@ -17,11 +17,11 @@
    ms.author="kunalds"/>
 
 
-# Collecting logs from a Service Fabric cluster in Azure using WAD(Windows Azure Diagnostics) and Operational Insights
+# Collecting logs from a Service Fabric cluster in Azure using WAD (Windows Azure Diagnostics) and Operational Insights
 When running a Service Fabric cluster in Azure you would want to collect the logs from all the nodes into a central location. Having the logs in a central location makes it easy to analyze and troubleshoot any issues that you may notice in your cluster or the applications and services running in that cluster. One of the ways to upload and collect logs is to use WAD (Windows Azure Diagnostics) extension which uploads logs to Azure Table storage. Operational Insights (part of the Microsoft Operations Management Suite) is a SaaS-based solution which makes it easy to analyze and search logs. The steps below describe how you can set up WAD on the VMs in the cluster to upload logs to a central store and then configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
 
 ## Suggested Reading
-* [Windows Azure Diagnostics](https://msdn.microsoft.com/library/azure/gg433048.aspx)
+* [Windows Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Cloud Services related but gives you some good information and examples)
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
 * [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
 
@@ -38,7 +38,7 @@ These tools will be used to perform some of the operations in this document:
 2. Application Events: These are the events emitted from your services code and written out using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application refer to this [article](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 
-## Deploy WAD(Windows Azure Diagnostics) to a Service Fabric cluster to collect and upload logs
+## Deploy WAD (Windows Azure Diagnostics) to a Service Fabric cluster to collect and upload logs
 The first step to collecting logs will be to deploy the WAD extension on each of the VMs in the Service Fabric cluster. WAD will collect logs on each VM and upload them to the storage account you specify. The steps vary a little based on whether you use Portal or ARM and if the deployment is being done as part of cluster creation or for a cluster that already exists. Let's look at the steps for each scenario.
 
 ### Deploy WAD as part of cluster creation through the Portal
@@ -1018,6 +1018,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName kunaltestcluster -TemplateFi
 
 ## Set up Operational Insights to view and search cluster logs
 Once WAD is setup on the cluster and is uploading logs to a storage account the next step is to setup Operational Insights so you can view, search and query all the cluster logs through the Portal UI of Operational Insights.
+
 ### Create an Operational Insights Workspace
 To see the steps for creating an Operational Insights workspace see the article below. Note that it describes two different ways to create a workspace, choose the Azure Portal and Subscription based approach. You will need the name of the Operational Insights workspace in the later sections of this document.
 

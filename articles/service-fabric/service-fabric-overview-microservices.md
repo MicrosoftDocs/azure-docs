@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Understanding Microservcices | Microsoft Azure"
+   pageTitle="Understanding Microservices | Microsoft Azure"
    description="An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this"
    services="service-fabric"
    documentationCenter=".net"
@@ -137,5 +137,5 @@ The objective of Service Fabric is to reduce the complexities of building applic
 * Setup your Service Fabric [development environment](service-fabric-get-started.md)
 * Choosing a [programming model framework](service-fabric-choose-framework.md) for your service.
 
-[Image1]: media/service-fabric-overview-microservices/monolithVSmicroservices.png
-[Image2]: media/service-fabric-overview-microservices/StateMonolithVSmicroservices.png
+[Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
+[Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
