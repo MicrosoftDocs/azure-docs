@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="10/16/2015"
+   ms.date="11/11/2015"
    ms.author="golive"/>
 
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
