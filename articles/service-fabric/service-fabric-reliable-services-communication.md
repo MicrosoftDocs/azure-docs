@@ -224,7 +224,7 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## Next Steps
-* [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-default.md)
+* [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md.md)
 
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 

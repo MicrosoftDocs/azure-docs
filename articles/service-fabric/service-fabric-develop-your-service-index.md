@@ -79,7 +79,7 @@ Communicating with Reliable Services and the abstractions which clients can use 
 
 - [Communicating with services](service-fabric-connect-and-communicate-with-services.md)
 - [Service Communication Model](service-fabric-reliable-services-communication.md)
-- [Default communication stack provided by Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
+- [Default communication stack provided by Reliable Services Framework](service-fabric-reliable-services-communication-remoting.md.md)
 - [WCF based communication stack for Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 - [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
