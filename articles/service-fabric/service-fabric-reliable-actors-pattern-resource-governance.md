@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Resource governance design pattern | Microsoft Azure"
    description="Design pattern on how Service Fabric Reliable Actors can be used to model application needs to scale up but use constrained resources."
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Reliable Actors design pattern: resource governance
@@ -86,7 +86,7 @@ public class UserState
 }
 
 
-public class User : Actor<UserState>, IUser
+public class User : StatefulActor<UserState>, IUser
 {
     public override async Task ActivateAsync()
     {
@@ -119,7 +119,7 @@ public class ResolverState
     ...
 }
 
-public class Resolver : Actor<ResolverState>, IResolver
+public class Resolver : StatefulActor<ResolverState>, IResolver
 {
     ...
 
@@ -165,7 +165,7 @@ public interface IEventProcessor : IActor
     Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
 }
 
-public class EventProcessor : Actor, IEventProcessor
+public class EventProcessor : StatelessActor, IEventProcessor
 {
     public Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload)
     {
@@ -201,11 +201,11 @@ public class EventWriterState
     public string _filename;
 }
 
-public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 {
     private StreamWriter _writer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._filename = string.Format(@"C:\{0}.csv", this.Id);
         _writer = new StreamWriter(_filename);
@@ -213,7 +213,7 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         _writer.Close();
         return base.OnDeactivateAsync();
@@ -241,12 +241,12 @@ public class EventWriterState
     public Queue<CustomEvent> _buffer;
 }
 
-public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 {
     private StreamWriter _writer;
     private IActorTimer _timer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._filename = string.Format(@"C:\{0}.csv", this.Id);
         _writer = new StreamWriter(_filename);
@@ -337,9 +337,9 @@ In the EventWriter class, we need to do three things: mark the actor class as Re
 ## Resource Governance code sample – Buffering with async batching
 
 ```csharp
-public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 {
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._filename = string.Format(@"C:\{0}.csv", this.GetPrimaryKeyLong());
         _writer = new StreamWriter(_filename);
