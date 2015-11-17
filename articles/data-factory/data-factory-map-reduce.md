@@ -94,7 +94,7 @@ In the JSON definition for the HDInsight Activity:
 
 You can use the HDInsight MapReduce Activity to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
 
-## Sample
+## Sample on GitHub
 You can download a sample for using the HDInsight MapReduce Activity from: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
 
 ## Running the Word Count program
@@ -108,8 +108,6 @@ First, you create a linked service to link the Azure Storage that is used by the
 	{
 	    "name": "StorageLinkedService",
 	    "properties": {
-	        "description": "",
-	        "hubName": "mrfactory_hub",
 	        "type": "AzureStorage",
 	        "typeProperties": {
 	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>"
@@ -123,8 +121,6 @@ Next, you create a linked service to link your Azure HDInsight cluster to the Az
 	{
 	    "name": "HDInsightLinkedService",
 	    "properties": {
-	        "description": "",
-	        "hubName": "mrfactory_hub",
 	        "type": "HDInsight",
 	        "typeProperties": {
 	            "clusterUri": "https://<HDInsight cluster name>.azurehdinsight.net",
@@ -144,7 +140,6 @@ The pipeline in this example does not take any inputs. You will need to specify 
 	{
 	    "name": "MROutput",
 	    "properties": {
-	        "published": false,
 	        "type": "AzureBlob",
 	        "linkedServiceName": "StorageLinkedService",
 	        "typeProperties": {
