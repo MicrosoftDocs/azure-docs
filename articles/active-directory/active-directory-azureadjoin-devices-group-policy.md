@@ -19,11 +19,11 @@
 
 # Connect domain-joined devices to Azure AD for Windows 10 experiences
 
-Domain Join is the traditional way organizations have connected devices for work for the last 15 years and more. It has enabled users to sign-in to their devices using their AD work accounts and allowed IT to manage fully these devices. Organizations typically rely on imaging methods to provision devices to users and generally use System Center Configuration Manager (SCCM) or Group Policy to manage them.
+Domain Join is the traditional way organizations have connected devices for work for the last 15 years and more. It has enabled users to sign in to their devices using their AD work accounts and allowed IT to manage fully these devices. Organizations typically rely on imaging methods to provision devices to users and generally use System Center Configuration Manager (SCCM) or Group Policy to manage them.
 
 Domain Join in Windows 10 will provide the following benefits after being connected to Azure AD:
 
-- SSO (single-sign-on) to Azure AD resources from anywhere.
+- SSO (single sign-on) to Azure AD resources from anywhere.
 - Access to enterprise Windows store using work accounts (no Microsoft account required).
 - Enterprise compliant roaming of user settings across devices using work account (no Microsoft account required)
 - Strong authentication and convenient sign-in for work account with Microsoft Passport and Windows Hello.
@@ -53,14 +53,15 @@ To enable conditional access, you can create policy that allow access to ‘doma
 
 ## Deployment instructions
 
-1. Step 1: Deploy Azure Active Directory Connect: Azure AD Connect will enable computers on-premises to be provisioned as device objects in the cloud. To deploy Azure AD Connect please refer to Enabling your directory for hybrid management with Azure AD Connect.
+1. Deploy Azure Active Directory Connect: Azure AD Connect will enable computers on-premises to be provisioned as device objects in the cloud. To deploy Azure AD Connect please refer to Enabling your directory for hybrid management with Azure AD Connect.
 
 
-**If you followed a Custom installation for Azure AD Connect **(not the Express installation) you will need to do 
-I**f you have a federated configuration with Azure AD before installing Azure AD Connect** (for example, if you have deployed AD FS before) you will need to do
+If you followed a [custom installation for Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-get-started-custom/) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in on-premise Active Directory**, described below.
 
-### Create a service connection point (SCP) in on-premise Active Directory
-Domain joined devices will use this object to discover Azure AD tenant information at the time of auto-registration with Azure DRS. On the Azure AD Connect server run the following PowerShell commands: 
+If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before) you will have to follow the **Configure AD FS claim rules** procedure below.
+
+### Create a service connection point (SCP) in on-premises Active Directory
+Domain joined devices will use this object to discover Azure AD tenant information at the time of auto-registration with Azure device registration service. On the Azure AD Connect server run the following PowerShell commands: 
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
 
@@ -128,6 +129,7 @@ You can use an Active Directory Group Policy to configure your Windows 10 domain
 8.	You may now link the Group Policy object to a location of your choice. To enable this policy for all of the domain joined Windows 10 devices at your organization, link the Group Policy to the domain. For example:
  - A specific Organizational Unit (OU) in AD where Windows 10 domain-joined computers will be located.
  - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD.
+ 
 >[AZURE.NOTE]
 This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
 **Register domain joined computers as devices**

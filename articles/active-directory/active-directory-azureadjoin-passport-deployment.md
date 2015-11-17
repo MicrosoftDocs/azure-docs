@@ -45,7 +45,7 @@ To deploy user certificates based on Microsoft Passport keys, you need the follo
 
 ## Configure Microsoft Passport for work via deploying PowerShell through Configuration Manager 
 
-Run the following powershell command:
+Run the following PowerShell command:
 
     powershell.exe -ExecutionPolicy Bypass -NoLogo -NoProfile -Command "& {New-ItemProperty "HKLM:\Software\Policies\Microsoft\PassportForWork" -Name "Enabled" -Value 1 -PropertyType "DWord" -Force}"
 
