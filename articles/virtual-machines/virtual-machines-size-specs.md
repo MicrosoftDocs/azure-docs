@@ -64,7 +64,32 @@ The following considerations might help you decide on a size:
 
 *   Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
+## Performance considerations
 
+We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A11) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
+
+>[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
+
+<br>
+
+
+
+|SKU Family	|ACU/Core |
+|---|---|
+|[Basic_A0](#basic-tier)	|50 |
+|[Basic_A1-4](#basic-tier)	|70 |
+|[Standard_A0 (Extra Small)](#standard-tier-a-series)	|50 |
+|[Standard_A1-4 (Small – Large)] (#standard-tier-a-series)	|100 |
+|[Standard_A5-7](#standard-tier-a-series)	|100 |
+|[A8-A11](#standard-tier-a-series)	|225 |
+|[D1-14](#standard-tier-d-series)	|160 |
+|[D1-14v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[DS1-14](#standard-tier-ds-series)	|160 |
+|[G1-5](#standard-tier-g-series)	|180 - 240 *|
+|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+
+
+ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
 ## General limits
 
