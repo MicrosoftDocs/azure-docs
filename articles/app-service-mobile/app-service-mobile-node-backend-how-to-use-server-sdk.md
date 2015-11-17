@@ -3,8 +3,8 @@
 	description="Learn how to work with the Node backend server SDK for Azure App Service Mobile Apps."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="adrianha"
-	manager=""
+	authors="adrianhall"
+	manager="kirillg"
 	editor=""/>
 
 <tags
@@ -20,8 +20,8 @@
 
 This article provides detailed information and examples showing how to work with a Node backend in Azure App Service Mobile Apps.
 
-	> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
-	in this document use v2.0.0-beta1 of azure-mobile-apps.
+> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
+in this document use v2.0.0-beta1 of azure-mobile-apps.
 
 ## <a name="Introduction"></a>Introduction
 
@@ -162,7 +162,7 @@ The azure-mobile-apps Node Server SDK provides mechanisms to expose data tables 
 | GET /tables/_tablename_ | Get all records in the table |
 | GET /tables/_tablename_/:id | Get a specific record in the table |
 | POST /tables/_tablename_ | Create a new record in the table |
-| PUT /tables/_tablename_/:id | Update an existing record in the table |
+| PATCH /tables/_tablename_/:id | Update an existing record in the table |
 | DELETE /tables/_tablename_/:id | Delete a record in the table |
 
 This WebAPI supports [OData] and extends the table schema to support [offline data sync].  
@@ -243,8 +243,8 @@ The Azure Mobile Apps Node SDK provides three options for serving data out of th
 
 The Azure Mobile Apps Node SDK uses the [mssql Node package] to establish and use a connection to both SQL Express and SQL Azure.  This package requires that you enable TCP connections on your SQL Express instance.
 
-   > [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
-   we recommend the use of a SQL Express data store and using the sql driver.
+> [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
+we recommend the use of a SQL Express data store and using the sql driver.
 
 1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly
 require 64 Bit support, the 32 Bit version will consume less memory when running.
@@ -346,7 +346,7 @@ Using SQL Azure as a data store is identical across all Azure App Service applic
 
 Once the Mobile App backend is created, you can choose to either connect an existing SQL Azure database to your Mobile App backend or create a new SQL Azure database.  In this HOWTO, we will create a new SQL database.
 
-    > [AZURE.NOTE] If you already have a database in the same location as the new mobile app backend, you can instead choose **Use an existing database** and then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies.
+> [AZURE.NOTE] If you already have a database in the same location as the new mobile app backend, you can instead choose **Use an existing database** and then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies.
 
 6. In the new Mobile App backend, click **Settings** > **Mobile App** > **Data** > **+Add**.
 
