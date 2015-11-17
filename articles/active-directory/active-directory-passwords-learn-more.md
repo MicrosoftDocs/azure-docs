@@ -25,6 +25,7 @@ If you have already deployed Password Management, or are just looking to learn m
   - [Password writeback security model](#password-writeback-security-model)
 * [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
   - [What data is used by password reset?](#what-data-is-used-by-password-reset)
+  - [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
 
 ## Password writeback overview
 Password writeback is an [Azure Active Directory Connect](active-directory-aadconnect) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md). 
@@ -264,6 +265,97 @@ The following table outlines where and how this data is used during password res
 <br/>
 <br/>
 <br/>
+
+###How to access password reset data for your users
+The following fields can be synchronized from on-premises:
+* Mobile Phone
+* Office Phone
+
+The following fields are accessible with Azure AD PowerShell & the Graph API:
+* Alternate Email
+* Mobile Phone
+* Office Phone
+* Authentication Phone
+* Authentication Email
+
+The following fields are only accessible via the SSPR registration UI:
+* Security Questions and Answers
+
+####What happens when a user registers?
+When a user registers, the registration page will **always** set the following fields:
+* Authentication Phone
+* Authentication Email
+* Security Questions and Answers
+
+If you have provided a value for **Mobile Phone** or **Alternate Email**, users can immediately use those to reset their passwords, even if they haven't registered for the service.  In addition, users will see those values when registering for the first time, and modify them if they wish.  However, after they successfully register, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
+
+This can be a useful way to unblock large numbers of users to use SSPR while still allowing users to validate this information through the registration process.
+
+####Setting password reset data with PowerShell
+You can set values for the following fields with Azure AD PowerShell.
+* Alternate Email
+* Mobile Phone
+* Office Phone
+
+To get started, you'll first need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Once you have it installed, you can follow the steps below to configure each field.
+
+#####Alternate Email
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####Mobile Phone
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####Office Phone
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####Reading password reset data with PowerShell
+You can read values for the following fields with Azure AD PowerShell.
+* Alternate Email
+* Mobile Phone
+* Office Phone
+* Authentication Phone
+* Authentication Email
+
+To get started, you'll first need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Once you have it installed, you can follow the steps below to configure each field.
+
+#####Alternate Email
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####Mobile Phone
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####Office Phone
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####Authentication Phone
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####Authentication Email
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
 
 ## Links to password reset documentation
 Below are links to all of the Azure AD Password Reset documentation pages: 
