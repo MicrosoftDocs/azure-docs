@@ -36,7 +36,7 @@
 
 ## Release Notes
 
-### <a name="1.4.0"/>[**1.4.0**](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
+### <a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
 - Implement Upsert. New upsertXXX methods added to support Upsert feature.
 - Implement ID Based Routing. No public API changes, all changes internal.
 
