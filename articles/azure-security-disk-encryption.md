@@ -16,11 +16,11 @@
    ms.date="11/17/2015"
    ms.author="yuridio"/>
 
-**NOTE**: Certain recommendations contained herein may result in increased data, network, or compute resource usage resulting in additional license or subscription costs.
-
 #Introduction
 
 Microsoft Azure is strongly committed to ensuring your data privacy, data sovereignty and enables you to control your Azure hosted data through a range of advanced technologies to encrypt, control and manage encryption keys, control & audit access of data. This provides Azure customers the flexibility to choose the solution that best meets their business needs. In this paper, we will introduce you to a new technology solution “Azure Disk Encryption for Windows and Linux IaaS VM’s” to help protect and safeguard your data to meet your organizational security and compliance commitments. The paper provides detailed guidance on how to use the Azure disk encryption features including the supported scenarios and the user experiences.
+
+**NOTE**: Certain recommendations contained herein may result in increased data, network, or compute resource usage resulting in additional license or subscription costs.
 
 ##Overview
 
