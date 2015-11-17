@@ -115,6 +115,7 @@ For more information on Azure AD Premium or Basic pricing, visit the [Active Dir
 | How do I know if an account is configured for password reset? | [What makes an account configured for password reset?](active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
 | How do I get my users configured for password reset? | [Ways to populate password reset authentication data for your users](active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
 | How do I manually upload data for my users? | [Uploading password reset data yourself](active-directory-passwords-best-practices.md#uploading-data-yourself) |
+| How do I use PowerShell to read or set data for my users? | [How to access password reset data for your users](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
 | How can I synchronize password reset data from on-premises? | [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 | How can I use an email campagin to get my users to register for and use password reset? | [Email-based rollout of password reset](active-directory-passwords-best-practices.md#email-based-rollout) |
 | How can I force my users to register when signing in? | [Enforced registration-based rollout of password reset](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
