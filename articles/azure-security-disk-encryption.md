@@ -227,8 +227,8 @@ Disk encryption can be enabled on customer encrypted VHD using the ARM template 
 
 The ARM template parameters details for customer encrypted VHD scenario are described in the table below:
 
-| ​Parameter               | ​Description
-|-----------------------|------------------------------------------------------------------                                                                                                                                                                                                   
+| Parameter                        | Description|
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | newStorageAccountName | Name of the storage account to store encrypted OS vhd. This storage account should have already been created in the same resource group and same location as the VM                                                     |
 | osVhdUri              | URI of OS vhd from storage account                                                                                                                                                                                      |
 | osType                | OS product type (Windows/Linux)                                                                                                                                                                                         |
@@ -725,7 +725,7 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
         luksfile=$MountPoint/$KeyFileName
         break
     fi
-done
+    done
 
 
 5.Run the “/usr/sbin/dracut -f -v” to update the initrd.
