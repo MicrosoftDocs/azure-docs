@@ -27,21 +27,15 @@ This tutorial shows you how to create a Virtual Machine Scale Set of Windows vir
 
 The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Windows VMs and a Jumpbox](https://azure.microsoft.com/en-us/documentation/templates/201-vmss-windows-jumpbox/).
 
-Before you create a Virtual Machine Scale Set, you need a resource group and a storage account.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-## Step 1: Create an account, install needed tools, and create initial resources
+## Step 1: Create a resource group and a storage account
 
-1.	**Obtain an Azure account** - You can open an Azure account for free: You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+1.	**Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
 
-2.	**Install Azure PowerShell** -
+2.	**Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmss-test1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
-
-3.	**Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
-
-4.	**Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmss-test1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
-
-5.	**Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmssstore1**. Keep the Azure PowerShell window open for steps later in this tutorial.
+3.	**Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmssstore1**. Keep the Azure PowerShell window open for steps later in this tutorial.
 
 ## Step 2: Create the template
 An Azure Resource Manager template makes it possible for you to deploy and manage Azure resources together by using a JSON description of the resources and associated deployment parameters.
@@ -569,14 +563,15 @@ Now that you created the template, you can get started deploying the resources. 
 
 		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
 
-		When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
-		vmName: vmssvm1
-		vmSSName: vmsstest1
-		instanceCount: 5
-		adminUserName: vmadmin1
-		adminPassword: vmadminpass1
-		storageAccountName: vmssstore1
-		resourcePrefix: vmsstest
+When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
+
+	vmName: vmssvm1
+	vmSSName: vmsstest1
+	instanceCount: 5
+	adminUserName: vmadmin1
+	adminPassword: vmadminpass1
+	storageAccountName: vmssstore1
+	resourcePrefix: vmsstest
 
 It should take about 15 minutes for all of the resources to successfully be deployed.
 
