@@ -50,8 +50,7 @@ You will need to perform the following steps before you scan and apply the updat
 
 1. Take a cloud snapshot of the device data.
 
-
-1. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
 
  	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
@@ -86,7 +85,7 @@ Use this procedure only if you have a gateway configured on DATA 0 network inter
 
 ## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface 
 
-You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Azure portal. See [Use the Azure portal to install Update 1](#install-update-12-via-the-azure-portal).
+You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Azure portal. See [Install update 1.2 via the Azure portal](#install-update-12-via-the-azure-portal).
 
 The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3. 
 
@@ -151,4 +150,4 @@ If you have verified the connectivity exists, and you continue to see this issue
 
 ## Next steps
 
-Learn more about [Update 1.2 release](storsimple-update1-release-notes.md).
+Learn more about the [Update 1.2 release](storsimple-update1-release-notes.md).
