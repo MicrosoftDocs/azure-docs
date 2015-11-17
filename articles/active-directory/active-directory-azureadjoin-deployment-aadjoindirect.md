@@ -54,7 +54,7 @@ Enterprises can provide cloud-only accounts to partner companies and organizatio
 *	Windows 10 (Professional and Enterprise SKUs)
 
 ### Administrator Tasks
-* [Set up device registration and MFA](active-directory-azureadjoin-setup.md)
+* [Set up device registration](active-directory-azureadjoin-setup.md)
 
 ### User Tasks
 * [Setting up a new Windows 10 device with Azure AD during Setup](active-directory-azureadjoin-user-frx.md)
@@ -78,7 +78,7 @@ You can set up your users and employees to user their personal Windows devices t
 
 ### Administrator Tasks
 
-* [Set up device registration and MFA](active-directory-azureadjoin-setup.md)
+* [Set up device registration](active-directory-azureadjoin-setup.md)
 
 ### User Tasks
 * [Join a personal Windows 10 device to your organization](active-directory-azureadjoin-personal-device.md)

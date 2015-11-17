@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="3.2	Enable Microsoft Passport for Work in the organization | Microsoft Azure" 
+	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure" 
 	description="Deployment instructions to enable Microsoft Passport in your organization." 
 	services="active-directory" 
 	documentationCenter="" 

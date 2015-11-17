@@ -52,7 +52,7 @@ Windows 10 offers two models for work-owned devices for accessing work resources
 
 Azure AD Join is a new self-service work provisioning experience in Windows 10.  It is targeted for the workers who primarily access work resources in the cloud such as Office 365. It is a lightweight way to configure PCs, tablets and phones for the enterprise. Devices are managed via MDM using consistent controls across Windows platforms.
 
-Use Azure AD Join for any of these reasons:
+**Use Azure AD Join for any of these reasons**:
 
 1.	You want to enable self-service provisioning of devices for workers on-the-go.
 2.	You provide users with work-owned mobile devices like tablets and phones.
@@ -62,7 +62,7 @@ Use Azure AD Join for any of these reasons:
 
 Some organizations will use Azure AD Join as the primary way to deploy work-owned devices, especially as they migrate most or all of their resources to the cloud. Hybrid organizations with both AD and Azure AD can also choose to deploy one method or another depending on the user or department. School districts and universities may manage staff in AD and manage students in Azure AD, or some companies might want remote offices or the sales department on Azure AD. Both Azure AD Join and Domain Join methods can be used within a hybrid organization. Azure AD Join can be a great complement for deploying devices in a work environment. 
 
-If most access to enterprise resources is via the cloud, an organization may enjoy additional benefits:
+**If most access to enterprise resources is via the cloud, an organization may enjoy additional benefits**:
 
 - You may be able to remove dependencies on on-premises identity infrastructure.
 - You can simplify your devices deployment model by getting away from imaging solutions by allowing self-service configuration.
@@ -72,21 +72,21 @@ For more information about Azure AD Join please see [Extending cloud capabilitie
 
 ## When to use Domain Join (or keep using it)
 
-Domain Join is the traditional way organizations have connected devices for work for the last 15 years and more. It has enabled users to sign-in to their devices using their AD work accounts and allowed IT to centrally and fully manage these devices. Organizations typically rely on imaging methods to provision devices and generally use System Center Configuration Manager (SCCM) or Group Policy to manage them.
+Domain join is the traditional way organizations have connected devices for work for the last 15 years and more. It has enabled users to sign-in to their devices using their AD work accounts and allowed IT to centrally and fully manage these devices. Organizations typically rely on imaging methods to provision devices and generally use System Center Configuration Manager (SCCM) or Group Policy to manage them.
 
-You would use Domain Join in your enterprise for any of these reasons:
+**You would use domain join in your enterprise for any of these reasons**:
 
 - You have Win32 apps deployed to these devices that use NTLM/Kerberos.
 - You require GP or SCCM/DCM to manage devices.
 - You want to continue to use imaging solutions to configure devices for your employees.
 
-Domain Join in Windows 10 will also gives you the following benefits after being connected to Azure AD:
+**Domain Join in Windows 10 will also gives you the following benefits after being connected to Azure AD**:
 
 - Strong device-bound authentication and convenient sign-in for work account with Microsoft Passport and Windows Hello.
 - Access to enterprise Windows Store using work accounts (no Microsoft account required).
 - Enterprise compliant roaming of user settings across devices using work account (no Microsoft account required).
 - Ability to restrict access to organizational apps from devices compliant with organizational device policies.
-- For more information about Azure AD Join please see >.
+- For more information about Azure AD Join please see [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).
 
 ##Enabling personally-owned devices for work with work accounts
 
@@ -100,7 +100,7 @@ For more information about Azure AD Join, see [Connect domain-joined devices to 
 
 All methods described above (Domain Join, Azure AD Join and Add work account) have entry points in the Windows 10 user experience, however, all require IT to enable the functionality in the infrastructure for the experience to work.
 
-##Azure AD Join
+##Azure AD join
 
 To deploy Azure AD Join for any set of users you need the following:
 ---------------------------------------------------------------------------
@@ -111,7 +111,7 @@ To deploy Azure AD Join for any set of users you need the following:
 - If you are hybrid, it is highly recommended to do the following:
 - Deploy Azure AD Connect to extend on-premises directory to Azure AD.
 
-##Domain Join
+##Domain join
 
 Domain Join continues to work as it always has, however to get the Azure AD benefits you will need the following:
 
