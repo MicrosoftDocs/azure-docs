@@ -27,7 +27,7 @@ Sampling is currently in Beta, and may change in the future.
 
 ## Configuring  sampling for your application
 
-Sampling is currently available for the ASP.NET SDK or [any   web page](#other-web-pages). 
+Sampling is currently available for the ASP.NET SDK or [any web page](#other-web-pages). 
 
 ### ASP.NET server
 

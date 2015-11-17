@@ -618,8 +618,5 @@ Here high level data flow for and summary of steps for copy with data gateway:
 	- 	Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway** machine to the **allowed IP addresses**.
 5.	When copying data to/from on-premises SQL Server to any destination and the gateway and SQL Server machines are different, do the following: [configure Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) on the SQL Server machine so that the gateway can access the database via ports that the SQL Server instance listens on. For the default instance, it is port 1433.
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md). 
-
 
 

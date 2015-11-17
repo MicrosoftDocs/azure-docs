@@ -44,7 +44,9 @@ The corresponding typed client-side .NET type is the following:
 		public bool Complete { get; set; }
 	}
 
-When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
+Note that the [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) is used to define the mapping between the PropertyName mapping between the client type and the table.
+
+When dynamic schema is enabled in a JavaScript backend mobile service, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271). In a .NET backend mobile service, the table is defined in the data model of the project.
 
 ##<a name="create-client"></a>How to: Create the Mobile Services client
 
@@ -62,12 +64,12 @@ In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and
 
 ##<a name="instantiating"></a>How to: Create a table reference
 
-All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`.
+All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) method on an instance of the `MobileServiceClient`, as follows:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-This is the typed serialization model; see discussion of the <a href="#untyped">untyped serialization model</a> below.
+This is the typed serialization model; see the discussion of the [untyped serialization model](#untyped) below.
 
 ##<a name="querying"></a>How to: Query data from a mobile service
 
@@ -670,16 +672,19 @@ To support your specific app scenario, you might need to customize communication
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage> 
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 This code adds a new **x-my-header** header in the request and arbitrarily sets the response code to unavailable. In a real-world scenario, you would set the response status code based on some custom logic required by your app.
 
@@ -739,6 +744,7 @@ This property converts all properties to lower case during serialization.
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx

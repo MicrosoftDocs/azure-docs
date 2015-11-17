@@ -28,6 +28,8 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
+This will cover the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal.
+
 
 ## What is required to create an internet facing load balancer?
 

@@ -139,13 +139,11 @@ Finally, you need to publish the Mobile App backend to Azure and verify that it 
 
 	After publishing completes, the service restarts and the backend start page is displayed.
 
-4. Using <!--- either the **Try it now** button on the start page as before or using --> a client app connected to your Mobile App, invoke some operations that generate database changes.
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. In SQL Server Management Studio, connect to your SQL Server instance, open the Object Explorer, expand the **OnPremisesDB** database and expand **Tables**.
+4. Using a client app connected to your Mobile App, invoke some operations that generate database changes.
 
-5. Right-click the **hybridService1.TodoItems** table and choose **Select Top 1000 Rows** to view the results.
+5. In SQL Server Management Studio, connect to your SQL Server instance, open the Object Explorer, expand the **OnPremisesDB** database and expand **Tables**.
+
+6. Right-click the **hybridService1.TodoItems** table and choose **Select Top 1000 Rows** to view the results.
 
 	Note that changes generated in your client app are saved by your Mobile App backend to your on-premises database using the hybrid connection.
 
