@@ -21,7 +21,7 @@ Service Fabric provides the ability to secure applications running in the cluste
 
 By default, Service Fabric applications run under the account that the Fabric.exe process is running under. It also provides the capability to run applications under a local user account, specified within the application’s manifest. Supported account types for RunAs are **LocalUser**, **NetworkService**, **LocalService** and **LocalSystem**.
 
-(Note: Domain accounts are supported on Windows Server deployments where Active Directory is available. This article will be updated once the on-premise Windows Server deployment is available)
+> [AZURE.NOTE] Domain accounts are supported on Windows Server deployments where Active Directory is available. 
 
 User groups can be defined and created where one or more users can be added to this group to be managed together. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
