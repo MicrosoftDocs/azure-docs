@@ -19,7 +19,7 @@ To ensure that no messages is resubmitted outside of the deduplication window, w
 ### Provision an Azure Storage account and a Service Bus queue
 In order to use [EventProcessorHost], you must have an Azure Storage account. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. Take note of the storage account connection string.
 
-You will also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure Management Portal], following these steps:
+You will also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure portal], following these steps:
 
 1. Click **NEW** in the bottom left corner, then **App Services**, then **Service Bus**, then **Queue**, then **Custom**, select the name **d2ctutorial**, then select a deduplication window of 1 hour.
 
@@ -53,7 +53,7 @@ You will also need a Service Bus queue to enable reliable processing of interact
 
 5. Right-click the **ProcessDeviceToCloudMessages** project, click **Add**, and then click **Class**. Name the new class **StoreEventProcessor**, and then click **OK** to create the class.
 
-6. Add the following statements at the top of the SimpleEventProcessor.cs file:
+6. Add the following statements at the top of the StoreEventProcessor.cs file:
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@ You will also need a Service Bus queue to enable reliable processing of interact
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@ You will also need a Service Bus queue to enable reliable processing of interact
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -230,11 +230,11 @@ You will also need a Service Bus queue to enable reliable processing of interact
 > [AZURE.NOTE] For simplicity's sake, this tutorial uses a single instance of [EventProcessorHost]. Please refer to [Event Hubs Programming Guide] and the [Process device-to-cloud messages] tutorial for more information on processing device-to-cloud messages.
 
 ## Receive interactive messages
-In this section, you'll write a Windows console app that receives interactive messages from the Service Bus queue. Refer to [Build multi-tier applications with Service Bus] for more information on how to architect a solution using Service Bus.
+In this section, you'll write a Windows console app that receives interactive messages from the Service Bus queue. Refer to [Build multi-tier applications with Service Bus][] for more information on how to architect a solution using Service Bus.
 
 1. In the current Visual Studio solution, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **ProcessD2cInteractiveMessages**.
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
+2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**.
 
     This displays the Manage NuGet Packages window.
 
@@ -302,17 +302,19 @@ In this section, you'll write a Windows console app that receives interactive me
 
 [Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Portal]: https://manage.windowsazure.com/
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[Build multi-tier applications with Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png

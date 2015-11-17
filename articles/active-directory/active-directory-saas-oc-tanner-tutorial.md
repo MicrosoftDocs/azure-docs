@@ -57,20 +57,26 @@ To configure the integration of O.C. Tanner - AppreciateHub into Azure AD, you n
 
 **To add O.C. Tanner - AppreciateHub from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. 
+<br><br> ![Active Directory][1] <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]
-6. In the search box, type **O.C. Tanner - AppreciateHub**.<br>
-![Applications][5]
-7. In the results pane, select **O.C. Tanner - AppreciateHub**, and then click **Complete** to add the application.<br>
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+<br><br> ![Applications][2] <br>
+
+4. Click **Add** at the bottom of the page.
+<br><br> ![Applications][3] <br>
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+<br><br> ![Applications][4] <br>
+
+6. In the search box, type **O.C. Tanner - AppreciateHub**.
+<br><br> ![Applications][5] <br>
+
+7. In the results pane, select **O.C. Tanner - AppreciateHub**, and then click **Complete** to add the application.
+<br><br> ![Applications][25] <br>
+
 
 
 
@@ -219,6 +225,8 @@ When you click the O.C. Tanner - AppreciateHub tile in the Access Panel, you sho
 [3]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_01.png
+[25]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_25.png
+
 
 [6]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_octanner_02.png

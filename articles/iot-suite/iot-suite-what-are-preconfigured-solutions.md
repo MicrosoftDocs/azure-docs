@@ -1,10 +1,10 @@
 <properties
- pageTitle="Description of the Azure IoT preconfigured solutions. | Microsoft Azure"
+ pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="aguilaaj"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="araguila"/>
 
@@ -59,7 +59,7 @@ An IoT hub receives telemetry data from the coolers at a single end-point and ma
 
 The IoT hub exposes the telemetry data it receives through a consumer group end-point.
 
-The IoT Hub instance in this preconfigured solution corresponds to the **IoT backend application** in a typical IoT solution architecture.
+The IoT Hub instance in this preconfigured solution corresponds to the **Cloud Gateway** in a typical IoT solution architecture.
 
 ### Azure Stream Analytics
 

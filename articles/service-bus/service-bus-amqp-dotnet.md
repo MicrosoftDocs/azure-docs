@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Using Service Bus from .NET with AMQP 1.0
@@ -27,7 +27,7 @@ AMQP 1.0 support is available in the Service Bus SDK version 2.1 or later. You c
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string, as described in the next section. Other than this change, application code remains basically unchanged when using AMQP 1.0.
 
-In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section “Unsupported Features and Restrictions.” Some of the advanced configuration settings also have a different meaning when using AMQP.
+In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section [Unsupported features, restrictions, and behavioral differences](#unsupported-features-restrictions-and-behavioral-differences). Some of the advanced configuration settings also have a different meaning when using AMQP.
 
 ### Configuration using App.config
 
@@ -168,6 +168,7 @@ The .NET APIs expose several settings to control the behavior of the AMQP protoc
 Ready to learn more? Visit the following links:
 
 - [Service Bus AMQP overview]
+- [AMQP 1.0 support for Service Bus partitioned queues and topics]
 - [AMQP in Service Bus for Windows Server]
 
   [How to Use Service Bus Queues]: service-bus-dotnet-how-to-use-queues.md
@@ -199,4 +200,5 @@ Ready to learn more? Visit the following links:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

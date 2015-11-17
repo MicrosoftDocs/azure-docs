@@ -19,17 +19,18 @@
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure Preview Portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration. Note that this article applies to the virtual machines created using the **Classic** deployment model.
 
-## Azure Preview Portal
+If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure preview portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration. Note that this article applies to the virtual machines created using the **Classic** deployment model.
 
-To reset the SSH configuration in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **Reset Remote Access**. Here is an example.
+## Azure preview portal
+
+To reset the SSH configuration in the [Azure preview portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **Reset Remote Access**. Here is an example.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-To reset the name and password of the user account with sudo privileges or the SSH public key in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **All settings** > **Password reset**. Here is an example.
+To reset the name and password of the user account with sudo privileges or the SSH public key in the [Azure preview portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Linux virtual machine* > **All settings** > **Password reset**. Here is an example.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -164,7 +165,7 @@ If you don't know the cloud service and virtual machine name, run **Get-AzureVM*
 
 > [AZURE.NOTE] The command lines that begin with $ are setting PowerShell variables that later get used in PowerShell commands.
 
-If you created the virtual machine with the Azure Management Portal, run the following additional command:
+If you created the virtual machine with the Azure portal, run the following additional command:
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 

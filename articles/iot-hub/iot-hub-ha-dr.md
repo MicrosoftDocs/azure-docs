@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub High availability and disaster recovery | Microsoft Azure"
- description="Describes features that help to build solutions with disaster recovery (DR) capabilities."
+ pageTitle="IoT Hub HA and DR | Microsoft Azure"
+ description="Describes features that help to build highly available solutions with disaster recovery capabilities."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -24,7 +24,7 @@ As an Azure service, IoT Hub provides high availability (HA) using redundancies 
 
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this section, but, for the purpose of high availability and disaster recovery we will consider the *regional failover* deployment model.
 
-In a regional failover model, the solution backend is running primarily in one datacenter location, but an additional IoT hub and backend will be deployed in an additional datacenter region for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
+In a regional failover model, the solution back end is running primarily in one datacenter location, but an additional IoT hub and back end will be deployed in an additional datacenter region for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
 
 At a high level, in order to implement a regional failover model with IoT Hub, you will need the following.
 

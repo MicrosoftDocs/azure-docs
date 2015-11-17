@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="10/13/2015" 
 	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
@@ -29,6 +29,8 @@ API Management has the following immutable system groups.
 In addition to these system groups, administrators can create custom groups or [leverage external groups in associated Azure Active Directory tenants][]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
+
+>[AZURE.NOTE] In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) entity.
 
 ## <a name="create-group"> </a>Create a group
 
@@ -80,9 +82,11 @@ Once the desired developers are checked, click the desired group in the **Add to
 
 Once the association is added between the developer and the group, you can view it in the **Users** tab.
 
+
 ## <a name="next-steps"> </a>Next steps
 
-Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][],
+-	Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How create and publish a product in Azure API Management][],
+-	In addition to creating and managing groups in the publisher portal, you can create and manage your groups using the API Management REST API [Group](https://msdn.microsoft.com/library/azure/dn776329.aspx) entity.
 
 
 [api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png

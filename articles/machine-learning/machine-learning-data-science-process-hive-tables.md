@@ -2,7 +2,6 @@
 	pageTitle="Submit Hive Queries to Hadoop clusters in the Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Process Data from Hive Tables with Hive queries."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 

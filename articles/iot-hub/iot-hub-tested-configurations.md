@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure IoT OS Platforms and hardware compatibility | Microsoft Azure"
-	description="OS platforms and hardware compatibility"
+	pageTitle="OS platforms and hardware compatibility| Microsoft Azure"
+	description="Summarizes IoT device SDK compatibility with OS platforms and device hardware."
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="hegate"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/09/2015"
      ms.author="hegate"/>
 
-# OS Platforms and hardware compatibility
+# OS Platforms and hardware compatibility with device SDKs
 
 This document describes the SDK compatibility with different OS platforms as well as the specific device configurations included in the [Microsoft Azure Certified for IoT program](#microsoft-azure-certified-for-iot). If you already have a device, please look at the list of included devices in the program to find device-specific information on compatibility. If you're unsure of which device to use, please take a look at the [OS Platform and libraries](#os-platforms) compatibility section.
 
@@ -129,4 +129,3 @@ Each device has been certified to work with our SDK in the OS and language chose
 ## Next steps
 
 Learn more about developing solutions using **Certified for IoT** devices [here](http://azure.com/iotdev).
-

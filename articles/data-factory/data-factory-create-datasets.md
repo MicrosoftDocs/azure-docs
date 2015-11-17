@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Datasets
@@ -103,7 +103,7 @@ The supported data sources and the dataset types are aligned. See the connector 
 
 ## <a name="Availability"></a> Dataset Availability
 
-The Availability section in a dataset defines the processing window or the slicing model for the dataset production. See Dataset Slice topic for more details on the dataset slicing and dependency model. 
+The Availability section in a dataset defines the processing window or the slicing model for the dataset production. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model. 
 
 | Property | Description | Required | Default |
 | -------- | ----------- | -------- | ------- |
@@ -121,7 +121,7 @@ The Availability section in a dataset defines the processing window or the slici
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 
@@ -207,21 +207,3 @@ If you need to run a pipeline on monthly basis on specific date and time (suppos
 	    }
 	  }
 	}
-
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md). 
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-

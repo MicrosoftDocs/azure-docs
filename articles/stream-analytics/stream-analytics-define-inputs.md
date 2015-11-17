@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="11/06/2015"
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics inputs
@@ -98,15 +98,15 @@ When your data is coming from an IoT Hub source, you can access to few metadata 
 
 | PROPERTY | DESCRIPTION |
 |------|------|
-| System.Input.EventProcessedUtcTime | The date and time that the event was processed. |
-| System.Input.EventEnqueuedUtcTime | The date and time that the event was received by the IoT Hub. |
-| System.Input.PartitionId | The zero-based partition ID for the input adapter. |
-| System.Input.MessageId | Used to correlate two-way communication in IoT Hub. |
-| System.Input.CorrelationId | Used in message responses and feedback in IoT Hub. |
-| System.Input.ConnectionDeviceId | The authenticated id used to send this message, stamped on servicebound messages by IoT Hub. |
-| System.Input.ConnectionDeviceGenerationId | The generationId of the authenticated device used to send this message, Stamped on servicebound messages by IoT Hub. |
-| System.Input.EnqueuedTime | Time when the message was received by IoT Hub. |
-| System.Input.StreamId | Custom event property added by the sender device. |
+| EventProcessedUtcTime | The date and time that the event was processed. |
+| EventEnqueuedUtcTime | The date and time that the event was received by the IoT Hub. |
+| PartitionId | The zero-based partition ID for the input adapter. |
+| IoTHub.MessageId | Used to correlate two-way communication in IoT Hub. |
+| IoTHub.CorrelationId | Used in message responses and feedback in IoT Hub. |
+| IoTHub.ConnectionDeviceId | The authenticated id used to send this message, stamped on servicebound messages by IoT Hub. |
+| IoTHub.ConnectionDeviceGenerationId | The generationId of the authenticated device used to send this message, Stamped on servicebound messages by IoT Hub. |
+| IoTHub.EnqueuedTime | Time when the message was received by IoT Hub. |
+| IoTHub.StreamId | Custom event property added by the sender device. |
 
 ## Creating a Blob storage data stream input ##
 
@@ -142,7 +142,7 @@ The table below explains each property in the Blob storage input tab with its de
 <tr>
 <td>Path Prefix Pattern [optional]</td>
 <td>The file path used to locate your blobs within the specified container.
-Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time},<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: cluster1/logs/{date}</td>
+Within the path, you may choose to specify one or more instances of the following 3 variables:<BR>{date}, {time},<BR>{partition}<BR>Example 1: cluster1/logs/{date}/{time}/{partition}<BR>Example 2: cluster1/logs/{date}<P>Note that "*" is not an allowed value for pathprefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed.</td>
 </tr>
 <tr>
 <td>Date Format [optional]</td>
@@ -167,7 +167,7 @@ Within the path, you may choose to specify one or more instances of the followin
 </tbody>
 </table>
 
-When your data is coming from a Blob storage source, you can access to few metadata fields in your Stream Analytics query. The table below lists the fields and their description.
+When your data is coming from a Blob storage source, you can access a few metadata fields in your Stream Analytics query. The table below lists the fields and their description.
 
 | PROPERTY | DESCRIPTION |
 |------|------|

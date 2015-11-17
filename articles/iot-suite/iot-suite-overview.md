@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
-	description="This will provide an overview of the Azure IoT Suite."
+	description="This provides an overview of Azure IoT Suite including packaging and the preconfigured solutions."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,13 +12,17 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/06/2015"
      ms.author="araguila"/>
 
 # Overview of Azure IoT Suite
 
 Microsoft provides a breadth of capabilities with the Azure IoT services. These services deliver enterprise grade abilities to collect data from devices, analyze data streams in-motion, store and query large data sets, visualize both real-time and historical data, and integrate with important back office systems. The Azure IoT Suite packages a set of commonly leveraged services together and extended capabilities to reduce time-to-value for customers. These extensions include pre-configured solutions which deliver a base implementation of the most common solution patterns. Combined with the IoT software development kits (SDKs), customers are able to easily customize the pre-configured solutions or leverage them as examples for development of new solutions.
+
+The following video provides an introduction to Azure IoT Suite:
+
+> [AZURE.VIDEO azurecon-2015-introducing-the-microsoft-azure-iot-suite]
 
 ## Azure IoT services in Azure IoT Suite
 

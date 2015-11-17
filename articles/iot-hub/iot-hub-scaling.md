@@ -1,10 +1,10 @@
 <properties
- pageTitle="Azure IoT Hub Scaling | Microsoft Azure"
+ pageTitle="Azure IoT Hub scaling | Microsoft Azure"
  description="Describes how to scale Azure IoT Hub."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -41,7 +41,7 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 | S1 | up to 8kb/hour per device | average of 4 messages/hour per device |
 | S2 | up to 4kb/min per device | average of 2 messages/min per device |
 
-When receiving device-to-cloud messages the application back-end can expect the following maximum throughput (across all readers).
+When receiving device-to-cloud messages the application back end can expect the following maximum throughput (across all readers).
 
 | Tier | Sustained throughput |
 | ---- | -------------------- |

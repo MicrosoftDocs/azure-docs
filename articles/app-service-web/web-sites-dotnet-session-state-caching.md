@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Session state with Azure Redis cache in Azure App Service" 
 	description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 

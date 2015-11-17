@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/21/2015"
+   ms.date="10/15/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -39,7 +39,7 @@ This tutorial explains how you can mount, initialize, and format volumes and the
  
 ## Mount volumes
 
-Use the following procedure to mount, initialize, and format Azure StorSimple volumes.
+Use the following procedure to mount, initialize, and format Azure StorSimple volumes. This procedure uses Disk Management, a system utility for managing hard disks and the volumes or partitions that they contain. For more information about Disk Management, go to [Disk Management](https://technet.microsoft.com/library/cc770943.aspx) on the Microsoft TechNet website.
 
 #### To mount volumes
 
@@ -47,7 +47,7 @@ Use the following procedure to mount, initialize, and format Azure StorSimple vo
 
 2. Supply one of the interface IP addresses as the target portal or discovery IP address, and connect to the device. After the device is connected, the volumes will be accessible to your Windows system. For more information about using the Microsoft iSCSI initiator, go to the section “Connecting to an iSCSI target device” in [Installing and Configuring Microsoft iSCSI Initiator][1].
 
-3. Use any of the following options to start the Disk Management snap-in:
+3. Use any of the following options to start Disk Management:
 
     - Type Diskmgmt.msc in the **Run** box.
 
@@ -111,7 +111,8 @@ Use the following procedure to view information about local and Azure StorSimple
 Use the following procedure to delete a volume from StorSimple Snapshot Manager.
 
 >[AZURE.NOTE] You cannot delete a volume if it is part of any volume group. (The delete option is not available for volumes that are members of a volume group.) You must delete the entire volume group to delete the volume.
-<br>
+
+
 #### To delete a volume
 
 1. Click the desktop icon to start StorSimple Snapshot Manager.

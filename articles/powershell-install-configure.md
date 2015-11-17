@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="10/13/2015"
 	ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure  CLI</a></div>
+
+> [AZURE.NOTE] **Azure PowerShell 1.0 Preview** is now available on [PowerShell Gallery](http://www.powershellgallery.com/). There are many changes in this preview and we’d like to use it to gather feedback, which we’ll incorporate into Azure PowerShell 1.0. **This preview is not intended for mission critical applications**. If you are running such applications, please continue to use Azure PowerShell 0.9.8. If you would like to use 1.0 Preview, you can uninstall it at any point and go back to 0.9.8. For complete installation instructions, see this [blog post](https://azure.microsoft.com/en-us/blog/azps-1-0-pre/).
 
 You can use Windows PowerShell to perform a variety of tasks in Azure, either interactively at a command prompt or automatically through scripts. Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and web apps.
 

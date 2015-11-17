@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Articles for virtual machines in Service Management
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This is a list of articles about creating and managing resources with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ## Get started
 
@@ -37,7 +38,7 @@
 
 [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Create and manage a Windows-based virtual machine by using Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
+[Create Windows virtual machines with Powershell and the classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Creating a custom VM running Linux by using the Azure Command-Line Interface (Azure CLI)](virtual-machines-linux-create-custom.md)
 
@@ -86,8 +87,6 @@
 [Get started configuring your Internet-facing load balancer](../load-balancer/load-balancer-internet-getstarted.md)
 
 [How to set up endpoints to a virtual machine](virtual-machines-set-up-endpoints.md)
-
-[Manage your virtual machines using the Azure CLI for Mac, Linux, and Windows](virtual-machines-manage-vms-azure-cli.md)
 
 ## Create workloads
 
