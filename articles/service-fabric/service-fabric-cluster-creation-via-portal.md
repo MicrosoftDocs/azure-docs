@@ -174,10 +174,13 @@ Copy the package to the cluster you connected to in the previous step.
 $applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
 ```
 
+```powershell
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
+````
 Register your application type with service fabric.
 
 ```powershell
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
 ````
 
 Create a new instance on the Applcation type that you just registered.
