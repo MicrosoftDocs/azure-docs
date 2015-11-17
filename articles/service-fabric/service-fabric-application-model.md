@@ -1,4 +1,4 @@
-f{1}<properties
+<properties
    pageTitle="Service Fabric application model | Microsoft Azure"
    description="How to model and describe applications and services in Service Fabric."
    services="service-fabric"
