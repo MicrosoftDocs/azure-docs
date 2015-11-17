@@ -592,7 +592,7 @@ You can get some information about virtual machine scale sets using these method
 
  - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
->[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/en-us/library/mt589023.aspx)
+>[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx)
 
 ## Step 5: Remove the resources
 
