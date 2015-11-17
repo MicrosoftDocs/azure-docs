@@ -168,11 +168,12 @@ In the response below, you get the list of scores associated with your text Ids:
 	{
 	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
 	  "SentimentBatch":
-		[{"Score":0.9549767,"Id":"1"},
-		 {"Score":0.7767222,"Id":"2"},
-		 {"Score":0.8988889,"Id":"3"}
-		],  
-		"Errors":[]
+	  [
+		{"Score":0.9549767,"Id":"1"},
+		{"Score":0.7767222,"Id":"2"},
+		{"Score":0.8988889,"Id":"3"}
+	  ],  
+	  "Errors":[]
 	}
 
 
