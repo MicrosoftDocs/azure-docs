@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create scalable elastic database pools | Microsoft Azure"
-	description="How to add an scalable elastic data pool to your SQL database configuration for easier administration and resource sharing across many databases."
+	description="How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
 	keywords="scalable database,database configuration"
 	services="sql-database"
 	documentationCenter=""
@@ -25,7 +25,7 @@
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal. SQL database configuration with elastic database pools allows easy resource sharing.
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal. A SQL Database  configuration with elastic database pools allows easy resource sharing.
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
 
