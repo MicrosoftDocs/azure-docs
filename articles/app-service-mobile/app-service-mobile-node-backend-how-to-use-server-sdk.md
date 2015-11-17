@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to work with the Node backend server SDK for Mobile Apps | Azure App Service"
-	description="Learn how to work with the Node backend server SDK for Azure App Service Mobile Apps."
+	pageTitle="How to work with the Node.js backend server SDK for Mobile Apps | Azure App Service"
+	description="Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps."
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
@@ -14,14 +14,14 @@
 	ms.devlang="node"
 	ms.topic="article"
 	ms.date="11/13/2015"
-	ms.author="adrianha"/>
+	ms.author="adrianhall"/>
 
-# How to use the Azure Mobile Apps Node SDK
+# How to use the Azure Mobile Apps Node.js SDK
 
-This article provides detailed information and examples showing how to work with a Node backend in Azure App Service Mobile Apps.
+This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
 > [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
-in this document use v2.0.0-beta1 of azure-mobile-apps.
+in this document use v2.0.0-beta1 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -36,10 +36,10 @@ providers such as Facebook, Twitter, Google and Microsoft as well as Azure Activ
 
 You can find samples for each use case in the [samples directory on GitHub].
 
-### <a name="howto-cmdline-basicapp"></a>Create a Basic Node backend using the Command Line
+### <a name="howto-cmdline-basicapp"></a>Create a Basic Node.js backend using the Command Line
 
-Every Azure App Service Mobile App Node backend starts as an ExpressJS application.  ExpressJS is the most popular web service framework
-available for Node.  You can create a basic ExpressJS Node application as follows:
+Every Azure App Service Mobile App Node.js backend starts as an ExpressJS application.  ExpressJS is the most popular web service framework
+available for Node.js.  You can create a basic [Express] application as follows:
 
 1. In a command or PowerShell window, create a new directory for your project.
 
@@ -98,7 +98,7 @@ You can find the code for this basic application in the [basicapp sample on GitH
 
 ### <a name="howto-vs2015-basicapp"></a>Create a Node backend with Visual Studio 2015
 
-Visual Studio 2015 requires an extension to develop Node.js applications within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
+Visual Studio 2015 requires an extension to develop Node.js.js applications within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
 
 1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
 
@@ -112,7 +112,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 5. Right-click on the **npm** node and select **Install New npm packages...**.
 
-6. You will need to refresh the npm catalog on creating your first Node application - click on **Refresh**.
+6. You will need to refresh the npm catalog on creating your first Node.js application - click on **Refresh**.
 
 7. Enter _azure-mobile-apps_ in the search box.  Click on the **azure-mobile-apps 2.0.0** package, then click on **Install Package**.
 
@@ -144,18 +144,18 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 10. Either run the application locally (the API will be served on http://localhost:3000) or publish to Azure.
 
-### <a name="howto-publish-to-azure"></a>Publish your Node backend to Azure
+### <a name="howto-publish-to-azure"></a>Publish your Node.js backend to Azure
 
-Microsoft Azure provides many mechanisms for publishing your Azure App Service Mobile Apps Node backend to the Azure service.  These include utilizing deployment tools integrated into Visual Studio, command-line tools and continuous deployment options based on source control.  For more information on this topic, refer to the [Azure App Service Deployment Guide].
+Microsoft Azure provides many mechanisms for publishing your Azure App Service Mobile Apps Node.js backend to the Azure service.  These include utilizing deployment tools integrated into Visual Studio, command-line tools and continuous deployment options based on source control.  For more information on this topic, refer to the [Azure App Service Deployment Guide].
 
-Azure App Service has specific advice for Node application that you should review before deploying:
+Azure App Service has specific advice for Node.js application that you should review before deploying:
 
 - How to [specify the Node Version]
 - How to [use Node modules]
 
 ## <a name="TableOperations"></a>Table Operations
 
-The azure-mobile-apps Node Server SDK provides mechanisms to expose data tables stored in SQL Azure as a WebAPI.  Five operations are provided.
+The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tables stored in SQL Azure as a WebAPI.  Five operations are provided.
 
 | Operation | Description |
 | --------- | ----------- |
@@ -212,7 +212,7 @@ You can find a complete example in the [todo sample on GitHub].
 
 ### <a name="howto-staticschema"></a>Define Tables using a Static Schema
 
-You can explicitly define the columns to expose via the WebAPI.  The azure-mobile-apps Node SDK will automatically add any additional columns required for offline data sync to the list that you provide.  For example, the QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).  This can be defined in the table definition JavaScript file (located in the tables directory) as follows:
+You can explicitly define the columns to expose via the WebAPI.  The azure-mobile-apps Node.js SDK will automatically add any additional columns required for offline data sync to the list that you provide.  For example, the QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).  This can be defined in the table definition JavaScript file (located in the tables directory) as follows:
 
 ```
 var azureMobileApps = require('azure-mobile-apps');
@@ -235,13 +235,13 @@ If you define tables statically, then you must also call the tables.initialize()
 
 ### <a name="howto-sqlexpress-setup"></a>Use SQL Express as a Development Datastore on your local machine
 
-The Azure Mobile Apps Node SDK provides three options for serving data out of the box:
+The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for serving data out of the box: SDK provides three options for serving data out of the box:
 
 - Use the **memory** driver to provide a non-persistent example store
 - Use the **sql** driver to provide a SQL Express data store for development
 - Use the **sql** driver to provide a SQL Azure data store for production
 
-The Azure Mobile Apps Node SDK uses the [mssql Node package] to establish and use a connection to both SQL Express and SQL Azure.  This package requires that you enable TCP connections on your SQL Express instance.
+The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package] to establish and use a connection to both SQL Express and SQL Azure.  This package requires that you enable TCP connections on your SQL Express instance.
 
 > [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
 we recommend the use of a SQL Express data store and using the sql driver.
@@ -289,7 +289,7 @@ require 64 Bit support, the 32 Bit version will consume less memory when running
 
 Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
 
-The Node application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.  You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
+The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.  You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
 
 ```
 $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
@@ -632,7 +632,7 @@ The same token that is used for the tables endpoint must be used for custom APIs
 
 ## <a name="Debugging"></a>Debugging and Troubleshooting
 
-The Azure App Service provides several debugging and troubleshooting techniques for Node applications.
+The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
 All of these techniques are available.  
 
 - [Monitoring an Azure App Service]
@@ -641,10 +641,7 @@ All of these techniques are available.
 
 ### <a name="howto-diagnostic-logs"></a>Write to the Azure Mobile Apps diagnostic logs
 
-Node applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile
-Apps Node SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug
-mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated
-will appear in the Diagnostic Logs on the [Azure Portal].
+Node.js applications have access to a wide range of diagnostic log tools.  Internally, the Azure Mobile Apps Node.js SDK uses [Winston] for diagnostic logging.  This is automatically enabled by enabling debug mode or by setting the **MS_DebugMode** app setting to true in the [Azure Portal].  Logs generated will appear in the Diagnostic Logs on the [Azure Portal].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -675,6 +672,8 @@ will appear in the Diagnostic Logs on the [Azure Portal].
 [specify the Node Version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-mobiles-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
+[azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
+[Express]: http://expressjs.com/
 
 [Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
@@ -685,7 +684,7 @@ will appear in the Diagnostic Logs on the [Azure Portal].
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[mssql Node package]: https://www.npmjs.com/package/mssql
+[mssql Node.js package]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
