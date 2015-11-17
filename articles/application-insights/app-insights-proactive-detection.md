@@ -109,7 +109,7 @@ There's a web full of advice on improving your server responses and page load ti
 * *Can I unsubscribe or get the notifications sent to my colleagues instead?*
  * Click the link in the alert or email. Open anomaly settings.
  
-    ![](./media/app-insights-anomaly/01.png)
+    ![](./media/app-insights-proactive-detection/01.png)
 
     Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
 * *I don't want to be flooded with these messages.*
