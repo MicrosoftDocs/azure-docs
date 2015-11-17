@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Understanding Microservcices | Microsoft Azure"
+   pageTitle="Understanding Microservices | Microsoft Azure"
    description="An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/10/2015"
+   ms.date="11/18/2015"
    ms.author="mfussell"/>
 
 # Why a microservices approach to building applications?
@@ -38,29 +38,37 @@ The downside of microservices is managing the increased number of separate entit
 
 ***At its simplest, the microservices design approach is about a decoupled federation of services, with independent changes to each and agreed standards to communicate***
 
-As more cloud apps are produced, more people are discovering that this decomposition of the overall app into independent scenario focused services is a better longer term approach. 
+As more cloud apps are produced, more people are discovering that this decomposition of the overall app into independent scenario focused services is a better longer term approach.
 ###Figure 1. Comparison between application development approaches
 
 ![Service Fabric Platform][Image1]
+(1) A monolith app contains domain specific functionality and is normally divided by functional layers such as web, business and data.
+
+(2) You scale monolithic apps by cloning it on multiple servers/VMs/containers.
+
+(3) A microservice application separates functionality into separate smaller services.
+
+(4) This approach scales out by deploying each service independently, creating instances of these services across servers/VMs/containers.
+
 
 Designing with a microservice approach is not a panacea for all projects, however it does align closer with the business objectives described earlier. Also starting with a monolithic approach may be acceptable if you know that later you have the opportunity to rework the code into a micoservice design if necessary. More common is that you have a monolith app today and you can slowly break this apart in stages starting with the functional areas that need to be more scalable or agile.
 
-To summarize, the microservice approach is to compose your application of many smaller services running in containers deployed across a cluster of machines where each service is developed by a smaller team focusing on a scenarios and where each service is independently tested, versioned, deployed and scaled, so that the application as a whole can evolve. 
+To summarize, the microservice approach is to compose your application of many smaller services running in containers deployed across a cluster of machines where each service is developed by a smaller team focusing on a scenarios and where each service is independently tested, versioned, deployed and scaled, so that the application as a whole can evolve.
 
 
 ##What is a microservice?
 
-There are different definitions of microservices and searching the internet provides many good resources who provide their viewpoint and definition. However, most of the following characteristics are widely agreed upon; 
+There are different definitions of microservices and searching the internet provides many good resources who provide their viewpoint and definition. However, most of the following characteristics are widely agreed upon;
 
 - Encapsulate a customer or business scenario. What is the problem you are solving?
 - Are developed by a small engineering team
-- Can be written in any programming language and use any framework 
+- Can be written in any programming language and use any framework
 - Consist of code and optionally state that is independently versioned, deployed, and scaled
-- Interacts with other microservices over well-defined interfaces and protocols 
+- Interacts with other microservices over well-defined interfaces and protocols
 - Has a unique name (URL) that can be used to resolve its location.
 - Remains consistent and available in the presence of failures
 
-You can summarize this into; 
+You can summarize this into;
 
 ***Microservices applications are composed of small, independently versioned and scalable customer focused services that communicate with each other over standard protocols with well-defined interfaces***
 
@@ -68,8 +76,8 @@ You can summarize this into;
 We covered the first two points above in the preceding section and we will now expand and clarify the others.
 
 
-##Can be written in any programming language and use any framework 
-As developers we should be free to choose whatever language or framework that we want depending on our skills or the needs of the service. In some services, you might value the performance benefits of C++ above all else whereas in others the ease of managed development in C# or Java might be most important. In some cases, you may need to use a specific 3rd party library, data storage technology, or means of exposing the service to clients. 
+##Can be written in any programming language and use any framework
+As developers we should be free to choose whatever language or framework that we want depending on our skills or the needs of the service. In some services, you might value the performance benefits of C++ above all else whereas in others the ease of managed development in C# or Java might be most important. In some cases, you may need to use a specific 3rd party library, data storage technology, or means of exposing the service to clients.
 
 Having chosen a technology this bring us to the operational or lifecycle management and scaling of the service.
 
@@ -81,23 +89,32 @@ Returning to the monolithic vs. microservice approach for a moment figure 2 belo
 ###Figure 2 – State storage between application styles
 ![Service Fabric Platform][Image2]
 
+Monolithic approach on the left
+- Single monolithic database
+- Tiers of specific technologies
+
+Microservices approach on the right
+- Graph of interconnected microservices
+- State typically scoped to the microservice
+- Variety of technologies used
+
 In a monolithic approach typically there is a single database used by the application. The advantage is that this is single location and makes it easy to deploy. Each component can have a single table to store its state. The hard part is that teams need to be strict in separating state and inevitably there is the temptation to simply add a new column to an existing customer table, do a join between tables and generally create dependencies at the storage layer. Once this happens all bets are off on scaling individual components.  In the microservices approach each service manages and stores its own state meaning that it is responsible for scaling both code and state together for the demands of the service. The downside to this is when there is a need create any views, or queries, of your applications’ data, since you will now need to query across these disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you have the need to perform multiple ad-hoc queries on the data, each microservice should consider writing its data into a data warehousing service for offline analytics.
 
 
-Versioning is specific to the deployed version of the microservice and is required so that multiple different versions can be rolled out and run side by side. Versioning addresses the scenarios where a newer version of a microservice fails during upgrade and needs to be rolled back to the earlier version. The other scenario for versioning is performing A/B style testing where different users experience different versions of the service. For example, it is common to upgrade a microservices for a specific set of customers to test new functionality, before rolling this out more widely.  After lifecycle management of microservices this then brings us to communication between them. 
+Versioning is specific to the deployed version of the microservice and is required so that multiple different versions can be rolled out and run side by side. Versioning addresses the scenarios where a newer version of a microservice fails during upgrade and needs to be rolled back to the earlier version. The other scenario for versioning is performing A/B style testing where different users experience different versions of the service. For example, it is common to upgrade a microservices for a specific set of customers to test new functionality, before rolling this out more widely.  After lifecycle management of microservices this then brings us to communication between them.
 
 
-##Interacts with other microservices over well-defined interfaces and protocols 
+##Interacts with other microservices over well-defined interfaces and protocols
 
-Little has to be covered on this topic other than to read the extensive literature on SOA published over the last 10 years, since much of this was geared towards communication patterns. Generally, today this comes down to using a REST approach with http and tcp protocols and XML or JSON as the serialization format. From an interface perspective this is about embracing the web design approach. But there is nothing stopping you from using binary protocols or your own data formats, just be prepared for people to have a harder time using your microservices if these are openly available. 
+Little has to be covered on this topic other than to read the extensive literature on SOA published over the last 10 years, since much of this was geared towards communication patterns. Generally, today this comes down to using a REST approach with http and tcp protocols and XML or JSON as the serialization format. From an interface perspective this is about embracing the web design approach. But there is nothing stopping you from using binary protocols or your own data formats, just be prepared for people to have a harder time using your microservices if these are openly available.
 
-##Has a unique name (URL) that can be used to resolve its location 
+##Has a unique name (URL) that can be used to resolve its location
 
 Remember how we keep saying that the microservice approach is like the web. Like the web your microservice needs to be addressable wherever it is running. If you are thinking about machines and which one is running a particular microservices things will go bad quickly. In the same way that DNS resolves a particular URL to a particular machine, your microservice needs to have a unique name to discover where it currently is. Microservices hence need addressable names that make them independent from the infrastructure that they are running on. Of course this implies that there is an  interaction between how your service is deployed and how it is discovered since there needs to be a service registry. Equally there needs to be an interaction between when machine failures occur and what happens to your microservice so that the registry service can tell you where it is now running. This brings us to the next topic on resilience and consistency.
- 
+
 ##Remains consistent and available in the presence of failures
 
-Dealing with unexpected failures is one of the hardest problems to solve especially in a distributed system. Much of the code that we write as developers is handling exceptions and this is also where most time is spent in testing. But the problem is more involved than writing code to handle failures, what happens when the machine where the microservice is running fails? Not only do you need to detect this microservice failure (a hard problem on its own) but you need something to restart your microservice.  A microservice needs to be resilient to failures and have the ability to restart often on another machine for availability reasons. This also comes down to what state was saved on behalf of the microservice, where can it recover this state from and is it able to restart successfully? In other words, there is the need to be resilient in the compute (i.e. the process is restarted) as well as the resilience in the state, or data (there was no data loss and the data remains consistent). 
+Dealing with unexpected failures is one of the hardest problems to solve especially in a distributed system. Much of the code that we write as developers is handling exceptions and this is also where most time is spent in testing. But the problem is more involved than writing code to handle failures, what happens when the machine where the microservice is running fails? Not only do you need to detect this microservice failure (a hard problem on its own) but you need something to restart your microservice.  A microservice needs to be resilient to failures and have the ability to restart often on another machine for availability reasons. This also comes down to what state was saved on behalf of the microservice, where can it recover this state from and is it able to restart successfully? In other words, there is the need to be resilient in the compute (i.e. the process is restarted) as well as the resilience in the state, or data (there was no data loss and the data remains consistent).
 
 The problems of resiliency are compounded during other scenarios such as when failures happen during an application upgrade. The microservice, working in conjunction with the deployment system, needs to not only recover, but then decide whether it can continue to move forward to the newer version or instead rollback to the previous versions to maintain a consistent state. Questions such as are there enough machines available to keep moving forward and how do you recover previous versions of the microservice need to be taken into account. This requires the microservice to emit health information to be able to make these decisions.
 
@@ -105,7 +122,7 @@ The problems of resiliency are compounded during other scenarios such as when fa
 
 Seemingly obvious and often overlooked it is essential that a microservice reports its health and diagnostics otherwise there is little insight from an operations perspective. The challenge comes in seeing the correlation of diagnostic events across a set of independent services with each one logging independently and dealing with machine clock skews to make sense of the event order. In the same way that you interact with a microservice over agreed protocols and data formats there emerges a need for standardization of how to log health and diagnostic events that ultimately end up in an event store that can be queried and viewed.  In a microservices approach it is key that the different teams agree on a single logging format, since there needs a consistent approach to viewing diagnostic events in the application as a whole.
 
-Health is different from diagnostics. Health is about the microservice reporting its current state so that actions can be taken. The most obvious of these is working with the upgrade and deployment mechanisms to maintain availability. For example, a service may be currently unhealthy due to a process crash, or machine reboot but is still operational. The last thing you need is to make this worse by performing an upgrade when the best thing is to do an investigation first, or allow time for the microservice to recover. Health events from a microservice thereby allows us to make informed decisions and in effect help create self-healing services. 
+Health is different from diagnostics. Health is about the microservice reporting its current state so that actions can be taken. The most obvious of these is working with the upgrade and deployment mechanisms to maintain availability. For example, a service may be currently unhealthy due to a process crash, or machine reboot but is still operational. The last thing you need is to make this worse by performing an upgrade when the best thing is to do an investigation first, or allow time for the microservice to recover. Health events from a microservice thereby allows us to make informed decisions and in effect help create self-healing services.
 
 ##Service Fabric as a microservices platform
 
@@ -113,13 +130,13 @@ Service Fabric was born out of Microsoft’s transition from delivering box prod
 
 ***The aim of Service Fabric is to solve the hard problems of building and running a service such as failures, upgrades, utilizing infrastructure resources efficiently so that teams can solve business problems using a microservices approach***
 
-Service Fabric provides two broad areas to help you build applications with a microservices approach. 
+Service Fabric provides two broad areas to help you build applications with a microservices approach.
 
 - A platform consisting of a set of system services that take care of deployments, upgrades, detecting and restarting failed services, discovery of where services currently are running, state management, health monitoring etc. These system services in effect enable many of the characteristics of microservices described above.
 
 -  Programming APIs, or frameworks, to help you built applications as microservices. The supplied programing APIs are called [Reliable Actors and Reliable Services](service-fabric-choose-framework.md). You can of course use any code of your choice to build your microservice, but by using these, not only does this make the job more straightforward, but they integrate with the platform at a deeper level so, for example, you get health and diagnostics information or you can take advantage of the built in high availability.
 
-***Service Fabric is agnostic to how you build your service and you can use any technology. 
+***Service Fabric is agnostic to how you build your service and you can use any technology.
 However, it does provide built in programming APIs that makes it very easy to build microservices***
 
 ##Are microservices right for my application?
@@ -131,7 +148,7 @@ The objective of Service Fabric is to reduce the complexities of building applic
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-* For more information: 
+* For more information:
 	* [Overview of Service Fabric](service-fabric-overview.md)
 	* [Technical Overview](service-fabric-technical-overview.md)
 * Setup your Service Fabric [development environment](service-fabric-get-started.md)
