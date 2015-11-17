@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Disable, Enable, or Delete a Profile
@@ -46,6 +46,11 @@ You can disable an existing Traffic Manager profile so that it will not refer us
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-[What is Traffic Manager?](traffic-manager-overview.md)
+[Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+
+[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+

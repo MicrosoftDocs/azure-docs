@@ -51,13 +51,12 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
 1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md).
 2.	**Hard drives:** Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. Hard drives up to 6TB are supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using an external SATA II/III USB Adapter.
-
-  > [AZURE.IMPORTANT] External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
-
 3.	**BitLocker encryption:** All data stored on hard drives must be encrypted using BitLocker with encryption keys protected with numerical passwords.
 4.	**Blob storage targets:** Data may be uploaded to or downloaded from block blobs and page blobs. 
 5.	**Number of jobs:** A customer may have up to 20 jobs active per storage account.
 6.	**Maximum size of a job:** The size of a job is determined by the capacity of the hard drives used and the maximum amount of data that can be stored in a storage account. Each job may contain no more than 10 hard drives.
+
+  > [AZURE.IMPORTANT] External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
 
 ## Create an Import Job in the Management Portal##
 
