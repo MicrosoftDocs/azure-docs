@@ -49,13 +49,13 @@ You have several options on how to specify data for users in your organization t
 
 - Edit users in the [Azure Management Portal](https://manage.windowsazure.com) or the [Office 365 Admin Portal](https://portal.microsoftonline.com)
 - Use AADSync to synchronize user properties into Azure AD from an on-premises Active Directory domain
-- Use Windows PowerShell to edit user properties
+- Use Windows PowerShell to edit user properties by [following the steps here](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 - Allow users to register their own data by guiding them to the registration portal at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-- Require users to register for password reset when they sign in to the Access Panel at [http://myapps.microsoft.com](http://myapps.microsoft.com) by setting the **Require users to register SSPR** configuration option to **Yes**.
+- Require users to register for password reset when they sign in to their Azure AD account by setting the  [**Require users to register when signing in?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) configuration option to **Yes**.
 
-Users need not register for password reset for the system to work.  For example, if you have existing phone numbers in your local directory, you can synchronize them in Azure AD and we will use them for password reset automatically.
+Users need not register for password reset for the system to work.  For example, if you have existing mobile or office phone numbers in your local directory, you can synchronize them in Azure AD and we will use them for password reset automatically.
 
-You can also read more about [how data is used by password reset and how you can populate individual authentication fields fields](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
+You can also read more about [how data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) and [how you can populate individual authentication fields with PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
 ## What is the best way to roll out password reset for users?
 The following are the general rollout steps for password reset:
@@ -122,6 +122,8 @@ You can upload the authentication data via the [Azure Management Portal](https:/
     ![][006]
 
 See [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) to see how each of these properties can be used.
+
+See [How to access password reset data for your users from PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) to see how you can read and set this data with PowerShell.
 
 ## Sample training materials
 We are working on sample training materials that you can use to get your IT organization and your users up to speed quickly on how to deploy and use password reset.  Stay tuned!
