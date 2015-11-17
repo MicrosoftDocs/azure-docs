@@ -24,7 +24,7 @@ Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to th
 
 ## Create a VM template
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -50,7 +50,7 @@ Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to th
 
 	1. Tap **Image**.
 
-	1. If the image you want is not listed and you want to add it, skip to the *Add a new template image* section, and return here when finished.
+	1. If the image you want is not listed and you want to add it, skip to the [Add a new template image](#add-a-new-template-image) section, and return here when finished.
 
 	1. Select the desired image.
 

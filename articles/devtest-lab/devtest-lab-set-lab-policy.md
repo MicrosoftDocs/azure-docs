@@ -26,7 +26,7 @@ DevTest Lab allows you to specify key policies that govern how your lab and its 
 
 In order to view (and change) the policies for a lab, follow these steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 
@@ -44,11 +44,11 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 	- Cost Thresholds - This policy is not currently supported.
 
-	- [Allowed VM Sizes](./#set-allowed-vm-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
+	- [Allowed VM Sizes](#set-allowed-vm-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
-	- [Maximum VMs](./#set-maximum-vms) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
+	- [Maximum VMs](#set-maximum-vms) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
 
-	- [Auto shutdown](./#set-auto-shutdown) - Specify the time that the current lab's VMs must shut down.
+	- [Auto shutdown](#set-auto-shutdown) - Specify the time that the current lab's VMs must shut down.
 
 ## Set allowed VM sizes
 

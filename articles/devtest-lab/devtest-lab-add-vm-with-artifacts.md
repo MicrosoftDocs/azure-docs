@@ -30,7 +30,7 @@ This article shows you how create a VM in your lab using artifacts.
 
 ## Add a VM with artifacts
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 

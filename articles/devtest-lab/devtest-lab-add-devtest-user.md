@@ -20,7 +20,7 @@
 
 ## Overview
 
-Access to a DevTest Lab is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) in the Azure portal to learn more.
+Access to a DevTest Lab is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/searchresults?query=Role%20Based%20Access%20Control%20%28RBAC%29) in the Azure preview portal to learn more.
 
 You grant access to your DevTest Lab through two roles:
 
@@ -36,11 +36,11 @@ You grant access to your DevTest Lab through two roles:
 
 ## Add an owner to your lab
 
-DevTest Lab considers the owner(s) of an Azure subscription that contains labs to be owner(s) of those labs. While you can add additional owners to a DevTest Lab via the lab's blade in the Azure portal, this is not currently supported. 
+DevTest Lab considers the owner(s) of an Azure subscription that contains labs to be owner(s) of those labs. While you can add additional owners to a DevTest Lab via the lab's blade in the Azure preview portal, this is not currently supported. 
 
 To add an owner to an Azure subscription where you have labs already created or will be creating new labs, follow these steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
 1. In the left-nav, tap **Subscriptions**.
 
@@ -72,7 +72,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 To add a DevTest Lab user to your lab, follow these steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](http://portal.azure.com).
 
 1. Tap **Browse**.
 
