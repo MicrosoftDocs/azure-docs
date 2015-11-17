@@ -36,7 +36,7 @@ For complete list of new features and updates made in this release, see the [Azu
 
 ###Known issues
 
-Starting with Azure .NET SDK 2.8, customers can start creating .NET 4.5.2 Cloud Service packages. For compatibility testing, .NET 4.5.2 framework will be available in Guest OS images with November 201511-02 Guest OS Release. .NET 4.5.2 will not be installed in the default Guest OS images until January 2016 Guest OS release. Customers can choose to use the November 201511-02 Release image by specifying the OS Release string value in the .Cscfg. To find the correct configuration string, refer to [Azure Guest OS Releases and SDK Compatibility Matrix](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+Starting with Azure .NET SDK 2.8, customers can start creating .NET 4.5.2 Cloud Service packages. For compatibility testing, .NET 4.5.2 framework will be available in Guest OS images with November 201511-02 Guest OS Release. .NET 4.5.2 will not be installed in the default Guest OS images until January 2016 Guest OS release. Customers can choose to use the November 201511-02 Release image by specifying the OS Release string value in the .Cscfg. To find the correct configuration string, refer to [Azure Guest OS Releases and SDK Compatibility Matrix](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 ##Azure Data Factory
 
@@ -72,5 +72,5 @@ The following known issues will be addressed in the following release.
 
 [Azure SDK 2.8 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
-[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/en-us/library/azure/dn479282.aspx)
+[Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
