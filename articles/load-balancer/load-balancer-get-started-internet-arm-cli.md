@@ -134,14 +134,15 @@ Parameters:
 
 Create a load balancer rule.
 
-	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
-
+	azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
 ### Step 3
 
 Create a health probe.
 
+	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
+
 	
-	azure network lb probe create -g nrprg -l ilbset -n lbprobe -p tcp -i 300 -c 4
+	
 
 **-g** - resource group 
 **-l** - name of the load balancer set
