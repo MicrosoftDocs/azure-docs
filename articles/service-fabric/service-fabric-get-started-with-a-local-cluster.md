@@ -96,7 +96,7 @@ With the application deployed, let's look at some of the app details in PowerShe
 1. Query all deployed applications on the cluster:
 
   ```powershell
-  Get-ServiceFabricApplication -ApplicationName
+  Get-ServiceFabricApplication
   ```
 
   Assuming that you have only deployed the WordCount app, you will see something like this:
