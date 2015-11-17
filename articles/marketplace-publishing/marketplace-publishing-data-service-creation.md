@@ -89,7 +89,7 @@ If the answer is “Yes”, the no further question will be asked.
 
 You can choose between “No Trial” at all or give an option to use your Plan for “One Month”. Publishers like to use this option to provide end-users the possibility to understand the benefits of the offer for free for one month.
 
-> [AZURE.IMPORTANT] End-users will only able to purchase a free trial if they have established payment instrument e.g. credit card, enterprise agreement.
+> [AZURE.IMPORTANT] End-users will only be able to purchase a free trial if they have established payment instrument e.g. credit card, enterprise agreement.
 
 > After one month of the free trial, Azure Marketplace will start charging customers the price as of the date of the subscription, unless the customer initiated the subscription cancellation. No special notification will be provided to the end-users.
 
