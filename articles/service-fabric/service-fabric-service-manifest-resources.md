@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Specifying Service Fabric Service Endpoints"
+   pageTitle="Specifying Service Fabric Service Endpoints | Microsoft Azure"
    description="How to describe endpoint resources in a service manifest including setting up HTTPS endpoints"
    services="service-fabric"
    documentationCenter=".net"
@@ -92,7 +92,7 @@ HTTP endpoints are automatically ACL'd by Service-Fabric.
 
 The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable this on your Service Fabric service, when defining the service, the protocol is specified in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*. 
 
->[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade, since this would be a breaking change. 
+>[AZURE.NOTE] A serviceâ€™s protocol cannot be changed during application upgrade, since this would be a breaking change. 
 
  
 Here is an example ApplicationManifest that you need to set for HTTPS (you will need to provide the thumbprint for your certificate). The EndpointRef is a reference to EndpointResource in ServiceManifest for which you set the HTTPS protocol. You can add more than one Endpointcertificates.  
