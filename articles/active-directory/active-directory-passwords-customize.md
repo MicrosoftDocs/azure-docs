@@ -19,9 +19,23 @@
 # Customizing Password Management to fit your organization's needs
 In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com). This topic walks you through all of the different Password Management customizations you can make as an administrator from within **Configure** tab of your directory within the [Azure Management Portal](https://manage.windowsazure.com), including:
 
-- [**Customizing Password Management Look and Feel**](#password-managment-look-and-feel)
-- [**Customizing User Password Management Behavior**](#password-management-behavior)
-- [**Customizing Password Management Notifications**](#password-management-notifications)
+| Topic |  |
+| --------- | --------- |
+| How do I enable or disable password reset? | [Setting: users enabled for password reset](#users-enabled-for-password-reset) |
+| How do I scope password reset to a specific set of users? | [Restrict password reset to specific users](#restrict-access-to-password-reset) |
+| How do I change what authentication methods are supported? | [Setting: authentication methods available to users](#authentication-methods-available-to-users) |
+| How do I change number of authentication methods required? | [Setting: number of authentication methods required](#number-of-authentication-methods-required) |
+| How do I set up custom security questions? | [Setting: custom security questions](#custom-security-questions) |
+| How do I set up pre-canned localized security questions? | [Setting: knowledge-based security questions](#knowledge-based-security-questions) |
+| How can I change how many security questions are required? | [Setting: number of security questions for registration or reset](#number-of-questions-required-to-register) |
+| How can I force my users to register when signing in? | [Enforced registration-based rollout of password reset](#require-users-to-register-when-signing-in) |
+| How can I force my users to re-confirm their registered periodically? | [Setting: number of days before users must re-confirm their authentication data](#number-of-days-before-users-must-confirm-their-contact-data) |
+| How can I customize how a user gets in touch with an admin? | [Setting: customize the "contact your administrator" link](#customize-the-contact-your-administrator-link) |
+| How can I allow users to unlock AD accounts without resetting a password? | [Setting: enable users to unlock their AD accounts without resetting a password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| How can I enable password reset notifications for users? | [Setting: notify users when their passwords have been reset](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| How can I enable password reset notifications for admins? | [Setting: notify other admins when an admin reset their own password](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-managment-look-and-feel) |
+
 
 ## Password managment look and feel
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **Directory Properties** section of your directory’s **Configure** tab within the [Azure Management Portal](https://manage.windowsazure.com).
