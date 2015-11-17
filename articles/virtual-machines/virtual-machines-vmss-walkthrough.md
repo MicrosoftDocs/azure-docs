@@ -33,7 +33,9 @@ Before you create a Virtual Machine Scale Set, you need a resource group and a s
 
 1.	**Obtain an Azure account** - You can open an Azure account for free: You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 
-2.	**Install Azure PowerShell** - [AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+2.	**Install Azure PowerShell** -
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
 3.	**Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
 
@@ -57,17 +59,18 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 		"resources": [
 		]
 	}
-```
+	```
 
 2.	Parameters are not always required, but they make template management easier. They provide a way to specify values for the template, describe the type of the value, the default value if needed, and possibly the allowed values of the parameter.
 
-  Add these parameters under the parameters parent element that you added to the template:
+	Add these parameters under the parameters parent element that you added to the template:
 
 	- A name for the jumpbox virtual machine that is used to access the machines in the scale set.
 	- A name for the storage account where the template is stored.
 	- The number of instances of virtual machines to initially create in the scale set.
 	- The name and password of the administrator account on the virtual machines.
 	- A prefix for names of the storage accounts that are used by the virtual machines in the scale set.
+
 
 	```
 	"vmName": {
@@ -92,6 +95,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 		"type": "string"
 	}
 	```
+
 
 3.	Variables can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values.
 
@@ -272,6 +276,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 
 8.	Add the network interface resource that is used by the jumpbox virtual machine.
 
+
 	```
 	{
 		"apiVersion": "2015-05-01-preview",
@@ -300,6 +305,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 		}
 	},
 	```
+
 
 9.	Add the virtual machine resource in the same network as the scale set. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a jumpbox virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
 
@@ -350,11 +356,11 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 
 10.	Add the virtual machine scale set resource and specify the Diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. Here are the main differences:
 
- - **capacity** - specifies how many virtual machines should be initialized in the scale set. You set this value by specifying a value for the instanceCount parameter.
+	- **capacity** - specifies how many virtual machines should be initialized in the scale set. You set this value by specifying a value for the instanceCount parameter.
 
- - **upgradePolicy** – specifies how updates are made to virtual machines in the scale set. Manual specifies that only new virtual machines are affected by changes in a template when it is redeployed. Automatic specifies that all machines in the scale set are updated and restarted.
+	- **upgradePolicy** – specifies how updates are made to virtual machines in the scale set. Manual specifies that only new virtual machines are affected by changes in a template when it is redeployed. Automatic specifies that all machines in the scale set are updated and restarted.
 
- The virtual machine scale set is not created until all of the storage accounts are created as specified with the dependsOn element.
+	The virtual machine scale set is not created until all of the storage accounts are created as specified with the dependsOn element.
 
 	```
 	{
