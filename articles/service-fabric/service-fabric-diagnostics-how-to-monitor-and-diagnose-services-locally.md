@@ -25,7 +25,7 @@ Monitoring, detecting, diagnosing and troubleshooting allows for services to con
 
 * ETW is fast. It was built as a tracing technology that has a minimal impact on your code execution times.
 * ETW tracing works seamlessly across local development environments and also real world cluster setups. This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.
-* Service Fabric system code also uses ETW for internal tracing. This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.
+* Service Fabric system code also uses ETW for internal tracing. This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the sequences and interrelationships between your application code and events in the underlying system.
 * There is built-in support in Service Fabric Visual Studio tools to view ETW events.
 
 
