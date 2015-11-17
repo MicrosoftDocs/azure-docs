@@ -1,6 +1,7 @@
 <properties
    pageTitle="What is SQL Database | Microsoft Azure"
    description="Discover the technical details and capabilities of Azure SQL Database, Microsoft's relational database management system (RDBMS) and PaaS solution in the cloud."
+	keywords=""
    services="sql-database"
    documentationCenter=""
    authors="shontnew"
