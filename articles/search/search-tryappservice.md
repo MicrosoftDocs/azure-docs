@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Try Azure App Service with Azure Search" 
-   description="Try Azure Search for free, up to one hour, using the TryAzureAppService template." 
+   pageTitle="Try Azure App Service with Azure Search | Microsoft Azure" 
+   description="Try Azure Search, a hosted cloud search service, for free up to one hour, using the TryAzureAppService template." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Try Azure App Service with Azure Search

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Service limits in Azure Search | Microsoft Azure"
-	description="Azure Search limits used in capacity planning and maximum limits on requests and reponses."
+	description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -39,6 +39,7 @@ Maximum search units|N/A
 Maximum number of indexers|3
 Maximum number of Indexer data sources|3
 Maximum number of indexed documents per indexer invocation|10,000
+Maximum Indexer running time|3 minutes
 
 Notice that there are no quotas or maximum limits associated with queries. Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources. The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.
 

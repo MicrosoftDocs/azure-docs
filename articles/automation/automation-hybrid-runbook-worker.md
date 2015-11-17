@@ -44,7 +44,7 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 You must designate at least one on-premise computer to run hybrid runbook jobs.  This computer must have the following:
 
 - Windows Server 2012 or later
-- WIndows PowerShell 4.0 or later
+- Windows PowerShell 4.0 or later
 
 Consider the following recommendations for hybrid workers: 
 
@@ -54,7 +54,7 @@ Consider the following recommendations for hybrid workers:
 
 Firewall requirements:
 
-- The on-premise machine running hybrid runbook worker must have outbound access to *.cloudapp.net to port 443 and to ports 30000-30199.
+- The on-premise machine running hybrid runbook worker must have outbound access to *.cloudapp.net on ports 443, 9354, and 30000-30199.
 
 ## Installing Hybrid Runbook Worker
 The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.

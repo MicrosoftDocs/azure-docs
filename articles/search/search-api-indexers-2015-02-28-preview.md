@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)" 
+pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview) | Microsoft Azure" 
 description="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## Overview ##
 
-Azure Search can integrate directly with some common data sources, removing the need to write code to index your data. To set up this up, you can call the Azure Search API to create and manage **indexers** and **data sources**. 
+Azure Search is a hosted cloud search service on Microsoft Azure. Azure Search can integrate directly with some common data sources, removing the need to write code to index your data. To set up this up, you can call the Azure Search API to create and manage **indexers** and **data sources**. 
 
 An **indexer** is a resource that connects data sources with target search indexes. An indexer is used in the following ways: 
 
