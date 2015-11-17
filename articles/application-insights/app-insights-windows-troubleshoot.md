@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Troubleshoot Application Insights in a Windows devices" 
-	description="Troubleshooting guide and question and answer." 
+	pageTitle="Troubleshoot Application Insights in Windows devices" 
+	description="Troubleshooting guide and question and answer for Application Insights in Windows devices." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -113,7 +113,7 @@ See [Data retention and privacy][data].
 [data]: app-insights-data-retention-privacy.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [universal]: app-insights-windows-get-started.md#universal
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md

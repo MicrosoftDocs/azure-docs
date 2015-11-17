@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Get Started with Fleet on CoreOS on Azure"
-	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine on Azure."
+	pageTitle="Get Started with Fleet on CoreOS | Microsoft Azure"
+	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine created with the classic deployment model on Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="madhana"/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,14 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/17/2015"
+	ms.date="08/03/2015"
 	ms.author="danlep"/>
 
 # Get Started with Fleet on CoreOS on Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 This article gives you two quick examples of using [fleet](https://github.com/coreos/fleet) and [Docker](https://www.docker.com/) to run applications on a cluster of [CoreOS] virtual machines.
 
-To use these examples, first set up a three-node CoreOS cluster as described in [How to Use CoreOS on Azure]. Having done that, you'll understand the very basic elements of CoreOS deployments and have a working cluster and client computer. We'll use exactly the same cluster name in these examples. Also, these examples assume you're using your local Linux host to run your **fleet** commands.
+To use these examples, first set up a three-node CoreOS cluster as described in [How to Use CoreOS on Azure]. Having done that, you'll understand the very basic elements of CoreOS deployments and have a working cluster and client computer. We'll use exactly the same cluster name in these examples. Also, these examples assume you're using your local Linux host to run your **fleetctl** commands.
 
 
 
@@ -29,7 +33,7 @@ To use these examples, first set up a three-node CoreOS cluster as described in 
 
 Here is a simple "Hello World" application that runs in a single Docker container. This uses the [busybox Docker Hub image].
 
-On your Linux client computer use your favorite text editor to create the following **systemd** unit file and name it `helloworld.service`. (For details about the syntax, see [Unit Files].)
+On your Linux client computer, use your favorite text editor to create the following **systemd** unit file and name it `helloworld.service`. (For details about the syntax, see [Unit Files].)
 
 ```
 [Unit]
@@ -90,7 +94,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 One advantage of using CoreOS, Docker, and **fleet** is that it's easy to run services in a highly available manner. In this example you'll deploy a service that consists of three identical containers running the Apache web server. The containers will run on the three VMs in the cluster. This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].
 
->[AZURE.NOTE] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure Management Portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
+>[AZURE.IMPORTANT] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
 
 On your client computer, use your favorite text editor to create a **systemd** template unit file, named apache@.service. You'll use that template to launch three separate instances, named apache@1.service, apache@2.service, and apache@3.service:
 
@@ -120,7 +124,7 @@ Now start the unit instances on the CoreOS cluster. You should see that they're 
 fleetctl --tunnel coreos-cluster.cloudapp.net:22 start apache@{1,2,3}.service
 
 unit apache@3.service launched on 00c927e4.../100.79.62.16
-unit apache@1.service launched on 62f0f66e.../100.79.86.62
+unit apache@1.\service launched on 62f0f66e.../100.79.86.62
 unit apache@2.service launched on df85f2d1.../100.78.126.15
 
 ```
@@ -131,7 +135,7 @@ To reach the Apache server running on one of the units, send a simple request to
 You'll see default text returned from the Apache server similar to:
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
+\<html>\<body\>\<h1\>It works!\</h1\>
 \<p\>This is the default web page for this server.\</p\>
 \<p\>The web server software is running but no content has been added, yet.\</p\>
 \</body\>\</html\>
@@ -149,12 +153,14 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 
 ## Next steps
 
-You can try doing more with your three-node CoreOS cluster on Azure. Explore how to create more complex clusters and use Docker and create more interesting applications by reading [Tim Park's CoreOS Tutorial], [Patrick Chanezon's CoreOS Tutorial], [Docker] documentation, and the [CoreOS Overview].
+* You can try doing more with your three-node CoreOS cluster on Azure. Explore how to create more complex clusters and use Docker and create more interesting applications by reading [Tim Park's CoreOS Tutorial], [Patrick Chanezon's CoreOS Tutorial], [Docker] documentation, and the [CoreOS Overview].
 
-See also [Linux and Open-Source Computing on Azure] for more on using open-source environments on Linux VMs in Azure.
+* To get started with Fleet and CoreOS in Azure Resource Manager, try this [quickstart template](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
+
+* See [Linux and Open-Source Computing on Azure] for more on using open-source environments on Linux VMs in Azure.
 
 <!--Link references-->
-[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [CoreOS Overview]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -163,10 +169,9 @@ See also [Linux and Open-Source Computing on Azure] for more on using open-sourc
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 [How to Use CoreOS on Azure]: virtual-machines-linux-coreos-how-to.md
-[Configure a load-balanced set]: http://msdn.microsoft.com/library/azure/dn655055.aspx
+[Configure a load-balanced set]: ../load-balancer/load-balancer-internet-getstarted.md
 [Launching containers with fleet]: https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/
 [Unit Files]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
 [busybox Docker Hub image]: https://registry.hub.docker.com/_/busybox/
 [CoreOS Apache Docker Hub image]: https://registry.hub.docker.com/u/coreos/apache/
 [Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource.md
- 

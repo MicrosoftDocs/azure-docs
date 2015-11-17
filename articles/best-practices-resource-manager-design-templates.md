@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Best practices for designing Azure Resource Manager templates
@@ -22,6 +22,8 @@ In our work with enterprises, system integrator (SIs), cloud service vendor (CSV
 deploy environments, workloads, or scale units. These deployments need to be supported, follow proven practices, and adhere to identified policies. Using a flexible 
 approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently and then adapt these deployments easily as 
 core offerings evolve or to accommodate variants for outlier scenarios or customers.
+
+This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Templates combine the benefits of the underlying Azure Resource Manager with the adaptability and readability of JavaScript Object Notation (JSON). Using 
 templates, you can:

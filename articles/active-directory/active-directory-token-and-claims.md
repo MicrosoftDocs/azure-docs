@@ -1,9 +1,9 @@
-<properties 
-   pageTitle="Supported Token and Claim Types"
+ <properties
+   pageTitle="Supported Token and Claim Types | Microsoft Azure"
    description="A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
-   services="active-directory" 
+   services="active-directory"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/01/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Supported Token and Claim Types
@@ -423,4 +423,3 @@ In addition to claims, the token includes a version number in **ver** and **appi
 ##See Also
 
 [Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
- 

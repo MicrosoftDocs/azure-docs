@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # How to migrate from Affinity Groups to a Regional Virtual Network (VNet)
 
-You can use an affinity group to ensure that resources created within the same affinity group are physically hosts by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At the time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Recent architectural improvements have increased the scope of network management to a region.
+You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
 
 As a result of these architectural improvements, affinity groups are no longer recommended, or required for virtual networks. The use of affinity groups for VNets is being replaced by regions. VNets that are associated with regions are called regional VNets.
 
@@ -31,29 +31,7 @@ Going forward, when creating new VNets, use *Region*. You'll see this as an opti
 
 ### About VNets currently associated with affinity groups
 
-VNets that are currently associated with affinity groups will be enabled for migration to regional VNets in the near future. We'll update this page to let you know the process is happening and when to take the next steps to complete the migration.
-
-Note that affinity groups will still exist, even though we no longer recommend using them for VNets. Because of this, you can choose to not migrate your VNet, or to delay migration. Your VNet will still work. But, you may run into limitations and you won't be able to take advantage of any of the many new features that require a regional VNet. We do highly encourage you to migrate your affinity group VNet to a regional VNet when your VNet is enabled.
-
-### Early migration
-
-Early migration is available to customers who have a support contract. To elect for early migration, follow these steps:
-
-1. In the **Management Portal**, from your VNet page, on the upper right corner, click **Contact Microsoft Support**.
-
-	![VNet Regional Migration Request](./media/virtual-networks-migrate-to-regional-vnet/IC790447.png)
-
-1. On the **Contact Microsoft Support** page, select the following: Subscription: If you have more than one subscription, select the subscription that corresponds to the VNet that you want to migrate.Support Type: TechnicalProduct Type: Virtual Networks (VNet)Problem Type: Migrate Virtual Network to Regional Virtual Network
-
-	- **Subscription:** If you have more than one subscription, select the subscription that corresponds to the VNet that you want to migrate.
-
-	- **Support Type:** *Technical*
-
-	- **Product Type:** *Virtual Networks (VNet)*
-
-	- **Problem Type:** *Migrate Virtual Network to Regional Virtual Network*
-
-1. Prerequisite: Your VNet must be already enabled for migration in order to perform the following steps. You'll know your VNet has been enabled when you either receive confirmation (in the case of an early migration request), or this page has been updated to reflect that all VNets are enabled for migration.
+VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
 
 1. Export the network configuration file. You can use PowerShell or the Management Portal. For instructions using the Management Portal, see [Configure your VNet using a Network Configuration File](../virtual-networks-using-network-configuration-file/).
 
@@ -69,9 +47,11 @@ Early migration is available to customers who have a support contract. To elect 
 
 1. Save your changes and [import](../virtual-networks-using-network-configuration-file/) the network configuration to Azure.
 
+>[AZURE.INFO] This migration does NOT cause any downtime to your services.
+
 ## Affinity groups and VMs
 
-As mentioned previously, affinity groups are no longer generally recommended for VMs. You should use an affinity group only when a set of VMs must have the absolute lowest network latency between the VMs. By placing VMs in an affinity group, the VMs will all be place in the same compute cluster or scale unit.
+As mentioned previously, affinity groups are no longer generally recommended for VMs. You should use an affinity group only when a set of VMs must have the absolute lowest network latency between the VMs. By placing VMs in an affinity group, the VMs will all be placed in the same compute cluster or scale unit.
 
 It's important to note that using an affinity group can have two, possibly negative, consequences:
 

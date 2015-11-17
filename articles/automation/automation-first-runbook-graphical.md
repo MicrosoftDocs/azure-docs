@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/03/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
-# My first runbook
+# My first graphical runbook
 
-This tutorial walks you through the creation of a [graphical runbook](automation-graphical-authoring-intro.md) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and a conditional link.  
+> [AZURE.SELECTOR]
+- [Graphical](automation-first-runbook-graphical.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
+
+This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and a conditional link.  
 
 ## Prerequisites
 
@@ -28,11 +32,11 @@ To complete this tutorial, you will need the following.
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-trial/" target="_blank">[sign up for a free trial](http://azure.microsoft.com/pricing/free-trial/).
 - [Automation account](automation-configuring.md) to hold the runbook.
 - An Azure virtual machine.  We will stop and start this machine so it should not be production.
-- [Azure Active Directory user and Credential asset](automation-configuring.md) to authenticate to Azure resources.  This user must have permission to start and stop the virtual machine.
+- [Azure Active Directory user and Automation Credential asset](automation-configuring.md) to authenticate to Azure resources.  This user must have permission to start and stop the virtual machine.
 
 ## Step 1 - Create new runbook
 
-We'll by creating a simple runbook that outputs the text *Hello World*.
+We'll start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure Preview Portal, open your Automation account.  
 The Automation account page gives you a quick view of the resources in this account.  You should already have some Assets.  Most of those are the modules that are automatically included in a new Automation account.  You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
@@ -196,6 +200,6 @@ We will now modify the runbook so that it will only attempt to start the runbook
 ## Related articles
 
 - [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
-
+- [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
 
  

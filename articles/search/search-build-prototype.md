@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Build a prototype application for Azure Search" 
-	description="Create your first application prototype to get started with Azure Search." 
+	pageTitle="Build a prototype application for Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Create your first application prototype to get started with Azure Search, a hosted cloud search service." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Build a prototype application for Azure Search
 
-Developers who evaluate Azure Search almost always start with a preliminary test application that demonstrates the value of adding Azure Search to a custom application.
+Developers who evaluate Azure Search for hosted cloud search almost always start with a preliminary test application that demonstrates the value of adding Azure Search to a custom application.
 In this article, we give you a few building blocks to speed up the prototyping process.
  
 - A visual studio C# project that includes data.json and schema.json files. Having sample data lets you immediately build and run the solution, confirming the solution works on your system before you write one line of code. 
@@ -81,7 +81,7 @@ By default, these files are located in the solution folder:
 
 If you can get your data into JSON files, you can overwrite the existing files with your data, and then run the application to create and load an index. Distributing data across multiple files helps demonstrate a batch upload operation. 
 
-Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](https://msdn.microsoft.com/library/azure/dn818681.aspx) on MSDN.
+Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](search-video-demo-tutorial-list.md) on MSDN.
 
 ### Edit the query
 

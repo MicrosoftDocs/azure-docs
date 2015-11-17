@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="App requirements for RemoteApp"
-    description="Learn about the requirements for apps that you want to use in RemoteApp" 
+    pageTitle="App requirements for Azure RemoteApp"
+    description="Learn about the requirements for apps that you want to use in Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # App requirements
-RemoteApp supports streaming 32-bit or 64-bit Windows-based applications from a Windows Server 2012 R2 installation. Most existing 32-bit or 64-bit Windows-based applications run "as is" in RemoteApp (Remote Desktop Services or formerly known as Terminal Services) environment. However, there is a difference between running and running well - some applications function correctly and perform well, while others do not. The following information provides guidance for developing applications in a Remote Desktop Services environment and testing to ensure compatibility.
+Azure RemoteApp supports streaming 32-bit or 64-bit Windows-based applications from a Windows Server 2012 R2 image. Most existing 32-bit or 64-bit Windows-based applications run "as is" in Azure RemoteApp (Remote Desktop Services or formerly known as Terminal Services) environment. However, there is a difference between running and running well - some applications function correctly and perform well, while others do not. The following information provides guidance for developing applications in a Remote Desktop Services environment and testing to ensure compatibility.
 
-Tip: We're working on creating some working examples of apps for you. By the end of the month, you'll see new topics that discuss using Microsoft Access, QuickBooks, and App-V in RemoteApp.
+Tip: We're working on creating some working examples of apps for you. You'll see new topics that discuss using Microsoft Access, QuickBooks, and App-V in RemoteApp.
 
 ## Requirements
 These three requirements, if followed, help your application run well in RemoteApp: 

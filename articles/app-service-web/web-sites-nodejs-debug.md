@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="TomArcher"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="mwasson"/>
+	ms.date="08/11/2015"
+	ms.author="tarcher"/>
 
 # How to debug a Node.js web app in Azure App Service
 
@@ -110,6 +110,8 @@ For information in working with modules on Azure, see [Using Node.js Modules wit
 
 For information on specifying a Node.js version for your application, see [Specifying a Node.js version in an Azure application].
 
+For more information, see also the [Node.js Developer Center](/develop/nodejs/).
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -118,7 +120,7 @@ For information on specifying a Node.js version for your application, see [Speci
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
 [Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Specifying a Node.js version in an Azure application]: ../nodejs-specify-node-version-azure-apps.md
 

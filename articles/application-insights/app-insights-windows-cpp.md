@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="10/06/2015" 
     ms.author="crystk"/>
 
 # Application Insights for C++ apps
@@ -25,6 +25,7 @@ You'll need:
 
 * A subscription with [Microsoft Azure](http://azure.com). You sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.
 * Visual Studio 2015 or later.
+* Windows 10 Universal Application
 
 ## Create an Application Insights resource
 
@@ -144,6 +145,6 @@ Click on any chart to get more detail. For example, crashes:
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

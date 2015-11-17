@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upload images to Azure Blob storage from a universal Windows app | Azure Mobile Services" 
+	pageTitle="Upload images to Azure Blob storage from a universal Windows app | Microsoft Azure" 
 	description="Learn how to use a JavaScript backend mobile service to upload images to Azure Blob Storage and access the images from your universal Windows app." 
 	services="mobile-services,storage" 
 	documentationCenter="windows" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/09/2015" 
 	ms.author="glenga"/>
 
 # Upload images to Azure Blob storage by using Mobile Services

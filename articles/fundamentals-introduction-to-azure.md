@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Intro to Azure - Azure fundamentals" 
+	pageTitle="Intro to Azure | Microsoft Azure" 
 	description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful." 
 	services=" " 
 	documentationCenter=".net" 
@@ -116,7 +116,7 @@ The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](choose
 
 ## Data Management
 
-Applications need data, and different kinds of applications need different kinds of data. Because of this, Azure provides several different ways to store and manage data. Azure provides many storage options, but all are designed for very durable storage.  With any of these options, there are always 3 copies of your data kept in sync across and Azure datacenter -- 6 if you allow Azure to use geo-redundancy to back up to another datacenter at least 300 miles away.     
+Applications need data, and different kinds of applications need different kinds of data. Because of this, Azure provides several different ways to store and manage data. Azure provides many storage options, but all are designed for very durable storage.  With any of these options, there are always 3 copies of your data kept in sync across an Azure datacenter -- 6 if you allow Azure to use geo-redundancy to back up to another datacenter at least 300 miles away.     
 
 
 ### In Virtual Machines
@@ -136,7 +136,6 @@ Formerly called SQL Azure, Azure SQL Database provides all of the key features o
 
 But SQL Database isn't just a DBMS in the cloud-it's a PaaS service. You still control your data and who can access it, but SQL Database takes care of the administrative grunt work, such as managing the hardware infrastructure and automatically keeping the database and operating system software up to date. SQL Database also provides high availability, automatic backups, point-in-time restore capabilities, and can replicate copies across geographical regions.  
 
-There is also a Premium option that you can pay a little more for so you can have your own dedicated server underneath. With the Standard option, the database runs on shared hardware, which can throttle your database queries if you happen to be on a particularly busy server.  
 
 **Scenarios for SQL Database**
 
@@ -218,7 +217,7 @@ Because you can create VMs on demand, then remove them (and stop paying) when th
 
 To make this really useful, though, your users ought to be able to treat these applications as if they were running in your own datacenter. This is exactly what Azure Virtual Network allows. Using a VPN gateway device, an administrator can set up a virtual private network (VPN) between your local network and your VMs that are deployed to a virtual network in Azure. Because you assign your own IP v4 addresses to the cloud VMs, they appear to be on your own network. Users in your organization can access the applications those VMs contain as if they were running locally.
 
-For more information about planning and creating a virtual network that works for you, see [Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+For more information about planning and creating a virtual network that works for you, see [Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ### Express Route
 
@@ -230,7 +229,7 @@ If you need more bandwidth or security than an Azure Virtual Network connection 
 
 Setting it up an ExpressRoute connection requires more time and planning, so you might want to start with a site-to-site VPN, then migrate to an ExpressRoute connection.
 
-For more information about ExpressRoute, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/library/azure/dn606309.aspx).
+For more information about ExpressRoute, see [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
 ### Traffic Manager
 
@@ -267,15 +266,35 @@ It does include a hosted source control system called Team Foundation Service, w
 
 Visual Studio Online provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Online will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month. 
 
-Visual Studio Online also offers a service called Application Insights, which gives you an analysis of your entire application. It provides stats on performance and how your application is being used. If you are already using System Center Operations Manager, it can also hook to it and raise alerts when issues arise. 
-
-Additionally, there is support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
+Visual Studio Online also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
 
 **Visual Studio Online Scenarios**
 
 Visual Studio Online is a good option for companies that need to collaborate worldwide and don't already have the infrastructure in place to do so. You can get setup in minutes, choose a source control system and start writing code and building that day.  The team tools provide a place for coordination and collaboration and the additional tools provide the analysis needed to test and tune your application quickly.
 
 But organizations that already have an on-premises system can test new projects on Visual Studio Online to see if it's more efficient.   
+
+### Application Insights
+
+![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)  
+
+*Figure: Application Insights monitors performance and usage of your live web or device app.*
+
+When you have published your app - whether it runs on mobile devices, desktops, or web browsers - Application Insights tells you how it is performing and what users are doing with it. It will keep a count of crashes and slow response, alert you if the figures cross unacceptable thresholds, and help you diagnose any problems. 
+
+When you develop a new feature, plan to measure its success with users. By analysing usage patterns, you understand what works best for your customers and enhance your app in every development cycle.
+
+Although it's hosted in Azure, Application Insights works for a wide and growing range of apps, both on an off Azure. Both J2EE and ASP.NET web apps are covered, as well as iOS, Android, OSX and Windows applications. Telemetry is sent from an SDK built with the app, to be analyzed and displayed in the Application Insights service in Azure.
+
+If you want more specialized analytics, export the telemetry stream to a database, or to Power BI, or any other tools.
+
+**Application Insights scenarios**
+
+You are developing an app. It might be a web app or a device app, or a device app with a web back end. 
+
+* Tune the performance of your app after it is published, or while it is in load testing.  Application Insights aggregates telemetry from all the installed instances, and presents you with charts of response times, request and exception counts, dependency response times, and other performance indicators. These help you tune your app's performance. You can insert code to report more specific data if you need it.
+* Detect and diagnose problems in your live app. You can get alerts by email if performance indicators cross acceptable thresholds. You can investigate specific user sessions, for example to see the request that caused an exception. 
+* Track usage to assess the success of each new feature. When you design a new user story, plan to measure how much it is used, and whether users achieve their expected goals. Application Insights gives you basic usage data such as web page views, and you can insert code to track the user experience in more detail.
 
 ### Automation
 No one likes to waste time doing the same manual processes over and over. Azure Automation provides a way for you to create, monitor, manage, and deploy resources in your Azure environment.  
@@ -386,11 +405,11 @@ Every enterprise needs to backup and restore data. You can use Azure to backup a
 
 ### Site Recovery
  
-Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery of Hyper-V images across sites. You can back up to your own secondary site, a hoster’s site, or use Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
+Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery across sites. Site Recovery  provides capability to protect applications based on Hyper-v, VMWare or SAN to your own secondary site, to a hoster’s site, or to Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
 
 It monitors the health of your services continuously and helps automate the orderly recovery of services in the event of a site outage at the primary datacenter. Virtual machines can be brought up in an orchestrated fashion to help restore service quickly, even for complex multi-tier workloads.
 
-Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn.
+Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn. Check out [Azure Site Recovery overview](site-recovery/site-recovery-overview.md) for more details.
 
 ### Azure Backup
 ![Azure Backup](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)  

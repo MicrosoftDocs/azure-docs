@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Technical Overview"
-   description="A technical overview of Service Fabric. Discusses key concepts and architectural overview"
+   pageTitle="Service Fabric technical overview | Microsoft Azure"
+   description="A technical overview of Service Fabric. Discusses key concepts and architectural overview."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2015"
+   ms.date="08/25/2015"
    ms.author="mfussell"/>
 
 # Technical overview of Service Fabric

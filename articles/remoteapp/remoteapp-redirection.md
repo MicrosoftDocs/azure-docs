@@ -2,18 +2,17 @@
     pageTitle="Using redirection in Azure RemoteApp" 
     description="Learn how to configure and use redirection in RemoteApp" 
     services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/29/2015" 
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
 
 # Using redirection in Azure RemoteApp
@@ -78,6 +77,7 @@ If you want to use USB redirection on a computer that connects to RemoteApp, the
 
 ### Enable USB redirection for the RemoteApp collection
 Use the following cmdlet to enable USB redirection at the collection level:
+
     Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Enable USB redirection for the client computer
@@ -90,7 +90,7 @@ To configure USB redirection settings on your computer:
 4. Select **Enabled**, and then select **Administrators and Users in the RemoteFX USB Redirection Access Rights**.
 5. Open a command prompt with administrative permissions, and run the following command: 
 
-    gpupdate /force
+		gpupdate /force
 6. Restart the computer.
 
 You can also use the Group Policy Management tool to create and apply the USB redirection policy for all computers in your domain:

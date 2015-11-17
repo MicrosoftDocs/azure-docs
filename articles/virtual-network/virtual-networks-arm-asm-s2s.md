@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="09/18/2015"
    ms.author="telmos" />
 
 # Connecting classic VNets to new VNets
@@ -202,7 +202,7 @@ To create the ARM VNet, with two subnets, and a local network for the classic VN
 
 	>[AZURE.NOTE] This operation may take several minutes.
 
-7. From your browser, navigate to https://ms.portal.azure.com/ and enter your credentials, if necessary.
+7. From your browser, navigate to https://portal.azure.com/ and enter your credentials, if necessary.
 8. Click on the **RG1** resource group tile in the Azure portal, as shown below.
 
 	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
@@ -272,9 +272,9 @@ You need to configure the classic VNet to use the IP address of the gateway crea
 
 4. Open the file you just downloaded, and edit the **LocalNetworkSite** element for **vnet02** to add the IP address of the gateway for the new VNet obtained in step 1 above. The element should look similar to the sample below.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -317,7 +317,7 @@ Now that you have the classic VNet gateway configured, it's time to establish th
 
 	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
-5. Although you can manage the classic VNet and its connection from the classic portal, it's recommended to use the new Azure portal. To open the new portal, navigate to https://ms.portal.azure.com.
+5. Although you can manage the classic VNet and its connection from the classic portal, it's recommended to use the new Azure portal. To open the new portal, navigate to https://portal.azure.com.
 6. In the new portal, click **BROWSE ALL**, then click **Virtual networks (classic)**, and then click **vnet01**. Notice the **VPN connections** pane shown below.
 
 	![VNet dashboard](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)

@@ -14,10 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Creating web apps with Bottle in Azure
@@ -36,7 +34,7 @@ You will create a web app using the Bottle web framework (see alternate versions
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- [Python Tools 2.1 for Visual Studio] (optional)
+- [Python Tools 2.2 for Visual Studio][] (PTVS) - Note: this is optional
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
@@ -46,7 +44,7 @@ If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend ins
 
 For Git, we recommend [Git for Windows] or [GitHub for Windows]. If you use Visual Studio, you can use the integrated Git support.
 
-We also recommend installing [Python Tools 2.1 for Visual Studio]. This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
+We also recommend installing [Python Tools 2.2 for Visual Studio]. This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
 ### Mac/Linux
 
@@ -160,7 +158,7 @@ Press F5 to start debugging, and your web browser will open automatically to the
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-You can set breakpoints in the sources, use the watch windows, etc. See the [PTVS documentation][] for more information on the various features.
+You can set breakpoints in the sources, use the watch windows, etc. See the [Python Tools for Visual Studio Documentation] for more information on the various features.
 
 ### Make changes
 
@@ -374,8 +372,8 @@ Follow these links to learn more about Bottle and Python Tools for Visual Studio
 
 For information on using Azure Table Storage and MongoDB:
 
-- [Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]
-- [Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]
+- [Bottle and MongoDB on Azure with Python Tools for Visual Studio]
+- [Bottle and Azure Table Storage on Azure with Python Tools for Visual Studio]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -383,8 +381,8 @@ For information on using Azure Table Storage and MongoDB:
 
 
 <!--Link references-->
-[Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
-[Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
+[Bottle and MongoDB on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle and Azure Table Storage on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
 
 <!--External Link references-->
 [Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -393,9 +391,8 @@ For information on using Azure Table Storage and MongoDB:
 [Git for Windows]: http://msysgit.github.io/
 [GitHub for Windows]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[PTVS documentation]: http://pytools.codeplex.com/documentation
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs 
 [Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
  

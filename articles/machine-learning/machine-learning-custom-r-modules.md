@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="05/07/2015" 
+	ms.date="07/29/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -331,7 +331,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 ### Auxiliary Files
 
-Any file that is placed in your custom module ZIP file will be available for use during execution time. If there is a directory structure present it will be preserved. This means that file sourcing will work the same locally and in Azure Machine Learning execution. 
+Any file that is placed in your custom module ZIP file will be available for use during execution time. If there is a directory structure present it will be preserved. This means that file sourcing will work the same locally and in Azure Machine Learning execution. Please notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.
 
 For example, say you want to remove any rows with NAs from the  dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
 
@@ -345,7 +345,7 @@ For example, say you want to remove any rows with NAs from the  dataset, and als
 You can source the auxiliary file RemoveDupNARows.R in the CustomAddRows function:
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-		source(“RemoveDupNARows.R”)
+		source("src/RemoveDupNARows.R")
 			if (swap) { 
 				dataset <- rbind(dataset2, dataset1))
 	 		} else { 

@@ -1,44 +1,44 @@
-<properties 
-	pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" 
-	description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="On-premises application with blob storage (Java) | Microsoft Azure"
+	description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
-# On-Premises Application with Blob Storage
+# On-premises application with blob storage
 
 ## Overview
 
 The following example shows you how you can use Azure storage to
-store images in Azure. The code below is for a console
+store images in Azure. The code in this article is for a console
 application that uploads an image to Azure, and then creates an
 HTML file that displays the image in your browser.
 
 ## Prerequisites
 
-1.  A Java Developer Kit (JDK), v1.6 or later, is installed.
-2.  The Azure SDK is installed.
-3.  The JAR for the Azure Libraries for Java, and any applicable
+- A Java Developer Kit (JDK), version 1.6 or later, is installed.
+- The Azure SDK is installed.
+- The JAR for the Azure Libraries for Java, and any applicable
     dependency JARs, are installed and are in the build path used by
-    your Java compiler. For information on installing the Azure Libraries for Java, see [Download the
-    Azure SDK for Java].
-4.  An Azure storage account has been set up. The account name
+    your Java compiler. For information about installing the Azure Libraries for Java, see [Download the
+    Azure SDK for Java][].
+- An Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
-    below. See [How to Create a Storage Account] for information about creating a storage account,
-    and [How to Manage Storage Accounts] for information about retrieving the
+    in this article. See [How to Create a Storage Account] for information about creating a storage account,
+    and [How to Manage Storage Accounts][] for information about retrieving the
     account key.
-5.  You have created a local image file named stored at the path
+- You have created a local image file named stored at the path
     c:\\myimages\\image1.jpg. Alternatively, modify the
     **FileInputStream** constructor in the example to use a different
     image path and file name.
@@ -47,12 +47,12 @@ HTML file that displays the image in your browser.
 
 ## To use Azure blob storage to upload a file
 
-A step-by-step procedure is presented here; if you'd like to skip ahead,
-the entire code is presented later in this topic.
+A step-by-step procedure is presented here. If you'd like to skip ahead,
+the entire code is presented later in this article.
 
 Begin the code by including imports for the Azure core storage
 classes, the Azure blob client classes, the Java IO classes, and
-the **URISyntaxException** class:
+the **URISyntaxException** class.
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -71,15 +71,15 @@ account. Replace the placeholder values **your\_account\_name** and
 **your\_account\_key** with your own account name and account key,
 respectively.
 
-    public static final String storageConnectionString = 
-           "DefaultEndpointsProtocol=http;" + 
-               "AccountName=your_account_name;" + 
-               "AccountKey=your_account_name"; 
+    public static final String storageConnectionString =
+           "DefaultEndpointsProtocol=http;" +
+               "AccountName=your_account_name;" +
+               "AccountKey=your_account_name";
 
 Add in your declaration for **main**, include a **try** block, and
 include the necessary open brackets, **{**.
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         try
         {
@@ -117,7 +117,7 @@ container named **gettingstarted**.
     // Container name must be lower case.
     container = serviceClient.getContainerReference("gettingstarted");
 
-Create the container. This method will create the container if doesn't
+Create the container. This method will create the container if it doesn't
 exist (and return **true**). If the container does exist, it will return
 **false**. An alternative to **createIfNotExists** is the **create**
 method (which will return an error if the container already exists).
@@ -138,8 +138,8 @@ Azure storage.
     blob = container.getBlockBlobReference("image1.jpg");
 
 Use the **File** constructor to get a reference to the locally created
-file that you will upload. (Ensure you have created this file before
-running the code.)
+file that you will upload. Ensure you have created this file before
+running the code.
 
     File fileReference = new File ("c:\\myimages\\image1.jpg");
 
@@ -153,8 +153,8 @@ bytes, of the file.
 
 Call a helper function named **MakeHTMLPage**, to make a basic HTML page
 that contains an **&lt;image&gt;** element with the source set to the blob that
-is now in your Azure storage account. (The code for
-**MakeHTMLPage** will be discussed later in this topic.)
+is now in your Azure storage account. The code for
+**MakeHTMLPage** will be discussed later in this article.
 
     MakeHTMLPage(container);
 
@@ -267,14 +267,14 @@ respectively.
     import java.net.URISyntaxException;
 
     // Create an image, c:\myimages\image1.jpg, prior to running this sample.
-    // Alternatively, change the value used by the FileInputStream constructor 
+    // Alternatively, change the value used by the FileInputStream constructor
     // to use a different image path and file that you have already created.
     public class StorageSample {
 
         public static final String storageConnectionString =
                 "DefaultEndpointsProtocol=http;" +
-                       "AccountName=your_account_name;" + 
-                       "AccountKey=your_account_name"; 
+                       "AccountName=your_account_name;" +
+                       "AccountKey=your_account_name";
 
         public static void main(String[] args) {
             try {
@@ -365,14 +365,13 @@ your source code is secure.
 Because you are charged for storage, you may want to delete the
 **gettingstarted** container after you are done experimenting with this
 example. To delete a container, use the **CloudBlobContainer.delete**
-method:
+method.
 
     container = serviceClient.getContainerReference("gettingstarted");
     container.delete();
 
 To call the **CloudBlobContainer.delete** method, the process of
-initializing **CloudStorageAccount**, **ClodBlobClient**,
-**CloudBlobContainer** objects is the same as shown for the
+initializing **CloudStorageAccount**, **ClodBlobClient**, and **CloudBlobContainer** objects is the same as shown for the
 **createIfNotExist** method. The following is a complete example that
 deletes the container named **gettingstarted**.
 
@@ -381,25 +380,25 @@ deletes the container named **gettingstarted**.
 
     public class DeleteContainer {
 
-        public static final String storageConnectionString = 
-                "DefaultEndpointsProtocol=http;" + 
-                   "AccountName=your_account_name;" + 
-                   "AccountKey=your_account_key"; 
+        public static final String storageConnectionString =
+                "DefaultEndpointsProtocol=http;" +
+                   "AccountName=your_account_name;" +
+                   "AccountKey=your_account_key";
 
-        public static void main(String[] args) 
+        public static void main(String[] args)
         {
             try
             {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
-                
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
                 container.delete();
-                
+
                 System.out.println("Container deleted.");
 
             }
@@ -419,18 +418,18 @@ deletes the container named **gettingstarted**.
     }
 
 For an overview of other blob storage classes and methods, see [How to
-Use the Blob Storage Service from Java].
+use the blob storage service from Java].
 
 ## Next steps
 
 Follow these links to learn more about more complex storage tasks.
 
-- [Azure Storage SDK for Java]
-- [Azure Storage Client SDK Reference]
-- [Azure Storage REST API]
-- [Azure Storage Team Blog]
+- [Azure Storage SDK for Java][]
+- [Azure Storage Client SDK Reference][]
+- [Azure Storage REST API][]
+- [Azure Storage Team Blog][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [How to Create a Storage Account]: storage-create-storage-account.md#create-a-storage-account
   [How to Manage Storage Accounts]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [How to Use the Blob Storage Service from Java]: storage-java-how-to-use-blob-storage.md
@@ -438,4 +437,3 @@ Follow these links to learn more about more complex storage tasks.
   [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
   [Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- 

@@ -1,31 +1,28 @@
 <properties
 	pageTitle="Configure a custom domain name in Azure App Service (GoDaddy)"
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
-	ms.author="mwasson"/>
+	ms.date="10/23/2015"
+	ms.author="erikre"/>
 
 # Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
-
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
+
+If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article.
 
 This article provides instructions on using a custom domain name that was purchased directly from [GoDaddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +32,6 @@ This article provides instructions on using a custom domain name that was purcha
 ##Understanding DNS records
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## Add a DNS record for your custom domain
@@ -66,14 +62,12 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 	* When adding an **A (host) record** - you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) * (a wildcard for matching multiple sub-domains,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points to** field to the IP address of your Azure web app.
 
-		> [AZURE.NOTE] When using A (host) records, you must also add a CNAME record with the following configuration:
-		>
-		> * A **Host** value of **awverify** that **Points to** a value of **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
-		>
-		> This CNAME record is used by Azure to validate that you own the domain described by the A record
-
 	* When adding a **CNAME (alias) record** - you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.azurewebsites.net** domain name of your Azure web app. For example, **contoso.azurwebsites.net**.
 
+5. Click **Add Another**.
+6. Select **CNAME** as the record type, then specify a **Host** value of **awverify** and a **Points to** value of **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+
+	> [AZURE.NOTE] This CNAME record is used by Azure to validate that you own the domain described by the A record or the first CNAME record. Once the domain has been mapped to the web app in the Azurepreview  portal, the **awverify** entry can be removed.
 
 5. When you have finished adding or modifying records, click **Finish** to save changes.
 
@@ -87,4 +81,3 @@ To associate your custom domain with a web app in App Service, you must add a ne
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 # Best practices for Site Recovery deployment
@@ -156,11 +156,11 @@ Providers and agents are installed on on-premises servers so that they can conne
 	- Configure logical and VM networks correctly in VMM. Read about [logical networks](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) and [VM networks](https://technet.microsoft.com/library/jj721575.aspx).
 	- Make sure that all virtual machines on the source VMM server are connected to a VM network.
 	- Check that VM networks are linked to a logical network associated with the cloud.
-	- If you're replicating to Azure create virtual networks in Azure. Note that multiple VM networks can be mapped to a single Azure network. Read [Virtual network configuration tasks](https://msdn.microsoft.com/library/azure/dn133795.aspx).
+	- If you're replicating to Azure create virtual networks in Azure. Note that multiple VM networks can be mapped to a single Azure network. Read [Virtual network configuration tasks](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Optimizing performance
 
-- **Operating system volume size**: When you replicate a virtual machine to Azure the operating system volume must be less than 127 GB. If you have more volumes than this you can manually move them to a different disk before you start deployment.
+- **Operating system volume size**: When you replicate a virtual machine to Azure the operating system volume must be less than 1TB. If you have more volumes than this you can manually move them to a different disk before you start deployment.
 - **Data disk size**: If you're replicating to Azure you can have up to 32 data disks on a virtual machine, each with a maximum of 1 TB. You can effectively replicate and fail over a ~32 TB virtual machine.
 - **Recovery plan limits**: Site Recovery can scale to thousands of virtual machines. Recovery plans are designed as a model for applications that should fail over together so we limit the number of machines in a recovery plan to 50.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.

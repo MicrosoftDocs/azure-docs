@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Receive alert notifications
@@ -42,6 +42,8 @@ You can use the [REST API](https://msdn.microsoft.com/library/azure/dn931945.asp
 
 6. You can also choose **Events**, and get a notification when a certain event happens. 
     ![Events](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
+>[AZURE.NOTE] At this time Events are only supported for Web Apps. 
 
 7. Finally, you can choose to send email notification to responsible administrators.
 
@@ -58,6 +60,7 @@ You can of course edit this alert rule, and **Disable** or **Enable** it if you 
 
 ## Next steps
 
+* [Configure webhooks on your Alerts](insights-webhooks-alerts.md) to route notifications to various channels
 * [Monitor service metrics](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Monitor availability and responsiveness of any web page](../app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.

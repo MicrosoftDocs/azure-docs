@@ -2,8 +2,8 @@
 	pageTitle="Add push notifications to your Mobile Services app (Xamarin.Forms) - Mobile Services"
 	description="Learn how to use push notifications in Xamarin.Forms apps with Azure Mobile Services."
 	documentationCenter="xamarin"
-	authors="normesta"
-	manager="stevenpo"
+	authors="wesmc7777"
+	manager="dwrede"
 	services="mobile-services"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="06/10/2015"
-	ms.author="normesta"/>
+	ms.date="10/05/2015"
+	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
@@ -379,7 +379,7 @@ You'll add push notifications to the Android app by using the Google Cloud Messa
 
 ###<a id="register"></a>Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>Configure your mobile service to send push requests
 

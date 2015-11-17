@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Generate recommendations using Mahout and Hadoop | Microsoft Azure"
+	pageTitle="Generate recommendations using Mahout and Linux-based HDInsight | Microsoft Azure"
 	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Linux-based HDInsight (Hadoop)."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="11/06/2015"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (preview)
@@ -29,6 +30,14 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 ##Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted]
+
+##Mahout versioning
+
+For more information about the version of Mahout included with your HDInsight cluster, see [HDInsight versions and Hadoop components](hdinsight-component-versioning.md).
+
+> [AZURE.WARNING] While it is possible to upload a different version of Mahout to the HDInsight cluster, only components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
+>
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ##<a name="recommendations"></a>Understanding recommendations
 
@@ -67,7 +76,8 @@ Conveniently, [GroupLens Research][movielens] provides rating data for movies in
 4. Use the following commands to copy the data to HDInsight storage:
 
         cd ml-100k
-        hadoop fs -copyFromLocal ml-100k/u.data /example/data/u.data
+        hdfs dfs -put u.data /example/data
+
 
     The data contained in this file has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
@@ -82,7 +92,7 @@ Conveniently, [GroupLens Research][movielens] provides rating data for movies in
 
 Use the following command to run the recommendation job:
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE --input /example/data/u.data --output /example/data/mahoutout  --tempDir /temp/mahouttemp
+	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE] The job may take several minutes to complete, and may run multiple MapReduce jobs.
 
@@ -90,7 +100,7 @@ Use the following command to run the recommendation job:
 
 1. Once the job completes, use the following command to view the generated output:
 
-		hadoop fs -text /example/data/mahoutout/part-r-00000
+		hdfs dfs -text /example/data/mahoutout/part-r-00000
 
 	The output will appear as follows:
 
@@ -103,7 +113,7 @@ Use the following command to run the recommendation job:
 
 2. Some of the other data contained in the **ml-100k** directory can be used to make the data more user friendly. First, download the data using the following command:
 
-		hadoop fs -copyToLocal /example/data/mahoutout/part-r-00000 recommendations.txt
+		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
 
 	This will copy the output data to a file named **recommendations.txt** in the current directory.
 
@@ -113,55 +123,55 @@ Use the following command to run the recommendation job:
 
 	When the editor opens, use the following as the contents of the file:
 
-		#!/usr/bin/env python
-
-		import sys
-
-		if len(sys.argv) != 5:
-		        print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-		        sys.exit(1)
-
-		userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-
-		print "Reading Movies Descriptions"
-		movieFile = open(movieFilename)
-		movieById = {}
-		for line in movieFile:
-		        tokens = line.split("|")
-		        movieById[tokens[0]] = tokens[1:]
-		movieFile.close()
-
-		print "Reading Rated Movies"
-		userDataFile = open(userDataFilename)
-		ratedMovieIds = []
-		for line in userDataFile:
-		        tokens = line.split("\t")
-		        if tokens[0] == userId:
-		                ratedMovieIds.append((tokens[1],tokens[2]))
-		userDataFile.close()
-
-		print "Reading Recommendations"
-		recommendationFile = open(recommendationFilename)
-		recommendations = []
-		for line in recommendationFile:
-		        tokens = line.split("\t")
-		        if tokens[0] == userId:
-		                movieIdAndScores = tokens[1].strip("[]\n").split(",")
-		                recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-		                break
-		recommendationFile.close()
-
-		print "Rated Movies"
-		print "------------------------"
-		for movieId, rating in ratedMovieIds:
-		        print "%s, rating=%s" % (movieById[movieId][0], rating)
-		print "------------------------"
-
-		print "Recommended Movies"
-		print "------------------------"
-		for movieId, score in recommendations:
-		        print "%s, score=%s" % (movieById[movieId][0], score)
-		print "------------------------"
+        #!/usr/bin/env python
+        
+        import sys
+        
+        if len(sys.argv) != 5:
+                print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+                sys.exit(1)
+        
+        userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+        
+        print "Reading Movies Descriptions"
+        movieFile = open(movieFilename)
+        movieById = {}
+        for line in movieFile:
+                tokens = line.split("|")
+                movieById[tokens[0]] = tokens[1:]
+        movieFile.close()
+        
+        print "Reading Rated Movies"
+        userDataFile = open(userDataFilename)
+        ratedMovieIds = []
+        for line in userDataFile:
+                tokens = line.split("\t")
+                if tokens[0] == userId:
+                        ratedMovieIds.append((tokens[1],tokens[2]))
+        userDataFile.close()
+        
+        print "Reading Recommendations"
+        recommendationFile = open(recommendationFilename)
+        recommendations = []
+        for line in recommendationFile:
+                tokens = line.split("\t")
+                if tokens[0] == userId:
+                        movieIdAndScores = tokens[1].strip("[]\n").split(",")
+                        recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+                        break
+        recommendationFile.close()
+        
+        print "Rated Movies"
+        print "------------------------"
+        for movieId, rating in ratedMovieIds:
+                print "%s, rating=%s" % (movieById[movieId][0], rating)
+        print "------------------------"
+        
+        print "Recommended Movies"
+        print "------------------------"
+        for movieId, score in recommendations:
+                print "%s, score=%s" % (movieById[movieId][0], score)
+        print "------------------------"
 
 	Press **Ctrl-X**, **Y**, and finally **Enter** to save the data.
 
@@ -169,9 +179,9 @@ Use the following command to run the recommendation job:
 
 		chmod +x show_recommendations.py
 
-4. Run the Python script:
+4. Run the Python script. The following assumes you are in the ml-100k directory, where the `u.data` and `u.item` files are located:
 
-		./show_recommendations.py 4 ml-100k/u.data ml-100k/u.item recommendations.txt
+		./show_recommendations.py 4 u.data u.item recommendations.txt
 
 	This will look at the recommendations generated for user ID 4.
 
@@ -229,9 +239,11 @@ Use the following command to run the recommendation job:
 
 Mahout jobs do not remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific path for easy deletion. To remove the temp files, use the following command:
 
-	hadoop fs -rm -f -r wasb:///temp/mahouttemp
+	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING] If you do not remove the temporary files or the output file, you will receive a 'cannot overwrite file' error message if you run the job again with the same `--tempDir` path.
+> [AZURE.WARNING] If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
+>
+> ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
 ##Next steps
 

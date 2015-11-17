@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modeling data in Azure DocumentDB" 
+	pageTitle="Modeling data in Azure DocumentDB | Microsoft Azure" 
 	description="Learn how to model data for a NoSQL document database like Azure DocumentDB." 
 	services="documentdb" 
 	authors="ryancrawcour" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/24/2015" 
 	ms.author="ryancraw"/>
 
 #Modeling data in DocumentDB#

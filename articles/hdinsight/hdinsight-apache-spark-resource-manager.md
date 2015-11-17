@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Azure" 
+	pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Azure" 
 	description="Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="11/03/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,9 +24,11 @@ Resource manager is a component of the Spark cluster dashboard that enables you 
 
 ## <a name="launchrm"></a>How do I launch the Resource Manager?
 
-1. Select your Spark cluster on the Azure portal, and from the portal task bar at the bottom, click **Spark Dashboard**.
+1. From the [Azure Preview Portal](https://ms.portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
+ 
+2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
-2. From the top pane in the dashboard, click the **Resource Manager** tab.  
+	![Launch Resource Manager](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Start Resource Manager")   
 
 ##<a name="scenariosrm"></a>How do I fix these issues using the Resource Manager?
 
@@ -36,13 +39,13 @@ Here are some common scenarios that you might run into with your Spark cluster, 
 Apache Spark cluster in HDInsight is designed for multi-tenancy, so resources are split across multiple components (notebooks, job server, etc). This allows you to use all Spark components concurrently without worrying about any component not able to get resources to run, but each component will be slower since resources are fragmented.  This can be adjusted based on your needs. 
 
 
-### I only use IPython with the Spark cluster. How can I allocate all resources to it?
+### I only use the Jupyter notebook with the Spark cluster. How can I allocate all resources to it?
 
 1. From the **Spark Dashboard**, click the **Spark UI** tab to find out the maximum number of cores and the maximum RAM that you can allocate to the applications.
 
 	![Resource allocation](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Find resources allocated to a Spark cluster")
 
-	Going by the screen capture above, the maximum cores that you can allocate is 7 (total 8 cores of which 1 is in use), and the maximum RAM that you can alloacate is 9GB (total 12GB RAM, of which 2GB must be set aside for system use and 1GB that is in use by other applications).
+	Going by the screen capture above, the maximum cores that you can allocate is 7 (total 8 cores of which 1 is in use), and the maximum RAM that you can allocate is 9GB (total 12GB RAM, of which 2GB must be set aside for system use and 1GB that is in use by other applications).
 
 	You should also factor any applications that are running. You can look at the running applications from the **Spark UI** tab.
 
@@ -78,10 +81,3 @@ Specify thrift server core Count and thrift Server executor memory as 0. With no
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
-
-
-
-
-
-
-

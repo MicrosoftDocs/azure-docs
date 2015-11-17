@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/16/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -22,7 +22,7 @@ The Application Insights SDK sends telemetry from your Java web application so t
 
 ## Prerequisites
 
-Currently the plug-in works for Dynamic Web Projects in Eclipse. 
+Currently the plug-in works for Maven projects and Dynamic Web Projects in Eclipse. 
 ([Add Application Insights to other types of Java project][java].)
 
 You'll need:
@@ -40,36 +40,27 @@ You only have to do this one time per machine. This step installs a toolkit whic
 
     ![Help, Install New Software](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. The SDK is in http://dl.msopentech.com/eclipse, under Azure Toolkit. 
+2. The SDK is in http://dl.windowsazure.com/eclipse, under Azure Toolkit. 
 3. Uncheck **Contact all update sites...**
 
     ![For Application Insights SDK, clear Contact all update sites](./media/app-insights-java-eclipse/1-plugin.png)
 
 Follow the remaining steps for each Java project.
 
-## Get an Application Insights instrumentation key
+## Create an Application Insights resource in Azure
 
-Your usage and performance analytics will be displayed in an Azure resource in the Azure web portal. In this step, you set up an Azure resource for your application.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. 
 
-1. Log into the [Microsoft Azure Portal](https://portal.azure.com). (You'll need an [Azure subscription](http://azure.microsoft.com/).)
-2. Create a new Application Insights resource
+## Add Application Insights to your project
 
-    ![Click + and choose Application Insights](./media/app-insights-java-eclipse/01-create.png)
-3. Set the application type to Java web application.
+1. Add Application Insights from the context menu of your Java web project.
 
-    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-eclipse/02-create.png)
-4. Find the instrumentation key of the new resource. You'll need to paste this into your project in Eclipse.
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/02-context-menu.png)
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/03-key.png)
-
-## Add the SDK to your Java project
-
-1. Add Application Insights from the context menu of your web project.
-
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
 2. Paste the instrumentation key that you got from the Azure portal.
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/03-ikey.png)
 
 
 The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
@@ -116,6 +107,104 @@ Page view, user, and session metrics will appear on the usage blade:
 ![Sessions, users and page views](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
 [Learn more about setting up client-side telemetry.][usage]
+
+## Publish your application
+
+Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
+
+* Make sure your firewall allows your application to send telemetry to these ports:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* On Windows servers, install:
+
+ * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (This enables performance counters.)
+
+## Exceptions and request failures
+
+Unhandled exceptions are automatically collected:
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+To collect data on other exceptions, you have two options:
+
+* [Insert calls to TrackException in your code](app-insights-api-custom-events-metrics.md#track-exception). 
+* [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
+
+
+## Monitor method calls and external dependencies
+
+[Install the Java Agent](app-insights-java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
+
+
+## Performance counters
+
+Click the **Servers** tile, and you'll see a range of performance counters.
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### Customize performance counter collection
+
+To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### Collect additional performance counters
+
+You can specify additional performance counters to be collected.
+
+#### JMX counters (exposed by the Java Virtual Machine)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName` – The name displayed in the Application Insights portal.
+*	`objectName` – The JMX object name.
+*	`attribute` – The attribute of the JMX object name to fetch
+*	`type` (optional) - The type of JMX object’s attribute:
+ *	Default: a simple type such as int or long.
+ *	`composite`: the perf counter data is in the format of 'Attribute.Data'
+ *	`tabular`: the perf counter data is in the format of a table row
+
+
+
+#### Windows performance counters
+
+Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName – The name displayed in the Application Insights portal.
+*	categoryName – The performance counter category (performance object) with which this performance counter is associated.
+*	counterName – The name of the performance counter.
+*	instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
+
+Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+### Unix performance counters
+
+* [Install collectd with the Application Insights plugin](app-insights-java-collectd.md) to get a wide variety of system and network data.
 
 ## Availability web tests
 

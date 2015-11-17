@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
+   ms.date="08/23/2015"
    ms.author="joaoma"/>
 
 # Create DNS records for Web app in a custom domain

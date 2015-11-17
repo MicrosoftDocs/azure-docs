@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 
@@ -549,12 +549,15 @@ Finally, the following code deletes a table from a storage account. A table whic
 
 Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
 
-- [Azure Storage SDK for Java]
-- [Azure Storage Client SDK Reference]
-- [Azure Storage REST API]
-- [Azure Storage Team Blog]
+- [Azure Storage SDK for Java][]
+- [Azure Storage Client SDK Reference][]
+- [Azure Storage REST API][]
+- [Azure Storage Team Blog][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+For more information, see also the [Java Developer Center](/develop/java/).
+
+
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Web App with Express (Node.js) - Azure Tutorial" 
+	pageTitle="Web App with Express (Node.js) | Microsoft Azure" 
 	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -46,9 +46,9 @@ Perform the following steps to create a new cloud service project named 'express
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
-		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE] By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node. 
+	> [AZURE.NOTE] By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
 
 ##Install Express
 
@@ -92,8 +92,7 @@ Perform the following steps to create a new cloud service project named 'express
 
 	This change is required since we moved the file (formerly **bin/www**,) to the same directory as the app file being required. After making this change, save the **server.js** file.
 
-8.  Use the following command to run the application in the Windows
-    Azure emulator:
+8.  Use the following command to run the application in the Azure emulator:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -135,6 +134,9 @@ Once the deployment operation completes, your browser will open and display the 
 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
   [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/

@@ -3,7 +3,7 @@
 	description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
+	authors="george-moore"
 	manager="georgem"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
-	ms.author="mmercuri"/>
+	ms.date="08/13/2015"
+	ms.author="georgem"/>
 
 
 # Security considerations for Azure Resource Manager
@@ -26,14 +26,16 @@ This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azu
 [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md) and 
 [Managing and Auditing Access to Resources](resource-group-rbac.md) 
 
+This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+
 ## Secrets and certificates
 
 Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are 
 to be deployed in the VM.  Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and 
 provides the following advantages:
 
-- The templates only contain URI references to the secrets, which means the actual secrets are not in code, config or source code repositories. This prevents 
-key phishing attacks on internal or external repos, such as harvest-bots in github.
+- The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories. This prevents 
+key phishing attacks on internal or external repos, such as harvest-bots in GitHub.
 - Secrets stored in the Key Vault are under full RBAC control of a trusted operator.  If the trusted operator leaves the company or transfers within the 
 company to a new group, they no longer have access to the keys they created in the Vault.
 - Full compartmentalization of all assets:
@@ -41,7 +43,7 @@ company to a new group, they no longer have access to the keys they created in t
       - the templates to deploy a VM with references to the keys 
       - the actual key materials in the Vault.  
   Each template (and action) can be under different RBAC roles for full separation of duties.
-- The loading of secrets into a VM at deployment time occurs via direct channel between Azure Fabric and the Key Vault within the confines of the Microsoft 
+- The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft 
 datacenter.  Once the keys are in the Key Vault, they never see 'daylight' over an untrusted channel outside of the datacenter.  
 - Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs. There are no global Key Vaults.
 
@@ -163,10 +165,10 @@ under the direct control of the operator.
 
 ## Service principals for cross-subscription interactions
 
-Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators, and Cloud Service Vendors. Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
+Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators (SI), and Cloud Service Vendors (CSV). Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
 
 Your organization could provide an offering that will monitor a solution deployed in your customers environment and subscription. In this case, you will need to 
-get access to logs and other data within a customers account so that you can utilize it in your monitoring solution. If you're a Corporate IT organization, a Systems Integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, 
+get access to logs and other data within a customers account so that you can utilize it in your monitoring solution. If you're a corporate IT organization, a systems integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, 
 such as a data analytics platform, where the offering resides in the customers own subscription.
 
 In these use cases, your organization would require an identity that could be given access to perform these actions within the context of a customer subscription.  
@@ -184,19 +186,19 @@ A combination of a service principal and RBAC can be used to address these requi
 
 ## Network security groups
 
-Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled. You can use a network security 
-group (NSG) to do this as part of an ARM template deployment.
+Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled. You can use a Network Security 
+Group (NSG) to do this as part of an ARM template deployment.
 
 A network security group is a top-level object that is associated with your subscription. An NSG contains access control rules that allow or deny traffic to 
 VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a virtual network 
 that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you don’t have a 
-regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](../virtual-network/virtual-networks-acl.md).
 
 You can associate an NSG with a VM, or to a subnet within a virtual network. When associated with a VM, the NSG applies to all the traffic that is sent and 
 received by the VM instance. When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances 
 in the subnet. A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
 
->[AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE]  Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ### How network security groups work
 
@@ -214,7 +216,7 @@ A rule specifies the following:
 
 -	Name: A unique identifier for the rule
 -	Type: Inbound/Outbound
--	Priority: An integer between 100 and 4096
+-	Priority: An integer between 100 and 4096 (rules processed from low to high)
 -	Source IP Address: CIDR of source IP range
 -	Source Port Range: An integer or range between 0 and 65536
 -	Destination IP Range: CIDR of the destination IP Range
@@ -228,7 +230,7 @@ An NSG contains default rules. The default rules can't be deleted, but because t
 you create. The default rules describe the default settings recommended by the platform. As illustrated by the default rules below, traffic originating and ending 
 in a virtual network is allowed both in Inbound and Outbound directions.
 
-While connectivity to the Internet is allowed for Outbound direction, it is by default blocked for Inbound direction. A default rule allows the Azure load balancer 
+While connectivity to the Internet is allowed for outbound direction, it is by default blocked for inbound direction. A default rule allows the Azure load balancer 
 to probe the health of a VM. You can override this rule if the VM or set of VMs under the NSG does not participate in the load balanced set.
 
 The default rules are shown in the tables below.
@@ -277,7 +279,7 @@ INTERNET | Denotes the IP address space that is outside the virtual network and 
 
 NSG rules can be specified on a single source or destination port, or on a port range. This approach is particularly useful when you want to open a wide range of ports 
 for an application, such as FTP. The range must be sequential and can't be mixed with individual port specifications.
-To specify a range of ports, use the hyphen (\–) character. For example, **100-500**.
+To specify a range of ports, use the hyphen (–) character. For example, **100-500**.
 
 ### ICMP traffic
 
@@ -336,14 +338,14 @@ appliance is used you have to create a route specifying that all traffic destine
 Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network. A route table is a collection of individual 
 routes used to decide where to forward packets based on the destination IP address. A route consists of the following:
 
--	Address Prefix. The destination CIDR to which the route applies, such as 10.1.0.0/16.
--	Next hop type. The type of Azure hop the packet should be sent to. Possible values are:
-		- Local. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of Local.
-		-	VPN Gateway. Represents an Azure S2S VPN Gateway.
-		-	Internet. Represents the default Internet gateway provided by the Azure Infrastructure
-		-	Virtual Appliance. Represents a virtual appliance you added to your Azure virtual network.
-		-	NULL. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
--	Nexthop Value. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.
+- Address Prefix. The destination CIDR to which the route applies, such as 10.1.0.0/16.
+- Next hop type. The type of Azure hop the packet should be sent to. Possible values are:
+  - Local. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of Local.
+  - VPN Gateway. Represents an Azure S2S VPN Gateway.
+  - Internet. Represents the default Internet gateway provided by the Azure Infrastructure
+  - Virtual Appliance. Represents a virtual appliance you added to your Azure virtual network.
+  - NULL. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
+-	Nexthop Value. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*. The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet. 
 
 ![Routing](./media/best-practices-resource-manager-security/routing.png)
 
@@ -351,32 +353,32 @@ routes used to decide where to forward packets based on the destination IP addre
 
 Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
 
-- Local Vnet Rule: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.
+- Local VNet Rule: This rule is automatically created for every subnet in a virtual network. It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop. This enables the VMs on the same subnet, regardless of the network ID that the VMs exist in, to communicate with each other without requiring a default gateway address.
 - On-premises Rule: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.
 - Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
 ### BGP routes
 
-At the time of this writing, ExpressRoute is not yet supported in the Network Resource Provider for ARM.  If you have an ExpressRoute connection between your 
+At the time of this writing, [ExpressRoute](expressroute/expressroute-introduction.md) is not yet supported in the [Network Resource Provider](virtual-network/resource-groups-networking.md) for Azure Resource Manager.  If you have an ExpressRoute connection between your 
 on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP. These 
 BGP routes are used in the same way as default routes and user defined routes in each Azure subnet. For more information see 
-[ExpressRoute Introduction](expressroute-information.md).
+[ExpressRoute Introduction](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE] When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
+>[AZURE.NOTE] When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use forced tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 
 ### User-defined routes
 
 You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need. 
 However, you may need to create a route table and add one or more routes in specific cases, such as:
 
--	Force tunneling to the Internet via your on-premises network.
+-	Forced tunneling to the Internet via your on-premises network.
 -	Use of virtual appliances in your Azure environment.
 
 In the scenarios above, you will have to create a route table and add user defined routes to it. You can have multiple route tables, and the same route table can 
 be associated to one or more subnets. And each subnet can only be associated to a single route table. All VMs and cloud services in a subnet use the route table 
 associated to that subnet.
 
-Subnets rely on default routes until a route table is associated to the subnet. Once an association exists, routing is done based on Longest Prefix Match (LPM) 
+Subnets rely on default routes until a route table is associated to the subnet. Once an association exists, routing is done based on [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) 
 among both user defined routes and default routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following 
 order:
 
@@ -384,7 +386,7 @@ order:
 2.	BGP route (when ExpressRoute is used)
 3.	Default route
 
->[AZURE.NOTE] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
+>[AZURE.NOTE] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
 ### IP forwarding
 
@@ -397,3 +399,5 @@ you must enable IP Forwarding in the VM.
 ## Next steps
 - To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](resource-group-authenticate-service-principal.md)
 - If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](resource-group-lock-resources.md)
+- To configure routing and IP forwarding, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-network/virtual-networks-udr-how-to.md) 
+- For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)

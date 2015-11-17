@@ -3,7 +3,7 @@
     pageTitle="What's new in Azure RemoteApp?"
     description="Learn about changes and improvements made to Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,44 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="10/23/2015" 
     ms.author="elizapo" />
 
 
 
-# What's new in RemoteApp?
+# What's new in Azure RemoteApp?
 
-One of the advantages of RemoteApp is that we are always working to improve it. Every time we do, we'll announce those changes here.
+One of the advantages of Azure RemoteApp is that we are always working to improve it. Every time we do, we'll announce those changes here.
 
+## September 2015
+- Added Infopath to the Microsoft Office 365 template and gallery image. If you want to share Infopath, make sure to update your collections with the latest image.
+- Client updates:
+	- Windows client updated to make it possible for users to share feedback, especially around connection issues.
+	- iOS client updated to fix error messaging and to fix a problem where your credentials expired earlier than expected.
+- We're working on getting Office 2016 support tested. Once that's completed, look for updated images.
+- Published a new article about the [differences between cloud and hybrid collections](remoteapp-collections.md) - this will help you choose the collection type that works best for your apps - cloud-only, cloud + VNET, or hybrid.
+- Want to share QuickBooks using Azure RemoteApp but not sure of the steps? Check out [Eric's new article](remoteapp-quickbooks.md) telling you exactly what to do.
+
+## August 2015
+Big changes happened in August - here are the highlights:
+
+- You can now use an Azure VNET with a cloud collection! Check out the [cloud creation instructions](remoteapp-create-cloud-deployment.md) for the new steps.
+- Made it possible to add apps to the **Start **menu for the Windows RemoteApp client. Apps will show up in the application list, and you can pin them to the **Start **menu in Windows.
+- Added a new image to the Azure VM gallery - Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus.
+- Fixed the Mac client so apps with modal windows will stop freezing.
+- Documented how you can use your [Office 365 ProPlus subscription](remoteapp-officesubscription.md) with Azure RemoteApp.
+- Detailed how you can [secure the apps and data](remoteapp-secure.md) in your Azure RemoteApp collection.
+
+## July 2015
+
+July set the stage for changes coming in August, so there's not a lot to talk about now, mostly doc updates. Here are the most recent changes:
+
+- Added a **Support** tab to the portal so you can more easily access support resources, like the forums.
+- Reworked the troubleshooting information for creating a hybrid collection. Check out [the latest and greatest](remoteapp-hybridtrouble.md) for troubleshooting tips like, how to identify the correct ports to configure for your VNET.
+- Documented how [user data](remoteapp-upd.md) is created and saved in Azure RemoteApp.
+- Documented how to [lock down apps](remoteapp-secure.md).
+- Published the [Azure RemoteApp cmdlets](https://msdn.microsoft.com/library/mt428031.aspx).
+- And finally, we started a conversation with some Azure RemoteApp users about terminology. Look for changes to the way we refer to the different collection options.
 
 ## June 2015
 
@@ -50,3 +79,7 @@ Want to learn more about Azure RemoteApp? The RemoteApp team was out in force at
 Need to see Azure RemoteApp in the real world? Check out the [Run any app on any device anywhere](remoteapp-anyapp.md) tutorial - it shows you how to share Access with your users, including sharing the database files. We also have a tutorial on [making Office 365](remoteapp-tutorial-o365anywhere.md) run the same on any device.
 
 Thanks for sticking with us - back next month with more updates. 
+
+
+### Help us help you 
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.

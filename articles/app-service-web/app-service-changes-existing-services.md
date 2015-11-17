@@ -5,22 +5,24 @@
 	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
 # Azure App Service and existing Azure services
 
 This article outlines the changes to existing Azure services as part of the change to bring together several Azure services into [Azure App Service](http://azure.microsoft.com/services/app-service/), a new integrated offering.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Overview 
 

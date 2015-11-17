@@ -1,8 +1,7 @@
 <properties 
-    pageTitle="Add a user in RemoteApp" 
-    description="Learn how to add users in RemoteApp" 
+    pageTitle="Add a user to your Azure RemoteApp collection" 
+    description="Learn how to add users to your Azure RemoteApp collection" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,22 +12,22 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# How to add a user in RemoteApp
+# How to add a user to your Azure RemoteApp collection
 
-Before your users can see and use the apps in RemoteApp, you have to grant them access to your collection. This is the easy part: On the **User Access** tab, enter the account information for the user and then click the check mark.
+Before your users can see and use your apps in Azure RemoteApp, you have to grant them access to your collection. This is the easy part: On the **User Access** tab, enter the account information for the user, and then click the check mark.
 
 What account information do you need? That depends on the type of collection you created (cloud or hybrid) and whether you are using Office 365 ProPlus in that collection.
 
 ## Supported user identities
 
-The different collection types (cloud vs. hybrid) support using different user identities for user access to applications.  
+The different collection types (cloud vs. hybrid) support using different user identities for access to applications.  
 
 For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory.  
 
-For a cloud collection of RemoteApp, any user that has Azure Active Directory support identities can be granted user access to RemoteApp to include Microsoft Accounts.  See table below. 
+For a cloud collection of RemoteApp, any user that has Azure Active Directory support identities can be granted user access to RemoteApp to include Microsoft Accounts.  See the table below. 
 
 Office 365 users are Azure Active Directory users. If they have Azure Active Directory hybrid, Directory synchronized accounts, they can be granted user access in a RemoteApp hybrid deployment.   
 

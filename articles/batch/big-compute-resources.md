@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Big Compute: Technical Resources for Batch and High Performance Computing (HPC) | Microsoft Azure"
+   pageTitle="Big Compute: Technical resources for batch and high performance computing (HPC) | Microsoft Azure"
    description="Lists technical resources to help you run your large-scale parallel, batch, and HPC workloads in Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/14/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
-# Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
+# Big Compute in Azure: Technical resources for batch and high performance computing (HPC)
 This is a guide to technical resources to help you run your large-scale parallel, batch, and HPC workloads in Azure. Extend your existing batch or HPC workloads to the Azure cloud, or build new Big Compute solutions in Azure using a range of Azure services.
 
 ## Solutions options
 
 Learn about Big Compute options in Azure, and choose the right approach for your workload and business need.
 
-* [Batch and HPC Solutions](batch-hpc-solutions.md)
+* [Batch and HPC solutions](batch-hpc-solutions.md)
 
-* [Video: Big Compute in the Cloud with Azure and HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [Video: Big Compute in the cloud with Azure and HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure Batch
@@ -34,13 +34,13 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 * [Documentation](http://azure.microsoft.com/documentation/services/batch/)
 
-* [API Reference](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* [API reference](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
-* [Batch Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [Tutorial: Getting started with Azure Batch library for .NET](batch-dotnet-get-started.md)
 
-* [Tutorial: Getting Started with Azure Batch Library for .NET](batch-dotnet-get-started.md)
+* [Batch forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
-* [Batch Videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+* [Batch videos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
 ## HPC cluster solutions
 
@@ -48,18 +48,23 @@ Deploy or extend your existing Windows or Linux HPC cluster to Azure to run your
 
 ### Microsoft HPC Pack
 
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft's free cluster manager and job scheduling solution for on-premises, hybrid, and cloud-based HPC.
+HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies, capable of running Windows and Linux HPC workloads.  
+
+* [Download HPC Pack 2012 R2 Update 2](https://www.microsoft.com/en-us/download/details.aspx?id=47755)
+
+* [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
+
+
+* [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
 * [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
-* [HPC Pack in Azure VMs](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
-* [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [Windows HPC forums](https://social.microsoft.com/Forums/home?category=windowshpc)
 
-* [Windows HPC Forums](https://social.microsoft.com/Forums/home?category=windowshpc)
+### Linux and OSS cluster solutions
 
-### Linux cluster solutions
-Use these Azure Resource Manager templates to deploy Linux HPC clusters.
+Use these Azure quickstart templates to deploy Linux HPC clusters with open source tools.
 
 * [Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/)
  and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
@@ -73,9 +78,9 @@ Use these Azure Resource Manager templates to deploy Linux HPC clusters.
 
 * [Download MS-MPI](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 
-* [MS-MPI Reference](https://msdn.microsoft.com/library/dn473458.aspx)
+* [MS-MPI reference](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI Forum](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [MPI forum](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## Compute intensive instances
@@ -84,13 +89,11 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 * [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [A8 and A9 Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
-
-* [Run MPI Applications on A8 and A9 Instances](https://msdn.microsoft.com/library/azure/dn592104.aspx)
+* [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
 
 ## Architecture blueprints
 
-* [Large-Scale Computing - Financial Services](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) shows how to operationalize and orchestrate large-scale computation and data analysis in the cloud for risk management, reporting, and simulations.
+* [Large-scale computing - financial services](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) shows how to operationalize and orchestrate large-scale computation and data analysis in the cloud for risk management, reporting, and simulations.
 
 ## Samples and demos
 
