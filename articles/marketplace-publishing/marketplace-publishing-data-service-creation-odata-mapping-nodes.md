@@ -13,10 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/11/2015"
+      ms.date="11/17/2015"
       ms.author="hascipio; avikova" />
 
-# Understanding the nodes for mapping an existing web service to OData through CSDL
+# Understanding the nodes schema for mapping an existing web service to OData through CSDL
+This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
 ## Ignored elements
 The following are the high level CSDL elements (XML nodes) that are not going to be used by the Azure Marketplace backend during the import of the web service’s metadata. They can be present but will be ignored.
@@ -38,12 +39,14 @@ The following describes the changes (added and ignored elements) to the various 
 ## FunctionImport node
 A FunctionImport node represents one URL (entry point) that exposes a service to the end-user. The node allows describing how the URL is addressed, which parameters are available to the end-user and how these parameters are provided.
 
-Details about this node are found at [http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx]('http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx')
+Details about this node are found at [http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx][MSDNFunctionImportLink]
+
+[MSDNFunctionImportLink]:'http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx'
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
 **d:BaseUri** -
-The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}. 
+The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}.
 Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable).
 
 	Example:
@@ -53,20 +56,20 @@ Parameters are allowed to appear as URI parameters or as part of the URI path. I
 
 **EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used.
 
-	Example: 
+	Example:
 	`EntitySet="GetUsageStatisticsEntitySet"`
 
 **ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value.
 
-	The following are the supported types:
+ The following are the supported types:
 
-	- **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
-	- **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg)
+ - **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
+ - **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg)
 
-	Examples:
+ Examples:
 
-	- ReturnType="Raw(text/plain)"
-	- ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
+ - ReturnType="Raw(text/plain)"
+ - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
 **d:Paging** - Specifies how paging is handled by the REST resource. The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size} The options available are:
 
@@ -83,7 +86,7 @@ Parameters are allowed to appear as URI parameters or as part of the URI path. I
 - **PUT:** usually used to update data
 - **DELETE:** used to delete data
 
-	Example: 
+	Example:
 	`d:AllowedHttpMethods="GET"`
 
 Additional child nodes (not covered by the CSDL documentation) within the FunctionImport node are:
@@ -94,7 +97,8 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 - **GET:** Used if the request is a HTTP GET
 
 	Example:
-        <d:RequestBody d:httpMethod="POST">
+
+        `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
         <req1:Request xmlns:r1="http://schemas.mysite.com//generic/requests/1" Version="1.0">
         <req1:Query>{Query}</req1:Query><req1:AppId>D453474</req1:AppId>
@@ -102,7 +106,7 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
         </req1:DestinationSchemas>
         </req1: Request>
         ]]>
-        </d:RequestBody>
+        </d:RequestBody>`
 
 **d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.**
 
@@ -162,17 +166,19 @@ This node represents one parameter that is exposed as part of the URI template /
 
 A very helpful details document page about the “Parameter Element” node is found at [http://msdn.microsoft.com/en-us/library/ee473431.aspx](http://msdn.microsoft.com/en-us/library/ee473431.aspx)  (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.)
 
-**Example:** 
+**Example:**
 `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Parameter Attribute | Is Required | Value |
 |----|----|----|
 | Name | Yes | The name of the parameter. Case sensitive!  Match the BaseUri case. **Example:** `<Property Name="IsDormant" Type="Byte" />` |
-| Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx](http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx). **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx][MSDNParameterLink]. **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | No | **In**, Out, or InOut depending on whether the parameter is an input, output, or input/output parameter. (Only “IN” is available in Azure Marketplace.) **Example:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | No | The maximum allowed length of the parameter. **Example:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | No | The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale | No | The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+
+[MSDNParameterLink]:'http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx'
 
 The following are the attributes that have been added to the CSDL specification:
 

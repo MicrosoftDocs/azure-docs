@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/10/2015"
+      ms.date="11/17/2015"
       ms.author="hascipio; avikova" />
 
 # Mapping an existing web service to OData through CSDL
@@ -75,12 +75,15 @@ An extension to the ATOM pub where each entry represents one row of a result set
 
 Allows defining functions (SPROCs) and entities that are exposed through a database. More information found here: [http://msdn.microsoft.com/en-us/library/bb399292.aspx](http://msdn.microsoft.com/en-us/library/bb399292.aspx)  
 
-> [AZURE.TIP] Click the **other versions** dropdown and select a version if you don’t see the article.)
+> [AZURE.TIP] Click the **other versions** dropdown and select a version if you don’t see the article.
 
 ### EDM - Entry Data Model
-- Overview: [http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx](http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx)
-- Preview: [http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx](http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx)
-- Data types: [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx](http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx)
+- Overview: [http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
+[OverviewLink]:http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx
+- Preview: [http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx][PreviewLink]
+[PreviewLink]:http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx
+- Data types: [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx][DataTypesLink]
+[DataTypesLlink]:http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx
 
 The following shows the detailed Left to Right flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back:
 

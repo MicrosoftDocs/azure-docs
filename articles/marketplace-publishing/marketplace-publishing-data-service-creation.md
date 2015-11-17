@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/10/2015"
+      ms.date="11/17/2015"
       ms.author="hascipio; avikova" />
 
 # Data Service Publishing Guide for the Azure Marketplace
@@ -41,7 +41,7 @@ Fill in the title for your new Data Service Offer and click on “+” on the ri
 
 Click on the **Walkthrough** tab and review all necessary steps needed to publish properly the Data Service on the Azure Marketplace.
 
-You always can click on the links in the “Walkthrough” page or use tabs on the Data Service offer’s sub-menu on the left side.
+> [AZURE.TIP] You always can click on the links in the “Walkthrough” page or use tabs on the Data Service offer’s sub-menu on the left side.
 
 ## 5.	Create a new Plan.
 
@@ -58,7 +58,7 @@ It’s Azure Marketplace Service layer responsibility to monitor (meter) number 
 
 > [AZURE.IMPORTANT] End-Users which reached the transaction limit during the month will be blocked from continuing to use the service until end of their monthly subscription cycle.
 
-> [AZURE.NOTE] The plan or one of the plans can (but not must) include unlimited number of transactions.
+> The plan or one of the plans can (but not must) include unlimited number of transactions.
 
 ### Create a plan.
 Click on **“+”** next to the “Add a new plan”.
@@ -89,9 +89,9 @@ If the answer is “Yes”, the no further question will be asked.
 
 You can choose between “No Trial” at all or give an option to use your Plan for “One Month”. Publishers like to use this option to provide end-users the possibility to understand the benefits of the offer for free for one month.
 
-> [AZURE.IMPORTANT] End-users will be required to provide details of the Credit Card.
+> [AZURE.IMPORTANT] End-users will only able to purchase a free trial if they have established payment instrument e.g. credit card, enterprise agreement.
 
-> [AZURE.NOTE] After one month of the free trial, Azure Marketplace will start charging customers the price as of the date of the subscription, unless the customer initiated the subscription cancellation. No special notification will be provided to the end-users.
+> After one month of the free trial, Azure Marketplace will start charging customers the price as of the date of the subscription, unless the customer initiated the subscription cancellation. No special notification will be provided to the end-users.
 
 **This plan requires a promotion code to purchase?**
 
@@ -138,7 +138,7 @@ If Web Service
 
   ![drawing](media/marketplace-publishing-data-service-creation/step-7.7.png)
 
-> [AZURE.IMPORTANT] Read [Mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) for detailed instructions and examples for creating a CSDL Web Service. 
+> [AZURE.IMPORTANT] Read [Mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping.md) for detailed instructions and examples for creating a CSDL Web Service.
 
 ## Next Steps
 Now that you've created your Data Service offer, please ensure that you complete the instructions in the [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) before you move forward to [Testing your Data Service in Staging](marketplace-publishing-data-service-test-in-staging.md).

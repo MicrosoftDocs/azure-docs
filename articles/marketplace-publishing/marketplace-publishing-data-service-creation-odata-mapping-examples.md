@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/10/2015"
+      ms.date="11/17/2015"
       ms.author="hascipio; avikova" />
 
 # Examples of mapping an existing web service to OData through CSDLs

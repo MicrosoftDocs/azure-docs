@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/17/2015"
    ms.author="hascipio; avikova" />
 
 # Testing your Data Service offer in Staging
@@ -42,6 +42,8 @@ Cut and paste your Subscription ID and click the checkmark to continue.
 
   ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.2.png)
 
+> [AZURE.NOTE] These Azure subscriptions IDs are only required for testing and staging in the [Azure Management Portal](https://manage.windowsazure.com). They are not required to test in Azure Marketplace.
+
 The next screen that appears shows that publishing is taking place by displaying the “In progress” icon highlighted yellow below. Pushing to staging takes between 10 to 15 minutes.  If it takes longer, first refresh your browser (press F5 in IE).  In the rare cases where your offer is still pushing to staging after an hour, click the contact us link to let us know that there is an issue.
 
   ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.3.png)
@@ -65,7 +67,7 @@ Finally, check the service will work through the Datamarket by clicking the link
 
 
 ## Next step
-If you are having issues and need help resolving them please contact the Azure Datamarket On-boarding team (Azure Marketplace Publisher Support) at ampubsup@microsoft.com
+If you are having issues and need help resolving them please contact [Azure Publisher Support]( http://go.microsoft.com/fwlink/?LinkId=272975).
 
 If you are satisfied and ready to publish your offer please read the [Request Approval to Push To Production](marketplace-publishing-push-to-production.md) documentation.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/17/2015"
    ms.author="hascipio; avikova" />
 
 # Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
@@ -25,14 +25,14 @@ You should have the following items ready before beginning the process:
 
 A Publisher can decide between multiple technologies when publishing Data Service in Azure Marketplace. The main technologies that are supported described below. Regardless what technology is used to publish the Data Service, the end-user consumes the data through the **OData feed** exposed by Azure Marketplace Service. Full information about OData service you can find on [http://www.odata.org/](http://www.odata.org/)
 
-### SQL Azure Database
+## SQL Azure Database
 
 Having dataset ready in SQL Azure is Publisher’s responsibility. You’ll need to subscribe to Azure, provision appropriate size of Database and upload your Data into SQL Azure DB. Publisher is also responsible to keep his/her data always up-to-date. More information about subscribing to Azure Services you can find on [https://azure.microsoft.com/en-us/services/sql-database/](https://azure.microsoft.com/en-us/services/sql-database/)
 
 
 When moving the data into SQL Azure, the Azure Marketplace can expose tables and views. The Publisher can specify which tables/views and columns are exposed to the end-user. Further the content provider can also specify which columns can be queried by the end-user and which ones are only returned in the payload. This gives a high level of flexibility about which data in the database should be exposed. Columns that can be queried need to be backed by one or more database indices.
 
-### REST based web service
+## REST based web service
 
 Supported protocol: **HTTPS only**
 
@@ -44,13 +44,13 @@ Authorization information (such as API key, authentication token, etc.) needs to
 
 Errors returned by the service need to be mapped into HTTP status codes. In case the service returns a XML that contains the error these are going to be mapped by the Azure Marketplace service to HTTP status codes.
 
-### SOAP based web services
+## SOAP based web services
 
 Protocol: **HTTPS only**
 
 The requirements are the same as in the REST based service section. The only difference is that parameters can also be provided in an XML body that’s being posted to the Publisher’s service with every request made through Azure Marketplace. This means that HTTP parameters the user provides at the front-end are being translated into XML elements of an XML document that’s being posted with the request to the content provider’s web service.
 
-### OData based web services
+## OData based web services
 
 Protocol: **HTTPS only**
 
