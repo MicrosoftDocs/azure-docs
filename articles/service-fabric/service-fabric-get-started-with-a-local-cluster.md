@@ -54,7 +54,7 @@ The Service Fabric SDK includes a rich set of frameworks and developer tooling f
 2. Import the Service Fabric SDK PowerShell module.
 
     ```powershell
-    Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.pms1"
+    Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
 
 3. Create a directory to store the application that you will download and deploy, such as c:\Service Fabric\.
