@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="11/16/2015"
    ms.author="cherylmc" />
 
 # Configure forced tunneling using PowerShell and Azure Resource Manager
 
-This article applies to VNets and VPN Gateways created using the Azure Resource Manager deployment model. If you want to configure forced tunneling for VNet and VPN Gateways using the Service Management deployment model, see [Forced Tunneling](vpn-gateway-about-forced-tunneling.md).
+This article applies to VNets and VPN Gateways created using the Azure Resource Manager deployment model. If you want to configure forced tunneling using the Service Management deployment model, see [Forced Tunneling](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]  
 
@@ -44,7 +44,7 @@ Forced tunneling in Azure is configured via virtual network user defined routes.
 	
 	- **Default route:** Directly to the Internet. Note that packets destined to the private IP addresses not covered by the previous two routes will be dropped.
 
--  This procedure uses User Defined Routes to create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
+-  This procedure uses user defined routes (UDR) to create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
 
 - Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway). You need to set a "default site" among the cross-premises local sites connected to the virtual network.
 
@@ -76,11 +76,11 @@ Verify that you have the following items below before beginning your configurati
 		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
 		
 
-1. Create a resource group
+1. Create a resource group.
 
 		New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
 
-1. Create virtual networks and VNet subnets 
+1. Create virtual networks and VNet subnets. 
 
 		$s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
 		$s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
@@ -88,20 +88,20 @@ Verify that you have the following items below before beginning your configurati
 		$s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
 		$vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "North Europe" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
 
-1. Create the route table and route rule
+1. Create the route table and route rule.
 
 		New-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" –Location "North Europe"
 		$rt = Get-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" 
 		Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
 
-5. Associate the route table to the Midtier and Backend subnets
+5. Associate the route table to the Midtier and Backend subnets.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name "MultiTier-Vnet" -ResourceGroupName "ForcedTunneling"
 		Set-AzureRmVirtualNetworkSubnetConfig -Name "MidTier" -VirtualNetwork $vnet -AddressPrefix "10.1.1.0/24" -RouteTable $rt
 		Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-6. Create the Gateway with a default site
+6. Create the Gateway with a default site.
 
 		$pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
 		$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
@@ -147,8 +147,8 @@ Below are some additional PowerShell cmdlets that you may find helpful when work
 ## Next steps
 
 
-For information about User Defined Routes, see [User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
+For information about user defined routes, see [User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
-For information about securing your network traffic, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md). Note that you should never apply a Network Security Group to an Azure VNet gateway subnet.
+For information about securing your network traffic, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md). Note that you should never apply a Network Security Group to the gateway subnet of an Azure VNet.
 
 
