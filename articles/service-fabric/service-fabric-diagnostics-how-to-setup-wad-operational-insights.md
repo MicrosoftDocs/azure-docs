@@ -286,15 +286,21 @@ After you have configured your Operational Insights workspace to read the logs f
 Here are examples of a few scenarios and the queries you can use to troubleshoot them.
 1. To find out if the RunAsync was called for a specific service by Service Fabric. You many want to do this if you need to rule out whether a service is crashing while starting up. To do this search using a query similar to the one below having replaced the service and application name to match what you have deployed and see if any results are returned.
 
-    ```Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateless1" AND "RunAsync has been invoked"```
+    ```
+    Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateless1" AND "RunAsync has been invoked"
+    ```
     
 2. If you are running a stateful service and would like to see if any exceptions were thrown by it that were marked as failures by Service Fabric then you find those events with a query similar to this.
 
-    ```Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateful1" AND TaskName=StatefulRunAsyncFailure```
+    ```
+    Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateful1" AND TaskName=StatefulRunAsyncFailure
+    ```
     
 3. To find events corresponding to any exceptions thrown by Actor methods in all the deployed applications and services a query like this may be used.
 
-    ```Type=ServiceFabricReliableActorEvent AND TaskName=ActorMethodThrewException```
+    ```
+    Type=ServiceFabricReliableActorEvent AND TaskName=ActorMethodThrewException
+    ```
 
 ## Update WAD to collect and upload logs from new EventSource channels
 To update WAD to collect logs from a new EventSource channels representing a new application that you are about to deploy you just need to perform the same steps as in the [section above](#deploywadarm) describing setup of WAD for an existing cluster. You will need to update the EtwEventSourceProviderConfiguration section in the WadConfigUpdate.json to add entries for the new EventSources before you apply the config update through the ARM command. The table for upload will be the same (ETWEventTable), since that is the table that is configured for Operational Insights to read application ETW events from.
