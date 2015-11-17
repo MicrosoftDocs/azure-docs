@@ -37,8 +37,5 @@ Write your queries faster by downloading the SQL query cheat sheet and using it 
 ## More help with writing SQL queries
 
 - For a walk through of the query options available in DocumentDB, see [Query DocumentDB](documentdb-sql-query.md).
-- For the related reference documentation, see [DocumentDB 
-- SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.a
-- 
-- spx).
+- For the related reference documentation, see [DocumentDB SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
