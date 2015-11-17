@@ -49,6 +49,7 @@ After setting a security policy, Azure Security Center analyses the security sta
 ![][2]
 
 To see the details of each recommendation:
+
 1. Click the **Recommendations tile** on the **Security Center** blade.  The **Recommendations** blade opens.
 2. You can filter the recommendations presented to you by state and severity.  Click **Filter** on the **Recommendations** blade.  The Filter blade opens and you select the severity and state values you wish to see.
 ![][3]
@@ -89,6 +90,7 @@ Use the table below as a reference to understand the available recommendations a
 ## Applying recommendations
 After reviewing all recommendations, you may decide which one you should apply first. It is recommended to use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the Antimalware recommendation, let’s walk through an example on how to apply a recommendation:
+
 1. In the **Recommendations** blade, select **Enable Antimalware**.
 ![][5]
 
@@ -112,14 +114,12 @@ A recommendation may be to deploy an integrated security solution from a Microso
 5. Click **Create** in the information blade.  The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**.
 6. Select **VM Configuration**. In the **VM Configuration** blade you enter information required to spin up the virtual machine that will run the WAF.
 ![][8]
-7. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself.
+7. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself. Step 6 allows you to configure the virtual machine on which the WAF will run and step 7 enables you to provision the WAF itself.
 
-  Step 6 allows you to configure the virtual machine on which the WAF will run and step 7 enables you to provision the WAF itself.
-  
 8. Return to the **Recommendations** blade.  A new entry was generated after you created the WAF, **Reroute traffic through Web Application Firewall**. This lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
 ![][9]
 
-9. Select **Reroute traffic through Web Application Firewall** and a new blade opens.  You can see that you have a couple of web applications that need the traffic rerouted.
+9. Select **Reroute traffic through Web Application Firewall** and a new blade opens. You can see that you have a couple of web applications that need the traffic rerouted.
 ![][10]
 
 10. Select a web application and a blade opens that gives you information on the application needing the traffic rerouted. Click **Reroute** and Azure Security Center does the wiring-up for you.
