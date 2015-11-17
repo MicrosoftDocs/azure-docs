@@ -268,24 +268,28 @@ The following table outlines where and how this data is used during password res
 
 ###How to access password reset data for your users
 The following fields can be synchronized from on-premises:
- * Mobile Phone
- * Office Phone
+
+* Mobile Phone
+* Office Phone
 
 The following fields are accessible with Azure AD PowerShell & the Graph API:
- * Alternate Email
- * Mobile Phone
- * Office Phone
- * Authentication Phone
- * Authentication Email
+
+* Alternate Email
+* Mobile Phone
+* Office Phone
+* Authentication Phone
+* Authentication Email
 
 The following fields are only accessible via the SSPR registration UI:
- * Security Questions and Answers
+
+* Security Questions and Answers
 
 ####What happens when a user registers?
 When a user registers, the registration page will **always** set the following fields:
- * Authentication Phone
- * Authentication Email
- * Security Questions and Answers
+
+* Authentication Phone
+* Authentication Email
+* Security Questions and Answers
 
 If you have provided a value for **Mobile Phone** or **Alternate Email**, users can immediately use those to reset their passwords, even if they haven't registered for the service.  In addition, users will see those values when registering for the first time, and modify them if they wish.  However, after they successfully register, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
 
@@ -293,9 +297,10 @@ This can be a useful way to unblock large numbers of users to use SSPR while sti
 
 ####Setting password reset data with PowerShell
 You can set values for the following fields with Azure AD PowerShell.
- * Alternate Email
- * Mobile Phone
- * Office Phone
+
+* Alternate Email
+* Mobile Phone
+* Office Phone
 
 To get started, you'll first need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Once you have it installed, you can follow the steps below to configure each field.
 
@@ -319,11 +324,12 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 
 ####Reading password reset data with PowerShell
 You can read values for the following fields with Azure AD PowerShell.
- * Alternate Email
- * Mobile Phone
- * Office Phone
- * Authentication Phone
- * Authentication Email
+
+* Alternate Email
+* Mobile Phone
+* Office Phone
+* Authentication Phone
+* Authentication Email
 
 To get started, you'll first need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule).  Once you have it installed, you can follow the steps below to configure each field.
 
