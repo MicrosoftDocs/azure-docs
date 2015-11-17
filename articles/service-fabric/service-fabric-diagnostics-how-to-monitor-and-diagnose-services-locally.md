@@ -57,8 +57,7 @@ For projects created from the **actor templates** (stateless or stateful):
 
 After adding custom ETW tracing to your service code, you can build, deploy, and run the application again to see your event(s) in the Diagnostic Viewer. If you debug the application with F5, the Diagnostic Viewer will  open automatically.
 
-The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster. Below you will find links to articles for different options of tools that you can setup for collecting traces from your Azure cluster deployments.
-
 ## Next steps
+The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster, checkout these articles that discuss the different options for the tools and describe how you can set them up.
 * [Collecting logs from a Service Fabric cluster in Azure using WAD(Windows Azure Diagnostics) and Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
 * [Using ElasticSearch as a Service Fabric application trace store](service-fabric-diagnostic-how-to-use-elasticsearch.md)
