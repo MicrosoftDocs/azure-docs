@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="BharatNarasimman"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,34 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
+   ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
-# Overview of the Reliable Service communication model
+# The Reliable Service communication model
 
-The Reliable Services programming model allows service authors to specify the communication mechanism they want to use to expose their service endpoints and also provides abstractions which clients can use to discover and communicate with the service endpoint.
+Service Fabric as a platform is completely agnostic to communication between services. Any and all protocols and stacks are fair game, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides a few pre-built communication stacks as well as tools to roll your custom communication stack, such as abstractions which clients can use to discover and communicate with service endpoints.
 
-## Setting up the service communication stack
+## Setting up service communication
 
-Reliable Services API allows service authors to plugin the communication stack of their choice in the service by implementing the following method in their service,
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
-{
-    ...
-}
-
-```
-
-The `ICommunicationListener` interface defines the interface that must be implemented by the communication listener for a service.
+The Reliable Services API uses a simple interface for service communication. To open up an endpoint for your service, simply implement this interface:
 
 ```csharp
 
 public interface ICommunicationListener
 {
-    void Initialize(ServiceInitializationParameters serviceInitializationParameters);
-
     Task<string> OpenAsync(CancellationToken cancellationToken);
 
     Task CloseAsync(CancellationToken cancellationToken);
@@ -49,7 +36,22 @@ public interface ICommunicationListener
 }
 
 ```
-The endpoints that are required for the service are described via the [Service manifest](service-fabric-application-model.md) under the Endpoints section.
+
+Then add your communication listener implementation by returning it in a service base class method override.
+
+For stateless:
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+```
+
+For stateful:
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+```
+
+Finally, describe the endpoints that are required for the service in the [Service manifest](service-fabric-application-model.md) under the Endpoints section.
 
 ```xml
 
@@ -100,13 +102,13 @@ var listenAddress = new Uri(
 
 ```
 
+For a complete walkthrough of writing an `ICommunicationListener`, see [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host](service-fabric-reliable-services-communication-webapi.md)
+
 ## Client to service communication
 Reliable Services API provides the following abstractions which make writing clients for communicating with Services easy.
 
 ## ServicePartitionResolver
-ServicePartitionResolver class helps the client to determine the endpoint of a Service Fabric service at runtime.
-
-> [AZURE.TIP] The process of determining the endpoint of a service is referred to as Service Endpoint Resolution in Service Fabric terminology.
+This utility class helps clients determine the endpoint of a Service Fabric service at runtime. The process of determining the endpoint of a service is referred to as Service Endpoint Resolution in Service Fabric terminology.
 
 ```csharp
 
@@ -152,25 +154,25 @@ public class MyCommunicationClient : ICommunicationClient
 
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
 {
-   protected override void AbortClient(MyCommunicationClient1 client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override void AbortClient(MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override Task<MyCommunicationClient> CreateClientAsync(ResolvedServiceEndpoint endpoint, CancellationToken cancellationToken)
-   {
-      throw new NotImplementedException();
-   }
+    protected override Task<MyCommunicationClient> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(MyCommunicationClient clientChannel)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(MyCommunicationClient clientChannel)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(ResolvedServiceEndpoint endpoint, MyCommunicationClient client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(string endpoint, MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 ```
@@ -222,9 +224,10 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## Next Steps
-* [Default communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
+* [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-default.md)
 
-* [WCF based communication stack provided by the Reliable Services Framework](service-fabric-reliable-services-communication-wcf.md)
+* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Writing a Service using Reliable Services API that uses WebAPI communication stack](service-fabric-reliable-services-communication-webapi.md)
+* [WCF communication with Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+
  
