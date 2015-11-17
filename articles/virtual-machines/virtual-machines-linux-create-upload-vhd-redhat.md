@@ -37,9 +37,6 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
-- When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
-
-
 ###RHEL 6.6/6.7
 
 1.	In Hyper-V Manager, select the virtual machine.
@@ -334,19 +331,12 @@ The Azure Linux Agent can automatically configure swap space using the local res
          # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
-         # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
-                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-         # rounded_size=$((($size/$MB + 1)*$MB))
-
          # qemu-img resize rhel-6.6.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
-
  
-
 
 ###RHEL 7.0/7.1
 
@@ -469,11 +459,6 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
-         # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
-                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-         # rounded_size=$((($size/$MB + 1)*$MB))
-
          # qemu-img resize rhel-7.0.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
@@ -584,11 +569,6 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
-        # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
-                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-        # rounded_size=$((($size/$MB + 1)*$MB))
-
         # qemu-img resize rhel-6.6.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
@@ -688,11 +668,6 @@ This section assumes that you have already installed a RHEL virtual machine in V
         # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
-
-        # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
-                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-        # rounded_size=$((($size/$MB + 1)*$MB))
 
         # qemu-img resize rhel-7.0.raw $rounded_size
 
