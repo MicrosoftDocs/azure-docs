@@ -62,8 +62,10 @@ Service Fabric Explorer offers an easy way to visual your cluster, including dep
 Service Fabric enables independent versioning and upgrade of independent services in an application. To learn more, see [Versioning and upgrading your services][app-upgrade-tutorial].
 
 ### Configure continuous integration with Visual Studio Online
-To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Online][ci-with-vso]. <!-- Links -->
+To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Online][ci-with-vso]. 
 
+
+<!-- Links -->
 [add-web-frontend]: ./service-fabric-add-a-web-frontend.md
 [create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
 [publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
