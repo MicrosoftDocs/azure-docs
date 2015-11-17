@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
-	editor="tysonn"/>
+	editor="cjgronlund"/>
 
 <tags
 	ms.service="sql-database"
