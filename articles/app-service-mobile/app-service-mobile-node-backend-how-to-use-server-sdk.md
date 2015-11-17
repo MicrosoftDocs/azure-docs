@@ -399,8 +399,9 @@ table.access = 'authenticated';
 module.exports = table;
 ```
 
-The access property can take two values
+The access property can take one of three values
 
+  - *anonymous* indicates that the client application is allowed to read data without authentication
   - *authenticated* indicates that the client application must send a valid authentication token with the request
   - *disabled* indicates that this table is currently disabled
 
