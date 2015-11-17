@@ -284,18 +284,19 @@ After you have configured your Operational Insights workspace to read the logs f
 
 ### Sample queries to help troubleshoot issues
 Here are examples of a few scenarios and the queries you can use to troubleshoot them.
+
 1. To find out if the RunAsync was called for a specific service by Service Fabric. You many want to do this if you need to rule out whether a service is crashing while starting up. To do this search using a query similar to the one below having replaced the service and application name to match what you have deployed and see if any results are returned.
 
     ```
     Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateless1" AND "RunAsync has been invoked"
     ```
-    
+
 2. If you are running a stateful service and would like to see if any exceptions were thrown by it that were marked as failures by Service Fabric then you find those events with a query similar to this.
 
     ```
     Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateful1" AND TaskName=StatefulRunAsyncFailure
     ```
-    
+
 3. To find events corresponding to any exceptions thrown by Actor methods in all the deployed applications and services a query like this may be used.
 
     ```
