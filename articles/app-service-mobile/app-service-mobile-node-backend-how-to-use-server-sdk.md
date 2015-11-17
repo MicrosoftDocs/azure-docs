@@ -26,7 +26,7 @@ in this document use v2.0.0-beta1 of azure-mobile-apps.
 ## <a name="Introduction"></a>Introduction
 
 Azure App Service Mobile Apps provides the capability to add a mobile-optimized data access Web API to a web application.  The Azure App
-Service Mobile Apps SDK is provided for ASP.NET and NodeJS web application and provides the following operations:
+Service Mobile Apps SDK is provided for ASP.NET and Node.js web applications.  The SDK provides the following operations:
 
 - Table operations (Read, Insert, Update, Delete) for data access
 - Custom API operations
@@ -91,14 +91,14 @@ client library quick starts:
 - [Xamarin.iOS Client QuickStart]
 - [Xamarin.Android Client QuickStart]
 - [Xamarin.Forms Client QuickStart]
-- [Windows Phone Client QuickStart]
+- [Windows Store Client QuickStart]
 - [HTML/Javascript Client QuickStart]
 
 You can find the code for this basic application in the [basicapp sample on GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>Create a Node backend with Visual Studio 2015
 
-Visual Studio 2015 requires an extension to develop Node application within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
+Visual Studio 2015 requires an extension to develop Node.js applications within the IDE.  To start, download and install the [Node.js Tools 1.1 for Visual Studio].  Once the Node.js Tools for Visual Studio are installed, create an Express 4.x application:
 
 1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
 
@@ -122,14 +122,14 @@ Visual Studio 2015 requires an extension to develop Node application within the 
 
 9. Open the _app.js_ file to add support for the Azure Mobile Apps SDK:
 
-  a. At line 6, add the following code:
+  a. At line 6 at the bottom of the library require statements, add the following code:
 
     ```
     var bodyParser = require('body-parser');
     var azureMobileApps = require('azure-mobile-apps');
     ```
 
-  b. At approximately line 27, add the following code:
+  b. At approximately line 27 after the other app.use statements, add the following code:
 
 	```
 	app.use('/users', users);
@@ -423,7 +423,7 @@ var azureMobileApps = require('azure-mobile-apps');
 var table = azureMobileApps.table();
 
 // Read-Only table - only allow READ operations
-table.read.access = undefined;
+table.read.access = 'anonymous';
 table.insert.access = 'disabled';
 table.update.access = 'disabled';
 table.delete.access = 'disabled';
@@ -660,7 +660,7 @@ will appear in the Diagnostic Logs on the [Azure Portal].
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms Client QuickStart]: app-service-mobile-xamarin-forms-get-started.md
-[Windows Phone Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
+[Windows Store Client QuickStart]: app-service-mobile-windows-store-dotnet-get-started.md
 [HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
 [How to configure Azure Active Directory Authentication]: app-service-mobile-how-to-configure-active-directory-authentication.md
