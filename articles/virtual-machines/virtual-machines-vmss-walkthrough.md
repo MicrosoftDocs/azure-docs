@@ -33,7 +33,7 @@ Before you create a Virtual Machine Scale Set, you need a resource group and a s
 
 1.	**Obtain an Azure account** - You can open an Azure account for free: You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
 
-2.	**Install Azure PowerShell** - [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+2.	**Install Azure PowerShell** - [AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
 3.	**Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
 

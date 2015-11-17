@@ -31,7 +31,7 @@ Take a look at these videos for more about VM scale sets:
 
 ## Creating and managing VM scale sets
 
-VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/en-us/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 A set of example templates for VM scale sets can be found in the Azure Quickstart teamplates GitHub repository here:
 
@@ -102,7 +102,7 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **Q** What other resource limits exist for VM scale sets?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during the preview period. The existing [Azure Subscription Service Limits/](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/) apply.
+**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during the preview period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
 
 **Q.** Are Data Disks Supported within VM scale sets?
 
