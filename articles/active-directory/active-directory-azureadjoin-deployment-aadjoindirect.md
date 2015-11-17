@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure" 
-	description="Lists and explains the differnt deployment scenarios available for Azure AD Join." 
+	description="A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users). It also discusses the different real-world scenarios for using Azure AD Join." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Usage scenarios and deployment considerations for Azure AD Join 
@@ -84,5 +85,9 @@ You can set up your users and employees to user their personal Windows devices t
 
 
 ## Additional Information
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md)
+* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Authenticating identities without passwords through Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
