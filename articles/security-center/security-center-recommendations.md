@@ -31,6 +31,7 @@ Azure Security Center is continually analyzing the security state of your Azure 
 ## Setting recommendations
 
 In [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/) you learn to:
+
 - Configure security policies
 - Turn on data collection
 - Choose which recommendations to see as part of your security policy
@@ -56,6 +57,7 @@ To see the details of each recommendation:
 ![][4]
 
 The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
+
 - **DESCRIPTION**: an explanation of the recommendation and what needs to be done to address it
 - **RESOURCE**: for which resource(s) this recommendation is applicable
 - **STATE**: the current state of the recommendation:
@@ -113,6 +115,7 @@ A recommendation may be to deploy an integrated security solution from a Microso
 7. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself.
 
   Step 6 allows you to configure the virtual machine on which the WAF will run and step 7 enables you to provision the WAF itself.
+  
 8. Return to the **Recommendations** blade.  A new entry was generated after you created the WAF, **Reroute traffic through Web Application Firewall**. This lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
 ![][9]
 
