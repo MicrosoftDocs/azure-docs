@@ -539,10 +539,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines if a user is required to register contact data for password reset the next time he or she signs in.  
                 </p>
-                <p>This capability works on any sign-in page that uses a work or school account.  Such pages include all of Office 365, the Azure Management Portal, the Access Panel, and any federated or custom-developed applications that use Azure AD to sign in. You'll be able to use this feature anywhere you see the following logo:     
-                
-  ![][001]
-                
+                <p>This capability works on any sign-in page that uses a work or school account.  Such pages include all of Office 365, the Azure Management Portal, the Access Panel, and any federated or custom-developed applications that use Azure AD to sign in.
                 </p>
                 <p>
                   
