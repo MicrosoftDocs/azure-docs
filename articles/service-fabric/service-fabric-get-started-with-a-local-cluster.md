@@ -121,16 +121,15 @@ Service Fabric provides no-downtime upgrades by monitoring the health of the app
 
 The new version of the application will now only count words that begin with a vowel. As the upgrade rolls out, we will see two changes in the application's behavior. First, the rate at which the count grows should slow, since fewer words are being counted. Second, since the first partition has two vowels (A and E) and all others contain only one each, its count should eventually start to outpace the others.
 - Download the v2 package from [here](http://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the v1 package.
-- Return to your PowerShell window and use the SDK's upgrade script to register the new version in the cluster and begin upgrading fabric:/WordCount.
+- Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster and begin upgrading fabric:/WordCount.
 
-  ```powershell
+```powershell
   Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" @{"UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
-  ```
+```
 
   You should see output in PowerShell that looks something like this as the upgrade begins.
 
   ![Upgrade progress in PowerShell][ps-appupgradeprogress]
-
 - While the upgrade is proceeding, you may find it easier to monitor its status from Service Fabric Explorer. Launch a browser window and navigate to [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Click **Applications** in the tree on the left and then choose **Upgrades in Progress**.
 
   ![Upgrade progress in Service Fabric Explorer][sfx-upgradeprogress]
