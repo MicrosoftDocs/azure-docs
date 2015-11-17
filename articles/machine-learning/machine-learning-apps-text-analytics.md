@@ -3,7 +3,7 @@
 	description="Text Analytics APIs provided by Azure Machine Learning. It can be used to analyze unstructured text for sentiment analysis, key phrase extraction and language detection."
 	services="machine-learning"
 	documentationCenter=""
-	authors="LuisCabrer"
+	authors="onewth"
 	manager="paulettm"
 	editor="cgronlun"/> 
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
-	ms.author="luisca"/>
+	ms.date="11/17/2015"
+	ms.author="onewth"/>
 
 
 # Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction and Language Detection #
@@ -27,19 +27,21 @@ The Text Analytics API is a suite of text analytics [web services]( https://data
 
 ---
 
-## Sentiment analysis##
+## Sentiment analysis ##
+
 The API returns a numeric score between 0 & 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings. Currently, English is the only supported language.
  
-## Key phrase extraction##
+## Key phrase extraction ##
+
 The API returns a list of strings denoting the key talking points in the input text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. Currently, English is the only supported language.
 
-## Language detection##
+## Language detection ##
 
-The API returns the detected language and a numeric score between 0 & 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 122 languages are supported.
+The API returns the detected language and a numeric score between 0 & 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported.
 
 ---
 
-## API Definition##
+## API Definition ##
 
 ### Headers
 
@@ -50,7 +52,7 @@ Ensure that you include the correct headers in your request, which should be as 
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-You can find your account key from your account in the [Azure Data Market]( https://datamarket.azure.com/account/keys). 
+You can find your account key from your account in the [Azure Data Market](https://datamarket.azure.com/account/keys). 
 
 ---
 
@@ -66,7 +68,7 @@ You can find your account key from your account in the [Azure Data Market]( http
 
 In the call below, we are requesting sentiment analysis for the phrase "Hello World":
 
-    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
 This will return a response as follows:
 
@@ -93,8 +95,12 @@ In the call below, we are requesting the key phrases found in the text "It was a
 This will return a response as follows:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata","KeyPhrases":[
-	    "wonderful hotel","unique decor","friendly staff"]
+	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	  "KeyPhrases":[
+	    "wonderful hotel",
+	    "unique decor",
+	    "friendly staff"
+	  ]
 	}
  
 ---
@@ -131,7 +137,7 @@ This will return a response as follows:
 
 ## Batch APIs
 
-The Text Analytics service allows you to do sentiment and key-phrase extractions in batch mode. For `GetSentimentBatch` and `GetKeyPhrasesBatch`, each of the records scored counts as a transaction. As an example, if you request sentiment for 1000 records in a single call, 1000 transactions will be deducted.
+The Text Analytics service allows you to do sentiment and key-phrase extractions in batch mode. Note that each of the records scored counts as one transaction. As an example, if you request sentiment for 1000 records in a single call, 1000 transactions will be deducted.
 
 Note that the IDs entered into the system are the IDs returned by the system. The web service does not check that these IDs are unique. It is the responsibility of the caller to verify uniqueness. 
 
@@ -144,36 +150,35 @@ Note that the IDs entered into the system are the IDs returned by the system. Th
 
 **Example request**
 
-In the POST call below, we are requesting for the sentiments of the following phrases: "Hello World", "Hello Foo World", "Hello My World" in the body of the request
+In the POST call below, we are requesting for the sentiments of the phrases "Hello World", "Hello Foo World" and "Hello My World" in the body of the request:
 
 	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
 
-Body:
+Request body:
 
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	{"Id":"2","Text":"hello foo world"},
-    	{"Id":"3","Text":"hello my world"},
+    	    {"Id":"2","Text":"hello foo world"},
+    	    {"Id":"3","Text":"hello my world"},
 	]}
 
 In the response below, you get the list of scores associated with your text Ids:
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", "SentimentBatch":
+	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "SentimentBatch":
 		[{"Score":0.9549767,"Id":"1"},
 		 {"Score":0.7767222,"Id":"2"},
 		 {"Score":0.8988889,"Id":"3"}
 		],  
-		"Errors":[
-		   {"Id": "4", Message:"Record cannot be null/empty"}
-		]
+		"Errors":[]
 	}
 
 
 ---
 
-### GetKeyPhrasesBatch###
+### GetKeyPhrasesBatch ###
 
 **URL**
 
@@ -181,15 +186,17 @@ In the response below, you get the list of scores associated with your text Ids:
 
 **Example request**
 
-In the POST call below, we are requesting for the list of sentiments for the key phrases in the following texts: 
+In this example, we are requesting for the list of sentiments for the key phrases in the following texts: 
 
-- "It was a wonderful hotel to stay at, with unique decor and friendly staff"
-- "It was an amazing build conference, with very interesting talks"
-- "The traffic was terrible, I spent three hours going to the airport"
+* "It was a wonderful hotel to stay at, with unique decor and friendly staff"
+* "It was an amazing build conference, with very interesting talks"
+* "The traffic was terrible, I spent three hours going to the airport"
 
-	 POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+This request is made as a POST call to the endpoint:
 
-Body:
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+
+Request body:
 
 	{"Inputs":
 	[
@@ -207,14 +214,12 @@ In the response below, you get the list of key phrases associated with your text
 		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
 		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
-		"Errors":[
-		   {"Id": "4", Message:"Record cannot be null/empty"}
-		]
+		"Errors":[]
 	}
 
 ---
 
-### GetLanguageBatch
+### GetLanguageBatch ###
 
 In the POST call below, we are requesting language detection for two text inputs:
 
