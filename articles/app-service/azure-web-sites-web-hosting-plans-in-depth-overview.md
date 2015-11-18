@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure App Service plans in-depth overview" 
 	description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience." 
+	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
