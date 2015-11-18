@@ -17,7 +17,7 @@
    ms.author="bharatn@microsoft.com"/>
 
 # WCF based communication stack for Reliable Services
-Reliable services framework allows Service authors to decide the communication stack they want to use for their service. They can plugin the communication stack of their choice via the `ICommunicationListener` returned from the [`CreateServiceReplicaListeners` or `CreateServiceInstanceListeners`](service-fabric-reliable-service-communication.md) methods. The framework provides a WCF based implementation of the communication stack, for service authors who want to use WCF based communication.
+Reliable services framework allows Service authors to decide the communication stack they want to use for their service. They can plugin the communication stack of their choice via the `ICommunicationListener` returned from the [`CreateServiceReplicaListeners or CreateServiceInstanceListeners`](service-fabric-reliable-service-communication.md) methods. The framework provides a WCF based implementation of the communication stack, for service authors who want to use WCF based communication.
 
 ## WCF Communication Listener
 The WCF specific implementation of `ICommunicationListener` is provided by the `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener` class.
