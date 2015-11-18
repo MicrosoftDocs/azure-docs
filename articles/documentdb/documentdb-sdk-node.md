@@ -93,6 +93,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**. 
 
 
+
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
 | [1.4.0](#1.4.0) | October 06, 2015 |---
