@@ -3,7 +3,7 @@
    description="Walkthrough on how to package multiple applications to deploy to a Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 

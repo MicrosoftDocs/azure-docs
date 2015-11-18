@@ -3,7 +3,7 @@
    description="Describes how to partition Service Fabric services"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager="timlt"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 # How to partition Service Fabric reliable services
 This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services. The source code used in the article is also available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
 ## What is partitioning
-Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
+Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well known form of partitioning is [data partitioning][wikipartition] also known as sharding.
 
 
 ### Partitioning Service Fabric stateless services
@@ -351,3 +351,5 @@ For information on Service Fabric concepts, see the following:
 - [Availability of Service Fabric Services](service-fabric-availability-services.md)
 
 - [Scalability of Service Fabric Services](service-fabric-concepts-scalability.md)
+
+[wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)

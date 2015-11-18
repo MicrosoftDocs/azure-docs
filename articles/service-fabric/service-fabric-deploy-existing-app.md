@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 # Deploy an existing application to Service Fabric
@@ -277,5 +277,5 @@ If you browse to the directory using Server Explorer you can find working direct
 In this article you have learned how to package an existing application and deploy it to Service Fabric. As a next step you can check out additional content for this topic.
 
 - Sample for packaging and deploying an existing application on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the pre-release of the packaging tool.
-- Learn how to [deploy multiple applications](service-fabric-deploy-mulitple-apps.md).
+- Learn how to [deploy multiple applications](service-fabric-deploy-multiple-apps.md).
 - How to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
