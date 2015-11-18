@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="First SQL Database setup with PowerShell | Microsoft Azure" 
+    pageTitle="New SQL Database setup with PowerShell | Microsoft Azure" 
     description="Learn now to create a new SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets." 
     keywords="create new sql database,database setup"
 	services="sql-database" 
@@ -27,7 +27,7 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-Learn how to create a new SQL database and do common database setup using PowerShell cmdlets.
+Learn how to create a new SQL database and do common database setup tasks using PowerShell cmdlets.
 
 > [AZURE.IMPORTANT] Starting with the release of Azure PowerShell 1.0 Preview, the Switch-AzureMode cmdlet is no longer available, and cmdlets that were in the Azure ResourceManger module have been renamed. The examples in this article use the new PowerShell 1.0 Preview naming convention. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 

@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
-	editor=""/>
+	editor="cgronlun"/>
 
 
 <tags
@@ -29,7 +29,7 @@
 
 This SQL Database tutorial shows you how to create a first SQL database in just a few minutes with sample data in the Azure preview portal. You'll learn how to:
 
-- Create a server to host the database you create, and then set up a firewall rule for it
+- Create a server to host the database you create, and then set up a firewall rule for it.
 - Create a SQL database from an AdventureWorks sample, which has data that you can play with.
 
 You'll need an Azure account and subscription before you start. If you don't have one, sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
@@ -107,7 +107,7 @@ You need to set up a firewall rule on the server that allows connections from yo
 	>[AZURE.IMPORTANT] Your Client IP address is likely to change from time to time, and you may not be able to access your server until you create a new firewall rule. You can check your IP address using [Bing](http://www.bing.com/search?q=my%20ip%20address), and then add a single IP address or a range of IP addresses. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
 
 ## Next steps
-Now that you've completed this SQL Database tutorial and you have created a database with some sample data, you're ready to explore using your favorite tools.
+Now that you've completed this SQL Database tutorial and created a database with some sample data, you're ready to explore using your favorite tools.
 
 - If you're familiar with Transact-SQL and SQL Server Management Studio, learn how to [Connect and query a SQL database with SSMS](sql-database-connect-query-ssms.md).
 
