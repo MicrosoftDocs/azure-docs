@@ -90,7 +90,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 > [AZURE.WARNING]
-All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**. 
+All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **February 29, 2016**. 
 
 
 | Version | Release Date | Retirement Date 
