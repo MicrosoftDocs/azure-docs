@@ -133,7 +133,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
-#### Azure Resource Manager Limits
+#### Storage Resource Provider Limits
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
