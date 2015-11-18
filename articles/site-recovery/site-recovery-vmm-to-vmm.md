@@ -173,6 +173,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 1. Download the Provider installation file and registration key to a folder say C:\ASR
 1. Stop the System Center Virtual Machine Manager Service
 1. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 1. Install the provider by executing the following command
@@ -181,7 +182,9 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 1. Register the provider by running the following command
 
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
+
+    
  ####Command line Install Parameter List####
 
  - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
