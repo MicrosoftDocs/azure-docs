@@ -31,23 +31,23 @@
 
 4. Locate the following code in the file:
 
-  ```
-  static const char* deviceId = "[Device Id]";
-  static const char* deviceKey = "[Device Key]";
-  static const char* hubName = "[IoTHub Name]";
-  static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
-  ```
+    ```
+    static const char* deviceId = "[Device Id]";
+    static const char* deviceKey = "[Device Key]";
+    static const char* hubName = "[IoTHub Name]";
+    static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+    ```
 
 5. Replace **[Device Id]** and **[Device Key]** with values for your device from the remote monitoring solution dashboard.
 
 6. Use the **IoT Hub Hostname** from the dashboard to replace **[IoTHub Name]** and **[IoTHub Suffix, i.e. azure-devices.net]**. For example, if your **IoT Hub Hostname** is **contoso.azure-devices.net**, replace **[IoTHub Name]** with **contoso** and replace **[IoTHub Suffix, i.e. azure-devices.net]** with **azure-devices.net** as shown below:
 
-  ```
-  static const char* deviceId = "mydevice";
-  static const char* deviceKey = "mykey";
-  static const char* hubName = "contoso";
-  static const char* hubSuffix = "azure-devices.net";
-  ```
+    ```
+    static const char* deviceId = "mydevice";
+    static const char* deviceKey = "mykey";
+    static const char* hubName = "contoso";
+    static const char* hubSuffix = "azure-devices.net";
+    ```
 
 7. In **Solution Explorer**, right-click the **remote_monitoring** project, click **Debug**, and then click **Start new instance** to build and run the sample. The console displays messages as the application sends sample telemetry to IoT Hub.
 

@@ -29,23 +29,23 @@
 
 3. Locate the following code in the file:
 
-  ```
-  static const char* deviceId = "[Device Id]";
-  static const char* deviceKey = "[Device Key]";
-  static const char* hubName = "[IoTHub Name]";
-  static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
-  ```
+    ```
+    static const char* deviceId = "[Device Id]";
+    static const char* deviceKey = "[Device Key]";
+    static const char* hubName = "[IoTHub Name]";
+    static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+    ```
 
 4. Replace **[Device Id]** and **[Device Key]** with values for your device from the remote monitoring solution dashboard.
 
 5. Use the **IoT Hub Hostname** from the dashboard to replace **[IoTHub Name]** and **[IoTHub Suffix, i.e. azure-devices.net]**. For example, if your **IoT Hub Hostname** is **contoso.azure-devices.net**, replace **[IoTHub Name]** with **contoso** and replace **[IoTHub Suffix, i.e. azure-devices.net]** with **azure-devices.net** as shown below:
 
-  ```
-  static const char* deviceId = "mydevice";
-  static const char* deviceKey = "mykey";
-  static const char* hubName = "Contoso";
-  static const char* hubSuffix = "azure-devices.net";
-  ```
+    ```
+    static const char* deviceId = "mydevice";
+    static const char* deviceKey = "mykey";
+    static const char* hubName = "Contoso";
+    static const char* hubSuffix = "azure-devices.net";
+    ```
 
 6. Save your changes and build the samples. To build your sample you can run the build.sh script in the **c/build_all/linux** directory. The build script creates a **cmake** folder to store the compiled sample programs.
 

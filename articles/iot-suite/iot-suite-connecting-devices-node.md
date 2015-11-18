@@ -25,37 +25,35 @@
 
 1. To clone the *Microsoft Azure IoT SDKs* GitHub repository and install the *Microsoft Azure IoT device SDK for Node.js* in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
 
-2. In your local copy of the [azure-iot-sdks][lnk-github-repo] repository, locate the following files:
+2. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to a folder on your device:
 
-  - packages.json (located in the node/device/samples folder) 
-  - remote_monitoring.js (located in the node/device/samples folder)
+  - packages.json
+  - remote_monitoring.js
 
-  Copy these two files to a folder on your device and put them in the same folder.
+3. Open the remote_monitoring.js file and look for the following variable:
 
-2. Open the remote_monitoring.js file and look for the following variable:
+    ```
+    var connectionString = "[IoT Hub device connection string]";
+    ```
 
-   ```
-   var connectionString = "[IoT Hub device connection string]";
-   ```
+4. Replace **[IoT Hub device connection string]** with your device connection string. You can find the values for your IoT Hub hostname, device id, and device key in the remote monitoring solution dashboard. A device connection string has the following format:
 
-3. Replace **[IoT Hub device connection string]** with your device connection string. A device connection string has the following format:
+    ```
+    HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
+    ```
 
-  ```
-  HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
-  ```
-  
-  You can find the values for your IoT Hub hostname, device id, and device key in the the remote monitoring solution dashboard. For example:
-  
-  ```
-  var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
-  ```
+5. If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string will look like this:
 
-5. Save the file. Run the following command in the folder that contains these files:
+    ```
+    var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
+    ```
 
-```
-npm install
-node remote_monitoring.js
-```
+6. Save the file. Run the following commands in the folder that contains these files:
+
+    ```
+    npm install
+    node remote_monitoring.js
+    ```
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
