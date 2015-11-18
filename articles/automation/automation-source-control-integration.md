@@ -145,7 +145,7 @@ To disconnect from your GitHub account, open the Repository Synchronization blad
 
 ## Next Steps
 
-For more information about source control integration, see the following resources:
+For more information about source control integration, see the following resources:  
 - [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 - [Vote for your favorite source control system](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 - [Azure Automation: Integrating Runbook Source Control using Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
