@@ -63,9 +63,9 @@ The 2.8 SDK requires version 1.0 of the Azure PowerShell cmdlets.  All other ver
 
 The following known issues will be addressed in the following release.
 
-- App Service related Cloud and Server Explorer gestures for non-production Azure environments (like Azure China or Azure Stack customers) do not work in the current release. 
+- App Service related Cloud and Server Explorer gesture for non-production environments (like Azure China or Azure Stack customers) do not work. For customers in these impacted areas, downloading the publish profile from the Azure portal will enable publishing ability. A future release will repair gestures such as “Attach Debugger” and “View Streaming Logs” for Azure China and Stack customers. 
+- Customers may see errors during App Service creation when the App Insights instance to which they are deploying is in a region other than East US. In these scenarios, creating an App Service in the portal and downloading the publish profile will enable publishing scenarios. 
 
-- Customers may see errors during App Service creation when the App Insights instance to which they are deploying is in a region other than East US. 
 
 ##Also see
 
