@@ -1,6 +1,7 @@
 <properties
 	pageTitle="How to work with the .NET backend server SDK for Mobile Apps | Azure App Service"
 	description="Learn how to work with the .NET backend server SDK for Azure App Service Mobile Apps."
+	keywords="app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment"
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777" 
