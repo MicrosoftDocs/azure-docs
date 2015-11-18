@@ -299,7 +299,7 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 
 		![Modify network properties](./media/site-recovery-vmm-to-azure/MultiNic.png)
 
-	[AZURE.NOTE] Linux virtual machines that use static ip are not not supported.
+>[AZURE.NOTE] Linux virtual machines that use static ip are not not supported.
 
 ## Test your deployment
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan.  Test failover simulates your failover and recovery mechanism in an isolated network. Note that:

@@ -255,7 +255,7 @@ Add virtual machines to a protection group to enable protection for them.
 
 		![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
 
-	[AZURE.NOTE] Linux virtual machines that use static ip are not not supported.
+>[AZURE.NOTE] Linux virtual machines that use static ip are not not supported.
 
 
 ## Step 7: Create a recovery plan
