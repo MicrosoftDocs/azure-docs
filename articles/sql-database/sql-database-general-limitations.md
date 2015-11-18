@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="10/28/2015"
+   ms.date="11/16/2015"
    ms.author="jroth" />
 
 # Azure SQL Database General Limitations and Guidelines
@@ -41,9 +41,7 @@ Azure SQL Database does not support distributed transactions, which are transact
 
 ## SQL Server Collation Support
 
-The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive.
-
-When using an on-premise SQL Server, you can set collations at server, database, column, and expression levels. Microsoft Azure SQL Database does not allow setting the collation at the server level. To use the non-default collation with Microsoft Azure SQL Database, set the collation with the Create Database Collate option, or at the column level or the expression level. SQL Database does not support the Collate option with the Alter Database command. By default, in SQL Database, temporary data will have the same collation as the database. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
+The default database collation used by Microsoft Azure SQL Database is **SQL_LATIN1_GENERAL_CP1_CI_AS**, where **LATIN1_GENERAL** is English (United States), **CP1** is code page 1252, **CI** is case-insensitive, and **AS** is accent-sensitive. It is possible to alter the collation for V12 databases using Transact-SQL. For more information about how to set the collation, see [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
 
 ## Naming Requirements
 
@@ -61,9 +59,9 @@ Additionally, login and user names cannot contain the \ character (Windows Authe
 
 ## Additional Guidelines
 
-- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your [service tier](sql-database-service-tiers.md). For detailed description of service tier limits, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
 
-- For other SQL Database limits, see [Azure SQL Database Resource Limits](sql-database-limits.md).
+- For other SQL Database limits, see [Azure SQL Database Resource Limits](sql-database-resource-limits.md).
 
 - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 

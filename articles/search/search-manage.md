@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure" 
+	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
 	description="Manage Azure Search, hosted cloud search service on Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 

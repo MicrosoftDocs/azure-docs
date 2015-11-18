@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Using the OneDrive Connector in Logic Apps | Microsoft Azure App Service"
 	description="How to create and configure the OneDrive Connector or API app and use it in a logic app in Azure App Service"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Get started with the OneDrive Connector and add it to your Logic App
 Connect to your OneDrive to upload, download, and delete files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the OneDrive Connector to your business workflow and process data as part of this workflow within a Logic App. 

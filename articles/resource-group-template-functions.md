@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/02/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
 
 This topic describes all of the functions you can use in an Azure Resource Manager template.
 
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same.
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function will preserve the case. Certain resource types may have case requirements irrespective of how expressions are evaluated.
 
 ## add
 
@@ -496,6 +496,25 @@ The following example converts the user-provided parameter value to upper case.
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## trim
+
+**trim (stringToTrim)**
+
+Removes all leading and trailing white-space characters from the specified string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToTrim                       |   Yes    | The string to trim.
+
+The following example trims the white-space characters from the user-provided parameter value.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -531,6 +550,21 @@ The following example shows how to create a unique name for a storage account ba
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## uri
+
+**uri (baseUri, relativeUri)**
+
+Creates an absolute URI by combining the baseUri and the relativeUri string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| baseUri                            |   Yes    | The base uri string.
+| relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
+
+The following example shows how to create an absolute URI in template link. The result is **http://contoso.com/resources/nested/azuredeploy.json**. 
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## variables
 
@@ -547,5 +581,5 @@ Returns the value of variable. The specified variable name must be defined in th
 - For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
 - To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
 - To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
-- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](azure-portal/resource-group-template-deploy.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
 

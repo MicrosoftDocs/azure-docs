@@ -3,7 +3,7 @@
    description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="10/28/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio
 

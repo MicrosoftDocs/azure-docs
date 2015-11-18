@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -187,7 +187,7 @@ computer**
 
     HPC Job Manager opens and shows a list of jobs on the head node.
 
-**To use the web-based job portal on the head node**
+**To use the web portal running on the head node**
 
 1. Start a web browser on the client computer, and type the following address:
     ```
@@ -195,7 +195,7 @@ computer**
     ```
 2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. For more information, see [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx).)
 
-    The portal opens to the job list view.
+    The web portal opens to the job list view.
 
 3. To submit a sample job that returns the string “Hello World” from the cluster, click **New job** in the left-hand navigation.
 

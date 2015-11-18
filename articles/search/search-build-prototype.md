@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Build a prototype application for Azure Search" 
+	pageTitle="Build a prototype application for Azure Search | Microsoft Azure | Hosted cloud search service" 
 	description="Create your first application prototype to get started with Azure Search, a hosted cloud search service." 
 	services="search" 
 	documentationCenter="" 
