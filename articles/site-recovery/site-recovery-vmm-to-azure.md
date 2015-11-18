@@ -165,7 +165,9 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 8. Click *Next* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  *VMM Servers* tab on the **Servers** page in the vault.
 
-[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
+>[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the  command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
+
+Following are the steps to install provider using command line:
 
 1. Download the Provider installation file and registration key to a folder say C:\ASR
 2. Stop the System Center Virtual Machine Manager Service
