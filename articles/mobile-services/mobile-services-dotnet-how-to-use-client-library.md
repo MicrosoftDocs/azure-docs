@@ -292,17 +292,17 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 
 The Mobile Services client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a handle that you obtain from the platform-specific Push Notification Service (PNS). You then provide this value along with any tags when you create the registration. The following code registers your Windows app for push notifications with the Windows Notification Service (WNS):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
 Note that in this example, two tags are included with the registration. For more information on Windows apps, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md). 
 
@@ -310,8 +310,20 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>How to: Use periodic notifications in a Windows app
 
-##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency
+Windows supports period notifications (pull notifications) to update live tiles. With periodic notifications enabled, Windows will periodically access a custom API endpoint to update the app tile on start menu. To use periodic notifications, you must [define a custom API](mobile-services-javascript-backend-define-custom-api) that returns XML data in a tile-specific format. For more information, see [Periodic notifications](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx). 
+
+The following example turns on period notifications to request tile template data from a *tiles* custom endpoint: 
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+Select a [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) value that best matches the update frequency of your data.
+
+##<a name="optimisticconcurrency"></a>How to: Use optimistic concurrency
 
 Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Optimistic Concurrency Control assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back.
 
