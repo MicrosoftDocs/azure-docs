@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 
@@ -166,31 +166,31 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 
 	![Server registration](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_Provider7.png)
 
-	> [AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
-	>
-	>1. Download the Provider installation file and registration key to a folder say C:\ASR
-	>2. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
-	>
+	[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
+	
+	1. Download the Provider installation file and registration key to a folder say C:\ASR
+	2. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
+	
 	    	C:\Windows\System32> CD C:\ASR
 	    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-	>4. Install the provider by executing the following command
-	>
+	4. Install the provider by executing the following command
+	
 			C:\ASR> setupdr.exe /i
-	>5. Register the provider by running the following command
-	>
+	5. Register the provider by running the following command
+	
 	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
 	    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
 
 
-	>----------
+	
           
-	>####Command line Install Parameter List####
-	>- **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
-	> - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
-	> - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
-	> - **/proxyport** : Optional parameter that specifies the port of the proxy server.
-	> - **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
-	> - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
+	####Command line Install Parameter List####
+	- **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
+	- **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
+	- **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
+	- **/proxyport** : Optional parameter that specifies the port of the proxy server.
+	- **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
+	- **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
 
 >[AZURE.TIP]You can configure each of the individual Hyper-V host to use different network bandwidth settings to replicate virtual machines to Azure. Learn more about [How to Manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/en-us/kb/3056159)  
 
@@ -243,7 +243,7 @@ Add virtual machines to a protection group to enable protection for them.
 		- **Network adapters**: The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-size-specs.md#size-tables) for the number of nics supported by the virtual machine size. 
 		
 
-			When you modify the size for a virtual machine and save the settings, the next time you open the **Configure** page the network adapters will be shown. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
+			When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
 
 
 			- If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
