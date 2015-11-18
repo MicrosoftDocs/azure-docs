@@ -170,20 +170,17 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 	
 Following are the steps to install provider using command line:
  
-	1. Download the Provider installation file and registration key to a folder say C:\ASR
-	2. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
-	
-	    	C:\Windows\System32> CD C:\ASR
-	    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+1. Download the Provider installation file and registration key to a folder say C:\ASR
+2. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 	4. Install the provider by executing the following command
 	
-			C:\ASR> setupdr.exe /i
+    	C:\ASR> setupdr.exe /i
 	5. Register the provider by running the following command
 	
-	    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
-	    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
-
-
+    	CD C:\Program Files\Microsoft Azure Site Recovery Provider\
+    	C:\Program Files\Microsoft Azure Site Recovery Provider\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file>
 	
           
 	####Command line Install Parameter List####
