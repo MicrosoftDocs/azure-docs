@@ -57,9 +57,6 @@
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
 
-> [AZURE.WARNING]
-All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** will be retired on **January 15, 2016**, as announced in this [Microsoft Azure DocumentDB Blog post](). Any application attempting to connect to DocumentDB using a retired SDK will be blocked. 
-
 We strongly recommend that you upgrade to the latest version as early as possible. 
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
 
@@ -71,11 +68,11 @@ It is recommended that you begin application upgrades now in order to avoid bein
 | [1.1.0](#1.1.0) | July 09, 2015 |---
 | [1.0.1](#1.0.1) | May 25, 2015 |---
 | [1.0.0](#1.0.0) | April 07, 2015 |---
-| 0.9.4-prelease | January 14, 2015 | January 15, 2016
-| 0.9.3-prelease | December 09, 2014 | January 15, 2016
-| 0.9.2-prelease | November 25, 2014 | January 15, 2016
-| 0.9.1-prelease | September 23, 2014 | January 15, 2016
-| 0.9.0-prelease | August 21, 2014 | January 15, 2016
+| 0.9.4-prelease | January 14, 2015 | ---
+| 0.9.3-prelease | December 09, 2014 | ---
+| 0.9.2-prelease | November 25, 2014 | ---
+| 0.9.1-prelease | September 23, 2014 | ---
+| 0.9.0-prelease | August 21, 2014 | ---
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
