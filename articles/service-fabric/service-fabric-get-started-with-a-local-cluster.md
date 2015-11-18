@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="11/17/2015"
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading applications on your local cluster
@@ -24,13 +24,15 @@ The Service Fabric SDK includes a full local development environment and enables
 ## Create a local cluster
 A Service Fabric cluster represents a set of hardware resources that you can deploy applications to. Typically, a cluster is made up of anywhere from 5 to many 1000s of machines, but the Service Fabric SDK includes a cluster configuration that can run on a single machine.
 
-> [AZURE.NOTE] The Service Fabric local cluster is not an emulator or simulator. It runs the same platform code found on multi-machine clusters. The only difference is that it runs the platform processes normally spread across five machines on one.
+It is important to understand that the Service Fabric local cluster is not an emulator or simulator. It runs the same platform code found on multi-machine clusters. The only difference is that it runs the platform processes normally spread across five machines on one.
 
 The SDK provides two ways to setup a local cluster: a Windows PowerShell script and the Local Cluster Manager system tray app. In this tutorial, we will use the PowerShell script.
 
 > [AZURE.NOTE] If you have already created a local cluster by deploying an application from Visual Studio, you can skip this section.
 
+
 1. Launch a new PowerShell window as an administrator.
+
 2. Run the cluster setup script from the SDK folder:
 
 	```powershell
@@ -46,7 +48,9 @@ The SDK provides two ways to setup a local cluster: a Windows PowerShell script 
 ## Deploy an application
 The Service Fabric SDK includes a rich set of frameworks and developer tooling for creating applications. If you are interested in learning how to create applications in Visual Studio, see [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). In this tutorial, we will use an existing sample application (called WordCount) so that we can focus on the management aspects of the platform, including deployment, monitoring, and upgrade.
 
+
 1. Launch a new PowerShell window as an administrator.
+
 2. Import the Service Fabric SDK PowerShell module.
 
     ```powershell
