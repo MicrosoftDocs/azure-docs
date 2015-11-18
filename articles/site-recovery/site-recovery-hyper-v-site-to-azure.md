@@ -240,15 +240,10 @@ Add virtual machines to a protection group to enable protection for them.
 		![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- Configure additional virtual machine settings in *Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**, including:
 
-		- **Network adapters**: The number of network adapters is dictated by the size you specify for the target virtual machine.
-			- Large (A3) and A6: 2
-			- ExtraLarge (A4) and A7:
-			- A9: 2
-			- D3: 2
-			- D4: 4
-			- D13: 4
+		- **Network adapters**: The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-size-specs.md#size-tables) for the number of nics supported by the virtual machine size. 
+		
 
-			When you modify the size for a virtual machine and save the settings, the next time you open the **Configure** page the network adapters will be shown. The number of adapters for a virtual machine will be determined as follows:
+			When you modify the size for a virtual machine and save the settings, the next time you open the **Configure** page the network adapters will be shown. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
 
 
 			- If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
@@ -259,6 +254,9 @@ Add virtual machines to a protection group to enable protection for them.
 		- **Target IP address**: If the network adapter of source virtual machine is configured to use static a IP address then you can specify the IP address for the ttarget virtual machine to ensure that the machine has the same IP address after failover.  If you don't specify an IP address then any available address will be assigned at the time of failover. If you specify an address that's in use then failover wll fail.
 
 		![Configure virtual machine properties](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
+
+	[AZURE.NOTE] Linux virtual machines that use static ip are not not supported.
+
 
 ## Step 7: Create a recovery plan
 
