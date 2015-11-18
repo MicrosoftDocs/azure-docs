@@ -312,7 +312,7 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 
 ##<a name="pull-notifications"></a>How to: Use periodic notifications in a Windows app
 
-Windows supports period notifications (pull notifications) to update live tiles. With periodic notifications enabled, Windows will periodically access a custom API endpoint to update the app tile on start menu. To use periodic notifications, you must [define a custom API](mobile-services-javascript-backend-define-custom-api) that returns XML data in a tile-specific format. For more information, see [Periodic notifications](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx). 
+Windows supports period notifications (pull notifications) to update live tiles. With periodic notifications enabled, Windows will periodically access a custom API endpoint to update the app tile on the start menu. To use periodic notifications, you must [define a custom API](mobile-services-javascript-backend-define-custom-api.md) that returns XML data in a tile-specific format. For more information, see [Periodic notifications](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx). 
 
 The following example turns on period notifications to request tile template data from a *tiles* custom endpoint: 
 
