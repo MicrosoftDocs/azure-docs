@@ -86,29 +86,26 @@
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
 
-> [AZURE.WARNING]
-All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** will be retired on **January 15, 2016**, as announced in this [Microsoft Azure DocumentDB Blog post](). Any application attempting to connect to DocumentDB using a retired SDK will be blocked. 
-
 We strongly recommend that you upgrade to the latest version as early as possible. 
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
 
 | Version | Release Date | 
 | ---	  | ---	         | ---
-| [1.4.0](#1.4.0) | Tuesday, October 06 2015 |---
-| [1.3.0](#1.3.0) | Tuesday, October 06 2015 |---
-| [1.2.2](#1.2.2) | Thursday, September 10 2015 |---
-| [1.2.1](#1.2.1) | Saturday, August 15 2015 |---
-| [1.2.0](#1.2.0) | Wednesday, August 05 2015 |---
-| [1.1.0](#1.1.0) | Thursday, July 09 2015 |---
-| [1.0.3](#1.0.3) | Thursday, June 04 2015 |---
-| [1.0.2](#1.0.2) | Saturday, May 23 2015 |---
-| [1.0.1](#1.0.1) | Friday, May 15 2015 |---
-| [1.0.0](#1.0.0) | Wednesday, April 08 2015 |---
-| 0.9.4-prelease | Monday, April 06 2015 | Friday, January 15 2016
-| 0.9.3-prelease | Wednesday, January 14 2015 | Friday, January 15 2016
-| 0.9.2-prelease | Friday, December 18 2014 | Friday, January 15 2016
-| 0.9.1-prelease | Friday, August 22 2014 | Friday, January 15 2016
-| 0.9.0-prelease | Thursday, August 21 2014 | Friday, January 15 2016
+| [1.4.0](#1.4.0) | October 06 2015 |---
+| [1.3.0](#1.3.0) | October 06 2015 |---
+| [1.2.2](#1.2.2) | September 10 2015 |---
+| [1.2.1](#1.2.1) | August 15 2015 |---
+| [1.2.0](#1.2.0) | August 05 2015 |---
+| [1.1.0](#1.1.0) | July 09 2015 |---
+| [1.0.3](#1.0.3) | June 04 2015 |---
+| [1.0.2](#1.0.2) | May 23 2015 |---
+| [1.0.1](#1.0.1) | May 15 2015 |---
+| [1.0.0](#1.0.0) | April 08 2015 |---
+| 0.9.4-prelease | April 06 2015 | ---
+| 0.9.3-prelease | January 14 2015 | ---
+| 0.9.2-prelease | December 18 2014 | ---
+| 0.9.1-prelease | August 22 2014 | ---
+| 0.9.0-prelease | August 21 2014 | ---
 
 
 ## FAQ
