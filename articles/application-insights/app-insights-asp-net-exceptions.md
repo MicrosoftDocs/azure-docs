@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
-	description="Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry." 
+	description="Capture exceptions from ASP.NET apps along with request telemetry." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnose failures and exceptions in ASP.NET apps with Application Insights  
+
+
+# Set up Application Insights: Diagnose exceptions
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 By monitoring your application with [Visual Studio Application Insights][start], you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
