@@ -54,10 +54,15 @@
 - GA SDK
 
 ## Release & Retirement Dates
-Microsoft will provide notification at least **12 months** in advance before retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-We strongly recommend that you upgrade to the latest version as early as possible. 
-It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
+New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
+
+Any request to DocumentDB using a retired SDK will be rejected by the service.
+
+> [AZURE.WARNING]
+All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** will be retired on **February 29, 2016**. 
+
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
