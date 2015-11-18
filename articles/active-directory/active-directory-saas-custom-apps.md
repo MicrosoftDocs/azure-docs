@@ -112,10 +112,10 @@ After selecting **Next**, you will be prompted to enter the URL of the applicati
 Note: You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application. 
 
 <!--Image references-->
-[1]: ./media/active-directory-custom-apps/customapp1.png
-[2]: ./media/active-directory-custom-apps/customapp2.png
-[3]: ./media/active-directory-custom-apps/customapp3.png
-[4]: ./media/active-directory-custom-apps/customapp4.png
-[5]: ./media/active-directory-custom-apps/customapp5.png
-[6]: ./media/active-directory-custom-apps/customapp6.png
-[7]: ./media/active-directory-custom-apps/customapp7.png
+[1]: ./media/active-directory-saas-custom-apps/customapp1.png
+[2]: ./media/active-directory-saas-custom-apps/customapp2.png
+[3]: ./media/active-directory-saas-custom-apps/customapp3.png
+[4]: ./media/active-directory-saas-custom-apps/customapp4.png
+[5]: ./media/active-directory-saas-custom-apps/customapp5.png
+[6]: ./media/active-directory-saas-custom-apps/customapp6.png
+[7]: ./media/active-directory-saas-custom-apps/customapp7.png
