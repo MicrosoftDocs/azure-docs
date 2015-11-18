@@ -39,11 +39,11 @@ The SDK provides two ways to setup a local cluster: a Windows PowerShell script 
 	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
 	```
 
-  Cluster setup will take a few moments, after which you should see output that looks something like this:
+    Cluster setup will take a few moments, after which you should see output that looks something like this:
 
-  ![Cluster setup output][cluster-setup-success]
+    ![Cluster setup output][cluster-setup-success]
 
-  You are now ready to try deploying an application to your cluster.
+    You are now ready to try deploying an application to your cluster.
 
 ## Deploy an application
 The Service Fabric SDK includes a rich set of frameworks and developer tooling for creating applications. If you are interested in learning how to create applications in Visual Studio, see [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). In this tutorial, we will use an existing sample application (called WordCount) so that we can focus on the management aspects of the platform, including deployment, monitoring, and upgrade.
