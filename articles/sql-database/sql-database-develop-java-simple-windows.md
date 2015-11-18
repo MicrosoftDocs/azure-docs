@@ -89,7 +89,7 @@ Here next is the bulk of the Java code sample. The sample includes the `main` fu
 				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
-				+ "password={your_password};"
+				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
