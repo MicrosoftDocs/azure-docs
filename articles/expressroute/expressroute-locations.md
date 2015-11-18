@@ -44,7 +44,7 @@ The table below provides information on regions and geopolitical boundaries for 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
 |**US Government cloud**|US Government|Iowa, Virginia|Ashburn, Chicago|
-|**China cloud**|China|East, North|
+|**China cloud**|China|Beijing, Shanghai|
 
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
@@ -67,7 +67,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** |  Supported | Not Supported | Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Supported | Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Supported | Amsterdam, London |
-| **Interxion** | Supported | Not Supported | Amsterdam |
+| **Interxion** | Supported | Supported | Amsterdam |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Not Supported | Amsterdam, Chicago, Dallas, London, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Supported | Not Supported | Melbourne, Sydney |
 | **MTN** | Supported | Not Supported | London |

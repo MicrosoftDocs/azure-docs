@@ -187,7 +187,3 @@ To use parameterize Pig script, do the following:
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
 
- 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md).
-
