@@ -73,7 +73,3 @@ Partitions affect load balancing and scalability for each of the storage service
 - [Azure Storage Replication](storage-redundancy.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md)
 - [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
- 
