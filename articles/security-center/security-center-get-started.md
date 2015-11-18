@@ -59,6 +59,7 @@ Configure a security **Policy** for your subscription(s):
 ![][3]
 
 Address **Recommendations**:
+
 9. Return to the **Security Center** blade and click the **Recommendations** tile.
 10.	Azure Security Center is continually analyzing the security state of your Azure resources. When potential security vulnerabilities are identified, a recommendation is shown here.
 11.	Click each recommendation to view more information and/or take action to resolve it.
@@ -66,6 +67,7 @@ Address **Recommendations**:
 ![][4]
 
 View the health and security state of your resources via **Resources health**:
+
 12.	Return to the **Security Center** blade.
 13.	The **Resources health** tile contains indicators of the security state  for Virtual machines, Networking, SQL, and Applications.
 14.	Select **Virtual machines** to view more information.
@@ -76,6 +78,7 @@ View the health and security state of your resources via **Resources health**:
 ![][5]
 
 Address **Security Alerts**:
+
 19.	Return to the **Security Center** blade and click the **Security alerts** tile.
 20.	On the **Security alerts** blade a list of alerts are displayed. The alerts were detected by Azure Security Center analysis of your security logs and network. Alerts from integrated partner solutions are included.
 21.	Click an alert to view additional information.
