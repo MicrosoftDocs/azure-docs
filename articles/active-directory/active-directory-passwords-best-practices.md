@@ -48,7 +48,7 @@ Before a user can use password reset, **all** of the following conditions must b
 You have several options on how to specify data for users in your organization to be used for password reset.
 
 - Edit users in the [Azure Management Portal](https://manage.windowsazure.com) or the [Office 365 Admin Portal](https://portal.microsoftonline.com)
-- Use AADSync to synchronize user properties into Azure AD from an on-premises Active Directory domain
+- Use Azure AD Sync to synchronize user properties into Azure AD from an on-premises Active Directory domain
 - Use Windows PowerShell to edit user properties by [following the steps here](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 - Allow users to register their own data by guiding them to the registration portal at [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
 - Require users to register for password reset when they sign in to their Azure AD account by setting the  [**Require users to register when signing in?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) configuration option to **Yes**.
