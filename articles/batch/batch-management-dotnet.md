@@ -20,8 +20,8 @@
 # Manage Azure Batch accounts and quotas with Batch Management .NET
 
 > [AZURE.SELECTOR]
-- [Batch Management .NET](batch-management-dotnet.md)
 - [Azure preview portal](batch-account-create-portal.md)
+- [Batch Management .NET](batch-management-dotnet.md)
 
 Lower maintenance overhead in your Azure Batch applications by using the [Batch Management .NET][api_mgmt_net] library to automate Batch account creation, deletion, key management, and quota discovery.
 
@@ -73,7 +73,7 @@ BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts
 
 > [AZURE.TIP] You can create a streamlined connection workflow for your management applications. First, obtain an account key for the Batch account you wish to manage with [ListKeysAsync][net_list_keys], then use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] used when initializing a [BatchClient][net_batch_client].
 
-## Check your Azure subscription and Batch account quotas
+## Check Azure subscription and Batch account quotas
 
 Azure subscriptions and the individual Azure services like Batch all have default quotas limiting the number of certain entities within them. The default quotas for Azure subscriptions can be found in [Azure Subscription and Service Limits, Quotas, and Constraints](./../azure-subscription-service-limits.md), and those of the Batch service can be found in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). The Batch Management .NET library provides the ability to check these quotas within your applications, enabling you to make allocation decisions before adding accounts or compute resources like pools and compute nodes.
 
@@ -121,7 +121,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 > [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure preview portal][azure_portal]. For example, please see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 
-## Batch Management .NET, Azure Active Directory, and the Resource Manager
+## Batch Management .NET, AAD, and Resource Manager
 
 When working with the Batch Management .NET library, you will typically leverage the capabilities of both [Azure Active Directory][aad_about] (AAD) and the [Azure Resource Manager][resman_overview]. The sample project discussed below employs both Azure Active Directory and the Resource Manager while demonstrating the Batch Management .NET API.
 
