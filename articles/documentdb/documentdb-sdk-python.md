@@ -66,17 +66,17 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
-| [1.4.2](#1.4.2) | October 06 2015 |---
-| [1.4.1](#1.4.1) | October 06 2015 |---
+| [1.4.2](#1.4.2) | October 06, 2015 |---
+| [1.4.1](#1.4.1) | October 06, 2015 |---
 | [1.2.0](#1.2.0) | August 06, 2015 |---
 | [1.1.0](#1.1.0) | July 09, 2015 |---
 | [1.0.1](#1.0.1) | May 25, 2015 |---
 | [1.0.0](#1.0.0) | April 07, 2015 |---
-| 0.9.4-prelease | January 14, 2015 | ---
-| 0.9.3-prelease | December 09, 2014 | ---
-| 0.9.2-prelease | November 25, 2014 | ---
-| 0.9.1-prelease | September 23, 2014 | ---
-| 0.9.0-prelease | August 21, 2014 | ---
+| 0.9.4-prelease | January 14, 2015 | February 29, 2016
+| 0.9.3-prelease | December 09, 2014 | February 29, 2016
+| 0.9.2-prelease | November 25, 2014 | February 29, 2016
+| 0.9.1-prelease | September 23, 2014 | February 29, 2016
+| 0.9.0-prelease | August 21, 2014 | February 29, 2016
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
