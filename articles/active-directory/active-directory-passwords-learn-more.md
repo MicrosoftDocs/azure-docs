@@ -262,16 +262,14 @@ The following table outlines where and how this data is used during password res
           </tr>
         </tbody></table>
 
-<br/>
-<br/>
-<br/>
-
 ###How to access password reset data for your users
+####Data settable via synchronization
 The following fields can be synchronized from on-premises:
 
 * Mobile Phone
 * Office Phone
 
+####Data settable with Azure AD PowerShell
 The following fields are accessible with Azure AD PowerShell & the Graph API:
 
 * Alternate Email
@@ -280,7 +278,8 @@ The following fields are accessible with Azure AD PowerShell & the Graph API:
 * Authentication Phone
 * Authentication Email
 
-The following fields are only accessible via the SSPR registration UI:
+####Data settable with registration UI only
+The following fields are only accessible via the SSPR registration UI (https://aka.ms/ssprsetup):
 
 * Security Questions and Answers
 
