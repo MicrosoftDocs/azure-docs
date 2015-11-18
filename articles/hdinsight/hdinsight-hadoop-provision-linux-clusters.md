@@ -216,8 +216,6 @@ The metastore contains Hive and Oozie metadata, such as information about Hive t
 
 Using the Metastore configuration option allows you to specify an external metastore using SQL Database. This allows the metadata information to be preserved when you delete a cluster, as it is stored externally in the database. For instructions on how to create a SQL database in Azure, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
-> [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
-
 ###<a id="scriptaction"></a>Script action
 
 You can install additional components or customize cluster configuration by using scripts during cluster provisioning. Such scripts are invoked via **Script Action**. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md).

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Analytics for Windows Phone and Store apps | Microsoft Azure"
-	description="Analyze usage and performance of your Windows device app."
+	pageTitle="Application Insights for Windows Phone and Store apps | Microsoft Azure"
+	description="Analyze usage and performance of your Windows device app with Application Insights."
 	services="application-insights"
     documentationCenter="windows"
 	authors="alancameronwills"
@@ -15,43 +15,89 @@
 	ms.date="11/11/2015"
 	ms.author="awills"/>
 
-# Analytics for Windows Phone and Store apps
+# Application Insights for Windows Phone and Store apps
 
+*Application Insights is in preview.*
 
+[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Visual Studio Application Insights lets you monitor your published application for usage and performance.
+Visual Studio Application Insights lets you monitor your published application for:
 
-
-> [AZURE.NOTE] We recommend [HockeyApp](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-store-apps-and-windows-phone-store-apps) to get crash reports, analytics, distribution and feedback management.
+* [**Usage**][windowsUsage]&#151;Learn how many users you have and what they are doing with your app.
+* [**Crashes**][windowsCrash]&#151;Get diagnostic reports of crashes and understand their impact on users.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-
-## Setting up Application Insights for your Windows device project
+For many application types, [Visual Studio can add Application Insights to your app](#ide) almost without you noticing. But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.
 
 You'll need:
 
 * A subscription to [Microsoft Azure][azure].
 * Visual Studio 2013 or later.
 
-**C++ UAP apps** - See the [Application Insights C++ setup guide](https://github.com/Microsoft/ApplicationInsights-CPP)
+## 1. Create an Application Insights resource
 
-### <a name="new"></a>If you're creating a new Windows app project ...
+In the [Azure portal][portal], create a new Application Insights resource.
 
-Select **Application Insights** in the **New Project** dialog.
+![Choose New, Developer Services, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
-If you're asked to sign in, use the credentials for your Azure account.
+A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
 
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
+#### Copy the Instrumentation Key
+
+The key identifies the resource. You'll need it to configure the SDK to send the data to the resource.
+
+![Open the Essentials drop-down drawer and select the instrumentation key](./media/app-insights-windows-get-started/02-props.png)
 
 
-### <a name="existing"></a>Or if it's an existing project ...
+## 2. Add the Application Insights SDK to your apps
 
-Add Application Insights from Solution Explorer.
+In Visual Studio, add the appropriate SDK to your project.
 
+If it's a Windows Universal app, repeat the steps for both the Windows Phone project and the Windows project.
 
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
-**Windows Universal apps**: Repeat for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+1. Right-click the project in Solution Explorer and choose **Manage NuGet Packages**.
+
+    ![](./media/app-insights-windows-get-started/03-nuget.png)
+
+2. Search for "Application Insights".
+
+    ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
+
+3. Choose **Application Insights for Windows Applications**
+
+4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below.
+
+	```xml
+
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
+		</ApplicationInsights>
+	```
+
+    Set the properties of the ApplicationInsights.config file: **Build Action** == **Content** and **Copy to Output Directory** == **Copy always**.
+
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
+
+5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
+	public App()
+	{
+	   // Add this initilization line.
+	   WindowsAppInitializer.InitializeAsync();
+
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
+```
+
+**Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Enable network access for your app
 
@@ -130,7 +176,25 @@ For more details, see [API overview: Custom Events and Metrics][api].
 * [Learn about diagnostic search][diagnostic]
 
 
+## <a name="ide"></a>Automated setup
 
+If you prefer to let Visual Studio perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.
+
+### <a name="new"></a>If you're creating a new Windows app project ...
+
+Select **Application Insights** in the **New Project** dialog.
+
+If you're asked to sign in, use the credentials for your Azure account.
+
+![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
+
+
+### <a name="existing"></a>Or if it's an existing project ...
+
+Add Application Insights from Solution Explorer.
+
+
+![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
 ## Upgrade to a new release of the SDK
 

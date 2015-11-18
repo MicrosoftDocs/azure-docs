@@ -70,11 +70,6 @@ These are implementations we've heard about, including some by third parties.
 +   [Semantic Logging](https://github.com/fidmor89/SLAB_AppInsights)&#151;integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
-## Export
-
-+ [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-+ [Stream Analytics](app-insights-export-power-bi.md)
-
 ## <a name="projects"></a> Build your own SDK
 
 If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home)
