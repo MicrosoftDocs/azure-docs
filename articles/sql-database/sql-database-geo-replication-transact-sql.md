@@ -253,13 +253,13 @@ Use the following steps to monitor a geo-replication partnership.
 
 3. Use the following statement to show all databases with geo-replication links.
 
-        SELECT database_id,start_date, partner_server, partner_database,  replication_state, is_target_role, is_non_redable_secondary FROM sys.geo_replication_links;
+        SELECT database_id, start_date, modifyt_date, partner_server, partner_database, replication_state_desc, role, secondary_allow_connections_desc FROM sys.dm_geo_replication_links;
 
 4. Click **Execute** to run the query.
 5. Open the Databases folder, expand the **System Databases** folder, right-click on **MyDB**, and then click **New Query**.
 6. Use the following statement to show the replication lags and last replication time of my secondary databases of MyDB.
 
-        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_ replication_status
+        SELECT link_guid, partner_server, last_replication, replication_lag_sec FROM sys.dm_geo_replication_link_status
 
 7. Click **Execute** to run the query.
 8. Use the following statement to show the most recent geo-replication operations associated with database MyDB.
