@@ -167,7 +167,7 @@ For each package that you put into the package repository, you need a nuspec tha
 
 ## Step 6: Tying it all together
 
-Each time a version passes QA and is approved for deployment, the package is created, nuspec and nupkg updated and deployed to the NuGet server.  In addition, the configuration (Step 4 above) must be updated to agree with the new version number.  It must be sent to the pull server and compiled.  From that point on, it's up to the VMs that depend on that configuration to pull the update and install it.  Each of these updates are simple - just a line or two of PowerShell.  In the case of Visual Studio Online, some of them are encapsulated in build tasks that can be chained together in a build.  This [article](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) provides more details.  This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the various available build tasks.
+Each time a version passes QA and is approved for deployment, the package is created, nuspec and nupkg updated and deployed to the NuGet server.  In addition, the configuration (Step 4 above) must be updated to agree with the new version number.  It must be sent to the pull server and compiled.  From that point on, it's up to the VMs that depend on that configuration to pull the update and install it.  Each of these updates are simple - just a line or two of PowerShell.  In the case of Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained together in a build.  This [article](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs) provides more details.  This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the various available build tasks.
 
 ## Notes
 
