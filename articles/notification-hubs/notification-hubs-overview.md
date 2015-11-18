@@ -118,9 +118,9 @@ Notification hubs provide a ready-to-use push notification infrastructure with t
 
 ##Integration with App Service Mobile Apps
 
-To facililate a seamless and unifying experience across Azure services, we are tightly integrated with [App Service Mobile Apps], which offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+To facililate a seamless and unifying experience across Azure services, [App Service Mobile Apps] has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps] offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 
-It is incredibly simple for Mobile Apps developers to utilize Notification Hubs with the following workflow:
+Mobile Apps developers can utilize Notification Hubs with the following workflow:
 
 1. Retrieve device PNS handle
 2. Register device and [templates]  (optional) with Notification Hubs through convenient Mobile Apps Client SDK register API
