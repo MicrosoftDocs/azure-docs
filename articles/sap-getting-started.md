@@ -24,7 +24,7 @@ Summary: This is the paper to start with if you are thinking about running SAP N
 
 Updated: August 2015
 
-![Download this guide now](./sap-getting-started/media/SAP NetWeaver on Windows Azure Virtual Machine Implementation Guide V3_00.docx)
+[Download this guide now](./sap-getting-started/media/SAP NetWeaver on Windows Azure Virtual Machine Implementation Guide V3_00.docx)
 ## SAP NetWeaver on Azure Virtual Machines – Deployment Guide
 Summary: This document provides procedural guidance for deploying SAP NetWeaver software to virtual machines in Azure. This paper focuses on three specific deployment scenarios, with an emphasis on enabling the Azure Monitoring Extensions for SAP, including troubleshooting recommendations for the Azure Monitoring Extensions for SAP. This paper assumes that you’ve read the planning and implementation guide.
 
