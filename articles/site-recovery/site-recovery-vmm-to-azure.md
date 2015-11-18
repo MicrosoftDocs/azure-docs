@@ -173,7 +173,7 @@ Following are the steps to install provider using command line:
 2. Stop the System Center Virtual Machine Manager Service
 3. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
 
-     C:\Windows\System32> CD C:\ASR
+    	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 4. Install the provider by executing the following command
 
@@ -181,7 +181,9 @@ Following are the steps to install provider using command line:
 5. Register the provider by running the following command
 
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>   
+
+      
  ####Command line Install Parameter List####
 
  - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
