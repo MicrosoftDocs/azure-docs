@@ -19,8 +19,6 @@
 # Prepare your development environment
  In order to build and run [Service Fabric applications][1] on your development machine, you need to install the runtime, SDK, tools, and set up a local cluster.
 
- > [AZURE.NOTE] These instructions are intended for setting up new machines. If you have installed a previous version of Service Fabric, please follow the [instructions to update your development environment](service-fabric-update-your-development-environment.md).
-
 ## Prerequisites
 ### Supported Operating System versions
 The following operating system versions are supported:
