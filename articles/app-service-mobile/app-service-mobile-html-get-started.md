@@ -25,7 +25,7 @@
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app using an Azure Mobile App backend. You will create both a new Mobile App backend and a simple *To do list* web app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). 
 
 A screenshot from the completed app is below:
 
