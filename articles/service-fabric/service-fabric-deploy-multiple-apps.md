@@ -21,7 +21,7 @@
 
 This article shows how to package and deploy multiple applications to Service Fabric using the preview version of the Service Fabric packaging tool, which is available at http://aka.ms/servicefabricpacktool.
 
-For building a Service Fabric package manually read the article [deploy an existing application in Azure Service Fabric ](service-fabric-deploy-existing-app.md).
+For building a Service Fabric package manually read the article [deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
 While this walkthrough shows how to deploy an application with a Node.js frontend that uses MongoDB as the data store you can apply the steps to any application that has dependencies on another application.   
 
@@ -194,6 +194,6 @@ Once the application is successfully published to the local cluster you can acce
 
 In this tutorial tutorial you have seen how to easily package two existing application as one Service Fabric application and deploy it to Service Fabric so that it can benefit from some of the Service Fabric features such as high availability and heath system integration.
 
-For more information see the following topics:
+## Next steps
 
-[Service Fabric Packaging format ](service-fabric-deploy-existing-app.md)
+Learn how to [package a single application manually](service-fabric-deploy-existing-app.md).

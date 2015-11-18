@@ -17,7 +17,7 @@
    ms.author="bscholl"/>
 
 # How to partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services. The source code used in the article is also available on [Github](http://Github.com).
+This article provides an introduction to the basic concepts of partitioning Service Fabric reliable services. The source code used in the article is also available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
 ## What is partitioning
 Partitioning is not unique to Service Fabric, in fact it is a core pattern of building scalable services. In a broader sense we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well known form of partitioning is [data partitioning]( https://en.wikipedia.org/wiki/Partition_(database)) also known as sharding.
@@ -342,7 +342,7 @@ This service serves as a simple web interface that accepts the lastname as a que
 17. In a browser you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
 ![Browser](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
-The entire source code of the sample is available on [Github](www.github.com)
+The entire source code of the sample is available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)
 
 ## Next steps
 
