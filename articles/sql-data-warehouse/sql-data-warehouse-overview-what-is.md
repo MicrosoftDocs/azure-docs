@@ -21,17 +21,9 @@
 
 Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds.  SQL Data Warehouse is also deeply ingrained into Azure, it easily deploys in seconds.  In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore.  In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
 
-## Data Warehouse Optimized
-At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses.  This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries.  In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, we have the following architecture:
-
-<br/>
-<div style="text-align:center" markdown="1">
-![](http://i.imgur.com/BAa8Xeu.png)
-</div>
-<br/>
-
-
-This architecture breaks up into 4 key components:
+## Optimized
+### Data Warehouse Architecture
+At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses.  This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries.  In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
 
 - **Control Node:**  You connect to the control node when using SQL Data Warehouse with any development, loading, or business intelligence tools.  In SQL Data Warehouse, the compute node is a SQL Database, and when connecting it looks and feels like a standard SQL Database.  However, under the surface, it coordinates all of the data movement and computation that takes place in the system.  When a command is issued to the control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
 
@@ -41,6 +33,7 @@ This architecture breaks up into 4 key components:
 
 - **Data Movement Services:** The final piece holding everything together in SQL Data Warehouse is our Data Movement Services.  The data movement services allows the control node to communicate and pass data to all of the compute nodes.  It also enables the compute nodes to pass data between each other, which gives them access to data on other compute nodes, and allows them to get the data that they need to complete joins and aggregations.
 
+### Engine Optimizations
 This MPP approach allows SQL Data Warehouse to take a divide and conquer approach as described above when solving large data problems.  Since the data in SQL Data Warehouse is divided and distributed across the compute nodes of the service, each compute node is able to operate on its portion of the data in parallel.  Finally, results are passed to the control node and aggregated before being passed back to the users.  This approach is also aided by a number of data warehousing specific performance optimizations:
 
 - SQL Data Warehouse uses an advanced query optimizer and set of complex statistics across all data on the service to create its query plans.  Using information on data size and distribution, the service is able to optimize distributed queries based on assessing the cost of specific query operations.
@@ -66,6 +59,8 @@ Compute usage in SQL Data Warehouse is measured using SQL Data Warehouse Units (
 
 - As we rapidly improve performance in SQL Data Warehouse, we can ensure we do so in a way the is scalable and evenly effects the system.
 
+### Data Warehouse Units
+
 Specifically, we look at Data Warehouse Units as a measure of three precise metrics that we find to be highly correlated with data warehousing workload performance.  We aim that, for our general availability, these key workload metrics will scale linearly with the DWUs that you have chosen for your data warehouse.
 
 **Scan/Aggregation:** This workload metric takes a standard data warehousing query that scans a large number of rows and then performs a complex aggregation. This is a IO and CPU intensive operation.
@@ -74,6 +69,7 @@ Specifically, we look at Data Warehouse Units as a measure of three precise metr
 
 **CREATE TABLE AS SELECT (CTAS):** CTAS measures the ability to create copy of a table.  This involves reading data from storage, distributing it across the nodes of the appliance, and writing it to storage again.  It is a CPU and Network intensive operation.
 
+### When to Scale
 Overall, we want DWUs to be simple.  When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need.  Some times when you might think about changing your number of DWUs are:
 
 - When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse.
