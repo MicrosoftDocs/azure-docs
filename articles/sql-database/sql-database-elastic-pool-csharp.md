@@ -53,7 +53,7 @@ Get the required management libraries by installing the following packages using
 
 ## Configure authentication with Azure Active Directory
 
-Before you start C# database development, you complete some tasks in the Azure portal. First enable your application to access the REST API by setting up the required authentication.
+Before you start SQL development in C#, you must complete some tasks in the Azure portal. First enable your application to access the REST API by setting up the required authentication.
 
 The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication rather than the certificates used by the earlier Azure Service Management REST APIs.
 
@@ -63,19 +63,19 @@ To create a new application and register it in the correct active directory do t
 
 1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
 
-    ![AAD][1]
+    ![C# SQL database development: Active Directory setup][1]
 
 2. Select the directory to authenticate your application and click it's **Name**.
 
-    ![Directories][4]
+    ![Select a directory.][4]
 
 3. On the directory page, click **APPLICATIONS**.
 
-    ![Applications][5]
+    ![Click Applications.][5]
 
 4. Click **ADD** to create a new application.
 
-    ![Add application][6]
+    ![Click Add button: Create C# application.][6]
 
 5. Select **Add an application my organization is developing**.
 
@@ -89,7 +89,7 @@ To create a new application and register it in the correct active directory do t
 
 7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id in your code).
 
-    ![get client id][9]
+    ![Get client ID][9]
 
 
 1. On the bottom of the page click on **Add application**.
@@ -97,7 +97,7 @@ To create a new application and register it in the correct active directory do t
 1. Select **Azure Service Management API**, and then complete the wizard.
 2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
 
-    ![permissions][2]
+    ![Set permissions][2]
 
 2. Click **SAVE**.
 
@@ -151,7 +151,7 @@ The client application must retrieve the application access token for the curren
 
 ## Create a resource group
 
-With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. To create an elastic database pool you need an Azure SQL Database server in an existing resource group. Run the following code to create the resource group:
+With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. To create an elastic database pool you need an Azure SQL Database server in an existing resource group. Run the following C# code to create the resource group:
 
 
     // Create a resource management client
@@ -566,6 +566,7 @@ The following example lists all databases in a pool:
 
 
 ## Additional Resources
+
 
 [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 

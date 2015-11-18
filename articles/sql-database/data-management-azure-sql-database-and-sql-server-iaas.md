@@ -17,13 +17,14 @@
 	ms.date="11/16/2015"
 	ms.author="jeffreyg"/>
 
-# Choose a SQL server cloud option: Azure SQL (SaaS) Database or Azure SQL Server in the cloud on VMs
+# Choose a cloud SQL server option: Azure SQL (SaaS) Database or Azure SQL Server in the cloud on VMs
 
-Microsoft Azure has you two options for hosting SQL Server in the cloud:
+Microsoft Azure has two options for SQL Server in the cloud:
+
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A cloud SQL database.
-* [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): A way to use SQL server in the cloud.
+* [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL server in the cloud.
 
-Learn how each option fits into the Microsoft data platform. Then, get help matching the cloud SQL server option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements that you care about most.
+Learn how each option fits into the Microsoft data platform. Then, get help matching the cloud SQL server option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
 - [Microsoft’s Data Platform](#platform)
 - [A Closer Look at Azure SQL Database and SQL Server in Azure VM](#close)
@@ -65,7 +66,7 @@ In the following sections, we will learn about the SQL server in the public clou
 In general, these two SQL options are optimized for different purposes:
 
 - **Azure SQL Database** is optimized to reduce overall costs to the minimum for provisioning and managing many databases. It minimizes ongoing administration costs because you do not have to manage any virtual machines, operating system or database software including upgrades, high availability, and backups. In general, SQL Database can dramatically increase the number of databases managed by a single IT or development resource.
-- **SQL Server running in Azure VM** is optimized for extending existing on-premises SQL Server applications to Azure in a hybrid scenario or deploying an existing application to Azure in a migration scenario or dev/test scenario. An example of the hybrid scenario is keeping secondary database replicas in Azure via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). With SQL Server in Azure VMs, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. With SQL Server in VM, you can build a highly customized system to address your application’s specific performance and availability requirements.
+- **SQL Server running in Azure VM** is optimized for extending existing on-premises SQL Server applications to the cloud on Azure in a hybrid scenario or deploying an existing application to Azure in a migration scenario or dev/test scenario. An example of the hybrid scenario is keeping secondary database replicas in Azure via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). With SQL Server in Azure VMs, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. With SQL Server in VM, you can build a highly customized system to address your application’s specific performance and availability requirements.
 
 The following table summarizes the main characteristics of Azure SQL Database and SQL Server in Azure VM:
 
@@ -133,7 +134,7 @@ The following table summarizes the main characteristics of Azure SQL Database an
 </tr>
 </table>
 
-##<a name="business"></a>Business motivations when choosing Azure SQL Database or SQL Server in Azure VM
+##<a name="business"></a>Business motivations for choosing Azure SQL Database or SQL Server in Azure VM
 
 ###<a name="cost"></a>Cost
 

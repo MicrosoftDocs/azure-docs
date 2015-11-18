@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
 	description="Find out how you can tame explosive growth in SQL databases with elastic database pools, a way of sharing available resources across many databases."
+	keywords="elastic database,sql databases"	
 	services="sql-database"
-	keywords="elastic database,sql databases"
 	documentationCenter=""
 	authors="stevestein"
 	manager="jeffreyg"
-	editor=""/>
+	editor="cgronlun"/>
 
 <tags
 	ms.service="sql-database"

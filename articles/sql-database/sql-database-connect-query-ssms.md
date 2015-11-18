@@ -40,9 +40,9 @@ When working with SQL Database, you should use the most recent version of SSMS. 
 3. Choose **SQL Server Authentication** from the **Authentication** list.
 4. Type the **Login** and **Password** you set up when you created the server, and then click **Connect** to connect to SQL Database.
 
-	![SQL Server Management Studio: connect to a SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
+	![SQL Server Management Studio: Connect to a SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
 
-### If the connection fails
+### If the connection to SQL Database fails
 
 The most common reason for connection failures are mistakes in the server name, user name, or password, as well as the server not allowing connections for security reasons. Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses. Sometimes they're different.
 
@@ -50,7 +50,7 @@ If the connection fails because of firewall settings, the latest version of SSMS
 
 ## Run sample queries
 
-After you connect, you can run a sample query. If you didn't create the database using the AdventureWorks sample in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md), this query won't work. Skip straight to Next Steps to learn more.
+After you connect to SQL Database, you can run a sample query. If you didn't create the database using the AdventureWorks sample in [Get started with Microsoft Azure SQL Database](sql-database-get-started.md), this query won't work. Skip straight to Next Steps to learn more.
 
 1. In **Object Explorer**, navigate to the **AdventureWorks** database.
 2. Right-click the database and then select **New Query**.

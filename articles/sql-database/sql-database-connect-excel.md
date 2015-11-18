@@ -19,20 +19,20 @@
 	ms.author="joseidz"/>
 
 
-# Connect Excel to an Azure SQL database and create a report from the database
+# Connect Excel to an Azure SQL database and create a report 
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Learn how to connect Excel to a SQL database in order to import data into Excel. Then, you'll create a report over the data.
+Learn how to connect Excel to a SQL database in order to import data into Excel. Then, create a report over the data.
 
 You'll need a SQL database first. If you don't have one, see [Create your first SQL database](sql-database-get-started.md) to get a database with sample data up and running in a few minutes. In this article, you'll import sample data into Excel from that article, but you can follow similar steps on your own data.
 
 You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/en-US/).
 
-## Connect and create a report
+## Connect Excel to a SQL database and create a report
 
 1.	To connect Excel to SQL database, open Excel and then create a new workbook.
 	 	Or, open an existing Excel workbook you want to connect to SQL database.
