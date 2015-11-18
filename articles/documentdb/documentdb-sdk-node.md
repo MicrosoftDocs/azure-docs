@@ -95,21 +95,21 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
-| [1.4.0](#1.4.0) | October 06 2015 |---
-| [1.3.0](#1.3.0) | October 06 2015 |---
-| [1.2.2](#1.2.2) | September 10 2015 |---
-| [1.2.1](#1.2.1) | August 15 2015 |---
-| [1.2.0](#1.2.0) | August 05 2015 |---
-| [1.1.0](#1.1.0) | July 09 2015 |---
-| [1.0.3](#1.0.3) | June 04 2015 |---
-| [1.0.2](#1.0.2) | May 23 2015 |---
-| [1.0.1](#1.0.1) | May 15 2015 |---
-| [1.0.0](#1.0.0) | April 08 2015 |---
-| 0.9.4-prelease | April 06 2015 | ---
-| 0.9.3-prelease | January 14 2015 | ---
-| 0.9.2-prelease | December 18 2014 | ---
-| 0.9.1-prelease | August 22 2014 | ---
-| 0.9.0-prelease | August 21 2014 | ---
+| [1.4.0](#1.4.0) | October 06, 2015 |---
+| [1.3.0](#1.3.0) | October 06, 2015 |---
+| [1.2.2](#1.2.2) | September 10, 2015 |---
+| [1.2.1](#1.2.1) | August 15, 2015 |---
+| [1.2.0](#1.2.0) | August 05, 2015 |---
+| [1.1.0](#1.1.0) | July 09, 2015 |---
+| [1.0.3](#1.0.3) | June 04, 2015 |---
+| [1.0.2](#1.0.2) | May 23, 2015 |---
+| [1.0.1](#1.0.1) | May 15, 2015 |---
+| [1.0.0](#1.0.0) | April 08, 2015 |---
+| 0.9.4-prelease | April 06, 2015 | February 29, 2016
+| 0.9.3-prelease | January 14, 2015 | February 29, 2016
+| 0.9.2-prelease | December 18, 2014 | February 29, 2016
+| 0.9.1-prelease | August 22, 2014 | February 29, 2016
+| 0.9.0-prelease | August 21, 2014 | February 29, 2016
 
 
 ## FAQ
