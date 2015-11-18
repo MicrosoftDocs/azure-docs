@@ -35,7 +35,7 @@
 
 ## Release Notes
 
-### <a name="1.4.2"/>[**1.4.2**](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
+### <a name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
 - Implement Upsert. New UpsertXXX methods added to support Upsert feature.
 - Implement ID Based Routing. No public API changes, all changes internal.
 
@@ -59,7 +59,7 @@ Microsoft will provide notification at least **12 months** in advance before ret
 We strongly recommend that you upgrade to the latest version as early as possible. 
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
 
-| Version | Release Date | 
+| Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
 | [1.4.2](#1.4.2) | October 06 2015 |---
 | [1.4.1](#1.4.1) | October 06 2015 |---
