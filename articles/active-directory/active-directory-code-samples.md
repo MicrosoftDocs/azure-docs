@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Code Samples"
+   pageTitle="Azure Active Directory Code Samples | Microsoft Azure"
    description="An index of Azure Active Directory code samples, organized by scenario."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Code Samples
@@ -145,6 +145,7 @@ PHP | [PHP Sample App for Azure AD Graph API](http://code.msdn.microsoft.com/PHP
 
 ##### Other Resources
 
+[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
 
 [Azure AD Graph API Helper Library](http://code.msdn.microsoft.com/Windows-Azure-AD-Graph-API-a8c72e18)
 

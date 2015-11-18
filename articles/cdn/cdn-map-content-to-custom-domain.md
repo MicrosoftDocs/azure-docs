@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="07/07/2015" 
+	 ms.date="09/01/2015" 
 	 ms.author="mazha"/>
 
 #How to map Custom Domain to Content Delivery Network (CDN) endpoint

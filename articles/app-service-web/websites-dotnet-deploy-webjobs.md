@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Deploy WebJobs using Visual Studio" 
 	description="Learn how to deploy Azure WebJobs to Azure App Service Web Apps using Visual Studio." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
-	ms.date="06/29/2015" 
+	ms.workload="na" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy WebJobs using Visual Studio

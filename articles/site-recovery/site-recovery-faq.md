@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="06/02/2015" 
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -42,6 +42,39 @@ Yes. When you create a Site Recovery vault in a region of your choice, we ensure
 
 Yes. ASR workflows can be automated using Rest API, PowerShell, or Azure SDK. You can find more details in the blog post titled [Introducing PowerShell support for Azure Site Recovery](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/).
 
+### Does ASR encrypt the replication 
+Between on-premises to Azure & between on-premises replication supports encryption in transit for *Hyper-V & VMM protection scenarios*. *Hyper-V & VMM protection* to Azure supports encryption at rest as well. Refer [this article](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/) for more information.
+
+### Can I increase replication/copy frequency to higher than 15 mins?
+* **Hyper-V & VMM scenarios**: No, Hyper-V virtual machine replication using Host based replication can only be configured for 30 secs, 5 mins and 15 mins
+* **VMware/Physical scenario**: This isn't applicable for in-guest based replication because technology uses continuous data protection.
+
+### Can I exclude specific disks from replication using ASR?
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Exclude disk from replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+
+### Can I replicate dynamic disks based virtual machines?
+*Hyper-V & VMM scenarios* supports dynamic disks. *VMware virtual machine or Physical machine scenarios* doesn't support dynamic disk. Send us your feedback through [Azure Site Recovery Feedback Forum](http://feedback.azure.com/forums/256299-site-recovery).
+
+### What kind of storage accounts types are supported?
+[Standard Geo-redundant storage](../storage/storage-redundancy.md#geo-redundant-storage) is supported. [Premium Storage Account]((../storage/storage-premium-storage-preview-portal/) is supported only for [VMware virtual machine or Physical machine scenarios](site-recovery-vmware-to-azure.md). Support for Standard locally redundant storage is in backlogs, send us your feedback through [Support for locally redundant storage support](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+
+### Can I extend replication from existing recovery site to a tertiary site?
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for extending replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+
+### Can I seed the initial disks to Azure using offline mechanism?
+This isn't supported. Send us your feedback through [Azure Site Recovery Feedback Forum - Support for offline replication](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+### Can I throttle bandwidth allotted for replication traffic when using Hyper-v as source?
+- If you are doing replication between two on-premises sites then you can use Windows QoS for that. Below is a sample script: 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- If you are doing replication to Azure then you can configure it using following sample powershell cmdlet:
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
+
 ## Version support
 
 ### What versions of Windows Server hosts and clusters are supported?
@@ -57,7 +90,7 @@ You can't configure Hyper-V runing on a client operating system to replicate vir
 
 ### Does ASR support generation 2 machines?
 
-ASR currently supports replication of generation 2 virtual machines on Hyper-V to Azure. ASR converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 1. [Read more](http://azure.microsoft.com/updates/azure-site-recovery-supports-gen-2-vm-protection-in-west-us-north-europe-and-japan-west/) about current support. 
+Yes, ASR supports replication of generation 2 virtual machines on Hyper-V to Azure. ASR converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 1. [Read more](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) for further information. 
 
 
 ## Deploy between service provider sites 
@@ -129,6 +162,11 @@ The most current list of supported guest operating systems is available in the a
 
 No, this type of chained replication isn't supported
 
+### Do I need certificates to configure protection between two VMM datacenters?
+
+No. While configuring protection between VMM clouds in ASR specify the authentication type. Select HTTPS unless you have a working Kerberos environment configured. Azure Site Recovery will automatically configure certificates for HTTPS authentication. No manual configuration is required. If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers. By default, port 8083 (for Kerberos) and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
+
+
 
 ## Deploy between two VMM datacenters with SAN
 
@@ -142,6 +180,15 @@ Yes. We need the SAN array to be brought under management by VMM using an array-
 We support single VMM HA deployments based on the array type, though the recommended configuration is to use separate VMM servers to manage the sites.
 
 
+### What are the supported storage arrays?
+
+NetApp, EMC and HP have enabled support for Azure Site Recovery SAN replication with updates to their SMI-S providers. For more details see below links.
+
+- [NetApp Clustered Data ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+- [EMC VMAX series](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
+
+
 ### What if I'm not sure about my storage admin?
 We work with existing replication set up by your storage administrator, which means that the storage administrator does not need to make any changes on their arrays. However, organizations that want to automate their storage management through SCVMM can also provision storage using ASR and VMM.
 
@@ -153,6 +200,15 @@ When using (SAN) array-based replication to enable replication and protection be
 
 
 Your arrays also need to be discovered by SCVMM using an updated SMI-S provider that is made available by your respective storage vendors.
+
+## Deploy between VMware and Azure
+
+### I have a cloned VMware VM. Can I protect the cloned VM to Azure?
+You cannot clone a protected VM. You can protect a cloned VMware VM to Azure as long as cloned VM does not have the mobility service installed in it.  You can clone the VM before installing the mobility service to avoid duplicate entry as both VMs will report with the same GUID which will impact the replication. 
+
+### Can I clone Process Server VM?
+No, you should not clone Process Server.  When Process Server is deployed, it creates its own unique ID. If cloned, the two Process Servers will have the same GUID that will impact the existing replication. 
+
 
 ## Deploy between physical servers and Azure
 

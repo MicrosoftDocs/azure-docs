@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/19/2015" 
+	ms.date="09/01/2015" 
 	ms.author="mazha"/>
 
 
@@ -54,3 +54,4 @@ To access cached content on the CDN, use the CDN URL provided in the portal. For
 
 [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
  
+

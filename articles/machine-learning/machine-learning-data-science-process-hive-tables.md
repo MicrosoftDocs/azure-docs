@@ -2,7 +2,6 @@
 	pageTitle="Submit Hive Queries to Hadoop clusters in the Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Process Data from Hive Tables with Hive queries."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="09/01/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process and Technology 
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning. Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
 
-Examples of queries that are specific to <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">NYC Taxi Trip Data</a> scenarios are also provided in <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">Github repository</a>. These queries already have data schema specified and are ready to be submitted to run.
+Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
 
 In the final section, parameters that users can tune so that the performance of Hive queries can be improved are discussed.
 

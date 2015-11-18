@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/02/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
-# How to manage DNS records
+# How to manage DNS records using PowerShell
 
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
-- [Azure Powershell](dns-operations-recordsets.md)
+- [PowerShell](dns-operations-recordsets.md)
 
 
 This guide will show how to manage record sets and records for your DNS zone.
@@ -36,7 +36,7 @@ Record sets are created using the New-AzureDnsRecordSet cmdlet.  You need to spe
 
 >For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
 
-Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.
+Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.  Note that [the SPF record type has been deprecated by the DNS standards in favour of creating SPF records using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
@@ -269,7 +269,7 @@ The record set object can also be piped instead of being passed as a parameter:
 
 ##See Also
 
-[Get started creating record sets and records](../dns-getstarted-create-recordset)<BR>
-[Perform operations on DNS zones](../dns-operations-dnszones)<BR>
-[Automate operations using .NET SDK](../dns-sdk)
+[Delegate a domain to Azure DNS](dns-domain-delegation.md)<BR>
+[Manage DNS zones](dns-operations-dnszones.md)<BR>
+[Automate operations using .NET SDK](dns-sdk.md)
  

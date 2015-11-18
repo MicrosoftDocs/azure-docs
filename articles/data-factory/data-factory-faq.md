@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/08/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -125,10 +125,6 @@ If you are using an on-demand cluster that is created by the Data Factory servic
 	} 
 
 In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
-
-## Stored Procedure Activity - FAQ
-### What data sources does the Stored Procedure Activity support?
-The Stored Procedure Activity supports only Azure SQL Database at this time. 
 
 ## Slices - FAQ
 

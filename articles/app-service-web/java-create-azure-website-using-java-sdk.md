@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Overview
 
-This walkthrough shows you how to create an Azure SDK for Java application that creates a Web App in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), then deploy an application to it. It consists of two parts:
+This walkthrough shows you how to create an Azure SDK for Java application that creates a Web App in [Azure App Service][], then deploy an application to it. It consists of two parts:
 
 - Part 1 demonstrates how to build a Java application that creates a web app.
 - Part 2 demonstrates how to create a simple JSP "Hello World" application, then use an FTP client to deploy code to App Service.
@@ -34,7 +34,7 @@ This walkthrough shows you how to create an Azure SDK for Java application that 
 
 ### Software Installations
 
-The AzureWebDemo application code in this article was written using Azure Java SDK 0.7.0, which you can install using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838). In addition, make sure to use the latest version of the [Azure Toolkit for Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). After you install the SDK, update the dependencies in your Eclipse project by running **Update Index** in **Maven Repositories**, then re-add the latest version of each package in the **Dependencies** window. You can verify the version of your installed software in Eclipse by clicking **Help > Installation Details**; you should have at least the following versions:
+The AzureWebDemo application code in this article was written using Azure Java SDK 0.7.0, which you can install using the [Web Platform Installer][] (WebPI). In addition, make sure to use the latest version of the [Azure Toolkit for Eclipse][]. After you install the SDK, update the dependencies in your Eclipse project by running **Update Index** in **Maven Repositories**, then re-add the latest version of each package in the **Dependencies** window. You can verify the version of your installed software in Eclipse by clicking **Help > Installation Details**; you should have at least the following versions:
 
 - Package for Microsoft Azure Libraries for Java 0.7.0.20150309
 - Eclipse IDE for Java EE Developers 4.4.2.20150219
@@ -47,7 +47,7 @@ Before you begin this procedure, you need to have an active Azure subscription a
 
 ### Create an Active Directory (AD) in Azure
 
-If you do not already have an Active Directory (AD) on your Azure subscription, log into the [Azure classic portal](https://manage.windowsazure.com) with your Microsoft account. If you have multiple subscriptions, click **Subscriptions** and select the default directory for the subscription you want to use for this project. Then click **Apply** to switch to that subscription view.
+If you do not already have an Active Directory (AD) on your Azure subscription, log into the [Azure classic portal][] with your Microsoft account. If you have multiple subscriptions, click **Subscriptions** and select the default directory for the subscription you want to use for this project. Then click **Apply** to switch to that subscription view.
 
 1. Select **Active Directory** from the menu at left. **Click New > Directory > Custom Create**.
 
@@ -59,14 +59,14 @@ If you do not already have an Active Directory (AD) on your Azure subscription, 
 
 5. In **Country or region**, select your locale.
 
-For more information on AD, see [What is an Azure AD directory?](http://technet.microsoft.com/library/jj573650.aspx).
+For more information on AD, see [What is an Azure AD directory][]?
 
 
 ### Create a Management Certificate for Azure
 
 The Azure SDK for Java uses management certificates to authenticate with Azure subscriptions. These are X.509 v3 certificates you use to authenticate a client application that uses the Service Management API to act on behalf of the subscription owner to manage subscription resources.
 
-The code in this procedure uses a self-signed certificate to authenticate with Azure. For this procedure, you need to create a certificate and upload it to the [Azure classic portal](https://manage.windowsazure.com) beforehand. This involves the following steps:
+The code in this procedure uses a self-signed certificate to authenticate with Azure. For this procedure, you need to create a certificate and upload it to the [Azure classic portal][] beforehand. This involves the following steps:
 
 - Generate a PFX file representing your client certificate and save it locally.
 - Generate a management certificate (CER file) from the PFX file.
@@ -74,14 +74,14 @@ The code in this procedure uses a self-signed certificate to authenticate with A
 - Convert the PFX file into JKS, because Java uses that format to authenticate using certificates.
 - Write the application's authentication code, which refers to the local JKS file.
 
-When you complete this procedure, the CER certificate will reside in your Azure subscription and the JKS certificate will reside on your local drive. For more information on management certificates, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
+When you complete this procedure, the CER certificate will reside in your Azure subscription and the JKS certificate will reside on your local drive. For more information on management certificates, see [Create and Upload a Management Certificate for Azure][].
 
 
 #### Create a certificate
 
 To create your own self-signed certificate, open a command console on your operating system and run the following commands.
 
-> **Note:**  The computer on which you run this command must have the JDK installed. Also, the path to the keytool depends on the location in which you install the JDK. For more information, see [Key and Certificate Management Tool (keytool)](http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html) in the Java online docs.
+> **Note:**  The computer on which you run this command must have the JDK installed. Also, the path to the keytool depends on the location in which you install the JDK. For more information, see [Key and Certificate Management Tool (keytool)][] in the Java online docs.
 
 To create the .pfx file:
 
@@ -105,7 +105,7 @@ where:
 - `<password>` is the password you choose to protect the certificate; it must be at least 6 characters long. You can enter no password, although this is not recommended.
 - `<dname>` is the X.500 Distinguished Name to be associated with alias, and is used as the issuer and subject fields in the self-signed certificate.
 
-For more information, see [Create and Upload a Management Certificate for Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx).
+For more information, see [Create and Upload a Management Certificate for Azure][].
 
 
 #### Upload the certificate
@@ -240,7 +240,7 @@ where:
 - `<certificate-password>` is the password you specified when you created your JKS certificate.
 - `webAppName` can be any name you choose; this procedure uses the name `WebDemoWebApp`. The full domain name is the `webAppName` with the `domainName` appended, so in this case the full domain is `webdemowebapp.azurewebsites.net`.
 - `domainName` should be specified as shown above.
-- `webSpaceName` should be one of the values defined in the [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html) class.
+- `webSpaceName` should be one of the values defined in the [WebSpaceNames][] class.
 - `appServicePlanName` should be specified as shown above.
 
 > **Note:** Each time you run this application, you need to change the value 
@@ -251,7 +251,7 @@ where:
 
 #### Define the web creation method
 
-Next, define a method to create the web app. This method, `createWebApp`, specifies the parameters of the web app and the webspace. It also creates and configures the App Service Web Apps management client, which is defined by the [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html) object. The management client is key to creating Web Apps. It provides RESTful web services that allow applications to manage web apps (performing operations such as create, update, and delete) by calling the service management API.
+Next, define a method to create the web app. This method, `createWebApp`, specifies the parameters of the web app and the webspace. It also creates and configures the App Service Web Apps management client, which is defined by the [WebSiteManagementClient][] object. The management client is key to creating Web Apps. It provides RESTful web services that allow applications to manage web apps (performing operations such as create, update, and delete) by calling the service management API.
 
     private static void createWebApp() throws Exception {
 
@@ -438,7 +438,7 @@ For more information on deploying WAR files, see [Add a Java application to Azur
 
 Select a third-party FTP client to publish the application. This procedure describes two options: the Kudu console built into Azure; and FileZilla, a popular tool with a convenient, graphical UI.
 
-> **Note:** The Azure Plugin for Eclipse with Java 2.4 supports deployment to storage accounts and cloud services, but does not currently support deployment to web apps. You can deploy to storage accounts and cloud services using an Azure Deployment Project as described in [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), but not to web apps. Use other methods such as FTP or GitHub to transfer files to your web app.
+> **Note:** The Azure Toolkit for Eclipse supports deployment to storage accounts and cloud services, but does not currently support deployment to web apps. You can deploy to storage accounts and cloud services using an Azure Deployment Project as described in [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), but not to web apps. Use other methods such as FTP or GitHub to transfer files to your web app.
 
 > **Note:** We do not recommend using FTP from the Windows command prompt (the command-line FTP.EXE utility that ships with Windows). FTP clients that use active FTP, such as FTP.EXE, often fail to work over firewalls. Active FTP specifies an internal LAN-based address, to which an FTP server will likely fail to connect.
 
@@ -462,7 +462,7 @@ Make sure you have run the **AzureWebDemo** application to create a web app. You
 
 To use FTP to deploy application files to the newly created web app, you need to obtain connection information. There are two ways to obtain connection information. One way is to visit the web app's **Dashboard** page; the other way is to download the web app's publish profile. The publish profile is an XML file that provides information such as FTP host name and logon credentials for your web apps in Azure App Service. You can use this username and password to deploy to any web app in all subscriptions associated with the Azure account, not only this one.
 
-To obtain FTP connection information from the web app's blade in the [Azure Portal](https://portal.azure.com):
+To obtain FTP connection information from the web app's blade in the [Azure Portal][]:
 
 1. Under **Essentials**, find and copy the **FTP hostname**. This is a URI similar to `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
@@ -604,3 +604,14 @@ This procedure creates an App Service web app. You will be billed for the resour
   [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
+
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
+[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
+[Azure classic portal]: https://manage.windowsazure.com
+[What is an Azure AD directory]: http://technet.microsoft.com/library/jj573650.aspx
+[Create and Upload a Management Certificate for Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Key and Certificate Management Tool (keytool)]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
+[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
+[Azure Portal]: https://portal.azure.com

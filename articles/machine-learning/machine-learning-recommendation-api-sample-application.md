@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="luiscabrer"/> 
+	ms.date="09/01/2015" 
+	ms.author="luisca"/> 
 
 
 # Common operations in the Machine Learning Recommendations API

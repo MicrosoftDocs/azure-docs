@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Manage your StorSimple backup catalog | Microsoft Azure"
-   description="Explains how to use the StorSimple Manager service to manage backup sets for a volume."
+   description="Explains how to use the StorSimple Manager service Backup Catalog page to list, select, and delete backup sets for a volume."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,20 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/13/2015"
+   ms.date="09/14/2015"
    ms.author="v-sharos" />
 
-# Manage your StorSimple backup catalog
+# Use the StorSimple Manager service to manage your backup catalog
 
 ## Overview
 
-The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 
 This tutorial explains how to list, select, and delete a backup set. To learn how to restore your device from backup, go to [Restore your device from a backup set](storsimple-restore-from-backup-set.md). To learn how to clone a volume, go to [Clone a StorSimple volume](storsimple-clone-volume.md).
 
 ![Backup catalog](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png) 
-
-**Figure 1: Backup catalog**
 
 The **Backup Catalog** page provides a query to narrow your backup set selection. You can filter the backup sets that are retrieved, based on the following parameters:
 
@@ -115,4 +113,6 @@ Delete a backup when you no longer wish to retain the data associated with it. P
 
 ## Next steps
 
-Learn how to use the backup catalog to [restore your device from a backup set](storsimple-restore-from-backup-set.md).
+- Learn how to [use the backup catalog to restore your device from a backup set](storsimple-restore-from-backup-set.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

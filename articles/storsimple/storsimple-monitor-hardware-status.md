@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
-# StorSimple hardware components and status
+# Use the StorSimple Manager service to monitor hardware components and status
 
 ## Overview
 
-This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status using the **Maintenance** page in the StorSimple Manager service. 
+This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status by using the **Maintenance** page in the StorSimple Manager service. 
 
 The **Maintenance** page shows the hardware status of all the StorSimple device components. Under the list of components for 8100, there are three sections that describe:
 
@@ -125,9 +125,11 @@ The following table outlines the physical and logical components contained in th
 |Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
 
 ## Next steps
-If you need to troubleshoot a device component that has a degraded or failed status, refer to 
+- To learn more about using the StorSimple Manager service, go to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+ 
+- If you need to troubleshoot a device component that has a degraded or failed status, refer to 
 [StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
 
-To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+- To replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
-If you continue to experience device issues, [contact Microsoft Support](storsimple-contact-microsoft-support.md).
+- If you continue to experience device issues, [contact Microsoft Support](storsimple-contact-microsoft-support.md).

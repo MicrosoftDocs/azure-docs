@@ -26,10 +26,11 @@ The portal will run great on modern PCs, Macs, and tablets. Mobile phones are no
 ### Supported browsers
 The latest versions of the following browsers are supported:
 
+- Edge (latest)
 - Internet Explorer (11 and up)
 - Safari (7 and up)
-- Chrome (Latest)
-- Firefox (Latest)
+- Chrome (latest)
+- Firefox (latest)
 
 *Safari 6 and lower are not supported. If you're using OS X, you can either use Chrome, Firefox, or upgrade to OS X Mavericks to get Safari 7.*
 

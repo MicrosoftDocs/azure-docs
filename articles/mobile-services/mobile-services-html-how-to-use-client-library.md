@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="How to use an HTML client | Microsoft Azure" 
-	description="Learn how to use an HTML client for Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="How to use an HTML client with Azure Mobile Services | Microsoft Azure"
+	description="Learn how to use an HTML client for Azure Mobile Services."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="08/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
-
 
 # How to use an HTML/JavaScript client for Azure Mobile Services
 
@@ -33,9 +32,9 @@ The way that you add a reference to the Mobile Services client depends on your a
 
 - For a web-based application, open the HTML file and add the following to the script references for the page:
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
-- For a Windows Store app written in JavaScript/HTML, add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project. 
+- For a Windows Store app written in JavaScript/HTML, add the **WindowsAzure.MobileServices.WinJS** NuGet package to your project.
 
 - For a PhoneGap or Cordova app, add the [Mobile Services plugin](https://github.com/Azure/azure-mobile-services-cordova) to your project. This plugin supports [push notifications](#push-notifications).
 
@@ -44,9 +43,9 @@ In the editor, open or create a JavaScript file, and add the following code that
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Add Mobile Services to an existing app](mobile-services-html-get-started-data.md).
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key, which you obtain from the [Azure portal](http://manage.windowsazure.com/).
 
->[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#caching).
+>[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#authentication).
 
 ##<a name="querying"></a>How to: Query data from a mobile service
 
@@ -165,7 +164,7 @@ It is possible to combine `where` with `orderBy`, `take`, and `skip`. See the ne
 
 The following code illustrates how to sort data by including an `orderBy` or `orderByDescending` function in the query. It returns items from `todoItemTable` sorted ascending by the `text` field. By default, the server returns only the first 50 elements.
 
-> [AZURE.NOTE] A server-driven page size us used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service. 
+> [AZURE.NOTE] A server-driven page size us used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service.
 You may increase the number of items to be returned by calling `take` as described in the next section. `todoItemTable` is the reference to the mobile service table that we created previously.
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
@@ -296,7 +295,7 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids). 
+When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids).
 
 You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](../virtual-machines-command-line-tools.md#Mobile_Tables).
 
@@ -366,9 +365,9 @@ This section shows how to display returned data objects using UI elements. To qu
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
 
-##<a name="#custom-api"></a>How to: Call a custom API
+##<a name="custom-api"></a>How to: Call a custom API
 
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For a complete example, including how to create a custom API in your mobile service, see [Call a custom API from the client].
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. For an example of how to create a custom API in your mobile service, see [How to: define a custom API endpoint](mobile-services-dotnet-backend-define-custom-api.md).
 
 You call a custom API from the client by calling the [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) method on **MobileServiceClient**. For example, the following line of code sends a POST request to the **completeAll** API on the mobile service:
 
@@ -383,10 +382,10 @@ You call a custom API from the client by calling the [invokeApi](https://github.
         alert(error.message);
     });
 
- 
+
 For more realistic examples and a more a complete discussion of **invokeApi**, see [Custom API in Azure Mobile Services Client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-##<a name="caching"></a>How to: Authenticate users
+##<a name="authentication"></a>How to: Authenticate users
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
@@ -414,12 +413,26 @@ If you are using an identity provider other than Facebook, change the value pass
 
 In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [login] function, when complete, returns a JSON object (**user**) that exposes both the user ID and Mobile Services authentication token in the **userId** and **authenticationToken** fields, respectively. This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
-> [AZURE.NOTE] **Windows Store app**
-When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
-
 ###Client flow
 Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
 
+####Facebook/Google SDK basic example
+
+This example uses Facebook client SDK for authentication:
+
+	client.login(
+	     "facebook",
+	     {"access_token": token})
+	.done(function (results) {
+	     alert("You are now logged in as: " + results.userId);
+	}, function (err) {
+	     alert("Error: " + err);
+	});
+
+This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
+Twitter cannot be used for client authentication at this time.
+
+####Microsoft Account basic example
 The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
 
 	WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -434,22 +447,68 @@ The following example uses the Live SDK, which supports single-sign-on for Windo
 	      });
 	});
 
-This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function. For a more complete example of how to use Microsoft Account to provide a single sign-in experience, see [Authenticate your app with single sign-in].
+This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function.
 
-When you are using the Facebook or Google APIs for client authentication, the example changes slightly.
 
-	client.login(
-	     "facebook",
-	     {"access_token": token})
-	.done(function (results) {
-	     alert("You are now logged in as: " + results.userId);
-	}, function (err) {
-	     alert("Error: " + err);
+####Microsoft Account complete example
+
+The following example shows how to use the Live SDK with WinJS APIs to provide an enhanced single-sign-on experience:
+
+	// Set the mobileClient variable to client variable generated by the tooling.
+	var mobileClient = <yourClient>;
+
+	var session = null;
+	var login = function () {
+		return new WinJS.Promise(function (complete) {
+			WL.login({ scope: "wl.basic" }).then(function (result) {
+				session = result.session;
+
+				WinJS.Promise.join([
+					WL.api({ path: "me", method: "GET" }),
+					mobileClient.login(result.session.authentication_token)
+				]).done(function (results) {
+					// Build the welcome message from the Microsoft account info.
+					var profile = results[0];
+					var title = "Welcome " + profile.first_name + "!";
+					var message = "You are now logged in as: "
+						+ mobileClient.currentUser.userId;
+					var dialog = new Windows.UI.Popups.MessageDialog(message, title);
+					dialog.showAsync().then(function () {
+						// Reload items from the mobile service.
+						refreshTodoItems();
+					}).done(complete);
+
+				}, function (error) {
+
+				});
+			}, function (error) {
+				session = null;
+				var dialog = new Windows.UI.Popups.MessageDialog("You must log in.", "Login Required");
+				dialog.showAsync().done(complete);
+			});
+		});
+	}
+
+	var authenticate = function () {
+		// Block until sign-in is successful.
+		login().then(function () {
+			if (session === null) {
+				// Authentication failed, try again.
+				authenticate();
+			}
+		});
+	}
+
+	// Initialize the Live client.
+	WL.init({
+		redirect_uri: mobileClient.applicationUrl
 	});
 
-This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
-Twitter cannot be used for client authentication at this time. Microsoft Azure Active Directory cannot be used with JavaScript backends for client authentication at this time.
+	// Start the sign-in process.
+	authenticate();
 
+This initializes the Live Connect client, sends a new login request to Microsoft account, sends the returned authentication token to Mobile Services, and then displays information about the signed-in user. The app does not start until authentication succeeds.
+<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -466,6 +525,7 @@ In some cases, the call to the login method can be avoided after the first time 
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>How to: Register for push notifications
 
@@ -568,7 +628,7 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 ##<a name="hostnames"></a>How to: Use cross-origin resource sharing
 
-To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure Management portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications. 
+To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure Management portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -584,7 +644,7 @@ To control which websites are allowed to interact with and send requests to your
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
@@ -606,8 +666,5 @@ To control which websites are allowed to interact with and send requests to your
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
-[Authenticate your app with single sign-in]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Call a custom API from the client]: mobile-services-html-call-custom-api.md
- 

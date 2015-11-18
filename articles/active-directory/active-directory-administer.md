@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2015"
+	ms.date="09/09/2015"
 	ms.author="markvi"/>
 
 # Administer your Azure AD directory

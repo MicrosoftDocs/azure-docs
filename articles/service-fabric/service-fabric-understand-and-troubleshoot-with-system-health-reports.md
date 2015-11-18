@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using System health reports for troubleshooting"
-   description="Describes the System Health reports and how to use them for troubleshooting cluster or application issues"
+   pageTitle="Troubleshoot with System health reports | Microsoft Azure"
+   description="Describes the health reports sent by Azure Service Fabric components and their usage for troubleshooting cluster or application issues."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Using System health reports for troubleshooting

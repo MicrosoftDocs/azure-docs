@@ -11,7 +11,7 @@
 
 ## Using Azure CLI
 
-The following steps help you use Azure CLI easily with the most recent version and the proper subscription. If you need to install Azure CLI and connect it to your account first, see the [Azure Command-Line Interface (Azure CLI)](xplat-cli.md).
+The following steps help you use Azure CLI easily with the most recent version and the proper subscription. If you need to install Azure CLI and connect it to your account first, see the [Azure Command-Line Interface (Azure CLI)](xplat-cli-install.md).
 
 ### Step 1: Update Azure CLI version
 

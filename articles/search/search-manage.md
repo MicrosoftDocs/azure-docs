@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure" 
-	description="Manage your Search service on Microsoft Azure" 
+	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
+	description="Manage Azure Search, hosted cloud search service on Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
 
-Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
+Azure Search is a cloud-based service with an HTTP-based API that can be used in custom search applications. Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax. 
 
 This article explains how to administer a Search service in the [Azure portal](https://portal.azure.com).
 
@@ -36,7 +36,7 @@ Standard search is billable because you are signing up for dedicated resources a
 
 To plan for capacity and understand the billing impact, we recommend these links:
 
-+	[Limits and constraints](http://msdn.microsoft.com/library/dn798934.aspx)
++	[Limits and constraints](search-limits-quotas-capacity.md)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 When you are ready to sign up, see [Create a Search service in the portal](search-create-service-portal.md).
@@ -101,7 +101,7 @@ In this public preview, resource monitoring is limited to the information shown 
 
 On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](http://msdn.microsoft.com/library/dn798934.aspx) for details. 
+Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](search-limits-quotas-capacity.md) for details. 
 
 +	[Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)

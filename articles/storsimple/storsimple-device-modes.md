@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Change device modes on your StorSimple device | Microsoft Azure"
-   description="Learn what the various StorSimple device modes are and how to change the device modes."
+   pageTitle="Change the StorSimple device mode | Microsoft Azure"
+   description="Describes the StorSimple device modes and explains how to use Windows PowerShell for StorSimple to change the device mode."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
-# StorSimple device modes
+# Change the device mode on your StorSimple device
 
 This article provides a brief description of the various modes in which your StorSimple device can operate. Your StorSimple device can function in three modes: normal, maintenance, and recovery. 
 
 After reading this article, you will know:
 
-- the StorSimple device modes
-- how to figure out which mode the StorSimple device is in
-- how to change from normal to maintenance mode and *vice versa*
+- What the StorSimple device modes are
+- How to figure out which mode the StorSimple device is in
+- How to change from normal to maintenance mode and *vice versa*
 
 
 The above management tasks can only be performed via the Windows PowerShell interface of your StorSimple device.
@@ -53,14 +53,14 @@ If your system goes into recovery mode, you should contact Microsoft Support for
 
 >[AZURE.NOTE] **You cannot place the device in recovery mode. If the device is in a bad state, recovery mode tries to get the device into a state in which Microsoft Support personnel can examine it.**
 
-## Figure out StorSimple device mode
+## Determine StorSimple device mode
 
-To figure out the device mode, perform the following steps:
+#### To determine the current device mode
 
 1. Log on to the device serial console by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Look at the banner message in the serial console menu of the device. This message explicitly indicates whether the device is in maintenance or recovery mode. If the message does not contain any specific information pertaining to the system mode, the device is in normal mode.
 
-## Change  your StorSimple device mode 
+## Change the StorSimple device mode 
 
 You can place the StorSimple device into maintenance mode (from normal mode) to perform maintenance or install maintenance mode updates. Perform the following procedures to enter or exit maintenance mode.
 

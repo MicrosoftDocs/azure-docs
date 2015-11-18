@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="11/18/2015"
    ms.author="larryfr"/>
 
-#Deploy and manage Apache Storm topologies on HDInsight
+#Deploy and manage Apache Storm topologies on Windows-based HDInsight
 
 The Storm Dashboard allows you to easily deploy and run Apache Storm topologies to your HDInsight cluster by using your web browser. You can also use the dashboard to monitor and manage running topologies. If you use Visual Studio, the HDInsight Tools for Visual Studio provide similar features in Visual Studio.
 
 The Storm Dashboard and the Storm features in the HDInsight Tools rely on the Storm REST API, which can be used to create your own monitoring and management solutions.
+
+> [AZURE.IMPORTANT] The steps in this document require a Windows-based Storm on HDInsight cluster. For information on using a Linux-based cluster, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ##Prerequisites
 
@@ -147,7 +149,7 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
 The Storm UI is built on top of the REST API, so you can perform similar management and monitoring functionality by using the REST API. You can use the REST API to create custom tools for managing and monitoring Storm topologies.
 
-For more information, see <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>. The following information is specific to using the REST API with Apache Storm on HDInsight.
+For more information, see [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 ###Base URI
 

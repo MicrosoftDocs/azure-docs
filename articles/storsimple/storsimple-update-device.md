@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/17/2015"
    ms.author="v-sharos" />
 
-# Update your StorSimple device
+# Update your StorSimple 8000 Series device
 
 ## Overview
 
@@ -116,5 +116,5 @@ If a device is reset to factory settings, then all the updates are lost. After t
 
 ## Next steps
 
-[Learn how to use Windows PowerShell for StorSimple to administer your StorSimple device](storsimple-windows-powershell-administration.md).
- 
+- Learn more about [using Windows PowerShell for StorSimple to administer your StorSimple device](storsimple-windows-powershell-administration.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

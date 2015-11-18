@@ -104,12 +104,12 @@ Go to the [Azure preview portal](https://portal.azure.com).
 ### Update the service configuration file
 
 Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings.
-For the web role:
+For the worker role:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-For the worker role:
+For the web role:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />

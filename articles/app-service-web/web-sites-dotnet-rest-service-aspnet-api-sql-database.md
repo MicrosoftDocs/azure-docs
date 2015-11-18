@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/31/2015" 
 	ms.author="riande"/>
 
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service

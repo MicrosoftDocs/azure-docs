@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Monitor and manage Azure Data Factory pipelines
@@ -67,13 +67,64 @@ Double clicking the **PartitionedProductsUsageTable** in the diagram view will s
 
 The dataset slices in data factory can have one of the following status:
 
-Status | Sub status | Description
------- | ---------- | -----------
-Waiting | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | Waiting for pre-conditions to be met before executing. Refer to the sub status to figure out what the slice is waiting for.
-In-Progress | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | Currently, the activity is executing and producing/validating the data for a specific slice.
-Failed | | Slice processing failed. Refer to error logs to figure out what caused the failure
-Ready | | Slice processing succeeded. Slice is ready for consumption.
-Skip | | Do not process this slice
+<table>
+<tr>
+	<th align="left">State</th><th align="left">Substate</th><th align="left">Description</th>
+</tr>
+<tr>
+	<td rowspan="8">Waiting</td><td>ScheduleTime</td><td>The time has not come for the slice to run.</td>
+</tr>
+<tr>
+<td>DatasetDependencies</td><td>The upstream dependencies are not ready.</td>
+</tr>
+<tr>
+<td>ComputeResources</td><td>The compute resources are not available.</td>
+</tr>
+<tr>
+<td>ConcurrencyLimit</td> <td>All the activity instances are busy running other slices.</td>
+</tr>
+<tr>
+<td>ActivityResume</td><td>Activity is paused and cannot run the slices until it is resumed.</td>
+</tr>
+<tr>
+<td>Retry</td><td>Activity execution will be retried.</td>
+</tr>
+<tr>
+<td>Validation</td><td>Validation has not started yet.</td>
+</tr>
+<tr>
+<td>ValidationRetry</td><td>Waiting for the validation to be retried.</td>
+</tr>
+<tr>
+<tr
+<td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
+</tr>
+<td></td>
+<td>The slice is being processed.</td>
+</tr>
+<tr>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>Execution took longer than that is allowed by the activity.</td>
+</tr>
+<tr>
+<td>Canceled</td><td>Canceled by user action.</td>
+</tr>
+<tr>
+<td>Validation</td><td>Validation has failed.</td>
+</tr>
+<tr>
+<td></td><td>Failed to generate and/or validate the slice.</td>
+</tr>
+<td>Ready</td><td></td><td>The slice is ready for consumption.</td>
+</tr>
+<tr>
+<td>Skipped</td><td></td><td>The slice is not processed.</td>
+</tr>
+<tr>
+<td>None</td><td></td><td>A slice that used to exist with a different status, but has been reset.</td>
+</tr>
+</table>
+
+
 
 You can view the details about a slice by clicking a slice entry in the **Recently Updated Slices** blade.
 
@@ -289,6 +340,10 @@ To specify an alert definition, you create a JSON file describing the operations
 	}
 
 From the above JSON definition, **subStatus** can be removed if you don’t want to be alerted on a specific failure.
+
+The above example sets up the alert for all data factories in your subscription. If you want the alert to be set up for a particular data factory, you can specify data factory **resourceUri** in the **dataSource** block like below:
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 
 The following table provides the list of available operations and statuses (and sub-statuses).
 

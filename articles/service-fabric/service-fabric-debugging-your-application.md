@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Debugging your Service Fabric Application in Visual Studio using F5"
-   description="Improve the reliability and performance of your services using Visual Studio and a local development cluster."
+   pageTitle="Debug your application in Visual Studio | Microsoft Azure"
+   description="Improve the reliability and performance of your services by developing and debugging them in Visual Studio and a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Debugging your Service Fabric Application in Visual Studio using F5
+# Debugging your Service Fabric application using Visual Studio
 
 You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
@@ -28,7 +28,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
 3. Set breakpoints in your code and step through the application by clicking on commands in the **Debug** menu.
 
-    > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or use Diagnostic Events.
+    > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or using Diagnostic Events.
 
 4. The **Diagnostic Events** window will automatically open to view diagnostic events in real time.
 

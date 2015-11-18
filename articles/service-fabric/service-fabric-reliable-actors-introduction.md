@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Service Fabric Reliable Actors Overview"
+   pageTitle="Service Fabric Reliable Actors Overview | Microsoft Azure"
    description="Introduction to the Service Fabric Reliable Actors programming model"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introduction to Service Fabric Reliable Actors
 The Reliable Actors API is one of two high-level frameworks provided by [Service Fabric](service-fabric-technical-overview.md), along with the [Reliable Services API](service-fabric-reliable-services-introduction.md).
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-An actor type could implement the above interface as follows:
+An actor type could implement this interface as follows:
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -83,9 +83,9 @@ Service Fabric actors are virtual, meaning that their lifetime is not tied to th
 To provide high scalability and reliability, Service Fabric distributes actors throughout the cluster and automatically migrates them from failed nodes to healthy ones as required. The `ActorProxy` class on the client side performs the necessary resolution to locate the actor by ID [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) and open a communication channel with it. The `ActorProxy` also retries in the case of communication failures and failovers. This ensures that messages will be reliably delivered despite the presence of faults but it also means that it is possible for an Actor implementation to get duplicate messages from the same client.
 
 ## Concurrency
-### Turn-based concurrency
+### Turn-based access
 
-The Actors runtime provides a simple turn-based concurrency for actor methods. This means that no more than one thread can be active inside the actor code at any time.
+The Actors runtime provides a simple turn-based model for accessing actor methods. This means that no more than one thread can be active inside the actor code at any time.
 
 A turn consists of the complete execution of an actor method in response to the request from other actors or clients, or the complete execution of a [timer/reminder](service-fabric-reliable-actors-timers-reminders.md) callback. Even though these methods and callbacks are asynchronous, the Actors runtime does not interleave them - a turn must be fully completed before a new turn is allowed. In other words, an actor method or timer/reminder callback that is currently executing must be completed fully before a new call to a method or a callback is allowed. A method or callback is considered completed if execution has returned from the method or callback, and the Task returned by the method or callback has completed. It is worth emphasizing that turn-based concurrency is respected even across different methods, timers and callbacks.
 
@@ -123,12 +123,12 @@ The Actors runtime provides these concurrency guarantees in situations where it 
 Fabric Actors allows you to create the actors that are either stateless or stateful.
 
 ### Stateless Actors
-Stateless actors, which are derived from the ``Actor`` base class, do not have any state that is managed by the Actors runtime. Their member variables are preserved throughout their in-memory lifetime just like any other .NET type. However, when they are garbage collected after a period of inactivity, their state is lost. Similarly, state can be lost due to failovers, which occur during upgrades, resource-balancing operations or as the result of failures in the actor process or its hosting node.
+Stateless actors, which are derived from the `StatelessActor` base class, do not have any state that is managed by the Actors runtime. Their member variables are preserved throughout their in-memory lifetime just like any other .NET type. However, when they are garbage collected after a period of inactivity, their state is lost. Similarly, state can be lost due to failovers, which occur during upgrades, resource-balancing operations or as the result of failures in the actor process or its hosting node.
 
 The following is an example of a stateless actor.
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -138,12 +138,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### Stateful Actors
-Stateful  actors have a state that needs to be preserved across garbage collections and failovers. They derive from the `Actor<TState>` base class, where `TState` is the type of the state that needs to be preserved. The state can be accessed in the actor methods via `State` property on the base class.  
+Stateful  actors have a state that needs to be preserved across garbage collections and failovers. They derive from the `StatefulActor<TState>`, where `TState` is the type of the state that needs to be preserved. The state can be accessed in the actor methods via `State` property on the base class.  
 
 The following is an example of a stateful actor accessing the state.
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {

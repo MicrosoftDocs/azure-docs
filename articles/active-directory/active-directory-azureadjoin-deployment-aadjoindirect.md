@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure" 
-	description="A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users)." 
+	description="Lists and explains the differnt deployment scenarios available for Azure AD Join." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Usage scenarios and deployment considerations for Azure AD Join 
@@ -84,5 +84,5 @@ You can set up your users and employees to user their personal Windows devices t
 
 
 ## Additional Information
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)

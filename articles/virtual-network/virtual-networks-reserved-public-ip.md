@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Reserved IP"
-   description="Understand reserved IPs, VIP, ILPIP, and how to manage them"
+   pageTitle="Reserved IP | Microsoft Azure"
+   description="Understand reserved IPs and how to manage them"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # Reserved IP Overview
@@ -27,7 +27,7 @@ To prevent IP addresses from changing, you can reserve an IP address. Reserved I
 
 ## FAQ
 1. Can I use a reserved IP for all Azure services?  
-  - Reserved IPs can only be used for VMs and cloud service instance roles.
+  - Reserved IPs can only be used for VMs and cloud service instance roles exposed through a VIP.
 1. How many reserved IPs can I have?  
   - At this time, all Azure subscriptions are authorized to use 20 reserved IPs. However, you can request additional reserved IPs. See the [Subscription and Service Limits](../azure-subscription-service-limits/) page for more information.
 1. Is there a charge for reserved IPs? 
@@ -92,7 +92,7 @@ The script below creates a new cloud service named *TestService2* with a new VM 
 	Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestService2
 
 ## How to associate a reserved IP to a cloud service by using a service configuration file
-You can also associate a reserved IP to a cloud service by sing a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*: 
+You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*: 
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">

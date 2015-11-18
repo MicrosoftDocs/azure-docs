@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for HTML 5 apps"
+	pageTitle="Get Started with Azure Mobile Services for HTML/JavaScript apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for HTML development."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Overview 
 
@@ -88,7 +91,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows** (Windows computers)
+	+ **.\start-iisexpress.ps1** (Windows computers)
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
@@ -104,7 +107,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
    	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.
+	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the page.js file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
@@ -117,17 +120,14 @@ The final stage of this tutorial is to host and run your new app on your local c
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* **[Get started with data]**
-  <br/>Learn more about storing and querying data using Mobile Services.
+* **[Add authentication to your app]**  
+  Learn how to authenticate users of your app with an identity provider.
 
-* **[Call a custom API from an HTML application]**
-  <br/>Connect your HTML application with a custom API hosted on Mobile Services.
+* **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**  
+  Learn more about how to use Mobile Services with HTML/JavaScript
 
-* **[Get started with authentication]**
-  <br/>Learn how to authenticate users of your app with an identity provider.
 
-* **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**
-  <br/>Learn more about how to use Mobile Services with HTML/JavaScript
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -148,9 +148,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: mobile-services-html-get-started-data.md
-[Get started with authentication]: mobile-services-html-get-started-users.md
-[Call a custom API from an HTML application]: mobile-services-html-call-custom-api.md
+[Add authentication to your app]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333

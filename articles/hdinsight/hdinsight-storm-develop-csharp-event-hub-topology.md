@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="10/30/2015"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -26,15 +26,17 @@ In this tutorial, you will learn how to use the HDInsight Tools for Visual Studi
 
 * **EventHubReader**: Reads data from Event Hubs and stores it in Azure Table storage
 
+[AZURE.NOTE] The steps in this document only work with a Windows-based HDInsight cluster. For a Java version of this project, which will work with either a Linux-based or Windows-based cluster, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+
 ## Prerequisites
 
-* An <a href="../hdinsight-storm-getting-started/" target="_blank">Apache Storm on HDInsight cluster</a>
+* An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
 
-* An <a href="../service-bus-event-hubs-csharp-ephcs-getstarted/" target="_blank">Azure Event Hub</a>
+* An [Azure Event Hub](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
 
-* The <a href="http://azure.microsoft.com/downloads/" target="_blank">Azure .NET SDK</a>
+* The [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
-* The <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools for Visual Studio</a> (the 2/17/2015 version or later)
+* The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 ## Completed project
 
@@ -239,14 +241,14 @@ At this point, you are done with the **Program.cs**. The topology has been defin
 
 The Event Hubs bolt expects a single string value, which it will route to Event Hub. In the following example, you will modify the default **Spout.cs** file to produce a JSON string.
 
-1. In **Solution Explorer**, right-click the **EventHubWriter** project and select **Manage Nuget Packages**. Search for the **Json.NET** package, then add that to the solution. This allows you to easily create JSON data that will be sent to Event Hubs by using the bolt.
-
-1. Open **Spout.cs** and add the following at the top of the file:
+1. In **Solution Explorer**, open **Spout.cs** and add the following at the top of the file:
 
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Linq;
 
 	This allows you to more easily work with JSON data.
+    
+    > [AZURE.NOTE] The JSON.NET package should already be installed, as it is required by the SCP.NET framework used for C# Storm topologies.
 
 3. Find the following code:
 
@@ -424,9 +426,7 @@ When writing data to Table storage, you must create a class that describes the d
 
 ### Modify the bolt
 
-1. In **Solution Explorer**, right-click the **EventHubReader** project and select **Manage Nuget Packages**. Search for the **Json.Net** package, then add that to the solution. This will allow us to easily process the JSON data received from the spout. Also add the **WindowsAzure.Storage** package, which will allow us to write to table storage.
-
-1. Open **Bolt.cs** and add the following at the top of the file:
+1. In **Solution Explorer**, expand the **EventHubReader** project and open the **Bolt.cs** file. Add the following at the top of the file:
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;

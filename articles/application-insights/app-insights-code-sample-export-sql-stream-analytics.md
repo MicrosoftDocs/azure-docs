@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Continuously export Application Insights data to SQL using Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
@@ -59,13 +59,13 @@ To get started:
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal][portal].
+1. Create a "classic" storage account in your subscription in the [Azure portal][portal].
 
-    ![In Azure portal, choose New, Data, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![In Azure portal, choose New, Data, Storage. Select Classic, choose Create. Provide a Storage name.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Copy the storage access key
 
@@ -92,12 +92,16 @@ Continuous export always outputs data to an Azure Storage account, so you need t
 
     ![Choose event types](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-Now sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer][metrics] and individual events in [diagnostic search][diagnostic]. 
 
-And also, the data will export to your storage, where you can inspect the content. For example, there's a storage browser in Visual Studio:
+3. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md). 
 
+    And also, the data will export to your storage. 
 
-![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+4. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
+
+    ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+
+    Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
 The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
 
@@ -192,16 +196,16 @@ Now you'll need the Primary Access Key from your Storage Account, which you note
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Be sure to set the Date Format to YYYY-MM-DD (with dashes).
+Be sure to set the Date Format to **YYYY-MM-DD** (with **dashes**).
 
-The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage. You need to set it up to correspond to how Continuous Export stores the data. Set it like this:
+The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 In this example:
 
-* `webapplication27` is the name of the Application Insights resource. 
-* `1000...` is the instrumentation key of the Application Insights resource. 
+* `webapplication27` is the name of the Application Insights resource, **all in lower case**. 
+* `1234...` is the instrumentation key of the Application Insights resource **with dashes removed**. 
 * `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](app-insights-export-data-model.md).
 * `/{date}/{time}` is a pattern written literally.
 
@@ -214,6 +218,8 @@ Confirm the serialization format:
 ![Confirm and close wizard](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 Close the wizard and wait for the setup to complete.
+
+>[AZURE.TIP] Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
 
 ## Set query
 
@@ -252,14 +258,14 @@ Replace the default query with:
       ,A.context.location.province as province
       ,A.context.location.city as city
     INTO
-      AIOuput
+      AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
 
 ```
 
-Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties.
+Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties. See the [detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
 ## Set up output to database
 
@@ -294,6 +300,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 ## Related articles
 
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
@@ -303,6 +310,6 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

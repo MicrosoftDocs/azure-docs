@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
+	pageTitle="App Model v2.0 Protocols | Microsoft Azure"
 	description="The protocols supported by the Azure AD v2.0 app model public preview."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # App model v2.0 preview: Protocols - OAuth 2.0 & OpenID Connect
@@ -326,7 +326,7 @@ Just receiving an id_token is not sufficient to authenticate the user; you must 
 
 The v2.0 app model has an OpenID Connect metadata endpoint, which allows an app to fetch information about the v2.0 app model at runtime.  This information includes endpoints, token contents, and token signing keys.  The metadata endpoint contains a JSON document located at:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
+`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
 
 One of the properties of this configuration document is the `jwks_uri`, whose value for the v2.0 app model will be:
 

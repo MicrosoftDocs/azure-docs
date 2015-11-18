@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="10/29/2015"
    ms.author="telmos" />
 
 # Virtual Network Overview
@@ -49,7 +49,7 @@ VNets provide the following services to IaaS VMs and role PaaS role instances de
 
 - **Connectivity**. VNets can be connected to each other, and even to your on-premises datacenter, by using a site-to-site VPN connection, or ExpressRoute connection. To learn more about VPN gateways, visit [About VPN gateways](./vpn-gateway-about-vpngateways.md). To learn more about ExpressRoute, visit [ExpressRoute technical overview](./expressroute-introduction.md).
 
-    >[AZURE.NOTE] Make sure you create a VNet before deploying any IaaS VMs or PaaS role instances to your Azure environment. ARM based VMs require a VNet, and if you do not specify an existing VNet, Azure creates a default VNet that might have a CIDR address block clash with your on-premises network. Making ti impossible for you to connect your VNet to your on-premises network.
+    >[AZURE.NOTE] Make sure you create a VNet before deploying any IaaS VMs or PaaS role instances to your Azure environment. ARM based VMs require a VNet, and if you do not specify an existing VNet, Azure creates a default VNet that might have a CIDR address block clash with your on-premises network. Making it impossible for you to connect your VNet to your on-premises network.
 
 ## Subnets
 
@@ -85,10 +85,11 @@ Virtual appliances depend on [user defined routes and IP forwarding](../virtual-
 
 ## Next steps
 
-- [Create a VNet](../virtual-networks-create-a-vnet.md) and subnets.
+- [Create a VNet](../virtual-networks-create-vnet-arm-pportal.md) and subnets.
 - [Create a VM in a VNet](../virtual-machines-windows-tutorial.md).
 - Learn about [NSGs](../virtual-networks-nsg.md).
 - Learn about [load balancers](../load-balancer-overview.md).
 - [Reserve an internal IP address](../virtual-networks-reserved-private-ip.md)
 - [Reserve a public IP address](../virtual-networks-reserved-public-ip.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
+

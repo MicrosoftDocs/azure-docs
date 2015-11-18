@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # How to use Azure Blob storage from Python
 
@@ -22,7 +22,7 @@
 
 ## Overview
 
-This article will show you how to perform common scenarios using Blob storage. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include uploading, listing,
+This article will show you how to perform common scenarios using Blob storage. The samples are written in Python and use the [Python Azure Storage package][]. The scenarios covered include uploading, listing,
 downloading, and deleting blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -37,7 +37,7 @@ The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
 the top of any Python file in which you wish to programmatically access Azure Storage.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 The following code creates a **BlobService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 
@@ -120,6 +120,9 @@ to learn about more complex storage tasks.
 -   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]
 
+For more information, see also the [Python Developer Center](/develop/python/).
+
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Python Azure package]: https://pypi.python.org/pypi/azure
+[Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage  

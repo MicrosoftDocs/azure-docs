@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # How to use Azure queue storage with the WebJobs SDK
@@ -538,7 +538,12 @@ To write [application tracing logs](web-sites-dotnet-troubleshoot-visual-studio.
 
 Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.
 
-You can disable logging by [setting the Dashboard connection string to null](#config).
+Disable dashboard logging for high throughput scenarios. By default, the SDK writes logs to storage, and this activity could degrade performance when you are processing many messages. To disable logging, set the dashboard connection string to null as shown in the following example.
+
+		JobHostConfiguration config = new JobHostConfiguration();       
+		config.DashboardConnectionString = “”;        
+		JobHost host = new JobHost(config);
+		host.RunAndBlock();
 
 The following example shows several ways to write logs:
 

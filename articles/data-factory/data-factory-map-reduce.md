@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
@@ -22,7 +22,7 @@ This article describes how to invoke a **MapReduce** program from an Azure Data 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the MapReduce transformation of the HDInsight Activity.
  
-See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on an HDInsight cluster from an Azure data factory pipeline by using Pig/Hive transformations of the HDInsight Activity. 
+See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using Pig/Hive transformations of the HDInsight Activity. 
 
 ## JSON for HDInsight Activity using MapReduce transformation 
 
@@ -32,7 +32,7 @@ In the JSON definition for the HDInsight Activity:
 3. Specify the name of the class for **className** property.
 4. Specify the path to the JAR file including the file name for **jarFilePath** property.
 5. Specify the linked service that refers to the Azure Blob Storage that contains the JAR file for **jarLinkedService** property.   
-6. Specify any arguments for the MapReduce program in the **arguments** section. 
+6. Specify any arguments for the MapReduce program in the **arguments** section. At runtime, you will see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc... are options immediately followed by  their values).
 
  
 
@@ -64,9 +64,9 @@ In the JSON definition for the HDInsight Activity:
 		            "-s",
 		            "SIMILARITY_LOGLIKELIHOOD",
 		            "--input",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Input/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--output",
-		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
+		            "$$Text.Format('wasb://<container>@<accountname>.blob.core.windows.net/Mahout/Output/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
 		            "--maxSimilaritiesPerItem",
 		            "500",
 		            "--tempDir",

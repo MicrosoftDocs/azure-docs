@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/07/2015"
+   ms.date="08/25/2015"
    ms.author="sstein"/>
 
 # Create and manage SQL Database with C&#x23;
@@ -336,6 +336,8 @@ To create a new pool on a server:
 
 ## Move an existing database into an elastic database pool
 
+*After creating a pool you can also use Transact-SQL for moving existing databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
 To move an existing database into a pool:
 
     
@@ -365,6 +367,8 @@ To move an existing database into a pool:
 
 
 ## Create a new database in an elastic database pool
+
+*After creating a pool you can also use Transact-SQL for creating new elastic databases in the pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 To create a new database directly in a pool:
 
@@ -781,7 +785,7 @@ To delete a resource group:
 
 [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-
+[Elastic database pool reference](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->

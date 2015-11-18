@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Connect to an Azure SQL Database with Excel"
-	description="Excel spreadsheet to Azure SQL Database for reporting and data exploration."
+	pageTitle="Connect Excel to SQL Database | Microsoft Azure"
+	description="Learn how to connect Microsoft Excel to Azure SQL database in the cloud. Import data into Excel for reporting and data exploration."
 	services="sql-database"
+	keywords="connect excel to sql, import data to excel"
 	documentationCenter=""
 	authors="joseidz"
-	manager="joseidz"
-	editor="joseidz"/>
+	manager="jeffreyg"
+	editor="jeffreyg"/>
 
 
 <tags
@@ -14,43 +15,57 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="10/09/2015"
 	ms.author="joseidz"/>
 
 
-# Connect to an Azure SQL Database with Excel
-Connect Excel to an Azure SQL Database and create a report over the data in the database.
+# Connect Excel to an Azure SQL database and create a report 
 
-## Prerequisites
-- An Azure SQL Database provisioned and running. To create a new SQL Database, see [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
-- [Microsoft Excel 2013](https://products.office.com/en-US/) (or Microsoft Excel 2010)
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
-## Connect to SQL Database and Create Report
-1.	Open Excel.
-2.	In the menu bar at the top of the page click **Data**.
-3.	Click **From Other Sources**, then **From SQL Server**. The **Data Connection Wizard** opens.
+Learn how to connect Excel to a SQL database in order to import data into Excel. Then, create a report over the data.
 
-	![Data connection wizard][1]
-4.	In the **Server name** box, type the Azure SQL Database server name. Example:
+You'll need a SQL database first. If you don't have one, see [Create your first SQL database](sql-database-get-started.md) to get a database with sample data up and running in a few minutes. In this article, you'll import sample data into Excel from that article, but you can follow similar steps on your own data.
 
-	 	adventureserver.database.windows.net
-5.	In the **Log on Credentials** section, select **Use the following User Name and Password** and then type in appropriate credentials for the SQL Database server. Then click **Next**.
+You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/en-US/).
 
-	Note: Both [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) and [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) add-ins for Excel have very similar experiences.
+## Connect Excel to a SQL database and create a report
 
-6. In the **Select Database and Table** dialog, select the **AdventureWorks** database from the pull-down menu and select **vGetAllCategories** from the list of tables and views, then click **Next**.
+1.	To connect Excel to SQL database, open Excel and then create a new workbook.
+	 	Or, open an existing Excel workbook you want to connect to SQL database.
 
-	![Select a database and table][5]
-7. In the **Save Data Connection File and Finish** dialog, click **Finish**.
-8. In the **Import Data** dialog, select **PivotChart** and click **OK**.
+2.	In the menu bar at the top of the page click **Data**, click **From Other Sources**, and then click **From SQL Server**.
 
-	![Select Import Data][2]
-9. In the **PivotChart Fields** dialog, select the following configuration to create a report for the count of products per category.
+	![Select data source: Connect Excel to SQL database.](./media/sql-database-connect-excel/excel_data_source.png)
 
-	![Configuration][3]
-10.	Success looks like this:
+	The Data Connection Wizard opens.
 
-	![success][4]
+3.	In the **Connect to Database Server** dialog box, type the **Server name** that hosts the logical server you want to connect to in the form **<*servername*>.database.windows.net**. For example, **adventureserver.database.windows.net**.
+
+4.	In the **Log on Credentials** section, click **Use the following User Name and Password**, type the **User Name** and **Password** you set up for the SQL Database server when you created it, and then click **Next**.
+
+	> [AZURE.TIP] Both [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) and [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) add-ins for Excel have similar experiences.
+
+5. In the **Select Database and Table** dialog, select the **AdventureWorks** database from the pull-down menu and select **vGetAllCategories** from the list of tables and views, then click **Next**.
+
+	![Select a database and table.][5]
+
+6. In the **Save Data Connection File and Finish** dialog, click **Finish**.
+
+7. In the **Import Data** dialog, select **PivotChart** and click **OK**.
+
+	![Import data into Excel: In Import data dialog box select PivotChart.][2]
+
+8. In the **PivotChart Fields** dialog, select the following configuration to create a report for the count of products per category.
+
+	![Configure database report.][3]
+
+	Success looks like this:
+
+	![Sucess: Excel connected to SQL database.][4]
 
 ## Next steps
 

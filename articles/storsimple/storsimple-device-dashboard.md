@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service device dashboard | Microsoft Azure"
-   description="Describes the StorSimple Manager device dashboard and how to use it to view storage metrics and connected initiators and find the device serial number and IQN."
+   pageTitle="Use the StorSimple Manager device dashboard | Microsoft Azure"
+   description="Describes the StorSimple Manager service device dashboard and how to use it to view storage metrics and connected initiators and find the serial number and IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/12/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager device dashboard
@@ -97,4 +97,5 @@ You may need the device target IQN when you configure the Challenge Handshake Au
 
 ## Next steps
 
-[Learn more about the StorSimple Manager service dashboard](storsimple-service-dashboard.md).
+- Learn more about the [StorSimple Manager service dashboard](storsimple-service-dashboard.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

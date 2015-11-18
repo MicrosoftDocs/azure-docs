@@ -40,6 +40,9 @@ We have a number of customers using Notification Hubs with a few notable ones be
 * 7Digital - [CaseStudy - 7Digital]
 * Bing Apps – 10s of millions of devices, sending 3 million notifications/day
 
+###4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
+Go to the [Azure Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
+
 ##Design & Development
 ###1.	Which service side platforms do you support?
 We provide SDKs and samples for .NET, Java, PHP, Python, Node.js so that an app backend can be setup to communicate to Notification Hubs using any of these platforms. Notification Hubs APIs are based on REST interface so you can choose to directly talk to these. More details here - [NH - REST APIs]
@@ -48,8 +51,7 @@ We provide SDKs and samples for .NET, Java, PHP, Python, Node.js so that an app 
 We support sending notifications to Apple iOS, Android, Windows Universal and Windows Phone, Kindle, Android China (via Baidu), Xamarin (iOS & Android), Chrome Apps platforms. Step by step getting started tutorials for these platforms are available here - [NH - Getting Started Tutorials]
 
 ###3.	Do you support SMS/Email/web notifications?
-Notification Hubs is primarily designed to send notifications to mobile apps using the above listed platforms. We do not provide capability to send email or SMS however third party platforms which provide these capabilities can be integrated along with Notification Hubs to send native push notifications by using Azure Mobile Services. E.g. this tutorial talks about how to send SMS notifications using Azure Mobile services - [Send SMS with Mobile Services]
-We also do not provide an in-browser push notification out of the box. Customers may choose to implement this using SignalR. We also provide a tutorial for sending push notification to Chrome apps which will work on Google Chrome browser. See this - [Chrome Apps tutorial]
+Notification Hubs is primarily designed to send notifications to mobile apps using the above listed platforms. We do not provide capability to send email or SMS however third party platforms which provide these capabilities can be integrated along with Notification Hubs to send native push notifications by using Azure Mobile Services. We also do not provide an in-browser push notification out of the box. Customers may choose to implement this using SignalR. We also provide a tutorial for sending push notification to Chrome apps which will work on Google Chrome browser. See this - [Chrome Apps tutorial]
 
 ###4.	What is the relation between Azure Mobile Services and Azure Notification Hubs and when do I use what?
 If you have an existing mobile app backend and you only want to add the capability to send push notifications then you must use Azure Notification Hubs. If you want to setup your mobile app backend from scratch then you should consider using Azure Mobile Services. An Azure mobile service automatically provisions a Notification Hub for you to be able to send push notifications easily from the mobile app backend. Pricing for Azure Mobile Services includes the base charges for a Notification Hub and you only pay when you go beyond the included pushes. More details here - [Mobile Services Pricing]
@@ -120,6 +122,7 @@ Azure Notification Hubs enable viewing telemetry data in the Azure management po
 Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is upto the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
 It also provides the capability to export the telemetry programmatically (in Standard Tier). See this sample for details - [NH - Metrics sample]
 
+[Azure Portal]: https://manage.windowsazure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -129,7 +132,6 @@ It also provides the capability to export the telemetry programmatically (in Sta
 [CaseStudy - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Send SMS with Mobile Services]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
 [Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx

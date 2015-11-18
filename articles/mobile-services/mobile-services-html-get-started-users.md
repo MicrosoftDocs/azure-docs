@@ -35,7 +35,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 3. In the app directory, launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows** (Windows computers) 
+	+ **.\start-iisexpress.ps1** (Windows computers) 
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
@@ -68,7 +68,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 	This enables you to login to Mobile Services from the page.
 
-2. In the app.js file, locate the line of code at the very bottom of the file that calls to the refreshTodoItems function, and replace it with the following code: 
+2. In the page.js file, locate the line of code at the very bottom of the file that calls to the refreshTodoItems function, and replace it with the following code: 
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -133,7 +133,6 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

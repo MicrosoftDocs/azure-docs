@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights Export Data Model
@@ -123,43 +123,6 @@ view, request, and so on.
 
     *Examples*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/> 
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-     The port of the URL data item, if it is represented on the full URL.  Otherwise, it is empty. 
-
-    *Derivation:* See appendix for URL transformation 
-
-    *Examples*<br/> 80<br/>443 
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-     The protocol (HTTP, FTP, etc.) of the URL data item 
-
-    *Derivation:* See appendix for URL transformation 
-
-    *Examples*<br/> http<br/>https 
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-     An array of the query parameter names of the URL data item 
-
-    *Derivation:* See appendix for URL transformation 
-
-    *Examples*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype 
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-     An array of query parameter's values parsed from the URL data item 
-
-    *Derivation:* See appendix for URL transformation 
 
 
 ## availability
@@ -354,7 +317,7 @@ view, request, and so on.
 
     string context.application.version      Max: 100
 * 
-     The application version of the client application 
+     The application version of the client application. Not available if set to Unknown. 
 
     *Examples*<br/> 2015.5.21.3<br/>NokiaMailBye_CD_20150227.4 
 
@@ -414,39 +377,12 @@ view, request, and so on.
 * 
      The deployment id of the server 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-     A unique identify of the client.  A generated id and should stored locally on the device and should not be PII such as MAC address or similar non-changeable id.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-     The devicemodel for the mobile hardware client 
-
-    *Examples*<br/> Other<br/>iPad<br/>Nokia 503s 
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
      The name of the device the app is executing on 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-     The device type of the client hardware 
-
-    *Examples*<br/> PC<br/>Mobile<br/>Tablet 
-
-**language**
-
-    string context.device.language      Max: 100
-* 
-     The language of the app on the client.  If not provided explicitly on the telemetry item, it is sourced by processing of the user agent field. 
 
 **locale**
 
@@ -462,17 +398,6 @@ view, request, and so on.
 * 
      The machine name of the server.  For virtualized compute, this data item is equivalent to the underlying host.  For dedicated compute, this is the machine name. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-     The network type of the client 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-     The oem name for the mobile hardware client 
 
 **operatingSystem**
 
@@ -534,15 +459,6 @@ view, request, and so on.
 
     *Examples*<br/> 640<br/>800<br/>1080 
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-     The useragent of the client browser 
-
-    *Default:* if null, set to the HTTP user agent captured at the data collection endpoint 
-
-    *Examples*<br/> Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Version/12.17<br/>Mozilla/5.0 (iPad; CPU OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)<br/>Safari/537.36<br/>+S89 
 
 **aiAgentVersion**
 
@@ -584,17 +500,6 @@ view, request, and so on.
 
     *Examples*<br/> Belarus<br/>Netherlands<br/>Germany 
 
-**latitude**
-
-    long context.location.point.lat      
-* 
-    *Examples*<br/> 53.9<br/>45.7788 
-
-**longitude**
-
-    long context.location.point.lon      
-* 
-    *Examples*<br/> 27.5667<br/>-119.529 
 
 **state**
 
@@ -650,7 +555,8 @@ view, request, and so on.
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -662,9 +568,11 @@ view, request, and so on.
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100
@@ -682,6 +590,18 @@ view, request, and so on.
     string context.user.accountId      Max: 100
 * 
      A unique identifer that defines an account within the app.  This is developer provided. 
+
+### Custom metrics
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
 
 
 ## remotedependency

@@ -13,15 +13,11 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from PHP
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 You can access all Notification Hubs features from a Java/PHP/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
@@ -112,7 +108,7 @@ The following method has to be added to the **NotificationHub** class to create 
 	}
 
 ### Send a notification
-First, let use define a class representing a notification.
+First, let us define a class representing a notification.
 
 	class Notification {
 		public $format;
@@ -139,11 +135,7 @@ Please refer to the [Notification Hubs REST APIs documentation](http://msdn.micr
 
 Armed with this class, we can now write the send notification methods inside of the **NotificationHub** class.
 
-	public function sendNotification($notification) {
-		$this->sendNotification($notification, "");
-	}
-
-	public function sendNotification($notification, $tagsOrTagExpression) {
+	public function sendNotification($notification, $tagsOrTagExpression="") {
 		if (is_array($tagsOrTagExpression)) {
 			$tagExpression = implode(" || ", $tagsOrTagExpression);
 		} else {
@@ -206,6 +198,7 @@ The above methods send an HTTP POST request to the /messages endpoint of your no
 Now you can complete the Get Started tutorial by sending the notification from a PHP back-end.
 
 Initialize your Notification Hubs client (substitute the connection string and hub name as instructed in the [Get started tutorial]):
+
 	$hub = new NotificationHub("connection string", "hubname");	
 
 Then add the send code depending on your target mobile platform.
@@ -236,7 +229,7 @@ Then add the send code depending on your target mobile platform.
 		                '<wp:Text1>Hello from PHP!</wp:Text1>' .
 		           '</wp:Toast> ' .
 		        '</wp:Notification>';
-	$notification = new Notification("mpns", $toast);
+	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
 	$hub->sendNotification($notification);
@@ -257,6 +250,7 @@ In this topic we showed how to create a simple Java REST client for Notification
 * Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]
 * Learn about pushing notifications to individual users in [Notify Users tutorial]
 
+For more information, see also the [PHP Developer Center](/develop/php/).
 
 [PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

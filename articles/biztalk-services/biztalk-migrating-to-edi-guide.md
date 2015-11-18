@@ -1,5 +1,5 @@
 <properties   
-	pageTitle="Migrating BizTalk Server EDI Solutions to BizTalk Services: Technical Guide"
+	pageTitle="Migrating BizTalk Server EDI Solutions to BizTalk Services Technical Guide | Microsoft Azure"
 	description="Migrate EDI to MABS; Microsoft Azure BizTalk Services"
 	services="biztalk-services"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/24/2015"
 	ms.author="mandia"/>
 
 

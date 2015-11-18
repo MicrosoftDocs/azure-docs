@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor usage and statistics in an Azure Search service" 
-   description="Track resource consumption and index size for Azure Search" 
+   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure | Hosted cloud search service" 
+   description="Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/08/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Monitor usage and statistics in an Azure Search service
@@ -45,7 +45,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 
 ## Next steps
 
-Review [Limits and capacity](https://msdn.microsoft.com/library/azure/dn798934.aspx) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
+Review [Limits and capacity](search-limits-quotas-capacity.md) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
 
 Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration.
 

@@ -17,7 +17,7 @@
    ms.date="08/12/2015"
    ms.author="jgao"/>
 
-# Provision HBase clusters on Azure Virtual Network
+# Provision HBase clusters on Azure Virtual Network 
 
 Learn how to create Azure HDInsight HBase clusters on an [Azure Virtual Network][1].
 
@@ -78,7 +78,9 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 2. Click **NEW**, click **Networking**, and then click **Virtual network**.
 3. In **Select a deployment model**, select **Classic**, and then click **Create**.
 
-	>[AZURE.NOTE] Windows based HDInsight cluster can only be deployed to a classic virtual network.
+	> [AZURE.NOTE] You cannot use a v1 (Classic,) Azure Virtual Network with HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
+> 
+> If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
 
 4. Type or select the following values:
 
@@ -379,3 +381,5 @@ In this tutorial you learned how to provision an HBase cluster. To learn more, s
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Provision details for the new HBase cluster"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Use Script Action to customize an HBase cluster"
+
+[azure-preview-portal]: https://portal.azure.com

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Elastic performance and scale with SQL Data Warehouse
@@ -23,31 +23,29 @@ To elastically increase or decrease your compute power all you need to do is adj
 Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.  Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.  
 
 ## How many DWUs should I use?
-There are many different solutions SQL Data Warehouse can unblock for customers.  As such, there is a large variety in the types of queries customers will run and how much data they operate over, as well as the architecture of the schema, how the data is distributed, how many users will access the data, how frequently, etc..  
+Rather than provide prescriptive DWU starting points that may be great for a category of customers, let's approach this question with a practical approach.  Performance in SQL Data Warehouse scales linearly, and changing from one compute scale to another (say from 100 DWUs to 2000 DWUs) happens in seconds.  This gives you the flexibility to try things and determine your scenario's best fit.    
 
-Rather than provide prescriptive DWU starting points that may be great for a category of customers, let's approach this question with a practical approach.  Performance in SQL Data Warehouse scales linearly, and changing from one compute scale to another (say from 100 DWUs to 2000 DWUs) happens in seconds.  This gives you the freedom to try things out and determine what the best fit for your scenario is.    
+1. For a data warehouse in development, begin by selecting small number of DWUs.
+2. Monitor your application performance, observing the number of DWUs selected compared to the performance you observe.
+3. Determine how much faster or slower performance should be for you to reach the optimum performance level for your requirements by assuming linear scale. 
+4. Increase or decrease the number of DWU selected.  The service will respond quickly and adjust the compute resources to meet the DWU requirements.
+5. Continue making adjustments until you reach an optimum performance level for your business requirements.
 
-
-1. For a data warehouse in development, start with small number of DWUs.
-2. Monitor your application performance, so you can become familiar with DWUs versus the performance you observe.
-3. Determine how much faster or slower performance should be for you to reach the optimum performance level for your business requirements by assuming linear scale. 
-4. Change the amount of DWU you're using to a greater or lower amount depending on need.  The service will respond rapidly to adjust the compute resources to meet the DWU requirements.
-5. Make adjustments until you reach an optimum performance level for your business requirements.
-
-If you have an application with a fluctuating workload, you can move performance levels up or down to accommodate peaks and low points. For example, if a workload typically peaks at the end of the month, you could plan to add more DWUs during those peak days and then throttle it back down when the peak period is over.
+If your application has a fluctuating workload, move performance levels up or down to accommodate peaks and low points. For example, if a workload typically peaks at the end of the month, plan to add more DWUs during those peak days, then scale down once the peak period is over.
  
 ## Scaling compute resources up and down
 Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This gives you the flexibility to tune your compute power to something that is optimal for your business.  
 
-Increasing your compute power can be done through the [Azure Portal][], using T-SQL, via REST APIs or through Powershell.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
+To increase the compute power you can add more DWUs to the service using the scale slider in the Azure Portal.  You can also add DWUs through T-SQL, REST APIs, or Powershell cmdlets.  Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.
 
-The T-SQL code below will adjust the DWU allocation for your SQL Data Warehouse when run against the master database of your server:
+In the [Azure Portal][], you can click the 'Scale' icon at the top of your SQL Data Warehouse page and then use the slider to increase or decrease the amount of DWUs applied to your Data Warehouse before clicking 'Save'.  If you would rather change the scale programmatically, the T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:
 
 ```
 ALTER DATABASE MySQLDW 
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
+Please note that this T-SQL should be run against your logical server, and not against the SQL Data Warehouse instance itself. 
 
 You can also achieve the same with result using Powershell using the code below:
 
