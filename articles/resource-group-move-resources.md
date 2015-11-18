@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -60,6 +60,7 @@ The services that currently do not support moving a resource are:
 
 - Virtual Machines
 - Virtual Networks
+- Storage
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
 

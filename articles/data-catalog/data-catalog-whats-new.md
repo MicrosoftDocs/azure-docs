@@ -20,6 +20,14 @@
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
+## What's new for the week of November 13, 2015 release
+
+As of the week of November 13, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for LDAP authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using LDAP as well as TD2 authentication.
+- Support for "Open in Excel" for Teradata data sources.
+- Support for recent search terms in the **Azure Data Catalog** portal. When searching in the portal, users can select from recently used search terms to accelerate the discovery experience. 
+
 ## What's new for the week of November 6, 2015 release
 
 As of the week of November 6, 2015, the following capabilities have been added to **Azure Data Catalog**:
