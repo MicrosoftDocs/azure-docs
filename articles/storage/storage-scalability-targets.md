@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/27/2015"
+   ms.date="11/17/2015"
    ms.author="tamram" />
 
 # Azure Storage Scalability and Performance Targets
+
+# Overview
 
 This topic describes the scalability and performance topics for Microsoft Azure Storage. For a summary of other Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
 
@@ -29,15 +31,15 @@ This topic describes the scalability and performance topics for Microsoft Azure 
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-## Scalability Targets for Standard Storage Accounts
+## Azure Virtual Machine Disks (Standard and Premium Accounts): Targets and Limits
+
+[AZURE.INCLUDE [azure-storage-limits-virtual-machine-disks](../../includes/azure-storage-limits-virtual-machine-disks.md)]
+
+## Storage Services (Standard Accounts): Targets and Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Scalability Targets for Premium Storage Accounts
-
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../../includes/azure-storage-limits-premium-storage.md)]
-
-## Storage Limits - Azure Resource Manager
+## Azure Resource Manager: Targets and Limits
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
