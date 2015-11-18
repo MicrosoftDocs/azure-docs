@@ -185,7 +185,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
     	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
 
     
- #### Command line Install Parameter List
+#### Command line Install Parameter List
 
  - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
  - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
