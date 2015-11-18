@@ -23,7 +23,6 @@
 - [Node.js SDK](documentdb-sdk-node.md)
 - [Java SDK](documentdb-sdk-java.md)
 - [Python SDK](documentdb-sdk-python.md)
-- [JavaScript Client SDK](documentdb-sdk-js.md)
 
 ##DocumentDB Python SDK
 
