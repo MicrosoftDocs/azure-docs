@@ -282,7 +282,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 2.	Choose **Build** > **MSBuild**.
 3.	Choose the pencil icon next to the build step's name and rename it to **Package**.
 4.	Choose the **…** button next to the **Solution** field and then select your application project's .sfproj file.
-5.	Enter `c` for **Platform**.
+5.	Enter `$(BuildPlatform)` for **Platform**.
 6.	Enter `$(BuildConfiguration)` for **Configuration**.
 7.	Enter `/t:Package` for **MSBuild Arguments**.
 8.	Clear the **Restore NuGet Packages** check box (if it isn't already cleared).

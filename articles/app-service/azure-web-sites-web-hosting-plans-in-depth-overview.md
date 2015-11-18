@@ -56,6 +56,8 @@ To do this in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715),
 You can then select or create the App Service plan for the new app.
   
  ![][createASP]
+
+To create a new App Service Plan, click **+ Create New**, type the **App Service plan** name and select an appropriate **Location**.  Click **Pricing tier** and select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**.  After you have selected the pricing tier, click the **Select** button. 
  
 ## Move an app to a different App Service plan
 

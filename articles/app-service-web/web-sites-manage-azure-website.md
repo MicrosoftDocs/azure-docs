@@ -85,7 +85,7 @@ If you have not enabled automatic backups, you can create a [manual backup](web-
 
 Consider using [staged deployment](web-sites-staged-publishing.md). This option lets you publish updates to a staging deployment that runs side-by-side with your production deployment. 
 
-If you use Visual Studio Online, you can set up continuous deployment from source control:
+If you use Visual Studio Team Services, you can set up continuous deployment from source control:
 
 - [Using Team Foundation Version Control (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
 - [Using Git](../cloud-services-continuous-delivery-use-vso-git.md)
