@@ -40,6 +40,7 @@
  - Performance improvements for all requests
  - LINQ Provider support for conditional, coalesce and CompareTo methods for strings
  - **[Fixed]** LINQ provider --> Implement Contains method on List to generate the same SQL as on IEnumerable and Array
+ - **[Fixed]** BackoffRetryUtility uses the same HttpRequestMessage again instead of creating a new one on retry
  - **[Obsolete]** UriFactory.CreateCollection --> should now use UriFactory.CreateDocumentCollection
  
 ### <a name="1.4.1"/>[1.4.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.4.1)
