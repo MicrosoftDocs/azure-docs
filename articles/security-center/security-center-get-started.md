@@ -36,7 +36,7 @@ Azure Security Center is accessed from the [Microsoft Azure preview portal](http
 
 In the Azure portal, follow these steps to access Azure Security Center:
 
-1. Select **Browse** and scroll to the **Security** option.
+1. Select **Browse** and scroll to the **Security Center** option.
 ![][1]
 
 2. Select **Security Center**. This opens the **Security Center** blade.
