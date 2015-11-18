@@ -76,7 +76,7 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 
 1. Sign in to the [preview portal](https://portal.azure.com).
 2. Click **NEW**, click **Networking**, and then click **Virtual network**.
-3. In **Select a deployment model**, select **Classic** if you will be using a Windows-based HDInsight cluster; click **Resource Manager**. Finally, click **Create**.
+3. In **Select a deployment model**, select **Classic** if you will be using a Windows-based HDInsight cluster; select **Resource Manager** if you will be using a Linux-based HDInsight cluster. Finally, click **Create**.
 
     > [AZURE.NOTE] Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
     >
