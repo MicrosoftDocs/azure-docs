@@ -84,9 +84,9 @@ The Service Fabric SDK includes a rich set of frameworks and developer tooling f
 
 7. To see the application in action, launch the browser and navigate to [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index). You should see something like this:
 
-  ![Deployed application UI][deployed-app-UI]
+    ![Deployed application UI][deployed-app-UI]
 
-  The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via an ASP.NET WebAPI. A stateful service keeps track of the number of words counted, partitioned based on the first character of the word. The application that we deployed contains a four partitions, so words beginning with A through G are stored in the first partition, H through N are stored in the second partition, and so on.
+    The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via an ASP.NET WebAPI. A stateful service keeps track of the number of words counted, partitioned based on the first character of the word. The application that we deployed contains a four partitions, so words beginning with A through G are stored in the first partition, H through N are stored in the second partition, and so on.
 
 ## View application details and status
 With the application deployed, let's look at some of the app details in PowerShell.
