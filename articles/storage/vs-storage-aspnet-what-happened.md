@@ -3,7 +3,7 @@
 	description="Describes what happens after adding Azure Storage to a ASP.NET project using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # What happened to my ASP.NET project (Visual Studio Azure Storage connected service)?
 

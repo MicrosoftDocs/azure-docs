@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
 	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like 			subscription, resource groups or individual resources."
 	services="azure-resource-manager"
@@ -13,25 +13,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/06/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
 
 Azure Resource Manager now allows you to control access through custom
-policies. A policy represents one or more violations that can be prevented
-at the desired scope. A scope in this case can be a subscription,
-resource group or an individual resource.
+policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
 
-Policy is a default allow system. A policy is defined through a Policy
-Definition and is applied through a Policy Assignment. Policy
-Assignments lets you control the scope of where a policy can be applied.
+You create policy definitions that describe the actions or resources that are specifically denied. 
+You assign those policy definitions at the desired scope, such as the subscription,
+resource group, or an individual resource. 
 
 In this article, we will explain the basic structure of the policy
 definition language that you can use to create policies. Then we will
 describe how you can apply these policies at different scopes and
-finally we will show some examples on how you can achieve this through
-REST API. PowerShell support will also be added shortly.
+finally we will show some examples of how you can achieve this through
+REST API.
+
+Policy is currently available as a preview.
+
+## How is it different from RBAC?
+
+There are a few key differences between policy and role-based access control, but the first thing to understand is that 
+policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a 
+default allow and explicit deny system. 
+
+RBAC focuses on the actions a **user** can perform at different scopes. 
+For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that 
+resource group. 
+
+Policy focuses on **resource** actions at various scopes. For example, through policies, you can 
+control the types of resources that can be provisioned or restrict the locations in which the 
+resources can be provisioned.
 
 ## Common Scenarios
 
@@ -82,14 +96,15 @@ The supported logical operators along with the syntax are listed below:
 
 | Operator Name		| Syntax		 |
 | :------------- | :------------- |
-| Not			 | "not" : {&lt;condition&gt;}			 |
+| Not			 | "not" : {&lt;condition  or operator &gt;}			 |
 | And			| "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 | Or						 | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 
+Nested conditions are not supported.
 
 ## Conditions
 
-The supported conditions along with the syntax are listed below:
+A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
 
 | Condition Name | Syntax				 |
 | :------------- | :------------- |
@@ -102,12 +117,15 @@ The supported conditions along with the syntax are listed below:
 
 ## Fields and Sources
 
-The conditions are formed through the use of fields and sources. The
-following fields and sources are supported:
+Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload. A source represents characteristics of the request itself. 
+
+The following fields and sources are supported:
 
 Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-Sources: **action**
+Sources: **action**. 
+
+To get more information about actions, see [RBAC - Built in Roles] (active-directory/role-based-access-built-in-roles.md). 
 
 ## Policy Definition Examples
 

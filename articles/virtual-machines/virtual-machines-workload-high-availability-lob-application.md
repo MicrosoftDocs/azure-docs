@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
@@ -67,6 +67,29 @@ This baseline configuration requires the following set of Azure services and com
 - Three availability sets
 - One cross-premises virtual network
 - Two storage accounts
+
+Here are the virtual machines and thier default sizes for this configuration.
+
+Item | Virtual machine description | Gallery image | Default size 
+--- | --- | --- | --- 
+1. | First domain controller | Windows Server 2012 R2 Datacenter | D1
+2. | Second domain controller | Windows Server 2012 R2 Datacenter | D1
+3. | Primary database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+4. | Secondary database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+5. | Majority node for the cluster | Windows Server 2012 R2 Datacenter | D1
+6. | First web server | Windows Server 2012 R2 Datacenter | D3
+7. | Second web server | Windows Server 2012 R2 Datacenter | D3
+
+To compute the estimated costs for this configuration, see the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). 
+
+1. In **Modules**, click **Compute**, and then click **Virtual Machines** enough times to create a list of seven virtual machines.
+2. For each virtual machine, select:
+	- Your intended region
+	- **Windows** for the type
+	- **Standard** for the pricing tier
+	- The default size in the previous table or your intended size for the **Instance size**
+
+> [AZURE.NOTE] The Azure Pricing Calculator does not include the additional costs for the SQL Server license for the two virtual machines running SQL Server 2014 Enterprise. See [Virtual Machines Pricing-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) for more information.
 
 ### Deployment phases
 
