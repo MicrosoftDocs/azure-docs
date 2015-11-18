@@ -702,6 +702,22 @@ A best practice when troubleshooting issues with Password Writeback is to inspec
           </tr>
           <tr>
             <td>
+              <p>HR 8023042</p>
+            </td>
+            <td>
+              <p>Synchronization Engine returned an error hr=80230402, message=An attempt to get an object failed because there are duplicated entries with the same anchor</p>
+            </td>
+            <td>
+              <p>ADSync</p>
+            </td>
+            <td>
+              <p>This event occurs when the same user id is enabled in multiple domains.  For example, if you are syncing Account/Resource forests, and have the same user id present and enabled in each, this error may occur.  </p>
+              <p>This error can also occur if you are using a non-unique anchor attribute (like alias or UPN) and two users share that same anchor attribute.</p>
+              <p>To resolve this issue, ensure that you do not have any duplicated users within your domains and that you are using a unique anchor attribute for each user.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
               <p>31001</p>
             </td>
             <td>
