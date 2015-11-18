@@ -83,7 +83,7 @@ There are two possible reasons why you might need to edit the claims issued in t
 •The application has been written to require a different set of claim URIs or claim values 
 •Your application has been deployed in a way that requires the NameIdentifier claim to be something other than the username (AKA user principal name) stored in Azure Active Directory. 
 
-For information on how to add and edit claims for these scenarios, check out this [article on claims customization](http://social.technet.microsoft.com/wiki/contents/articles/31257.azure-active-directory-customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps.aspx). 
+For information on how to add and edit claims for these scenarios, check out this [article on claims customization](active-directory-saml-claims-customization.md). 
 
 ###Testing the SAML application 
 
@@ -91,7 +91,7 @@ Once the SAML URLs and certificate have been configured in Azure AD and in the a
 
 To test, simply sign-into the Azure AD access panel at https://myapps.microsoft.com using a user account you assigned to the application, and then click on the tile for the application to kick off the single sign-on process. Alternately, you can browse directly to the Sign-On URL for the application and sign-in from there. 
 
-For debugging tips, see this [article on how to debug SAML-based single sign-on to applications](http://social.technet.microsoft.com/wiki/contents/articles/31247.azure-active-directory-how-to-debug-saml-based-single-sign-on-to-applications.aspx). 
+For debugging tips, see this [article on how to debug SAML-based single sign-on to applications](active-directory-saml-debugging.md) 
 
 ##Password Single Sign-On
 
