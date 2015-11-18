@@ -27,63 +27,75 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 
 ## Prerequisites
 
-To get started with Azure Security Center you must have a subscription to Microsoft Azure.  Azure Security Center is enabled with your subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+To get started with Azure Security Center you must have a subscription to Microsoft Azure. Azure Security Center is enabled with your subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 
-Azure Security Center is accessed from the [Microsoft Azure portal](http://azure.microsoft.com/en-us/features/azure-portal/). See [Azure portal documentation](https://azure.microsoft.com/en-us/documentation/services/azure-portal/) to learn more.
+Azure Security Center is accessed from the [Microsoft Azure preview portal](http://azure.microsoft.com/features/azure-portal/). See [Azure preview portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/) to learn more.
+
 
 ## Accessing Azure Security Center
 
 In the Azure portal, follow these steps to access Azure Security Center:
+
 1. Select **Browse** and scroll to the **Security** option.
+![][1]
 
-Insert pic
-
-2. Select **Security**. This opens the **Security** blade.
-3. For easy access to the **Security** blade in the future, select the **Pin blade to dashboard** option (top right).
+2. Select **Security Center**. This opens the **Security Center** blade.
+3. For easy access to the **Security Center** blade in the future, select the **Pin blade to dashboard** option (top right).
+![][2]
 
 ## Using Azure Security Center
 
 Configure a security **Policy** for your subscription(s):
-4. Click the **Security policy** tile on the **Security** blade.
-5. On the **Security policy** blade, select a subscription from the drop down list of all of your subscriptions.
-6. On the **Security policy – SUBSCRIPTION** blade, turn on **Data Collection** to automatically collect logs. This will include Microsoft Antimalware logs as well as Microsoft integrated partners.
-7. Click **CHOOSE STORAGE ACCOUNTS**.  For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. Data collected is logically isolated from other customers’ data for security reasons.
-8. Turn on the **Recommendations** you’d like to see as part of your security policy.  Examples:
-  - Turning on **Security updates** will scan all supported Virtual Machines for missing OS patches.
-  - Turning on **Baseline Rules** will scan supported Virtual Machines to identify any OS configurations that could make the Virtual Machine more vulnerable to attack.
 
-Insert pic
+4. Click the **Security policy** tile on the **Security Center** blade.
+5. On the **Security policy – Define policy per subscription** blade, select a subscription.
+6. On the **Security policy** blade, turn on **Data collection** to automatically collect logs. Turning on **Data collection** will also provision the monitoring extension on all current and new VMs in the subscription.
+7. Click **Choose storage accounts**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. Data collected is logically isolated from other customers’ data for security reasons.
+8. Turn on the **Recommendations** you’d like to see as part of your security policy. Examples:
+
+  - Turning on **System updates** will scan all supported Virtual Machines for missing OS patches.
+  - Turning on **Baseline rules** will scan supported Virtual Machines to identify any OS configurations that could make the Virtual Machine more vulnerable to attack.
+
+![][3]
 
 Address **Recommendations**:
-9. Return to the **Security** blade and click the **Recommendations** tile.
-10. On the **Recommendations** blade you see a list of items that need to be completed to comply with the security policy.
-11. Click each recommendation to view more information and/or configure the recommended security control.
+9. Return to the **Security Center** blade and click the **Recommendations** tile.
+10.	Azure Security Center is continually analyzing the security state of your Azure resources. When potential security vulnerabilities are identified, a recommendation is shown here.
+11.	Click each recommendation to view more information and/or take action to resolve it.
 
-Insert pic
+![][4]
 
 View the health and security state of your resources via **Resources health**:
-12.	Return to the **Security** blade and click the **Resources health** tile.
-13.	The **Resources health* blade opens and tiles containing an indicator of the security state (as compared to the security policy) are displayed for Virtual machines, Networking, SQL, Applications, and Identity.
-14.	The **Resources hierarchy** for your subscription is displayed with a list of resources and an indicator of the security state of each resource (as compared to the security policy).
-15.	Click the **Virtual machines** tile to view more information and/or configure security controls.
-16.	**Virtual machines** blade displays a status summary, including Antimalware, Patch, Reboot, and Baseline, of your Virtual Machines.
-17.	Select an item under **PREVENTION STEPS** to view a more detailed summary.
-18.	Drill down to view additional information for specific Virtual Machines.
+12.	Return to the **Security Center** blade.
+13.	The **Resources health** tile contains indicators of the security state  for Virtual machines, Networking, SQL, and Applications.
+14.	Select **Virtual machines** to view more information.
+15.	**Virtual machines** blade displays a status summary, including antimalware, system updates, restart, and baseline rules, of your Virtual Machines.
+16.	Select an item under **PREVENTION STEPS** to view more information and/or take action to configure needed controls.
+17.	Drill down to view additional information for specific Virtual Machines.
 
-Insert pic
+![][5]
 
 Address **Security Alerts**:
-19.	Return to the **Security** blade and click the **Security alerts** tile.
-20.	On the **Security alerts** blade a list of alerts are displayed.  The alerts were detected by Azure Security Center analysis of your security logs.
+19.	Return to the **Security Center** blade and click the **Security alerts** tile.
+20.	On the **Security alerts** blade a list of alerts are displayed. The alerts were detected by Azure Security Center analysis of your security logs and network. Alerts from integrated partner solutions are included.
 21.	Click an alert to view additional information.
 
-Insert pic
+![][6]
 
 ## Next steps
-In this document, you were introduced to the security monitoring and policy management components in Azure Security Center.  To learn more, see the following:
-- Setting security policies in Azure Security Center – Learn how to configure security policies
-- Implementing security recommendations in Azure Security Center – Learn how recommendations help you protect your Azure resources and stay in compliance with security policies
-- Security monitoring in Azure Security Center – Learn how to monitor the health of your Azure resources
-- Managing and responding to security alerts in Azure Security Center - Learn how to manage and respond to security alerts
-- Azure Security Center FAQ – Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance
+In this document, you were introduced to the security monitoring and policy management components in Azure Security Center. To learn more, see the following:
+
+- [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/) – Learn how to configure security policies
+- [Implementing security recommendations in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/) – Learn how recommendations help you protect your Azure resources
+- [Security monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/) – Learn how to monitor the health of your Azure resources
+- [Managing and responding to security alerts in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-managing-and-responding-alerts/) - Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](https://azure.microsoft.com/documentation/articles/security-center-faq/) – Find frequently asked questions about using the service
+- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Get the latest Azure security news and information
+
+<!--Image references-->
+[1]: ./media/security-center-get-started/security-tile.png
+[2]: ./media/security-center-get-started/pin-blade.png
+[3]: ./media/security-center-get-started/security-policy.png
+[4]: ./media/security-center-get-started/recommendations.png
+[5]: ./media/security-center-get-started/resources-health.png
+[6]: ./media/security-center-get-started/security-alerts.png

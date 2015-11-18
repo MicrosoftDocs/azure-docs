@@ -50,8 +50,8 @@ After setting a security policy, Azure Security Center analyses the security sta
 
 To see the details of each recommendation:
 
-1. Click the **Recommendations tile** on the **Security Center** blade.  The **Recommendations** blade opens.
-2. You can filter the recommendations presented to you by state and severity.  Click **Filter** on the **Recommendations** blade.  The Filter blade opens and you select the severity and state values you wish to see.
+1. Click the **Recommendations tile** on the **Security Center** blade. The **Recommendations** blade opens.
+2. You can filter the recommendations presented to you by state and severity. Click **Filter** on the **Recommendations** blade. The Filter blade opens and you select the severity and state values you wish to see.
 ![][3]
 
 3. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. Right click an item and select **Dismiss** or hover over an item, click the three dots that appear to the right, and select **Dismiss**.
@@ -79,7 +79,7 @@ Use the table below as a reference to understand the available recommendations a
 | Apply system updates | Recommends that you deploy missing system updates to VMs. |
 | Configure ACLs for endpoint | Recommends that you configure an Access Control list to restrict inbound access to VMs. |
 | Add a web application firewall | Recommends that you deploy a Web Application Firewall (WAF) for web endpoints. |
-| Reroute traffic through web application firewall | To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. This recommendation will complete the necessary configuration changes. |
+| Finalize web application firewall setup | To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. This recommendation will complete the necessary setup changes. |
 | Enable Antimalware | Recommends that you provision antimalware to VMs. |
 | Enable Network Security Groups on subnets/network interfaces | Recommends that you enable Network Security Groups (NSGs) on subnets and network interfaces. |
 | Restrict access through public external endpoints | Recommends that you configure inbound traffic rules for NSGs. |
@@ -104,31 +104,29 @@ Using the Antimalware recommendation, let’s walk through an example on how to 
 
 ## Deploying integrated partner solutions
 
-A recommendation may be to deploy an integrated security solution from a Microsoft partner.  Let’s walk through an example on how to do this:
+A recommendation may be to deploy an integrated security solution from a Microsoft partner. Let’s walk through an example on how to do this:
 
 1. Return to the **Recommendations** blade.
 2.	Select recommendation **Secure web application using web application firewall**. This opens the **Unprotected Web Applications** blade.
 ![][7]
 3. Select a web application, the **Add a Web Application Firewall** blade opens.
-4. Select **Barracuda Web Application Firewall**.  A blade opens that provides you information about the **Barracuda Web Application Firewall**.
-5. Click **Create** in the information blade.  The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**.
+4. Select **Barracuda Web Application Firewall**. A blade opens that provides you information about the **Barracuda Web Application Firewall**.
+5. Click **Create** in the information blade. The **New Web Application Firewall** blade opens, where you can perform **VM Configuration** steps and provide **WAF Information**.
 6. Select **VM Configuration**. In the **VM Configuration** blade you enter information required to spin up the virtual machine that will run the WAF.
 ![][8]
 7. Return to the **New Web Application Firewall** blade and select **WAF Information**. In the **WAF Information** blade you configure the WAF itself. Step 6 allows you to configure the virtual machine on which the WAF will run and step 7 enables you to provision the WAF itself.
 
-8. Return to the **Recommendations** blade.  A new entry was generated after you created the WAF, **Reroute traffic through Web Application Firewall**. This lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
+8. Return to the **Recommendations** blade.  A new entry was generated after you created the WAF, **Finalize web application firewall setup**. This lets you know that you need to complete the process of actually wiring up the WAF within the Azure Virtual Network so that it can protect the application.
 ![][9]
 
-9. Select **Reroute traffic through Web Application Firewall** and a new blade opens. You can see that you have a couple of web applications that need the traffic rerouted.
+9. Select **Finalize web application firewall setup** and a new blade opens. You can see that you have a web application that needs the traffic rerouted.
+10. Select the web application and a blade opens that gives you steps for finalizing the web application firewall setup. Complete the steps, click **Restrict traffic**, and Azure Security Center does the wiring-up for you.
 ![][10]
 
-10. Select a web application and a blade opens that gives you information on the application needing the traffic rerouted. Click **Reroute** and Azure Security Center does the wiring-up for you.
-![][11]
-
-The logs from that WAF are now fully integrated.  Azure Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
+The logs from that WAF are now fully integrated. Azure Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 
 ## Next steps
-In this document, you were introduced to security recommendations in Azure Security Center.  To learn more about Azure Security Center, see the following:
+In this document, you were introduced to security recommendations in Azure Security Center. To learn more about Azure Security Center, see the following:
 
 - [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/) – Learn how to configure security policies
 - [Security monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/) – Learn how to monitor the health of your Azure resources
@@ -144,7 +142,6 @@ In this document, you were introduced to security recommendations in Azure Secur
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 [7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/show-recommendations-for.png
-[9]: ./media/security-center-recommendations/reroute-traffic.png
-[10]: ./media/security-center-recommendations/reroute-traffic-through-waf.png
-[11]: ./media/security-center-recommendations/click-reroute.png
+[8]: ./media/security-center-recommendations/vm-configuration.png
+[9]: ./media/security-center-recommendations/finalize-waf.png
+[10]: ./media/security-center-recommendations/restrict-traffic.png

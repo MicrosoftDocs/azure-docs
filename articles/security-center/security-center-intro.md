@@ -42,7 +42,7 @@ Azure Security Center delivers easy and effective threat prevention, detection, 
 | | Suggests ways to stop the current attack and help prevent future attacks |
 
 ## Introductory walkthrough
-Azure Security Center is accessed from the [Microsoft Azure portal](http://azure.microsoft.com/en-us/features/azure-portal/) by selecting **Browse** and scrolling to the **Security Center** option or by selecting the **Security Center** tile you previously pinned to the Azure portal dashboard.
+Azure Security Center is accessed from the [Microsoft Azure preview portal](http://azure.microsoft.com/features/azure-portal/). To access, [sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, and scroll to the **Security Center** option or select the **Security Center** tile you previously pinned to the Azure preview portal dashboard.
 
 ![][1]
 
@@ -52,7 +52,7 @@ From Azure Security Center, you can set security policies, monitor security conf
 
 You can define policies for your Azure subscriptions according to your company security needs and tailored to the type of applications or sensitivity of the data in each subscription. For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII may require a higher level of security.
 
-> [AZURE.NOTE] You must be an owner or collaborator of the subscription to manage the security policy.
+> [AZURE.NOTE] To edit a security policy, you must be an Owner, Contributor, or Security Admin of the subscription.
 
 Click the **Security policy** tile for a list of your subscriptions and choose a subscription to view the policy details.  
 
@@ -66,30 +66,30 @@ Click the **Security policy** tile for a list of your subscriptions and choose a
 
 ### Security recommendations
 
-Azure Security Center analyzes the security state of your Azure resources to identify potential security gaps and misconfigurations. A list of recommendations guides you through the process of configuring needed controls. Examples are:
-- Provisioning of - to help identify and remove malicious software
-- Configuring access control lists to limit access to a Windows virtual machine endpoint
+Azure Security Center analyzes the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls. Examples are:
+
+- Provisioning of antimalware to help identify and remove malicious software
+- Configuring Network Security Groups and rules to control traffic to virtual machines
 - Provisioning of a web application firewall to help defend against attacks targeting your web applications
-- Updating missing patches
+- Deploying missing system updates
 - Addressing OS configurations that do not match the recommended baselines
 
-Click the **Recommendations** tile for a list of recommendations. Click on each recommendation to view additional information or to take further action to resolve it.
+Click the **Recommendations** tile for a list of recommendations. Click on each recommendation to view additional information or to take action to resolve it.
 
-![][5]
+![][3]
 
 ### Resources health
 
-The **Resources health** tile shows the overall security posture of the environment by resource type - virtual machines, web applications and other resources.  
+The **Resources health** tile shows the overall security posture of the environment by resource type - virtual machines, web applications and other resources.   
 
-Click the **Resources health** tile to display your resources and identify where attention is required or issues may exist.
+Select a resource type on the **Resources health** tile to view more information, including a list of any potential security vulnerabilities that have been identified.
 
-Click a resource tile to load more information about the specific resources, including any issues that need to be addressed. The example shows a subnet without Network Security Groups enabled.
-
-![][6]
+![][4]
 
 ### Security alerts
 
 Azure Security Center automatically collects, analyzes and integrates log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a Security alert is created. Examples include detection of:
+
 - Compromised Virtual Machines communicating with known malicious IPs
 - Advanced malware detected using Windows error reporting
 - Brute Force attacks against Virtual Machines
@@ -97,31 +97,28 @@ Azure Security Center automatically collects, analyzes and integrates log data f
 
 Clicking the **Security alerts** tile displays a list of prioritized alerts. Selecting an alert shows more information about the attack and suggestions on how to remediate it.
 
-![][4]
+![][5]
 
 ## Get started
 To get started with Azure Security Center you must have a subscription to Microsoft Azure. Azure Security Center is enabled with your Azure subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 
-Azure Security Center is accessed from the [Microsoft Azure portal](http://azure.microsoft.com/en-us/features/azure-portal/). See [Azure portal documentation](https://azure.microsoft.com/en-us/documentation/services/azure-portal/) to learn more.
+Azure Security Center is accessed from the [Microsoft Azure preview portal](http://azure.microsoft.com/features/azure-portal/). See [Azure preview portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/) to learn more.
 
-Getting started with Azure Security Center quickly guides you through the security monitoring and policy management components of Azure Security Center.
-
-Azure Security Center FAQ provides quick answers to frequently asked questions.
+[Getting started with Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-get-started/) quickly guides you through the security monitoring and policy management components of Azure Security Center.
 
 ## Next steps
 In this document you were introduced to Azure Security Center, its key capabilities and how to get started. To learn more, see the following:
-- Setting security policies in Azure Security Center – Learn how to configure security policies
-- Implementing security recommendations in Azure Security Center – Learn how recommendations help you protect your Azure resources and stay in compliance with security policies
-- Security monitoring in Azure Security Center – Learn how to monitor the health of your Azure resources
-- Managing and responding to security alerts in Azure Security Center - Learn how to manage and respond to security alerts
-- Azure Security Center FAQ – Find frequently asked questions about using the service
+
+- [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/) – Learn how to configure security policies
+- [Implementing security recommendations in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/) – Learn how recommendations help you protect your Azure resources
+- [Security monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/) – Learn how to monitor the health of your Azure resources
+- [Managing and responding to security alerts in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-managing-and-responding-alerts/) - Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](https://azure.microsoft.com/documentation/articles/security-center-faq/) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Get the latest Azure security news and information
 
-
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.PNG
+[1]: ./media/security-center-intro/security-tile.png
 [2]: ./media/security-center-intro/security-policy.png
-[3]: ./media/security-center-intro/security-subscription.png
-[4]: ./media/security-center-intro/security-alerts.png
-[5]: ./media/security-center-intro/recommendations.png
-[6]: ./media/security-center-intro/resources-health.png
+[3]: ./media/security-center-intro/recommendations.png
+[4]: ./media/security-center-intro/resources-health.png
+[5]: ./media/security-center-intro/security-alerts.png
