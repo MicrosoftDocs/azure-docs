@@ -20,6 +20,8 @@
 
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
 
+>[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) is open source on GitHub. The repository contains the entire server SDK unit test suite as well as some sample projects.
+
 ## How to: Download and initialize the SDK
 
 The SDK is available on [NuGet.org]. This package includes the base functionality required to get started using the SDK. To initialize the SDK, you need to perform actions on the **HttpConfiguration** object. 
@@ -28,7 +30,7 @@ The SDK is available on [NuGet.org]. This package includes the base functionalit
 
 To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package, then click **Install**.  
 
-###Initialize the server project
+###<a name="server-project-setup"></a> Initialize the server project
 
 A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. To add this class in Visual Studio, right-click on your server project and select **Add** -> **New Item**, then **Web** -> **General** -> **OWIN Startup class**.
 
@@ -159,7 +161,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
 
-To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-dotnet-backend-ios-get-started-users.md).
+To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
 ## How to: Add push notifications to a server project
 
@@ -200,6 +202,29 @@ You can add push notifications to your server project by extending the **MobileA
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
 At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
+
+## How to: Add tags to a device installation for push to tags
+
+Following the above **How to: Define a custom API controller**, you will want to set up a custom API on your backend to work with Notification Hubs to add tags to a specific device installation. Make sure you pass along the Installation ID stored on the client local storage and the tags you want to add (optional, since you can also specify tags directly on your backend). The following snippet should be added to your controller to work with Notification Hubs to add a tag to a device Installation ID.
+
+Using [Azure Notification Hubs NuGet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)([reference](https://msdn.microsoft.com/library/azure/mt414893.aspx)):
+
+		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+
+		hub.PatchInstallation("my-installation-id", new[]
+		{
+		    new PartialUpdateOperation
+		    {
+		        Operation = UpdateOperationType.Add,
+		        Path = "/tags",
+		        Value = "{my-tag}"
+		    }
+		});
+	
+
+To push to these tags, work with [Notification Hubs APIs](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+
+You can also stand up your custom API to register device installations with Notification Hubs directly on your backend.
 
 ## How to: Publishing the server project
 

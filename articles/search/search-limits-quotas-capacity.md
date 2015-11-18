@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service limits in Azure Search | Microsoft Azure"
+	pageTitle="Service limits in Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
@@ -56,7 +56,7 @@ Maximum number of fields per index|1000
 Maximum document count|15 million per partition
 Maximum storage size|25 GB per partition
 Maximum partitions|12 per Search service
-Maximum replicas|6 per Search service
+Maximum replicas|12 per Search service
 Maximum search units|36 per Search service
 Maximum search services|12 per Azure subscription
 Maximum number of indexers|50 per Search service
@@ -85,6 +85,7 @@ Additional capacity is calculated as partitions multiplied by replicas, yielding
 The following table is a chart that lists replicas on the vertical axis, and partitions on the horizontal axis. The intersection shows the number of search units required to support each combination, subject to the 36 search unit (SU) limit per service. For example, if you want 6 replicas and 2 partitions, this configuration would require 12 search units. To use 4 replicas and 2 partitions, you would need 8 search units. As a general rule, most search applications tend to need more replicas than partitions.
 
 <table cellspacing="0" border="1">
+<tr><td><b>12 replicas</b></td><td>12 SU</td><td>24 SU</td><td>36 SU</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
 <tr><td><b>6 replicas</b></td><td>6 SU</td><td>12 SU</td><td>18 SU</td><td>24 SU</td><td>36 SU</td><td>N/A</td></tr>
 <tr><td><b>5 replicas</b></td><td>5 SU</td><td>10 SU</td><td>15 SU</td><td>20 SU</td><td>30 SU</td><td>N/A</td></tr>
 <tr><td><b>4 replicas</b></td><td>4 SU</td><td>8 SU</td><td>12 SU</td><td>16 SU</td><td>24 SU</td><td>N/A </td></tr>
@@ -96,7 +97,7 @@ The following table is a chart that lists replicas on the vertical axis, and par
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](http://azure.microsoft.com/pricing/details/search/) for more information.
 
-> [AZURE.NOTE] The number of partitions you choose must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+> [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
 ## Choose a combination of partitions and replicas for high availability
 

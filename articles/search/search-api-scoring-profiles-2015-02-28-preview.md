@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure"
+	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure | Hosted cloud search service"
 	description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
 	services="search"
 	documentationCenter=""
@@ -343,7 +343,9 @@ Interpolations allow you to define the slope for which the score boosting increa
 
 `boostingDuration` is an attribute of the freshness function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents. Or to boost upcoming events in the next week specify "-P7D".
 
-`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is: "[-]P[nD][T[nH][nM][nS]]".
+`boostingDuration` must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). The pattern for this is:
+
+     [-]P[nD][T[nH][nM][nS]]
 
 The following table provides several examples.
 

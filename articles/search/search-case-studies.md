@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Who's using Azure Search: case studies and customer stories"
+	pageTitle="Who's using Azure Search: case studies and customer stories | Microsoft Azure | Hosted cloud search service"
 	description="Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure."
 	services="search"
 	documentationCenter=""

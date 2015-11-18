@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Event Hubs"
+	pageTitle="Get Started with Event Hubs with C and Apache Storm | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in an Apache Storm cluster."
 	services="event-hubs"
 	documentationCenter=""
@@ -44,7 +44,7 @@ In order to complete this tutorial you will need the following:
 
 	![][1]
 
-3. Type a name for your Even Hub, select your desired region, and then click **Create a new Event Hub**.
+3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
 
 	![][2]
 
