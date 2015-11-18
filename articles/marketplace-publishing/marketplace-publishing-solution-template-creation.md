@@ -66,6 +66,7 @@ Now that you created your solution template and submitted the zip file with the 
 
 You might also be interested in these VM-related articles:
 <br>
+<br>
   **VM images**
   - [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
