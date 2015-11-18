@@ -170,8 +170,8 @@ The new version of the application will now only count words that begin with a v
 [cluster-setup-success]: ./media/service-fabric-get-started-with-a-local-cluster/LocalClusterSetup.png
 [extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png
 [deploy-app-to-local-cluster]: ./media/service-fabric-get-started-with-a-local-cluster/DeployAppToLocalCluster.png
-[deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI.png
-[deployed-app-ui2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI2.png
+[deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v1.png
+[deployed-app-ui2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v2.png
 [sfx-app-instance]: ./media/service-fabric-get-started-with-a-local-cluster/SfxAppInstance.png
 [sfx-two-app-instances-different-partitions]: ./media/service-fabric-get-started-with-a-local-cluster/SfxTwoAppInstances-DifferentPartitionCount.png
 [ps-getsfapp]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFApp.png
