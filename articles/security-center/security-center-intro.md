@@ -117,7 +117,7 @@ In this document you were introduced to Azure Security Center, its key capabilit
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Get the latest Azure security news and information
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.png
+[1]: ./media/security-center-intro/security-tile.PNG
 [2]: ./media/security-center-intro/security-policy.png
 [3]: ./media/security-center-intro/recommendations.png
 [4]: ./media/security-center-intro/resources-health.png
