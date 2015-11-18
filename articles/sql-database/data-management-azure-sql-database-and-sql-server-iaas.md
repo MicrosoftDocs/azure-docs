@@ -1,8 +1,8 @@
 <properties
 	pageTitle="SQL (SaaS) Database vs. SQL Server in the cloud | Microsoft Azure"
-	description="Learn which cloud SQL server option fits your application: Azure SQL (SaaS) Database or SQL Server in the cloud in Azure Virtual Machine."
+	description="Learn which cloud SQL Server option fits your application: Azure SQL (SaaS) Database or SQL Server in the cloud in Azure Virtual Machine."
 	services="sql-database, virtual-machines"
-	keywords="SQL server cloud, SQL server in the cloud, SaaS database, cloud SQL server"
+	keywords="SQL Server cloud, SQL Server in the cloud, SaaS database, cloud SQL Server"
 	documentationCenter=""
 	authors="jeffgoll"
 	manager="jeffreyg"
@@ -17,14 +17,14 @@
 	ms.date="11/16/2015"
 	ms.author="jeffreyg"/>
 
-# Choose a cloud SQL server option: Azure SQL (SaaS) Database or Azure SQL Server in the cloud on VMs
+# Choose a cloud SQL Server option: Azure SQL (SaaS) Database or Azure SQL Server in the cloud on VMs
 
 Microsoft Azure has two options for SQL Server in the cloud:
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A cloud SQL database.
-* [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL server in the cloud.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL database native to the cloud, or a software-as-a-service (SaaS) database.
+* [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server installed and hosted in the cloud, infrastructure-as-a-service (IaaS).
 
-Learn how each option fits into the Microsoft data platform. Then, get help matching the cloud SQL server option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
+Learn how each option fits into the Microsoft data platform. Then, get help matching the cloud SQL Server option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
 - [Microsoft’s Data Platform](#platform)
 - [A Closer Look at Azure SQL Database and SQL Server in Azure VM](#close)
@@ -55,7 +55,7 @@ When designing an application, four basic options are available for hosting the 
 - SQL Server in Azure Virtual Machine (public cloud)
 - Azure SQL Database (public cloud)
 
-In the following sections, we will learn about the SQL server in the public cloud: Azure SQL Database and SQL Server in Azure VMs. In addition, we will explore common business motivators for determining which option works best for your application.
+In the following sections, we will learn about the SQL Server in the public cloud: Azure SQL Database and SQL Server in Azure VMs. In addition, we will explore common business motivators for determining which option works best for your application.
 
 ##<a name="close"></a>A closer look at Azure SQL Database and SQL Server in Azure VM
 
