@@ -59,7 +59,7 @@ Microsoft will provide notification at least **12 months** in advance before ret
 We strongly recommend that you upgrade to the latest version as early as possible. 
 It is recommended that you begin application upgrades now in order to avoid being impacted when the earlier service versions are removed.
 
-| Version | Release Date | 
+| Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
 | [1.4.0](#1.4.0) | October 05 2015 |---
 | [1.3.0](#1.3.0) | October 05 2015 |---
