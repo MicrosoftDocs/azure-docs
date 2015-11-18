@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # How to create APIs in Azure API Management
@@ -55,7 +55,7 @@ You can use the **Settings** tab to verify and edit the configuration for an API
 
 ![API settings][api-management-api-settings]
 
-To configure **Gateway authentication** for the web service implementing the API, select the **Security** tab. The **With credentials** drop-down can be used to configure **Basic authentication** or **Mutual certificates** authentication. To use basic authentication, simply enter the desired credentials. For information on using mutual certificate authentication, see [How to secure back-end services using mutual certificate authentication in Azure API Management][].
+To configure **Proxy authentication** for the web service implementing the API, select the **Security** tab. The **With credentials** drop-down can be used to configure **Basic authentication** or **Mutual certificates** authentication. To use basic authentication, simply enter the desired credentials. For information on using mutual certificate authentication, see [How to secure back-end services using mutual certificate authentication in Azure API Management][].
 
 The **Security** tab can also be used to configure **User authorization** using OAuth 2.0. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management][].
 
