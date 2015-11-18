@@ -24,9 +24,7 @@
 
 ##Overview
 
-This tutorial shows how to use Mobile Apps in Azure App Service with a Windows Runtime 8.1 universal app. 
-
-In this topic, you will create a new Mobile App backend, download and publish the server project, and download a "to do list" client app that connects to the new Mobile App backend. Mobile Apps provides you with all the backend functionality of App Service, but with additional features designed for mobile developers, including offline sync and push notifications. Native client libraries simplify cloud-based data storage and authentication in your apps. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).
+This tutorial shows you how to add a cloud-based backend service to a universal Windows app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). 
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 
