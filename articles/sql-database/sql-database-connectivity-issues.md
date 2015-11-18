@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Actions to fix transient connection loss | Microsoft Azure"
-	description="Actions to prevent, diagnose, and fix connection errors and other transient faults when interacting with Azure SQL Database."
+	description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
-# Actions to fix connection errors and transient faults in SQL Database
+# Troubleshoot transient faults and connection errors to SQL Database
 
 
-This topic describes how to prevent, diagnose, and mitigate connection errors and transient faults that your client program encounters when it interacts with Azure SQL Database.
+This topic describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient faults that your client program encounters when it interacts with Azure SQL Database.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
