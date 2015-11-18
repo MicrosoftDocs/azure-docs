@@ -6,7 +6,7 @@
    authors="MSSedusch"
    manager="juergent"
    editor=""
-   tags="azure-resource-manager,azure-service-management"
+   tags="azure-service-management"
    keywords=""/>
 <tags
    ms.service="virtual-machines"
