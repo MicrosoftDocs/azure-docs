@@ -644,7 +644,7 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md/#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
 
-To learn more about Service Bus, see the following topics.
+To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)

@@ -26,7 +26,7 @@ The best way to deploy a web app is to set up a [continuous delivery workflow](h
 
 ##### Deploy from cloud-hosted source control systems
 
-* [Continuous delivery using Visual Studio Online](#vso)
+* [Continuous delivery using Visual Studio Team Services](#vsts)
 * [Repository websites using Git](#git)
 * [Repository websites using Mercurial](#mercurial)
 * [Automate deployment from Dropbox](#dropbox)
@@ -52,14 +52,14 @@ The best way to deploy a web app is to set up a [continuous delivery workflow](h
 
 Another deployment option is to use a cloud-based service such as [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Continuous delivery using Visual Studio Online
+##<a name="vso"></a>Continuous delivery using Visual Studio Team Services
 
-[Visual Studio Online](http://www.visualstudio.com/) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can do continuous delivery to a web app in App Services, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Team Services](http://www.visualstudio.com/) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can do continuous delivery to a web app in App Services, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 For more information, see the following resources:
 
-* [Continuous delivery to Azure using Visual Studio Online and TFVC](../cloud-services-continuous-delivery-use-vso.md). Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Online to a web app, using TFVC. TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.
-* [Continuous delivery to Azure using Visual Studio Online and Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar to the previous tutorial but uses Git instead of TFVC.
+* [Continuous delivery to Azure using Visual Studio Team Services and TFVC](../cloud-services-continuous-delivery-use-vso.md). Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Team Services to a web app, using TFVC. TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.
+* [Continuous delivery to Azure using Visual Studio Team Services and Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar to the previous tutorial but uses Git instead of TFVC.
 
 ##<a name="git"></a>Repository websites using Git
 
@@ -180,7 +180,7 @@ For more information, see the following resource:
 
 ##<a name="webdeploy"></a>Deploy from Web Deploy command line
 
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft WebMatrix, Visual Studio, Visual Studio Online, and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.
+[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft WebMatrix, Visual Studio, Visual Studio Team Services, and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.
 
 For more information, see the following resource:
 

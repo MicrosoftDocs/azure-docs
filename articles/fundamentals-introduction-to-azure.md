@@ -256,23 +256,23 @@ These SDKs help you build, deploy, and manage Azure applications. They're availa
 
 Along with helping you build Azure applications, these SDKs also provide client libraries that help you create software that uses Azure services. For example, you might build an application that reads and writes Azure blobs, or create a tool that deploys Azure applications through the Azure management interface. 
 
-### Visual Studio Online
+### Visual Studio Team Services
 
-Visual Studio Online is an marketing name covering a number services which help to develop applications in the Azure. 
+Visual Studio Team Services is an marketing name covering a number services which help to develop applications in the Azure. 
 
 To avoid confusion - It does not provide a hosted or Web-based version of Visual Studio. You still need your local running copy of Visual Studio. But it provides many other tools which can be very helpful. 
 
 It does include a hosted source control system called Team Foundation Service, which offers version control and work item tracking.  You can even use Git for version control if you prefer that. And you can vary the source control system you use by project. You can create unlimited private team projects accessible from anywhere in the world.  
 
-Visual Studio Online provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Online will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month. 
+Visual Studio Team Services provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Team Services will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month. 
 
-Visual Studio Online also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
+Visual Studio Team Services also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
 
-**Visual Studio Online Scenarios**
+**Visual Studio Team Services Scenarios**
 
-Visual Studio Online is a good option for companies that need to collaborate worldwide and don't already have the infrastructure in place to do so. You can get setup in minutes, choose a source control system and start writing code and building that day.  The team tools provide a place for coordination and collaboration and the additional tools provide the analysis needed to test and tune your application quickly.
+Visual Studio Team Services is a good option for companies that need to collaborate worldwide and don't already have the infrastructure in place to do so. You can get setup in minutes, choose a source control system and start writing code and building that day.  The team tools provide a place for coordination and collaboration and the additional tools provide the analysis needed to test and tune your application quickly.
 
-But organizations that already have an on-premises system can test new projects on Visual Studio Online to see if it's more efficient.   
+But organizations that already have an on-premises system can test new projects on Visual Studio Team Services to see if it's more efficient.   
 
 ### Application Insights
 
