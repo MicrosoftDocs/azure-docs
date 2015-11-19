@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR]
-[PowerShell](load-balancer-ilb-get-started-classic-ps.md)
-[Azure CLI](load-balancer-ilb-get-started-classic-cli.md)
+[PowerShell](load-balancer-get-started-ilb-classic-ps.md)
+[Azure CLI](load-balancer-get-started-ilb-classic-cli.md)
