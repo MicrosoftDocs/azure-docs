@@ -23,7 +23,7 @@
 
 The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which takes an array of diagnostics configurations. These can be created using the `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. For example:
 
-```xml
+```ps
 
     $service_package = "CloudService.cspkg"
     $service_config = "ServiceConfiguration.Cloud.cscfg"
@@ -60,7 +60,7 @@ The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which
 
 On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 
-```xml
+```ps
  
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
@@ -88,7 +88,7 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 
 ## Get current diagnostics extension configuration
 
-```xml
+```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
@@ -96,7 +96,7 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
 
 ## Remove diagnostics extension
 
-```xml
+```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
@@ -105,7 +105,7 @@ If you enabled the diagnostics extension using either `Set-AzureServiceDiagnosti
 
 To remove the diagnostics extension from each individual role:
 
-```xml
+```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```

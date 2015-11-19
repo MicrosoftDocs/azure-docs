@@ -113,21 +113,6 @@ Add more telemetry - see the sections below - and then publish your app to get l
 
 The sections below show how to get additional telemetry from different aspects of your application.
 
-## Enable Azure Diagnostics
-
-Azure Diagnostics sends performance counters, Windows event logs, and trace logs from your application to Application Insights. 
-
-In Solution Explorer, open the Properties of each role. Enable **Send diagnostics to Application Insights**.
-
-![In Properties, select Enable Diagnostics, Send to Application Insights.](./media/app-insights-cloudservices/05-wad.png)
-
-Repeat for the other roles.
-
-### Enabling Azure Diagnostics in a live app or Azure VM
-
-You can also enable diagnostics when the app is already running on Azure, by opening its properties in Server Explorer or Cloud Explorer in Visual Studio.
-
-
 
 ## Track Requests from Worker roles
 
