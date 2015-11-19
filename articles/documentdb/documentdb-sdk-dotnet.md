@@ -95,9 +95,9 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 > [AZURE.WARNING]
 All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** will be retired on **February 29, 2016**. 
-
+ 
 <br/>
-
+ 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
 | [1.5.0](#1.5.0) | October 05, 2015 |---
