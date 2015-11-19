@@ -26,7 +26,7 @@ This guide will show how to manage record sets and records for your DNS zone.
 
 It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records).
 
-[AZURE.INCLUDE [include-short-name](../includes/azure-cli-prerequisites-include.md)]
+[AZURE.INCLUDE [include-short-name](../../includes/azure-cli-prerequisites-include.md)]
 
 Azure DNS commands are only in Azure Resource Manager (ARM). Change CLI with to use ARM with the following command:
 
