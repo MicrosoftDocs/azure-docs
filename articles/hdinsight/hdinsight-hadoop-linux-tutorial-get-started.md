@@ -132,7 +132,7 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 2. When prompted, enter the password that you provided while provisioning the cluster. After you are successfully connected, the prompt will change to the following:
 
-		username@hn0-clustername:~$
+		hdiuser@hn0-clustername:~$
 
     > [AZURE.NOTE] The `@hn0-clustername` portion of the prompt may be different on your cluster.
 
@@ -148,7 +148,7 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 4. Click **Open** to connect to the cluster. When prompted for the user name, enter the SSH user name you used when creating the cluster. For the password, enter the password you specified when creating the cluster. After you are successfully connected, the prompt will change to the following:
 
-		username@hn0-clustername:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>Run a Hive query
 

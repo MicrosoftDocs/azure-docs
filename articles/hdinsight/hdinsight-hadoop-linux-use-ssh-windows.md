@@ -181,9 +181,9 @@ If you provided an SSH key when you created your user account, you must perform 
 
     > [AZURE.NOTE] If you use a password to authentication your SSH session, you will be prompted to enter the password again. If you use an SSH key, the connection should finish without any prompts.
 
-9. Once the session has been established, the prompt for your PuTTY session will change from `username@headnode` to `username@workernode` to indicate that you are connected to the worker node. Any commands you run at this point will run on the worker node.
+9. Once the session has been established, the prompt for your PuTTY session will change from `username@hn0-clustername` to `username@wn0-clustername` to indicate that you are connected to the worker node. Any commands you run at this point will run on the worker node.
 
-10. Once you have finished performing actions on the worker node, use the `exit` command to close the session to the worker node. This will return you to the `username@headnode` prompt.
+10. Once you have finished performing actions on the worker node, use the `exit` command to close the session to the worker node. This will return you to the `username@hn0-clustername` prompt.
 
 ##Add more accounts
 

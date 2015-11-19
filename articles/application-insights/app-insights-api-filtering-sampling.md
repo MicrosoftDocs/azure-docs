@@ -172,7 +172,7 @@ You can pass string values from the .config file by providing public named prope
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
     ```
 
