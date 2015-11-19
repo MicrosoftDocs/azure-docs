@@ -22,7 +22,8 @@
 Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds.  SQL Data Warehouse is also deeply ingrained into Azure, it easily deploys in seconds.  In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore.  In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
 
 ## Optimized
-### Data Warehouse Architecture
+
+### Data Warehouse architecture
 At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses.  This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries.  In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
 
 ![SQL Data Warehouse Architecture][1]
@@ -35,7 +36,7 @@ At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel proce
 
 - **Data Movement Services:** The final piece holding everything together in SQL Data Warehouse is our Data Movement Services.  The data movement services allows the control node to communicate and pass data to all of the compute nodes.  It also enables the compute nodes to pass data between each other, which gives them access to data on other compute nodes, and allows them to get the data that they need to complete joins and aggregations.
 
-### Engine Optimizations
+### Engine optimizations
 This MPP approach allows SQL Data Warehouse to take a divide and conquer approach as described above when solving large data problems.  Since the data in SQL Data Warehouse is divided and distributed across the compute nodes of the service, each compute node is able to operate on its portion of the data in parallel.  Finally, results are passed to the control node and aggregated before being passed back to the users.  This approach is also aided by a number of data warehousing specific performance optimizations:
 
 - SQL Data Warehouse uses an advanced query optimizer and set of complex statistics across all data on the service to create its query plans.  Using information on data size and distribution, the service is able to optimize distributed queries based on assessing the cost of specific query operations.
@@ -71,7 +72,7 @@ Specifically, we look at Data Warehouse Units as a measure of three precise metr
 
 **CREATE TABLE AS SELECT (CTAS):** CTAS measures the ability to create copy of a table.  This involves reading data from storage, distributing it across the nodes of the appliance, and writing it to storage again.  It is a CPU and Network intensive operation.
 
-### When to Scale
+### When to scale
 Overall, we want DWUs to be simple.  When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need.  Some times when you might think about changing your number of DWUs are:
 
 - When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse.
@@ -83,6 +84,7 @@ Overall, we want DWUs to be simple.  When you need faster results, increase your
 > [AZURE.NOTE] Please note that due to the architecture or SQL Data Warehouse you may not see expected performance scaling at lower data volumes.  We recommend starting with data volumes at or above 1 TB in order to get accurate performance testing results.
 
 ## Integrated
+
 SQL Data Warehouse is based on SQL Server’s proven relational database engine and includes many of the features you expect from an enterprise data warehouse.  If you already know Transact-SQL, its easy to transfer your knowledge to SQL Data Warehouse.  Whether you are advanced or just getting started, the examples across the documentation will help begin.  Overall, you can think about the way that we've constructed the language elements of SQL Data Warehouse as follows:
 
 - SQL Data Warehouse uses SQL Server's Transact-SQL (TSQL) syntax for many operations and supports a broad set of traditional SQL constructs such as stored procedures, user-defined functions, table partitioning, indexes, and collations.
@@ -102,6 +104,7 @@ In addition to adopting the TSQL surface area of SQL Server, SQL Data Warehouse 
 **Third Party Tools:** A large number of third party tool providers have certified integration of their tools with SQL Data Warehouse.  See the full list.
 
 ## Hybrid
+
 Using SQL Data Warehouse with PolyBase gives users unprecedented ability to move data across their ecosystem, unlocking the ability to set-up advanced hybrid scenarios with non-relational and on-premise data sources.
 
 Polybase is easy to use and allows you to leverage your data from different sources by using the same familiar T-SQL commands. Polybase enables you to query non-relational data held in Azure blob storage as though it is a regular table. Use Polybase to query non-relational data or to import non-relational data into SQL Data Warehouse.
@@ -114,6 +117,7 @@ Polybase is easy to use and allows you to leverage your data from different sour
 
 
 ## Next steps
+
 Now that you know a bit about SQL Data Warehouse, learn about the [data warehouse workload], [provision], and load [sample data] to get started.
 
 >[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
