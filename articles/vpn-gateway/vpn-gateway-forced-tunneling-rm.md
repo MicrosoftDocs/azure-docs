@@ -75,7 +75,11 @@ Verify that you have the following items below before beginning your configurati
 
 		Login-AzureRmAccount 
 
-2. Sepcify your Azure subscription name. This step is not optional. 
+2. Get a list of your Azure subscriptions.
+
+		Get-AzureRmSubscription
+
+2. Specify your Azure subscription name. 
 
 		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
 		
