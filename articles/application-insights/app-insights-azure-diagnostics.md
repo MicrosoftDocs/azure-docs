@@ -42,7 +42,7 @@ In each case you'll be asked for the details of the Application Insights resourc
 
 ## Configuring the Azure diagnostics adapter
 
-Read on only if you want to select the parts of the log that you send to Application Insights. By default, everything is sent, including: Windows Azure events; performance counters; trace calls from the app to System.Diagnostics.Trace.
+Read on only if you want to select the parts of the log that you send to Application Insights. By default, everything is sent, including: Microsoft Azure events; performance counters; trace calls from the app to System.Diagnostics.Trace.
 
 Azure diagnostics stores data to Azure Storage tables. However, you can also pipe all or a subset of the data to Application Insights by configuring "sinks" and "channels" in your configuration when using Azure Diagnostics extension 1.5 or later. 
 
