@@ -110,7 +110,7 @@ You can download and install a RemoteApp client here: [Download | Azure RemoteAp
 
 ## Configure Azure SQL Server
 
-The only configuration needed is to ensure that Windows Azure Services is enabled for the firewall. If you use this solution, then you do not need to add any IP addresses to open the firewall. The network traffic that is allowed to the SQL Server is from other Azure services. 
+The only configuration needed is to ensure that Azure Services is enabled for the firewall. If you use this solution, then you do not need to add any IP addresses to open the firewall. The network traffic that is allowed to the SQL Server is from other Azure services. 
 
 
 ![Azure Allow][4]
