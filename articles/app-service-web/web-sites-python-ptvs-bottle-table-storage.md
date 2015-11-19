@@ -103,7 +103,7 @@ In this section, we'll configure our application to use the storage account we j
 
 1.  Run the application with `F5`. Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in Azure Table Storage.
 
-	> [AZURE.NOTE] With a Python 2.7 Virtual Environment, it may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project. 
+	> [AZURE.NOTE] The Python 2.7 Virtual Environment may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project. 
 
 1.  Browse to the **About** page to verify that the application is using the **Azure Table Storage** repository.
 
