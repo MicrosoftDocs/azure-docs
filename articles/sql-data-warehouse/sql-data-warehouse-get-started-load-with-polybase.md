@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-with-polybase.md)
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
@@ -29,6 +29,8 @@ This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and
 - Use AzCopy to copy data to Azure blob storage
 - Create database objects to define the external data
 - Run a T-SQL query to load the data
+
+>[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
 ## Prerequisites
 

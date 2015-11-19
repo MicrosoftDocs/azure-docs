@@ -182,7 +182,7 @@
 - [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 - [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 - [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-- [SESSION_USER](https://msdn.microsoft.com/en-us/library/ms177587.aspx)
+- [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 - [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 - [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 - [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
