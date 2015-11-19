@@ -61,7 +61,7 @@ Now, we need to update the *ApplicationManifest.xml* file (found under the **Vis
 ```
 
 
-Now, build the project by selecting just the **ActorService** project and right clicking and selecting build in Visual Studio (if you select Rebuild all, you might have to update the versions for the **VisualObjects.WebService** and **VisualObjects.Common" project as well in its *ServiceManifest.xml* and in the *ApplicationManifest.xml*, since the code would have changed). Now let's package the updated application by right clicking on *VisualObjectsApplication*, selecting the Service Fabric Menu and choosing Package. This should create an application package that can be deployed.  Your updated application is ready to be deployed now.
+Now, build the project by selecting just the **ActorService** project and right clicking and selecting build in Visual Studio (if you select Rebuild all, you might have to update the versions for the other projects as well in its *ServiceManifest.xml* and in the *ApplicationManifest.xml*, since the code would have changed). Now let's package the updated application by right clicking on *VisualObjectsApplication*, selecting the Service Fabric Menu and choosing Package. This should create an application package that can be deployed.  Your updated application is ready to be deployed now.
 
 
 ## Step 3:  Decide on health policies and upgrade parameters
