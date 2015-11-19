@@ -19,7 +19,7 @@
 
 # What is Azure SQL Data Warehouse?
 
-Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds. SQL Data Warehouse is also deeply ingrained into Azure, it easily deploys in seconds. In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore.  In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
+Azure SQL Data Warehouse is an enterprise-class, distributed database capable of processing massive volumes of relational and non-relational data. It is the industry's first cloud data warehouse that combines proven SQL capabilities with the ability to grow, shrink, and pause in seconds. SQL Data Warehouse is also deeply ingrained into Azure, it easily deploys in seconds. In addition to this, the service is fully managed and removes the hassle of spending time on software patching, maintenance, and back-ups. SQL Data Warehouse's automatic, built-in backups support fault-tolerance and self-service restore. In creating SQL Data Warehouse, we focused on a few key attributes in order to ensure that we were fully taking advantage of Azure and creating a data warehouse that could meet any enterprise workload.
 
 ## Optimized
 
