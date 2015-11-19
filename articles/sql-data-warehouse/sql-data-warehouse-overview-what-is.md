@@ -25,6 +25,8 @@ Azure SQL Data Warehouse is an enterprise-class, distributed database capable of
 ### Data Warehouse Architecture
 At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses.  This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries.  In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
 
+![SQL Data Warehouse Architecture][1]
+
 - **Control Node:**  You connect to the control node when using SQL Data Warehouse with any development, loading, or business intelligence tools.  In SQL Data Warehouse, the compute node is a SQL Database, and when connecting it looks and feels like a standard SQL Database.  However, under the surface, it coordinates all of the data movement and computation that takes place in the system.  When a command is issued to the control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
 
 - **Compute Nodes:** Like the control node, the compute nodes of SQL Data Warehouse are powered using using SQL Databases.  Their job is to serve as the compute power of the service.  Behind the scenes, any time data is loaded into SQL Data Warehouse, it is distributed across the nodes of the service.  Then, any time the control node receives a command it breaks it into pieces for each compute node, and the compute nodes operate over their corresponding data.  After completing their computation, compute nodes pass partial results to the control node which then aggregates results before returning an answer.
@@ -117,6 +119,7 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 >[AZURE.NOTE] We want to make this article better. If you choose to answer "no" to the "Was this article helpful?" question, please include a brief suggestion about what is missing or how to improve the article. Thanks in advance!!
 
 <!--Image references-->
+[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png 
 
 <!--Article references-->
 [data warehouse workload]: ./sql-data-warehouse-overview-workload.md
