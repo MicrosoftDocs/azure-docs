@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Application Insights for Android apps | Microsoft Azure"
-    description="Analyze usage and performance of your Android app with Application Insights."
+    pageTitle="Analytics for Android apps | Microsoft Azure"
+    description="Analyze usage and performance of your Android app."
     services="application-insights"
     documentationCenter="android"
     authors="alancameronwills"

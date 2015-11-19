@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Application Insights for Windows Phone and Store apps | Microsoft Azure"
-	description="Analyze usage and performance of your Windows device app with Application Insights."
+	pageTitle="Analytics for Windows Phone and Store apps | Microsoft Azure"
+	description="Analyze usage and performance of your Windows device app."
 	services="application-insights"
     documentationCenter="windows"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/11/2015"
+	ms.date="11/18/2015"
 	ms.author="awills"/>
 
 # Analytics for Windows Phone and Store apps

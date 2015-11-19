@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Stream Analytics to process Application Insights data" 
-	description="Send data from Application Insights to Power BI through Stream Analytics." 
+	pageTitle="Use Stream Analytics to export to Power BI from Application Insights" 
+	description="Demonstrates how to use Stream Analytics to process exported data." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -15,14 +15,15 @@
 	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
-# Use Stream Analytics to send Application Insights data to Power BI
+# Use Stream Analytics to feed Power BI from Application Insights
 
 This article shows how to use [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) to process data [exported](app-insights-export-telemetry.md) from [Visual Studio Application Insights](app-insights-overview.md). As an example target, we send the data to [Microsoft Power BI](https://powerbi.microsoft.com/). 
 
 
-> [AZURE.NOTE] There's a [Power BI adapter for Application Insights](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx). It's very easy to set up. Currently the method described here is more flexible, but this article now serves mostly as an example of how to use Stream Analytics with Application Insights.
+> [AZURE.NOTE] The easiest way to get data into Power BI from Application Insights is by [using the adapter](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-application-insights/) that you'll find in the Power BI Gallery under Services. What we describe in this article is currently more versatile, but it's also a demonstration of how to use Stream Analytics with Application Insights.
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. 
+
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/010.png)
 
@@ -210,7 +211,28 @@ Paste this query:
 
 * This query drills into the metrics telemetry to get the event time and the metric value. The metric values are inside an array, so we use the OUTER APPLY GetElements pattern to extract the rows. "myMetric" is the name of the metric in this case. 
 
+#### Query to include values of dimension properties
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* This query includes values of the dimension properties without depending on a particular dimension being at a fixed index in the dimension array.
 
 ## Run the job
 

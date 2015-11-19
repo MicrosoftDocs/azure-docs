@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="11/15/2015"
    ms.author="sdash"/>
 
 # Application Insights for Azure Cloud Services
@@ -58,7 +58,8 @@ As an alternative, you could send data from all the roles to just one resource, 
 
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-cloudservices/03-nuget.png)
 
-2. Add the [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package. This version of the SDK includes modules that add server context such as role information.
+
+2. Add the [Application Insights for Web] (http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package. This version of the SDK includes modules that add server context such as role information. For worker roles, use Application Insights for Windows Services.
 
     ![Search for "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -69,9 +70,9 @@ As an alternative, you could send data from all the roles to just one resource, 
  
     ```XML
      
-    <Role name="WorkerRoleA"> 
+     <Role name="WorkerRoleA"> 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
-    </Role>
+     </Role>
     ```
  
     In a suitable startup function, set the instrumentation key from the configuration setting:
@@ -91,6 +92,7 @@ As an alternative, you could send data from all the roles to just one resource, 
 
     (In the .config file, you'll see messages asking you to place the instrumentation key there. However, for cloud applications it's better to set it from the .cscfg file. This ensures that the role is correctly identified in the portal.)
 
+
 #### Run and publish the app
 
 Run your app, and sign into Azure. Open the Application Insights resources you created, and you'll see individual data points appearing in [Search](app-insights-diagnostic-search.md), and aggregated data in [Metric Explorer](app-insights-metrics-explorer.md). 
@@ -106,9 +108,26 @@ Add more telemetry - see the sections below - and then publish your app to get l
 * See [Troubleshooting][qna].
 
 
+
 ## More telemetry
 
 The sections below show how to get additional telemetry from different aspects of your application.
+
+## Enable Azure Diagnostics
+
+Azure Diagnostics sends performance counters, Windows event logs, and trace logs from your application to Application Insights. 
+
+In Solution Explorer, open the Properties of each role. Enable **Send diagnostics to Application Insights**.
+
+![In Properties, select Enable Diagnostics, Send to Application Insights.](./media/app-insights-cloudservices/05-wad.png)
+
+Repeat for the other roles.
+
+### Enabling Azure Diagnostics in a live app or Azure VM
+
+You can also enable diagnostics when the app is already running on Azure, by opening its properties in Server Explorer or Cloud Explorer in Visual Studio.
+
+
 
 ## Track Requests from Worker roles
 

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/17/2015"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -70,7 +70,7 @@ The following steps should be performed from a command-prompt, shell or terminal
     * __clusterName__: The name of the HDInsight cluster. This name must be unique, or the deployment will fail.
     * __clusterStorageAccountName__: The name of the Azure Storage Account that will be created for the HDInsight cluster. This name must be unique, or the deployment will fail.
     * __clusterLoginPassword__: The password for the cluster admin user. This should be a secure password, as it is used to access web sites and REST services on the cluster.
-    * __sshUserName__: The name of the first SSH user to create for this cluster. SSH will be used to remotely access the cluster using this account. The name must be unique, and cannot be the name of an account already in use on the cluster. Invalid names include root, storm, and hbase.
+    * __sshUserName__: The name of the first SSH user to create for this cluster. SSH will be used to remotely access the cluster using this account.
     * __sshPublicKey__: If you are using the template that requires an SSH public key, you must add your public key on this line. For more information on generating and working with public keys, see the following articles:
 
         * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
