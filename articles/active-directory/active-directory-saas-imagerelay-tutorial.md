@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi"/>
 
 
@@ -58,7 +58,7 @@ To configure the integration of ImageRelay into Azure AD, you need to add ImageR
 
 **To add ImageRelay from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the Azure portal, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -77,7 +77,7 @@ To configure the integration of ImageRelay into Azure AD, you need to add ImageR
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with ImageRelay based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in ImageRelay to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in ImageRelay needs to be established.<br>
+For single sign-on to work, Azure AD needs a user account that represents the related user in ImageRelay.  In other words, a link relationship between an Azure AD user and the related user in ImageRelay needs to be established.<br>
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ImageRelay.
 
 To configure and test Azure AD single sign-on with ImageRelay, you need to complete the following building blocks:

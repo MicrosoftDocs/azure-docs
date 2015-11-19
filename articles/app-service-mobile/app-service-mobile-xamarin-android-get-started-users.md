@@ -26,10 +26,6 @@ This topic shows you how to authenticate users of a Mobile App from your client 
 
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Create a Xamarin.Android app]. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
-##<a name="create-gateway"></a>Create an App Service Gateway
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)] 
-
 ##<a name="register"></a>Register your app for authentication and configure App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
