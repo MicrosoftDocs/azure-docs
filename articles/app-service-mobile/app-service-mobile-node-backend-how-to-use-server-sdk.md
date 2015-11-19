@@ -21,7 +21,7 @@
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
 > [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
-in this document use v2.0.0-beta1 of [azure-mobile-apps].
+in this document use v2.0.0-alpha6 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
