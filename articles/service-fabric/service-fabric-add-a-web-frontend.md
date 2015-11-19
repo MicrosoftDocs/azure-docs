@@ -26,7 +26,7 @@ In this tutorial, we will walk through adding an ASP.NET 5 Web API front-end to 
 
 ASP.NET 5 is a lightweight, cross-platform web development framework, enabling the creation of modern Web UI and Web APIs. Let's add an ASP.NET Web API project to our existing application.
 
-1. In Solution Explorer, right-click Services within the application project and choose **Add Fabric Service**.
+1. In Solution Explorer, right-click **Services** within the application project and choose **Add Fabric Service**.
 
 	![Adding a new service to an existing application][vs-add-new-service]
 
