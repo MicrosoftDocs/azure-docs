@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. If you are looking for Azure classic deployment model, go to [Get started creating Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource. 
 
-We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
+This will cover the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal.
 
 ## What is required to create an internet facing load balancer?
 
@@ -37,18 +37,19 @@ You need to create and configure the following objects to deploy a load balancer
 
 - Front end IP configuration - contains public IP addresses for incoming network traffic. 
 
-- Back end address pool - contains network interfaces (NICs) to receive traffic from the load balancer. 
+- Back end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer. 
 
-- Load balancing rules - contains rules mapping a public port on the load balancer to ports on the NICs in the back end address pool.
+- Load balancing rules - contains rules mapping a public port on the load balancer to port in the back end address pool.
 
-- Inbound NAT rules - contains rules mapping a public port on the load balancer to a port in an individual NIC in the back end address pool.
+- Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back end address pool.
 
-- Probes - contains health probes used to check availability of VMs linked to the NICs in the back end address pool.
+- Probes - contains health probes used to check availability of virtual machines instances in the back end address pool.
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 
 ## Setup PowerShell to use Resource Manager
+
 Make sure you have the latest production version of the Azure module for PowerShell, and have PowerShell setup correctly to access your Azure subscription.
 
 ### Step 1
@@ -117,7 +118,7 @@ Create a front end IP pool named *LB-Frontend* that uses the *PublicIp* PIP.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
-### step 2 
+### Step 2 
 
 Create a back end address pool named *LB-backend*. 
 
