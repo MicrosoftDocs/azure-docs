@@ -33,11 +33,11 @@ If you already have a GitHub account and a repository that you want to link to A
 
 ## Step 2 – Set up source control in Azure Automation
 
-* From the Automation Account blade in the Azure preview portal, click **Set Up Source Control.** 
+1. From the Automation Account blade in the Azure preview portal, click **Set Up Source Control.** 
  
     ![Set Up Source Control](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
-* The **Source Control** blade opens, where you can configure your GitHub account details. Below is the list of parameters to configure:  
+2. The **Source Control** blade opens, where you can configure your GitHub account details. Below is the list of parameters to configure:  
 
     |**Parameter**            |**Description** |
     |:---|:---| 
@@ -48,23 +48,23 @@ If you already have a GitHub account and a repository that you want to link to A
     |Runbook folder path | The runbook folder path specifies the path in the GitHub repository from which you want to push or pull your code. It must be entered in the format **/foldername/subfoldername**. Only runbooks in the runbook folder path will be synced to your Automation account. Runbooks in the subfolders of the runbook folder path will **NOT** be synced. Use **/** to sync all the runbooks under the repository. |
 
 
-* For example, if you have a repository named **PowerShellScripts** that contains a folder named **RootFolder**, which contains a folder named **SubFolder**. You can use the following strings to sync each folder level:
+3. For example, if you have a repository named **PowerShellScripts** that contains a folder named **RootFolder**, which contains a folder named **SubFolder**. You can use the following strings to sync each folder level:
 
     1. To sync runbooks from **repository**, runbook folder path is */*
     2. To sync runbooks from **RootFolder**, runbook folder path is */RootFolder*
     3. To sync runbooks from **SubFolder**, runbook folder path is */RootFolder/SubFolder*.
   
 
-* After you configure the parameters, they are displayed on the **Set Up Source Control blade.**  
+4. After you configure the parameters, they are displayed on the **Set Up Source Control blade.**  
  
     ![Configure Blade](media/automation-source-control-integration/automation_02_SourceControlConfigure.png)
 
 
-* Once you click OK, source control integration is now configured for your Automation account and should be updated with your GitHub information, you can now click on this part to view all of your source control sync job history.  
+5. Once you click OK, source control integration is now configured for your Automation account and should be updated with your GitHub information, you can now click on this part to view all of your source control sync job history.  
 
     ![Repository Values](media/automation-source-control-integration/automation_03_RepoValues.png)
 
-* After you set up source control, the following Automation resources will be created in your Automation account:  
+6. After you set up source control, the following Automation resources will be created in your Automation account:  
  Two [variable assets](automation-variables.md) are created.  
       
     * The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.  
@@ -98,30 +98,30 @@ If you already have a GitHub account and a repository that you want to link to A
 
 Runbook check-in allows you to push the changes you have made to a runbook in Azure Automation into your source control repository. Below are the steps to check-in a runbook:
 
-* From your Automation Account, [create a new textual runbook](automation-first-runbook-textual.md), or [edit an existing, textual runbook](automation-edit-textual-runbook.md). This runbook can be either a PowerShell Workflow or a PowerShell script runbook.  
+1. From your Automation Account, [create a new textual runbook](automation-first-runbook-textual.md), or [edit an existing, textual runbook](automation-edit-textual-runbook.md). This runbook can be either a PowerShell Workflow or a PowerShell script runbook.  
 
-* After you edit your runbook, save it and click **check-in** from the **Edit** blade.  
+2. After you edit your runbook, save it and click **check-in** from the **Edit** blade.  
 
     ![Checkin Button](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
      >[AZURE.NOTE] Check-in from Azure Automation will overwrite the code that currently exists in your source control. The Git equivalent command line instruction to check-in is **git add + git commit + git push**  
 
-* When you click **check-in**, you will be prompted with a confirmation message, click yes to continue.  
+3. When you click **check-in**, you will be prompted with a confirmation message, click yes to continue.  
 
     ![Checkin Message](media/automation-source-control-integration/automation_07_CheckinMessage.png)
 
-* Check-in starts the source control runbook: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. This runbook connects to GitHub and pushes changes from Azure Automation to your repository. To view the check-in job history, go back to the **Source Control Integration** tab and click to open the Repository Synchronization blade. This blade shows all of your source control jobs.  Select the job you want to view and click to view the details.  
+4. Check-in starts the source control runbook: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. This runbook connects to GitHub and pushes changes from Azure Automation to your repository. To view the check-in job history, go back to the **Source Control Integration** tab and click to open the Repository Synchronization blade. This blade shows all of your source control jobs.  Select the job you want to view and click to view the details.  
 
     ![Checkin Runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
     >[AZURE.NOTE] Source control runbooks are special Automaton runbooks that you cannot view or edit. While they will not show up on your runbook list, you will see sync jobs showing up on your jobs list.
  
-* The name of the modified runbook is sent as an input parameter to the check-in runbook. You can [view the job details](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) by expanding runbook in **Repository Synchronization** blade.  
+5. The name of the modified runbook is sent as an input parameter to the check-in runbook. You can [view the job details](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) by expanding runbook in **Repository Synchronization** blade.  
 
     ![Checkin Input](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-* Refresh your GitHub repository once the job completes to view the changes.  There should be a commit in your repository with a commit message: **Updated *Runbook Name* in Azure Automation.**  
+6. Refresh your GitHub repository once the job completes to view the changes.  There should be a commit in your repository with a commit message: **Updated *Runbook Name* in Azure Automation.**  
 
 
 
@@ -129,11 +129,11 @@ Runbook check-in allows you to push the changes you have made to a runbook in Az
 
 The sync button on the Runbook synchronization blade allows you to pull all the runbooks in the runbook folder path of your repository to your Automation Account. The same repository can be synced to more than one Automation Account. Below are the steps to sync a runbook:
 
-* From the Automation Account where you set up source control, open the **Source Control Integration/Repository Synchronization blade** and click **Sync** then you will be prompted with a confirmation message, click **Yes** to continue.  
+1. From the Automation Account where you set up source control, open the **Source Control Integration/Repository Synchronization blade** and click **Sync** then you will be prompted with a confirmation message, click **Yes** to continue.  
 
     ![Sync Button](media/automation-source-control-integration/automation_10_SyncButtonwithMessage.png)
 
-* Sync starts the runbook: **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. This runbook connects to GitHub and pulls the changes from your repository to Azure Automation. You should see a new job on the **Repository Synchronization** blade for this action. To view details about the sync job, click to open the job details blade.  
+2. Sync starts the runbook: **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. This runbook connects to GitHub and pulls the changes from your repository to Azure Automation. You should see a new job on the **Repository Synchronization** blade for this action. To view details about the sync job, click to open the job details blade.  
  
     ![Sync Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
@@ -143,9 +143,9 @@ The sync button on the Runbook synchronization blade allows you to pull all the 
 
 ## Troubleshooting source control problems
 
-* If there are any errors with a check-in or sync job, the job status should be suspended and you can view more details about the error in the job blade.  The **All Logs** part will show you all the PowerShell streams associated with that job.  This will provide you with the details needed to help you fix any problems with your check-in or sync. It will also show you the sequence of actions that occurred while syncing or checking in a runbook.  
+If there are any errors with a check-in or sync job, the job status should be suspended and you can view more details about the error in the job blade.  The **All Logs** part will show you all the PowerShell streams associated with that job.  This will provide you with the details needed to help you fix any problems with your check-in or sync. It will also show you the sequence of actions that occurred while syncing or checking in a runbook.  
 
-    ![AllLogs image](media/automation-source-control-integration/automation_13_AllLogs.png)
+![AllLogs image](media/automation-source-control-integration/automation_13_AllLogs.png)
 
 ## Disconnecting source control
 
