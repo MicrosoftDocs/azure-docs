@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="See Application Insights data in Power BI" 
-	description="Use Power BI to monitor the performance and usage of your application." 
+	pageTitle="Use Stream Analytics to process Application Insights data" 
+	description="Send data from Application Insights to Power BI through Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,21 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
-# Power BI views of Application Insights data
+# Use Stream Analytics to send Application Insights data to Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. You can stream telemetry data about the performance and usage of your web or device apps from Application Insights to Power BI.
+This article shows how to use [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) to process data [exported](app-insights-export-telemetry.md) from [Visual Studio Application Insights](app-insights-overview.md). As an example target, we send the data to [Microsoft Power BI](https://powerbi.microsoft.com/). 
+
+
+> [AZURE.NOTE] There's a [Power BI adapter for Application Insights](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx). It's very easy to set up. Currently the method described here is more flexible, but this article now serves mostly as an example of how to use Stream Analytics with Application Insights.
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. 
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/010.png)
 
-In this article, we'll show how to export data from Application Insights and use Stream Analytics to move the data into Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that we'll use as an adaptor.
+[Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that works as an adaptor, continually processing the data exported from Application Insights.
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE] You need a work or school account (MSDN organizational account) to send data from Stream Analytics to Power BI.
+
 
 ## Video
 
