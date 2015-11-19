@@ -163,7 +163,7 @@ To display engagement content, you need to integrate the two xaml WebView in eac
 			    </Grid>
 			</engagement:EngagementPage>
 
-And your associate .cs file have to look like:
+And your associated .cs file have to look like:
 
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.

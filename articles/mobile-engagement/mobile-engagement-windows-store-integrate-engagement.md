@@ -45,15 +45,19 @@ The Mobile Engagement SDK for Windows Universal Apps can only be integrated into
 
 The Mobile Engagement SDK for Windows Universal App is available as a Nuget package called *MicrosoftAzure.MobileEngagement*. You can install it from the Visual Studio Nuget Package Manager.
 
-### Universal Windows Platform applications
+### Windows 8.x and Windows Phone 8.1
 
-NuGet do not automatically deploy the SDK resources in your UWP application. You have to do it manually:
+NuGet automatically deploys the SDK resources in the `Resources` folder at the root of your application project.
+
+### Windows 10 Universal Windows Platform applications
+
+NuGet does not automatically deploy the SDK resources in your UWP application yet. You have to do it manually until resources deployment is reintroduced in NuGet:
 
 1.  Open your File Explorer.
 2.  Navigate to the following location (**x.x.x** is the version of Engagement you are installing):
 *%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
 3.  Drag and drop the **Resources** folder from the file explorer to the root of your project in Visual Studio.
-4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer** then make sure that all files from the **Resources** folder are included in your project. Otherwise, right click on the file to import then **Include in project**.  
+4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer** then make sure that all files and folders from the **Resources** folder are included in your project. Otherwise, right click on the file to import then **Include in project**.  
 
 The extracted Engagement package can also be found on *$(Solutiondir)\Packages* or as defined in you *NuGet.config* file.
 
@@ -80,20 +84,13 @@ If you want to specify it at runtime instead, you can call the following method 
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-        #if WINDOWS_PHONE_APP
-          /* Connection string for my Windows Phone App. */
-          engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #else
           /* Connection string for my Windows Store App. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #endif
 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
 The connection string for your application is displayed on Azure Portal.
-
-> [AZURE.WARNING] You don't need to use the conditional compilation symbol `WINDOWS_PHONE_APP` to define different configuration on standalone Windows Runtime Apps as you only have one platform.
 
 ### Engagement initialization
 

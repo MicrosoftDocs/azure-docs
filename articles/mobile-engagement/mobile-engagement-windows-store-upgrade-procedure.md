@@ -36,7 +36,7 @@ In your XAML page ():
 			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-And in your associate .cs file:
+And in your associated .cs file:
 
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.
@@ -132,7 +132,6 @@ And in your associate .cs file:
     #endif
 			  #endregion
 			}
-
 
 ##From 2.0.0 to 3.0.0
 

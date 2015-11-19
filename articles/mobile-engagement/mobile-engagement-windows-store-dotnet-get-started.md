@@ -56,13 +56,11 @@ The following steps assume the use of Visual Studio 2015 though the steps are si
 
     ![][1]
 
-> [AZURE.IMPORTANT] Azure Mobile Engagement does not support Windows 10 Universal Windows Apps yet. 
-
 You have now created a new Windows Universal App project into which we will integrate the Azure Mobile Engagement SDK.
 
 ###Connect your app to Mobile Engagement backend
 
-1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. The same Nuget package places the correct platform-specific binaries in each project.
+1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. For Windows 8.x and Windows Phone 8.1 the same Nuget package places the correct platform-specific binaries in each project.
 
 2. Open **Package.appxmanifest** and make sure that the following capability is added there:
 

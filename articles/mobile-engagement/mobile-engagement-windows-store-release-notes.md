@@ -20,8 +20,8 @@
 
 ##3.2.0 (11/19/2015)
 
--   Added support for Universal Windows Platform applications.
--   Added push channel sharing feature to fix channel conflicts.
+-   Added support for Windows 10 Universal Windows Platform applications.
+-   Added push channel sharing feature to fix channel conflicts (now compatible with Azure Notification Hubs).
 -   Fixed crash while requesting the device id just after the initialization.
 -   Console logs improvements.
 -   Fixed crash while parsing some unhandled exceptions.
