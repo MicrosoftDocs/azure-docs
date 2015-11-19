@@ -31,6 +31,7 @@
 <tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**Samples**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
 <tr><td>**Get Started**</td><td>[Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)</td></tr>
+<tr><td>**Current Supported .NET Version(s)**</td><td>4.5</td></tr>
 </table></br>
 
 ## Release Notes
