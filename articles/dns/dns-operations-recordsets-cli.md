@@ -26,17 +26,6 @@ This guide will show how to manage record sets and records for your DNS zone.
 
 It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](dns-getstarted-create-recordset.md#Understanding-record-sets-and-records).
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
-
-		azure config mode arm
-
-	Expected output:
-
-		info:    New mode is arm
-
-
 ## Create a record set
 
 Record sets are created using the `azure network dns record-set create` command .  You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type.
