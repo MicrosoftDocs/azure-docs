@@ -3,7 +3,7 @@
     description="Automate configuring Azure Diagnostics to pipe to Application Insights."
     services="application-insights"
     documentationCenter="android"
-    authors="alancameronwills"
+    authors="sbtron"
     manager="douge"/>
 
 <tags

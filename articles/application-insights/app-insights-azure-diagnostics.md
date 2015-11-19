@@ -3,7 +3,7 @@
     description="Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal."
     services="application-insights"
     documentationCenter="android"
-    authors="alancameronwills"
+    authors="sbtron"
     manager="douge"/>
 
 <tags
@@ -143,7 +143,7 @@ There are some limitations to be aware of with this functionality:
 ## Related topics
 
 * [Monitoring Azure Cloud Services with Application Insights](app-insights-cloudservices.md)
-* [Using PowerShell to send Azure diagnostics to Application Insights])(app-insights-powershell-azure-diagnostics.md)
+* [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Azure Diagnostics Configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
 
