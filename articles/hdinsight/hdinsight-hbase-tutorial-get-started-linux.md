@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 
@@ -47,8 +47,9 @@ Before you begin this HBase tutorial, you must have the following:
 	- **Cluster Name**: Enter a name to identify this cluster.
 	- **Cluster Type**: Select **HBase**.
 	- **Cluster Operating System**: Select **Ubuntu**.
-	- **Subscription**: select your Azure subscription used for provisioning this cluster.
-	- **Resource Group**: add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
+	- **Version**: Select the version of the cluster that you want to use. For more information on what is included with different HDInsight versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+    - **Subscription**: If you have multiple Azure subscriptions, select the one you want to use for this cluster.
+	- **Resource Group**: Add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
 	- **Credentials**.  Enter a password for the HTTP web service user. The default username is **admin**. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. For more information on using SSH with HDInsight, see one of the following articles:
 
 		- [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -56,11 +57,11 @@ Before you begin this HBase tutorial, you must have the following:
 	Click **Select** to save the changes.
 	- **Data Source**: select an existing or create a new Azure Storage account to be used as the default file system for the cluster. The storage account location determines the cluster location.  An HDInsight cluster and the dependent Azure storage account must be located in the same data center.
 	The default name for **Default Container** is the cluster name.  
-	- **Note Pricing Tiers:** select the number of region servers for the HBase cluster.
+	- **Node Pricing Tiers:** select the number of region servers for the HBase cluster.
 
 		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
+	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Script actions, and add additional storage accounts.
 
 4. Click **Create**.
 
