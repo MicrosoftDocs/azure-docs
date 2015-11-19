@@ -18,7 +18,7 @@
    ms.author="sedusch"/>
    
 # Using SAP on Azure Virtual Machines (VMs)
-Updated: March 3, 2015
+
 ## SAP NetWeaver on Azure Virtual Machines – Planning and Implementation Guide
 Summary: This is the paper to start with if you are thinking about running SAP NetWeaver in Azure Virtual Machines. This planning and implementation guide will help you evaluate whether an existing or planned SAP NetWeaver-based system can be deployed to an Azure Virtual Machines environment. It covers multiple SAP NetWeaver deployment scenarios, and includes SAP configurations that are specific to Azure. The paper lists and describes all the necessary configuration information you’ll need on the SAP/Azure side to run a hybrid SAP landscape. Measures you can take to ensure high availability of SAP NetWeaver-based systems on IaaS are also covered.
 
