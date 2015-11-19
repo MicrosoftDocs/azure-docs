@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Azure CLI
