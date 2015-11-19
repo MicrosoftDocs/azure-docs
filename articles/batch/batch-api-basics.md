@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Batch feature overview | Microsoft Azure"
-	description="Learn the basic concepts of the Batch service and its APIs from a developer's standpoint."
+	description="Learn the features of the Batch service and its APIs from a development standpoint."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -16,7 +16,7 @@
 	ms.date="11/19/2015"
 	ms.author="yidingz;v-marsma"/>
 
-# Azure Batch feature overview
+# Overview of Azure Batch features
 
 This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] or [Batch .NET][batch_net_api] APIs, you will use many of the entities and features discussed below.
 

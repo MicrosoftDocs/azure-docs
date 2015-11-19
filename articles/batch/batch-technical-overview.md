@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Basics of Azure Batch | Microsoft Azure"
+	pageTitle="Azure Batch service basics | Microsoft Azure"
 	description="Learn about the concepts, workflows, and scenarios of the Azure Batch service for large-scale parallel and HPC workloads"
 	services="batch"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
-# Azure Batch basics
+# Basics of Azure Batch
 
 Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines (compute nodes) and can scale the compute resources to meet the needs of the job. With the Batch service, you programmatically define Azure compute resources and large-scale batch jobs that run on demand or on a schedule, and you don't need to manually configure and manage an HPC cluster, individual VMs, virtual networks, or a job scheduler.
 
