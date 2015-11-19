@@ -24,6 +24,7 @@ Azure SQL Data Warehouse is an enterprise-class, distributed database capable of
 ## Optimized
 
 ### Data Warehouse architecture
+
 At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses. This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries. In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
 
 ![SQL Data Warehouse Architecture][1]
@@ -37,6 +38,7 @@ At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel proce
 - **Data Movement Services:** The final piece holding everything together in SQL Data Warehouse is our Data Movement Services. The data movement services allows the control node to communicate and pass data to all of the compute nodes. It also enables the compute nodes to pass data between each other, which gives them access to data on other compute nodes, and allows them to get the data that they need to complete joins and aggregations.
 
 ### Engine optimizations
+
 This MPP approach allows SQL Data Warehouse to take a divide and conquer approach as described above when solving large data problems. Since the data in SQL Data Warehouse is divided and distributed across the compute nodes of the service, each compute node is able to operate on its portion of the data in parallel. Finally, results are passed to the control node and aggregated before being passed back to the users. This approach is also aided by a number of data warehousing specific performance optimizations:
 
 - SQL Data Warehouse uses an advanced query optimizer and set of complex statistics across all data on the service to create its query plans. Using information on data size and distribution, the service is able to optimize distributed queries based on assessing the cost of specific query operations.
@@ -46,6 +48,7 @@ This MPP approach allows SQL Data Warehouse to take a divide and conquer approac
 - The inclusion of clustered columnstore indexes to the appliance is also key to achieving fast query performance. By using column-based storage, SQL Data Warehouse can get up to 5x compression gains over traditional row-oriented storage, and up to 10x query performance gains. Data warehouse queries work great on columnstore indexes because they often scan the entire table or entire partition of a table and they minimize the impact of moving data for query steps.
 
 ## Scalable
+
 The architecture of SQL Data Warehouse introduces separated storage and compute, allowing each to scale independently. SQL Database's quick and simple deployment structure allows for additional compute to be available at a moment's notice. Complementing this is the use of Azure Storage Blobs. Blobs not only gives us stable, replicated storage, but also provide the infrastructure for effortless expansion at low cost.  Using this combination of cloud-scale storage and Azure compute, SQL Data Warehouse allows you to pay for query performance storage as you need it when you need it. Changing the amount of compute is as simple as moving a slider in the Azure Portal to the left or right, but can also be scheduled or added to a workload with T-SQL and PowerShell.
 
 Along with the ability to fully control the amount of compute independently of storage, SQL Data Warehouse allows you to fully pause your data warehouse. While keeping your storage in place all compute is released into Azure's main pool, saving you money immediately. When needed, simply resume the compute and have your data and compute available for your workload.
@@ -73,6 +76,7 @@ Specifically, we look at Data Warehouse Units as a measure of three precise metr
 **CREATE TABLE AS SELECT (CTAS):** CTAS measures the ability to create copy of a table. This involves reading data from storage, distributing it across the nodes of the appliance, and writing it to storage again. It is a CPU and Network intensive operation.
 
 ### When to scale
+
 Overall, we want DWUs to be simple. When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need. Some times when you might think about changing your number of DWUs are:
 
 - When you don't need to run queries, perhaps in the evenings or weekends, pause compute resources to cancel all running queries and remove all DWUs allocated to your data warehouse.
