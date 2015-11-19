@@ -114,12 +114,12 @@ Visual Studio 2015 requires an extension to develop Node.js.js applications with
 
 9. Open the _app.js_ file to add support for the Azure Mobile Apps SDK:
 
-  a. At line 6 at the bottom of the library require statements, add the following code:
+   At line 6 at the bottom of the library require statements, add the following code:
 
-    var bodyParser = require('body-parser');
-    var azureMobileApps = require('azure-mobile-apps');
+        var bodyParser = require('body-parser');
+        var azureMobileApps = require('azure-mobile-apps');
 
-  b. At approximately line 27 after the other app.use statements, add the following code:
+   At approximately line 27 after the other app.use statements, add the following code:
 
 	app.use('/users', users);
 
@@ -128,7 +128,7 @@ Visual Studio 2015 requires an extension to develop Node.js.js applications with
 	mobile.tables.add('TodoItem');
 	app.use('mobile');
 
-  c. Save the file.
+  Save the file.
 
 10. Either run the application locally (the API will be served on http://localhost:3000) or publish to Azure.
 
