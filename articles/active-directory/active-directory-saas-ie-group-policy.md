@@ -142,15 +142,17 @@ If you wish to prevent your users from seeing this prompt, then follow the steps
 
 2. Find the setting named **Turn on the auto-complete feature for user names and passwords on forms**.
 
-	> [AZURE.NOTE] Previous versions of Active Directory may list this setting with the name **Do not allow AutoComplete to save passwords**.
+	> [AZURE.NOTE] Previous versions of Active Directory may list this setting with the name **Do not allow AutoComplete to save passwords**. The configuration for that setting differs from the setting described in this tutorial.
 
 	![Remember to look for this under User Settings.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
 3. Right click on the above setting, and select **Edit**.
 
-3. In the window titled **Turn on the auto-complete feature for user names and passwords on forms**, select **Disabled**.
+4. In the window titled **Turn on the auto-complete feature for user names and passwords on forms**, select **Disabled**.
 
-4. Click **OK** to apply these changes and close the window.
+	![Select Disable](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. Click **OK** to apply these changes and close the window.
 
 
 ##Step 6: Testing the Deployment
