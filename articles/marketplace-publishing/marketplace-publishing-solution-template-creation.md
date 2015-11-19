@@ -59,7 +59,7 @@ You can also validate the create experience without the actual deployment for th
 
 4. Copy and paste the URL in any browser and view the customer experience of your createUiDefinition.json file.
 
-> [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
+  > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 
 ## Next steps
 Now that you created your solution template and submitted the zip file with the required files for certification, you can can continue to and follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before preparing your offer for testing in staging. Or, to see the full set of marketplace publishing articles, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
