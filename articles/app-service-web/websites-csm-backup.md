@@ -201,7 +201,9 @@ Sometimes you might want to create a new web app when you restore a backup, inst
 
 <a name="delete-app-backup"></a>
 ## Delete a web app backup
-If you would like to delete a backup, send a **DELETE** request to the URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}`. Here is what the URL looks like for our example website. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1`
+If you would like to delete a backup, send a **DELETE** request to the URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{backupId}`.
+
+Here is what the URL looks like for our example website. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1`
 
 <a name="manage-sas-url"></a>
 ## Manage a backup’s SAS URL
