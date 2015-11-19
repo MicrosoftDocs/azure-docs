@@ -274,7 +274,7 @@ That's it! The portal experience is already wired up to help you see all associa
 
 [The example](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitors a service that has a web role and two worker roles.
 
-# Related topics
+## Related topics
 
 * [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
 * [Using PowerShell to send Azure diagnostics to Application Insights])(app-insights-powershell-azure-diagnostics.md)

@@ -19,11 +19,11 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
+Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics](app-insights-api-custom-events-metrics.md), and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/16-page-views.png)
 
-If you already set up server telemetry for your [ASP.NET][greenbrown] or [Java][java] web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
+If you already set up server telemetry for your [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
 #### Quick demo
 
@@ -44,7 +44,7 @@ If you don't have one, create it:
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
 
 
-*Questions already?* [More about creating a resource][new].
+*Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 
 ## Add the SDK script to your app or web pages
@@ -79,7 +79,7 @@ In the application overview blade, there's a chart near the top that shows avera
 ![](./media/app-insights-javascript/05-browser-page-load.png)
 
 
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
+*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
 Click that chart, and you get a more detailed version:
 
@@ -150,9 +150,9 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
+> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
 
-> [Learn more about diagnostic search][diagnostic]
+> [Learn more about diagnostic search](app-insights-diagnostic-search.md)
 
 ### Page view properties
 

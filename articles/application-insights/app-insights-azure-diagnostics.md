@@ -17,7 +17,7 @@
 
 # Configure Azure Diagnostic logging to Application Insights
 
-When you set up a Cloud Services project or a Virtual Machine in Windows Azure, [Azure can generate a diagnostic log](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). You can have this sent on to Application Insights so that you can analyze it along with diagnostic and usage telemetry sent from within the app by the Application Insights SDK. The Azure log includes events in the management of the app such as start, stop, crashes, as well as performance counters. The log also includes calls in the app to System.Diagnostics.Trace.
+When you set up a Cloud Services project or a Virtual Machine in Microsoft Azure, [Azure can generate a diagnostic log](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md). You can have this sent on to Application Insights so that you can analyze it along with diagnostic and usage telemetry sent from within the app by the Application Insights SDK. The Azure log includes events in the management of the app such as start, stop, crashes, as well as performance counters. The log also includes calls in the app to System.Diagnostics.Trace.
 
 This article describes configuration of the diagnostic capture in detail.
 
@@ -27,7 +27,7 @@ You need Azure SDK 2.8 installed in Visual Studio.
 
 For the best experience, [add the Application Insights SDK to each role of your Cloud Services app](app-insights-cloudservices.md), or [to whatever app you will run in your VM](app-insights-get-started.md). You can then send the diagnostic data to be  analyzed and displayed the same Application Insights resource. 
 
-Alternatively, if you don't want to use the SDK - for example, if the app is already live - you can just [create a new Application Insights resource](app-insights-create-new-resource.md) in the Azure portal. Choose **Windows Azure Diagnostics** as the application type.
+Alternatively, if you don't want to use the SDK - for example, if the app is already live - you can just [create a new Application Insights resource](app-insights-create-new-resource.md) in the Azure portal. Choose **Azure Diagnostics** as the application type.
 
 
 ## Send Azure diagnostics to Application Insights
