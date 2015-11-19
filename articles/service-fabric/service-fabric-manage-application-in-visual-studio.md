@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
@@ -73,7 +73,7 @@ An application package needs to be created in order to deploy the application an
 
 ## Removing an application
 
-You can unprovision an application type from your local cluster using Service Fabric Explorer.  This will revert the deployment steps described above:
+You can unprovision an application type from your local cluster using Service Fabric Explorer.  The cluster explorer is accessible from the cluster's HTTP Gateway endpoint (typically 19080 or 19007), e.g. http://localhost:19080/Explorer.  This will revert the deployment steps described above:
 
 1. Remove any running application instances
 2. Unregister the application type

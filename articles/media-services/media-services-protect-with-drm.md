@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="11/11/2015"
+	ms.date="11/16/2015"
 	ms.author="juliako"/>
 
 
@@ -28,6 +28,8 @@ Microsoft Azure Media Services enables you to deliver encrypted MPEG-DASH, Smoot
 Media Services provides a service for delivering Microsoft PlayReady licenses. Media Services also provides APIs that let you configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user plays back protected content. When a user requests PlayReady protected content, the player application will request a license from the AMS license service. The AMS license service will issue a license to the player if it is authorized. A PlayReady license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
 Starting with the Media Services .NET SDK version 3.5.2, Media Services also enables you to configure Widevine license template and get Widevine licenses. 
+
+>[AZURE.NOTE]Widevine license delivery services provided by Azure Media Sevices is in preview. For more information see [this blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). For more information, see: integration with [Axinom](media-services-axinom-integration.md) and [castLabs](media-services-castlabs-integration.md).
 
@@ -70,6 +72,8 @@ The rest of this topic provides detailed explanations, code examples, and links 
 ##Current limitations
 
 If you add or update an asset delivery policy, you must delete the associated locator (if any) and create a new locator.
+
+Limitation when encrypting with Widevine with Azure Media Services: currently, multiple content keys are not supported. 
 
 ##Create an asset and upload files into the asset
 
@@ -609,3 +613,5 @@ The following sample demonstrates functionality that was introduced in Azure Med
 ##See also
 
 [Configure Widevine packaging with AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
+
+[Announcing Google Widevine license delivery services public preview in Azure Media Services](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
