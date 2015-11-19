@@ -153,7 +153,7 @@ You also need to enable networking for MySQL if you want to make queries from ou
 
 ### Creating the MySQL Load Balanced Set
 
-We will go back to the Azure Portal and browse to the `hadb01` VM, then Endpoints. We will create a new Endpoint, choose MySQL (TCP 3306) from the dropdown and tick on the *Create new load balanced set* box. We will call our load balanced endpoint `lb-mysql`. We will leave most of the options alone except for time which we'll reduce to 5 (seconds, minimum)
+We will go back to the portal and browse to the `hadb01` VM, then Endpoints. We will create a new Endpoint, choose MySQL (TCP 3306) from the dropdown and tick on the *Create new load balanced set* box. We will call our load balanced endpoint `lb-mysql`. We will leave most of the options alone except for time which we'll reduce to 5 (seconds, minimum)
 
 After the endpoint is created we go to `hadb02`, Endpoints, and create a new endpoint but we will choose `lb-mysql`, then select MySQL from the dropdown menu. You can also use the Azure CLI for this step.
 
@@ -313,7 +313,7 @@ And this screenshot shows both nodes, with one master and one slave:
 
 We're ready for an automatic failover simulation. There are two ways to doing this: soft and hard. The soft way is using the cluster's shutdown function: ``crm_standby -U `uname -n` -v on``. Using this on the master, the slave will take over. Remember to set this back to off (crm_mon will tell you one node is on standby otherwise)
 
-The hard way is shutting down the primary VM (hadb01) via the Portal or changing the runlevel on the VM (i.e., halt, shutdown) then we're helping Corosync and Pacemaker by signaling master's going down. We can test this (useful for maintenance windows) but we can also force the scenario by just freezing the VM.
+The hard way is shutting down the primary VM (hadb01) via the portal or changing the runlevel on the VM (i.e., halt, shutdown) then we're helping Corosync and Pacemaker by signaling master's going down. We can test this (useful for maintenance windows) but we can also force the scenario by just freezing the VM.
 
 ## STONITH
 
