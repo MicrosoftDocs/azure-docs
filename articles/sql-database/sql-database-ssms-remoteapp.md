@@ -41,7 +41,7 @@ There are many benefits to using SSMS in RemoteApp, including:
 - No need to keep adding and removing IP addresses in the Azure SQL Server firewall 
 - It is multi-user and can scale
 - There is a performance gain from having SSMS in the same region as the SQL Database
-- You can audit use of RemoteApp with the Premium edition of Azure Active Directory that has user activity reports
+- You can audit use of RemoteApp with the Premium edition of Azure Active Directory which has user activity reports
 - You can enable multi-factor authentication (MFA)
 
 
@@ -129,7 +129,7 @@ MFA can be enabled for this application specifically. Go to the Applications tab
 
 If you do not have Azure AD Premium, then you have to turn it on in the Licenses section of your directory. With Premium enabled, you can assign users to the Premium level. 
 
-When you goto the user in your Azure Active Directory, you can then go to the Activity tab to see login information to RemoteApp. 
+When you go to a user in your Azure Active Directory, you can then go to the Activity tab to see login information to RemoteApp. 
 
 
 
