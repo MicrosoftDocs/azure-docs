@@ -22,7 +22,7 @@ Service Fabric is a high availability platform, and replicates the state across 
 
 For example, a service may want to backup data in the following scenarios:
 
-* In the event of the permanent loss of an entire Service Fabric cluster or all nodes that are running a given partition. This may happen when, for example, if you aren’t geo replicated and your entire cluster is in one data center, and the entire data center goes down.
+* In the event of the permanent loss of an entire Service Fabric cluster or all nodes that are running a given partition. This may happen when, for example, if you arenâ€™t geo replicated and your entire cluster is in one data center, and the entire data center goes down.
 
 * Administrative errors whereby state accidentally gets deleted/corrupted. For example, this may happen if an administrator with sufficient privilege erroneously deletes the service.
 
@@ -30,10 +30,10 @@ For example, a service may want to backup data in the following scenarios:
 
 * Off-line data processing. It might be convenient to have off-line processing of data for business intelligence happening separately from the service generating the data.
 
-The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allows backups of a partition’s state to be taken without blocking read or write operations. The restore APIs allow a partition’s state to be restored from a chosen backup. 
+The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allows backups of a partitionâ€™s state to be taken without blocking read or write operations. The restore APIs allow a partitionâ€™s state to be restored from a chosen backup. 
 
 
-### How to Backup
+## How to Backup
 
 The Service author has full control of when to take backups and where backups will be stored.
 
@@ -63,7 +63,7 @@ In the above example, **ExternalBackupStore** is the sample class that is used t
 >[AZURE.NOTE] There can only be one **BackupAsync** per replica inflight at any given point of time. More than one **BackupAsync** call at a time will throw **FabricBackupInProgressException** to limit inflight backups to one.
 >[AZURE.NOTE] If a replica fails over while a backup is in progress, the backup may not have been completed. Thus, once the failover completes, it is the service's responsibility to restart the backup by invoking **BackupAsync** as necessary.
 
-### How to Restore data
+## How to Restore data
 
 One can classify the restoration scenarios where the running service has to restore data from the backup store into the following:
 
@@ -75,14 +75,14 @@ One can classify the restoration scenarios where the running service has to rest
 
 While many approaches are possible, we offer some examples on using RestoreAsync to recover from the above scenarios.
 
-#### Partition Data Loss
+## Partition Data Loss
 
 In this case, the runtime would automatically detect the data loss and invoke the **OnDataLossAsync** API.
 
 The service author needs to perform the following to recover:
 - Override **IReliableStateManager** to return a new ReliableStateManager, and provide a call back function to be called in the case of a data loss event.
 - Find the latest backup in the external location which contains service's backups.
-- If the latest backup’s state is behind the new Primary, return false. This will ensure that the new primary does not get over-written with older data.
+- If the latest backupâ€™s state is behind the new Primary, return false. This will ensure that the new primary does not get over-written with older data.
 - Download the latest backup (and uncompress the backup into the backup folder if it was compressed).
 - Call **IReliableStateManager.RestoreAsync** with the path to the backup folder.
 - Return true if the restoration was a success.
@@ -108,14 +108,14 @@ Following is an example implementation of **OnDataLossAsync** method along with 
 
 >[AZURE.NOTE] The RestorePolicy is set to Safe by default.  This means that the RestoreAsync API will fail with ArgumentException if it detects that the backup folder contains state that is older than or equal to the state contained in this replica.  RestorePolicy.Force can be used to skip this safety check.
 
-#### Deleted or Lost Service
+## Deleted or Lost Service
 
 If a service is removed, one must first recreate the service before the data can be restored.  It is important to create the service with the same configuration, e.g. partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (**OnDataLossAsync** above) has to be invoked on every partition of this service.  One way of achieving this is using **FabricClient.ServiceManager.InvokeDataLossAsync** on every partition.  
 
 From this point, implementation is same as the above scenario.  Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically). Thus, the service needs to store and the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
 
-#### Replication of Corrupt Application Data
+## Replication of Corrupt Application Data
 
 If the newly deployed application upgrade has a bug, that may cause corruption of data - for example an application upgrade may start to update every phone number record in a Reliable Dictionary with an invalid area code.  In this case, the invalid phone numbers will be replicated since service fabric is not aware of the nature of the data that is being stored.
 
