@@ -65,13 +65,13 @@ Verify that you have the following items below before beginning your configurati
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the  [Web Platform Installer (http://aka.ms/webpi-azps/). This documentation was written for PowerShell 1.0 or later. The necessary cmdlets for this configuration are not present in earlier versions. For more information about PowerShell 1.0, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
+- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the [Web Platform Installer](http://aka.ms/webpi-azps/). This documentation was written for PowerShell 1.0 or later. The necessary cmdlets for this configuration are not present in earlier versions. For more information about PowerShell 1.0, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
 
 - If you aren't familiar with using Azure Resource Manager and PowerShell, please see [this article](../articles/powershell-azure-resource-manager.md) for more information.
 
 ### Configuration steps
 
-1. In the PowerShell console, login to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings to they are available to Azure PowerShell.
+1. In the PowerShell console, login to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
 
 		Login-AzureRmAccount 
 
@@ -87,19 +87,28 @@ Verify that you have the following items below before beginning your configurati
 
 		New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
 
-4. Create virtual networks and VNet subnets. 
+4. Create a virtual network and specify subnets. 
 
 		$s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
 		$s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
-		$s3 = New-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.1.2.0/23"
+		$s3 = New-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.1.2.0/24"
 		$s4 = New-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "10.1.200.0/28"
 		$vnet = New-AzureRmVirtualNetwork -Name "MultiTier-VNet" -Location "North Europe" -ResourceGroupName "ForcedTunneling" -AddressPrefix "10.1.0.0/16" -Subnet $s1,$s2,$s3,$s4
 
-5. Create the route table and route rule.
+5. Create the local network gateways.
+
+		$lng1 = New-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.111" -AddressPrefix "192.168.1.0/24"
+		$lng2 = New-AzureRmLocalNetworkGateway -Name "Branch1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.112" -AddressPrefix "192.168.2.0/24"
+		$lng3 = New-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.113" -AddressPrefix "192.168.3.0/24"
+		$lng4 = New-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -GatewayIpAddress "111.111.111.114" -AddressPrefix "192.168.4.0/24"
+		
+6. Create the route table and route rule.
 
 		New-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" –Location "North Europe"
 		$rt = Get-AzureRmRouteTable –Name "MyRouteTable" -ResourceGroupName "ForcedTunneling" 
 		Add-AzureRmRouteConfig -Name "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VirtualNetworkGateway -RouteTable $rt
+		Set-AzureRmRouteTable -RouteTable $rt
+
 
 6. Associate the route table to the Midtier and Backend subnets.
 
@@ -108,51 +117,29 @@ Verify that you have the following items below before beginning your configurati
 		Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-7. Create the Gateway with a default site. This step takes some time to complete, sometimes 20 minutes or more, because you are creating and configuring the gateway. While it looks like just a few cmdlets in the console, there is a lot going on behind the scenes. Note that the GatewayDefaultSite is the cmdlet that allows this forced routing configuration to work, so you won't want to skip this one.  It's only available in PowerShell 1.0 or later. You'll assign the default site in the next step.
+9. Create the Gateway with a default site. This step takes some time to complete, sometimes 20 minutes or more, because you are creating and configuring the gateway. While it looks like just a few cmdlets in the console, there is a lot going on behind the scenes. Note that the GatewayDefaultSite is the cmdlet parameter that allows the forced routing configuration to work, so you won't want to skip this one.  It's only available in PowerShell 1.0 or later.
 
 		$pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
 		$gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 		$ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
 		New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewayDefaultSite $lng1 -EnableBgp $false
 
+10. Establish the site-to-site VPN connections
 
-1. Assign a default site for forced tunneling. 
+		$gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+		$lng1 = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling" 
+		$lng2 = Get-AzureRmLocalNetworkGateway -Name "Branch1" -ResourceGroupName "ForcedTunneling" 
+		$lng3 = Get-AzureRmLocalNetworkGateway -Name "Branch2" -ResourceGroupName "ForcedTunneling" 
+		$lng4 = Get-AzureRmLocalNetworkGateway -Name "Branch3" -ResourceGroupName "ForcedTunneling" 
 
-	In the preceding step, the sample cmdlet scripts created the routing table and associated the route table to two of the VNet subnets. The remaining step is to select a local site among the multi-site connections of the virtual network as the default site or tunnel.
+		New-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng1 -ConnectionType IPsec -SharedKey "preSharedKey"
+		New-AzureRmVirtualNetworkGatewayConnection -Name "Connection2" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng2 -ConnectionType IPsec -SharedKey "preSharedKey"
+		New-AzureRmVirtualNetworkGatewayConnection -Name "Connection3" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng3 -ConnectionType IPsec -SharedKey "preSharedKey"
+		New-AzureRmVirtualNetworkGatewayConnection -Name "Connection4" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -VirtualNetworkGateway1 $gateway -LocalNetworkGateway2 $lng4 -ConnectionType IPsec -SharedKey "preSharedKey"
 
-		$DefaultSite = @("DefaultSiteHQ")
-		Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-
-## Additional PowerShell cmdlets
-
-Below are some additional PowerShell cmdlets that you may find helpful when working with forced tunneling configurations.
-
-**To delete a route table:**
-
-	Remove-AzureRmRouteTable -RouteTableName <routeTableName>
-
-**To list a route table:**
-
-	Get-AzureRmRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
-
-**To delete a route from a route table:**
-
-	Remove-AzureRmRouteTable –Name <routeTableName>
-
-**To remove a route from a subnet:**
-
-	Remove-AzureRmSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
-
-**To list the route table associated with a subnet:**
-	
-	Get-AzureRmSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
-
-**To remove a default site from a VNet VPN gateway:**
-
-	Remove-AzureRmVnetGatewayDefaultSites -VNetName <virtualNetworkName>
-
+		Get-AzurermvirtualnetworkgatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
+		
 ## Next steps
-
 
 For information about user defined routes, see [User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
