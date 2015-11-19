@@ -39,7 +39,7 @@ If you already have a GitHub account and a repository that you want to link to A
 
 * The **Source Control** blade opens, where you can configure your GitHub account details. Below is the list of parameters to configure:  
 
-    |Parameter            |Description |
+    |**Parameter**            |**Description** |
     |:---|:---| 
     |Choose Source   | Select the source. Currently, only **GitHub** is supported. |
     |Authorization | Click the **Authorize** button to grant Azure Automation access to your GitHub repository. If you are already logged in to your GitHub account in a different window, then the credentials of that account are used. Once authorization is successful, the blade will show your GitHub username under **Authorization Property**. |
@@ -67,24 +67,25 @@ If you already have a GitHub account and a repository that you want to link to A
 * After you set up source control, the following Automation resources will be created in your Automation account:  
  Two [variable assets](automation-variables.md) are created.  
       
-    * The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.<br>
+    * The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.  
 
-    |Parameter            |Value |
+    |**Parameter**            |**Value** |
     |:---|:---|
     | Name  | Microsoft.Azure.Automation.SourceControl.Connection |
     | Type | String |
     | Value  | {"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |  
 
 
-    * The variable **Microsoft.Azure.Automation.SourceControl.OauthToken**, contains the secure encrypted value of your OAuthToken. <br>
+    * The variable **Microsoft.Azure.Automation.SourceControl.OauthToken**, contains the secure encrypted value of your OAuthToken.  
 
-    |Parameter            |Value |
+    |**Parameter**            |**Value** |
     |:---|:---|
     | Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
     | Type | Unknown(Encrypted) |
     | Value | <*Encrypted OAuthToken*> |
 
     ![Variables](media/automation-source-control-integration/automation_04_Variables.png)  
+
 
 
     * **Automation Source Control** is added as an authorized application to your GitHub account. To view the application: From your GitHub home page, navigate to your **profile** > **Settings** > **Applications**. This application allows Azure Automation to sync your GitHub repository to an Automation account.  
@@ -116,7 +117,7 @@ Runbook check-in allows you to push the changes you have made to a runbook in Az
 
     ![Checkin Runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
->[AZURE.NOTE] Source control runbooks are special Automaton runbooks that you cannot view or edit. While they will not show up on your runbook list, you will see sync jobs showing up on your jobs list.
+    >[AZURE.NOTE] Source control runbooks are special Automaton runbooks that you cannot view or edit. While they will not show up on your runbook list, you will see sync jobs showing up on your jobs list.
  
 * The name of the modified runbook is sent as an input parameter to the check-in runbook. You can [view the job details](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) by expanding runbook in **Repository Synchronization** blade.  
 
@@ -139,7 +140,7 @@ The sync button on the Runbook synchronization blade allows you to pull all the 
     ![Sync Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
->[AZURE.NOTE] A sync from source control overwrites the draft version of the runbooks that currently exist in your Automation account for **ALL** runbooks that are currently in source control. The Git equivalent command line instruction to sync is **git pull**
+    >[AZURE.NOTE] A sync from source control overwrites the draft version of the runbooks that currently exist in your Automation account for **ALL** runbooks that are currently in source control. The Git equivalent command line instruction to sync is **git pull**
 
 
 ## Troubleshooting source control problems
