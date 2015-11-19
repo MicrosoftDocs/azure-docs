@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Set up a Windows 10 device with Azure AD from Settings| Microsoft Azure" 
-	description=Explains how users can join to Azure AD through the settings menu." 
+	description="Explains how users can join to Azure AD through the settings menu." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
