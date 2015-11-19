@@ -3,9 +3,9 @@
 	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
+	ms.date="11/19/2015"
 	ms.author="mwasson"/>
 
 
