@@ -46,7 +46,6 @@ Note the following **important** points about on-demand HDInsight linked service
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 4,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
 		  "osType": "linux",
@@ -65,7 +64,6 @@ Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **HDInsightOnDemand**. | Yes
 clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes 
-jobscontainer | The blob container that holds data used by pig/hive/package jobs and where the cluster logs will be stored. | Yes
 timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
 version | Version of the HDInsight cluster | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
@@ -95,7 +93,6 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 16,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "01:30:00",
 	      "version": "3.1",
 	      "linkedServiceName": "adfods1",
