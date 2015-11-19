@@ -17,11 +17,11 @@
 	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
-#Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
+# Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
 
 This FAQ answers questions about Azure Machine Learning, a cloud service for predictive modeling and operationalizing solutions through web services. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support.
 
-##General questions
+## General questions
 
 **What is Azure Machine Learning?**
 
@@ -43,7 +43,7 @@ The Machine Learning API service enables you to deploy predictive models built i
 See [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) for more information.
 
 
-##Billing questions
+## Billing questions
 
 **How does Machine Learning billing work?**
 
@@ -55,18 +55,18 @@ For billing and pricing information, see [Machine Learning Pricing](http://azure
 
 ## Machine Learning Studio questions
 
-###Creating an experiment
+### Creating an experiment
 **Is there version control or Git integration for experiment graphs?**
 
 No, however each time an experiment is run that version of the graph is kept and cannot be modified by other users.
 
-###Importing and exporting data for Machine Learning
+### Importing and exporting data for Machine Learning
 **What data sources does Machine Learning support?**
 
 Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](machine-learning-import-data.md) to learn more about supported file formats.
 
 
-####<a id="ModuleLimit"></a>How large can the data set be for my modules?
+#### <a id="ModuleLimit"></a>How large can the data set be for my modules?
 
 Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB is the total of all input sizes. You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.  
 
@@ -102,7 +102,7 @@ If you have a small amount of data and want to expose it via an http URL, then y
 
 You can learn about image input capability in the [Image Reader][image-reader] reference.
 
-###Modules
+### Modules
 
 **The algorithm, data source, data format, or data transformation operation I am looking for isn't in Azure ML Studio, what are my options?**
 
@@ -118,7 +118,7 @@ Yes, you can bring your existing R code in ML Studio and run it in the same expe
 No, that is not supported, however custom R and Python code can be used to define a module.
 
 
-###Data processing
+### Data processing
 **Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
 
 By clicking on the output of a module you can visualize the data and get  statistics.
@@ -127,7 +127,7 @@ By clicking on the output of a module you can visualize the data and get  statis
 
 Since the data is being transmitted to the browser and may be large, the data size is limited to prevent slowing down the ML studio. It is better to download the data/result and use Excel or another tool to visualize the entire data.
 
-###Algorithms
+### Algorithms
 **What existing algorithms are supported in Machine Learning Studio?**
 
 Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules][machine-learning-modules].
@@ -159,7 +159,7 @@ No.
 
 Currently new custom modules can only be created in R.
 
-###R module
+### R module
 **What R packages are available in Machine Learning Studio?**
 
 Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -172,7 +172,7 @@ Yes, see [Author custom R modules in Azure Machine Learning](machine-learning-cu
 
 No, there is no REPL environment for R in the studio.
 
-###Python module
+### Python module
 
 **Is it possible to build a custom Python module?**
 
@@ -188,7 +188,7 @@ You can use the Jupyter Notebooks in the Machine Learning Studio. For more infor
 **How do I Retrain AzureML Models programmatically?**
 Use the Retraining APIs. Sample code is available [here](https://azuremlretrain.codeplex.com/).
 
-###Create
+### Create
 
 **Can I deploy the model locally or in an application without an internet connection?**
 No.
@@ -198,7 +198,7 @@ No.
 
 See the [Azure subscription limits](../azure-subscription-service-limits.md)
 
-###Use
+### Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
 The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md).
@@ -264,7 +264,7 @@ Rows and columns are each limited to the .NET limitation of  Max Int: 2,147,483,
 
 No.  
 
-##Security and availability
+## Security and availability
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?**
 
@@ -284,11 +284,11 @@ Machine Learning Studio relies on a user supplied Azure Storage Account to save 
 If you have changed Storage Account Access Keys, please ensure to resync the Access Keys in the workspace setting in the Azure portal  
 
 
-##Azure Marketplace
+## Azure Marketplace
 
 See the [FAQ for publishing and using apps in the Machine Learning Marketplace](machine-learning-marketplace-faq.md)
 
-##Support and training
+## Support and training
 
 **Where can I get training for Azure ML?**
 
