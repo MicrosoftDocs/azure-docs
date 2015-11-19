@@ -31,8 +31,8 @@ This topic describes how to prevent, troubleshoot, diagnose, and mitigate connec
 A transient fault is an error for which the underlying cause will soon resolve itself. An occasional cause of transient faults is when the Azure system quickly shifts hardware resources to better load-balance various workloads. During this reconfiguration time span, connections to Azure SQL database might be lost.
 
 
-If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic: 
-[Error messages for SQL Database client programs](sql-database-develop-error-messages).
+If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic:
+[Error messages for SQL Database client programs](sql-database-develop-error-messages.md).
 
 
 ### Connection versus command
@@ -95,7 +95,7 @@ You might also want to set a maximum number of retries before the program self-t
 
 Code samples with retry logic, in a variety of programming languages, are available at:
 
-- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md) 
+- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -178,7 +178,7 @@ If you forget to configure the IP address, your program will fail with a handy e
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-For more information, see: 
+For more information, see:
 [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
 
 
@@ -205,7 +205,7 @@ For example, when your client program is hosted on a Windows computer, the Windo
 If your client program is hosted on an Azure virtual machine (VM), you should read:<br/>[Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-For background information about cofiguration of ports and IP address, see: 
+For background information about cofiguration of ports and IP address, see:
 [Azure SQL Database firewall](sql-database-firewall-configure.md)
 
 
@@ -423,7 +423,7 @@ Here are links to information about EntLib60:
 - The Logging block abstracts the logging functionality from the log destination so that the application code is consistent, irrespective of the location and type of the target logging store.
 
 
-For details see: 
+For details see:
 [5 - As Easy As Falling Off a Log: Using the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
