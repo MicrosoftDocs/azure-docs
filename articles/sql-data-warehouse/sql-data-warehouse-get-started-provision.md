@@ -16,7 +16,7 @@
    ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Create a SQL Data Warehouse#
+# Create a SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,6 +46,7 @@ In this tutorial you will:
 
 
 ## Step 2: Configure and create a server
+
 In SQL Database and SQL Data Warehouse, each database is assigned to a server, and each server is assigned to a geographical location. The server is called a logical SQL server.
 
 > [AZURE.NOTE] <a name="note"></a>A logical SQL server:
@@ -75,6 +76,7 @@ In SQL Database and SQL Data Warehouse, each database is assigned to a server, a
     ![Configure new server](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## Step 3: Configure and create a database
+
 Now that you have selected your logical SQL server, you are ready to finish creating the database.
  
 2. In the **SQL Data Warehouse** blade, fill in the remaining fields. 
@@ -103,6 +105,7 @@ Now that you have selected your logical SQL server, you are ready to finish crea
 
 
 ## Step 4: Configure server firewall access for your client IP
+
 To connect to the server from your current IP address, add your client IP address to the firewall rules. This step shows you how to do that.
 
 1. Click **Browse** > **SQL Servers** > Choose your server > **Settings** > **Firewall**.
@@ -122,7 +125,6 @@ To connect to the server from your current IP address, add your client IP addres
     ![Add a firewall rule](./media/sql-data-warehouse-get-started-provision/add-rule.png)
 
 Now that you have configured the firewall you will be able to make connections from your desktop to the Azure SQL Data Warehouse database you just created.
-
 
 ## Next steps
 
