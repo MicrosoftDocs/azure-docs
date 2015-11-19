@@ -101,7 +101,7 @@ You can calculate the percentage availability of a service over a period of time
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-This is useful for SLA purposes ([SLA monitoring](#SLA-monitoring) is described in more detail later in this guidance). The definition of _Downtime_ depends on the service. For example, Visual Studio Online defines downtime as the period during which a customer's attempts to connect to the service take longer than 120 seconds and all basic read and write operations fail after the connection is established within that period.
+This is useful for SLA purposes ([SLA monitoring](#SLA-monitoring) is described in more detail later in this guidance). The definition of _Downtime_ depends on the service. For example, Visual Studio Team Services defines downtime as the period during which a customer's attempts to connect to the service take longer than 120 seconds and all basic read and write operations fail after the connection is established within that period.
 
 ## Performance monitoring
 As the system is placed under more and more stress as the volume of users increase and the size of the datasets that these users access grows, the possible failure of one or more components becomes likely. Frequently, component failure is preceded by a decrease in performance. If you are able detect such a decrease you can take proactive steps to remedy the situation.
