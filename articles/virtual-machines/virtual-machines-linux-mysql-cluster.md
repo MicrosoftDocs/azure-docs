@@ -45,7 +45,7 @@ You will need a Microsoft Azure account with a valid subscription able to create
 
 ### Affinity group
 
-An affinity group for the solution is created by logging into the Azure Portal scrolling down to Settings and creating a new affinity group. Allocated resources created later will be assigned to this affinity group.
+An affinity group for the solution is created by logging into the Azure portal scrolling down to Settings and creating a new affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 
@@ -55,7 +55,7 @@ A new network is created, and a subnet is created inside the network. We chose a
 
 The first Ubuntu 13.10 VM is created using an Endorsed Ubuntu Gallery image, and called `hadb01`. A new cloud service is created in the process, called hadb. We call it this way to illustrate the shared, load-balanced nature that the service will have when we add more resources. The creation of `hadb01` is uneventful and completed using the portal. An endpoint for SSH is automatically created, and our created network is selected. We also choose to create a new availability set for the VMs.
 
-Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, `hadb02`. For the second VM we will also use Ubuntu 13.10 VM from the Gallery using the Portal but we will choose to use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected for us. An SSH endpoint will be created, too.
+Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, `hadb02`. For the second VM we will also use Ubuntu 13.10 VM from the Gallery using the portal but we will choose to use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected for us. An SSH endpoint will be created, too.
 
 After both VMs have been created, we will take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure)
 

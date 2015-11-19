@@ -78,7 +78,7 @@ Endpoints in Azure consists of a protocol (TCP or UDP), along with a public and 
 
 TCP port 80 is the default port number on which Apache listens. Opening this port with an Azure endpoint will allow you and other Internet clients access to the Apache web server.  
 
-In the Azure Preview Portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
+In the Azure preview portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
 
 ![][5]
 
@@ -106,7 +106,7 @@ Click **OK** to add the endpoint to your virtual machine.
 ###Step 2: Connect to the image you created
 You can choose any SSH tool to connect to your new virtual machine. In this example, we use Putty.  
 
-First, get the DNS name of your virtual machine from the Azure Preview Portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
+First, get the DNS name of your virtual machine from the Azure preview portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
 
 Get the port number for SSH connections from the **SSH** field.   Here is an example.  
 
