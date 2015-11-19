@@ -31,7 +31,7 @@
 <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**Documentation**</td><td>[Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)</td></tr>
 <tr><td>**Get Started**</td><td>[Get started with the Python SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-python-application/)</td></tr>
-<tr><td>**Current Supported Versions of Python**</td><td>2.7</td></tr>
+<tr><td>**Current Supported Platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
 ## Release Notes
