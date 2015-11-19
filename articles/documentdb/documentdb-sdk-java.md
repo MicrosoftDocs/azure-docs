@@ -31,6 +31,7 @@
 <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 <tr><td>**Documentation**</td><td>[Java SDK Reference Documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
 <tr><td>**Get Started**</td><td>[Get started with the Java SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-java-application/)</td></tr>
+<tr><td>**Current Supported Versions of Java**</td><td>1.7</td></tr>
 </table></br>
 
 ## Release Notes
