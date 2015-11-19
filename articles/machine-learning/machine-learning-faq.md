@@ -119,6 +119,7 @@ No, that is not supported, however custom R and Python code can be used to defin
 
 
 ### Data processing
+
 **Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
 
 By clicking on the output of a module you can visualize the data and get  statistics.
@@ -128,6 +129,7 @@ By clicking on the output of a module you can visualize the data and get  statis
 Since the data is being transmitted to the browser and may be large, the data size is limited to prevent slowing down the ML studio. It is better to download the data/result and use Excel or another tool to visualize the entire data.
 
 ### Algorithms
+
 **What existing algorithms are supported in Machine Learning Studio?**
 
 Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules][machine-learning-modules].
@@ -160,6 +162,7 @@ No.
 Currently new custom modules can only be created in R.
 
 ### R module
+
 **What R packages are available in Machine Learning Studio?**
 
 Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
@@ -183,6 +186,7 @@ Not currently, but with the standard Python module or a set of them the same res
 You can use the Jupyter Notebooks in the Machine Learning Studio. For more information, see [Introducing Jupyter Notebooks in Azure ML Studio] (http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Web service
+
 ###Retrainining Models Programmatically
 
 **How do I Retrain AzureML Models programmatically?**
@@ -199,6 +203,7 @@ No.
 See the [Azure subscription limits](../azure-subscription-service-limits.md)
 
 ### Use
+
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
 The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and deployed from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md).
@@ -208,7 +213,6 @@ The Request Response service (RRS) is a low-latency, high-scale web service that
 Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) for details on how to update a deployed web service.
 
 You can also use the Retraining APIs. The sample code is available [here](https://azuremlretrain.codeplex.com/).
-
 
 **How do I monitor my Web service deployed in production?**
 
@@ -221,12 +225,11 @@ For RRS, the web service response is typically where you see the result. You can
  **Can I create web services only from models created in the Studio?
  No. You can also create web services directly from Jupyter Notebooks, and RStudio.
 
-
-##Scalability
+## Scalability
 
 **What is the scalability of the web service?**
 
-Currently, the default endpoint is provisioned with 20 concurrent RRS requests per end point. You can scale the concurrent request to 200 request per endpoint and you can scale each web service to 10,000 endpoints per web service as described in the [scaling API endpoints](machine-learning-scaling-endpoints.md) article.  For BES, each endpoint allows processing 40 request at a time and additional requests beyond 40 requests are queued. These queued requests will run automatically as the queue drains.
+Currently, the default endpoint is provisioned with 20 concurrent RRS requests per end point. You can scale the concurrent request to 200 request per endpoint and you can scale each web service to 10,000 endpoints per web service as described in the [scaling API endpoints](machine-learning-scaling-endpoints.md) article. For BES, each endpoint allows processing 40 request at a time and additional requests beyond 40 requests are queued. These queued requests will run automatically as the queue drains.
 
 
 **Are R jobs spread across nodes?**
