@@ -24,11 +24,15 @@
 
 This guide will show how to manage your DNS zone. It will help understanding the sequence of operations to be done in order to administer your DNS zone.
 
-[AZURE.INCLUDE [include-short-name](../../includes/azure-cli-prerequisites-include.md)]
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
-Azure DNS commands are only in Azure Resource Manager(ARM). Change CLI to use ARM with the following command:
+2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-	azure config mode arm 
+		azure config mode arm
+
+	Expected output:
+
+		info:    New mode is arm
  
  
 ## Create a new DNS zone
