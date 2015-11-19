@@ -86,6 +86,14 @@
 ### <a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.0.0)
 - GA SDK
 
+<br/>
+> [AZURE.NOTE]
+We switched package names from Microsoft.Azure.Documents.Client to Microsoft.Azure.DocumentDB when we moved from preview to GA.
+<br/>
+
+### <a name="0.9.x-preview"/>[0.9.x](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
+- Preview SDKs
+
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
