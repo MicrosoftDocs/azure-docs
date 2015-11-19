@@ -26,7 +26,7 @@ This guide will show how to manage your DNS zone. It will help understanding the
 
 [AZURE.INCLUDE [include-short-name](../../includes/azure-cli-prerequisites-include.md)]
 
-Azure DNS commands are only in Azure Resource Manager(ARM). Change CLI with to use ARM with the following command:
+Azure DNS commands are only in Azure Resource Manager(ARM). Change CLI to use ARM with the following command:
 
 	azure config mode arm 
  
