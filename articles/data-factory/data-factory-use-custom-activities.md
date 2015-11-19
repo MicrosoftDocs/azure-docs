@@ -237,7 +237,6 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
 2. Do the following in the JSON script: 
 	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
-	2. For the **jobsContainer** property, specify the name of the default container where the cluster logs will be stored. For the purpose of this tutorial, specify **adfjobscontainer**.
 	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted. 
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **StorageLinkedService** that you had created in the Get started tutorial. 
