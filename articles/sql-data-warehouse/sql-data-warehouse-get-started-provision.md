@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Create a SQL Data Warehouse by using the Azure preview portal#
+# Create a SQL Data Warehouse#
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
