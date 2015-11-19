@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/17/2015"
+   ms.date="11/18/2015"
    ms.author="seanmck"/>
 
 # Build a web service front-end for your application
@@ -26,7 +26,7 @@ In this tutorial, we will walk through adding an ASP.NET 5 Web API front-end to 
 
 ASP.NET 5 is a lightweight, cross-platform web development framework, enabling the creation of modern Web UI and Web APIs. Let's add an ASP.NET Web API project to our existing application.
 
-1. In Solution Explorer, right-click on the application project and choose **New Fabric Service**.
+1. In Solution Explorer, right-click on the Services within the application project and choose **Add Fabric Service**.
 
 	![Adding a new service to an existing application][vs-add-new-service]
 
