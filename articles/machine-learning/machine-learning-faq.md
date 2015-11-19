@@ -226,7 +226,7 @@ For RRS, the web service response is typically where you see the result. You can
 
 **What is the scalability of the web service?**
 
-Currently, the maximum is 20 concurrent requests per end point, though it can scale to 10,000 end points. This translates to 4,800 concurrent request if we use every resource (300 workers).  
+Currently, the default endpoint is provisioned with 20 concurrent RRS requests per end point. You can scale the concurrent request to 200 per endpoint and you can scale to 10,000 endpoints per web service as described in the [scaling API endpoints](machine-learning-scaling-endpoints.md).  For BES, each endpoint allows processing 40 request at a time.
 
 
 **Are R jobs spread across nodes?**
