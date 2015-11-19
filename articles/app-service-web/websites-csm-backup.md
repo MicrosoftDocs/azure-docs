@@ -179,6 +179,7 @@ The status of a backup is an enumerated type. Here is every possible state.
 If your web app has been deleted, or if you want to revert your web app to a previous version, you can restore the app from a backup. To invoke a restore, send a **POST** request to the URL `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/backups/{id}/restore`.
 
 Here is what the URL looks like for our example website. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1/restore`
+
 In the request body, send a JSON object that contains the properties for the restore operation. Here is an example containing all required properties:
 
 ```
