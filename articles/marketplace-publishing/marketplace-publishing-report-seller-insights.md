@@ -109,7 +109,7 @@ If you have a question relating to reports and insights, please contact our supp
 2. In the **Problem type** box, select **Reports and Insights**.
 3. In the **Category** box, select **Questions related to reports**.
 4. Click **Start request**.
-![sellerinsightsquestions][10]
+  ![sellerinsightsquestions][10]
 
 
 
