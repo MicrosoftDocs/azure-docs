@@ -48,12 +48,11 @@ The main sections of an Azure Search index, as articulated in the JSON data inte
 
 |Section|Description|
 |--------------|-----------|
-|Fields collection|Fields define a document. A dataset that you push or pull into an index must provide values or nulls for each field, compatible with the data type and field length expressed in the schema.|
-|[Attributes](#index-attributes)|Properties or annotations used to mark up a field to support behaviors allowed for that field. You can specify whether a field is searchable, retrievable, or sortable, all on a field-by-field basis. You can also specify language analyzer overrides at the field level.
-|[Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criteria used to boost the ranking of a search hit that has more of the characteristics set by the profile. For example, suppose a search term is matched in a product name and product description, you might want matches in product name to be ranked higher than those found in a description. You can create multiple profiles.|
+|Fields collection|Fields define a document. A dataset that you push or pull into an index must provide values or nulls for each field, compatible with the data type and field length expressed in the schema. Fields have [attributes](#index-attributes): properties or annotations used to mark up a field to enable search-related behaviors for that field. For example, you can specify whether a field is searchable, retrievable, or sortable, all on a field-by-field basis. You can also specify language analyzer overrides at the field level.
 |[Suggesters](https://msdn.microsoft.com/library/azure/mt131377.aspx)|Also known as auto-complete or typeahead queries, are defined as a section in the index.|
+|[Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Criteria used to boost the ranking of a search hit that has more of the characteristics set by the profile. For example, suppose a search term is matched in a product name and product description, you might want matches in product name to be ranked higher than those found in a description. You can create multiple profiles.|
 |Default scoring profile|Optionally, you can override the built-in logic that computes a search ranking score by specifying one of your scoring profiles as the default.|
-|CORS options|Optionally, enables cross-origin resource sharing, wherein requests for a resource used by a web page issued across a domain boundary. CORS is always off unless you specifically enable it for your index.|
+|CORS options|Optionally, enable cross-origin resource sharing, wherein requests for a resource used by a web page issued across a domain boundary. CORS is always off unless you specifically enable it for your index.|
 
 <a name="index-attributes"></a>
 ##Index attributes
