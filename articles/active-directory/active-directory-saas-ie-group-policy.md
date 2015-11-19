@@ -135,14 +135,14 @@ When users sign-in to websites using the Access Panel Extension, Internet Explor
 
 ![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
-If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent AutoComplete from remembering passwords:
+If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent auto-complete from remembering passwords:
 
 1. In the **Group Policy Management Editor** window, go to the path listed below. Note that this configuration setting is only available under **User Configuration**.
 	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
 
 2. Find the setting named **Turn on the auto-complete feature for user names and passwords on forms**.
 
-	> [AZURE.NOTE] Previous versions of Active Directory may list this setting with the name **Do not allow AutoComplete to save passwords**. The configuration for that setting differs from the setting described in this tutorial.
+	> [AZURE.NOTE] Previous versions of Active Directory may list this setting with the name **Do not allow auto-complete to save passwords**. The configuration for that setting differs from the setting described in this tutorial.
 
 	![Remember to look for this under User Settings.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -154,6 +154,9 @@ If you wish to prevent your users from seeing this prompt, then follow the steps
 
 5. Click **OK** to apply these changes and close the window.
 
+Users will no longer be able to store their credentials or use auto-complete to access previously stored credentials. However, this policy does allow users to continue to use auto-complete for other types of form fields, such as search fields.
+
+> [AZURE.WARNING] If this policy is enabled after users have chosen to store some credentials, this policy will *not* clear the credentials that have already been stored.
 
 ##Step 6: Testing the Deployment
 
