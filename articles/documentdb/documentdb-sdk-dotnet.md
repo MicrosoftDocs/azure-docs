@@ -115,10 +115,10 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
 | [1.2.0](#1.2.0) | July 06, 2015 |---
 | [1.1.0](#1.1.0) | April 30, 2015 |---
 | [1.0.0](#1.0.0) | April 08, 2015 |---
-| [0.9.3-prelease](0.9.x-preview) | March 12, 2015 | February 29, 2016
-| [0.9.2-prelease](0.9.x-preview) | January , 2015 | February 29, 2016
-| [.9.1-prelease](0.9.x-preview) | October 13, 2014 | February 29, 2016
-| [0.9.0-prelease](0.9.x-preview) | August 21, 2014 | February 29, 2016
+| [0.9.3-prelease](#0.9.x-preview) | March 12, 2015 | February 29, 2016
+| [0.9.2-prelease](#0.9.x-preview) | January , 2015 | February 29, 2016
+| [.9.1-prelease](#0.9.x-preview) | October 13, 2014 | February 29, 2016
+| [0.9.0-prelease](#0.9.x-preview) | August 21, 2014 | February 29, 2016
 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
