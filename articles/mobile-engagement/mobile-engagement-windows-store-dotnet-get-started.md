@@ -82,11 +82,20 @@ You have now created a new Windows Universal App project into which we will inte
 
 			using Microsoft.Azure.Engagement;
 
-	b. Initialize the SDK in the **OnLaunched** method:
+	b. Add a method dedicated to the Engagement initialization and setting:
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c. Initialize the SDK in the **OnLaunched** method:
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -95,7 +104,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -139,17 +148,9 @@ The following sections set up your app to receive them.
 
 ###Initialize the REACH SDK
 
-1. In `App.xaml.cs`, call **EngagementReach.Instance.Init();** in the **OnLaunched** function right after the agent initialization:
+In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **InitEngagement** function right after the agent initialization:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **OnActivated** function right after the agent initialization:
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);
