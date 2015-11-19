@@ -43,30 +43,23 @@ available for Node.js.  You can create a basic [Express] application as follows:
 
 1. In a command or PowerShell window, create a new directory for your project.
 
-	```
 	mkdir basicapp
-	```
 
 2. Run npm init to initialize the package structure.
 
-	```
 	cd basicapp
 	npm init
-	```
 
-	The npm init command will ask a set of questions to initialize the project.  See the example output below
+The npm init command will ask a set of questions to initialize the project.  See the example output below
 
 	![The npm init output][0]
 
 3. Install the express and azure-mobile-apps libraries from the npm repository.
 
-	```
 	npm install --save express azure-mobile-apps
-	```
 
 4. Create an app.js file to implement the basic mobile server.
 
-	```
 	var express = require('express'),
 		azureMobileApps = require('azure-mobile-apps');
 
@@ -81,7 +74,6 @@ available for Node.js.  You can create a basic [Express] application as follows:
 
 	// Start listening on HTTP
 	app.listen(process.env.PORT || 3000);
-	```
 
 This application creates a simple mobile-optimized WebAPI with a single endpoint - /tables/TodoItem - that provides
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
@@ -124,21 +116,17 @@ Visual Studio 2015 requires an extension to develop Node.js.js applications with
 
   a. At line 6 at the bottom of the library require statements, add the following code:
 
-    ```
     var bodyParser = require('body-parser');
     var azureMobileApps = require('azure-mobile-apps');
-    ```
 
   b. At approximately line 27 after the other app.use statements, add the following code:
 
-	```
 	app.use('/users', users);
 
 	// Azure Mobile Apps Initialization
 	var mobile = azureMobileApps();
 	mobile.tables.add('TodoItem');
 	app.use('mobile');
-	```
 
   c. Save the file.
 
@@ -174,37 +162,33 @@ Before a table can be used, it must be defined.  Tables can be defined with a st
 As a best practice, you should define each table in a Javascript file in the tables directory, then use the tables.import() method to import the tables.
 Extending the basic-app, the app.js file would be adjusted:
 
-```
-var express = require('express'),
-	azureMobileApps = require('azure-mobile-apps');
+    var express = require('express'),
+        azureMobileApps = require('azure-mobile-apps');
 
-var app = express(),
-	mobile = azureMobileApps();
+    var app = express(),
+	    mobile = azureMobileApps();
 
-// Define the database schema that is exposed
-mobile.tables.import('./tables');
+    // Define the database schema that is exposed
+    mobile.tables.import('./tables');
 
-// Provide initialization of any tables that are statically defined
-mobile.tables.initialize().then(function () {
-	// Add the mobile API so it is accessible as a Web API
-	app.use(mobile);
+    // Provide initialization of any tables that are statically defined
+    mobile.tables.initialize().then(function () {
+        // Add the mobile API so it is accessible as a Web API
+        app.use(mobile);
 
-	// Start listening on HTTP
-	app.listen(process.env.PORT || 3000);
-});
-```
+        // Start listening on HTTP
+        app.listen(process.env.PORT || 3000);
+    });
 
 Define the table in ./tables/TodoItem.js:
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-// Additional configuration for the table goes here
+    // Additional configuration for the table goes here
 
-module.exports = table;
-```
+    module.exports = table;
 
 Tables use dynamic schema by default.  To turn off dynamic schema globally, set the App Setting **MS_DynamicSchema** to false within the Azure Portal.
 
@@ -214,22 +198,20 @@ You can find a complete example in the [todo sample on GitHub].
 
 You can explicitly define the columns to expose via the WebAPI.  The azure-mobile-apps Node.js SDK will automatically add any additional columns required for offline data sync to the list that you provide.  For example, the QuickStart client applications require a table with two columns: text (a string) and complete (a boolean).  This can be defined in the table definition JavaScript file (located in the tables directory) as follows:
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-// Define the columns within the table
-table.columns = {
-	"text": "string",
-	"complete": "boolean"
-};
+    // Define the columns within the table
+    table.columns = {
+        "text": "string",
+        "complete": "boolean"
+    };
 
-// Turn off dynamic schema
-table.dynamicSchema = false;
+    // Turn off dynamic schema
+    table.dynamicSchema = false;
 
-module.exports = table;
-```
+    module.exports = table;
 
 If you define tables statically, then you must also call the tables.initialize() method to create the database schema on startup.  The tables.initialize() method returns a [Promise] - this is used to ensure that the web service does not serve requests prior to the database being initialized.
 
@@ -291,9 +273,7 @@ Ensure you record the username and password you selected.  You may need to assig
 
 The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.  You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
 
-```
-$env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
-```
+    $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
 
 Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.  
 
@@ -307,23 +287,21 @@ Azure Mobile Apps reads a JavaScript file called _azureMobile.js_ from the local
 
 An example _azureMobile.js_ file implementing the database settings given above is below:
 
-```
-module.exports = {
-	cors: {
-		origins: [ 'localhost' ]
-	},
-	data: {
-		provider: 'sql',
-		server: '127.0.0.1',
-		database: 'mytestdatabase',
-		user: 'azuremobile',
-		password: 'T3stPa55word'
-	},
-	logging: {
-		level: 'verbose'
-	}
-};
-```
+    module.exports = {
+        cors: {
+            origins: [ 'localhost' ]
+        },
+        data: {
+            provider: 'sql',
+            server: '127.0.0.1',
+            database: 'mytestdatabase',
+            user: 'azuremobile',
+            password: 'T3stPa55word'
+        },
+        logging: {
+            level: 'verbose'
+        }
+    };
 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
@@ -379,25 +357,23 @@ more details about configuring authentication in an Azure App Service, review th
 
 Each table has an access property that can be used to control access to the table.  The following sample shows a statically defined table with authentication required.
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-// Define the columns within the table
-table.columns = {
-	"text": "string",
-	"complete": "boolean"
-};
+    // Define the columns within the table
+    table.columns = {
+        "text": "string",
+        "complete": "boolean"
+    };
 
-// Turn off dynamic schema
-table.dynamicSchema = false;
+    // Turn off dynamic schema
+    table.dynamicSchema = false;
 
-// Require authentication to access the table
-table.access = 'authenticated';
+    // Require authentication to access the table
+    table.access = 'authenticated';
 
-module.exports = table;
-```
+    module.exports = table;
 
 The access property can take one of three values
 
@@ -418,19 +394,17 @@ In addition to appearing on the table, the access property can be used to contro
 
 For example, you may wish to provide a read-only unauthenticated table.  This can be provided by the following table definition:
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-// Read-Only table - only allow READ operations
-table.read.access = 'anonymous';
-table.insert.access = 'disabled';
-table.update.access = 'disabled';
-table.delete.access = 'disabled';
+    // Read-Only table - only allow READ operations
+    table.read.access = 'anonymous';
+    table.insert.access = 'disabled';
+    table.update.access = 'disabled';
+    table.delete.access = 'disabled';
 
-module.exports = table;
-```
+    module.exports = table;
 
 ### <a name="howto-tables-query"></a>Adjust the query that is used with table operations
 
@@ -438,71 +412,65 @@ A common requirement for table operations is to provide a restricted view of the
 tagged with the authenticated user ID such that the user can only read or update their own records.  The following table definition
 will provide this functionality:
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-// Define a static schema for the table
-table.columns = {
-	"userId": "string",
-	"text": "string",
-	"complete": "boolean"
-};
-table.dynamicSchema = false;
+    // Define a static schema for the table
+    table.columns = {
+        "userId": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
 
-// Require authentication for this table
-table.access = 'authenticated';
+    // Require authentication for this table
+    table.access = 'authenticated';
 
-// Ensure that only records for the authenticated user are retrieved
-table.read(function (context) {
-	context.query.where({ userId: context.user.id });
-	return context.execute();
-});
+    // Ensure that only records for the authenticated user are retrieved
+    table.read(function (context) {
+		context.query.where({ userId: context.user.id });
+		return context.execute();
+	});
 
-// When adding records, add or overwrite the userId with the authenticated user
-table.insert(function (context) {
-	context.item.userId = context.user.id;
-	return context.execute();
-}
+    // When adding records, add or overwrite the userId with the authenticated user
+    table.insert(function (context) {
+	    context.item.userId = context.user.id;
+	    return context.execute();
+    }
 
-module.exports = table;
-```
+    module.exports = table;
 
 Operations that normally execute a query will have a query property that you can adjust with a where clause.    The query property is
 a [QueryJS] object that is used to convert an OData query to something that the data backend can process.  For simple equality cases
 (like the one above), a map can be used. It is also relatively easy to add specific SQL clauses:
 
-```
-context.query.where('myfield eq ?', 'value');
-```
+    context.query.where('myfield eq ?', 'value');
 
 ### <a name="howto-tables-softdelete"></a>Configure Soft Delete on a table
 
 Soft Delete does not actually delete records.  Instead it marks them as deleted within the database by setting the deleted column to true.  The Azure Mobile Apps SDK automatically removes soft-deleted records from results unless the Mobile Client SDK uses IncludeDeleted().  To configure a table for soft delete, set the softDelete property in the table definition file.  An example might be:
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-// Define the columns within the table
-table.columns = {
-	"text": "string",
-	"complete": "boolean"
-};
+    // Define the columns within the table
+    table.columns = {
+        "text": "string",
+		"complete": "boolean"
+	};
 
-// Turn off dynamic schema
-table.dynamicSchema = false;
+	// Turn off dynamic schema
+	table.dynamicSchema = false;
 
-// Turn on Soft Delete
-table.softDelete = true;
+	// Turn on Soft Delete
+	table.softDelete = true;
 
-// Require authentication to access the table
-table.access = 'authenticated';
+	// Require authentication to access the table
+	table.access = 'authenticated';
 
-module.exports = table;
-```
+	module.exports = table;
 
 You will need to establish a mechanism for purging records - either from a client application, via a WebJob or through a custom mechanism.
 
@@ -511,29 +479,27 @@ You will need to establish a mechanism for purging records - either from a clien
 When creating a new application, you may wish to seed a table with data.  This can be done within the table definition JavaScript file as
 follows:
 
-```
-var azureMobileApps = require('azure-mobile-apps');
+	var azureMobileApps = require('azure-mobile-apps');
 
-var table = azureMobileApps.table();
+	var table = azureMobileApps.table();
 
-// Define the columns within the table
-table.columns = {
-	"text": "string",
-	"complete": "boolean"
-};
-table.seed = [
-	{ text: 'Example 1', complete: false },
-	{ text: 'Example 2', complete: true }
-];
+	// Define the columns within the table
+	table.columns = {
+		"text": "string",
+		"complete": "boolean"
+	};
+	table.seed = [
+		{ text: 'Example 1', complete: false },
+		{ text: 'Example 2', complete: true }
+	];
 
-// Turn off dynamic schema
-table.dynamicSchema = false;
+	// Turn off dynamic schema
+	table.dynamicSchema = false;
 
-// Require authentication to access the table
-table.access = 'authenticated';
+	// Require authentication to access the table
+	table.access = 'authenticated';
 
-module.exports = table;
-```
+	module.exports = table;
 
 It is important to note that seeding of data is only done when the table is created by the Azure Mobile Apps SDK.  If the table already
 exists within the database, no data is injected into the table.  If dynamic schema is turned on, then the schema will be inferred from
@@ -565,35 +531,31 @@ Custom APIs are defined in much the same way as the Tables API.
 
 Here is the prototype api definition based on the basic-app sample we used earlier.
 
-```
-var express = require('express'),
-	azureMobileApps = require('azure-mobile-apps');
+	var express = require('express'),
+		azureMobileApps = require('azure-mobile-apps');
 
-var app = express(),
-	mobile = azureMobileApps();
+	var app = express(),
+		mobile = azureMobileApps();
 
-// Import the Custom API
-mobile.api.import('./api');
+	// Import the Custom API
+	mobile.api.import('./api');
 
-// Add the mobile API so it is accessible as a Web API
-app.use(mobile);
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
 
-// Start listening on HTTP
-app.listen(process.env.PORT || 3000);
-```
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
 
 Let's take a simple API that will return the server date using the _Date.now()_ method.  Here is the api/date.js file:
 
-```
-var api = {
-	get: function (req, res, next) {
-		var date = { currentTime: Date.now() };
-		res.status(200).type('application/json').send(date);
-	});
-};
+	var api = {
+		get: function (req, res, next) {
+			var date = { currentTime: Date.now() };
+			res.status(200).type('application/json').send(date);
+		});
+	};
 
-module.exports = api;
-```
+	module.exports = api;
 
 Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.  
 
@@ -601,33 +563,29 @@ Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE
 
 Azure Mobile Apps SDK implements authentication in the same way for both the tables endpoint and custom APIs.  To add authentication to the API developed in the previous section, add an **access** property:
 
-```
-var api = {
-	get: function (req, res, next) {
-		var date = { currentTime: Date.now() };
-		res.status(200).type('application/json').send(date);
-	});
-};
-// All methods must be authenticated.
-api.access = 'authenticated';
+	var api = {
+		get: function (req, res, next) {
+			var date = { currentTime: Date.now() };
+			res.status(200).type('application/json').send(date);
+		});
+	};
+	// All methods must be authenticated.
+	api.access = 'authenticated';
 
-module.exports = api;
-```
+	module.exports = api;
 
 You can also specify authentication on specific operations:
 
-```
-var api = {
-	get: function (req, res, next) {
-		var date = { currentTime: Date.now() };
-		res.status(200).type('application/json').send(date);
-	});
-};
-// The GET methods must be authenticated.
-api.get.access = 'authenticated';
+	var api = {
+		get: function (req, res, next) {
+			var date = { currentTime: Date.now() };
+			res.status(200).type('application/json').send(date);
+		});
+	};
+	// The GET methods must be authenticated.
+	api.get.access = 'authenticated';
 
-module.exports = api;
-```
+	module.exports = api;
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
