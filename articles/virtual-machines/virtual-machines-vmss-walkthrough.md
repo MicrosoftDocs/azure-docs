@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="11/19/2015"
 	ms.author="davidmu"/>
 
 # Automatically scale machines in a Virtual Machine Scale Set
@@ -28,6 +28,8 @@ This tutorial shows you how to create a Virtual Machine Scale Set of Windows vir
 The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Windows VMs and a Jumpbox](https://azure.microsoft.com/en-us/documentation/templates/201-vmss-windows-jumpbox/).
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
 
 ## Step 1: Create a resource group and a storage account
 
