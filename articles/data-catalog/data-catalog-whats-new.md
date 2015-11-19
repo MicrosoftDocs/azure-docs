@@ -26,9 +26,9 @@ As of the week of November 20, 2015, the following capabilities have been added 
 
 - The ability to view and copy connection strings from within the **Azure Data Catalog** portal for SQL Server (including Azure SQL Database) data sources. Users can click on the "View Connection Strings" link in the connection information for a SQL Server table, view, or database, to see the ADO.NET, ODBC, OLEDB and JDBC connection strings used to connect to the data source.
 - Support for including data profiles when registering Teradata tables and views.
-- Support for "Open in Power BI Desktop" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) and SQL Server Analysis Services data sources.
+- Support for "Open in Power BI Desktop" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage, and HDFS data sources.  
 
-> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have tje latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
 
 ## What's new for the week of November 13, 2015 release
 
