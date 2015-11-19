@@ -76,9 +76,11 @@ Since Service Fabric Explorer is web-based and runs within the cluster, it is ac
 
 ### Discovering the Service Fabric Explorer endpoint for a remote Cluster
 
-You can discover your cluster endpoint from the Service Fabric portal. In order to reach Service Fabric Explorer for a given cluster, simply connect to that endpoint on port 19080:
+In order to reach Service Fabric Explorer for a given cluster, simply point your browser to:
 
-http://&lt;your-cluster-endpoint&gt;:19080
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+The full URL is also available in the cluster essentials pane of the Azure portal.
 
 ### Connecting to a secure cluster
 
