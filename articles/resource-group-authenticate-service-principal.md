@@ -98,7 +98,7 @@ In this section, you will perform the steps to create a service principal for an
 
      For the user name, use the **ApplicationId** or **IdentifierUris** that you used when creating the application. For the password, use the one you specified when creating the account.
 
-     Use the credentials that you entered as an input to the **Add-AzureAccount** cmdlet, which will sign the service principal in:
+     Use the credentials that you entered as an input to the **Login-AzureRmAccount** cmdlet, which will sign the service principal in:
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
         Environment           : AzureCloud
@@ -296,13 +296,13 @@ This topic assumes you have been issued a certificate and you have [OpenSSL](htt
 
 1. Create a **.pem** file with:
 
-      openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
 
 2. Open the **.pem** file and copy the certificate data.
 
 3. Create a new AAD Application by running the **azure ad app create** command, and provide the certificate data that you copied in the previous step as the key value.
 
-      azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
 
 ## Next Steps
   
