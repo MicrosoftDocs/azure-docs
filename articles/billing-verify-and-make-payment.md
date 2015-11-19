@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to change the credit card used to pay for an Azure subscription | Microsoft Azure"
-	description="Describes how to change the credit card used to pay for an Azure subscription"
+	pageTitle="How to verify your payment method and make payments for an Azure subscription | Microsoft Azure"
+	description="Describes How to verify your payment method and make payments for an Azure subscription"
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/18/2015"
 	ms.author="genli"/>
 
 # How to verify your payment method and make payments for an Azure subscription
