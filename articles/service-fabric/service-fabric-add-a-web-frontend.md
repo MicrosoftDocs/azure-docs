@@ -30,11 +30,11 @@ ASP.NET 5 is a lightweight, cross-platform web development framework, enabling t
 
 	![Adding a new service to an existing application][vs-add-new-service]
 
-2. In the new service dialog, choose ASP.NET 5 Web Service and give it a name.
+2. In the new service dialog, choose **ASP.NET 5** and give it a name.
 
 	![Choosing ASP.NET Web Service in the new service dialog][vs-new-service-dialog]
 
-3. The next dialog provides a set of ASP.NET 5 project templates. Note that these are the same templates you would see if you created an ASP.NET 5 project outside of a Service Fabric application. For this tutorial, we will choose Web API but you can apply the same concepts to building a full web application.
+3. The next dialog provides a set of ASP.NET 5 project templates. Note that these are the same templates you would see if you created an ASP.NET 5 project outside of a Service Fabric application. For this tutorial, we will choose **Web API** but you can apply the same concepts to building a full web application.
 
 	![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
 
