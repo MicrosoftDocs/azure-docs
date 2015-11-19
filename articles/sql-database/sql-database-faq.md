@@ -55,10 +55,12 @@ There are a few tools available to you.
 - To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
 ## How often can I change the service tier or performance level of a single database? 
-You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) a total of four times in a 24-hour period.
+For databases in v2 server, you can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) a total of four times in a 24-hour period.
+
+For databases in v12 server, you can change the service tier or performance level as often as you want.
 
 ##How often can I adjust the eDTUs per pool? 
-Once per day.
+You can adjust the eDTUs for the pool as often as you want.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
 Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases see [Change the service tier of a database](sql-database-scale-up.md). For elastic databases, see [Elastic pool reference](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations) 
