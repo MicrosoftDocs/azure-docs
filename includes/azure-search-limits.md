@@ -11,3 +11,5 @@ Maximum search services|12 per Azure subscription
 Maximum number of indexers|10 per Search service
 Maximum number of datasources|10 per Search service
 Maximum number of documents that can be indexed in a single indexer invocation|Unlimited
+Maximum number of scoring profiles per index|16
+Maximum number of functions per profile|8
