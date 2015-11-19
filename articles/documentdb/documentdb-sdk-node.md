@@ -32,6 +32,7 @@
 <tr><td>**Documentation**</td><td>[Node.js SDK Reference Documentation](http://azure.github.io/azure-documentdb-node/)</td></tr>
 <tr><td>**Samples**</td><td>[Node.js Code Samples](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
 <tr><td>**Get Started**</td><td>[Get started with the Node.js SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-nodejs-get-started/)</td></tr>
+<tr><td>**Current Versions of Node.js**</td><td>>= 0.8</td></tr>
 </table></br>
 
 ## Release Notes
