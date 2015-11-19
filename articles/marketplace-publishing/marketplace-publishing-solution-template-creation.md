@@ -55,7 +55,7 @@ You can also validate the create experience without the actual deployment for th
 2. Encode the URL by using the tool at [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/).
 3. Replace the bold text with the location (encoded URL) of the *createUiDefinition.json* that needs validation.
 
-> https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
+  > https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
 
 4. Copy and paste the URL in any browser and view the customer experience of your createUiDefinition.json file.
 
