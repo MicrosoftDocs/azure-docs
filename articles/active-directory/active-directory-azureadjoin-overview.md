@@ -68,16 +68,11 @@ With Azure AD Join, you get the following:
 | SSO from desktop to work apps/websites/resources, both on-premises and in the cloudApps that use Azure AD for authentication                                                                                                            | Auto-registration in enterprise directory (Azure AD) and auto-enrolment in MDM. (Azure AD Premium feature)                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Provides SSO across apps and to websites/resources with this work account                                              |
 | Users can add their personal MSA to access their personal pictures/files without impacting enterprise data (roaming settings continues to work with work account) The MSA account enables SSO and no longer drives roaming of settings  | Self-service password reset (SSPR) on winlogon (ability to reset forgotten password) (You need AzureAD Premium for this)                                                                                                                                                                                                                                                                                                                                                                                                                                    | Provides access to enterprise Store front/section so that users can acquire and use LoB apps on their personal devices |                                                               |
 
-<<<<<<< HEAD
-## Next Steps
-* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
-=======
+
 ## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Authenticating identities without passwords through Microsoft Passport](active-directory-azureadjoin-passport.md)
->>>>>>> 0e72136716f6768714c30acb7278892eb003398c
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
