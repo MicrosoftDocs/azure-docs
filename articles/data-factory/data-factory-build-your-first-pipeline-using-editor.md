@@ -202,7 +202,7 @@ In this step, you will create your first pipeline.
 	
 	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in a container called **script**.
 
-	The **extendedProperties** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:PartitionedData}).
+	The **defines** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:PartitionedData}).
 
 	The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 

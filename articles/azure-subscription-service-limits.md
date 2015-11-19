@@ -174,7 +174,7 @@ The following table shows the limits for Azure Biztalk Services.
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-For additional details on Azure Search limits, see [Limits and Constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+For additional information about maximum limits for the shared service, or a break down of limits on keys, requests and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services Limits
 
