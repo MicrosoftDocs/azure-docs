@@ -2,16 +2,16 @@
     pageTitle="Send Azure Diagnostic logs to Application Insights"
     description="Configure the details of the Azure Cloud Services diagnostic logs that are sent to the Application Insights portal."
     services="application-insights"
-    documentationCenter="android"
+    documentationCenter=".net"
     authors="sbtron"
     manager="douge"/>
 
 <tags
     ms.service="application-insights"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
+    ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza" 
     ms.devlang="na"
-    ms.topic="get-started-article"
+    ms.topic="article"
 	ms.date="11/17/2015"
     ms.author="awills"/>
 

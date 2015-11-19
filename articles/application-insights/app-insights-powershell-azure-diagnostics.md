@@ -2,14 +2,14 @@
     pageTitle="Using PowerShell to send Azure Diagnostics to Application Insights | Microsoft Azure"
     description="Automate configuring Azure Diagnostics to pipe to Application Insights."
     services="application-insights"
-    documentationCenter="android"
+    documentationCenter=".net"
     authors="sbtron"
     manager="douge"/>
 
 <tags
     ms.service="application-insights"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
+    ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza" 
     ms.devlang="na"
     ms.topic="get-started-article"
 	ms.date="11/17/2015"
