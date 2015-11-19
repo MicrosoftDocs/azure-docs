@@ -27,7 +27,12 @@ Azure SQL Data Warehouse is an enterprise-class, distributed database capable of
 
 At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel processing (MPP) architecture, originally designed to run some of the largest on-premise enterprise data warehouses. This architecture takes advantage of built-in data warehousing performance improvements and also allows SQL Data Warehouse to easily scale-out and parallelize computation of complex SQL queries. In addition, SQL Data Warehouse's architecture is designed to take advantage of it's presence in Azure.  Combining these two aspects, the architecture breaks up into 4 key components:
 
+<br/>
+<div style="text-align:center" markdown="1">
 ![SQL Data Warehouse Architecture][1]
+</div>
+<br/>
+
 
 - **Control Node:**  You connect to the control node when using SQL Data Warehouse with any development, loading, or business intelligence tools. In SQL Data Warehouse, the compute node is a SQL Database, and when connecting it looks and feels like a standard SQL Database.  However, under the surface, it coordinates all of the data movement and computation that takes place in the system. When a command is issued to the control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
 
