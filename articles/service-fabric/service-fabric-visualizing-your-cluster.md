@@ -38,7 +38,7 @@ The cluster contains two sub-trees: one for applications and another for nodes.
 
 The applications view allows you to navigate through Service Fabric's logical hierarchy: applications, services, partitions, and replicas.
 
-In the example below, the application **MyApp** is made up of two services, **MyStatefulService** and **WebSvcService**. Since **MyStatefulService** is stateful, it includes a partition with one primary and two secondary replicas. By contrast, the WebSvcService is stateless and contains a single instance.
+In the example below, the application **MyApp** is made up of two services, **MyStatefulService** and **WebService**. Since **MyStatefulService** is stateful, it includes a partition with one primary and two secondary replicas. By contrast, the WebSvcService is stateless and contains a single instance.
 
 ![Service Fabric Explorer application view][sfx-application-tree]
 
@@ -70,9 +70,9 @@ Since Service Fabric Explorer is web-based and runs within the cluster, it is ac
 
 ### Discovering the Service Fabric Explorer endpoint for a remote Cluster
 
-You can discover your cluster endpoint from the Service Fabric portal. In order to reach Service Fabric Explorer for a given cluster, simply connect to that endpoint on port 19007:
+You can discover your cluster endpoint from the Service Fabric portal. In order to reach Service Fabric Explorer for a given cluster, simply connect to that endpoint on port 19080:
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080
 
 ### Connecting to a secure cluster
 
