@@ -83,8 +83,8 @@ If you already have a GitHub account and a repository that you want to link to A
     | Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
     | Type | Unknown(Encrypted) |
     | Value | <*Encrypted OAuthToken*> |  
-    
-        ![Variables](media/automation-source-control-integration/automation_04_Variables.png)  
+
+    ![Variables](media/automation-source-control-integration/automation_04_Variables.png)  
 
     * **Automation Source Control** is added as an authorized application to your GitHub account. To view the application: From your GitHub home page, navigate to your **profile** > **Settings** > **Applications**. This application allows Azure Automation to sync your GitHub repository to an Automation account.  
 
