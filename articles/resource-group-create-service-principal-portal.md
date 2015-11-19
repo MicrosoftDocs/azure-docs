@@ -19,9 +19,9 @@
 # Create Active Directory application and service principal using portal
 
 ## Overview
-When you have an application that needs to access or modify a resource in your subscription, you can use the portal to create an Active Directory application and assign it to a role with the correct permission. When you create an Active Directory application through the portal, it actually creates both the application and a service principal. You use the service principal when setting the permissions.
+When you have an automated process or application that needs to access or modify a resource in your subscription, you can use the portal to create an Active Directory application and assign it to a role with the correct permission. When you create an Active Directory application through the portal, it actually creates both the application and a service principal. You use the service principal when setting the permissions.
 
-This topic shows you how to create a new application and service principal using the Azure portal. Currently, you must use the Microsoft Azure portal to create a new Active Directory application. This ability will be added to the Azure preview portal in a later release. You can use the preview portal to assign the application to a role.
+This topic shows you how to create a new application and service principal using the Azure portal. Currently, you must use the Microsoft Azure portal to create a new Active Directory application. This ability will be added to the Azure preview portal in a later release. You can use the preview portal to assign the application to a role. You can also perform these steps through Azure PowerShell or Azure CLI. For more information, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
 1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](active-directory/active-directory-whatis.md)
