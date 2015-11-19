@@ -67,25 +67,25 @@ If you already have a GitHub account and a repository that you want to link to A
 * After you set up source control, the following Automation resources will be created in your Automation account:  
  Two [variable assets](automation-variables.md) are created.  
       
-* The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.<br>
+    * The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.<br>
 
-|Parameter            |Value |
-|:---|:---|
-| Name  | Microsoft.Azure.Automation.SourceControl.Connection |
-| Type | String |
-| Value  | {"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
+    |Parameter            |Value |
+    |:---|:---|
+    | Name  | Microsoft.Azure.Automation.SourceControl.Connection |
+    | Type | String |
+    | Value  | {"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
 
-* The variable **Microsoft.Azure.Automation.SourceControl.OauthToken**, contains the secure encrypted value of your OAuthToken. <br>
+    * The variable **Microsoft.Azure.Automation.SourceControl.OauthToken**, contains the secure encrypted value of your OAuthToken. <br>
 
-|Parameter            |Value |
-|:---|:---|
-| Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
-| Type | Unknown(Encrypted) |
-| Value | <*Encrypted OAuthToken*> |
+    |Parameter            |Value |
+    |:---|:---|
+    | Name  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+    | Type | Unknown(Encrypted) |
+    | Value | <*Encrypted OAuthToken*> |
 
-![Variables](media/automation-source-control-integration/automation_04_Variables.png)
+    ![Variables](media/automation-source-control-integration/automation_04_Variables.png)
 
-* **Automation Source Control** is added as an authorized application to your GitHub account. To view the application: From your GitHub home page, navigate to your **profile** > **Settings** > **Applications**. This application allows Azure Automation to sync your GitHub repository to an Automation account.  
+    * **Automation Source Control** is added as an authorized application to your GitHub account. To view the application: From your GitHub home page, navigate to your **profile** > **Settings** > **Applications**. This application allows Azure Automation to sync your GitHub repository to an Automation account.  
 
     ![Git Application](media/automation-source-control-integration/automation_05_GitApplication.png)
 
