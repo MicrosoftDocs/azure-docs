@@ -43,37 +43,37 @@ available for Node.js.  You can create a basic [Express] application as follows:
 
 1. In a command or PowerShell window, create a new directory for your project.
 
-	mkdir basicapp
+	    mkdir basicapp
 
 2. Run npm init to initialize the package structure.
 
-	cd basicapp
-	npm init
+	    cd basicapp
+	    npm init
 
-The npm init command will ask a set of questions to initialize the project.  See the example output below
+   The npm init command will ask a set of questions to initialize the project.  See the example output below
 
-	![The npm init output][0]
+   ![The npm init output][0]
 
 3. Install the express and azure-mobile-apps libraries from the npm repository.
 
-	npm install --save express azure-mobile-apps
+	    npm install --save express azure-mobile-apps
 
 4. Create an app.js file to implement the basic mobile server.
 
-	var express = require('express'),
-		azureMobileApps = require('azure-mobile-apps');
+		var express = require('express'),
+			azureMobileApps = require('azure-mobile-apps');
 
-	var app = express(),
-		mobile = azureMobileApps();
+		var app = express(),
+			mobile = azureMobileApps();
 
-	// Define a TodoItem table
-	mobile.tables.add('TodoItem');
+		// Define a TodoItem table
+		mobile.tables.add('TodoItem');
 
-	// Add the mobile API so it is accessible as a Web API
-	app.use(mobile);
+		// Add the mobile API so it is accessible as a Web API
+		app.use(mobile);
 
-	// Start listening on HTTP
-	app.listen(process.env.PORT || 3000);
+		// Start listening on HTTP
+		app.listen(process.env.PORT || 3000);
 
 This application creates a simple mobile-optimized WebAPI with a single endpoint - /tables/TodoItem - that provides
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
