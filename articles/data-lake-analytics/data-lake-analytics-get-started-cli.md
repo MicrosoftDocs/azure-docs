@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started with Azure Data Lake Analytics using Azure Command-line Interface | Azure" 
+   pageTitle="Get started with Azure Data Lake Analytics using Azure Command-line Interface | Microsoft Azure" 
    description="Learn how to use the Azure Command-line Interface to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -53,7 +53,7 @@ Before you begin this tutorial, you must have the following:
 
 		azure config mode arm
 		
-##Create Data Lake Analytics account
+## Create Data Lake Analytics account
 
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
@@ -95,7 +95,7 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 > [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
 
 
-##Upload data to Data Lake Store
+## Upload data to Data Lake Store
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
@@ -108,7 +108,7 @@ To upload files using cli, use the following command:
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
 
-##Submit Data Lake Analytics jobs
+## Submit Data Lake Analytics jobs
 
 The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
