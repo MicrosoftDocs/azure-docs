@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
@@ -129,7 +129,31 @@ In addition to running the installer, every extension for Internet Explorer must
 
 The extension should now be enabled for the machines in the selected OU. [Learn more about using group policy to enable or disable Internet Explorer add-ons.](https://technet.microsoft.com/library/dn454941.aspx)
 
-##Step 5: Testing the Deployment
+##Step 5 (Optional): Disable "Remember Password" Prompt
+
+When users sign-in to websites using the Access Panel Extension, Internet Explorer may show the following prompt asking "Would you like to store your password?"
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent AutoComplete from remembering passwords:
+
+1. In the **Group Policy Management Editor** window, go to the path listed below. Note that this configuration setting is only available under **User Configuration**.
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. Find the setting named **Turn on the auto-complete feature for user names and passwords on forms**.
+
+	> [AZURE.NOTE] Previous versions of Active Directory may list this setting with the name **Do not allow AutoComplete to save passwords**.
+
+	![Remember to look for this under User Settings.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. Right click on the above setting, and select **Edit**.
+
+3. In the window titled **Turn on the auto-complete feature for user names and passwords on forms**, select **Disabled**.
+
+4. Click **OK** to apply these changes and close the window.
+
+
+##Step 6: Testing the Deployment
 
 Follow the steps below to verify if the extension deployment was successful:
 
