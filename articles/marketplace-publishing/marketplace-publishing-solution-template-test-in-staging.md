@@ -32,10 +32,9 @@ Follow the steps below to push your offer to staging and test it in the [Azure p
   -	Perform performance testing and stress testing.
   -	Ensure that your topology adheres to the best practices.
 
-## Next step
+## Next steps
 If you are satisfied with the results, then you can proceed to the final offer publishing phase, **Step 4**:  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, make changes in your offer and request certification again.
 
 > [AZURE.NOTE] For marketing content changes, certification is not required.
 
-## See Also
-- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+See [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) for a guide to all publisher tasks. 
