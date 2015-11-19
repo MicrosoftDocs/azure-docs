@@ -32,7 +32,7 @@ A transient fault is an error for which the underlying cause will soon resolve i
 
 
 If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic:
-[Error messages for SQL Database client programs](../sql-database-develop-error-messages.md).
+[Error messages for SQL Database client programs](sql-database-develop-error-messages.md).
 
 
 ### Connection versus command
