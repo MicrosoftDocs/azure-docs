@@ -98,14 +98,14 @@ If you want to update your publisher profile, this can be done via the Seller Da
 
 ## Next steps:  Other support queries
 
-For the following issues, please log an issue at https://portal.azure.com:
+For the following issues, please log an issue at [https://portal.azure.com](https://portal.azure.com):
 
 - How do I report a billing error?
 - I have noticed discrepancies in my billing or usage statements.
 - I need help understanding my billing statement.
 
 
-For the following issues, please create a support request at http://go.microsoft.com/fwlink/?LinkId=272975:
+For the following issues, please create a support request at [http://go.microsoft.com/fwlink/?LinkId=272975](http://go.microsoft.com/fwlink/?LinkId=272975):
 
 - I have issues managing web services.
 - How do I change the Microsoft account associated with my seller account?
