@@ -84,7 +84,7 @@ The Service Fabric SDK includes a rich set of frameworks and developer tooling f
 
 7. To see the application in action, launch the browser and navigate to [http://localhost:8081/wordcount/index](http://localhost:8081/wordcount/index). You should see something like this:
 
-    ![Deployed application UI][deployed-app-UI]
+    ![Deployed application UI][deployed-app-ui]
 
     The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via an ASP.NET WebAPI. A stateful service keeps track of the number of words counted, partitioned based on the first character of the word. The application that we deployed contains a four partitions, so words beginning with A through G are stored in the first partition, H through N are stored in the second partition, and so on.
 
@@ -158,7 +158,7 @@ The new version of the application will now only count words that begin with a v
 
 5. Finally, return to the browser to observe the behavior of the new application version. As expected, the count progresses more slowly and the first partition ends up with slightly more of the volume.
 
-    ![View the new version of the application in the browser][deployed-app-UI-v2]
+    ![View the new version of the application in the browser][deployed-app-ui-v2]
 
 ## Next steps
 - Now that you have deployed and upgraded some pre-built applications, you can [try building your own in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -171,7 +171,7 @@ The new version of the application will now only count words that begin with a v
 [extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png
 [deploy-app-to-local-cluster]: ./media/service-fabric-get-started-with-a-local-cluster/DeployAppToLocalCluster.png
 [deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v1.png
-[deployed-app-ui2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v2.png
+[deployed-app-ui-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
 [sfx-app-instance]: ./media/service-fabric-get-started-with-a-local-cluster/SfxAppInstance.png
 [sfx-two-app-instances-different-partitions]: ./media/service-fabric-get-started-with-a-local-cluster/SfxTwoAppInstances-DifferentPartitionCount.png
 [ps-getsfapp]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFApp.png
@@ -179,6 +179,5 @@ The new version of the application will now only count words that begin with a v
 [ps-getsfpartitions]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFPartitions.png
 [ps-appupgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/PS-AppUpgradeProgress.png
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
-[deployed-app-ui-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
