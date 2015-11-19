@@ -205,7 +205,7 @@ The following table provides description for JSON elements specific to HDFS link
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **Hdfs** | 
 | Url | URL to the HDFS |
-| encryptedCredential | New-AzureRMDataFactoryEncryptValue output of the access credential. | 
+| encryptedCredential | [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. | 
 | userName | Username for Windows authentication. | 
 | password | Password for Windows authentication. | 
 | authenticationType | Windows, or Anonymous. |
