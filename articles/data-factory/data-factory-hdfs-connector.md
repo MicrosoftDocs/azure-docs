@@ -44,17 +44,17 @@ As a first step, please setup the data management gateway as per the instruction
 This example uses the Windows authentication. See [HDFS linked service](#hdfs-linked-service-properties) section for different types of authentication you can use. 
 
 	{
-	    name: "hdfs",
-	    properties:
+	    "name": "hdfs",
+	    "properties":
 	    {
-	        type: "Hdfs",
-	        typeProperties:
+	        "type": "Hdfs",
+	        "typeProperties":
 	        {
-	            authenticationType: "Windows",
-	            userName: "Administrator",
-	            password: "password",
-	            url : "http://<machine>:50070/webhdfs/v1/",
-	            gatewayName: "mygateway"
+	            "authenticationType": "Windows",
+	            "userName": "Administrator",
+	            "password": "password",
+	            "url" : "http://<machine>:50070/webhdfs/v1/",
+	            "gatewayName": "mygateway"
 	        }
 	    }
 	}
@@ -77,17 +77,17 @@ This dataset refers to the HDFS folder DataTransfer/UnitTest/. The pipeline copi
 Setting “external”: ”true” and specifying externalData policy (optional) informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 	
 	{
-	    name: "input",
-	    properties: {
-	        type: "FileShare",
-	        linkedServiceName: "hdfs",
-	        typeProperties: {
-	            folderPath: "DataTransfer/UnitTest/"
+	    "name": "input",
+	    "properties": {
+	        "type": "FileShare",
+	        "linkedServiceName": "hdfs",
+	        "typeProperties": {
+	            "folderPath": "DataTransfer/UnitTest/"
 	        },
-	        external: true,
-	        availability: {
-	            frequency: "Hour",
-	            interval:  1
+	        "external": true,
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval":  1
 	        }
 	    }
 	}
@@ -160,33 +160,33 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 	
 	{
-	    name: "pipeline",
-	    properties:
+	    "name": "pipeline",
+	    "properties":
 	    {
-	        activities:
+	        "activities":
 	        [
 	            {
-	                name: "HdfsToBlobCopy",
-	                inputs: [ {name: "input"} ],
-	                outputs: [ {name: "output"} ],
-	                type: "Copy",
-	                typeProperties:
+	                "name": "HdfsToBlobCopy",
+	                "inputs": [ {name: "input"} ],
+	                "outputs": [ {name: "output"} ],
+	                "type": "Copy",
+	                "typeProperties":
 	                {
-	                    source:
+	                    "source":
 	                    {
-	                        type: "FileSystemSource"
+	                        "type": "FileSystemSource"
 	                    },
 	                    sink:
 	                    {
-	                        type: "BlobSink"
+	                        "type": "BlobSink"
 	                    }
 	                },
-	                policy:
+	                "policy":
 	                {
-	                    concurrency: 1,
-	                    executionPriorityOrder: "NewestFirst",
-	                    retry: 1,
-	                    timeout: "00:05:00"
+	                    "concurrency": 1,
+	                    "executionPriorityOrder": "NewestFirst",
+	                    "retry": 1,
+	                    "timeout": "00:05:00"
 	                }
 	            }
 	        ],
@@ -216,16 +216,16 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 ### Using Anonymous authentication
 
 	{
-	    name: "hdfs",
-	    properties:
+	    "name": "hdfs",
+	    "properties":
 	    {
-	        type: "Hdfs",
-	        typeProperties:
+	        "type": "Hdfs",
+	        "typeProperties":
 	        {
-	            authenticationType: "Anonymous",
-	            userName: "hadoop",
-	            url : "http://<machine>:50070/webhdfs/v1/",
-	            gatewayName: "mygateway"
+	            "authenticationType": "Anonymous",
+	            "userName": "hadoop",
+	            "url" : "http://<machine>:50070/webhdfs/v1/",
+	            "gatewayName": "mygateway"
 	        }
 	    }
 	}
@@ -234,17 +234,17 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 ### Using Windows authentication
 	
 	{
-	    name: "hdfs",
-	    properties:
+	    "name": "hdfs",
+	    "properties":
 	    {
-	        type: "Hdfs",
-	        typeProperties:
+	        "type": "Hdfs",
+	        "typeProperties":
 	        {
-	            authenticationType: "Windows",
-	            userName: "Administrator",
-	            password: "password",
-	            url : "http://<machine>:50070/webhdfs/v1/",
-	            gatewayName: "mygateway"
+	            "authenticationType": "Windows",
+	            "userName": "Administrator",
+	            "password": "password",
+	            "url" : "http://<machine>:50070/webhdfs/v1/",
+	            "gatewayName": "mygateway"
 	        }
 	    }
 	}
