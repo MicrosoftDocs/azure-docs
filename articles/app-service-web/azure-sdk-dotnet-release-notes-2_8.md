@@ -35,7 +35,8 @@ For complete list of new features and updates made in this release, see the [Azu
 
 ###Known issues
 
-Starting with Azure .NET SDK 2.8, customers can start creating .NET 4.5.2 Cloud Service packages. For compatibility testing, .NET 4.5.2 framework will be available in Guest OS images with November 201511-02 Guest OS Release. .NET 4.5.2 will not be installed in the default Guest OS images until January 2016 Guest OS release. Customers can choose to use the November 201511-02 Release image by specifying the OS Release string value in the .Cscfg. To find the correct configuration string, refer to [Azure Guest OS Releases and SDK Compatibility Matrix](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
+Azure .NET SDK 2.8 allows you to create .NET 4.5.2 Cloud Service packages. However .NET 4.5.2 framework will not be installed on the default Guest OS images until January 2016 Guest OS release. Before that, .NET 4.5.2 framework will be available through a separate Guest OS release version – November 2015-02. See the [Azure Guest OS Releases and SDK Compatibility Matrix](http://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/) page to track when the image will be released.  Once the November 2015-02 image is released you can choose to use that image by updating your Cloud Service configuration file (.cscfg) file. In the service configuration file set the osVersion attribute of the ServiceConfiguration element to the string "WA-GUEST-OS-4.26_201511-02". 
+
 
 ##Azure Data Factory
 
@@ -56,6 +57,14 @@ Scripts from projects created in earlier versions of the SDK will not run from w
 
 The 2.8 SDK requires version 1.0 of the Azure PowerShell cmdlets.  All other versions of the SDK require version 0.9.8 of the Azure PowerShell cmdlets.  For more information see [this](http://go.microsoft.com/fwlink/?LinkID=623011) blog.
 
+##Azure HDInsight Tools
+
+New updates include:
+
+- You can execute your Hive query in the cluster via HiveServer2 with almost no overhead and see the job logs in real-time.
+- Using the new Hive Task Execution View you can dig into your job deeper, find more details, and identify potential issues.
+
+For information, see [Azure SDK 2.8 for Visual Studio 2013 and Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/). 
 
 ##Web Tools Extensions
 
