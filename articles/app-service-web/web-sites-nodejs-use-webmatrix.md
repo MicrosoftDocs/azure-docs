@@ -13,11 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-<<<<<<< HEAD
 	ms.date="11/20/2015"
-=======
-	ms.date="11/18/2015"
->>>>>>> 5e4d72fbb5f74eccd2524f3a33a76dc0c80d4e57
 	ms.author="robmcm"/>
 
 

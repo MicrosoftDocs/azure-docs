@@ -124,7 +124,7 @@ Socket.IO applications can be scaled out by using an __adapter__ to distribute m
 
 ###Create a Redis cache
 
-Perform the steps in [Create a cache in Azure Redis Cache](https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) to create a new cache.
+Perform the steps in [Create a cache in Azure Redis Cache](https://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) to create a new cache.
 
 > [AZURE.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
 
