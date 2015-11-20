@@ -3,7 +3,7 @@ By default, APIs in a Mobile App backend can be invoked anonymously. Next, you n
 
 + **.NET backend (C#)**:  
 
-	In the server project, navigate to **Controllers** > **TodoItemController.cs**. Add the `[Authorize]` attribute to the **TodoItemController** class, as follows. This requires that all operations against the TodoItem table be made by an authenticated user. To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class. Republish the server project.
+	In the server project, navigate to **Controllers** > **TodoItemController.cs**. Add the `[Authorize]` attribute to the **TodoItemController** class, as follows. To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class. Republish the server project.
 
 
         [Authorize]
