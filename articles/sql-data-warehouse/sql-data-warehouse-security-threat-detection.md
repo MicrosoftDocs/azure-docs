@@ -82,12 +82,12 @@ The email will provide information on the suspicious security event including th
 
 
 <!--Image references-->
-[1]: ./sql-database/media/sql-database-threat-detection-get-started/1_td_click_on_settings.png
-[2]: ./sql-database/media/sql-database-threat-detection-get-started/2_td_turn_on_auditing.png
-[3]: ./sql-database/media/sql-database-threat-detection-get-started/3_td_turn_on_threat_detection.png
-[4]: ./sql-database/media/sql-database-threat-detection-get-started/4_td_email.png
-[5]: ./sql-database/media/sql-database-threat-detection-get-started/5_td_audit_records.png
-[6]: ./sql-database/media/sql-database-threat-detection-get-started/6_td_audit_record_details.png
-[7]: ./sql-database/media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png
-[8]: ./sql-database/media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
-[9]: ./sql-database/media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
+[1]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/1_td_click_on_settings.png
+[2]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/2_td_turn_on_auditing.png
+[3]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/3_td_turn_on_threat_detection.png
+[4]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/4_td_email.png
+[5]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/5_td_audit_records.png
+[6]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/6_td_audit_record_details.png
+[7]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png
+[8]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
+[9]: azure-content-pr/articles/sql-database/media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
