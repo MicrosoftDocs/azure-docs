@@ -108,8 +108,9 @@ The challenge arises because DSRM mode is not present in Azure. So to restore su
 
 Read more about the [USN rollback problem](https://technet.microsoft.com/library/dd363553) and the strategies suggested to fix it.
 
-## Restoring Vms with special netwrok configurations
+## Restoring VMs with special netwrok configurations
 Azure Backup supports backup for following special network configurations of virtual machines. 
+
 - VMs under load balancer ( internal and external)
 - VMs with multiple reserved IPs
 - VMs with multiple NICs
@@ -129,14 +130,10 @@ In order to fully recreate the virtual machine post restoring dsisk, follow thes
 1. Restore the disks from backup vault using [Azure Backup PowerShell](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
 
 2. Create the VM config required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration. 
-
-- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internal-getstarted/)
-  
-- Create VM to connect to [Internet facing load balancer] (https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted)
-   
-- Create VM with [multiple NICs](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
-
-- Create VM with [multiple reserved IPs](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
+	- Create VM in cloud service with [Internal Load balancer ](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internal-getstarted/)
+	- Create VM to connect to [Internet facing load balancer] (https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted)
+	- Create VM with [multiple NICs](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
+	- Create VM with [multiple reserved IPs](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
   
 
 ## Next steps
