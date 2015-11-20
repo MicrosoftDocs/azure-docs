@@ -64,6 +64,15 @@ In your XAML page ():
 
 And in your associated .cs file:
 
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.
 			/// </summary>
@@ -158,6 +167,7 @@ And in your associated .cs file:
     #endif
 			  #endregion
 			}
+    }
 
 ### Upgrade from older versions
 

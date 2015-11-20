@@ -28,9 +28,13 @@ You do not have anything to add. `EngagementReach` references and resources are 
 
 ## Enable the Windows Notification Service
 
+### Windows 8.x and Windows Phone 8.1 only
+
 In order to use the **Windows Notification Service** (referred as WNS) in your `Package.appxmanifest` file on `Application UI` click on `All Image Assets` in the left bot box. At the right of the box in `Notifications`, change `toast capable` from `(not set)` to `(Yes)`.
 
-Moreover, you need to synchronize your app to your Microsoft account and to the engagement platform. For this you need to create an account or log on [windows dev center](https://dev.windows.com). After that create a new application and find the SID and secret key. On the engagement frontend, go on your app setting in `native push` and paste your credentials. After that, right click on your project, select `store` and `Associate App with the Store...`. You just need to select the application you have create before to synchronize it.
+### All platforms
+
+You need to synchronize your app to your Microsoft account and to the engagement platform. For this you need to create an account or log on [windows dev center](https://dev.windows.com). After that create a new application and find the SID and secret key. On the engagement frontend, go on your app setting in `native push` and paste your credentials. After that, right click on your project, select `store` and `Associate App with the Store...`. You just need to select the application you have create before to synchronize it.
 
 ## Initialize the Engagement Reach SDK
 
@@ -40,8 +44,8 @@ Modify the `App.xaml.cs`:
 
 		private void InitEngagement(IActivatedEventArgs e)
 		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
+		  EngagementAgent.Instance.Init(e);
+		  EngagementReach.Instance.Init(e);
 		}
 
 	The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
@@ -165,6 +169,15 @@ To display engagement content, you need to integrate the two xaml WebView in eac
 
 And your associated .cs file have to look like:
 
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.
 			/// </summary>
@@ -259,6 +272,7 @@ And your associated .cs file have to look like:
     #endif
 			  #endregion
 			}
+    }
 
 > This implementation embedded WebView resizing when the device screen is turned.
 
@@ -425,7 +439,7 @@ Set your callback at any place **after** the Reach initialization :
 
 ## Custom scheme tip
 
-We provide custom scheme use. You can send different type of URI from engagement frontend to be used in your engagement application. Default scheme like `http, ftp, ...` are manage by Windows, a window will prompt if they are no default application installed on device. Other scheme like application scheme can be used. Moreover, you can use a custom scheme for your application.
+We provide custom scheme use. You can send different type of URI from engagement frontend to be used in your engagement application. Default scheme like `http, ftp, ...` are manage by Windows, a window will prompt if they are no default application installed on device. You can also create your own custom scheme for your application.
 
 The simple way to set a custom scheme in your application is to open your `Package.appxmanifest` go in `Declarations` panel. Select `Protocol` in the Available Declarations scroll box and add it. Edit the `Name` field with your new protocol desired name.
 

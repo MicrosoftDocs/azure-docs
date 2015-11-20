@@ -35,7 +35,7 @@ The Mobile Engagement SDK for Windows Universal Apps can only be integrated into
 -   Windows 8
 -   Windows 8.1
 -   Windows Phone 8.1
--   Windows 10
+-   Windows 10 (desktop and mobile families)
 
 > [AZURE.NOTE] If you are targeting Windows Phone Silverlight then refer to the [Windows Phone Silverlight integration procedure](mobile-engagement-windows-phone-integrate-engagement.md).
 
@@ -57,7 +57,8 @@ NuGet does not automatically deploy the SDK resources in your UWP application ye
 2.  Navigate to the following location (**x.x.x** is the version of Engagement you are installing):
 *%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
 3.  Drag and drop the **Resources** folder from the file explorer to the root of your project in Visual Studio.
-4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer** then make sure that all files and folders from the **Resources** folder are included in your project. Otherwise, right click on the file to import then **Include in project**.  
+4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer**.
+5.  Some files are not included in the project. To import them at once right click on the **Resources** folder, **Exclude from project** then another right click on the **Resources** folder, **Include in project** to re-include the whole folder. All files from the **Resources** folder are now included in your project.
 
 The extracted Engagement package can also be found on *$(Solutiondir)\Packages* or as defined in you *NuGet.config* file.
 
@@ -102,7 +103,7 @@ Modify the `App.xaml.cs`:
 
 		using Microsoft.Azure.Engagement;
 
--   Add a method dedicated to the Engagement initialization and setting:
+-   Define a method to share the Engagement initialization once for all calls:
 
         private void InitEngagement(IActivatedEventArgs e)
         {
@@ -113,7 +114,7 @@ Modify the `App.xaml.cs`:
 		  EngagementAgent.Instance.Init(e, engagementConfiguration);
         }
         
--   Insert `InitEngagement` in the `OnLaunched` method:
+-   Call `InitEngagement` in the `OnLaunched` method:
 
 		protected override void OnLaunched(LaunchActivatedEventArgs e)
 		{
