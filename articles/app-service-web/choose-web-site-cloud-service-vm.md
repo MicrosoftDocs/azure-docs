@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Azure App Service, Cloud Services, and Virtual Machines comparison
@@ -153,11 +153,11 @@ Deploy code with Web Deploy|X||X|Cloud Services supports the use of Web Deploy t
 WebMatrix support|X||X|
 Access to services like Service Bus, Storage, SQL Database|X|X|X|
 Host web or web services tier of a multi-tier architecture|X|X|X|
-Host middle tier of a multi-tier architecture|X|X|X|App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform/) feature provides even more features for hosting REST services.
+Host middle tier of a multi-tier architecture|X|X|X|App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services.
 Integrated MySQL-as-a-service support|X|X|X|Cloud Services can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.
 Support for ASP.NET, classic ASP, Node.js, PHP, Python|X|X|X|
 Scale out to multiple instances without redeploy|X|X|X|Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures.
-Support for SSL|X|X|X|For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](../app-service-web/web-sites-configure-ssl-certificate/).
+Support for SSL|X|X|X|For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](../app-service-web/web-sites-configure-ssl-certificate.md).
 Visual Studio integration|X|X|X|
 Remote Debugging|X|X|X|
 Deploy code with TFS|X|X|X|

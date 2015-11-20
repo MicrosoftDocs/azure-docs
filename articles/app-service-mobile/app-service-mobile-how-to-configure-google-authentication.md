@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Google login
@@ -25,11 +25,10 @@
 
 This topic shows you how to configure Azure App Service to use Google as an authentication provider.
 
-To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]
+This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
 
 
 ## <a name="register"> </a>Register your application with Google
@@ -60,9 +59,8 @@ To complete the procedure in this topic, you must have a Google account that has
 
 ## <a name="secrets"> </a>Add Google information to your application
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]
+If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
 
 
 8. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
