@@ -32,7 +32,7 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.2.0 (11/19/2015)
+###3.2.0 (11/20/2015)
 
 -   Added support for Windows 10 Universal Windows Platform applications.
 -   Added push channel sharing feature to fix channel conflicts (now compatible with Azure Notification Hubs).

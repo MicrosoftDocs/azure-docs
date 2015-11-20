@@ -32,7 +32,7 @@ Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 
 ##Release notes
 
-###3.1.0 (11/19/2015)
+###3.1.0 (11/20/2015)
 Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.2.0**
 
 -   Fixed crash while requesting the device id just after the initialization.
