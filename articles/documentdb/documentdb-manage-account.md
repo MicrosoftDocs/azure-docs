@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/18/2015" 
 	ms.author="anhoh"/>
 
-# How to manage a DocumentDB account in the Azure preview portal
+# How to manage a DocumentDB account
 
 Learn how to work with keys, consistency settings, and learn how to delete an account in the Azure Preview Portal.
 
