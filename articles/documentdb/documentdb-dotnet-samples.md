@@ -1,6 +1,6 @@
 <properties 
-	pageTitle=".NET snippets for DocumentDB | Microsoft Azure" 
-	description="Find .NET snippets for common tasks in DocumentDB, including CRUD operations for database accounts, databases, and collections." 
+	pageTitle=".NET samples on github for DocumentDB | Microsoft Azure" 
+	description="Find .NET samples on github for common tasks in DocumentDB, including CRUD operations for database accounts, databases, and collections." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
