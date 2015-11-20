@@ -46,7 +46,7 @@ Tools  | Using the Diagnostics Tooling | 1 | Pending | [@mumian](https://github.
 
 Area   |Topic | location
 ------------- | ------------- | -------------- 
-Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](https://azure.microsoft.com/en-us/documentation/articles/data-lake-analytics-manage-use-powershell/)
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## How to Give Feedback on the Backlog
 There are a few options to give feedback on the backlog:

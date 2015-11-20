@@ -78,11 +78,11 @@ This isn't supported. Send us your feedback through [Azure Site Recovery Feedbac
 ## Version support
 
 ### What versions of Windows Server hosts and clusters are supported?
-Windows Server 2012 and Windows Server 2012 R2 can be used when you choose Hyper-V Replica to enable replication and protection between Hyper-V Sites.
+Windows Server 2012 and Windows Server 2012 R2 can be used when you choose Hyper-V Replica to enable replication and protection between two on-premises Hyper-V Sites. Windows Server 2012 R2 is required when you want to setup replication from a Hyper-v Server to Azure. 
 
 
-### What versions of Hyper-V guest operating systems are supported?
-The most current list of supported guest operating systems is available in the topic titled [About Virtual Machines and Guest Operating Systems](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+### What versions of guest operating systems are supported?
+For on-premises to on-premises protection the most current list of supported guest operating systems is available in the topic titled [About Virtual Machines and Guest Operating Systems](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). For Hyper-v to Azure scenarios Azure Site Recovery supports all the guest operating systems supported by Azure. For VMware to Azure scenario refer to [this article](site-recovery-vmware-to-azure.md#before-you-start)
 
 ### Can I configure virtual machine protection when Hyper-V is running on a client operating system?
 
@@ -149,12 +149,6 @@ No specific setting is required. The Provider components on the server communica
 ### Does the Hyper-V server need to be a domain member?
 
 No the server doesn't need to be in a domain
-
-### What versions of Windows Server hosts and clusters are supported?
-Windows Server 2012 and Windows Server 2012 R2 can be used when using ASR and Hyper-V replication between a Hyper-V sites and Azure.
-
-### What versions of guest operating systems are supported?
-The most current list of supported guest operating systems is available in the article titled [About Virtual Machines and Guest Operating Systems](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ## Deploy between two VMM datacenters
 
