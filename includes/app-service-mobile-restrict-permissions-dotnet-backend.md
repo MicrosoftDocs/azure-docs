@@ -21,4 +21,4 @@ By default, APIs in a Mobile App backend can be invoked anonymously. Next, you n
 
 + **Node.js backend (portal)** :  
 	
-	In your Mobile App's **Settings**, click **Easy Tables** and select your table. Click **Change permissions** to bring up the permissions dialog for the table. Select **Authenticated access only** for Insert, Update, Delete, Read, and Undelete permissions, and click **Save**. 
+	In your Mobile App's **Settings**, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and **Save**. 
