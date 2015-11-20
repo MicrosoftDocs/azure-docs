@@ -3,7 +3,7 @@
    description="Guidelines and recommendations for using PolyBase in SQL Data Warehouse scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahajs"
+   authors="sahaj08"
    manager="barbkess"
    editor="jrowlandjones"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="11/19/2015"
-   ms.author="sahajs;barbkess"/>
+   ms.author="sahaj08;barbkess"/>
 
 
 # Guide for using PolyBase in SQL Data Warehouse
