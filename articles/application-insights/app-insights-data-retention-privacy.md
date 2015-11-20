@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -63,6 +63,11 @@ User and session counts aren't included in the quota for pricing purposes.
 
 * Open Settings/Quota and Pricing to see the Data Volume chart.
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+
+*How can I reduce the amount of data my app sends?*
+
+* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search.
+* [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
 
 
 #### How long is the data kept? 
