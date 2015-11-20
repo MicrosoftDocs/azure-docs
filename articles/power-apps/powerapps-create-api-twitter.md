@@ -23,17 +23,17 @@
 2. In **PowerApps Services**, select **Manage APIs** tile or select it from *Settings*:  
 ![Browse to registered apis][1]
 
-3. In the **Manage APIs** blade, select **Add** to add a new API
+3. In the **Manage APIs** blade, select **Add** to add a new API:  
 ![Add API][2]
 
 4. Enter a descriptive **name** for your API.  
 	
 5. In **Source**, select **Available APIs** to select a pre-built API. 
 	
-6. Select **Twitter** from the marketplace
+6. Select **Twitter** from the marketplace:  
 ![select Twitter api][3]
 
-7. Select *Settings - Configure required settings*
+7. Select *Settings - Configure required settings*:  
 ![configure Twitter API settings][4]
 
 8. Enter *Consumer Key* and *Consumer Secret* of your Twitter application. If you don't already have one, see the section below titled "Register a Twitter app for use with PowerApps". 
@@ -47,12 +47,12 @@ On successful completion, a new API is added to your ASE.
 
 ##Register a Twitter app for use with PowerApps
 
-1. Navigate to [https://apps.twitter.com/][] and sign in with your twitter account
+1. Navigate to [https://apps.twitter.com/](https://apps.twitter.com) and sign in with your twitter account
 
-2. Click on 'Create New App'
+2. Click on 'Create New App':  
 ![Twitter apps page][6]
 
-3. In _Create an application_ page, 
+3. In _Create an application_ page:   
 	1. Enter a value for **Name**
 	2. Enter a value for **Description**
 	3. Enter a value for **Website**
@@ -71,6 +71,5 @@ Congratulations! You have now successfully created a Twitter app that can be use
 [2]: ./media/powerapps-create-api-twitter/add-api.PNG
 [3]: ./media/powerapps-create-api-twitter/select-twitter-api.PNG
 [4]: ./media/powerapps-create-api-twitter/configure-twitter-api.PNG
-[5]: https://apps.twitter.com
 [6]: ./media/powerapps-create-api-twitter/twitter-apps-page.PNG
 [7]: ./media/powerapps-create-api-twitter/twitter-app-create.PNG

@@ -24,8 +24,8 @@ Using the IT managed APIs, you control and monitor everything, including memory,
 To use the **Microsoft managed** or **IT managed** APIs, you must "register" the APIs in the Azure portal. Once registered, you can use these APIs in your PowerApps. The following options are available: 
 
 - Register a Microsoft managed API or an IT managed API
-- Register an API hosted within [your App Service Environment][1]
-- Register using a [Swagger 2.0 API definition][2]
+- Register an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md)
+- Register using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md)
 
 This article focuses on the Microsoft managed APIs and the IT managed APIs. 
 
@@ -49,17 +49,17 @@ Some additional benefits include:
 
 API | Description | Steps Link
 --- | --- | ---
-![][31] | **Dropbox**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](4)
-![][32] | **DynamicsCRM Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](5)
-![][33] | **Excel**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](6)
-![][34] | **Google Drive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](7)
-![][35] | **Microsoft Translator**<br/><br/>Translates text, detects languages, and more. | [**Get Started**](8)
-![][36] | **Office365 Outlook**<br/><br/>Manage your email. | [**Get Started**](9)
-![][37] | **Office365 Users**<br/><br/>Access user profiles, their managers, their direct reports, and more. | [**Get Started**](10)
-![][38] | **OneDrive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](11)
-![][39] | **Salesforce**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](12)
-![][40] | **SharePoint Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](13)
-![][43] | **Twitter**<br/><br/> Send tweets, search tweets, see followers, and more. | [**Get Started**](16)
+![][31] | **Dropbox**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-dropbox.md)
+![][32] | **DynamicsCRM Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-crmonline.md)
+![][33] | **Excel**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-excel.md)
+![][34] | **Google Drive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-googledrive.md)
+![][35] | **Microsoft Translator**<br/><br/>Translates text, detects languages, and more. | [**Get Started**](powerapps-create-api-microsofttranslator.md)
+![][36] | **Office365 Outlook**<br/><br/>Manage your email. | [**Get Started**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office365 Users**<br/><br/>Access user profiles, their managers, their direct reports, and more. | [**Get Started**](powerapps-create-api-office365-users.md)
+![][38] | **OneDrive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-onedrive.md)
+![][39] | **Salesforce**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-saleforce.md)
+![][40] | **SharePoint Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointonline.md)
+![][43] | **Twitter**<br/><br/> Send tweets, search tweets, see followers, and more. | [**Get Started**](powerapps-create-api-twitter.md)
 
 
 ## View the available IT managed APIs
@@ -78,9 +78,9 @@ Some additional benefits include:
 
 API | Description | Steps Link
 --- | --- | ---
-![][30] | **Bing Search**<br/><br/>Embed search results, add search functionality, and more. | [**Get Started**][3]
-![][42] | **SQL Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](15)
-![][41] | **SharePoint Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](14)
+![][30] | **Bing Search**<br/><br/>Embed search results, add search functionality, and more. | [**Get Started**](powerapps-create-api-bingsearch.md)
+![][42] | **SQL Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sql.md)
+![][41] | **SharePoint Server**<br/><br/>You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointserver.md)
 
 
 #### Why register your own instances
@@ -127,32 +127,15 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 
 In this topic, you've seen how to register your own instance of the available APIs  that PowerApps provides out-of-box. Here are some related topics and resources for learning more about PowerApps:  
 
-- [Configure APIs][21]
-- [Add a new API, add a connection, and give users access][22]
+- [Configure APIs](powerapps-configure-apis.md)
+- [Add a new API](powerapps-register-from-available-apis.md)
 
 <!--References-->
-[1]: powerapps-register-api-hosted-in-app-service.md
-[2]: powerapps-register-existing-api-from-api-definition.md
-[3]: powerapps-create-api-bingsearch.md
-[4]: powerapps-create-api-dropbox.md
-[5]: powerapps-create-api-crmonline.md
-[6]: powerapps-create-api-excel.md
-[7]: powerapps-create-api-googledrive.md
-[8]: powerapps-create-api-microsofttranslator.md
-[9]: powerapps-create-api-office365-outlook.md
-[10]: powerapps-create-api-office365-users.md
-[11]: powerapps-create-api-onedrive.md
-[12]: powerapps-create-api-saleforce.md
-[13]: powerapps-create-api-sharepointonline.md
-[14]: powerapps-create-api-sharepointserver.md
-[15]: powerapps-create-api-sql.md
-[16]: powerapps-create-api-twitter.md
+
 [17]: ./media/powerapps-register-from-available-apis/registered-apis-part.png
 [18]: ./media/powerapps-register-from-available-apis/add-api-button.png
 [19]: ./media/powerapps-register-from-available-apis/add-api-blade.png
 [20]: ./media/powerapps-register-from-available-apis/add-api-select-from-marketplace-blade.png
-[21]: powerapps-configure-apis.md
-[22]: powerapps-create-new-api.md
 [30]: ./media/powerapps-register-from-available-apis/bingsearch.png
 [31]: ./media/powerapps-register-from-available-apis/dropbox.png
 [32]: ./media/powerapps-register-from-available-apis/dynamicscrmonline.png

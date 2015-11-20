@@ -41,16 +41,14 @@ There are three different sources that can be used to create an API:
 - [From Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md)
 
 ## Delete a API
-You can also delete an API you previously added. In PowerApps, select the **Manage APIs**, select the API, and select **Delete**. 
-
+You can also delete an API you previously added. In PowerApps, select the **Manage APIs**, select the API, and select **Delete**:  
 ![][4]
 
 ## Give users access to the API
 Now that the API is created and added to your app service environment, it's time to give users within your company the permissions to use it. 
 
 1. In PowerApps, select **Manage APIs**, and select your API. For example, if you created a *MS Power BI* API, select it to open its blade. Select **API user access**:  
-
-	![][1]  
+![][1]  
 
 2. Select **Add** to add users, and select the rights. When done, select **Add** to save your changes. The Users or Groups count increases in the **API user access** window.
 

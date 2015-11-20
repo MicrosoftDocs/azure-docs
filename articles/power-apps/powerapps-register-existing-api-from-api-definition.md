@@ -40,8 +40,8 @@ It's very easy to register these existing APIs. Steps include:
 	a) The ``host`` property should point to the actual endpoint of your existing API. Do you not use scheme or any sub-paths. For example, enter ``api.contoso.com``.  <br/><br/>
 	b) The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
 2. Make sure your existing API is accessible by your app service environment securely:  <br/><br/>
-	a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. Go [here][14] to see how.  <br/><br/>
-	b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Go [here][15] to see how.
+	a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. Go [here](powerapps-configure-apis.md) to see how.  <br/><br/>
+	b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Go [here](../app-service-app-service-environment-intro.md) to see how.
 
 3. In the [Azure portal](https://portal.azure.com/), select **PowerApps**. In PowerApps, select **Manage APIs**:  
 ![][11]
@@ -62,14 +62,10 @@ It's very easy to register these existing APIs. Steps include:
 
 In this topic, you've seen how to register an API from Swagger 2.0 API definition. Here are some related topics and resources for learning more about PowerApps:  
 
-- [Configure APIs][21]
-- [Add a new API, add a connection, and give users access][22]
+- [Configure APIs](powerapps-configure-apis.md)
+- [Add a new API](powerapps-register-from-available-apis.md)
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
-[14]: powerapps-configure-apis.md
-[15]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[21]: powerapps-configure-apis.md
-[22]: powerapps-create-new-connector.md
