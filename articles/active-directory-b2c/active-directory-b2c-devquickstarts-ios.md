@@ -100,10 +100,10 @@ In order for the iOS Task app to communicate with Azure AD B2C, there are a few 
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
