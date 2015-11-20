@@ -469,8 +469,11 @@ Before proceeding, ensure that you have the latest updates installed. Remember t
 1. Configuration server
 2. Process server
 3. Master target server
+4. Failback tool (vContinuum)
 
 You can get the updates on the Site Recovery **Dashboard **. For Linux installation extract the files from the gzipped installer and run the command “sudo ./install” to install the update
+
+Download the latest update for the **failback tool(vContinuum)** from [here](http://go.microsoft.com/fwlink/?LinkID=533813)
 
 If you are running virtual machines or physical servers that already have the Mobility service installed, you can get updates for the service as follows:
 
