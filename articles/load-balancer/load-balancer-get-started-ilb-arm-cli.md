@@ -17,7 +17,7 @@
    ms.date="11/16/2015"
    ms.author="joaoma" />
 
-# Create internal load balancer using the Azure CLI
+# Get started creating an internal load balancer using the Azure CLI
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create internal load balancer using PowerShell in Resource Manager | Microsoft Azure"
+   pageTitle="Create an internal load balancer using PowerShell in Resource Manager | Microsoft Azure"
    description="Learn how to create an internal load balancer using PowerShell in Resource Manager"
    services="load-balancer"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="11/09/2015"
    ms.author="joaoma" />
 
-# Create internal load balancer using PowerShell
+# Get started creating an internal load balancer using PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 

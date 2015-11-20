@@ -17,7 +17,7 @@
    ms.date="11/09/2015"
    ms.author="joaoma" />
 
-# Create internal load balancer (classic) using the Azure CLI
+# Get started creating an internal load balancer (classic) using the Azure CLI
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 ## To create an internal load balancer set for virtual machines
 
-To create an Azure internal load balancer set and the servers that will send their traffic to it, you must do the following:
+To create an internal load balancer set and the servers that will send their traffic to it, you must do the following:
 
 1. Create an instance of Internal Load Balancing that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
 
@@ -98,14 +98,13 @@ You configure the internal load balancer set when you add the first endpoint. Yo
 
 Parameters used:
 
-**-k** - local virtual machine port
-**-t** - probe port
-**-r** - probe protocol 
-**-e** - probe interval in seconds
-**-f** - timeout interval in seconds 
-**-i** - internal load balancer name 
+**-k** - local virtual machine port<BR>
+**-t** - probe port<BR>
+**-r** - probe protocol<BR>
+**-e** - probe interval in seconds<BR>
+**-f** - timeout interval in seconds <BR>
+**-i** - internal load balancer name <BR>
 
-Check out `azure vm endpoint create --help` for more information.
 
 ## Step 3 
 

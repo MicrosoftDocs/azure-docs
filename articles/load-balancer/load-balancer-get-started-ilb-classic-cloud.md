@@ -17,7 +17,7 @@
    ms.date="11/09/2015"
    ms.author="joaoma" />
 
-# Create internal load balancer (classic) for cloud services
+# Get started creating an internal load balancer (classic) for cloud services
 
 [AZURE.INCLUDE [load-balancerget-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
@@ -26,9 +26,9 @@
 
 ## Configure internal load balancer for cloud services
 
-Internal Load Balancer is supported for both virtual machines and cloud services. An internal load balancer endpoint created in a cloud service that is outside a regional virtual network will be accessible only within the cloud service.
+Internal load balancer is supported for both virtual machines and cloud services. An internal load balancer endpoint created in a cloud service that is outside a regional virtual network will be accessible only within the cloud service.
 
-The Internal Load Balancer configuration has to be set during the creation of the first deployment in the cloud service, as shown in the sample below.
+The internal load balancer configuration has to be set during the creation of the first deployment in the cloud service, as shown in the sample below.
 
 >[AZURE.IMPORTANT] A prerequisite to run the steps below is to have a virtual network already created for the cloud deployment. You will need the virtual network name and subnet name to create the Internal Load Balancing.
 

@@ -17,7 +17,7 @@
    ms.date="11/16/2015"
    ms.author="joaoma" />
 
-# Create internal load balancer (classic) using PowerShell
+# Get started creating an internal load balancer (classic) using PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 

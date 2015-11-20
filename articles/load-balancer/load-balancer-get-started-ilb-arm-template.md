@@ -17,7 +17,7 @@
    ms.date="11/09/2015"
    ms.author="joaoma" />
 
-# Create internal load balancer using a template
+# Get stated creating an internal load balancer using a template
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
