@@ -3,9 +3,9 @@
 	description="A tutorial that demonstrates using socket.io in a node.js web app hosted on Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # Create a Node.js chat application with Socket.IO in Azure App Service
 
-Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure web app, and show you how to [scale](#scale-out) the application using [Azure Redis Cache](http://azure.microsoft.com/documentation/services/cache). For more information on Socket.IO, see [http://socket.io/][socketio].
+Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure web app, and show you how to [scale](#scale-out) the application using [Azure Redis Cache](/documentation/services/cache). For more information on Socket.IO, see [http://socket.io/][socketio].
 
 > [AZURE.NOTE] The procedures in this task apply to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714); for Cloud Services, see <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service</a>.
 
@@ -124,7 +124,7 @@ Socket.IO applications can be scaled out by using an __adapter__ to distribute m
 
 ###Create a Redis cache
 
-Perform the steps in [Create a cache in Azure Redis Cache](https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) to create a new cache.
+Perform the steps in [Create a cache in Azure Redis Cache](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache) to create a new cache.
 
 > [AZURE.NOTE] Save the __Host name__ and __Primary key__ for your cache, as these will be needed in the next steps.
 
