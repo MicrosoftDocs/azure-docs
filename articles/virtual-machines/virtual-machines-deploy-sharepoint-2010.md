@@ -73,11 +73,11 @@ On the Azure portal, users also can upload an image on which the SysPrep tool ha
 
 **Figure 2: Overview of steps for uploading an image**
 
-## Deploying SharePoint 2010 on Azure 
+## Deploying SharePoint 2010 on Azure
 
 You can deploy SharePoint 2010 on Azure using the classic deployment model by following these steps:
 
-1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com/) through your Azure subscription account. If you do not have an Azure account, [sign up for a free trial of Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Sign in to the [Azure portal](http://manage.windowsazure.com/) through your Azure subscription account. If you do not have an Azure account, [sign up for a free trial of Azure](http://azure.microsoft.com/pricing/free-trial/).
 2. To create a virtual machine with the base operating system, on the Azure portal, click **New > Compute > Virtual Machine > From Gallery**.
 3. The **Choose an image** dialog box appears. Click the **Windows Server 2008 R2 SP1** platform image, and then click the right arrow.
 4. The **Virtual machine configuration** dialog box appears. Provide the following information:
@@ -225,7 +225,7 @@ To scale out a BI environment on Azure, follow these steps:
 1. Provision:
 	- Provision a VPN connection between on-premises and Azure using Azure Virtual Network. For more information, go to [Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 	- Use the Azure portal to provision a new virtual machine from a stock image in the image library. You can upload SharePoint Server or SQL Server BI workload images to the image library and any authorized user can pick those BI component virtual machines to build the scaled-out environment.
-2. Install: 
+2. Install:
 	- If your organization does not have prebuilt images of SharePoint Server or SQL Server BI components, install SharePoint Server and SQL Server on the virtual machines using a Remote Desktop connection.
 	- For more information about installing SharePoint, go to [Install SharePoint Server 2010 by using Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) or [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- For more information about installing SQL Server, go to [Install SQL Server using SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).

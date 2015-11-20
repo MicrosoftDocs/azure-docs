@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [November 2015 Rlease](#nov_changes_15)
 - [October 2015 Release](#oct_changes_15)
 - [September 2015 Release](#september_changes_15)
 - [August 2015 Release](#august_changes_15)
@@ -74,6 +75,12 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="nov_changes_15"></a>November 2015 Release
+
+Azure Media Services now offers Google Widevine license delivery service in the cloud. For more details, refer to [this announcement blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Also, see [this tutorial](media-services-protect-with-drm.md) and [GitHub repository](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+
+Note that Widevine license delivery services provided by Azure Media Sevices is in preview. For more information see [this blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ##<a id="oct_changes_15"></a>October 2015 Release
 

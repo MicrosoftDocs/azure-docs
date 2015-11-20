@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Set up Application Insights for ASP.NET
 
-*Application Insights is in preview.*
-
-<a name="selector1"></a>
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It works by installing an SDK into your app. The SDK sends telemetry about your app to the Application Insights service, where you analyze and visualize the app's behavior.
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Add the SDK to your app in Visual Studio, and you'll get charts of server requests, response times, and failures.
+The Application Insights SDK sends telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
-You'll also be able to use the API to monitor usage in detail.
+You'll also be able to investigate and correlate specific requests, exceptions, and log events.  You can use the API to add telemetry to monitor performance and usage in detail.
 
 #### Before you start
 

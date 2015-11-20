@@ -215,6 +215,11 @@ remoteDependencyFailed| [Dependency](app-insights-configuration-with-application
 request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
+## See also
+
+
+* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
+
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
