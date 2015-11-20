@@ -17,11 +17,11 @@
    ms.author="lodipalm"/>
 
 
-# Get started with SQL Data Warehouse Threat Detection
+# Get started with SQL Data Warehouse threat detection
 
 ## Overview
 
-Threat Detection detects anomalous database activities indicating potential security threats to the database.  Threat Detection is in preview and is supported for SQL Data Warehouse.
+Threat Detection detects anomalous database activities indicating potential security threats to the database. Threat Detection is in preview and is supported for SQL Data Warehouse.
 
 Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities.  Users can explore the suspicious events using [Azure SQL Data Warehouse Auditing]sql-data-warehouse-auditing-get-started.md) to determine if they result from an attempt to access, breach or exploit data in the data warehouse.
 Threat Detection makes it simple to address potential threats to the data warehouse without the need to be a security expert or manage advanced security monitoring systems.
