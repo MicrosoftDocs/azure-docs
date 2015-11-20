@@ -18,7 +18,7 @@
 
 # Create your first Service Fabric application in Visual Studio
 
-The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, debugging, and deploying Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
+The Service Fabric SDK includes an add-in for Visual Studio that provides templates and tools for creating, deploying, and debugging Service Fabric applications. This topic walks you through the process of creating your first application in Visual Studio.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ A Service Fabric application can contain one or more services, each with a speci
 
 ## Deploy and debug the application
 
-Now that we have an application, let's try running it.
+Now that you have an application, you can try running it.
 
 1. Hit F5 in Visual Studio to deploy the application for debugging.
 
@@ -88,9 +88,9 @@ Now that we have an application, let's try running it.
 
 5. Right-click the Local Cluster Manager system tray app and choose Manage Local Cluster to launch Service Fabric Explorer.
 
-  ![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
+    ![Launch Service Fabric Explorer from the Local Cluster Manager][systray-launch-sfx]
 
-  Service Fabric Explorer offers a visual representation of a cluster, including the set of deployed applications deployed to it and the set of physical nodes that make it up.
+    Service Fabric Explorer offers a visual representation of a cluster, including the set of deployed applications deployed to it and the set of physical nodes that make it up. To learn more about Service Fabric Explorer, see [Visualizing your cluster](service-fabric-visualizing-your-cluster).
 
 6. In the left pane, expand **Cluster > Nodes** and find the node where your code is running.
 
@@ -102,7 +102,7 @@ Now that we have an application, let's try running it.
 
 8. Return to the Diagnostic Events Viewer and observe the messages. Note that the counter has continued incrementing even though the events are actually coming from a different node.
 
-  ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
+    ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
 
 ## Next Steps
