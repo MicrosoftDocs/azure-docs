@@ -138,7 +138,7 @@ When you go to a user in your Azure Active Directory, you can then go to the Act
 
 After completing all the above steps, you will be able to run the RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL Server. 
 
-For more information on how to make the connection to SQL Database, see [Connect with SQL Server Management Studio (SSMS)](https://azure.microsoft.com/en-us/documentation/articles/sql-database-connect-to-database/)
+For more information on how to make the connection to SQL Database, see [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
 
 
 That's everything for now. Enjoy!
