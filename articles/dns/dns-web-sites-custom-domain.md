@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/23/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma"/>
 
 # Create DNS records for Web app in a custom domain
@@ -111,7 +111,7 @@ You can validate the record was created correctly by querying the "www.contoso.c
 
 ## Create an awverify record for Web apps (A records only)
 
-If you decide to use an A record for your web app, you must go through a verification process to allow Azure to ensure you own the custom domain. This verification step is done by creating a special CNAME record named "awverify".
+If you decide to use an A record for your web app, you must go through a verification process to ensure you own the custom domain. This verification step is done by creating a special CNAME record named "awverify".
 
 In the example below, the "awverify" record will be created for contoso.com to verify ownership for the custom domain:
 

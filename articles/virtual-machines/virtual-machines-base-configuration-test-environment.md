@@ -126,7 +126,7 @@ First, fill in the name of your cloud service and run these commands at the Azur
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure Management Portal, click **Virtual Machines** in the left pane, and then click **Started** in the **Status** column for the DC1 virtual machine.  
+1.	In the Azure portal, click **Virtual Machines** in the left pane, and then click **Started** in the **Status** column for the DC1 virtual machine.  
 2.	In the task bar, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -155,7 +155,7 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	On the virtual machines page of the Azure Management Portal, click **Running** in the **Status** column for the DC1 virtual machine.
+1.	On the virtual machines page of the Azure portal, click **Running** in the **Status** column for the DC1 virtual machine.
 2.	In the task bar, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.

@@ -24,7 +24,7 @@
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a universal Windows app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). 
+This tutorial shows you how to add a cloud-based backend service to a universal Windows app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).  
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 

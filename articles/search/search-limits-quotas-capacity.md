@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/19/2015"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -40,6 +40,8 @@ Maximum number of indexers|3
 Maximum number of Indexer data sources|3
 Maximum number of indexed documents per indexer invocation|10,000
 Maximum Indexer running time|3 minutes
+Maximum number of scoring profiles per index|16
+Maximum number of functions per profile|8
 
 Notice that there are no quotas or maximum limits associated with queries. Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources. The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.
 
@@ -62,6 +64,8 @@ Maximum search services|12 per Azure subscription
 Maximum number of indexers|50 per Search service
 Maximum number of Indexer data sources|50 per Search service
 Maximum number of indexed documents per indexer invocation|Unlimited
+Maximum number of scoring profiles per index|16
+Maximum number of functions per profile|8
 
 Capacity in Azure Search can be purchased in increments called search units. The Standard pricing tier allows for up to 36 search units per Search service. This limit overrides the individual limits on partitions and replicas. For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
