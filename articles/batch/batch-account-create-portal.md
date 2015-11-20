@@ -76,7 +76,7 @@ To see and manage the access keys, click the key icon.
 
 ## Next steps
 
-* See [API basics for Azure Batch](batch-api-basics.md) to learn more about the Batch concepts.
+* See [Azure Batch feature overview](batch-api-basics.md) to learn more about the Batch concepts.
 
 * Get started developing your first application with the [Batch .NET client library](batch-dotnet-get-started.md).
 

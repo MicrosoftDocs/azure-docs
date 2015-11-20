@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Deploy SharePoint farms with ARM templates | Microsoft Azure"
-	description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure portal, Azure PowerShell, or the Azure CLI."
+	description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure preview portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -31,7 +31,7 @@ For a basic SharePoint Server 2013 farm, a Resource Manager template creates thr
 
 You can run the template with the Azure preview portal, Azure PowerShell, or the Azure CLI.
 
-> [AZURE.NOTE] You can also create this configuration using the [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) item in the Azure Marketplace of the Azure Preview portal.
+> [AZURE.NOTE] You can also create this configuration using the [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) item in the Azure Marketplace of the Azure preview portal.
 
 ### Azure preview portal
 
@@ -103,7 +103,7 @@ For a high-availability SharePoint Server 2013 farm, a Resource Manager template
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE] You can also create this configuration using the [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) item in the Azure Marketplace of the Azure Preview portal.
+> [AZURE.NOTE] You can also create this configuration using the [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) item in the Azure Marketplace of the Azure preview portal.
 
 ### Azure preview portal
 

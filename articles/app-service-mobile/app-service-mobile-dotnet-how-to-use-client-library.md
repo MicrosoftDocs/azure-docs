@@ -52,8 +52,7 @@ Note that the [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/P
 The following code creates the `MobileServiceClient` object that is used to access your Mobile App backend.
 
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in your Mobile App blade in the Azure preview portal.
 
