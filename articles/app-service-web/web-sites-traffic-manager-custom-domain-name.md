@@ -42,7 +42,7 @@ This article provides generic instructions for using a custom domain name with A
 ## Add a DNS record for your custom domain
 
 
-> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article. 
+> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of <a href="/documentation/articles/" title="Web Apps" class="current">[Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md) article. 
 
 
 To associate your custom domain with a web app in Azure App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by the domain registrar that you purchased your domain name from. Use the following steps to locate and use the DNS tools.
