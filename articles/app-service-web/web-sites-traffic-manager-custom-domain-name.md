@@ -1,5 +1,6 @@
 <properties 
 	pageTitle="Configure a custom domain name for a web app in Azure App Service that uses Traffic Manager"wpickett"Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
+    description="Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="rmcmurray" 
@@ -12,11 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-<<<<<<< HEAD
-	ms.date="11/20/2015" 
-=======
 	ms.date="11/18/2015" 
->>>>>>> 5e4d72fbb5f74eccd2524f3a33a76dc0c80d4e57
 	ms.author="robmcm"/>
 
 #Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
