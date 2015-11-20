@@ -82,9 +82,8 @@ You can also choose to provide configuration settings manually. This is the pref
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your application
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
+> [AZURE.NOTE]
+If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
 
 
 13. Back in the [Preview Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
