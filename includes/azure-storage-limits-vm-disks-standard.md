@@ -1,10 +1,9 @@
 **Virtual machine disks: per disk limits**
 
-Standard Storage Disk Type | Basic Tier VM | Standard Tier VM
+ VM Tier | Basic Tier VM | Standard Tier VM
 ---|---|---
 Disk size<sup>1</sup> | 1023 GB | 1023 GB
-IOPS per disk<sup>2</sup> | 300 | 500
-Throughput per disk | 8 KB per second |  8 KB per second
+Max 8 KB IOPS per persistent disk<sup>2</sup> | 300 | 500
 Max number of highly utilized disks<sup>3</sup> | 66 | 40
 
 <sup>1</sup>See [Virtual machine sizes](../virtual-machines/virtual-machines-size-specs.md) for additional details.

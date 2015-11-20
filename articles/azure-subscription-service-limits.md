@@ -121,15 +121,17 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
 
-#### Storage Service Limits (Standard Accounts)
+#### Storage Service Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### Virtual Machine Disk Limits (Standard Accounts)
+#### Virtual Machine Disk Limits 
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+
+See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-size-specs.md) for additional details.
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-#### Virtual Machine Disk Limits (Premium Accounts)
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
