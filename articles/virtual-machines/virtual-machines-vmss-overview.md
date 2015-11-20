@@ -154,7 +154,3 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 **Q.** Do VM scale sets work with Azure availability sets?
 
 **A.** Yes. A VM scale set is an implicit availability set with 3 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
-
-## Feedback
-
-Your feedback is very important to help us build a service that provides the features you need. Please let us know what works, what doesn't and what could be improved. You can provide feedback to [vmssfeedback@microsoft.com](mailto:vmssfeedback@microsoft.com).
