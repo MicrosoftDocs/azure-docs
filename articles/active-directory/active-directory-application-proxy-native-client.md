@@ -23,7 +23,7 @@ Azure Active Directory Application Proxy is widely used to publish browser appli
 ![](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
 
-The recommended method to publish such applications is to use the Azure AD Authentication Library that takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/#native-application-to-web-api). The process for accomplishing this is as follows:
+The recommended method to publish such applications is to use the Azure AD Authentication Library that takes care of all the authentication hassle and supports many different client environments. Application Proxy fits into the [Native Application to Web API scenario](active-directory-authentication-scenarios.md#native-application-to-web-api). The process for accomplishing this is as follows:
 
 1. Publish your proxy application as you would any other application, assign users and give them premium or basic licenses. For more information see  [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 2. Configure your native application as follows:
