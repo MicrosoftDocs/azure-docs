@@ -3,7 +3,7 @@
    description="Learn what PolyBase is and how to use it for data warehousing scenarios."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahajs"
+   authors="sahaj08"
    manager="barbkess"
    editor="jrowlandjones"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="11/19/2015"
-   ms.author="sahajs;barbkess"/>
+   ms.author="sahaj08;barbkess"/>
 
 
 # Load data with PolyBase in SQL Data Warehouse
