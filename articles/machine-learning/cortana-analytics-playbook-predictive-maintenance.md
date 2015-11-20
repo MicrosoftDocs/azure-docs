@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Cortana Analytics Solution Template Playbook for predictive maintenance | Microsoft Azure"
 	description="A Solution Template with Microsoft Cortana Analytics for predictive maintenance."
-	keywords="solution accelerator;cortana analytics;predictive maintenance"
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="11/19/2015"
 	ms.author="garye" />
 
 # Cortana Analytics Solution Template Playbook for predictive maintenance
@@ -43,6 +42,9 @@ Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overvie
 and [Azure Machine
 Learning](http://azure.microsoft.com/services/machine-learning/)
 pages.
+
+>[AZURE.TIP] To download a diagram that provides an architectural overview of this template, see
+[Cortana Analytics Solution Template architecture for predictive maintenance](cortana-analytics-architecture-predictive-maintenance.md).
 
 ## Playbook Overview and Target Audience  
 This playbook is organized to benefit both technical
