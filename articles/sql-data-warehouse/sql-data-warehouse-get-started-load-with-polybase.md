@@ -256,7 +256,7 @@ See the [PolyBase guide][] for further information you should know as you develo
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [Statistics]: sql-data-warehouse-develop-statistics.md
-[PolyBase guide]: sql-data-warehouse-load-using-polybase.md
+[PolyBase guide]: sql-data-warehouse-load-polybase-guide.md
 [Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
 [latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
@@ -267,9 +267,9 @@ See the [PolyBase guide][] for further information you should know as you develo
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
-[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
