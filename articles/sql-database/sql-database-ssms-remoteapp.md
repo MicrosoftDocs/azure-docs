@@ -39,6 +39,7 @@ There are many benefits to using SSMS in RemoteApp, including:
 
 - Port 1433 on Azure SQL Server does not have to be exposed externally (outside of Azure)
 - No need to keep adding and removing IP addresses in the Azure SQL Server firewall 
+- All RemoteApp connections occur over HTTPS
 - It is multi-user and can scale
 - There is a performance gain from having SSMS in the same region as the SQL Database
 - You can audit use of RemoteApp with the Premium edition of Azure Active Directory which has user activity reports
