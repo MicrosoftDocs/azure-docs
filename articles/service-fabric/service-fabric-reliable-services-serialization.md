@@ -136,7 +136,7 @@ protected override IReliableStateManager CreateReliableStateManager()
 Service Fabric expects the serializers to be infinitely forwards and backwards compatible.
 For the types that are using built-in serializers, Service Fabric ensures forwards and backwards compatibility.
 For the types that using DataContractSerializer or custom serializer, user is required to never do a breaking change.
-For DataContract versioning see [Data Contract Versioning](https://msdn.microsoft.com/en-us/library/ms731138.aspx).
+For DataContract versioning see [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx).
 If a breaking change is required, state needs to be moved from a service instance with the old data version to a service with the new data version at application level.
 
 ### When is a serializer used
