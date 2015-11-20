@@ -23,7 +23,7 @@ Virtual machine scale sets are an Azure Compute resource you can use to deploy a
 
 [AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/en-us/blog/azure-vm-scale-sets-public-preview).
+For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the recent [Azure blog announcement](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
 
 Take a look at these videos for more about VM scale sets:
 
