@@ -24,7 +24,7 @@
 
 ## Overview
 
-This tutorial shows you how to use a cloud-based backend service ([Azure Mobile Apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/)) to an iOS mobile app.  You will create  a new mobile backend and use a simple _Todo list_ iOS app that stores app data in Azure.
+This tutorial shows you how to use a cloud-based backend service ([Azure Mobile Apps](app-service-mobile-value-prop.md)) to an iOS mobile app.  You will create  a new mobile backend and use a simple _Todo list_ iOS app that stores app data in Azure.
 
 ## Prerequisites
 
