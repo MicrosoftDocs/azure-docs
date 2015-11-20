@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="11/19/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Create a Node.js web app in Azure App Service
 

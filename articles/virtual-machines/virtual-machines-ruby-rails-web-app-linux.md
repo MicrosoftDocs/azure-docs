@@ -5,7 +5,7 @@
 	documentationCenter="ruby"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"
+	editor=""
 	tags="azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="11/19/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 

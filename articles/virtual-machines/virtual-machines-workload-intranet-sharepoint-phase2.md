@@ -111,7 +111,7 @@ Log on to the first domain controller computer by using the credentials of the l
 1.	In the Azure portal, in the left pane, click **Virtual Machines**.
 2.	To connect to a VM, click **Running** in the **Status** column next to its name.
 3.	In the command bar on the bottom of the page, click **Connect**.
-4.	The portal informs you that the .rdp file is being retrieved. Click **OK**.
+4.	The Azure portal informs you that the .rdp file is being retrieved. Click **OK**.
 5.	The browser dialog appears, asking "Do you want to open or save ComputerName.rdp from manage.windowsazure.com?" Click **Open**.
 6.	In the **Remote Desktop Connection** dialog, click **Connect**.
 7.	In the **Windows Security** dialog, click **Use another account**.

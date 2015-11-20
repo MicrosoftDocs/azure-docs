@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Set up a new device with Azure AD during Setup
@@ -45,7 +45,7 @@ To join a device to Azure AD
 11.	When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the auto-logon.
 12.	If you are a federated user, you land on the Windows logon screen and have to enter your credentials to log on.
 
-> [AZURE.NOTE] Joining an on-premises Active Directory domain in the Windows out-of-box experience is not supported. Therefore, if you plan to join a PC to a domain you should select the link “Set up Windows with a local account instead”. You can then join the domain from PC Settings as you’ve done before.
+> [AZURE.NOTE] Joining an on-premises Active Directory domain in the Windows out-of-box experience is not supported. Therefore, if you plan to join a PC to a domain, you should select the link “Set up Windows with a local account instead”. You can then join the domain from PC Settings as you’ve done before.
 
 ## Additional Information
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
@@ -54,5 +54,4 @@ To join a device to Azure AD
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
-
 

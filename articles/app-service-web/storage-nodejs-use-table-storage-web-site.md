@@ -6,7 +6,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/19/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
