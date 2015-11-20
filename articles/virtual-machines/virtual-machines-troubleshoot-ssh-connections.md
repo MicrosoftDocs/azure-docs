@@ -41,7 +41,7 @@ To resolve the more common SSH connection failures in virtual machines created u
 
 	![Screenshot that shows resetting SSH configuration](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)  
 
-2. **Restart** the virtual machine. From the [Azure preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Restart**. From the [Azure management portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** and click **Restart**.
+2. **Restart** the virtual machine. From the [Azure preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Restart**. From the [Azure portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** and click **Restart**.
 
 3. [**Resize** the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -176,9 +176,9 @@ The following sections will help you isolate the source of the failure and figur
 
 ### Steps before troubleshooting
 
-First, check the status of virtual machine in the Azure portal.
+First, check the status of virtual machine in the portal.
 
-In the [Azure management portal](https://manage.windowsazure.com), for virtual machines in classic deployment model:
+In the [Azure portal](https://manage.windowsazure.com), for virtual machines in classic deployment model:
 
 1. Click **Virtual machines** > *VM name*.
 2. Click the VM's **Dashboard** to check its status.

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
+	ms.date="11/13/2015"
 	ms.author="huguesv"/>
 
 
@@ -141,7 +141,7 @@ Edit the definition of `DATABASES` to use the values above.
 
 1.  In Solution Explorer, under **Python Environments**, right-click on the virtual environment and select **Install Python Package**.
 
-1.  Install the package `pyodbc` using **easy_install**.
+1.  Install the package `pyodbc` using **pip**.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 

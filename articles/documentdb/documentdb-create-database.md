@@ -17,7 +17,7 @@
 	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# How to create a database for DocumentDB using the Azure preview portal
+# How to create a database for DocumentDB
 
 To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents.  This topic describes how to create a database for DocumentDB in the Microsoft Azure preview portal. 
 
