@@ -44,7 +44,7 @@ As a first step, please setup the data management gateway as per the instruction
 This example uses the Windows authentication. See [HDFS linked service](#hdfs-linked-service-properties) section for different types of authentication you can use. 
 
 	{
-	    "name": "hdfs",
+	    "name": "AzureBlobHdfsDataSet",
 	    "properties":
 	    {
 	        "type": "Hdfs",
@@ -203,13 +203,13 @@ The following table provides description for JSON elements specific to HDFS link
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
-| type | The type property must be set to: **Hdfs** | 
-| Url | URL to the HDFS |
-| encryptedCredential | [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. | 
-| userName | Username for Windows authentication. | 
-| password | Password for Windows authentication. | 
-| authenticationType | Windows, or Anonymous. |
-| gatewayName | Name of the gateway that the Data Factory service should use to connect to the HDFS. |   
+| type | The type property must be set to: **Hdfs** | Yes | 
+| Url | URL to the HDFS | Yes |
+| encryptedCredential | [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) output of the access credential. | No |
+| userName | Username for Windows authentication. | Yes (for Windows Authentication)
+| password | Password for Windows authentication. | Yes (for Windows Authentication)
+| authenticationType | Windows, or Anonymous. | Yes |
+| gatewayName | Name of the gateway that the Data Factory service should use to connect to the HDFS. | Yes |   
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for on-premises HDFS.
 
