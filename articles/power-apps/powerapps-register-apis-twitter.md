@@ -1,22 +1,22 @@
 <properties
 	pageTitle="Register your organization's Twitter API"
 	description="IT Doc: Register your organization's Twitter API"
-	services="power-apps"
+	services="powerapps"
 	documentationCenter="" 
 	authors="rajram"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-   ms.service="power-apps"
+   ms.service="powerapps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="" 
+   ms.workload="na" 
    ms.date="11/03/2015"
    ms.author="rajram"/>
 
-#Register Twitter API in App Service Environment
+# Register Twitter API in App Service Environment
 
 Twitter is an online social networking service that enables users to send and receive short messages called "tweets". Connect to Twitter to manage your tweets. You can perform various actions such as send tweet, search, view followers, etc.
 
@@ -25,7 +25,7 @@ Following steps are required to register a Twitter API for your organization's A
 - Register a new app in Twitter
 - Add Twitter API in your organization's ASE
 
-##Obtain callback url
+## Obtain callback url
 - Navigate to [Azure portal][4]
 - Click on 'Browse' and select 'PowerApps Services'
 - Click on 'Settings'
@@ -38,7 +38,7 @@ Following steps are required to register a Twitter API for your organization's A
 	- **API**: Click on API and in the 'Select from Marketplace' blade that opens up select _Twitter_
 	- **Settings**: Copy the 'Redirect URL' value
 
-##Register a new app in Twitter
+## Register a new app in Twitter
 > This step requires a Twitter account. If you don't already have one, you can [sign up for a free Twitter account][1].
 
 

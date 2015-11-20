@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a new Bing Search API in your organization's App Service Environment
+	pageTitle="Create a new Bing Search API in your organization's App Service Environment"
 	description="Create a new Bing Search API in your organization's App Service Environment"
 	services="powerapps"
 	documentationCenter="" 
