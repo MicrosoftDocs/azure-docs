@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Finding unsanctioned cloud applications with Cloud App Discovery | Microsoft Azure"
-	description="Provides information about finding and managing applications with Cloud App Discvery is and why you should use it."
+	description="Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works."
 	services="active-directory"
 	keywords="cloud app discovery, managing applications"
 	documentationCenter=""
