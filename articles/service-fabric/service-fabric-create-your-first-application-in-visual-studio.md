@@ -54,7 +54,7 @@ A Service Fabric application can contain one or more services, each with a speci
 
 	- **Application definition**: The application manifest and associated application parameter files define the application and allow you to configure it specifically for a given environment.
 
-  For an overview of the contents of the service project, see [Getting Started with Reliable Services](service-fabric-reliable-services-quick-start.md).
+    For an overview of the contents of the service project, see [Getting Started with Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Deploy and debug the application
 
@@ -104,12 +104,23 @@ Now that you have an application, you can try running it.
 
     ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
+### Cleaning up
+
+  Before wrapping up, it's important to remember that the local cluster is very real. Even after stopping the debugger and closing Visual Studio, your applications will keep running in the background. Depending on the nature of your apps, this background activity can take up significant resources on your machine. You have several options to manage this:
+
+  1. To remove an individual application and all of its data, use the **Remove application** action in Service Fabric Explorer.
+
+  2. To shut down the cluster but keep the application data and traces, click **Stop Cluster** in the system tray app.
+
+  3. To delete the cluster entirely, click **Remove Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you hit F5 in Visual Studio and should only be used if you don't intend to use the local cluster for some time or you desperately need to reclaim resources.
+
+
 
 ## Next Steps
 
+- [See how you can expose your services to the internet with WebAPI](service-fabric-add-a-web-frontend.md)
 - [Learn how to create a cluster in Azure](service-fabric-cluster-creation-via-portal.md)
 - [Learn more about creating Reliable Services](service-fabric-reliable-services-quick-start.md)
-- [See how you can expose your services to the internet with WebAPI](service-fabric-add-a-web-frontend.md)
 - [Try creating a service using the Reliable Actor programming model](service-fabric-reliable-actors-get-started.md)
 
 <!-- Image References -->
