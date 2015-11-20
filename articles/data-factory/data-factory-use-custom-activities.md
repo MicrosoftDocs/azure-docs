@@ -398,7 +398,7 @@ You can run your custom .NET activities using Azure Batch as a compute resource.
 
 Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
 
-1. Create an Azure Batch account using the Azure Management Portal. See [Azure Batch Technical Overview][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
+1. Create an Azure Batch account using the Azure Management Portal. See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
 
 	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
 2. Create an Azure Batch pool. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
@@ -442,7 +442,7 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-[batch-create-account]: ../batch/batch-technical-overview.md/#batch-concepts
+[batch-create-account]: ../batch/batch-account-create-portal.md
 [batch-technical-overview]: ../batch/batch-technical-overview.md
 [batch-get-started]: ../batch/batch-dotnet-get-started.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
