@@ -131,7 +131,11 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-size-specs.md) for additional details.
 
+**Standard storage accounts**
+
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+
+**Premium storage accounts**
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
