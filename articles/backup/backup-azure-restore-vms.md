@@ -123,9 +123,9 @@ These configurations mandate following considerations while restoring them.
 While restoring from UI, **always choose a new cloud service**. Please note that since portal only takes mandatory parameters during restore flow, VMs restored using UI will lose the special network configuration they possess. In other words, restore VMs will be normal VMs without configuration of load balancer or multi NIC or multiple reserved IP. 
 
 ### Restoring from PowerShell:
-PowerShell has the ability to just restore the VM disks from backup and not create the virtual machine. This is helpfgul when restoring virtual machines which require special network configurations mentined above.
+PowerShell has the ability to just restore the VM disks from backup and not create the virtual machine. This is helpful when restoring virtual machines which require special network configurations mentined above.
 
-In order to fully recreate the virtual machine post restoring dsisk, follow these steps:
+In order to fully recreate the virtual machine post restoring disks, follow these steps:
 
 1. Restore the disks from backup vault using [Azure Backup PowerShell](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
 
