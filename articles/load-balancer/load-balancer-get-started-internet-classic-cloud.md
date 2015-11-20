@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic deployment model using for cloud services | Microsoft Azure"
+   pageTitle="Get started creating an Internet facing load balancer in classic deployment model using for cloud services | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic deployment model for cloud services"
    services="load-balancer"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="11/03/2015"
    ms.author="joaoma" />
 
-# Get started creating Internet facing load balancer for cloud services
+# Get started creating an Internet facing load balancer for cloud services
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
