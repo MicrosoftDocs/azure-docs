@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Facebook login
@@ -27,9 +27,8 @@ This topic shows you how to configure Azure App Service to use Facebook as an au
 
 To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
-
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]
+This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
 
 
 ## <a name="register"> </a>Register your application with Facebook
@@ -71,9 +70,8 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]
+If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
 
 
 13. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.

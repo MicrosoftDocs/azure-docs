@@ -548,9 +548,6 @@ To delete a queue and all the messages contained in it, call the Remove-AzureSto
     $QueueName = "yourqueuename"
     Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-### How to manage queue messages
-Currently, Azure PowerShell does not provide cmdlets to manage queue messages directly. To perform operations on queue messages, you can use the classes given in the [Azure Storage Client Library for .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
-
 #### How to insert a message into a queue
 To insert a message into an existing queue, first create a new instance of the [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) class. Next, call the [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
 
