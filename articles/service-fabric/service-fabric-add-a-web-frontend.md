@@ -16,11 +16,13 @@
    ms.date="11/20/2015"
    ms.author="seanmck"/>
 
+
 # Build a web service front-end for your application
 
 By default, Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as entry point and then communicate from there to your individual services.
 
 In this tutorial, we will walk through adding an ASP.NET 5 Web API front-end to an application which already includes a stateful service. If you have not already done so, consider walking through [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) before starting this tutorial.
+
 
 ## Add an ASP.NET 5 service to your application
 
@@ -40,6 +42,7 @@ ASP.NET 5 is a lightweight, cross-platform web development framework, enabling t
 
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way and each can be independently versioned and upgraded.
 
+
 ## Run the application
 
 To get a sense of what we've done, let's deploy the new application and take a look at the default behavior provided by the ASP.NET 5 Web API template.
@@ -54,11 +57,13 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
     By the end of the tutorial, we will have replaced these default values with the most recent counter value from our stateful service.
 
+
 ## Connect the services
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services which are accessible via TCP, others via a HTTP REST API, and still others via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with Services](service-fabric-connect-and-communicate-with-services.md). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceCommunicationListener` classes provided in the SDK.
 
 In the `ServiceProxy` approach (modeled on remote procedure calls or RPC) you define an interface to act as the public contract for the service and then use that interface to generate a proxy class for interacting with the service.
+
 
 ### Create the interface
 
@@ -89,6 +94,7 @@ We will start by creating the interface to act as the contract between the state
         }
     }
     ```
+
 
 ### Implement the interface in your stateful service
 
@@ -122,6 +128,7 @@ Now that we have defined the interface, we need to implement it in our stateful 
         }
     }
     ```
+
 
 ### Expose the stateful service using ServiceCommunicationListener
 
@@ -166,15 +173,15 @@ Our stateful service is now ready to receive traffic from other services so all 
     }
     ```
 
-  The first line of code is the key one. To create the ICounter proxy to the stateful service, you need to provide two pieces of information: a partition ID and the name of the service.
+    The first line of code is the key one. To create the ICounter proxy to the stateful service, you need to provide two pieces of information: a partition ID and the name of the service.
 
-  Partitioning enables you to scale stateful services by breaking up their state into different buckets based on a key that you define, such as customer ID or post code.  In our trivial application, the stateful service only has one partition so the key doesn't matter - any key that you provide will lead to the same partition.
+    Partitioning enables you to scale stateful services by breaking up their state into different buckets based on a key that you define, such as customer ID or post code.  In our trivial application, the stateful service only has one partition so the key doesn't matter - any key that you provide will lead to the same partition.
 
-  The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
+    The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
 
-  With these two pieces of information, Service Fabric can uniquely identify the machine to which requests should be sent. The `ServiceProxy` will also seamlessly handle the case where the machine hosting our stateful service partition fails and another machine must be promoted to take its place. This abstraction makes writing the client code to deal with other services significantly simpler.
+    With these two pieces of information, Service Fabric can uniquely identify the machine to which requests should be sent. The `ServiceProxy` will also seamlessly handle the case where the machine hosting our stateful service partition fails and another machine must be promoted to take its place. This abstraction makes writing the client code to deal with other services significantly simpler.
 
-  Once we have the proxy, we simply invoke the `GetCountAsync` method and return its result.
+    Once we have the proxy, we simply invoke the `GetCountAsync` method and return its result.
 
 4. Hit F5 again to run the modified application. As before, Visual Studio will automatically launch the browser to the root of the web project. Add the "api/values" path and you should see the current counter value returned.
 
