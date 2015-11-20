@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create an Internet facing load balancer in Resource Manager using a template | Microsoft Azure"
-   description="Learn how to create an Internet facing load balancer in Resource Manager using a template"
+   description="Learn how to create an Internet facing load balancer in Resource Manager using an ARM template"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -17,7 +17,7 @@
    ms.date="11/20/2015"
    ms.author="joaoma" />
 
-# Get started creating an Internet facing load balancer using a template
+# Get started creating an Internet facing load balancer using an ARM template
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
