@@ -24,6 +24,7 @@
 In-Memory features greatly improve the performance of transactional and analytics workloads in the right situations.
 
 This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In-Memory Analytics. Each demo comes complete with the steps and code you would need to run the demo. You can either:
+
 - Use the code to test variations to see differences in performance results; or
 - Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
@@ -31,6 +32,7 @@ This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In
 #### In-Memory OLTP
 
 The features of In-Memory [OLTP](#install_oltp_manuallink) (online transaction processing) are:
+
 - Memory-optimized tables.
 - Natively compiled stored procedures.
 
@@ -46,6 +48,7 @@ Natively compiled stored procedures require fewer machine instructions during ru
 #### In-Memory Analytics 
 
 The feature of In-Memory [Analytics](#install_analytics_manuallink) is:
+
 - Columnstore indexes
 
 
@@ -57,6 +60,7 @@ In other services the columnstore indexes are necessarily memory optimized. Howe
 #### Real-Time Analytics
 
 For [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx) you combine In-Memory OLTP and Analytics to get:
+
 - Real-time business insight based on operational data.
 
 
@@ -64,10 +68,12 @@ For [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx) you c
 
 
 GA, General Availability:
+
 - [Columnstore indexes](http://msdn.microsoft.com/library/dn817827.aspx) that are *on-disk*.
 
 
 Preview:
+
 - In-Memory OLTP
 - In-Memory Analytics with memory-optimized columnstore indexes
 - Real-Time Operational Analytics
@@ -76,7 +82,7 @@ Preview:
 Considerations while the In-Memory features are in Preview are described [later in this topic](#preview_considerations_for_in_memory).
 
 
-> AZURE.NOTE These in-Preview features are available only for [*Premium*](sql-database-service-tiers.md) Azure SQL databases, not for databases on the Standard or Basic service tier.
+> [AZURE.NOTE] These in-Preview features are available only for [*Premium*](sql-database-service-tiers.md) Azure SQL databases, not for databases on the Standard or Basic service tier.
 
 
 
@@ -126,6 +132,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 
 A result of **0** means In-Memory is not supported, and 1 means it is supported. To diagnose the problem:
+
 - Ensure the database was created after the In-Memory OLTP features became active for Preview.
 - Ensure the database is at the Premium service tier.
 
@@ -256,6 +263,7 @@ whereas for SQL 2016+
 
 
 You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command line parameters direct ostress to:
+
 - Run 100 connections concurrently (-n100).
 - Have each connection run the T-SQL script 50 times (-r50).
 
