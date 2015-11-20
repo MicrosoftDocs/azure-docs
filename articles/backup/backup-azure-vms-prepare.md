@@ -182,7 +182,7 @@ The backup extension is installed if the VM is running. A running VM also provid
   - **Linux**: The list of distributions endorsed by Azure is available [here](../virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 - Restoring a domain controller VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms)
-- Restoring virtual machines by using the following special network configurations is supported only through PowerShell. VMs that you create using the restore workflow in the UI will not have these network configurations after the restore operation. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations) 
+- Restoring virtual machines by using the following special network configurations is supported only through PowerShell. VMs that you create using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations) 
 	- Virtual machines under load balancer configuration ( Internal adn external)
 	- Virtual machines with multiple Reserved IPs
 	- Virtual machines with multiple NICs
