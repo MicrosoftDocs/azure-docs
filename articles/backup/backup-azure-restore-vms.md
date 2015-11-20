@@ -108,7 +108,7 @@ The challenge arises because DSRM mode is not present in Azure. So to restore su
 
 Read more about the [USN rollback problem](https://technet.microsoft.com/library/dd363553) and the strategies suggested to fix it.
 
-## Restoring VMs with special netwrok configurations
+## Restoring VMs with special network configurations
 Azure Backup supports backup for following special network configurations of virtual machines. 
 
 - VMs under load balancer ( internal and external)
@@ -119,7 +119,7 @@ These configurations mandate following considerations while restoring them.
 
 >[AZURE.TIP] Please use PowerShell based restore flow to recreate the special network configuration of VMs post restore. 
 
-### Restoring from UI:
+### Restoring from the UI:
 While restoring from UI, **always choose a new cloud service**. Please note that since portal only takes mandatory parameters during restore flow, VMs restored using UI will lose the special network configuration they possess. In other words, restore VMs will be normal VMs without configuration of load balancer or multi NIC or multiple reserved IP. 
 
 ### Restoring from PowerShell:
