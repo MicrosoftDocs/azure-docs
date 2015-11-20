@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
@@ -124,6 +124,8 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 	- **Scale Cluster**: Increase and decrease the number of cluster worker nodes.
 	- **Remote Desktop**: Enable and disable remote desktop (RDP) access, and configure the RDP username.  The RDP user name must be different from the HTTP user name.
 	- **Partner of Record**:
+    
+    > [AZURE.NOTE] This is a generic list of available settings; not all of them will be present for all cluster types.
 
 6. Click **Properties**:
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/19/2015"
 	ms.author="glenga"/>
 
 # Add authentication to your Windows app
@@ -22,13 +22,9 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed.
+This topic shows you how to add cloud-based authentication to your mobile app. In this tutorial, you add authentication to the Mobile Apps quickstart project using an identity provider that is supported by Azure App Service. After being successfully authenticated and authorized by your Mobile App backend, the user ID value is displayed.
 
-This tutorial is based on the Mobile App quickstart. You must first complete the tutorial [Get started with your mobile app]. 
-
-##<a name="create-gateway"></a>Create an App Service Gateway
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)] 
+This tutorial is based on the Mobile Apps quickstart. You must first complete the tutorial [Get started with Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md). 
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
 
@@ -38,9 +34,7 @@ This tutorial is based on the Mobile App quickstart. You must first complete the
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. In Visual Studio, open the shared App.xaml.cs project file in your client app project and make sure that the **MobileServiceClient** instance is configured to use both the URL of the Mobile App backend and the Gateway.
-
-&nbsp;&nbsp;5. With one of the Windows app projects set as the start-up project, press the F5 key to run the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
+&nbsp;&nbsp;4.  With one of the Windows app projects set as the start-up project, press the F5 key to run the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
 &nbsp;&nbsp;This happens because the app attempts to access your Mobile App Code as an unauthenticated user, but the *TodoItem* table now requires authentication.
 

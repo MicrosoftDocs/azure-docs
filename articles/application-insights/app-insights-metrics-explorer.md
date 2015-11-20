@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -196,7 +196,7 @@ If you want data continuously exported so that you can process it externally, co
 
 ### Power BI
 
-If you want even richer views of your data, you can [export to Power BI](app-insights-export-power-bi.md).
+If you want even richer views of your data, you can [export to Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Next steps
 

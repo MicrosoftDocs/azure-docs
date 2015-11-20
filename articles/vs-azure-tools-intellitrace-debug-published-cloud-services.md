@@ -3,7 +3,7 @@
    description="Debugging a published cloud service with IntelliTrace and Visual Studio"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="tarcher"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 

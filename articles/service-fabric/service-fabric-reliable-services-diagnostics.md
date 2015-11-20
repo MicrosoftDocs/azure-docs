@@ -25,10 +25,7 @@ The EventSource name for Stateful Reliable Service StatefulServiceBase class is 
 [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service 
 is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Service Fabric also offers the option of directing these events to [Application Insights](http://azure.microsoft.com/services/application-insights/). For more information on this, please see 
-the article on [Application Insights setup for Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
-
-Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), 
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), 
 [Microsoft Azure Diagnostics](../cloud-services-dotnet-diagnostics.md) and the 
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
