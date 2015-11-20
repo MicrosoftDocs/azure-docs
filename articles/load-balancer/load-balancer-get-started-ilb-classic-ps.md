@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create internal load balancer using PowerShell in the classic deployment model | Microsoft Azure"
+   pageTitle="Create an internal load balancer using PowerShell in the classic deployment model | Microsoft Azure"
    description="Learn how to create an internal load balancer using PowerShell in the classic deployment model"
    services="load-balancer"
    documentationCenter="na"
@@ -176,9 +176,8 @@ To obtain additional information about Internal Load Balancing cmdlets, run the 
 
 - Get-help Remove-AzureInternalLoadBalancer -full
 
-## See also
+## Next steps
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

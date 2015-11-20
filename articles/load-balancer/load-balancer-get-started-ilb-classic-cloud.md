@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create internal load balancer for cloud services in the classic deployment model | Microsoft Azure"
+   pageTitle="Create an internal load balancer for cloud services in the classic deployment model | Microsoft Azure"
    description="Learn how to create an internal load balancer using PowerShell in the classic deployment model"
    services="load-balancer-ilb"
    documentationCenter="na"
@@ -83,9 +83,8 @@ Following the same values from the example above, let's add the values to the se
 The network traffic will be load balanced using the testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.
 
 
-## See also
+## Next steps
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

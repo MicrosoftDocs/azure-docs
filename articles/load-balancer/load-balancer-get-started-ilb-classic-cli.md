@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create internal load balancer using the Azure CLI in the classic deployment model | Microsoft Azure"
+   pageTitle="Create an internal load balancer using the Azure CLI in the classic deployment model | Microsoft Azure"
    description="Learn how to create an internal load balancer using the Azure CLI in the classic deployment model"
    services="load-balancer"
    documentationCenter="na"
@@ -184,8 +184,6 @@ Check out `azure vm endpoint --help` for more information.
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
-
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create internal load balancer using a template in Resource Manager | Microsoft Azure"
+   pageTitle="Create an internal load balancer using a template in Resource Manager | Microsoft Azure"
    description="Learn how to create an internal load balancer using a template in Resource Manager"
    services="load-balancer"
    documentationCenter="na"
@@ -46,8 +46,8 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
 >[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
 
-3. Download the [parameters](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) file to your local disk.
-4. Edit the file and save it.
+3.Download the [parameters](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) file to your local disk.<BR>
+4. Edit the file and save it.<BR>
 5. Run the **New-AzureResourceGroup** cmdlet to create a resource group using the template. 
 
 
@@ -78,6 +78,11 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
 
 
+## Next steps
+
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
 
 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create internal load balancer using the Azure CLI in Resource Manager | Microsoft Azure"
+   pageTitle="Create an internal load balancer using the Azure CLI in Resource Manager | Microsoft Azure"
    description="Learn how to create an internal load balancer using the Azure CLI in Resource Manager"
    services="load-balancer"
    documentationCenter="na"
@@ -254,8 +254,7 @@ Where **nrprg** is the resource group and **ilbset** the internal load balancer 
 
 ## Next steps
 
-[Get started configuring an Internet facing load balancer](load-balancer-get-started-internet-arm-cli.md)
-
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+

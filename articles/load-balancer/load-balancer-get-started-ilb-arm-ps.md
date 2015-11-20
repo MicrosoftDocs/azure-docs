@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -278,7 +278,7 @@ Use the command Remove-AzureLoadBalancer to delete a previously created load bal
 
 
 
-## See Also
+## Next steps
 
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
