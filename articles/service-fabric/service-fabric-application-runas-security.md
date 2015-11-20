@@ -270,7 +270,7 @@ The application manifest below shows many of the different settings described ab
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
