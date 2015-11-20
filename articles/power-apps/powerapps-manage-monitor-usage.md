@@ -86,7 +86,7 @@ As a PowerApps Admin, you can delete any app, including PowerApps and other type
 As a PowerApps admin, you can add or remove users and groups to PowerApps.
 
 1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
-2. In the **All apps** tile, select **PowerApps**:  	
+2. In the **All apps** tile, select **PowerApps**:  
 ![][3]  
 3. Select a PowerApp, such as **Service Desk**. 
 4. In **Settings**, select **App user access**:  
@@ -145,7 +145,7 @@ Different security methods are used, depending on what you're doing. Here's what
 	- When you create the App Service Environment, you add users or groups to PowerApps, and you can remove users or groups from PowerApps. For example, you can add specific Administrator groups within your company to the *Owners* role; which allows them to create APIs and connections. These APIs and connections are then added to apps created in PowerApps.
 	- When you add users to apps like Web apps, Logic apps, Mobile apps or Logic apps. You can choose the role for these users.  
 		
-		Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) within Azure. Some roles include:   
+		Adding users and assigning roles is just like using [Role-based access control](../role-based-access-control-configure.md) within Azure. Some roles include:   
 
 		Role | Description
 		--- | ---
@@ -161,9 +161,9 @@ In this topic, you read about the different options to manage your PowerApps and
 
 Now that your Azure portal experience is configured, let's start creating your PowerApps. These are good starters:
 
-- [Create an app from a template in PowerApps](get-started-test-drive.md) 
-- [Create an app from data in PowerApps](get-started-create-from-data.md) 
-- [Create an app from scratch in PowerApps](get-started-create-from-blank.md)
+- [Create an app from a template in PowerApps](https://pwrapps-frontend-westus-01-staging.azurewebsites.net/tutorials/get-started-test-drive) 
+- [Create an app from data in PowerApps](https://pwrapps-frontend-westus-01-staging.azurewebsites.net/tutorials/get-started-create-from-data/) 
+- [Create an app from scratch in PowerApps](https://pwrapps-frontend-westus-01-staging.azurewebsites.net/tutorials/get-started-create-from-blank/)
 
 
 [1]: ./media/powerapps-manage-monitor-usage/addadmin.png

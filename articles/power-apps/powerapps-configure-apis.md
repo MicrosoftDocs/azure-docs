@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="guayan"/>
 
 # Update an existing API and its properties
@@ -59,10 +59,10 @@ Authenticate with backend service | After registering your backend service in th
 
 - To learn more about Swagger 2.0, see the [official Swagger website](http://swagger.io).
 - To learn more about how to get Swagger 2.0 when developing your API, see:  
-	- [Create an ASP.NET API app in Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-dotnet-create-api-app/)
-	- [Build and deploy a Java API app in Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-api-java-api-app/)
-	- [Build and deploy a Node.js API app in Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-api-nodejs-api-app/)
-	- [Customize Swashbuckle-generated API definitions](https://azure.microsoft.com/documentation/articles/app-service-api-dotnet-swashbuckle-customize/)
+	- [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
+	- [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
+	- [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
+	- [Customize Swashbuckle-generated API definitions](../app-service-api-dotnet-swashbuckle-customize.md)
 - To learn more about best practices of using Swagger 2.0 for PowerApps, see [Develop an API for PowerApps](powerapps-develop-api.md).
 
 ## Update the XML policy of your API
@@ -74,7 +74,7 @@ Authenticate with backend service | After registering your backend service in th
 
 This policy is the same policy supported by [Azure API Management](https://azure.microsoft.com/services/api-management). The current policy is in the embedded XML editor. You can either edit inline or upload a new XML file. After you **Save** your changes, any errors are shown in this blade, including any issues with the API policy.
 
-[Policies in Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-howto-policies) is a good resource to learn more about configuring and understanding policies.
+[Policies in Azure API Management](../api-management-howto-policies.md) is a good resource to learn more about configuring and understanding policies.
 
 
 ## Summary and next steps

@@ -22,7 +22,7 @@ PowerApps supports registering existing APIs hosted anywhere in the cloud or on-
 - Implement some new functionality for your organization to use.
 - Build on top of existing functionality or data to provide a better experience for users building their PowerApps.
 
-When you host your APIa in your app service environment, you leverage all the existing capabilities of the [app service environment](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/), and also get a better integration experience.
+When you host your APIs in your app service environment, you leverage all the existing capabilities of the [app service environment](../app-service-app-service-environment-intro.md), and also get a better integration experience.
 
 To use these APIs, you must "register" the APIs in the Azure portal. The following options are available: 
 
@@ -42,11 +42,11 @@ This article shows you how to register an API hosted in your app service environ
 
 Developing an API in the app service environment is straightforward. You choose your favorite programming language to build a web API, and then use [Swagger 2.0](http://swagger.io) to describe the API definition. Some examples include:  
 
-- [Create an ASP.NET API app in Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-dotnet-create-api-app/)
-- [Build and deploy a Java API app in Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-api-java-api-app/)
-- [Build and deploy a Node.js API app in Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-api-nodejs-api-app/)
+- [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
+- [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
+- [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
 
-You also have options to deploy your web API into an app service environment, including deploying from Visual Studio, and deploying continuously using a source control system.  [Deploy a web app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/) is a good resource. 
+You also have options to deploy your web API into an app service environment, including deploying from Visual Studio, and deploying continuously using a source control system.  [Deploy a web app in Azure App Service](../web-sites-deploy.md) is a good resource. 
 
 ## Register your custom API in the app service environment
 
@@ -70,13 +70,11 @@ After the API is deployed to your app service environment, use the following ste
 ## Summary and next steps
 In this topic, you've seen how to register an APIs hosted in your app service environment. Here are some related topics and resources for learning more about PowerApps: 
 
-- [Configure APIs][21]
-- [Add a new API, add a connection, and give users access][22]
+- [Configure APIs](../powerapps-configure-apis.md)
+- [Add a new API](../powerapps-register-from-available-apis.md)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
 [12]: ./media/powerapps-register-api-hosted-in-app-service/add-api-button.png
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
-[21]: powerapps-configure-apis.md
-[22]: powerapps-create-new-connector.md
