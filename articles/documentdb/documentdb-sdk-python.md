@@ -30,7 +30,7 @@
 <tr><td>**Download**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
 <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**Documentation**</td><td>[Python SDK Reference Documentation](http://azure.github.io/azure-documentdb-python/)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the Python SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-python-application/)</td></tr>
+<tr><td>**Get Started**</td><td>[Get started with the Python SDK](https://azure.microsoft.com/documentation/articles/documentdb-python-application/)</td></tr>
 <tr><td>**Current Supported Platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
@@ -85,4 +85,4 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 ## See Also
 
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) service page. 
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
