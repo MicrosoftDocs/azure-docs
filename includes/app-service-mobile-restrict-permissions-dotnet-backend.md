@@ -12,7 +12,7 @@ By default, APIs in a Mobile App backend can be invoked anonymously. Next, you n
 
 + **Node.js backend (code)** :  
 	
-	Add the following line to the Node.js server script to require authentication for table access:
+	To require authentication for table access, add the following line to the Node.js server script:
 
 
         table.access = 'authenticated';
