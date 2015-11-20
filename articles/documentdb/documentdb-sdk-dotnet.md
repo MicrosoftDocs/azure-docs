@@ -30,8 +30,8 @@
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**Samples**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-get-started/)</td></tr>
-<tr><td>**Current Supported Framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)</td></tr>
+<tr><td>**Get Started**</td><td>[Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/documentation/articles/documentdb-get-started/)</td></tr>
+<tr><td>**Current Supported Framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
 ## Release Notes
@@ -93,7 +93,7 @@ There was a change of NuGet package name between preview and GA. We moved from *
 
 
 ### <a name="0.9.x-preview"/>[0.9.x-preview](https://www.nuget.org/packages/Microsoft.Azure.Documents.Client)
-- Preview SDKs [Obselete]
+- Preview SDKs [Obsolete]
 
 ## Release & Retirement Dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -126,4 +126,4 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
 
 ## See Also
 
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) service page. 
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
