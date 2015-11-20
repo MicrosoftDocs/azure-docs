@@ -94,7 +94,9 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 
     ![][1]
 	
-16. By default, App Service provides login but does not restrict access to your site content and APIs - this is the responsibility of your app code. If you wish to have the site completely protected by Azure Active Directory login, change the **Action to take when request is not authenticated** dropdown to use the **Azure Active Directory** option. This will require all requests to be authenticated; unauthenticated requests will be redirected to log in with Azure Active Directory.
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+
+17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
 17. Click **Save**. 
 
