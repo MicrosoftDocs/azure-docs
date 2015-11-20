@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
+   ms.date="11/20/2015"
    ms.author="seanmck"/>
 
 # Build a web service front-end for your application
@@ -38,7 +38,7 @@ ASP.NET 5 is a lightweight, cross-platform web development framework, enabling t
 
 	![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
 
-  Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way and each can be independently versioned and upgraded.
+    Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way and each can be independently versioned and upgraded.
 
 ## Run the application
 
@@ -50,9 +50,9 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
 3. Add `/api/values` to the location in the browser. This will invoke the `Get` method on the ValuesController in the Web API template and return the default response provided by the template, a JSON array containing two strings:
 
-  ![Default values returned from ASP.NET 5 Web API template][browser-aspnet-template-values]
+    ![Default values returned from ASP.NET 5 Web API template][browser-aspnet-template-values]
 
-  By the end of the tutorial, we will have replaced these default values with the most recent counter value from our stateful service.
+    By the end of the tutorial, we will have replaced these default values with the most recent counter value from our stateful service.
 
 ## Connect the services
 
@@ -68,27 +68,27 @@ We will start by creating the interface to act as the contract between the state
 
 2. Choose the Visual C# entry in the left navigation pane and then select the **Class Library** template. Ensure that the .NET framework version is set to 4.5.1.
 
-  ![Creating an interface project for your stateful service][vs-add-class-library-project]
+    ![Creating an interface project for your stateful service][vs-add-class-library-project]
 
 3. In order for an interface to be usable by `ServiceProxy`, it must derive from the IService interface, which is included in one of the Service Fabric NuGet packages. To add the package, right-click your new class library project and choose **Manage NuGet Packages**.
 
 4. Ensure that the **Include Prerelease** checkbox is selected, then search for **Microsoft.ServiceFabric.Services** package and install it.
 
-  ![Adding the Services NuGet package][vs-services-nuget-package]
+    ![Adding the Services NuGet package][vs-services-nuget-package]
 
 5. In the class library, create an interface with a single method, `GetCountAsync`, and extend the interface from IService.
 
-  ```c#
-  namespace MyStatefulService.Interfaces
-  {
-      using Microsoft.ServiceFabric.Services;
+    ```c#
+    namespace MyStatefulService.Interfaces
+    {
+        using Microsoft.ServiceFabric.Services;
 
-      public interface ICounter: IService
-      {
-          Task<long> GetCountAsync();
-      }
-  }
-  ```
+        public interface ICounter: IService
+        {
+            Task<long> GetCountAsync();
+        }
+    }
+    ```
 
 ### Implement the interface in your stateful service
 
@@ -96,31 +96,32 @@ Now that we have defined the interface, we need to implement it in our stateful 
 
 1. In your stateful service, add a reference to the class library project containing the interface.
 
-  ![Adding a reference to the class library project in the stateful service][vs-add-class-library-reference]
+    ![Adding a reference to the class library project in the stateful service][vs-add-class-library-reference]
 
 2. Locate the class which inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface.
 
-  ```c#
-  public class MyStatefulService : StatefulService, ICounter
-  {        
-        // ...
-  }
-  ```
+    ```c#
+    public class MyStatefulService : StatefulService, ICounter
+    {        
+          // ...
+    }
+    ```
+
 3. Now implement the single method defined the `ICounter` interface, `GetCountAsync`.
 
-  ```c#
-  public async Task<long> GetCountAsync()
-  {
-    var myDictionary =
-      await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+    ```c#
+    public async Task<long> GetCountAsync()
+    {
+      var myDictionary =
+        await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-      using (var tx = this.StateManager.CreateTransaction())
-      {          
-          var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-          return result.HasValue ? result.Value : 0;
-      }
-  }
-  ```
+        using (var tx = this.StateManager.CreateTransaction())
+        {          
+            var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
+            return result.HasValue ? result.Value : 0;
+        }
+    }
+    ```
 
 ### Expose the stateful service using ServiceCommunicationListener
 
@@ -153,21 +154,21 @@ Our stateful service is now ready to receive traffic from other services so all 
 
 3. In the controllers folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2", which matches what we saw earlier in the browser. Replace this implementation with the following code:
 
-  ```c#
-  public async Task<IEnumerable<string>> Get()
-  {
-      ICounter counter =
-          ServiceProxy.Create<ICounter>(0, new Uri("fabric:/MyApp/MyStatefulService"));
+    ```c#
+    public async Task<IEnumerable<string>> Get()
+    {
+        ICounter counter =
+            ServiceProxy.Create<ICounter>(0, new Uri("fabric:/MyApp/MyStatefulService"));
 
-      long count = await counter.GetCountAsync();
+        long count = await counter.GetCountAsync();
 
-      return new string[] { count.ToString() };
-  }
-  ```
+        return new string[] { count.ToString() };
+    }
+    ```
 
   The first line of code is the key one. To create the ICounter proxy to the stateful service, you need to provide two pieces of information: a partition ID and the name of the service.
 
-  Partitioning enables you to scale stateful services by breaking up their state into different buckets based on a key that you define, such as customer ID or post code.  In  of our trivial application, the stateful service only has one partition so the key doesn't matter - any key that you provide will lead to the same partition.
+  Partitioning enables you to scale stateful services by breaking up their state into different buckets based on a key that you define, such as customer ID or post code.  In our trivial application, the stateful service only has one partition so the key doesn't matter - any key that you provide will lead to the same partition.
 
   The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
 
@@ -177,9 +178,9 @@ Our stateful service is now ready to receive traffic from other services so all 
 
 4. Hit F5 again to run the modified application. As before, Visual Studio will automatically launch the browser to the root of the web project. Add the "api/values" path and you should see the current counter value returned.
 
-  ![The stateful counter value displayed in the browser][browser-aspnet-counter-value]
+    ![The stateful counter value displayed in the browser][browser-aspnet-counter-value]
 
-  Refresh the browser periodically to see the counter value update.
+    Refresh the browser periodically to see the counter value update.
 
 
 ## What about actors?
