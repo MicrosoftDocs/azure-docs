@@ -13,8 +13,8 @@ Max bandwidth per account (ingress + egress<sup>1</sup>)|<=50 Gbps
 Premium Storage Disk Type | P10 | P20 | P30
 ---|---|---|---
 Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
-IOPS per disk | 500 | 2300 | 5000
-Throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
+Max IOPS per disk | 500 | 2300 | 5000
+Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
 Max number of highly utilized disks | 62 | 41 | 31
 
 
