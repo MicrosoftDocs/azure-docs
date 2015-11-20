@@ -62,10 +62,9 @@ SharePoint Server makes use of AD for user authentication. APIs in ASE are authe
 	- Assign users and group to the application
 	- Specify advanced configuration like the SPN (Service Principal Name) that is used by the Application Proxy Connector to fetch the Kerberos token on-premises
 
-Once the Proxy app has been created, you have to create another AAD app that delegates to the proxy application. This is required to obtain the access token and refresh token that is required for the consent flow. You can create a new AAD application by following [these instructions][1].
+Once the Proxy app has been created, you have to create another AAD app that delegates to the proxy application. This is required to obtain the access token and refresh token that is required for the consent flow. You can create a new AAD application by following [these instructions](../active-directory-integrating-applications.md).
 
 <!--References-->
-[1]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/  
-[2]: https://msdn.microsoft.com/en-us/library/azure/dn768219.aspx
-[3]: https://msdn.microsoft.com/en-us/library/azure/dn768214.aspx
-[4]: https://msdn.microsoft.com/en-us/library/azure/dn768220.aspx
+[2]: https://msdn.microsoft.com/library/azure/dn768219.aspx
+[3]: https://msdn.microsoft.com/library/azure/dn768214.aspx
+[4]: https://msdn.microsoft.com/library/azure/dn768220.aspx

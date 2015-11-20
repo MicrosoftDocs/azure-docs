@@ -41,11 +41,11 @@
 
 You can connect to SQL Server on-premise. In order to establish this hybrid connectivity, you can leverage existing hybrid networking solutions in Azure such as:
 
-- [ExpressRoute][1]
-- [Site-to-site VPN][2]
-- [Point-to-site connectivity][3]
+- [ExpressRoute](../expressroute-introduction.md)
+- [Site-to-site VPN](../vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Point-to-site connectivity](../vpn-gateway-point-to-site-create.md)  
 	>Note: Every ASE has a virtual  network associated with it. You can establish above mentioned network connectivity to this virtual network.
-- [Hybrid connections][4]
+- [Hybrid connections](../web-sites-hybrid-connection-get-started.md)  
 	>Note: Every registered API in your ASE has a corresponding web app. You can establish hybrid connections from this web app just like you can from any other web app.
 	
 The below is an example showing how to create a hybrid connection assuming that you already created a SQL Server API.
@@ -58,7 +58,7 @@ The below is an example showing how to create a hybrid connection assuming that 
 
 	![Sql Web app](./media/powerapps-create-api-sqlserver/sqlwebapp.png)
 
-3.   Select on Networking under Settings, click **Configure your hybrid connection endpoints** and follow [these instructions](https://azure.microsoft.com/documentation/articles/web-sites-hybrid-connection-get-started/) to create the hybrid connection.
+3.   Select on Networking under Settings, click **Configure your hybrid connection endpoints** and follow [these instructions](../web-sites-hybrid-connection-get-started.md) to create the hybrid connection.
 
 	![Networking](./media/powerapps-create-api-sqlserver/network.png)
 
@@ -86,8 +86,4 @@ The below is an example showing how to create a hybrid connection assuming that 
 
 Now that you have created the connection, you can follow [these steps](https://github.com/Azure/azure-content-pr/blob/release-power-apps/articles/power-apps/powerapps-create-new-api.md) to configure the users or groups who have access to use this connection to build apps. 
 
-<!--References-->
-[1]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[2]: https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell/
-[3]: https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/
-[4]: https://azure.microsoft.com/documentation/articles/web-sites-hybrid-connection-get-started/
+

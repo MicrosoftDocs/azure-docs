@@ -42,7 +42,7 @@ Following steps are required to register a Twitter API for your organization's A
 > This step requires a Twitter account. If you don't already have one, you can [sign up for a free Twitter account][1].
 
 
-1. Navigate to [https://apps.twitter.com/][2] and sign in with your twitter account
+1. Navigate to [https://apps.twitter.com/][2] and sign in with your twitter account:  
 ![Twitter apps page][3]
 2. Click on 'Create New App'
 3. Provide the following information
@@ -69,7 +69,7 @@ Following steps are required to register a Twitter API for your organization's A
 	- **Name**: Name of your API
 	- **Source**: Leave it to 'Marketplace' (default)
 	- **API**: Click on API and in the 'Select from Marketplace' blade that opens up select _Twitter_
-	- **Settings**: Provide the consumer id and consumer secret values obtained from the previous step.
+	- **Settings**: Provide the consumer id and consumer secret values obtained from the previous step.  
 	![Configure twitter api][5]
 - Click on OK to complete the Twitter API configuration
 - Click on OK to create the Twitter API

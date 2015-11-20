@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="guayan"/>
 
 # Configure an API to connect to a backend resource on an Azure Active Directory domain
@@ -53,7 +53,7 @@ To access the backend system on an AAD domain, create an AAD application, and gi
 7. Select **Save** at the bottom. 
 8. Copy the **client ID** and **key** and store them. The key isn't shown again after you close Azure portal. 
 
-See [Integrating Applications with Azure Active Directory][12] to learn more about  AAD applications. 
+See [Integrating Applications with Azure Active Directory](../active-directory-integrating-applications.md) to learn more about  AAD applications. 
 
 ## Step 2: Configure your API using Azure PowerShell
 
@@ -138,7 +138,7 @@ Optionally, you can also use API policy to set the AAD token into the standard H
 </policies>
 ```
 
-Looking at this policy, it basically lets you reference the values in the **x-ms-apim-tokens** header as a decoded JObject using a **tokens** variable. Then you can use the **set-header** policy to get the actual AAD token and set it to the **Authorization** header. This is the same policy used by [Azure API Management][22]. To learn more, see [Policies in Azure API Management][23].
+Looking at this policy, it basically lets you reference the values in the **x-ms-apim-tokens** header as a decoded JObject using a **tokens** variable. Then you can use the **set-header** policy to get the actual AAD token and set it to the **Authorization** header. This is the same policy used by [Azure API Management](https://azure.microsoft.com/services/api-management/). To learn more, see [Policies in Azure API Management](../api-management-howto-policies.md).
 
 **Notice** that the property name **token** matches the connection parameter name you used when configuring the setting.
 
@@ -146,12 +146,11 @@ Looking at this policy, it basically lets you reference the values in the **x-ms
 
 In this topic, you've seen how to configure an API to connect (and authenticate) to a backend resource on an Azure Active Directory domain. Here are some related topics and resources for learning more about PowerApps.
 
-- [Develop an API for PowerApps][21]
+- [Develop an API for PowerApps](powerapps-develop-api.md)
 
 
 <!--References-->
-[11]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[12]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
+[11]: ../powershell-install-configure.md
 [13]: https://manage.windowsazure.com
 [14]: ./media/powerapps-configure-apis-aad/aad-applications-tab.png
 [15]: ./media/powerapps-configure-apis-aad/aad-application-configure-tab.png
@@ -160,6 +159,3 @@ In this topic, you've seen how to configure an API to connect (and authenticate)
 [18]: ./media/powerapps-configure-apis-aad/aad-application-add-permissions.png
 [19]: https://portal.azure.com
 [20]: https://tools.ietf.org/html/rfc4648
-[21]: powerapps-develop-api.md
-[22]: https://azure.microsoft.com/services/api-management/
-[23]: https://azure.microsoft.com/documentation/articles/api-management-howto-policies

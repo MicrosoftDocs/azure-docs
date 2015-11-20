@@ -163,7 +163,7 @@ The regular Azure app service environment has different features. See [Introduct
   
 5. Next, enter the name, select the subscription you want to use, select or create a new resource group, and select a virtual network. **Notice** that after you choose a virtual network, it cannot be changed:  
 ![][8]  
-For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](https://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/). 
+For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](../app-service-web-how-to-create-an-app-service-environment.md). 
 
 6. Select **Add** to complete creating the app service environment. 
 
@@ -180,7 +180,7 @@ To get access to the app service environment, create APIs, connections and other
 ![][9]
 3. Select the RBAC icon to manage permissions:  
 ![][10]  
-	Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) within Azure.
+	Adding users and assigning roles is just like using [Role-based access control](../role-based-access-control-configure.md) within Azure.
 
 > AZURE.NOTE Currently, you cannot give RBAC permissions to the app service environment. You can give RBAC permissions at the parent resource group level.
 
@@ -189,7 +189,7 @@ Your company is now signed up for PowerApps and has an app service environment. 
 
 - [Monitor your PowerApps apps](powerapps-manage-monitor-usage.md)
 - [Develop an API for PowerApps](powerapps-develop-api.md)
-- [Add a new API, add a connection, and give users access](powerapps-create-new-api.md)
+- [Add a new API](powerapps-register-from-available-apis.md)
 - [Update an existing API and its properties](powerapps-configure-apis.md)
 
 
