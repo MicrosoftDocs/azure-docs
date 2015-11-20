@@ -94,4 +94,9 @@ When a user opens Azure Security Center he will only see recommendations and ale
 To edit a security policy, you must be an Owner, Contributor, or Security Admin of the subscription.
 
 ### What types of virtual machines will be supported?
-Azure Security Center will offer baseline, system update, and endpoint protection (antimalware) monitoring along with automatic collection/analysis of local security events for Windows virtual machines (Classic and Resource Manager). For Linux virtual machines (Classic and Resource Manager), Azure Security Center will offer baseline monitoring initially and over time will add support for additional monitoring, system update and data collection/analysis. Network controls like Access Control Lists and Network Security Groups along with analysis of network traffic will be supported for all virtual machines.
+Both Classic and Resource Manager virtual machines are supported.
+
+Access Control List recommendations apply to Classic virtual machines, and Network Security Groups currently only apply to Resource Manager virtual machines.
+
+### Are Linux virtual machines supported?
+Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distributions (distros). 

@@ -54,7 +54,7 @@ To see the details of each recommendation:
 2. You can filter the recommendations presented to you by state and severity. Click **Filter** on the **Recommendations** blade. The Filter blade opens and you select the severity and state values you wish to see.
 ![][3]
 
-3. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. Right click an item and select **Dismiss** or hover over an item, click the three dots that appear to the right, and select **Dismiss**.
+3. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. Right click an item and select **Dismiss** or hover over an item, click the three dots that appear to the right, and select **Dismiss**. You can view dismissed recommendations by clicking **Filter** and selecting **Dismissed**.
 ![][4]
 
 The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
@@ -75,16 +75,16 @@ Use the table below as a reference to understand the available recommendations a
 | Recommendation | Description |
 |----- |-----|
 | Enable Data Collection for subscriptions/virtual machines | Recommends that you turn on Data Collection in the Security Policy for select VMs. |
-| Resolve mismatch baseline rules | Recommends that you align OS configurations with the recommended baselines, eg do not allow passwords to be saved. |
-| Apply system updates | Recommends that you deploy missing system updates to VMs. |
-| Configure ACLs for endpoint | Recommends that you configure an Access Control list to restrict inbound access to VMs. |
-| Add a web application firewall | Recommends that you deploy a Web Application Firewall (WAF) for web endpoints. |
+| Resolve mismatch baseline rules | Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved. |
+| Apply system updates | Recommends that you deploy missing system updates to VMs (Windows VMs only). |
+| Configure ACLs for endpoint | Recommends that you configure an Access Control list to restrict inbound access to VMs (Classic VMs only). |
+| Add a web application firewall | Recommends that you deploy a Web Application Firewall (WAF) for web endpoints (Resource Manager VMs only). |
 | Finalize web application firewall setup | To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. This recommendation will complete the necessary setup changes. |
-| Enable Antimalware | Recommends that you provision antimalware to VMs. |
-| Enable Network Security Groups on subnets/network interfaces | Recommends that you enable Network Security Groups (NSGs) on subnets and network interfaces. |
+| Enable Antimalware | Recommends that you provision antimalware to VMs (Windows VMs only). |
+| Enable Network Security Groups on subnets/network interfaces | Recommends that you enable Network Security Groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).  |
 | Restrict access through public external endpoints | Recommends that you configure inbound traffic rules for NSGs. |
-| Enable SQL Auditing on SQL servers/databases | Recommends that you turn on Auditing for SQL servers and databases. |
-| Enable Transparent Data Encryption on SQL databases | Recommends that you enable encryption for SQL databases. |
+| Enable SQL Auditing on SQL servers/databases | Recommends that you turn on Auditing for Azure SQL servers and databases (Azure SQL service only, not including SQL running on your virtual machines). |
+| Enable Transparent Data Encryption on SQL databases | Recommends that you enable encryption for SQL databases (Azure SQL service only). |
 | Deploy the VM Agent | Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. Information on how to install the VM Agent is available [here](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) |
 
 ## Applying recommendations
