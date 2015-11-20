@@ -107,7 +107,7 @@ Create a public IP address (PIP) named *PublicIP* to be used by a frontend IP po
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT] The load balancer will use the domain label of the public IP as its FQDN. This is a change from classic deployment model which uses the cloud service as the load balancer FQDN. 
+>[AZURE.IMPORTANT] The load balancer will use the domain label of the public IP as prefix for its FQDN. This is a change from classic deployment model which uses the cloud service as the load balancer FQDN. 
 >In this example, the FQDN will be *loadbalancernrp.westus.cloudapp.azure.com*.
 
 ## Create a front end IP pool and a backend address pool
@@ -128,14 +128,13 @@ Create a back end address pool named *LB-backend*.
 
 The example below creates the following items:
 
-- a NAT rule to translate all incoming traffic on port 3441 to port 3389<sup>1</sup>
+- a NAT rule to translate all incoming traffic on port 3441 to port 3389
 - a NAT rule to translate all incoming traffic on port 3442 to port 3389.
 - a load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back end pool.
 - a probe rule which will check the health status on a page named *HealthProbe.aspx*.
 - a load balancer that uses all the objects above.
 
 
-<sup>1</sup> NAT rules are associated to a specific virtual machine instance behind the load balancer. The incoming network traffic to port 3341 will be sent to a specific virtual machine on port 3389 associated with a NAT rule in the example below. You have to choose a protocol for NAT rule, UDP or TCP. Both protocols can't be assigned to the same port. 
 
 ### Step 1
 
