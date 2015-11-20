@@ -61,7 +61,7 @@ The variables should be replaced as follows:
 - **Redirect URI of the native app** can be found on the **Configure** page of the native application.
 
 ![](./media/active-directory-application-proxy-native-client/new_native_app.png)
-</br> </br>For more information about the native application flow, see [Native application to web API](https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/#native-application-to-web-api).
+</br> </br>For more information about the native application flow, see [Native application to web API](active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 
 
