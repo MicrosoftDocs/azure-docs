@@ -74,8 +74,8 @@ You can use Java to [create a certificate](../app-service-web/java-create-azure-
 
 ## Next steps
 
-[Upload your service certificate to the Azure Portal](cloud-services-configure-ssl-certificate.md) (or the [Preview Portal](cloud-services-configure-ssl-certificate-portal.md)) and [configure them](cloud-services-xml-certs.md) for the cloud service.
+[Upload your service certificate to the Azure classic portal](cloud-services-configure-ssl-certificate.md) (or the [Preview Portal](cloud-services-configure-ssl-certificate-portal.md)) and [configure them](cloud-services-xml-certs.md) for the cloud service.
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure Portal.
+Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal.
 
->[AZURE.NOTE] The Azure Preview Portal does not use management certificates to access the API but instead uses user accounts.
+>[AZURE.NOTE] The Azure portal does not use management certificates to access the API but instead uses user accounts.

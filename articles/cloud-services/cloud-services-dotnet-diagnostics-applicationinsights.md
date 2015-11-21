@@ -32,7 +32,7 @@ Follow these steps to setup your cloud service project to send Azure Diagnostics
 
 ![Role designer send diagnostics data to application insights][2]
 
-3) In the dialog that pops up select the Application Insights Resource that you would like to send the Azure diagnostics data to. The dialog allows you to select an existing Application Insights resource from your subscription or manually specify an instrumentation key for an Application Insights resource. If you don't have an existing Application Insights resource then you can create on by clicking on the **Create a new resource** link which will open a browser window to the Azure portal where you can create an Application Insights Resource. For more information on creating an Application Insights resource see [Create a new Application Insights resource](app-insights-create-new-resource.md)
+3) In the dialog that pops up select the Application Insights Resource that you would like to send the Azure diagnostics data to. The dialog allows you to select an existing Application Insights resource from your subscription or manually specify an instrumentation key for an Application Insights resource. If you don't have an existing Application Insights resource then you can create on by clicking on the **Create a new resource** link which will open a browser window to the Azure classic portal where you can create an Application Insights Resource. For more information on creating an Application Insights resource see [Create a new Application Insights resource](app-insights-create-new-resource.md)
 
 ![select application insights resource][3]
 
