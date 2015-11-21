@@ -1,8 +1,8 @@
-
 <properties
 	pageTitle="Check your app usage in PowerApps | Microsoft Azure"
 	description="See all apps, APIs, users, app requests, and update permissions in the Azure portal"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="litran"/>
 
 

@@ -1,7 +1,8 @@
 <properties
 	pageTitle="What is PowerApps Enterprise and how to get started | Microsoft Azure"
 	description="Get started with PowerApps Enterprise and create App Service Environment"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="linhtranms"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/18/2015"
+   ms.date="11/20/2015"
    ms.author="litran"/>
 
 # What is Microsoft PowerApps enterprise?
@@ -139,7 +140,7 @@ An app service environment is an isolated and dedicated environment that securel
 - Billing is fixed and included with PowerApps.  
 - Scale is automatically managed for you. You don't have to monitor the environment to determine if additional compute resources are needed.
 
-The regular Azure app service environment has different features. See [Introduction to App Service Environment](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro) for those details.
+The regular Azure app service environment has different features. See [Introduction to App Service Environment](app-service-app-service-environment-intro.md) for those details.
 
 #### Requirements to get started
 

@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Add Microsoft Translator API in PowerApps | Azure"
 	description="Add a new Microsoft Translator API in your organization's App Service Environment"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="linhtranms"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="litran"/>
 
 #Create a new Microsoft Translator API in your organization's App Service Environment

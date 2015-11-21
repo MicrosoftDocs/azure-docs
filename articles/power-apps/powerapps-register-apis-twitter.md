@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Register your organization's Twitter API"
 	description="IT Doc: Register your organization's Twitter API"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="rajram"/>
 
 # Register Twitter API in App Service Environment

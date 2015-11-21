@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Add Salesforce API in PowerApps| Azure"
 	description="Add a new Salesforce API in your organization's App Service Environment"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="rajeshramabathiran"
 	manager="dwerde"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="rajram"/>
 
 #Create a new Salesforce API in your organization's App Service Environment

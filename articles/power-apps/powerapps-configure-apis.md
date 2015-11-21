@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Change or update your PowerApps API properties in the Azure portal | Microsoft Azure"
 	description="Add a custom icon, update the XML policy, or update the Swagger definition of your PowerApps API"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
