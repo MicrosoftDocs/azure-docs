@@ -19,6 +19,8 @@
 
 # App model v2.0 preview: Add sign-in to an AngularJS single page app - NodeJS
 
+<script src="https://gist.github.com/dstrockis/9320ad23c99d19754fba.js"></script>
+
 In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using Azure Active Directory's app model v2.0.  App model v2.0 enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 
 This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written in NodeJS and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source javascript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.micrososft.com) or the Azure Resource Manager APIs.
