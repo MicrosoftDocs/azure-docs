@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Create a new Dynamics CRM Online Connection Provider API"
 	description=""
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="LinhTran"
 	manager="gautamt"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/05/2015"
+   ms.date="11/20/2015"
    ms.author="litran"/>
 
 # Create a new Dynamics CRM Online Connection Provider API from Azure Marketplace

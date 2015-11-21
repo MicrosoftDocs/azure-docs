@@ -1,7 +1,8 @@
 <properties
 	pageTitle="What is PowerApps Enterprise and how to get started | Microsoft Azure"
 	description="Get started with PowerApps Enterprise and create App Service Environment"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="linhtranms"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/18/2015"
+   ms.date="11/20/2015"
    ms.author="litran"/>
 
 # What is Microsoft PowerApps enterprise?

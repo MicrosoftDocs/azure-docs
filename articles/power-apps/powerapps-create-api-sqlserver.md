@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Create a new SQL Server API in your organization's App Service Environment"
 	description="Create SQL Server API and connection to connect to data on-premise"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="linhtranms"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="litran"/>
 
 

@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Develop or create an API hosted in the app service environment in PowerApps | Microsoft Azure"
 	description="Learn how to register a custom API hosted in app service environment in the Azure portal"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/19/2015"
+   ms.date="11/20/2015"
    ms.author="guayan"/>
 
 # Register an API hosted in your App Service Environment
