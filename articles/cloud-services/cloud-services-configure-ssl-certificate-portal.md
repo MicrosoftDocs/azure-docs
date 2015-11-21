@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service (preview portal) | Microsoft Azure" 
+	pageTitle="Configure SSL for a cloud service  | Microsoft Azure" 
 	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -167,8 +167,6 @@ connect to it using HTTPS.
     >[AZURE.TIP] If you want to use SSL for a staging deployment instead of a production deployment, you'll first need to determine the URL used for the staging deployment. Once your cloud service has been deployed, the URL to the staging envorionment is determined by the **Deployment ID** GUID in this format: `https://deployment-id.cloudapp.net/`  
       
     >Create a certificate with the common name (CN) equal to the GUID-based URL (for example, **328187776e774ceda8fc57609d404462.cloudapp.net**), use the portal to add the certificate to your staged cloud service, add the certificate information to your CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package and CSCFG file.
-
-[Azure classic portal]: http://portal.azure.com/
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create and deploy a cloud service (preview portal) | Microsoft Azure"
+	pageTitle="How to create and deploy a cloud service  | Microsoft Azure"
 	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure portal."
 	services="cloud-services"
 	documentationCenter=""

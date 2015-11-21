@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure a custom domain name in Cloud Services (preview portal) | Microsoft Azure"
+	pageTitle="Configure a custom domain name in Cloud Services  | Microsoft Azure"
 	description="Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal."
 	services="cloud-services"
 	documentationCenter=".net"

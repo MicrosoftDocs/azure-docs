@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to configure a cloud service (preview portal) | Microsoft Azure" 
+	pageTitle="How to configure a cloud service  | Microsoft Azure" 
 	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -54,7 +54,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
     ![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 >[AZURE.NOTE]
->The operating system used for the cloud service cannot be changed using the **Azure portal**, you can only change this setting through the [non-preview portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+>The operating system used for the cloud service cannot be changed using the **Azure portal**, you can only change this setting through the [Azure classic portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
 ## Update a cloud service configuration file
 
@@ -86,7 +86,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 
 ## Configure remote access to role instances
 
-Remote access cannot be configured using the **Azure portal**, you can only change this setting through the [non-preview portal](http://manage.windowsazure.com/). This is described [here](cloud-services-role-enable-remote-desktop.md).
+Remote access cannot be configured using the **Azure portal**, you can only change this setting through the [Azure classic portal](http://manage.windowsazure.com/). This is described [here](cloud-services-role-enable-remote-desktop.md).
 			
 ## Next steps
 
