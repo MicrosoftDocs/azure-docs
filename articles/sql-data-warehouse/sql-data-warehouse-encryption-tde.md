@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) in SQL Data Warehouse| Microsoft Azure" 
-	description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) in SQL Data Warehouse" 
+	pageTitle="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse| Microsoft Azure" 
+	description="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse" 
 	services="sql-data-warehouse" 
 	documentationCenter="" 
 	authors="twounder" 
