@@ -63,7 +63,7 @@ Use **Swap** to promote a staging deployment of a cloud service to production. W
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**.
 
 2. In the list of cloud services, click the cloud service to select it.
 
@@ -85,7 +85,7 @@ To show your cloud service's dependencies on other resources, you can link an Az
 
 Use **Link** to link a new or existing SQL Database instance or storage account to your cloud service. You can then scale the database along with the cloud service role that is using it on the **Scale** page. (A storage account scales automatically as usage increases.) For more information, see [How to Scale a Cloud Service and Linked Resources](cloud-services-how-to-scale.md). 
 
-You also can monitor, manage, and scale the database in the **Databases** node of the Management Portal. 
+You also can monitor, manage, and scale the database in the **Databases** node of the Azure classic portal. 
 
 "Linking" a resource in this sense doesn't connect your app to the resource. If you create a new database using **Link**, you'll need to add the connection strings to your application code and then upgrade the cloud service. You'll also need to add connection strings if your app uses resources in a linked storage account.
 
@@ -93,7 +93,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 ### To link a SQL Database instance to a cloud service
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Click **Linked Resources**.
 
@@ -109,9 +109,9 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 4. Click **Create a new resource** or **Link an existing resource**.
 
-5. Choose the type of resource to link. In the [Management Portal](http://manage.windowsazure.com/), click **SQL Database**. (The Preview Management Portal does not support linking a storage account to a cloud service.)
+5. Choose the type of resource to link. In the [Azure classic portal](http://manage.windowsazure.com/), click **SQL Database**. (The Preview Azure classic portal does not support linking a storage account to a cloud service.)
 
-6. To complete the database configuration, follow instructions in help for the **SQL Databases** area of the Management Portal.
+6. To complete the database configuration, follow instructions in help for the **SQL Databases** area of the Azure classic portal.
 
 	You can follow the progress of the linking operation in the message area.
 
@@ -121,13 +121,13 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 ### To unlink a linked resource
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Click **Linked Resources**, and then select the resource.
 
 3. Click **Unlink**. Then click **Yes** at the confirmation prompt.
 
-	Unlinking a SQL Database has no effect on the database or the application's connections to the database. You can still manage the database in the **SQL Databases** area of the Management Portal.
+	Unlinking a SQL Database has no effect on the database or the application's connections to the database. You can still manage the database in the **SQL Databases** area of the Azure classic portal.
 
 
 
@@ -139,7 +139,7 @@ To save compute costs, you can delete your staging deployment after you verify t
 
 Use the following procedure to delete a deployment or your cloud service. 
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**.
 
 2. Select the cloud service, and then click **Delete**. (To select a cloud service without opening the dashboard, click anywhere except the name in the cloud service entry.)
 
@@ -155,7 +155,7 @@ Use the following procedure to delete a deployment or your cloud service.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
 > [AZURE.NOTE]
-> If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Management Portal" in <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">How to Monitor Cloud Services</a>.
+> If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Azure classic portal" in <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">How to Monitor Cloud Services</a>.
 
 
 ## Next steps

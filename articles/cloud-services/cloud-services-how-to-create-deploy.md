@@ -64,12 +64,12 @@ Three cloud service features require special configurations before you export a 
 
 - If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can upload the certificates to Azure as you create and deploy the cloud service. For information about certificates, see [Manage Certificates](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Management Portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Management Portal](http://msdn.microsoft.com/library/jj156209.aspx).
+- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Azure classic portal](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## How to: Create a cloud service using Quick Create
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -90,7 +90,7 @@ Three cloud service features require special configurations before you export a 
 
 ## How to: Upload a certificate for a cloud service
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
@@ -111,7 +111,7 @@ Three cloud service features require special configurations before you export a 
 
 ## How to: Deploy a cloud service
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
 
 	The dashboard opens in the Production environment, you could at this point select Staging to deploy your application in the staging environment. For more information, see [Manage Deployments in Azure](http://msdn.microsoft.com/library/gg433027.aspx).
 
