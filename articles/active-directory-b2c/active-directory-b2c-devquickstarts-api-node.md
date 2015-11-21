@@ -261,6 +261,8 @@ Create a `server.js` file in our favorite editor and add the following informati
 /**
 * Module dependencies.
 */
+var fs = require('fs');
+var path = require('path');
 var util = require('util');
 var assert = require('assert-plus');
 var mongoose = require('mongoose/');
@@ -268,7 +270,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
 Save the file. We will return to it shortly.
@@ -289,7 +291,7 @@ Create a `config.js` file in our favorite editor and add the following informati
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>',
-identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
+identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>',
 };
@@ -342,7 +344,7 @@ var users = [];
 var owner = null;
 // Our logger
 var log = bunyan.createLogger({
-name: 'Microsoft Azure Active Directory Sample'
+name: 'Windows Azure Active Directory Sample'
 });
 ```
 
@@ -595,7 +597,7 @@ Restify (and Express) have a lot of deep customization you can do for a REST API
 * Our Server
 */
 var server = restify.createServer({
-name: "Microsoft Azure Active Directroy TODO Server",
+name: "Windows Azure Active Directroy TODO Server",
 version: "2.0.1"
 });
 // Ensure we don't drop data on uploads
@@ -663,7 +665,7 @@ res.send(200, routes);
 next();
 });
 server.listen(serverPort, function() {
-var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
+var consoleMessage = '\n Windows Azure Active Directory Tutorial';
 consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
 consoleMessage += '\n %s server is listening at %s';
 consoleMessage += '\n Open your browser to %s/tasks\n';
@@ -712,7 +714,7 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 
 Then, we can add a task this way:
 
-`$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
+`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
 The response should be:
 
@@ -850,7 +852,7 @@ next();
 });
 ```
 
-## 18: Run your server application again and ensure it rejects you
+## 20: Run your server application again and ensure it rejects you
 
 Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We will do this before runnning any of our client SDKs against this endpoint. The headers returned should be enough to tell us we are down the right path.
 
