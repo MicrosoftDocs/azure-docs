@@ -85,7 +85,7 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 		OnRefreshItemsSelected ();
 
-4. In the Activity_To_Do.axml file, add the following LoginButton definition before the existing AddItem button definition:
+4. In the Activity_To_Do.axml file, add the following *LoginUser* button definition before the existing *AddItem* button:
 
       	<Button
             android:id="@+id/buttonLoginUser"
