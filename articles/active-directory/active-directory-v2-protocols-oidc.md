@@ -17,9 +17,8 @@
 	ms.date="11/19/2015"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Protocols - OpenID Connect Sign-In Flow
-OpenID Connect is an authentication protocol built on top of OAuth 2.0 that can be used to securely sign users into web applications.  Using Azure AD B2C's implementation of OpenID Connect, you can outsource sign-up, sign-in,
-and other identity management experiences in your web applications to Azure AD.  This guide will show you how to do so in a language-independent manner, describing how to send and receive HTTP messages without using any of our open-source libraries.
+# App model v2.0 preview: Protocols - OpenID Connect
+OpenID Connect is an authentication protocol built on top of OAuth 2.0 that can be used to securely sign users into web applications.  Using the app model v2.0's implementation of OpenID Connect, you can add sign in and API access to your web based applications.  This guide will show you how to do so in a language-independent manner, describing how to send and receive HTTP messages without using any of our open-source libraries.
 
 > [AZURE.NOTE]
 	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
@@ -28,6 +27,7 @@ and other identity management experiences in your web applications to Azure AD. 
 
 ## Send the Sign-In Request
 When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint.  This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md), with a few important distinctions:
+
 - The request must include the scope `openid` in the `scope` parameter.
 - The `response_type` parameter must include `id_token`
 - The request must include the `nonce` parameter

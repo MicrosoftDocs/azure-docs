@@ -23,6 +23,8 @@ In this article we'll add sign in with Microsoft powered accounts to an AngularJ
 
 This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written in NodeJS and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source javascript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.micrososft.com) or the Azure Resource Manager APIs.
 
+## Download
+
 To get started, you'll need to download & install [node.js](https://nodejs.org).  Then you can clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) a skeleton app:
 
 ```
@@ -35,7 +37,7 @@ The skeleton app includes all the boilerplate code for a simple AngularJS app, b
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 ```
 
-## Register an app with Microsoft
+## Register an app
 
 First, create an app in the [App Registration Portal](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
