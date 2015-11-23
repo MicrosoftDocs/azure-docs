@@ -317,25 +317,29 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 
         The format of $CCP_NODES_CORES follows this pattern:
 
-            ```
-            <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
-            ```
+        ```
+        <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
+        ```
 
         where
 
-            * `<Number of nodes>`: the number of nodes allocated to this job.
-            * `<Name of node_n_...>`: the name of each node allocated to this job.
-            * `<Cores of node_n_...>`: the number of cores on the node allocated to this job.
+        * `<Number of nodes>`: the number of nodes allocated to this job.  
+        
+        * `<Name of node_n_...>`: the name of each node allocated to this job.
+        
+        * `<Cores of node_n_...>`: the number of cores on the node allocated to this job.
 
-        For example, if the job needs 2 nodes to run, $CCP_NODES_CORES will be similar to:
-
-            `2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8`
-
+        For example, if the job needs 2 nodes to run, $CCP_NODES_CORES will be similar to
+        
+        ```
+        2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
+        ```
+        
     3.	Calls the **mpirun** command and appends 2 parameters to the command line.
 
-        *	**`--hostfile <hostfilepath>: <hostfilepath>`** - the path of the host file the script creates
+        * `--hostfile <hostfilepath>: <hostfilepath>` - the path of the host file the script creates
 
-        *	**`-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`** - an environment variable set by the HPC Pack head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
+        * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` - an environment variable set by the HPC Pack head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
 
 
 ## Submit an OpenFOAM job
@@ -360,53 +364,45 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
 
     >[AZURE.NOTE]Running `source /openfoam/settings.sh` sets up the OpenFOAM and MPI runtime environments, so each of the following tasks calls it before the OpenFOAM command.
 
-    **Task 1**
-
-    Run **decomposePar** to generate data files for running **interDyMFoam** in parallel.
+    *   **Task 1**. Run **decomposePar** to generate data files for running **interDyMFoam** in parallel.
     
-    *   Assign 1 node to the task
+        *   Assign 1 node to the task
 
-    *   **Command line** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+        *   **Command line** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
-    *   **Working directory** - /openfoam/sloshingTank3D
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-    ![Task 1 details][task_details1]
+        ![Task 1 details][task_details1]
 
-    **Task 2**
+    *   **Task 2**. Run **interDyMFoam** in parallel to compute the sample.
 
-    Run **interDyMFoam** in parallel to compute the sample.
+        *   Assign 2 nodes to the task
 
-    *   Assign 2 nodes to the task
+        *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
 
-    *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-    *   **Working directory** - /openfoam/sloshingTank3D
+        ![Task 2 details][task_details2]
 
-    ![Task 2 details][task_details2]
+    *   **Task 3**. Run **reconstructPar** to merge the sets of time directories from each processor_N_ directory into a single set of time directories.
 
-    **Task 3**
+        *   Assign 1 node to the task
 
-    Run **reconstructPar** to merge the sets of time directories from each processor_N_ directory into a single set of time directories.
+        *   **Command line** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
 
-    *   Assign 1 node to the task
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-    *   **Command line** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
+        ![Task 3 details][task_details3]
 
-    *   **Working directory** - /openfoam/sloshingTank3D
+    *   **Task 4**. Run **foamToEnsight** in parallel to convert the OpenFOAM result files into EnSight format and place the EnSight files in a directory named Ensight in the case directory.
 
-    ![Task 3 details][task_details3]
+        *   Assign 2 nodes to the task
 
-    **Task 4**
+        *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
-    Run **foamToEnsight** in parallel to convert the OpenFOAM result files into EnSight format and place the EnSight files in a directory named Ensight in the case directory.
+        *   **Working directory** - /openfoam/sloshingTank3D
 
-    *   Assign 2 nodes to the task
-
-    *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
-
-    *   **Working directory** - /openfoam/sloshingTank3D
-
-    ![Task 4 details][task_details4]
+        ![Task 4 details][task_details4]
 
 6.	Add dependencies to these tasks in ascending task order.
 
@@ -424,10 +420,10 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
     hpccred delcreds
     ```
 
-8.	The job takes from tens of minutes to several hours according to the parameters you have set for the sample. In the heat map you will see the job running on 2 Linux nodes.
+8.	The job takes from tens of minutes to several hours according to the parameters you have set for the sample. In the heat map you will see the job running on 2 Linux nodes. 
 
     ![Heat map][heat_map]
-.
+
     On each node 8 processes are started.
 
     ![Linux processes][linux_processes]
