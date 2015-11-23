@@ -204,7 +204,7 @@ The parameters are self-explanatory. Substitute your particular variables and ru
 
 > [AZURE.NOTE] Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
 
-Once you run the command, go to the Azure portal and you will see your machine begin to provision.
+Once you run the command, go to the Azure preview portal and you will see your machine begin to provision.
 
 ![][13]
 

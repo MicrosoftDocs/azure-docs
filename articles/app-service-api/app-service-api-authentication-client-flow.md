@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Call an API app from an authenticated client" 
 	description="Learn how to call an Azure API app from a web app client that is authenticated by Azure Active Directory." 
+	keywords="app service,azure app service,authentication,azure authentication,api,authentication api"
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
