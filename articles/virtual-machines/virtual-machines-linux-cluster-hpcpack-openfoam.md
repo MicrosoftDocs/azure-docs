@@ -230,9 +230,9 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
 
 >[AZURE.NOTE]The “\`” symbol in the command is an escape symbol for PowerShell. “\`&” means the “&” is a part of the command.
 
-## Run an OpenFOAM job
+## Prepare to run an OpenFOAM job
 
-Now run an MPI job called sloshingTank3D, which is one of the OpenFoam samples, on 2 Linux nodes. In this example, /opt/openfoam231 is the installation path of OpenFOAM on the Linux nodes.
+Now get ready to run an MPI job called sloshingTank3D, which is one of the OpenFoam samples, on 2 Linux nodes. In this example, /opt/openfoam231 is the installation path of OpenFOAM on the Linux nodes.
 
 ### Set up the runtime environment
 
