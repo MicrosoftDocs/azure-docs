@@ -40,7 +40,7 @@ To [securely move data between on-premises data stores behind your corporate fir
 You can also move data from/to supported data stores hosted on Azure IaaS VMs (Infrastructure-as-a-Service virtual machines) using the Data Management Gateway. In this case, the Data Management Gateway can be installed on the same Azure VM as the data store itself or on a separate VM that has access to reach the data store. 
 
 ## Supported data stores
-Copy Activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and source, sink combinations. Click on a data store to learn how to copy data from/to that store. 
+Copy Activity copies data from a **source** data store to a **sink** data store. Data factory supports the following data stores and **data can from any source can be written to any sink**. Click on a data store to learn how to copy data from/to that store. 
 
 | Sources| Sinks |
 |:------- | :---- |
