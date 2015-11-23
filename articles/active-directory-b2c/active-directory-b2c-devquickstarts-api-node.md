@@ -344,7 +344,7 @@ var users = [];
 var owner = null;
 // Our logger
 var log = bunyan.createLogger({
-name: 'Windows Azure Active Directory Sample'
+name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
@@ -597,7 +597,7 @@ Restify (and Express) have a lot of deep customization you can do for a REST API
 * Our Server
 */
 var server = restify.createServer({
-name: "Windows Azure Active Directroy TODO Server",
+name: "Microsoft Azure Active Directroy TODO Server",
 version: "2.0.1"
 });
 // Ensure we don't drop data on uploads
@@ -665,7 +665,7 @@ res.send(200, routes);
 next();
 });
 server.listen(serverPort, function() {
-var consoleMessage = '\n Windows Azure Active Directory Tutorial';
+var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
 consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
 consoleMessage += '\n %s server is listening at %s';
 consoleMessage += '\n Open your browser to %s/tasks\n';
