@@ -31,7 +31,7 @@
 <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 <tr><td>**Documentation**</td><td>[Node.js SDK Reference Documentation](http://azure.github.io/azure-documentdb-node/)</td></tr>
 <tr><td>**Samples**</td><td>[Node.js Code Samples](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the Node.js SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-nodejs-get-started/)</td></tr>
+<tr><td>**Get Started**</td><td>[Get started with the Node.js SDK](https://azure.microsoft.com/documentation/articles/documentdb-nodejs-get-started/)</td></tr>
 <tr><td>**Current Supported Platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -58,7 +58,7 @@
 ### <a name="1.2.0"/>1.2.0</a>
 
 - Added support for GeoSpatial index.
-- Validates id property for all resources. Ids for resources cannot contain ?, /, #, \\, characters or end with a space. 
+- Validates id property for all resources. Ids for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space. 
 - Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
@@ -75,7 +75,7 @@
 
 ### <a name="1.0.1"/>1.0.1</a>
 
-- Implemented ability to query for conflicts by adding readConflicts, readConflictAsync, queryConflicts;
+- Implemented ability to query for conflicts by adding readConflicts, readConflictAsync, and queryConflicts
 - Updated API documentation
 - Issue [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync error  
 
@@ -119,4 +119,4 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 ## See Also
 
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) service page. 
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
