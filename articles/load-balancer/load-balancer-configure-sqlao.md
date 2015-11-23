@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Configure load balancer for SQL always on
@@ -55,7 +55,7 @@ Step 2.
 
 In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc". After creating the ILB with "DirectServerReturn" switch, you will add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.
 
-You can find more details creating a SQL Alwayson in [Tutorial: AlwaysOn Availability Groups in Azure](https://msdn.microsoft.com/library/dn249504.aspx) or [Using the Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+You can find more details creating a SQL AlwaysOn in [Tutorial: AlwaysOn Availability Groups in Azure](https://msdn.microsoft.com/library/dn249504.aspx) or [Using the Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
 ## See Also

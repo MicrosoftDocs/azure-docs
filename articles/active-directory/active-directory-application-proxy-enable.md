@@ -3,7 +3,7 @@
 	description="Covers how to get up and running with Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Enabling Azure AD Application Proxy
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
@@ -27,7 +27,7 @@ This section walks you through enabling Microsoft Azure AD Application Proxy for
 Before you can enable and use Application Proxy services, you need to have:
 
 - An Microsoft Azure administrator account. If you don’t’ have one, you can get one here.
-- A server running Windows Server 2012 R2 or Windows 8.1 or higher on which you can install the Application Proxy Connector. The server must be able to send HTTPS requests to the Application Proxy services in the cloud, and it must have an HTTPS connection to the applications that you intend to publish. 
+- A server running Windows Server 2012 R2 or Windows 8.1 or higher on which you can install the Application Proxy Connector. The server must be able to send HTTPS requests to the Application Proxy services in the cloud, and it must have an HTTPS connection to the applications that you intend to publish.
 - If a firewall is placed in the path, make sure the firewall is open to allow HTTPS (TCP) requests that originate from the Connector to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high level domain: msappproxy.net. Make sure to open **all** the following ports to **outbound** traffic:
 
 Port Number | Description
@@ -40,7 +40,7 @@ Port Number | Description
 8080 | To enable the Connector bootstrap sequence and to enable Connector automatic update
 9090 | To enable Connector registration (required only for the Connector registration process)
 9091 | To enable Connector trust certificate automatic renewal
- 
+
 If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
 
 
@@ -50,7 +50,7 @@ If your firewall enforces traffic according to originating users, open these por
 3. Click Configure, scroll down to Application Proxy and toggle Enable Application Proxy Services for this Directory to Enabled.
 
 	![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
-4. Click Download now at the bottom of the screen. This will take you to the download page. Read and accept the license terms and click Download to save the Windows Installer file (.exe) for the Application Proxy Connector. 
+4. Click Download now at the bottom of the screen. This will take you to the download page. Read and accept the license terms and click Download to save the Windows Installer file (.exe) for the Application Proxy Connector.
 
 ##Step 2: Install and register the Connector
 1. Run AADApplicationProxyConnectorInstaller.exe on the server you prepared (see Application Proxy prerequisites).

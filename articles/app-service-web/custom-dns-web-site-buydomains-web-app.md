@@ -4,7 +4,7 @@
 	description="Learn how to buy a custom domain name with a web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Buy and Configure a custom domain name in Azure App Service
 
@@ -56,7 +56,7 @@ Use the following steps to buy domain names and assign to your web app.
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
-4. In the **Buy Domains** blade, use the text box to type the domain name you want to buy and hit Enter. The suggested available domains will be shown just blow the text box. Select what domain you want to buy. You can choose to purchase multiple domains at once. 
+4. In the **Buy Domains** blade, use the text box to type the domain name you want to buy and hit Enter. The suggested available domains will be shown just below the text box. Select what domain you want to buy. You can choose to purchase multiple domains at once. 
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
@@ -93,7 +93,7 @@ Use the following steps to buy domain names and assign to your web app.
 
 > [AZURE.NOTE] You can "Cancel purchase" within 5 days for full refund. After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain. Deleting the domain will result in releasing it from your subscription without refund and will become available domain. 
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
  

@@ -123,7 +123,7 @@ To facililate a seamless and unifying experience across Azure services, [App Ser
 Mobile Apps developers can utilize Notification Hubs with the following workflow:
 
 1. Retrieve device PNS handle
-2. Register device and [templates]  (optional) with Notification Hubs through convenient Mobile Apps Client SDK register API
+2. Register device and [templates] with Notification Hubs through convenient Mobile Apps Client SDK register API
     + Note that Mobile Apps strips away all tags on registrations for security purposes. Work with Notification Hubs from your backend directly to associate tags with devices.
 3. Send notifications from your app backend with Notification Hubs
 

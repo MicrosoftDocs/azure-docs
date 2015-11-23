@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 
@@ -70,9 +70,9 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
 To use storage operations, you need an Azure storage account. You can create a storage account by following these steps.
 
-1.  Log into the [Azure Portal].
+1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Click the **New** icon on the top left of the portal, then click **Data + Storage** > **Storage Account**. Click on **Create**, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
 
@@ -103,6 +103,8 @@ In this section, we'll configure our application to use the storage account we j
 1.  The code that implements the Azure Table Storage repository is in **models/azuretablestorage.py**. See the [documentation] for more information on how to use Table Service from Python.
 
 1.  Run the application with `F5`. Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in Azure Table Storage.
+
+	> [AZURE.NOTE] The Python 2.7 Virtual Environment may cause an exception break in Visual Studio.  Press `F5` to continue loading the web project.
 
 1.  Browse to the **About** page to verify that the application is using the **Azure Table Storage** repository.
 
@@ -149,7 +151,7 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 
 In this section, we'll configure environment variables for the Web Apps instance.
 
-1.  In [Azure Portal], open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
+1.  In [Azure Portal](https://portal.azure.com), open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
 
 1.  In your web app's blade, click **All Settings**, then click **Application Settings**.
 
