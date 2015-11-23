@@ -59,7 +59,7 @@ Proactive detection is in preview and isn't available for all Application Insigh
 
 Open the anomaly report either from the email or from the anomalies list.
 
-![](./media/app-insights-proactive-detection/03.png)
+![](./media/app-insights-anomaly/03.png)
 
 
 * **When** shows the time the issue was detected.
