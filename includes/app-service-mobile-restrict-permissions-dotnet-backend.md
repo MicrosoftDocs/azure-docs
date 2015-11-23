@@ -1,7 +1,7 @@
 
 By default, APIs in a Mobile App backend can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
 
-+ **Node.js backend (portal)** :  
++ **Node.js backend (via portal)** :  
 	
 	In your Mobile App's **Settings**, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and **Save**. 
 
@@ -13,7 +13,7 @@ By default, APIs in a Mobile App backend can be invoked anonymously. Next, you n
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-+ **Node.js backend (code)** :  
++ **Node.js backend (via Node.js code)** :  
 	
 	To require authentication for table access, add the following line to the Node.js server script:
 
