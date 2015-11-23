@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
-   ms.author="rajram"/>
+   ms.date="11/23/2015"
+   ms.author="litran"/>
 
 #Create a new SharePoint Online API in your organization's App Service Environment
 
@@ -31,7 +31,7 @@
 	
 5. In **Source**, select **Available APIs** to select a pre-built API. 
 	
-6. Select **SharePoint Online** from the marketplace
+6. Select **SharePoint Online** from the list of available APIs
 ![select SharePoint Online api][3]
 
 7. Select *Settings - Configure required settings*
