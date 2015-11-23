@@ -139,10 +139,6 @@ Verify that you have the following items below before beginning your configurati
 
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
-## Next steps
 
-Add a virtual machine to your virtual network. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
-
-For information about securing your network traffic, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md). Note that you should never apply a Network Security Group to the gateway subnet of an Azure VNet.
 
 
