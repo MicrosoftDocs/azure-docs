@@ -95,10 +95,14 @@ There are lots of options here depending on what languages and development envir
 	- SQL
 
 2. **What tools should you use for data analysis?**
-	- Azure Machine Learning Studio
-	- Revolution Analytics
-	- Python Tools for Visual Studio (PTVS)
-	- IPython or Jupiter notebooks
+	- [Microsoft Azure Powershell](powershell-install-configure.md) - a script language used to administer your Azure resources in a script language.
+	- [Azure Machine Learning Studio](machine-learning-what-is-ml-studio/)
+	- [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
+	- [RStudio](http://www.rstudio.com)
+	- [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
+	- [Anaconda](https://www.continuum.io/why-anaconda)
+	- [Jupiter notebooks](http://jupyter.org/)
+	- [Microsoft Power BI](http://powerbi.microsoft.com) 
 
 
 ## Identify your advanced analytics scenario
