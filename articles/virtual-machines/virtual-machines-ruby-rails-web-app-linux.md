@@ -3,7 +3,7 @@
 	description="Set up and host a Ruby on Rails-based website on Azure using a Linux virtual machine."
 	services="virtual-machines"
 	documentationCenter="ruby"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
