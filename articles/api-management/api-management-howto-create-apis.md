@@ -18,7 +18,7 @@
 
 # How to create APIs in Azure API Management
 
-An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the publisher portal, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be used by subscribed to and used by developers.
+An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the publisher portal, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be subscribed to and used by developers.
 
 This guide shows the first step in the process: how to create and configure a new API in API Management. For more information on adding operations and publishing a product, see [How to add operations to an API][] and [How to create and publish a product][].
 
@@ -38,7 +38,7 @@ Use the **Add new API** window to configure the new API.
 
 ![Add new API][api-management-add-new-api]
 
-The following three fields are used to configure the new API.
+The following fields are used to configure the new API.
 
 -	**Web API name** provides a unique and descriptive name for the API. It is displayed in the developer and management portals.
 -	**Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
@@ -46,7 +46,7 @@ The following three fields are used to configure the new API.
 -	**Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
 -	To optionally add this new API to a product, click the **Products (optional)** drop-down and choose a product. This step can be repeated multiple times to add the API to multiple products.
 
-Once the desired values are configured, click **Save**. Once the new API is created, the summary page for the API is displayed in the management portal.
+Once the desired values are configured, click **Save**. Once the new API is created, the summary page for the API is displayed in the publisher portal.
 
 ![API summary][api-management-api-summary]
 
@@ -56,7 +56,7 @@ You can use the **Settings** tab to verify and edit the configuration for an API
 
 ![API settings][api-management-api-settings]
 
-To configure **Gateway authentication** for the backend service implementing the API, select the **Security** tab. The **With credentials** drop-down can be used to configure **HTTP basic** or **Client certificates** authentication. To use HTTP basic authentication, simply enter the desired credentials. For information on using client certificate authentication, see [How to secure back-end services using client certificate authentication in Azure API Management][].
+To configure gateway authentication for the backend service implementing the API, select the **Security** tab. The **With credentials** drop-down can be used to configure **HTTP basic** or **Client certificates** authentication. To use HTTP basic authentication, simply enter the desired credentials. For information on using client certificate authentication, see [How to secure back-end services using client certificate authentication in Azure API Management][].
 
 The **Security** tab can also be used to configure **User authorization** using OAuth 2.0. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management][].
 
@@ -66,7 +66,7 @@ Click **Save** to save any changes you make to the API settings.
 
 ## <a name="next-steps"> </a>Next steps
 
-Once an API is created and the settings configured, the next steps are to add the operations to the API, add the API to a product, and publish it so that it is available for developers. For more information, see the following two guides.
+Once an API is created and the settings configured, the next steps are to add the operations to the API, add the API to a product, and publish it so that it is available for developers. For more information, see the following articles.
 
 -	[How to add operations to an API][]
 -	[How to create and publish a product][]
