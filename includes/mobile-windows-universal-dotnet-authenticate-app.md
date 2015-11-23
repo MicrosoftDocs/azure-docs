@@ -4,31 +4,32 @@
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
 
-		// Define a method that performs the authentication process
-		// using a Facebook sign-in. 
-        private async System.Threading.Tasks.Task AuthenticateAsync()
+        // Define a method that performs the authentication process
+        // using a Facebook sign-in. 
+        private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
-            while (user == null)
+            string message;
+            bool success = false;
+            try
             {
-                string message;
-                try
-                {
-					// Change 'MobileService' to the name of your MobileServiceClient instance.
-					// Sign-in using Facebook authentication.
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-                    message = 
-                        string.Format("You are now signed in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
-                        
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
+                // Change 'MobileService' to the name of your MobileServiceClient instance.
+                // Sign-in using Facebook authentication.
+                user = await App.MobileService
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                message =
+                    string.Format("You are now signed in - {0}", user.UserId);
+
+                success = true;
             }
+            catch (InvalidOperationException)
+            {
+                message = "You must log in. Login Required";
+            }
+
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+            return success;
         }
 
     This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
@@ -42,11 +43,13 @@
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
             // Login the user and then load data from the mobile app.
-            await AuthenticateAsync();
-
-            // Hide the login button and load items from the mobile app.
-            this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            await RefreshTodoItems();
+            if (await AuthenticateAsync())
+            {
+                // Hide the login button and load items from the mobile app.
+                ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                //await InitLocalStoreAsync(); //offline sync support.
+                await RefreshTodoItems();
+            }
         }
 		
 5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
@@ -80,6 +83,8 @@
 
 9. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query your Mobile App and make updates to data.
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
 
 10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
+
+ 
