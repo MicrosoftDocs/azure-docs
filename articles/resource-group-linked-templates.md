@@ -108,7 +108,7 @@ The following example shows how to use a base URL to create two URLs for linked 
         }
     }
 
-You can also use [deployment()](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-functions/#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file. 
+You can also use [deployment()](resource-group-template-functions/#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This is useful if your template location changes (maybe due to versioning) or you want to avoid hard coding URLs in the template file. 
 
     "variables": {
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
