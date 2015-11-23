@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -33,7 +33,7 @@ new resource group and a new subscription. The column titled **Preview Portal** 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Virtual Machines | Yes | Yes, many options | No       | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch   | Yes     | [Yes (classic only)](https://portal.azure.com/#create/Microsoft.BatchAccount) |               | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
+| Batch   | Yes     | [Yes (classic only)](https://portal.azure.com/#create/Microsoft.BatchAccount) |  Yes  | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
 | Dynamics Lifecycle Services | Yes | No |    |      |        |
 | Virtual Machines (classic) | Limited | Yes, many options | Partial (see below) | - | - |
 | Remote App | No   | No | -              | -        | -      |
@@ -44,22 +44,16 @@ are some operations that have been enabled. For more information about these dep
 
 Virtual Machines (classic) resources can be moved to new resource group, but not a new subscription.
 
-## Web & Mobile
+## Networking
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| API Management | Yes | No | Yes  | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
-| API Apps | Yes | [Yes](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
-| Web Apps | Yes | [Yes](https://portal.azure.com/#create/Microsoft.WebSite)  | Yes, with limitations (see below) |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| Notification Hubs | Yes | [Yes](https://portal.azure.com/#create/Microsoft.NotificationHub) |         | [Create Notification Hub](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Logic Apps | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) |       |          |        |
-| Mobile Engagements | Yes | No |  Yes  |          |        |
-
-When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
-
-- Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.
-- Move the web apps to a different resource group, but keep the App Service plan in the original resource group.
-
+| Application Gateway | Yes |  |      |          |        |
+| DNS     | Yes     |  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Load Balancer | Yes |    |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Virtual Networks | Yes | [Yes](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Traffic Manager | Yes | No |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) |        |
+| ExpressRoute | Yes | No | No             | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       |
 
 ## Data & Storage
 
@@ -74,27 +68,32 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | StorSimple | No   | No | -  | -        | -       |
 | Managed cache | No | No | -             | -        | -       |
 
+## Web & Mobile
+
+| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| API Management | Yes | No | Yes  | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
+| API Apps | Yes | [Yes](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| Web Apps | Yes | [Yes](https://portal.azure.com/#create/Microsoft.WebSite)  | Yes, with limitations (see below) |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
+| Notification Hubs | Yes | [Yes](https://portal.azure.com/#create/Microsoft.NotificationHub) | Yes  | [Create Notification Hub](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Logic Apps | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Yes   |          |        |
+| Mobile Engagements | Yes | No |  Yes  |          |        |
+
+When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
+
+- Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.
+- Move the web apps to a different resource group, but keep the App Service plan in the original resource group.
+
 ## Analytics
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Event Hub | Yes   | No |         | [Create Event Hub](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
 | Stream Analytics | Yes | [Yes](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) |        |          |        |
-| HDInsights | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.HDInsightCluster) |            |          |        |
+| HDInsights | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Yes     |          |        |
 | Data Factory | Yes | [Yes](https://portal.azure.com/#create/Microsoft.DataFactory) | Yes | [Create Data Factory](https://msdn.microsoft.com/library/azure/dn906717.aspx) |    |
 | Machine Learning | No | No | -          | -        | -      |
 | Data Catalog | No | No |  -             | -        | -       |
-
-## Networking
-
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| Application Gateway | Yes |  |      |          |        |
-| DNS     | Yes     |  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Load Balancer | Yes |    |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Virtual Networks | Yes | [Yes](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Traffic Manager | Yes | No |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) |        |
-| ExpressRoute | Yes | No | No             | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       |
 
 ## Media & CDN
 
@@ -125,7 +124,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Yes | [Yes](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) |       |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Yes | [Yes](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | No   |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Maps | Yes   | [Yes](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) |         |          |        |
 | Visual Studio account | Yes |  |      |          | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -133,7 +132,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automation | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) |       |          |        |
+| Automation | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Yes     |          |        |
 | Key Vault | Yes    | No | Yes            | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) |        |
 | Scheduler | Yes   | No |        |          | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Yes | No | Yes   |          |        |

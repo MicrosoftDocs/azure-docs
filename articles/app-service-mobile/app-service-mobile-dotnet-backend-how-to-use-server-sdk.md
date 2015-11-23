@@ -1,6 +1,7 @@
 <properties
 	pageTitle="How to work with the .NET backend server SDK for Mobile Apps | Azure App Service"
 	description="Learn how to work with the .NET backend server SDK for Azure App Service Mobile Apps."
+	keywords="app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment"
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777" 
@@ -161,7 +162,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
 
-To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-dotnet-backend-ios-get-started-users.md).
+To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
 ## How to: Add push notifications to a server project
 
