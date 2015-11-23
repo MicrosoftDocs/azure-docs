@@ -57,7 +57,7 @@ https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
 | scope | required | A space-separated list of scopes.  A single scope value indicates to the v2.0 endpoint both the resource and the permissions to that resource being requested.  Scopes take the form `<app identifier URI>/<scope value>`.  In the example above, the app identifier for the Azure AD Graph API is used, `https://graph.windows.net`, and two permissions are requested: `directory.read` and `directory.write`.  For a more detailed explanation of scopes, refer to the [app model v2.0 scope reference](active-directory-v2-scopes.md).  |
 | response_mode | recommended | Specifies the method that should be used to send the resulting authorization_code back to your app.  Can be one of 'query', 'form_post', or 'fragment'.
 | state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for preventing cross-site request forgery attacks.  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| prompt | optional | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request can not be completed silently via single-sign on, the v2.0 endpoint will return an error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
+| prompt | optional | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request cannot be completed silently via single-sign on, the v2.0 endpoint will return an error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
 | login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user. |
 
 At this point, the user will be asked to enter their credentials and complete the authentication.  The v2.0 endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter.  If the user has not consented to any of those permissions, it will ask the user to consent to the required permissions.  Details of [permissions, consent, and multi-tenant apps are provided here](active-directory-v2-scopes.md).
@@ -156,7 +156,7 @@ Error responses will look like:
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 ## Use the Access Token
-Now that you've successfully acquired an `access_token`, you can use the token in reqeusts to Web APIs by including it in the `Authorization` header:
+Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
 
 ```
 GET /contoso.onmicrosoft.com/users
@@ -209,7 +209,7 @@ A successful token response will look like:
 | expires_in | How long the access token is valid (in seconds). |
 | scope | The scopes that the access_token is valid for. |
 | refresh_token |  A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible.  |
-| id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segements of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
+| id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
 | id_token_expires_in | How long the id token is valid (in seconds). |
 
 Error responses will look like:
@@ -227,6 +227,6 @@ Error responses will look like:
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 ## Summary
-At a high level, the entire authentication flow for a native/mobile appliacation looks a bit like this:
+At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
 
 ![OAuth Auth Code Flow](../media/active-directory-v2-flows/convergence_scenarios_native.png)

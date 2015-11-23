@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
-	description="How to build a Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
+	description="How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -21,7 +21,7 @@
 
 In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using Azure Active Directory's app model v2.0.  App model v2.0 enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 
-This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written in NodeJS and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source javascript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.micrososft.com) or the Azure Resource Manager APIs.
+This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written in NodeJS and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source JavaScript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.microsoft.com) or the Azure Resource Manager APIs.
 
 ## Download
 
@@ -31,7 +31,7 @@ To get started, you'll need to download & install [node.js](https://nodejs.org).
 git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
 ```
 
-The skeleton app includes all the boilerplate code for a simple AngularJS app, but is missing all of the identity-related peices.  If you don't want to follow along, you can instead clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) the completed sample.
+The skeleton app includes all the boilerplate code for a simple AngularJS app, but is missing all of the identity-related pieces.  If you don't want to follow along, you can instead clone or [download](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) the completed sample.
 
 ```
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
@@ -45,10 +45,10 @@ First, create an app in the [App Registration Portal](https://apps.dev.microsoft
 - Enter the correct **Redirect URI**. The default for this sample is `http://localhost:8080`.
 - Leave the **Allow Implicit Flow** checkbox enabled. 
 
-Copy down the **Application ID** that is assinged to your app, you'll need it shortly. 
+Copy down the **Application ID** that is assigned to your app, you'll need it shortly. 
 
 ## Install adal.js
-To start, navigate to project you downloaded and install adal.js.  If you have [bower](http://bower.io/) installed, you can just run this command.  For any dependecy version mismatches, just choose the higher version.
+To start, navigate to project you downloaded and install adal.js.  If you have [bower](http://bower.io/) installed, you can just run this command.  For any dependency version mismatches, just choose the higher version.
 ```
 bower install adal-angular#experimental
 ```
