@@ -141,7 +141,7 @@ Verify that you have the following items below before beginning your configurati
 		
 ## Next steps
 
-For information about user defined routes, see [User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
+Add a virtual machine to your virtual network. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
 
 For information about securing your network traffic, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md). Note that you should never apply a Network Security Group to the gateway subnet of an Azure VNet.
 
