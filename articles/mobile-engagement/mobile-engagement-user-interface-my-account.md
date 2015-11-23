@@ -16,8 +16,8 @@
    ms.date="11/22/2015"
    ms.author="piyushjo"/>
 
-# How to manage your account profile and test devices 
-
+# How to manage your account profile and test devices
+ 
 This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
  
 To get to the my account page, click on your account on the top of the page.
