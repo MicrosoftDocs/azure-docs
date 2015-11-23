@@ -840,6 +840,6 @@ Repro Rate:
 This issue is intermittent, however occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
 
     
-[AZURE.NOTE] This known issues are already addressed by Red Hat.  To install the associated fixes, you can run below command:
+[AZURE.NOTE] This known issue has already been addressed by Red Hat. To install the associated fixes, you can run below command:
 
     # sudo yum update
