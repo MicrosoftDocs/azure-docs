@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/05/2015"
+ ms.date="11/22/2015"
  ms.author="danlep"/>
 
 # Run OpenFoam with Microsoft HPC Pack on a Linux RDMA network in Azure
@@ -22,11 +22,11 @@ This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and r
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-
 OpenFOAM (for Open Field Operation and Manipulation) is a freely available open-source computational fluid dynamics (CFD) software package that is used widely in engineering and science, in both commercial and academic organizations. It includes tools for meshing, notably snappyHexMesh, a parallelized mesher for complex CAD geometries, and for pre- and post-processing. Almost all processes run in parallel, enabling users to take full advantage of computer hardware at their disposal.  
 
 Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Starting in Microsoft HPC Pack 2012 R2 Update 2, HPC Pack also supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for an introduction to using Linux compute nodes with HPC Pack.
 
+>[AZURE.NOTE] This article assumes you have some familiarity with Linux system administration and with running MPI workloads on Linux HPC clusters. 
 
 ## Prerequisites
 
@@ -76,11 +76,7 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
     *   Deploy all the Linux compute nodes within one cloud service to use the RDMA network connection between the nodes.
 
-    *   After deploying the Linux nodes, you need to connect to each one by SSH and add the following settings to the /etc/security/limits.conf file on each node, and then restart. You'll need to run **sudo** to edit this file  (Find the SSH connection details for each Linux VM in the Azure portal.)  
-        ```
-        hard memlock unlimited        
-        soft memlock unlimited
-        ```
+    *   After deploying the Linux nodes, if you need to connect by SSH to perform any additional administrative tasks, find the SSH connection details for each Linux VM in the Azure portal.  
         
 *   **Intel MPI** - To run OpenFOAM on Linux compute nodes in Azure, you need the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). In a later step, you'll install Intel MPI on your Linux compute notes. To prepare for this, after you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
@@ -126,6 +122,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     ```
 
 4.	Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
+
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
     ```
@@ -138,15 +135,15 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 ## Set up a file share for Linux nodes
 
-Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access application files with a common path. (If you want, you can use another file sharing option, such as an Azure Files share - recommended for many scenarios - or an NFS share. See the file sharing information and detailed steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md).)
+Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access application files with a common path. If you want, you can use another file sharing option, such as an Azure Files share - recommended for many scenarios - or an NFS share. See the file sharing information and detailed steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md).
 
-1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. For example, we share D:\OpenFOAM on the head node as \\\\SUSE12RDMA-HN\OpenFOAM. Here, *SUSE12RDMA-HN* is the host name of the head node.
+1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. For example, share C:\OpenFOAM on the head node as \\\\SUSE12RDMA-HN\OpenFOAM. Here, *SUSE12RDMA-HN* is the host name of the head node.
 
 2.	Open a Windows PowerShell window and run the following commands to mount the shared folder.
     ```
-    PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
+    clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-    PS > clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>’`,dir_mode=0777`,file_mode=0777
+    clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>’`,dir_mode=0777`,file_mode=0777
     ```
 
 The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //SUSE12RDMA-HN/OpenFOAM onto the folder with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
@@ -157,18 +154,18 @@ The first command creates a folder named /openfoam on all nodes in the LinuxNode
 
 To run OpenFOAM as an MPI job on the RDMA network, you need to compile OpenFOAM with the Intel MPI libraries. 
 
-You'll run several **clusrun** commands to install Intel MPI libraries and OpenFOAM on all of your Linux nodes. Use the head node share configured previously to share the installation files among the Linux nodes.
+You'll first run several **clusrun** commands to install Intel MPI libraries and OpenFOAM on all of your Linux nodes. Use the head node share configured previously to share the installation files among the Linux nodes.
 
->[AZURE.IMPORTANT]These installation and compiling steps are examples and require some knowledge of Linux system administration, particularly to ensure that dependent compilers and libraries are installed correctly. You might need to modify certain environment variables or other settings needed for your versions of Intel MPI and OpenFOAM on your Linux distribution. For details see [Intel MPI Library for Linux Installation Guide](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) and [OpenFOAM Source Pack Installation](http://www.openfoam.org/download/source.php).
+>[AZURE.IMPORTANT]These installation and compiling steps are examples and require some knowledge of Linux system administration, particularly to ensure that dependent compilers and libraries are installed correctly. You might need to modify certain environment variables or other settings needed for your versions of Intel MPI and OpenFOAM. For details see [Intel MPI Library for Linux Installation Guide](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html) and [OpenFOAM Source Pack Installation](http://www.openfoam.org/download/source.php).
 
 
 ### Install Intel MPI
 
-Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in this example) in D:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to install Intel MPI library on all of the Linux nodes.
+Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in this example) in C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to install Intel MPI library on all of the Linux nodes.
 
 1.  The following commands copy the installation package and extract it to /opt/intel on each node.
     ```
-    
+    clusrun /nodegroup:LinuxNodes mkdir -p /opt/intel
 
     clusrun /nodegroup:LinuxNodes cp /openfoam/l_mpi_p_5.0.3.048.tgz /opt/intel/
 
@@ -183,19 +180,31 @@ Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in
     ```
     clusrun /nodegroup:LinuxNodes bash /opt/intel/l_mpi_p_5.0.3.048/install.sh --silent /openfoam/silent.cfg
     ```
+    
+### Configure MPI
+
+For testing, you should add the following lines to the /etc/security/limits.conf on the Linux nodes:
+
+```
+*               hard    memlock         unlimited
+*               soft    memlock         unlimited
+```
+
+You can do this by creating a file limits.conf in C:\OpenFoam (save the text file with Linux line endings) and run the following command to copy it to the Linux nodes:
+
+```
+clusrun /nodegroup:LinuxNodes cp /openfoam/limits.conf /etc/security
+```
+
+Restart the Linux nodes after you update the limits.confile. After restarting, ensure that the shared folder is mounted as /openfoam.
 
 ### Compile and install OpenFOAM
 
-Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz in this example) to D:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to compile OpenFOAM on all of the Linux nodes.
+Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-2.3.1.tgz in this example) to C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to compile OpenFOAM on all of the Linux nodes.
 
-1.  Depending on your Linux distribution, you might need to install dependent packages such as the following:
-    ```
-    clusrun /nodegroup:LinuxNodes sudo zypper --non-interactive install -t pattern devel_C_C++
-    
-    clusrun /nodegroup:LinuxNodes sudo zypper --non-interactive install cmake boost-devel gnuplot mpfr-devel openmpi-devel glu-devel 
-    ```
 
-2.  Create a folder /opt/OpenFOAM on each Linux node, copy the source package to this folder, and extract it there.
+1.  Create a folder /opt/OpenFOAM on each Linux node, copy the source package to this folder, and extract it there.
+
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/OpenFOAM
 
@@ -204,9 +213,12 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
     clusrun /nodegroup:LinuxNodes tar -xzf /opt/OpenFOAM/OpenFOAM-2.3.1.tgz -C /opt/OpenFOAM/
     ```
 
-2.  To compile OpenFOAM with Intel MPI Library, first set up some environment variables for both Intel MPI and OpenFOAM. Use a bash script called settings.sh to do this. You can find an example of this file in the Appendix at the end of this article. Place this file (saved with Linux line endings) in the shared folder /openfoam.
+2.  To compile OpenFOAM with the Intel MPI Library, first set up some environment variables for both Intel MPI and OpenFOAM. Use a bash script called settings.sh to do this. You can find an example of this file in the Appendix at the end of this article. Place this file (saved with Linux line endings) in the shared folder /openfoam. This file also contains settings for the MPI and OpenFOAM runtimes that you use later to run an OpenFOAM job.
 
-3.  Run the following command to compile OpenFOAM. The compilation process will generate a large amount of log information to standard output, so use the **/interleaved** option to display the output interleaved.
+3. Install dependent packages needed to compile OpenFOAM. Depending on your Linux distribution, you might first need to add a number of repositories to do this. The repositories and packages are listed in the Appendix at the end of this article. We recommend that you ssh to each Linux node to run the commands to confirm that they run properly.
+
+4.  Run the following command to compile OpenFOAM. The compilation process will take some time to complete and will generate a large amount of log information to standard output, so use the **/interleaved** option to display the output interleaved.
+
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
@@ -215,13 +227,14 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
 
 ## Run an OpenFOAM job
 
-In this section, you run an MPI job called sloshingTank3D, which is one of the OpenFoam samples, on 2 Linux nodes. To view the sample result, use a post-processing tool such as [EnSight](https://www.ceisoftware.com/). In this example, /opt/openfoam231 is the installation path of OpenFOAM on the Linux nodes.
+Now run an MPI job called sloshingTank3D, which is one of the OpenFoam samples, on 2 Linux nodes. In this example, /opt/openfoam231 is the installation path of OpenFOAM on the Linux nodes.
 
 ### Set up the runtime environment
 
-Run the following command in a Windows PowerShell window on the head node to set up the runtime environment for OpenFOAM on all Linux nodes.
+Run the following command in a Windows PowerShell window on the head node to set up the runtime environments for MPI and OpenFOAM on all Linux nodes.
+
 ```
-PS > clusrun /nodegroup:LinuxNodes cp /opt/openfoam231/etc/bashrc /etc/profile.d/
+clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 ```
 
 ### Prepare sample data
@@ -231,9 +244,11 @@ Use the head node share you configured previously to share files among the Linux
 1.  SSH to one of your Linux compute nodes.
 
 2.  Run the following command to set up the OpenFOAM runtime environment, if you haven’t already done this.
+
     ```
-    $ source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
+    $ source /openfoam/settings.sh
     ```
+    
 3.  Copy the sloshingTank3D sample to the shared folder and navigate to it.
 
     ```
@@ -242,7 +257,7 @@ Use the head node share you configured previously to share files among the Linux
     $ cd /openfoam/sloshingTank3D
     ```
 
-4.  When you use the default parameters of this sample, it can take tens of minutes to run, so you might want to modify some parameters to make it run faster. One simple choice is to modify the time step variables deltaT and writeInterval in the system/controlDict file, which stores all input data relating to the control of time and reading and writing solution data. For example, you could change the value of deltaT from 0.05 to 0.5 and the value of writeInterval from 0.05 to 0.5.
+4.  When you use the default parameters of this sample, it can take tens of minutes or longer to run, so you might want to modify some parameters to make it run faster. One simple choice is to modify the time step variables deltaT and writeInterval in the system/controlDict file, which stores all input data relating to the control of time and reading and writing solution data. For example, you could change the value of deltaT from 0.05 to 0.5 and the value of writeInterval from 0.05 to 0.5.
 
     ![Modify step variables][step_variables]
 
@@ -250,7 +265,8 @@ Use the head node share you configured previously to share files among the Linux
 
     ![Decompose processes][decompose]
 
-6.  Run the following commands to prepare the sample data.
+6.  Run the following commands from the sloshingTank3D directory to prepare the sample data.
+
     ```
     $ . $WM_PROJECT_DIR/bin/tools/RunFunctions
 
@@ -260,9 +276,10 @@ Use the head node share you configured previously to share files among the Linux
 
     $ cp 0/alpha.water.org 0/alpha.water
 
-    $ runApplication setFields
-```
-7.  On the head node, you should see the sample data files have been copied into D:\OpenFOAM\sloshingTank3D. (D:\OpenFOAM is the shared folder on the head node.)
+    $ runApplication setFields  
+    ```
+    
+7.  On the head node, you should see the sample data files are copied into C:\OpenFoam\sloshingTank3D. (C:\OpenFoam is the shared folder on the head node.)
 
     ![Data files on the head node][data_files]
 
@@ -273,15 +290,17 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 1.	On one of the Linux nodes, create a new file named hostfile under /openfoam, so this file can be reached at /openfoam/hostfile on all Linux nodes.
 
 2.	Write your Linux node names into this file. In this example, the file looks like this:
+    
     ```       
     SUSE12RDMA-LN1
     SUSE12RDMA-LN2
     ```
-    >[AZURE.TIP]You can also create this file at D:\OpenFOAM\hostfile on the head node. If you do this, save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
+    
+    >[AZURE.TIP]You can also create this file at C:\OpenFoam\hostfile on the head node. If you do this, save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
     **Bash script wrapper**
 
-    If you have many Linux nodes and your job will only run on some of them, it’s not a good idea to use a fixed host file, because you don’t know which nodes will be allocated to your job. In this case, you should write a bash script wrapper for **mpirun** to create the host file automatically. You can find an example bash script wrapper called hpcimpirun.sh in the Appendix at the end of this article and save it as /openfoam/hpcimpirun.sh. This example script does the following:
+    If you have many Linux nodes and your job will only run on some of them, it’s not a good idea to use a fixed host file, because you don’t know which nodes will be allocated to your job. In this case, write a bash script wrapper for **mpirun** to create the host file automatically. You can find an example bash script wrapper called hpcimpirun.sh in the Appendix at the end of this article and save it as /openfoam/hpcimpirun.sh. This example script does the following:
 
     1.	Sets up the environment variables for **mpirun**, and some addition command parameters to run the MPI job through the RDMA network. In this case, it sets the following:
 
@@ -289,7 +308,7 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
         *	I_MPI_DAPL_PROVIDER=ofa-v2-ib0
         *	I_MPI_DYNAMIC_CONNECTION=0
 
-    2.	Dreates a host file according to the environment variable $CCP_NODES_CORES, which is set by the HPC head node when the job is activated.
+    2.	Creates a host file according to the environment variable $CCP_NODES_CORES, which is set by the HPC head node when the job is activated.
 
         The format of $CCP_NODES_CORES follows this pattern:
 
@@ -309,18 +328,18 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 
         *	**--hostfile <hostfilepath>: <hostfilepath>** - the path of the host file the script creates
 
-        *	**-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}** -an environment variable set by the HPC head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
+        *	**-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}** - an environment variable set by the HPC Pack head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
 
 
 
 
 ## Submit an OpenFOAM job
 
-Now you can submit a job in HPC Cluster Manager.
+Now you can submit a job in HPC Cluster Manager. You'll need to pass the script hpcimpirun.sh in the command lines for some of the job tasks.
 
 1. Connect to your cluster head node and start HPC Cluster Manager.
 
-2. **In Node Management**, ensure that the Linux compute nodes are in the **Online** state. If they are not, select them and click **Bring Online**.
+2. **In Resource Management**, ensure that the Linux compute nodes are in the **Online** state. If they are not, select them and click **Bring Online**.
 
 3.  In **Job Management**, click **New Job**.
 
@@ -334,14 +353,15 @@ Now you can submit a job in HPC Cluster Manager.
 
 6.	Add 4 tasks to the job with the following command lines and settings for the tasks.
 
-    >[AZURE.NOTE]Running `source /opt/openfoam231/etc/bashrc` sets up the OpenFOAM runtime environment, so each of the following tasks calls it before the OpenFOAM command.
+    >[AZURE.NOTE]Running `source /openfoam/settings.sh` sets up the OpenFOAM and MPI runtime environments, so each of the following tasks calls it before the OpenFOAM command.
 
     **Task 1**
 
     Run **decomposePar** to generate data files for running **interDyMFoam** in parallel.
-    *   Assign 1 node to task
+    *   Assign 1 node to the task
 
-    *   **Command line** - `source /opt/openfoam231/etc/bashrc && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+    *   **Command line** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
+    
     *   **Working directory** - /openfoam/sloshingTank3D
 
         ![Task 1 details][task_details1]
@@ -350,9 +370,9 @@ Now you can submit a job in HPC Cluster Manager.
 
     Run **interDyMFoam** in parallel to compute the sample.
 
-    *   Assign 2 nodes to task
+    *   Assign 2 nodes to the task
 
-    *   **Command line** - `source /opt/openfoam231/etc/bashrc && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
+    *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh interDyMFoam -parallel > /openfoam/interDyMFoam${CCP_JOBID}.log`
 
     *   **Working directory** - /openfoam/sloshingTank3D
 
@@ -362,9 +382,9 @@ Now you can submit a job in HPC Cluster Manager.
 
     Run **reconstructPar** to merge the sets of time directories from each processor_N_ directory into a single set of time directories.
 
-    *   Assign 1 node to task
+    *   Assign 1 node to the task
 
-    *   **Command line** - `source /opt/openfoam231/etc/bashrc && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
+    *   **Command line** - `source /openfoam/settings.sh && reconstructPar > /openfoam/reconstructPar${CCP_JOBID}.log`
 
     *   **Working directory** - /openfoam/sloshingTank3D
 
@@ -374,9 +394,9 @@ Now you can submit a job in HPC Cluster Manager.
 
     Run **foamToEnsight** in parallel to convert the OpenFOAM result files into EnSight format and place the EnSight files in a directory named Ensight in the case directory.
 
-    *   Assign 2 nodes to task
+    *   Assign 2 nodes to the task
 
-    *   **Command line** - `source /opt/openfoam231/etc/bashrc && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
+    *   **Command line** - `source /openfoam/settings.sh && /openfoam/hpcimpirun.sh foamToEnsight -parallel > /openfoam/foamToEnsight${CCP_JOBID}.log`
 
     *   **Working directory** - /openfoam/sloshingTank3D
 
@@ -388,11 +408,11 @@ Now you can submit a job in HPC Cluster Manager.
 
 7.	Click **Submit** to run this job.
 
-    By default, HPC Pack submits the job as your current logged-on user account. A dialog box might prompt you to enter the user name and password after you click **Submit**.
+    By default, HPC Pack submits the job as your current logged-on user account. After you click **Submit**, you might see a dialog box prompting you to enter the user name and password.
 
     ![Job credentials][creds]
 
-    Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command window and then submit the job.
+    Under some conditions HPC Pack remembers the user information you input before and won’t show this dialog box. To make HPC Pack show it again, enter the following in a Command Prompt window and then submit the job.
 
     ```
     hpccred delcreds
@@ -406,7 +426,7 @@ Now you can submit a job in HPC Cluster Manager.
 
     ![Linux processes][linux_processes]
 
-9.  When the job finishes, find the job results in folders under D:\OpenFOAM\sloshingTank3D, and the log files at D:\OpenFOAM.
+9.  When the job finishes, find the job results in folders under C:\OpenFoam\sloshingTank3D, and the log files at C:\OpenFoam.
 
 
 ## View results in EnSight
@@ -415,7 +435,7 @@ Optionally use [EnSight](https://www.ceisoftware.com/) to visualize and analyze 
 
 1.  After you install EnSight on the head node, start it.
 
-2.  Open D:\OpenFOAM\sloshingTank3D\EnSight\sloshingTank3D.case.
+2.  Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
 
     You will see a tank in the viewer.
 
@@ -544,6 +564,9 @@ ENVIRONMENT_LD_SO_CONF=no
 # impi
 source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 export MPI_ROOT=$I_MPI_ROOT
+export I_MPI_FABRICS=shm:dapl
+export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+export I_MPI_DYNAMIC_CONNECTION=0
 
 # openfoam
 export FOAM_INST_DIR=/opt/OpenFOAM
@@ -551,7 +574,30 @@ source /opt/OpenFOAM/OpenFOAM-2.3.1/etc/bashrc
 export WM_MPLIB=INTELMPI
 ```
 
+### Sample commands to add repositories and dependent packages on the Linux nodes
+
+```
+sudo zypper ar ftp://ftp.muug.mb.ca/mirror/opensuse/factory-snapshot/repo/oss/ update1
+
+sudo zypper ar http://download.opensuse.org/distribution/13.2/repo/oss/suse/ update2
+
+sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/factory-snapshot/repo/oss/ update3
+
+sudo zypper ar ftp://mirror.switch.ch/pool/4/mirror/opensuse/opensuse/distribution/13.2/repo/oss/ update4
+
+sudo zypper ar ftp://bo.mirror.garr.it/pub/1/opensuse/distribution/13.2/repo/oss/ update6
+
+sudo zypper ar ftp://ftp.pbone.net/mirror/ftp.opensuse.org/distribution/13.2/repo/oss/ update7
+
+sudo zypper ar ftp://ftp.icm.edu.pl/vol/rzm5/linux-opensuse/distribution/13.2/repo/oss/ update8
+
+sudo zypper install -t pattern devel_C_C++
+
+sudo zypper install cmake boost-devel gnuplot mpfr-devel openmpi-devel glu-devel  
+```
+
 ###Sample hpcimpirun.sh script
+
 ```
 #!/bin/bash
 
@@ -602,6 +648,9 @@ fi
 exit ${RTNSTS}
 
 ```
+
+
+
 
 
 <!--Image references-->
