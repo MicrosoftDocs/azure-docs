@@ -35,11 +35,9 @@ You can create a new mobile application right in the [Azure Preview Management P
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-&nbsp;&nbsp;1. Navigate within the portal to your newly created application. Click **Settings** > **Get Started**. Then select a client platform.
+&nbsp;&nbsp;9. Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**.
 
-&nbsp;&nbsp;2. Under **Create a table API**, choose **C#** your **Backend language**.
-
-&nbsp;&nbsp;3. Click Download, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+&nbsp;&nbsp;10. Click Download, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
