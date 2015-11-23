@@ -25,7 +25,7 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 
 ## How to: Create a .NET backend for your mobile application
 
-If you are starting a new project, you can create an App Service application using either the [Azure Preview Management Portal] or Visual Studio. This section will help you use those to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish it to your cloud-based App Service mobile app.
+If you are starting a new project, you can create an App Service application using either the [Azure Preview Management Portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish it to your cloud-based App Service mobile app.
 
 If you are adding mobile capabilities to an existing project, see the [Download and initialize the SDK](#install-sdk) section below.
 
@@ -35,11 +35,11 @@ You can create a new mobile application right in the [Azure Preview Management P
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-1. Navigate within the portal to your newly created application. Click **Settings** > **Get Started**. Then select a client platform.
+&nbsp;&nbsp;1. Navigate within the portal to your newly created application. Click **Settings** > **Get Started**. Then select a client platform.
 
-2. Under **Create a table API**, choost **C#** your **Backend language**.
+&nbsp;&nbsp;2. Under **Create a table API**, choose **C#** your **Backend language**.
 
-3. Click Download, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+&nbsp;&nbsp;3. Click Download, extract the compressed project files to your local computer, and open the solution in Visual Studio.
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
@@ -139,9 +139,9 @@ The following NuGet-based extension packages provide various mobile features tha
 
 ## How to: Publish the server project
 
-Use the following steps to publish your server project to Azure:
-
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+
+You can also use any of the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-site-deploy.md).
 
 ## How to: Define a table controller
 
@@ -205,7 +205,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 	This adds the OWIN middleware component that enables your Azure Mobile App to validate tokens issued by the associated App Service gateway.
 
-3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or those a specific APIs.
+3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or specific APIs.
 
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
