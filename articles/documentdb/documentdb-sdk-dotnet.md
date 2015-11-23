@@ -30,7 +30,7 @@
 <tr><td>**Download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
 <tr><td>**Documentation**</td><td>[.NET SDK Reference Documentation](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
 <tr><td>**Samples**</td><td>[.NET Code Samples](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the DocumentDB .NET SDK](https://azure.microsoft.com/documentation/articles/documentdb-get-started/)</td></tr>
+<tr><td>**Get Started**</td><td>[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
 <tr><td>**Current Supported Framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
