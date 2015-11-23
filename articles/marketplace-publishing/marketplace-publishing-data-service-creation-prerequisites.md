@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="11/23/2015"
    ms.author="hascipio; avikova" />
 
 # Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
@@ -60,9 +60,8 @@ OData services don’t only need to go against a database in the backend. OData 
 
 
 ## Next Steps
-Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Data Service offer as detailed in the [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)
+Now that you reviewed the pre-requisites and completed the necessary tasks, you can move forward with the creating your Data Service offer as detailed in the [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
 
-## See Also
-- [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+Or, if you would like to review the overall process and the respective articles for each of the publishing phases, please visit the article [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
