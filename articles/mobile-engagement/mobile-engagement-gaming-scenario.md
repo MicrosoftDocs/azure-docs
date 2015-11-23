@@ -1,5 +1,5 @@
 	<properties 
-	pageTitle="Azure Mobile Engagement Gaming App Scenario"
+	pageTitle="Azure Mobile Engagement implementation for Gaming App"
 	description="Gaming app scenario to implement Azure Mobile Engagement" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
@@ -16,7 +16,7 @@
 	ms.date="11/23/2015"
 	ms.author="piyushjo"/>
 
-#Azure Mobile Engagement gaming scenario 
+#Implement Mobile Engagement with Gaming App
 
 ## Overview
 
