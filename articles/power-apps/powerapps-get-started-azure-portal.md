@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/23/2015"
    ms.author="litran"/>
 
 # What is Microsoft PowerApps enterprise?
@@ -38,7 +38,7 @@ IT Admins can manage apps created by business users in their company, including:
 
 ## How do I get started?
 
-First of all, determine if you need to create a new Azure Active Directory (Azure AD) tenant. If you already have an AD tenant, then simply enable PowerApps Enterprise in the Azure portal, add your APIs and connections, and start managing!
+First of all, determine if you need to create a new Azure Active Directory (Azure AD) tenant. If you already have an AD tenant, then simply enable PowerApps Enterprise in the Azure portal, add your APIs and connections, and start managing (see from step 2 below)!
 
 If you don't have an AD tenant, then create a new AD tenant, enable PowerApps Enterprise in the Azure portal, add your APIs and connections, and start managing!
 
@@ -52,10 +52,10 @@ When your organization or company signs up for a Microsoft Azure cloud service s
 
 Use the following steps to determine if you already have a tenant or how to create a new one.
 
-##### Have an existing Office 365 subscription
+#### Have an existing Office 365 subscription
 If you have an existing Office 365 subscription (or Microsoft Dynamic CRM Online, Enterprise Mobility Suite, or other Microsoft services), you have a free subscription to Azure Active Directory. You can use Azure AD to create and manage user and group accounts. If you can’t sign into the Azure portal, chances are you need to activate the subscription. To do so, go to the [Azure classic portal](https://manage.windowsazure.com/), and complete a one time registration process. Use these [steps](https://technet.microsoft.com/library/dn832618.aspx) to gain access to your Azure AD tenant. 
 
-##### Have an existing Azure subscription associated with a Microsoft account
+#### Have an existing Azure subscription associated with a Microsoft account
 If you have previously signed up for an Azure subscription with your individual Microsoft Account (hotmail or live), you already have a tenant! In the [Azure classic portal](https://manage.windowsazure.com/), **Default Tenant** is listed under **All Items** and under **Active Directory**. You are free to use this tenant as you see fit - but you may want to create an Organizational administrator account.
 
 To do so, use the following steps. Alternatively, you may wish to create a new tenant and create an administrator in that tenant following a similar process.
@@ -81,56 +81,40 @@ Optional | Enable Multi-Factor Authentication
 When finished, record this temporary password for the new administrative user. To change the temporary password, sign in to [https://login.microsoftonline.com](https://login.microsoftonline.com) with this new user account and change the password. You can also send the password directly to the user, using an alternative e-mail.
 
 
-##### Have an existing Azure subscription associated with an organization account
+#### Have an existing Azure subscription associated with an organization account
 If you have previously signed up for an Azure subscription with your organizational account, then you already have a tenant. In the [Azure classic portal](https://manage.windowsazure.com/), the tenant is listed under **All Items** and also under **Active Directory**. You are free to use this tenant as you see fit. You can also create a new tenant using the **New** menu in the task bar at the bottom.
 
-##### Have none of the above and want to start from scratch
+#### Have none of the above and want to start from scratch
 If none of the above applies to you, then go to the [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) to sign up for Azure with a new organization. Once signed up, you have your own Azure AD tenant with your chosen domain name. In the [Azure classic portal](https://manage.windowsazure.com/), you can see tenant in **Active Directory** in the left menu.
 
-#### Create new or use existing Azure subscription
+## Step 2: Create new or use existing Azure subscription
 Now that you have your AD tenant, you can create a new or use an existing Azure subscription. The Azure AD subscription includes several editions. For PowerApps Enterprise, you can use the Free edition. However, if you need to use AAD Proxy to create hybrid connectivity to on-premises data, you need the Basic or Premium edition. 
 
-[Azure Active Directory editions](../active-directory-editions.md) lists more features. 
+[Azure Active Directory editions](../active-directory/active-directory-editions.md) lists more features. 
 
 
-## Step 2: Sign up for PowerApps Enterprise in your Azure work subscription
+## Step 3: Sign up for PowerApps Enterprise in your Azure work subscription
 > [AZURE.NOTE] The following steps require the subscription Administrator to sign-in to the Azure portal and submit a request. 
 
-Now that you have your AD tenant and an Azure subscription, your work subscription administrators can sign up for PowerApps Enterprise. The Admin can also add users within your company to 'administer' PowerApps, including giving users permissions, and manage the PowerApps published to your Azure subscription. 
+Now that you have your AD tenant and an Azure subscription, your work subscription administrators can sign up for PowerApps enterprise. The Admin can also add users within your company to 'administer' PowerApps, including giving users permissions, and manage the PowerApps published to your Azure subscription. 
 
-To sign-up your company, the **subscription administrator** submits a request for *@yourCompany.com* email accounts. Use the following steps to sign-up:
+Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [https://www.powerapps.com/en-us/pricing/](https://www.powerapps.com/en-us/pricing/) to contact us to learn more about pricing and the sign up process. 
 
-1. In the [Azure portal](https://portal.azure.com/), sign-in to your work subscription.
-2. Select **Browse All** in the task bar:  
-![Browse for PowerApps][1]  
-3. In the list, you can scroll to find **PowerApps**. You can also select **Resources**, and type in *powerapps*:  
-![Search for PowerApps in Resources][2]  
-4. Select **Get an invitation**:  
-![Get an invitation][3]  
+![][4]  
 
-An email opens that is sent to the PowerApps group. After you submit your request, the PowerApps team reviews the information you provided. There is no ETA on approval and each scenario is considered on a case-by-case basis. Until your request is reviewed, an **Access denied** message may display in PowerApps in the Azure portal.
-
-
-If the request is approved, you can then: 
+Once you finish the sign up process and ready to use PowerApps enterprise, you can then: 
 
 - Add users within your company and using [role-based access control](../role-based-access-control-configure.md), give these users PowerApps Admin roles to access the PowerApps Enterprise portal.
 - Create a dedicated App Service Environment to host your PowerApps.
 - Create APIs and connections to run within your dedicated app service environment.
-- In addition to PowerApps, you can add additional apps to your app service environment, including web apps, mobile apps, and logic apps.
+- In addition to PowerApps, you can add additional apps to your app service environment, including web apps, mobile apps, API apps and logic apps.
 
 In the following example, the Contoso company signed-up for PowerApps. In this new **PowerApps** blade, you can see a summary of the different type of apps created using this app service environment. In **Manage APIs**, you can see a summary of the Microsoft-created APIs (Microsoft managed) and see the Contoso-created APIs (IT managed):  
 
-![Sample company PowerApps blade][4]  
+![Sample company PowerApps blade][3]  
 
-In **All apps**, you can select the different app types to see all those apps. For example, you can select **Logic apps** and see all those apps listed, including *Twitter daily* and *Link forms*. You can also see all the APIs used by your logic apps, including Bing, Facebook, Twitter, and more:  
-![][6]  
 
-#### Users who have no access
-Users who are not subscription administrators nor assigned the PowerApps administrator role cannot view the PowerApps Enterprise blade. Instead, they see a *No Access* message:  
-
-![No Access PowerApps blade][5]  
-
-## Step 3: Create an App Service Environment
+## Step 4: Create an App Service Environment
 Create an app service environment to host your PowerApps APIs and connections, as well as mobile apps, web apps, API apps, and logic apps. 
 
 An app service environment is an isolated and dedicated environment that securely runs all of your apps. Compute resources are per app service environment and are exclusively dedicated to running only your apps. When you sign-up for PowerApps Enterprise, a dedicated app service environment is used to host the APIs and connections used by your PowerApps. This app service environment is a "special" type of app service environment. Specifically: 
@@ -140,7 +124,7 @@ An app service environment is an isolated and dedicated environment that securel
 - Billing is fixed and included with PowerApps.  
 - Scale is automatically managed for you. You don't have to monitor the environment to determine if additional compute resources are needed.
 
-The regular Azure app service environment has different features. See [Introduction to App Service Environment](app-service-app-service-environment-intro.md) for those details.
+The regular Azure app service environment has different features. See [Introduction to App Service Environment](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro) for those details.
 
 #### Requirements to get started
 
@@ -153,18 +137,18 @@ The regular Azure app service environment has different features. See [Introduct
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
-2. Select **Browse All** in the task bar:  
+2. Select **Browse** in the task bar:  
 ![Browse for PowerApps][1]
   
-3. In the list, you can scroll to find PowerApps. You can also select **Resources**, and type in *powerapps*:  
-![Search for PowerApps in Resources][2]  
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![Search for PowerApps][2]  
 
 4. In the **PowerApps** blade, select **Create App Service Environment to get started** or select **App Service Environment** under *Settings*:  
-![][7]
+![][5]
   
 5. Next, enter the name, select the subscription you want to use, select or create a new resource group, and select a virtual network. **Notice** that after you choose a virtual network, it cannot be changed:  
-![][8]  
-For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](../app-service-web-how-to-create-an-app-service-environment.md). 
+![][6]  
+For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](https://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/). 
 
 6. Select **Add** to complete creating the app service environment. 
 
@@ -178,10 +162,10 @@ To get access to the app service environment, create APIs, connections and other
 
 1. Select the app service environment you just created.
 2. In Essentials, select the **Resource group** property. This opens the resource group that contains the app service environment:  
-![][9]
+![][7]
 3. Select the RBAC icon to manage permissions:  
-![][10]  
-	Adding users and assigning roles is just like using [Role-based access control](../role-based-access-control-configure.md) within Azure.
+![][8]  
+	Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) within Azure.
 
 > AZURE.NOTE Currently, you cannot give RBAC permissions to the app service environment. You can give RBAC permissions at the parent resource group level.
 
@@ -190,17 +174,16 @@ Your company is now signed up for PowerApps and has an app service environment. 
 
 - [Monitor your PowerApps apps](powerapps-manage-monitor-usage.md)
 - [Develop an API for PowerApps](powerapps-develop-api.md)
-- [Add a new API](powerapps-register-from-available-apis.md)
+- [Add a new API, add a connection, and give users access](powerapps-create-new-api.md)
 - [Update an existing API and its properties](powerapps-configure-apis.md)
 
 
 [1]: ./media/powerapps-get-started-azure-portal/browseall.png
 [2]: ./media/powerapps-get-started-azure-portal/allresources.png
-[3]: ./media/powerapps-get-started-azure-portal/signup.png
-[4]: ./media/powerapps-get-started-azure-portal/powerappsblade.png
-[5]: ./media/powerapps-get-started-azure-portal/noaccess.png
-[6]: ./media/powerapps-get-started-azure-portal/alllogicapps.png
-[7]: ./media/powerapps-get-started-azure-portal/createase.png
-[8]: ./media/powerapps-get-started-azure-portal/aseproperties.png
-[9]: ./media/powerapps-get-started-azure-portal/aseessentials.png
-[10]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
+[3]: ./media/powerapps-get-started-azure-portal/powerappsblade.png
+[4]: ./media/powerapps-get-started-azure-portal/noaccess.png
+[5]: ./media/powerapps-get-started-azure-portal/createase.png
+[6]: ./media/powerapps-get-started-azure-portal/aseproperties.png
+[7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
+[8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
+

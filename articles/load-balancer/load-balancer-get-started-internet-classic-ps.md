@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic mode using PowerShell | Microsoft Azure"
+   pageTitle="Get started creating an Internet facing load balancer in classic mode using PowerShell | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic mode using PowerShell"
    services="load-balancer"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="09/23/2015"
    ms.author="joaoma" />
 
-# Get started creating Internet facing load balancer (classic) in PowerShell
+# Get started creating an Internet facing load balancer (classic) in PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
