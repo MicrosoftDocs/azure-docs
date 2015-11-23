@@ -43,7 +43,7 @@ You can create a new mobile application right in the [Azure Preview Management P
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
-In order to create a Mobile Apps project in Visual Studio, you will need to install the [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/), version 2.8.1 or later. Once you have installed the SDK, create a new ASP.NET application:
+In order to create a Mobile Apps project in Visual Studio, you will need to install the [Azure SDK for .NET](https://azure.microsoft.com/downloads/), version 2.8.1 or later. Once you have installed the SDK, create a new ASP.NET application:
 
 1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
 
