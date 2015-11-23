@@ -38,8 +38,8 @@
                 // Set the user from the stored credentials.
                 App.MobileService.CurrentUser = user;
 
-                // Consider adding a check to determin if the token is 
-                // expired, as shown in http://aka.ms/jww5vp.
+                // Consider adding a check to determine if the token is 
+                // expired, as shown in this post: http://aka.ms/jww5vp.
 
                 success = true;
             }
