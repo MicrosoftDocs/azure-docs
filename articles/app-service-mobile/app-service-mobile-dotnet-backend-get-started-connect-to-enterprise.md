@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Connect a Mobile App to an enterprise SaaS | Microsoft Azure"
 	description="Learn how to make calls to enterprise resources such as SharePoint Online"
+	keywords="azure app service,app service,mobile app,mobile backend,saas,azure saas,enterprise mobile"
 	documentationCenter=""
 	authors="mattchenderson"
 	manager="dwrede"

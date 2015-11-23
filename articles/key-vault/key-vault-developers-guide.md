@@ -33,22 +33,12 @@ Operations against key vaults are authenticated and authorized by using Azure Ac
 
 ## Programming for Key Vault
 
-The Key Vault management system for programmers consists of several interfaces, with REST as the foundation. This article in the REST reference provides core concepts, [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
-
-### REST
-
-A REST interface is the foundation of all programmatic interaction with the Key Vault. 
+The Key Vault management system for programmers consists of several interfaces, with REST as the foundation.
 [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### .NET
-
-The .NET API is a set of wrappers that allows implementation through the C# programming model.
-[Azure Key Vault .NET client API reference](https://msdn.microsoft.com/library/azure/dn903301.aspx).
-
-### Node.js
-
-The Node.js API is a set of wrappers that allows implementation through the node.js programming model. 
-[Microsoft Azure SDK for Node.js - Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## Managing Key Vaults
 
@@ -72,7 +62,7 @@ The following articles provide task specific guidance:
 
 ## Supporting Libraries
 
-[Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides IKey and IKeyResolver interfaces for locating keys from identifiers and performing operations with keys.
+- [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides IKey and IKeyResolver interfaces for locating keys from identifiers and performing operations with keys.
 
-[Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
+- [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
 
