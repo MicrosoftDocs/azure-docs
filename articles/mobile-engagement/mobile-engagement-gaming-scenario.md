@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="11/30/2015"
+	ms.date="11/23/2015"
 	ms.author="piyushjo"/>
 
 #Azure Mobile Engagement gaming scenario 
