@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="Join a personal device to your organization| Microsoft Azure" 
-	description="A topic that explains how users can register their personal Windows 10 computers to their corporate network, provides deployment steps for a BYOD scenario." 
+	description="Explains how users can register their personal Windows 10 computers to their corporate network, provides deployment steps for a BYOD scenario." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Join a personal device to your organization
@@ -28,7 +29,7 @@ To join a Windows 10 device to your organization
 5.	You will then be prompted for a multi-factor authentication challenge. This is configurable by IT.
 6.	Azure AD will then check whether this user/device requires mobile device management (MDM) enrollment. 
 7.	Windows will then register the device in the organization’s directory in Azure AD and enroll it in MDM.
-8.	When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the auto-signon.
+8.	When this is done, if you are a managed user, Windows will wrap up the setup process and take the user to the desktop through the auto-sign on.
 9.	If you are a federated user, you will be taken to the Windows sign-on screen and have to enter your credentials.
 
 ## Additional Information
