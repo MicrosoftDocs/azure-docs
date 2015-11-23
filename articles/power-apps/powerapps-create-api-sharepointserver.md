@@ -14,26 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
-   ms.author="rajram"/>
+   ms.date="11/23/2015"
+   ms.author="litran"/>
 
 # Create a new SharePoint Server API in your organization's App Service Environment
 
-1. In the Azure portal, open **PowerApps**. In PowerApps, select **Registered APIs** tile or select it from *Settings*:  
+1. In the Azure portal, open **PowerApps**. In PowerApps, select **Manage APIs** tile or select it from *Settings*:  
 
+![Browse to registered apis][5]
 
-2. In the **Registered APIs** blade, select **Add** to add a new API
+2. In the **Manage APIs** blade, select **Add** to add a new API
 
-3. Configure the API properties:  
+![Add API][6]
 
-
-	a) Enter a descriptive **name** for your API. For example, if you're adding the SQL connector, you can name it *SQLOrdersDB*.  
+3. Enter a descriptive **name** for your API
 	
-	b) In **Source**, select **Marketplace** to select a pre-built connector. Select **Existing API** to choose a connector you created (the .json and .manifest files are needed).  
-	
-	c) Select **API** from Azure Marketplace.  
+4. In **Source**, select **Available APIs** to select a pre-built connector. 
 
-4. Select *SharePoint Server* from Azure Marketplace
+5. Select **SharePoint Server** from the list of available APIs
 
 	a) Select *Settings - Configure required settings*
 	
@@ -41,11 +39,9 @@
 		
 		Note the *Redirect URL*
 	
-
-
 	c) Click *OK* on *Configure API* blade
 
-5. Click **OK**. SharePoint Server API is now added to the list of **Registered APIs** in your App Service Environment.
+5. Click **OK**. SharePoint Server API is now added to the list of **Manage APIs** in your App Service Environment.
 
 ## Configure connectivity to an on-premises SharePoint Server
 
@@ -69,3 +65,6 @@ Once the Proxy app has been created, you have to create another AAD app that del
 [2]: https://msdn.microsoft.com/library/azure/dn768219.aspx
 [3]: https://msdn.microsoft.com/library/azure/dn768214.aspx
 [4]: https://msdn.microsoft.com/library/azure/dn768220.aspx
+[5]: ./media/powerapps-create-api-dropbox/browse-to-registered-apis.PNG
+[6]: ./media/powerapps-create-api-dropbox/add-api.PNG
+
