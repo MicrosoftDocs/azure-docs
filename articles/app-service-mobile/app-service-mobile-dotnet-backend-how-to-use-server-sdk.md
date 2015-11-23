@@ -25,7 +25,7 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 
 ## How to: Create a .NET backend for your mobile application
 
-If you are starting a new project, you can create an App Service application using either the [Azure Preview Management Portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish it to your cloud-based App Service mobile app.
+If you are starting a new project, you can create an App Service application using either the [Azure Preview Management Portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish the project to your cloud-based App Service mobile app.
 
 If you are adding mobile capabilities to an existing project, see the [Download and initialize the SDK](#install-sdk) section below.
 
