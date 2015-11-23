@@ -15,12 +15,16 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
-# Analytics for device apps
+# Analytics for iOS apps
+
+Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for devOps workflow and crash analysis; and [Application Insights](app-insights-overview.md) for usage and crash analytics.
 
 [HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for building iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. You can learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb) and keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/).
 
 
-Use [Visual Studio Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md).
+Use [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS) for usage analytics. If your app has a server side, you can send the client and server data to the same Application Insights resource.
 
-There's also an [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS) which sends telemetry to the Application Insights portal.
+
+* [Get started with Application Insights for iOS](https://github.com/Microsoft/ApplicationInsights-iOS).
+* [Get started with HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios).
 
