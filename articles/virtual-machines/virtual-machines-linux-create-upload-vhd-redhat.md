@@ -829,7 +829,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 7.	Wait for the installation to finish, when it’s finished, the VM will be shutdown automatically. Your Linux VHD is now ready to be uploaded to Azure.
 
 ##Known issues
-There are a known issues when you are using RHEL 7.1 in Hyper-V and Azure.
+There are known issues when you are using RHEL 7.1 in Hyper-V and Azure.
 
 ###Issue: Disk I/O freeze 
 
@@ -837,9 +837,9 @@ This issue may occur during frequent storage disk I/O acitivities with RHEL 7.1 
 
 Repro Rate:
 
-This issue is intermittent, however occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
+This issue is intermittent, however, it occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
 
     
-[AZURE.NOTE] This known issue has already been addressed by Red Hat. To install the associated fixes, you can run below command:
+[AZURE.NOTE] This known issue has already been addressed by Red Hat. To install the associated fixes, run the following command:
 
     # sudo yum update
