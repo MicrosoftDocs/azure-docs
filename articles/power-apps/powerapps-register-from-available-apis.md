@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Create and configure Microsoft managed and IT managed APIs in PowerApps | Microsoft Azure"
 	description="Learn about the available APIs in PowerApps and how to register them in the Azure portal"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/18/2015"
+   ms.date="11/20/2015"
    ms.author="guayan"/>
 
 # Register a Microsoft managed API or an IT managed API

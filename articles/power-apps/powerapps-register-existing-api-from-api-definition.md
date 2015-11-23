@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Create Swagger 2.0 API Definition from an API in PowerApps | Microsoft Azure"
 	description="Learn how to register an API from Swagger 2.0 API defition created from an existing API"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/18/2015"
+   ms.date="11/20/2015"
    ms.author="guayan"/>
 
 # Register an API from Swagger 2.0 API Definition  

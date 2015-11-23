@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Create a new SharePoint Server API in your organization's App Service Environment"
 	description="Create a new SharePoint Server API in your organization's App Service Environment"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="rajram"/>
 
 # Create a new SharePoint Server API in your organization's App Service Environment

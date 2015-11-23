@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Develop API for PowerApps (.Net) | Microsoft Azure"
 	description="Develop API for PowerApps (.Net)"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
 	manager="dwrede"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/10/2015"
+   ms.date="11/20/2015"
    ms.author="rajram"/>
 
 # Develop an API for PowerApps in .Net

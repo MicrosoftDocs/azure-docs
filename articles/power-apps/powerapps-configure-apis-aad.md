@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Configure an API to connect to backend system on an Azure Active Directory domain in PowerApps | Microsoft Azure"
 	description="Configure an API to connect to AAD protected backend system in PowerApps"
-	services="powerapps"
+	services=""
+    suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
