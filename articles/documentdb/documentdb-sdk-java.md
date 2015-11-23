@@ -30,7 +30,7 @@
 <tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
 <tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 <tr><td>**Documentation**</td><td>[Java SDK Reference Documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the Java SDK](https://azure.microsoft.com/en-us/documentation/articles/documentdb-java-application/)</td></tr>
+<tr><td>**Get Started**</td><td>[Get started with the Java SDK](https://azure.microsoft.com/documentation/articles/documentdb-java-application/)</td></tr>
 <tr><td>**Current Supported Runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
@@ -86,4 +86,4 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 ## See Also
 
-To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) service page. 
+To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
