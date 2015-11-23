@@ -16,7 +16,7 @@
  ms.date="11/22/2015"
  ms.author="danlep"/>
 
-# Run OpenFoam with Microsoft HPC Pack on a Linux RDMA network in Azure
+# Run OpenFoam with Microsoft HPC Pack on a Linux RDMA cluster in Azure
 
 This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and run an [OpenFoam](http://openfoam.com/) job with Intel MPI on multiple Linux compute nodes that connect across the Azure remote direct memory access (RDMA) network.
 
@@ -86,9 +86,11 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
 
 ## Set up mutual trust between compute nodes
+
 Running a cross-node job on multiple Linux nodes requires the nodes to trust each other (by **rsh** or **ssh**). When you create the HPC Pack cluster with the Microsoft HPC Pack IaaS deployment script, the script automatically sets up permanent mutual trust for the administrator account you specify. For non-administrator users you create in the cluster's domain, you have to set up temporary mutual trust among the nodes when a job is allocated to them, and destroy the relationship after the job is complete. To do this for each user, provide an RSA key pair to the cluster which HPC Pack uses to establish the trust relationship.
 
 ### Generate an RSA key pair
+
 It's easy to generate an RSA key pair, which contains a public key and a private key, by running the Linux **ssh-keygen** command.
 
 1.	Log on to a Linux computer.
@@ -140,13 +142,14 @@ Now set up a standard SMB share on a folder on the head node, and mount the shar
 1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. For example, share C:\OpenFOAM on the head node as \\\\SUSE12RDMA-HN\OpenFOAM. Here, *SUSE12RDMA-HN* is the host name of the head node.
 
 2.	Open a Windows PowerShell window and run the following commands to mount the shared folder.
+
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
     clusrun /nodegroup:LinuxNodes mount -t cifs //SUSE12RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>’`,dir_mode=0777`,file_mode=0777
     ```
 
-The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //SUSE12RDMA-HN/OpenFOAM onto the folder with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
+The first command creates a folder named /openfoam on all nodes in the LinuxNodes group. The second command mounts the shared folder //SUSE12RDMA-HN/OpenFOAM onto the Linux nodes with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
 
 >[AZURE.NOTE]The “\`” symbol in the second command is an escape symbol for PowerShell. “\`,” means the “,” (comma character) is a part of the command.
 
@@ -164,6 +167,7 @@ You'll first run several **clusrun** commands to install Intel MPI libraries and
 Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in this example) in C:\OpenFoam on the head node so that the Linux nodes can access this file from /openfoam. Then run **clusrun** to install Intel MPI library on all of the Linux nodes.
 
 1.  The following commands copy the installation package and extract it to /opt/intel on each node.
+
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /opt/intel
 
@@ -177,6 +181,7 @@ Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in
     >[AZURE.TIP]Make sure that you save your silent.cfg file as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
 3.  Install Intel MPI Library in silent mode.
+ 
     ```
     clusrun /nodegroup:LinuxNodes bash /opt/intel/l_mpi_p_5.0.3.048/install.sh --silent /openfoam/silent.cfg
     ```
@@ -296,7 +301,7 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
     SUSE12RDMA-LN2
     ```
     
-    >[AZURE.TIP]You can also create this file at C:\OpenFoam\hostfile on the head node. If you do this, save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
+    >[AZURE.TIP]You can also create this file at C:\OpenFoam\hostfile on the head node. If you do this, save it as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
     **Bash script wrapper**
 
@@ -312,13 +317,15 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 
         The format of $CCP_NODES_CORES follows this pattern:
 
-            `<Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
+            ```
+            <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
+            ```
 
         where
 
-            <Number of nodes>: the number of nodes allocated to this job.
-            <Name of node_n_...>: the name of each node allocated to this job.
-            <Cores of node_n_...>: the number of cores on the node allocated to this job.
+            * `<Number of nodes>`: the number of nodes allocated to this job.
+            * `<Name of node_n_...>`: the name of each node allocated to this job.
+            * `<Cores of node_n_...>`: the number of cores on the node allocated to this job.
 
         For example, if the job needs 2 nodes to run, $CCP_NODES_CORES will be similar to:
 
@@ -326,11 +333,9 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 
     3.	Calls the **mpirun** command and appends 2 parameters to the command line.
 
-        *	**--hostfile <hostfilepath>: <hostfilepath>** - the path of the host file the script creates
+        *	**`--hostfile <hostfilepath>: <hostfilepath>`** - the path of the host file the script creates
 
-        *	**-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}** - an environment variable set by the HPC Pack head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
-
-
+        *	**`-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`** - an environment variable set by the HPC Pack head node, which stores the number of total cores allocated to this job. In this case it specifies the number of processes for **mpirun**.
 
 
 ## Submit an OpenFOAM job
@@ -358,13 +363,14 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
     **Task 1**
 
     Run **decomposePar** to generate data files for running **interDyMFoam** in parallel.
+    
     *   Assign 1 node to the task
 
     *   **Command line** - `source /openfoam/settings.sh && decomposePar -force > /openfoam/decomposePar${CCP_JOBID}.log`
     
     *   **Working directory** - /openfoam/sloshingTank3D
 
-        ![Task 1 details][task_details1]
+    ![Task 1 details][task_details1]
 
     **Task 2**
 
@@ -376,7 +382,7 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
 
     *   **Working directory** - /openfoam/sloshingTank3D
 
-        ![Task 2 details][task_details2]
+    ![Task 2 details][task_details2]
 
     **Task 3**
 
@@ -388,7 +394,7 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
 
     *   **Working directory** - /openfoam/sloshingTank3D
 
-        ![Task 3 details][task_details3]
+    ![Task 3 details][task_details3]
 
     **Task 4**
 
@@ -400,7 +406,7 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
 
     *   **Working directory** - /openfoam/sloshingTank3D
 
-        ![Task 4 details][task_details4]
+    ![Task 4 details][task_details4]
 
 6.	Add dependencies to these tasks in ascending task order.
 
@@ -657,6 +663,7 @@ exit ${RTNSTS}
 [keygen]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keygen.png
 [keys]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/keys.png
 [step_variables]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/step_variables.png
+[data_files]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/data_files.png
 [decompose]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/decompose.png
 [job_details]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_details.png
 [job_resources]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/job_resources.png
