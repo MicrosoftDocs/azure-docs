@@ -189,6 +189,8 @@ In this section, you will modify the client app to simulate an offline scenario 
          public static MobileServiceClient MobileService = 
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
+	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and celluar networks on the device or use airplane mode.
+
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
 3. Enter some new todo items and click **Save** for each one. Push fails for each one with a `PushResult.Status=CancelledByNetworkError`. The new todo items exist only in the local store until they can be pushed to the mobile app backend. 
  

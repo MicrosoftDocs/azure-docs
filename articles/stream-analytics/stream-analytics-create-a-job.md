@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a Job | Microsoft Azure" 
-	description="Create a Job learning path segment."
+	description="Create a Job for Stream Analytics | learning path segment."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/> 
 
-# Create a Job
+# Create a Stream Analytics job
 
 The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It consists of one or more input data sources, a query expressing the data transformation, and one or more output targets that results are written to.
 
