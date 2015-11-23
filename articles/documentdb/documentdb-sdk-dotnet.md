@@ -36,6 +36,9 @@
 
 ## Release Notes
 
+### <a name="1.5.1"/>[1.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
+ - **[Fixed]** If Select is not the last expression the LINQ Provider assumed no projection and produced SELECT * incorrectly.  [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
+
 ### <a name="1.5.0"/>[1.5.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.0)
  - Implemented Upsert, Added UpsertXXXAsync methods
  - Performance improvements for all requests
@@ -109,6 +112,7 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.1](#1.5.1) | November 23, 2015 |---
 | [1.5.0](#1.5.0) | October 05, 2015 |---
 | [1.4.1](#1.4.1) | August 25, 2015 |---
 | [1.4.0](#1.4.0) | August 13, 2015 |---
