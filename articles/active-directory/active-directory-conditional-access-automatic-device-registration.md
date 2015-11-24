@@ -83,4 +83,4 @@ Device registration with Azure AD provides the broadest set of device capabiliti
 
 Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service.If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS. 
 
-You can learn more about deploying device registration with AD FS [here](https://technet.microsoft.com/en-us/library/dn486831.aspx).
+You can learn more about deploying device registration with AD FS [here](https://technet.microsoft.com/library/dn486831.aspx).
