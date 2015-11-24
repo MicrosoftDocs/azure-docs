@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/17/2015"
+      ms.date="11/23/2015"
       ms.author="hascipio; avikova" />
 
 # Data Service Publishing Guide for the Azure Marketplace
@@ -47,7 +47,7 @@ Click on the **Walkthrough** tab and review all necessary steps needed to publis
 
 ### Offers, Plans, transactions.
 
-Each Offer can have multiple Plans, but must have at least 1 Plan. When end-users subscribe to your offer they subscribe for one of the offer’s Plan. Each plan defines how end-users will be able to use your service.
+Each Offer can have multiple Plans, but must have at least one (1) Plan. When end-users subscribe to your offer they subscribe for one of the offer’s Plan. Each plan defines how end-users will be able to use your service.
 
 Currently Azure Marketplace support only Monthly Subscription Transaction Based model for Data Services, i.e. end-users will pay monthly fee according to the price of the specific plan they subscribed to and will be able to consume each month number of
 transaction defined by the plan.
@@ -61,52 +61,49 @@ It’s Azure Marketplace Service layer responsibility to monitor (meter) number 
 > The plan or one of the plans can (but not must) include unlimited number of transactions.
 
 ### Create a plan.
-Click on **“+”** next to the “Add a new plan”.
+1. Click on **“+”** next to the “Add a new plan”.
 
-Choose one of the options: **Unlimited** or **Limited** usage for this plan.  If Limited then provide the number of transaction the plan will allow to consume in a month.
+2. Choose one of the options: **Unlimited** or **Limited** usage for this plan.  If Limited then provide the number of transaction the plan will allow to consume in a month.
 
-  ![drawing](media/marketplace-publishing-data-service-creation/step-5.1.png)  
+    ![drawing](media/marketplace-publishing-data-service-creation/step-5.1.png)  
 
-Publishing Portal will also suggest “Plan Identifier”, which will be used to communicate to the end-users the name of the plan in the UI and also used by the Market Place Service to identify the Plan. You can change the “Plan Identifier” if you want.
+    Publishing Portal will also suggest “Plan Identifier”, which will be used to communicate to the end-users the name of the plan in the UI and also used by the Market Place Service to identify the Plan. You can change the “Plan Identifier” if you want.
 
-> [AZURE.NOTE] The “Plan Identifier” must be unique within the scope of each offer. As many other Identifiers used in the Publishing Portal Plan identifier will be locked after the first publishing to production and you will not be able to change this identifier.
+    > [AZURE.NOTE] The “Plan Identifier” must be unique within the scope of each offer. As many other Identifiers used in the Publishing Portal Plan identifier will be locked after the first publishing to production and you will not be able to change this identifier.
 
-Click to accept your choice.
+3. Click to accept your choice.
 
-Then you will be asked few additional questions regarding your newly created Plan.
+4. Then you will be asked few additional questions regarding your newly created Plan.
 
-  ![drawing](media/marketplace-publishing-data-service-creation/step-5.2.png)
+    ![drawing](media/marketplace-publishing-data-service-creation/step-5.2.png)
 
-**This Plan is free and available world-wide?**
 
-You can create a completely free-of-charge plan. If it’s the only plan for this offer – it means that you are publishing “Free Offer” in the Marketplace. If it’s only for one (of few) Plan, the it gives you an option to offer end-users to learn more about your service with a relatively small number of transactions per month.
+|Question|Significance|
+|----|----|
+|**This Plan is free and available world-wide?**|You can create a completely free-of-charge plan. If it’s the only plan for this offer – it means that you are publishing “Free Offer” in the Marketplace. If it’s only for one (of few) Plan, the it gives you an option to offer end-users to learn more about your service with a relatively small number of transactions per month.  If the answer is "Yes," then no further questions will be asked.|
 
 > [AZURE.NOTE] End users can always upgrade to the paid plans.
 
-If the answer is “Yes”, the no further question will be asked.
-
-**Is free trial available?**
-
-You can choose between “No Trial” at all or give an option to use your Plan for “One Month”. Publishers like to use this option to provide end-users the possibility to understand the benefits of the offer for free for one month.
+|Question|Significance|
+|----|----|
+|**Is free trial available?**|You can choose between “No Trial” at all or give an option to use your Plan for “One Month”. Publishers like to use this option to provide end-users the possibility to understand the benefits of the offer for free for one month.|
 
 > [AZURE.IMPORTANT] End-users will only be able to purchase a free trial if they have established payment instrument e.g. credit card, enterprise agreement.
 
 > After one month of the free trial, Azure Marketplace will start charging customers the price as of the date of the subscription, unless the customer initiated the subscription cancellation. No special notification will be provided to the end-users.
 
-**This plan requires a promotion code to purchase?**
+|Question|Significance|
+|----|----|
+|**This plan requires a promotion code to purchase?**| Publishers have an option to limit access to their Service Plans by providing a special code, called “A Promocode” to specific customers. Only end-users which will have this Promocode will be able to subscribe to the Plan. If you choose “No”, then you agree that everyone from the region where the offer is available (See [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) for more details) will be able to subscribe to this plan. No further questions will be asked.|
 
-Publishers have an option to limit access to their Service Plans by providing a special code, called “A Promocode” to specific customers. Only end-users which will have this Promocode will be able to subscribe to the Plan.
-
-If you choose “No”, then you agree that everyone from the region where the offer is available (See [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) for more details) will be able to subscribe to this plan. No further questions will be asked.
-
-**Also hide this plan from anyone who doesn’t have a valid promotion code?**
-
-If the answer to the previous question is “Yes” the Publisher has an option to completely remove this plan from appearing in the UI of the Marketplace. It means, customers will not see this plan in the Offer’s details page. End-users which will receive a promocode to purchase it, will be able to subscribe to it using this promocode.
+|Question|Significance|
+|----|----|
+|**Also hide this plan from anyone who doesn’t have a valid promotion code?**|If the answer to the previous question is “Yes” the Publisher has an option to completely remove this plan from appearing in the UI of the Marketplace. It means, customers will not see this plan in the Offer’s details page. End-users which will receive a promocode to purchase it, will be able to subscribe to it using this promocode.|
 
 ## 6.	Create your Marketplace marketing content
 For How to provide information required in **Marketing, Pricing, Support and Categories** tabs please visit [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) which is common to all artifacts published in the Azure Marketplace.  
 
-7.	Connect your offer to your Service (SQL Azure based or Web Service based).
+## 7.	Connect your offer to your Service (SQL Azure based or Web Service based).
 
 Click on the **Data Services** sub-menu.
 
