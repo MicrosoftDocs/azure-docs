@@ -127,8 +127,8 @@ You can follow one of the two following steps to add the AzureLogCollector to on
         
         $AdditionalDataList+= $a1
               #more locations can be added....
-
-  > [AZURE.NOTE] You can use token `%roleroot%` to specify the role root drive since it doesn’t use a fixed drive.
+  
+    > [AZURE.NOTE] You can use token `%roleroot%` to specify the role root drive since it doesn’t use a fixed drive.
 
 4. Provide the Azure storage account name and key to which collected files will be uploaded.
 
@@ -265,17 +265,18 @@ The following is the definition of the parameters passed to the script. (This is
 
 - AdditionalDataLocationList: A list of the following structure:
       
+```
       {
-      String Name,
-      String Location,
-      String SearchPattern,
-      Bool   Recursive  
+        String Name,
+        String Location,
+        String SearchPattern,
+        Bool   Recursive  
       }
+```
 
-## Extention PowerShell Script file
+## Extention PowerShell Script files
 
 SetAzureServiceLogCollector.ps1
-Windows PowerShell
 
     [CmdletBinding(SupportsShouldProcess = $true)]
     
@@ -384,7 +385,7 @@ Windows PowerShell
 
 
 SetAzureVMLogCollector.ps1
-Windows PowerShell
+
 
     [CmdletBinding(SupportsShouldProcess = $true)]
     
