@@ -41,15 +41,17 @@
 6. Select **Settings - Configure required settings**:  
 ![configure google drive API settings][4]
 
-7. Enter *App Key* and *App Secret* of your Google Drive application. If you don't already have one, see the "Register a Google Drive app for use with PowerApps" section (in this topic).  
-	>[AZURE.IMPORTANT] Save the **redirect URL**. You need this value later in this topic.
+7. Enter *App Key* and *App Secret* of your Google Drive application. If you don't have one, see the "Register a Google Drive app for use with PowerApps" section in this topic to create the key and secret values you need.  
+	>[AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 8. Select **OK** to complete the steps.
 
 When finished, a new Google Drive API is added to your app service environment.
 
 
-## Register a Google Drive app for use with PowerApps
+## Optional: Register a Google Drive app for use with PowerApps
+
+If you don't have an existing Google Drive app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
 1. Sign in to [Google Developers Console][5]:  
 ![Google developers console][6]
@@ -78,16 +80,16 @@ When finished, a new Google Drive API is added to your app service environment.
 
 10. In the create client id page:  
 
-	a) In **Application type**, select **Web application**.
-	b) Enter a name for the client.
-	c) Set the redirect URL to the redirect URL you received when you added the new Google Drive API in the Azure Portal (in this topic).
+	a) In **Application type**, select **Web application**.  
+	b) Enter a name for the client.  
+	c) Set the redirect URL to the redirect URL you received when you added the new Google Drive API in the Azure Portal (in this topic).  
 	d) Select **Create**.  
 
 	![Create client id][14] 
 
-11. On successful completion, you are shown the client id and client secret of the registered application.
+11. You are shown the client id and client secret of the registered application.
 
-You have now successfully created a Google Drive app that can be used in PowerApps.
+A new Google Drive app is created. You can use this app in your Google Drive API configuration in the Azure portal. 
 
 ## Summary and next steps
 In this topic, you added the Google Drive API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
