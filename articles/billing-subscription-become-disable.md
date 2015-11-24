@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="n/a"
+	editor="na"
 	tags="billing"
 	/>
 
@@ -24,7 +24,7 @@ Your Azure subscription can become disabled for the following reasons:
 
 ### You have reached the spending limit
 
-For more information about spending limits see [Azure Spending Limit](https://azure.microsoft.com/en-us/pricing/spending-limits/). This article explains that when your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month. It goes on to describe how you can remove your Spending Limit.
+For more information about spending limits see [Azure Spending Limit](https://azure.microsoft.com/pricing/spending-limits/). This article explains that when your usage exhausts the monthly amounts included in your offer, we will disable your service for the remainder of that billing month. It goes on to describe how you can remove your Spending Limit.
 
 ### Payment of an invoice is past due
 
