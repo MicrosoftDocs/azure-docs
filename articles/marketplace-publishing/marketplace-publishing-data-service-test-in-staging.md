@@ -52,8 +52,6 @@ When the Push to Staging completes the “In progress” icon will stop moving a
 
 ## Step 2. Test your staged offer in DataMarket
 
-  <!-- ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-2.1.png) -->
-
 Click the link following the text **“See Your service offer at…”** to display the screen that the subscriber will see when your offer goes to production and will appear in DataMarket.
 
   ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-2.2.png)
