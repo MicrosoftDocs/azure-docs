@@ -242,11 +242,11 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 
 DocumentDB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the DocumentDB team.
 
-Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
-
 |                                                                               |                |
 | ----------------------------------------------------------------------------- | -------------- |
 | ![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)     | Allan Mitchell |
 | ![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)           | Jen Stirrup |
 | ![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)           | Lenni Lobel |
 | ![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)       | Mihail Mateev |
+
+Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
