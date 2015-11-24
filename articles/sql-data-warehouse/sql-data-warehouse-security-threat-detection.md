@@ -82,12 +82,12 @@ The email will provide information on the suspicious security event including th
 
 
 <!--Image references-->
-[1]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/1_td_click_on_settings.png
-[2]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/2_td_turn_on_auditing.png
-[3]:https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/3_td_turn_on_threat_detection.png
-[4]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/4_td_email.png
-[5]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/5_td_audit_records.png
-[6]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/6_td_audit_record_details.png
-[7]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/7_td_audit_records_open_excel.png
-[8]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/8_td_excel_fast_combine.png
-[9]: https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/sql-database-threat-detection-get-started/20151102073235/9_td_excel_parameters.png
+[1]: ./media/sql-data-warehouse-security-threat-detection/1_td_click_on_settings.png
+[2]: ./media/sql-data-warehouse-security-threat-detection/2_td_turn_on_auditing.png
+[3]: ./media/sql-data-warehouse-security-threat-detection/3_td_turn_on_threat_detection.png
+[4]: ./media/sql-data-warehouse-security-threat-detection/4_td_email.png
+[5]: ./media/sql-data-warehouse-security-threat-detection/5_td_audit_records.png
+[6]: ./media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png
+[7]: ./media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png
+[8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
+[9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
