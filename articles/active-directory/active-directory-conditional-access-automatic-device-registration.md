@@ -43,7 +43,7 @@ Deploy AD FS and connect to Azure Active Directory using Azure Active Directory 
 
 Configure an additional Azure Active Directory relying party trust Authentication Class Reference
 -----------------------------------------------------------------------------------------------------
-9. On your federation server, open a Windows PowerShell command window and type:
+On your federation server, open a Windows PowerShell command window and type:
 
 
   `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
@@ -52,12 +52,12 @@ Where <RPObjectName> is the relying party object name for your Azure Active Dire
 
 AD FS Global Authentication Policy
 -----------------------------------------------------------------------------
-1. Configure the AD FS Global Primary Authentication Policy to allow Windows Integrated Authentication for the Intranet (this is the default).
+Configure the AD FS Global Primary Authentication Policy to allow Windows Integrated Authentication for the Intranet (this is the default).
 
 
 Internet Explorer Configuration
 ------------------------------------------------------------------------------
-1. Configure the following settings on Internet Explorer on your Windows devices for the Local intranet security zone:
+Configure the following settings on Internet Explorer on your Windows devices for the Local intranet security zone:
     * Don’t prompt for client certificate selection when only one certificate exists:  **Enable**
     * Allow scripting:  **Enable**
     * Automatic logon only in Intranet zone:  **Checked**
@@ -67,6 +67,16 @@ These are the default settings for the Internet Explorer Local intranet security
 Network Connectivity
 -------------------------------------------------------------
 Domain joined Windows devices must have connectivity to AD FS and an Active Directory Domain Controller to automatically register with Azure AD. This typically means the machine must be connected to the corporate network. This can include a wired connection, a Wi-Fi connection, DirectAccess, or VPN.
+
+## Configure Azure Active Directory Device Registration discovery
+Windows 7 and Windows 8.1 devices will discover the Device Registration Server by combining the user account name with a well-known Device Registration server name. You must create a DNS CNAME record that points to the A record associated with your Azure Active Directory Device Registration Service. The CNAME record must use the well-known prefix **enterpriseregistration** followed by the UPN suffix used by the user accounts at your organization. If your organization uses multiple UPN suffixes, multiple CNAME records must be created in DNS.
+
+For example, if you use two UPN suffixes at your organization named @contoso.com and @region.contoso.com, you will create the following DNS records.
+
+| Entry                                     | Type  | Address                            |
+|-------------------------------------------|-------|------------------------------------|
+| enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
+| enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
 ##Configure Automatic Device Registration for Windows 7 and Windows 8.1 domain joined devices
 
