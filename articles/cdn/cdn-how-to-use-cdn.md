@@ -38,10 +38,10 @@ The benefits of using CDN to cache Azure data include:
 	
 	>[AZURE.NOTE] A single Azure subscription is limited to four CDN profiles.  Each CDN profile is limited to four CDN endpoints.
 	
+	For a detailed tutorial on creating CDN profiles and endpoints, see [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md).   
+	
 	>[AZURE.TIP] CDN pricing is applied at the CDN profile level.  If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
 	
-	For a detailed tutorial on creating CDN profiles and endpoints, see [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md).   
-
 2. Set up your CDN configuration 
 
 	You can enable a number of features for your CDN endpoint, such as [caching policy](cdn-caching-policy.md), [query string caching](cdn-query-string.md), [rules engine](cdn-rules-engine.md), and more.  For details, see the **Manage** menu on the left.  
