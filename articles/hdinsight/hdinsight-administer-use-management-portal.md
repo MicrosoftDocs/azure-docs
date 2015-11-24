@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
@@ -340,7 +340,7 @@ To monitor the cluster, browse the file system, and check logs, click **Hadoop U
 
 ##Open Yarn UI
 
-To use Yarn user interface, click **Hadoop UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+To use Yarn user interface, click **Yarn UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
 
 ##Connect to clusters using RDP
 
