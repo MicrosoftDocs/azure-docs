@@ -28,7 +28,7 @@ For more information about spending limits see [Azure Spending Limit](https://az
 
 ### Payment of an invoice is past due
 
-To resolve this, see the article Why have you received a notification that your Azure subscription has a past due balance?
+To resolve this, see the article [Why have you received a notification that your Azure subscription has a past due balance?](../billing-azure-subscription-past-due-balance.md)
 
 ### The Azure subscription is cancelled
 
