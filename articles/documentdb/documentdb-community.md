@@ -244,9 +244,9 @@ DocumentDB Wizards are community leaders who’ve demonstrated an exemplary comm
 
 |                                                                               |                |
 | ----------------------------------------------------------------------------- | -------------- |
-| ![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)     | Allan Mitchell |
-| ![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)           | Jen Stirrup |
-| ![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)           | Lenni Lobel |
-| ![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)       | Mihail Mateev |
+| ![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)     | [Allan Mitchell](https://twitter.com/allansqlis) |
+| ![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)           | [Jen Stirrup](https://twitter.com/jenstirrup) |
+| ![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)           | [Lenni Lobel](https://twitter.com/lennilobel) |
+| ![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)       | [Mihail Mateev](https://twitter.com/mihailmateev) |
 
 Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).
