@@ -85,9 +85,9 @@ You are now ready to start using the libraries to create your application.
 Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager. Do the following:
 
 1.	Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
-
-    using Microsoft.Azure;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		
+		using Microsoft.Azure;
+		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.Resources.Models;
 		using Microsoft.Azure.Management.Storage;
