@@ -233,8 +233,11 @@ Once the application is packaged correctly and passes verification, then it's re
 ## Next steps
 
 [Deploy and remove applications][10]
+
 [Managing application parameters for multiple environments][11]
+
 [RunAs: Running a Service Fabric application with different security permissions][12]
+
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
 [2]: ./media/service-fabric-application-model/vs-package-command.png
