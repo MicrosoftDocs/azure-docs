@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # Run any Windows app on any device with Azure RemoteApp
@@ -24,7 +24,7 @@ With Azure RemoteApp, your users can also use their own Android or Apple devices
 
 Read on for an example of exactly how to do this.
 
-In this article, we're going to share Access with all of our users. However, you can use ANY app. As long as you can install your app on a Windows Server 2012 R2 computer, you can share it using the steps below. You can review the [app requirements](remoteapp-appreqs) to make sure your app will work.
+In this article, we're going to share Access with all of our users. However, you can use ANY app. As long as you can install your app on a Windows Server 2012 R2 computer, you can share it using the steps below. You can review the [app requirements](remoteapp-appreqs.md) to make sure your app will work.
 
 Please note that because Access is a database, and we want that database to be useful, we will be doing a few extra steps to let users access the Access data share. If your app isn't a database, or you don't need your users to be able to access a file share, you can skip those steps in this tutorial
 

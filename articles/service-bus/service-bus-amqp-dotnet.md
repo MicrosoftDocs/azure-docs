@@ -168,6 +168,7 @@ The .NET APIs expose several settings to control the behavior of the AMQP protoc
 Ready to learn more? Visit the following links:
 
 - [Service Bus AMQP overview]
+- [AMQP 1.0 support for Service Bus partitioned queues and topics]
 - [AMQP in Service Bus for Windows Server]
 
   [How to Use Service Bus Queues]: service-bus-dotnet-how-to-use-queues.md
@@ -199,4 +200,5 @@ Ready to learn more? Visit the following links:
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
