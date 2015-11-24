@@ -53,7 +53,7 @@ Security policies are configured for each subscription. To modify a security pol
 
 8. In the **Choose storage accounts** blade click **OK**.
 
-    > **Note:** If you prefer, you can aggregate data from virtual machines in various regions in one central storage account. Refer to the [Azure Security Center FAQ](security-center-faq.md) for more information
+    > [AZURE.NOTE] If you prefer, you can aggregate data from virtual machines in various regions in one central storage account. Refer to the [Azure Security Center FAQ](security-center-faq.md) for more information
 
 9. In the **Security Policy** blade click **On** to enable the security recommendations that you want to use on this subscription. Use the table below as a reference to understand what each option will do:  
 
@@ -70,7 +70,7 @@ Security policies are configured for each subscription. To modify a security pol
 
 10. Once you finish configuring all options, click **Save** to commit those changes.
 
->**Note:** Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the Azure Security Center FAQ to know more about the supported VMs. 
+> [AZURE.NOTE] Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the Azure Security Center FAQ to know more about the supported VMs. 
 
 ## Next steps
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:

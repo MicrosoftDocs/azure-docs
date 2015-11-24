@@ -19,6 +19,8 @@
 #Security health monitoring in Azure Security Center
 Learn how to use monitoring capabilities in Azure Security Center using this walkthrough.
 
+> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
+
 ##What is security health monitoring?
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to have a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
 
@@ -49,7 +51,7 @@ To view the recommended system updates, click the VM’s name. A new blade for t
 
 ![Recommended system update by VM](./media/security-center-monitoring/security-center-monitoring-fig4.png)
 
-> The security recommendations here are the same as those in the Recommendations blade. See the article [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) for more information on resolving recommendations. This is applicable not only for VMs, but for all resources that are available in the Resource Health tile.
+> [AZURE.NOTE] The security recommendations here are the same as those in the Recommendations blade. See the article [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) for more information on resolving recommendations. This is applicable not only for VMs, but for all resources that are available in the Resource Health tile.
 
 ###Networking
 The prevention status for networking shows the virtual networks monitored by Azure Security Center. When you click on **Networking** in the Resources health tile, the **Networking** blade will open with more details as shown below:
