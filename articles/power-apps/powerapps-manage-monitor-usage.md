@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/23/2015"
    ms.author="litran"/>
 
 
 # Manage and secure your PowerApps
-Once you create your app service environment and add APIs and their connections,  users in your organization can start consuming these APIs and connections. You can also manage all apps created in your organization. These options include:
+You create your app service environment, and add APIs and their connections. Now users in your organization can start consuming these APIs and connections. You can also manage all apps created in your organization. These options include:
 
 - See the different apps within your app service environment, including PowerApps, web apps, logic apps, mobile apps, and more.
 - See all the APIs used by specific apps.
@@ -75,7 +75,7 @@ Once you enable PowerApps and your app service environment, you can add other ap
 
 #### Add a PowerApp
 
-You cannot add a PowerApp through the Azure portal. Currently, you need to go to [PowerApps portal](https://web.powerapps.com).
+You cannot add a PowerApp through the Azure portal. Currently, you need to go to [PowerApps portal](http://go.microsoft.com/fwlink/p/?LinkId=715583).
 
 #### Delete your apps created in PowerApps
 As a PowerApps Admin, you can delete any app, including PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:    
@@ -161,9 +161,9 @@ In this topic, you read about the different options to manage your PowerApps and
 
 Now that your Azure portal experience is configured, let's start creating your PowerApps. These are good starters:
 
-- [Create an app from a template in PowerApps](https://pwrapps-frontend-westus-01-staging.azurewebsites.net/tutorials/get-started-test-drive) 
-- [Create an app from data in PowerApps](https://pwrapps-frontend-westus-01-staging.azurewebsites.net/tutorials/get-started-create-from-data/) 
-- [Create an app from scratch in PowerApps](https://pwrapps-frontend-westus-01-staging.azurewebsites.net/tutorials/get-started-create-from-blank/)
+- [Create an app from a template in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
+- [Create an app from data in PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 
+- [Create an app from scratch in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715538)
 
 
 [1]: ./media/powerapps-manage-monitor-usage/addadmin.png

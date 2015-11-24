@@ -98,7 +98,7 @@ Now that you have your AD tenant, you can create a new or use an existing Azure 
 
 Now that you have your AD tenant and an Azure subscription, your work subscription administrators can sign up for PowerApps enterprise. The Admin can also add users within your company to 'administer' PowerApps, including giving users permissions, and manage the PowerApps published to your Azure subscription. 
 
-Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [https://www.powerapps.com/en-us/pricing/](https://www.powerapps.com/en-us/pricing/) to contact us to learn more about pricing and the sign up process. 
+Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=71558) to contact us to learn more about pricing and the sign up process. 
 
 ![][4]  
 
@@ -124,7 +124,7 @@ An app service environment is an isolated and dedicated environment that securel
 - Billing is fixed and included with PowerApps.  
 - Scale is automatically managed for you. You don't have to monitor the environment to determine if additional compute resources are needed.
 
-The regular Azure app service environment has different features. See [Introduction to App Service Environment](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro) for those details.
+The regular Azure app service environment has different features. See [Introduction to App Service Environment](../app-service-app-service-environment-intro.md) for those details.
 
 #### Requirements to get started
 
@@ -148,7 +148,7 @@ The regular Azure app service environment has different features. See [Introduct
   
 5. Next, enter the name, select the subscription you want to use, select or create a new resource group, and select a virtual network. **Notice** that after you choose a virtual network, it cannot be changed:  
 ![][6]  
-For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](https://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/). 
+For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](../app-service-web-how-to-create-an-app-service-environment.md). 
 
 6. Select **Add** to complete creating the app service environment. 
 

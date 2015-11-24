@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add Microsoft Translator API in PowerApps | Azure"
-	description="Add a new Microsoft Translator API in your organization's App Service Environment"
+	pageTitle="Add the Microsoft Translator API to PowerAps Enterprise | Microsoft Azure"
+	description="Create or configure a new Microsoft Translator API in your organization's app service environment"
 	services=""
     suite="powerapps"
 	documentationCenter="" 
@@ -14,55 +14,66 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/23/2015"
    ms.author="litran"/>
 
-#Create a new Microsoft Translator API in your organization's App Service Environment
+# Create a new Microsoft Translator API in your organization's app service environment
 
-1. In the Azure portal, click on _Browse_ and select _PowerApps Services_. 
+1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
+ 
+2. Select **Browse** in the task bar:  
+![][7]
 
-2. In **PowerApps Services**, select **Manage APIs** tile or select it from *Settings*:  
+3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
+![][8]  
+
+4. In **PowerApps Services**, select **Manage APIs**:  
 ![Browse to registered apis][1]
 
-3. In the **Manage APIs** blade, select **Add** to add a new API
+5. In **Manage APIs**, select **Add** to add the new API:  
 ![Add API][2]
 
-4. Enter a descriptive **name** for your API.  
+6. Enter a descriptive **name** for your API.  
 	
-5. In **Source**, select **Available APIs** to select a pre-built API. 
-	
-6. Select **Microsoft Translator** from the marketplace
+7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Microsoft Translator**:  
 ![select Microsoft Translator api][3]
 
-7. Select *Settings - Configure required settings*
+8. Select **Settings - Configure required settings**:  
 ![configure Microsoft Translator API settings][4]
 
-8. Enter *Client Id* and *Client Secret* of your Microsoft Translator application. If you don't already have one, see the section below titled "Register a Microsoft Translator app for use with PowerApps". 
+9. Enter the *Client Id* and *Client Secret* of your Microsoft Translator application. If you don't have one, see the "Register a Microsoft Translator app for use with PowerApps" section in this topic to create the ID and secret values you need. 
 
-9. Click **OK** to close the configure API blade.
+9. Select **OK** to complete the steps.
 
-10. Click **OK** to create a new Microsoft Translator API in your ASE.
-
-On successful completion, a new Microsoft Translator API is added to your ASE.
-
-##Register a Microsoft Translator app for use with PowerApps
-
-1. Navigate to [Azure Data Market developer's page][5] and sign in with your Microsoft Account
-
-2. Click on **Register**
-
-3. In the _Register your application_ page,
-	1. Enter a value for **Client Id**
-	2. Enter the **name** of your application
-	3. Provide a dummy value for **redirect url** (example: https://contosoredirecturl)
-	4. Provide a **description**
-	5. Click **Create**
-![Register your application][6]
-
-4. On successful completion, a new Microsoft Translator app is created.
+When finished, a new Microsoft Translator API is added to your app service environment.
 
 
-Congratulations! You have now successfully created a Microsoft Translator app that can be used in PowerApps.
+## Optional: Register a Microsoft Translator app for use with PowerApps
+
+If you don't have an existing Microsoft Translator app with the ID and secret values, then use the following steps to create the application, and get the values you need. 
+
+
+1. Go to [Azure Data Market developer's page][5] and sign in with your Microsoft Account. 
+
+2. Select **Register**.
+
+3. In **Register your application**:  
+
+	a) Enter a value for **Client Id**.  
+	b) Enter the **name** of your application.  
+	c) Enter a dummy value for **redirect url**. For example, enter *https://contosoredirecturl*.  
+	d) Enter a **description**.  
+	e) Select **Create**.  
+
+	![Register your application][6]
+
+A new Microsoft Translator app is created. You can use this app in your Microsoft Translator API configuration in the Azure portal. 
+
+
+## Summary and next steps
+In this topic, you added the Microsoft Translator API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+
+[Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
 
 
 <!--References-->
@@ -72,3 +83,5 @@ Congratulations! You have now successfully created a Microsoft Translator app th
 [4]: ./media/powerapps-create-api-microsofttranslator/configure-microsofttranslator-api.PNG
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/powerapps-create-api-microsofttranslator/register-your-application.PNG
+[7]: ./media/powerapps-create-api-microsofttranslator/browseall.png
+[8]: ./media/powerapps-create-api-microsofttranslator/allresources.png
