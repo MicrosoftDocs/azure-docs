@@ -58,9 +58,10 @@ Configure the AD FS Global Primary Authentication Policy to allow Windows Integr
 Internet Explorer Configuration
 ------------------------------------------------------------------------------
 Configure the following settings on Internet Explorer on your Windows devices for the Local intranet security zone:
-    * Don’t prompt for client certificate selection when only one certificate exists:  **Enable**
-    * Allow scripting:  **Enable**
-    * Automatic logon only in Intranet zone:  **Checked**
+
+- Don’t prompt for client certificate selection when only one certificate exists:  **Enable**
+- Allow scripting:  **Enable**
+- Automatic logon only in Intranet zone:  **Checked**
 
 These are the default settings for the Internet Explorer Local intranet security zone. You can view or manage these settings in Internet Explorer by navigating to **Internet Options** > **Security** > Local intranet > Custom level. You can also configure these settings using Active Directory Group Policy.
 
