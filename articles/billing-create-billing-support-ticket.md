@@ -35,7 +35,7 @@ This article provides the information you will need to open a ticket with Azure 
 4. Select your region and language, and then click **Create Ticket**.
 5. On the next page, for **Problem Type**, select **My Subscription is Displayed as Disabled**.
 
- **Note** If you need assistance with submitting your support ticket, click **Chat with customer service** to initiate a live conversation with a customer service representative.
+  **Note** If you need assistance with submitting your support ticket, click **Chat with customer service** to initiate a live conversation with a customer service representative.
 
 6. Confirm your contact information, provide a telephone number at which you can be reached, and then click **Continue**.
 
