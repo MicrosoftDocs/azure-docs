@@ -95,9 +95,6 @@ It’s Azure Marketplace Service layer responsibility to monitor (meter) number 
 |Question|Significance|
 |----|----|
 |**This plan requires a promotion code to purchase?**| Publishers have an option to limit access to their Service Plans by providing a special code, called “A Promocode” to specific customers. Only end-users which will have this Promocode will be able to subscribe to the Plan. If you choose “No”, then you agree that everyone from the region where the offer is available (See [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) for more details) will be able to subscribe to this plan. No further questions will be asked.|
-
-|Question|Significance|
-|----|----|
 |**Also hide this plan from anyone who doesn’t have a valid promotion code?**|If the answer to the previous question is “Yes” the Publisher has an option to completely remove this plan from appearing in the UI of the Marketplace. It means, customers will not see this plan in the Offer’s details page. End-users which will receive a promocode to purchase it, will be able to subscribe to it using this promocode.|
 
 ## 6.	Create your Marketplace marketing content
