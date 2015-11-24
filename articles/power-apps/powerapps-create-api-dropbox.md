@@ -41,8 +41,8 @@
 8. Select **Settings - Configure required settings**:  
 ![configure dropbox API settings][7]
 
-9. Enter the **App Key** and **App Secret** values of your Dropbox application. If you don't already have one, see the "Register a Dropbox app for use with PowerApps" section (in this topic). 
-	>[AZURE.IMPORTANT] Save the **redirect URL**. You need this value later in this topic.
+9. Enter the **App Key** and **App Secret** values of your Dropbox application. If you don't already have one, see the "Register a Dropbox app for use with PowerApps" section in this topic to create the key and secret values you need.  
+	>[AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -50,7 +50,9 @@
 When finished, a new Dropbox API is added to your app service environment.
 
 
-## Register a Dropbox app for use with PowerApps
+## Optional: Register a Dropbox app for use with PowerApps
+
+If you don't have an existing Dropbox app with the key and secret values, then use the following steps to create the application, and get the values you need. 
 
 1. Go to [Dropbox][1] and sign in with your account.
 
@@ -70,11 +72,12 @@ When finished, a new Dropbox API is added to your app service environment.
 
 5. In the app settings page:  
 
-	a) In **OAuth 2**, set the **Redirect URL** to the redirect URL you received when you added the new Dropbox API in the Azure Portal (in this topic). Select **Add**.
+	a) In **OAuth 2**, set the **Redirect URL** to the redirect URL you received when you added the new Dropbox API in the Azure Portal (in this topic). Select **Add**.  
 	b) Select **Show** link to reveal the **app secret**:  
+
 	![Dropbox create app page 2][11]
 
-You have now successfully created a Dropbox app that can be used in PowerApps.
+A new Dropbox app is created. You can use this app in your Dropbox API configuration in the Azure portal. 
 
 
 ## Summary and next steps
