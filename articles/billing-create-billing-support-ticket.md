@@ -18,7 +18,7 @@
 	ms.date="11/23/2015"
 	ms.author="genli"/>
 
-# How to Create a Support Ticket for Azure Billing and Subscription Issues?6
+# How to Create a Support Ticket for Azure Billing and Subscription Issues?
 
 This article provides the information you will need to open a ticket with Azure Support.
 
@@ -35,9 +35,7 @@ This article provides the information you will need to open a ticket with Azure 
 
 4. Select your region and language, and then click **Create Ticket**.
 
-5. On the next page, for **Problem Type**, select **My Subscription is Displayed as Disabled**.
-
-		**Note** If you need assistance with submitting your support ticket, click **Chat with customer service** to initiate a live conversation with a customer service representative.
+5. On the next page, for **Problem Type**, select **My Subscription is Displayed as Disabled**. If you need assistance with submitting your support ticket, click **Chat with customer service** to initiate a live conversation with a customer service representative.
 
 6. Confirm your contact information, provide a telephone number at which you can be reached, and then click **Continue**.
 
