@@ -30,10 +30,12 @@ This article provides the information you will need to open a ticket with Azure 
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click Contact Microsoft Support.
 
 2. In the **Create Support Ticket** window, select the subscription for which you want to migrate data and services.
-3. For **Support Type**, choose **Billing**.
-4. Select your region and language, and then click **Create Ticket**.
-5. On the next page, for **Problem Type**, select **My Subscription is Displayed as Disabled**.
 
+3. For **Support Type**, choose **Billing**.
+
+4. Select your region and language, and then click **Create Ticket**.
+
+5. On the next page, for **Problem Type**, select **My Subscription is Displayed as Disabled**.
    **Note** If you need assistance with submitting your support ticket, click **Chat with customer service** to initiate a live conversation with a customer service representative.
 
 6. Confirm your contact information, provide a telephone number at which you can be reached, and then click **Continue**.
