@@ -71,7 +71,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 **Community posts:**
 
-* [**Data Points - Aurelia Meets DocumentDB: A Matchmaker’s Journey**](https://msdn.microsoft.com/en-us/magazine/mt620011.aspx) - *by Julie Lerman*
+* [**Data Points - Aurelia Meets DocumentDB: A Matchmaker’s Journey**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *by Julie Lerman*
 
 * [**Infrastructure as Code and Continuous Deployment of a Node.js + Azure DocumentDB Solution**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *by Thiago Almedia*
 
