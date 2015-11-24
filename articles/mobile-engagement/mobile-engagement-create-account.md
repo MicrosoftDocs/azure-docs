@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Create an Azure Mobile Engagement account and start managing your apps | Microsoft Azure"
 	description="Describes how to create a new Mobile Engagement account in Azure and start managing your apps with the Mobile Engagement portal."
-	services="media-services"
+	services="mobile-engagement"
 	documentationCenter=""
-	authors="Juliako"
+	authors="piyushjo"
 	manager="dwrede"
 	editor=""/>
 
@@ -21,7 +21,7 @@
 
 This article shows how to use the **Quick Create** method to create a new **Azure Mobile Engagement** account. The article also shows how to navigate to your **Mobile Engagement** portal in order to start monitoring and managing your apps. 
 
-Note that you must add a minimum set of "basic integration" in order to be able to collect data for your app and send push notifications. The complete integration documentation can be found in the [Mobile Engagement Windows Universal SDK integration](mobile-engagement-windows-store-integrate-engagement.md).
+Note that you must add a minimum set of "basic integration" in order to be able to collect data for your app and send push notifications. The complete integration documentation can be found in the [Mobile Engagement integration](mobile-engagement-windows-store-integrate-engagement.md).
 
 > [AZURE.IMPORTANT] To complete any Azure Mobile Engagement tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
@@ -44,4 +44,6 @@ Once you are in the  Mobile Engagement portal, you can analiyze, create and mana
 
 ##See Also
 
-[Get started with Azure Mobile Engagement for Windows Universal Apps](mobile-engagement-windows-store-dotnet-get-started.md) (you can select other mobile platforms at the top of the page).
+[Define your Mobile Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md)
+
+[Get started with Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (you can select other mobile platforms at the top of the page).

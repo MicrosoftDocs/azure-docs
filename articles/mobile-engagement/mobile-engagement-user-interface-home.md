@@ -39,19 +39,20 @@ Among other things, the overview of your applications includes:
 - **New users trend**: Evolution of new users over the last two weeks.
 - **Active users**: Number of active users over the last 30 days.
 - **Active users trend**: Evolution of active users over the last two weeks.
+- **Sessions**: A session is one use of the application performed by a user, from the time the user starts using it, until the user stops. 
+- **Session Trends**:  Evolution of sessions over the last two weeks.
 
 Once you click on an application, you can start monitoring and managing your apps through the UI. For example:    
 
+- [Monitor real time data about your application](mobile-engagement-user-interface-monitor.md)
 - [Analyze historical data about your application](mobile-engagement-user-interface-analytics.md)
 - [Create and manage segments of users to identify usage patterns](mobile-engagement-user-interface-segments.md)
-- [Monitor real time data about your application](mobile-engagement-user-interface-monitor.md)
 - [Reach out to the users of your application with push notifications](mobile-engagement-user-interface-reach.md)
  
 ## My projects
 
-You can use projects to group your applications and give permissions to your applications. The **New project** button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. 
+You can use projects to group your applications and give permissions to other users to access your applications. You give permissions to other users by providing email address. The **New project** button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. 
 
-You can also invite a user to your project based on their e-mail address.
 
 ![Home6][60]
 
