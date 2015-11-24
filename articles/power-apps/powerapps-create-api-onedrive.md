@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/23/2015"
    ms.author="rajram"/>
 
 # Create a new OneDrive API in your organization's app service environment
@@ -42,7 +42,7 @@
 ![configure OneDrive API settings][4]
 
 9. Enter the *App Key* and *App Secret* of your OneDrive application. If you don't have one, see the "Register a OneDrive app for use with PowerApps" section in this topic to create the key and secret values you need.  
-	>[AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -68,7 +68,7 @@ If you don't have an existing OneDrive app with the key and secret values, then 
 A new OneDrive app is created. You can use this app in your OneDrive API configuration in the Azure portal. 
 
 ## Summary and next steps
-In this topic, you added the Office 365 Outlook API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+In this topic, you added the OneDrive API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
 [Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
 
@@ -80,5 +80,5 @@ In this topic, you added the Office 365 Outlook API to your PowersApps Enterpris
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/powerapps-create-api-onedrive/onedrive-new-app.PNG
 [7]: ./media/powerapps-create-api-onedrive/onedrive-app-api-settings.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
+[14]: ./media/powerapps-create-api-onedrive/browseall.png
+[15]: ./media/powerapps-create-api-onedrive/allresources.png
