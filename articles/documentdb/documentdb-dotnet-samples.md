@@ -31,16 +31,20 @@ Sample solutions that perform CRUD operations and other common operations on Doc
    - You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 2. You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
+> [AZURE.NOTE]
+Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issues multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the collection being created. 
+
 ## Database samples
 
-The database sample file, [azure-documentdb-net/samples/code-samples/DatabaseManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DatabaseManagement/Program.cs), shows how to do the following tasks.
+The [DatabaseManagementAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L53-L86) sample method, shows how to do the following tasks.
 
 Task | API reference
 --- | ---
-[Create a database](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/DatabaseManagement/Program.cs#L63) | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.CreateDatabaseAsync(Microsoft.Azure.Documents.Database,Microsoft.Azure.Documents.Client.RequestOptions)
-[Query an account for a database](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/DatabaseManagement/Program.cs#L57) | [DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx)
-[List databases for an account](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/DatabaseManagement/Program.cs#L102) | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
-[Delete a database](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/DatabaseManagement/Program.cs#L79) | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx#M:Microsoft.Azure.Documents.Client.DocumentClient.DeleteDatabaseAsync)
+[Create a database](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L65)
+[Query an account for a database](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L59)
+[Read a database by id](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L75)
+[List databases for an account](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L77-L82)
+[Delete a database](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L85)
 
 ## Collection samples 
 
