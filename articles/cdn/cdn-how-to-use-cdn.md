@@ -110,7 +110,7 @@ When you enable CDN access for on a cloud service, the Management Portal provide
 - **Azure cloud service URL**: `http://myHostedService.cloudapp.net/cdn/music.aspx` 
 - **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
 
-### Caching specific content with query strings
+## Caching specific content with query strings
 
 You can use query strings to differentiate objects retrieved from a cloud service. For example, if the cloud service displays a chart that can vary you can pass a query string to retrieve the specific chart required. For example: 
 
@@ -140,7 +140,7 @@ For more information on mapping a custom domain, see [How to Map Content Deliver
 
 ## See also
 
-[How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md)
-[Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
+- [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md)
+- [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
  
 
