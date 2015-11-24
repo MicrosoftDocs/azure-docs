@@ -36,15 +36,15 @@ Each sample is self-contained, it sets itself up and cleans up after itself. As 
 
 ## Database samples
 
-The [DatabaseManagementAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L53-L86) sample method, shows how to do the following tasks.
+The [RunDatabaseDemo()](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) method, shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
-[Create a database](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L65)
-[Query an account for a database](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L59)
-[Read a database by id](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L75)
-[List databases for an account](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L77-L82)
-[Delete a database](https://github.com/Azure/azure-documentdb-dotnet/blob/0314fd60e1a1fef4b4afb6a17f56a2cc701c862e/samples/code-samples/DatabaseManagement/Program.cs#L85)
+[Create a database](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L90) | [DocumentClient.CreateDatabaseAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx)
+[Query an account for a database](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L81) | [DocumentQueryable.CreateDatabaseQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdatabasequery.aspx)
+[Read a database by Id](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L102) | [DocumentClient.ReadDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabaseasync.aspx)
+[List databases for an account](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
+[Delete a database](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx)
 
 ## Collection samples 
 
