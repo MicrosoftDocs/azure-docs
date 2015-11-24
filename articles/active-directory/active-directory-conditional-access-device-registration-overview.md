@@ -81,7 +81,11 @@ For example, if you use two UPN suffixes at your organization named @contoso.com
 1. Select **Registered Devices** from the drop down menu.
 1. Here you can view, block, or unblock the users registered devices. 
 
-## Additional Topics
+## Additional topics
 
 You can register your Windows 7 and Windows 8.1 Domain Joined devices with Azure AD Device Registration. The following topic provides more information about the prerequisites and the steps required to configure device registration on Windows 7 and Windows 8.1 devices.
-[Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md) 
+
+- [Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md) 
+- [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
