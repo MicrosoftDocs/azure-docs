@@ -268,7 +268,7 @@ By default, these services are granted for access. You can revoke/grant the acce
 
 ##Find the default storage account
 
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](list-and-show-clusters).
+Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
 
 	
 ##Find the resource group 
@@ -278,7 +278,7 @@ In the ARM mode, each HDInsight cluster is created with an Azure resource group.
 - The cluster list has a **Resource Group** column.
 - Cluster **Essential** tile.  
 
-See [List and show clusters](list-and-show-clusters).
+See [List and show clusters](#list-and-show-clusters).
    
 ##Open HDInsight Query console
 
