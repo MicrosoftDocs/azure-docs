@@ -75,13 +75,13 @@ In order to open a new port on all VMs in a Node type, you need to do the follow
 
 1. **Add a new probe to the appropriate load balancer**
 
- If you have deployed your cluster using the portal, then the load balancer will named "loadBalancer-0" , "loadBalancer-1" and so on, one for each Node Type. Since the load balancer names are unique only with in a resource group (RG), it is best if you searched for them under a given RG.
+   If you have deployed your cluster using the portal, then the load balancer will named "loadBalancer-0" , "loadBalancer-1" and so on, one for each Node Type. Since the load balancer names are unique only with in a resource group (RG), it is best if you searched for them under a given RG.
 
    ![AddingProbes][AddingProbes]
 
 2. **Add a new rule to the the load balancer**
 
-  To the same Load balancer, add a new rule using the probe you created in the previous step.
+   To the same Load balancer, add a new rule using the probe you created in the previous step.
 
    ![AddingLBRules][AddingLBRules]
 
