@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provision a Data Science Virtual Machine | Microsoft Azure" 
+	pageTitle="Provision the Microsoft Data Science Virtual Machine | Microsoft Azure" 
 	description="Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="bradsev" />
 
 
-# Provision a Data Science Virtual Machine
+# Provision the Microsoft Data Science Virtual Machine
 
 ## Introduction
 
