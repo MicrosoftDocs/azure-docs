@@ -48,7 +48,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the portal.
+	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure preview portal.
 
 3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
@@ -86,8 +86,8 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 1.	Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
 
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Azure;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.Resources.Models;
 		using Microsoft.Azure.Management.Storage;
@@ -349,7 +349,7 @@ Now that you created all of the supporting resources, you can create a virtual m
 2.	Add the following code to the Main method to call the method that you just added:
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##Step 5: Add the code to delete the resources
 
