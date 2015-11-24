@@ -68,6 +68,8 @@ The granularities available depend on the time range you select. The explicit gr
 
 Click through any chart on the overview blade to see a more detailed set of related charts and grids. You can edit these charts and grids to focus on the details you're interested in.
 
+Or you can just click the Metrics Explorer button in the head of the overview blade.
+
 For example, click through the web app's Failed Requests chart:
 
 ![On the overview blade, click a chart](./media/app-insights-metrics-explorer/14-trix.png)
