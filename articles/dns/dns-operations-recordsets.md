@@ -285,7 +285,7 @@ The record set object can also be piped instead of being passed as a parameter:
 
 ##See Also
 
-[Get started creating record sets and records](../dns-getstarted-create-recordset)<BR>
-[Manage DNS zones](../dns-operations-dnszones)<BR>
-[Automate operations using .NET SDK](../dns-sdk)
+[Get started creating record sets and records](dns-getstarted-create-recordset.md)<BR>
+[Manage DNS zones](dns-operations-dnszones.md)<BR>
+[Automate operations using .NET SDK](dns-sdk.md)
  
