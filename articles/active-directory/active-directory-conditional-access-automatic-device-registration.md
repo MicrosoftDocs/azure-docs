@@ -34,7 +34,7 @@ Deploy AD FS and connect to Azure Active Directory using Azure Active Directory 
 4. On the **Issuance Transform Rules** tab, select **Add Rule**.
 5. Select **Send Claims Using a Custom Rule** from the **Claim rule** template drop down box. Select **Next**.
 6. Type *Auth Method Claim Rule* in the **Claim rule name:** text box.
-7. Type the following claim rule in the **Claim rule:** text box****
+7. Type the following claim rule in the **Claim rule:** text box:
 
         c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
         => issue(claim = c);
@@ -94,3 +94,9 @@ Device registration with Azure AD provides the broadest set of device capabiliti
 Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service.If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS. 
 
 You can learn more about deploying device registration with AD FS [here](https://technet.microsoft.com/library/dn486831.aspx).
+
+## Additional topics
+
+- [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
+- [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
