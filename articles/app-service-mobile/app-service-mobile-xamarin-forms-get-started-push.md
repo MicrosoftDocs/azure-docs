@@ -71,9 +71,6 @@ The `TodoItemManager` class defined in the shared project wraps the client conne
 
 1. In Visual Studio or Xamarin Studio, open TodoItemManager.cs in the shared project. Add the following static member and accessors to the `TodoItemManager` class. We will use this to access the `MobileServiceClient` when we need to get the platform specific `Microsoft.WindowsAzure.MobileServices.Push` object. 
 
-	**!!!CONSIDER CHECKING THIS INTO THE Quick Starts repo then we can remove this section!!!***
-
-
         static TodoItemManager defaultInstance = null;
 
         public static TodoItemManager DefaultInstance
