@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="11/24/2015"
    ms.author="yurid"/>
 
 #Setting security policies in Azure Security Center
@@ -75,7 +75,7 @@ Security policies are configured for each subscription. To modify a security pol
 ## Next steps
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-- [Security health monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/) – Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-managing-and-responding-alerts/) - Learn how to manage and respond to security alerts
-- [Azure Security Center FAQ](https://azure.microsoft.com/documentation/articles/security-center-faq/) – Find frequently asked questions about using the service
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance

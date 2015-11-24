@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="11/24/2015"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -87,6 +87,6 @@ In this document, you learned how to use monitoring capabilities in Azure Securi
 
 - [Setting security policies in Azure Security Center](security-center-policies.md)
 – Learn how to configure security settings in Azure Security Center
-- [Managing and responding to security alerts in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-managing-and-responding-alerts/) - Learn how to manage and respond to security alerts
-- [Azure Security Center FAQ](https://azure.microsoft.com/documentation/articles/security-center-faq/) – Find frequently asked questions about using the service
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance
