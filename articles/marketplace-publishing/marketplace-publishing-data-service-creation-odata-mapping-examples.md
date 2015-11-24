@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/17/2015"
+      ms.date="11/24/2015"
       ms.author="hascipio; avikova" />
 
 # Examples of mapping an existing web service to OData through CSDLs
@@ -144,6 +144,6 @@
         </FunctionImport>
 
 ## See Also
-- [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
-- [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)
+- If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
+- If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
