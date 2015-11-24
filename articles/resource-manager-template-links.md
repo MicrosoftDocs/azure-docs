@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Resource links - template schema
@@ -54,7 +54,7 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted Values | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| tagetId   | string | Yes |   | The identifier of the target resource to link to. |
+| targetId   | string | Yes |   | The identifier of the target resource to link to. |
 | notes   | string | No | 512 characters | Description of the lock. |
 
 

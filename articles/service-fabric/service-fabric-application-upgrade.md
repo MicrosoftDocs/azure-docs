@@ -58,7 +58,7 @@ The flowchart below aids with the understanding of the upgrade process of a Serv
 
 [Data Serialization](service-fabric-application-upgrade-data-serialization.md)
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md)
+[Manual Upgrade and Upgrading with a Diff Packages](service-fabric-application-upgrade-advanced.md)
 
 [Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 

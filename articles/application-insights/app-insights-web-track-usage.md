@@ -26,25 +26,9 @@ Visual Studio Application Insights provides two levels of usage tracking:
 
 ## Setting up
 
-Usage data from a web application comes from the client browser.
+Open an Application Insights resource in the [Azure Portal](https://portal.azure.com), click the empty Browser page loads chart, and follow the setup instructions.
 
-#### Set up an Application Insights resource 
-
-An Application Insights resource is a place in Microsoft Azure where telemetry data from your app is analyzed and displayed. You might already have set up one to display data from your app's server side in [ASP.NET][greenbrown] or [J2EE][java]. If not, you might want to do that now.
-
-It's usually best to display the usage data from the web client in the same resource as the data from the server. That way, you can easily correlate diagnostics and metrics from the two ends. So, if you already have a resource, skip to the next step.
-
-#### Insert code in your web pages
-
-In your resource in the [Azure portal][portal] , open Quick Start get the code snippet to monitor web pages. 
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-Put the code in a master page such as (in .NET) _Layout.cshtml, or in an include file, to make sure it is included in all your pages.
-
-The code snippet includes the instrumentation key (iKey) that identifies your resource. To send data to a different resource - for example during testing - you only have to replace the iKey.
-
-Publish your web pages or use them in debug mode, to generate some telemetry data.
+[Learn more](app-insights-javascript.md) 
 
 
 ## How popular is my web application?

@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Create an Azure SQL Database elastic database pool with the Azure preview portal | Microsoft Azure"
-	description="Create an elastic database pool to share resources across multiple Azure SQL Databases."
+	pageTitle="Create scalable elastic database pools | Microsoft Azure"
+	description="How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
+	keywords="scalable database,database configuration"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -17,14 +18,14 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create an elastic database pool with the Azure preview portal
+# Create a scalable elastic database pool for SQL databases in Azure preview portal
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal.
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal. A SQL Database configuration with elastic database pools simplifies administration and resource sharing across multiple databases.
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
 
@@ -44,8 +45,8 @@ In the [Azure preview portal](https://ms.portal.azure.com/) click **SQL servers*
 -or-
 
 If you see a message saying there is a recommended pool for a server, click it to easily review and create a pool that is optimized for your server's databases. For details, see [Recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
-   
-  
+
+
 ![Create Elastic Pool][1]
 
 
@@ -66,7 +67,7 @@ The pool's pricing tier determines the features available to the elastic databas
 
 ### Pricing tier recommendations
 
-The SQL Database service evaluates utilization history and recommends one or more elastic database pools when it is more cost effective than using single databases. 
+The SQL Database service evaluates utilization history and recommends one or more elastic database pools when it is more cost effective than using single databases.
 
 Pricing tiers with a star (![star][10]) are recommended based on your databases workloads.
 
@@ -114,7 +115,7 @@ There are three parameters you can set that define the performance for the pool:
 
 ## Recommended elastic database pools
 
-Browse to a SQL Database V12 server and you may see a message saying there are recommended elastic database pools for the server. 
+Browse to a SQL Database V12 server and you may see a message saying there are recommended elastic database pools for the server.
 
 Just like elastic database pool pricing tier recommendations, recommended pools are pre-configured with the following already set:
 
@@ -126,9 +127,9 @@ Just like elastic database pool pricing tier recommendations, recommended pools 
 ### Create a recommended pool
 
 1. Click the message to see a list of the recommended pools:
- 
+
      ![recommended pools][12]
-  
+
 1. Click a pool to see the detailed recommendation settings.
 2. Simply edit the pool name and click **OK** to create the pool. (Recommended pools cannot be modified until after creation.)
 

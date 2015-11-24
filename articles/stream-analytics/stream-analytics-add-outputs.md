@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Add Outputs | Microsoft Azure" 
-	description="Add Outputs learning path segment."
+	description="Add Outputs to Stream Analytics jobs | learning path segment."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/> 
 
-# Add Outputs
+# How to **add outputs** to Stream Analytics jobs
 
 Azure Stream Analytics jobs can be connected to one or more outputs, which define a connection to an existing data sink. As your Stream Analytics job processes and transforms incoming data, a stream of output events are written to your job's output.
 
