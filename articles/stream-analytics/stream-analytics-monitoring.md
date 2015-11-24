@@ -14,12 +14,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics job monitoring
 
-## Monitor page
+## The monitor page
 
 The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job.  
 
