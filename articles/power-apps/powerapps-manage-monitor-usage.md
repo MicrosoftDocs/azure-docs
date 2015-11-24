@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/24/2015"
    ms.author="litran"/>
 
 
@@ -30,7 +30,7 @@ Remember, your app service environment is yours to add other apps, including web
 
 
 ## Add PowerApps administrators
-After PowerApps Enterprise is enabled and ready to be used, you can add administrators, monitor the requests made to your app service environment, and monitor other apps within your app service environment.
+After PowerApps Enterprise is enabled and ready to be used, you can add administrators, and monitor other apps within your app service environment.
 
 1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
 2. Select **Settings**.

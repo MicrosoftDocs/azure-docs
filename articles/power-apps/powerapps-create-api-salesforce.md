@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
-   ms.author="rajram"/>
+   ms.date="11/24/2015"
+   ms.author="litran"/>
 
 # Create a new Salesforce API in your organization's App Service Environment
 
@@ -27,7 +27,7 @@
 3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][15]  
 
-4. In **PowerApps Services**, select **Manage APIs**:    
+4. In **PowerApps**, select **Manage APIs**:    
 ![Browse to registered apis][1]
 
 5. In **Manage APIs**, select **Add** to add the new API:  

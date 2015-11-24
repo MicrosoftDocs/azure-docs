@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/24/2015"
    ms.author="litran"/>
 
 
@@ -26,7 +26,7 @@
 ![][14]  
 3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][15]  
-4. In **PowerApps Services**, select **Manage APIs**.
+4. In **PowerApps**, select **Manage APIs**.
 5. In **Manage APIs**, select **Add** to add the new API.
 6. Enter a descriptive **name** for your API. For example, you're adding the SQL Server API for demo, you can name it *SQLServerDemo*.  	
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **SQL Server**. 

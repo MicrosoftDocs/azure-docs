@@ -27,7 +27,7 @@
 3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][15]  
 
-4. In **PowerApps Services**, select **Manage APIs**:  
+4. In **PowerApps**, select **Manage APIs**:  
 ![Browse to registered apis][1]
 
 5. In **Manage APIs**, select **Add** to add the new API:  
