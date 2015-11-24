@@ -65,7 +65,7 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
 	+ [Appendix 2: Using Wireshark to capture network traffic]
 	+ [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
 	+ [Appendix 4: Using Excel to view metrics and log data]
-	+ [Appendix 5: Monitoring with Application Insights for Visual Studio Online]
+	+ [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
 
 ## <a name="introduction"></a>Introduction
 
@@ -126,7 +126,7 @@ You can use the Microsoft Azure Portal at <a href="https://portal.azure.com" tar
 The Azure Portal can also provide with notifications of incidents that affect the various Azure services.
 Note: This information was previously available, along with historical data, on the Azure Service Dashboard at <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-While the portal collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, and Application Insights for Visual Studio Online are examples of this outside-in approach. For more information about Application Insights for Visual Studio Online, see the appendix "[Appendix 5: Monitoring with Application Insights for Visual Studio Online]."
+While the portal collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, and Application Insights for Visual Studio Team Services are examples of this outside-in approach. For more information about Application Insights for Visual Studio Team Services, see the appendix "[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity
 
@@ -833,14 +833,14 @@ To import your Storage Logging data into Excel after you download it from blob s
 
 On step 1 of the **Text Import Wizard**, select **Semicolon** as the only delimiter and choose double-quote as the **Text qualifier**. Then click **Finish** and choose where to place the data in your workbook.
 
-### <a name="appendix-5"></a>Appendix 5: Monitoring with Application Insights for Visual Studio Online
+### <a name="appendix-5"></a>Appendix 5: Monitoring with Application Insights for Visual Studio Team Services
 
-You can also use the Application Insights feature for Visual Studio Online as part of your performance and availability monitoring. This tool can:
+You can also use the Application Insights feature for Visual Studio Team Services as part of your performance and availability monitoring. This tool can:
 
 - Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there’s a problem.
 - Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app’s performance drops below acceptable limits, we can send you an email. You can monitor both .NET and Java web services.
 
-At the time of writing Application Insights is in preview. You can find more information at <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights for Visual Studio Online on MSDN</a>.
+At the time of writing Application Insights is in preview. You can find more information at <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights for Visual Studio Team Services on MSDN</a>.
 
 
 <!--Anchors-->
@@ -902,7 +902,7 @@ At the time of writing Application Insights is in preview. You can find more inf
 [Appendix 2: Using Wireshark to capture network traffic]: #appendix-2
 [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]: #appendix-3
 [Appendix 4: Using Excel to view metrics and log data]: #appendix-4
-[Appendix 5: Monitoring with Application Insights for Visual Studio Online]: #appendix-5
+[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

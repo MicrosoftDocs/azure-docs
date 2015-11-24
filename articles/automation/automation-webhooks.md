@@ -3,7 +3,7 @@
    description="A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -17,7 +17,7 @@
 
 # Azure Automation webhooks
 
-A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Online, GitHub, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.
+A *webhook* allows you to start a particular runbook in Azure Automation through a single HTTP request. This allows external services such as Visual Studio Team Services, GitHub, or custom applications to start runbooks without implementing a full solution using the Azure Automation API.
 
 ![Webhooks](media/automation-webhooks/webhooks-overview.png)
 
