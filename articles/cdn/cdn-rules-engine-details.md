@@ -15,8 +15,12 @@
 	ms.topic="article" 
 	ms.date="10/31/2015" 
 	ms.author="casoper"/>
+
+# CDN Rules Engine Match Condition and Feature Details
 	
 This topic lists detailed descriptions of the available match conditions and features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+
+> [AZURE.NOTE] The Rules Engine requires the Premium CDN tier.  For more information on the features of the Standard and Premium CDN tiers, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
 
 ## Match conditions
 
