@@ -22,12 +22,12 @@ This article provides an overview of the Azure Service Fabric application model.
 
 ## Understand the application model
 
-An application is a collection of constituent services that perform a certain function or function. A service performs a complete and standalone function (they can start and run independent of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at runtime, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
+An application is a collection of constituent services that perform a certain function or functions. A service performs a complete and standalone function (it can start and run independently of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
 ![][1]
 
 
-An application type is a categorization of an application, consisting of a bundle of service types. A service type is a categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
+An application type is a categorization of an application, consisting of a bundle of service types. A service type is a categorization of a service. The categorization can have different settings and configurations, but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
 Classes (or "types") of applications and services are described through XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages.
 
@@ -44,7 +44,7 @@ The following diagram shows the relationship between applications and service in
 
 ## Describe a service
 
-The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, and the service binaries and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -72,13 +72,13 @@ The service manifest declaratively defines the service type and version. It spec
 
 **Version** attributes are unstructured strings and not parsed by the system. These are used to version each component for upgrades.
 
-**ServiceTypes** declares what service types are supported by the **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at runtime. Note that service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
+**ServiceTypes** declares what service types are supported by **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. Note that service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
 **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. Having a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
-**DataPackage** declares a folder named by the **Name** attribute that contains arbitrary static data to be consumed by the process at runtime.
+**DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
-**ConfigPackage** declares a folder named by the **Name** attribute that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at runtime. During upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
+**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -173,27 +173,27 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with names **MyCodeA** and **MyCodeB**, then there would need to be two folders with the same names to contain the necessary binaries for each code package.
 
-### Using SetupEntryPoint
-The typical scenarios for using **SetupEntryPoint** are where you need to do something before the service starts or you need to do a higher privileged operation. Examples include:
+### Use SetupEntryPoint
+The typical scenarios for using **SetupEntryPoint** are where you need to do something before the service starts or you need to do a higher-privileged operation. Examples include:
 - Setting up and initializing environment variables that the service executable may use. This includes not only executables written with the Service Fabric programming models, but also .exe files that are simply used. For example, if you are deploying a Node.js application, then npm.exe would need environment variations configured.
 - Using an ACL for a resource such as a certificate.
 
-The following are the steps to ensure that your code (.exe), batch file or PowerShell are correctly packaged in a Visual Studio project.
+The following are the steps to ensure that your code (.exe), batch file, or PowerShell command is correctly packaged in a Visual Studio project.
 
 
-### Building a package using Visual Studio
+### Build a package by using Visual Studio
 
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
-To create a package, simply right-click on the application project in Solution Explorer and choose the Package command, as shown below:
+To create a package, right-click on the application project in Solution Explorer and choose the Package command, as shown below:
 
 ![][2]
 
-When packaging is complete, you will find the location of the package in the Output window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
+When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
-### Testing the package
+### Test the package
 
-The package structure can be locally verified through PowerShell using the **Test-ServiceFabricApplicationPackage** command, which will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package - it will not verify any of the code or data package contents beyond checking that all necessary files are present:
+You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 
 ~~~
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -202,7 +202,7 @@ Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ~~~
 
-This error shows that the *MySetup.bat* file referenced in the service manifest **SetupEntryPoint** is missing from the code package. After adding the missing file, the application verification passes:
+This error shows that the *MySetup.bat* file referenced in the service manifest **SetupEntryPoint** is missing from the code package. After the missing file is added, the application verification passes:
 
 ~~~
 PS D:\temp> tree /f .\MyApplicationType
