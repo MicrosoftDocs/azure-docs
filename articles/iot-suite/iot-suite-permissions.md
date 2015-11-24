@@ -28,9 +28,11 @@ When you first sign in at [azureiotsuite.com][lnk-azureiotsuite], the site dete
 
 3.  Finally, the site retrieves all the resources in the subscriptions and resource groups tagged as preconfigured solutions and populates the tiles on the home page.
 
+The following sections describe the roles that control access to the preconfigured solutions.
+
 ## AAD roles
 
-You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin], but this article focuses primarily on the **Global Administrator** and the **Domain User/Member** roles.
+You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin], but this article focuses primarily on the **Global Administrator** and the **Domain User/Member** roles as used by the preconfigured solutions.
 
 **Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **ADMINISTRATOR** role for the application inside of their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **IMPLICIT READ ONLY**. Global administrators can assign roles for applications using the [Azure management portal][lnk-classic-portal].
 
@@ -43,21 +45,13 @@ For more information, see the following resources:
 - [Create or Edit users in Azure AD][lnk-create-edit-users]
 - [Assign App roles in AAD][lnk-assign-app-roles]
 
-## Subscription roles 
+## Azure admin roles 
 
-You can find out more about service administrators and co-administrators in the article [Changing Service Administrator and Co-Administrator when logged in with an organisational account][lnk-service-admins]. This article focuses primarily on the Service Administrator and the Co-Administrator.
-
-**Service Administrator:** There can only be one service administrator per Azure subscription. The service administrator is authorized to access the Azure Management Portal for all subscriptions in the Azure account. They have the ability to add co-administrators on the subscription. They also are the only user who has permissions to create a mapping between a subscription and an AAD tenant.
-
-**Co-Administrator:** There can be many co-administrators per Azure subscription. They have the same permissions as a service administrator, but cannot change the mapping between a subscription and an AAD tenant.
-
-For more information, see the following resources:
-
-- [Add a co-administrator to an Azure subscription][lnk-add-coadmin]
+You can find out more about the Azure Co-Administrator, Service Administrator and Account Administrator roles in the article [How to add or change Azure Co-Administrator, Service Administrator and Account Administrator][lnk-admin-roles].
 
 ## Application roles
 
-There are two defined and one implicit role defined in the application that is created for you when you provision a preconfigured solution.
+There are two defined and one implicit role defined in the application that is created when you provision a preconfigured solution.
 
 -   **ADMINISTRATOR:** Has full control to add, manage, and remove devices
 
@@ -65,7 +59,7 @@ There are two defined and one implicit role defined in the application that is c
 
 -   **IMPLICIT READ ONLY:** This is the same as Read Only, but is granted to all users of your AAD tenant. This was done for convenience during development. You can remove this role by modifying the [RolePermissions.cs][lnk-resource-cs] source file.
 
-###Changing Application Roles
+### Changing Application Roles
 
 You must be an AAD global administrator to change roles for a user:
 
@@ -89,7 +83,7 @@ You must be an AAD global administrator to change roles for a user:
 
 ## FAQ
 
-**I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I do this?**
+### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I do this?
 
 1. Go to the [Azure Management portal][lnk-classic-portal], click **Settings** in the list of services on the left-hand side.
 
@@ -101,11 +95,11 @@ You must be an AAD global administrator to change roles for a user:
 
 5. Confirm the directory mapping and affected co-administrators. Note that if you are moving from another directory, all the co-administrators from the original directory are removed.
 
-**I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?**
+### I'm a domain user/member on the AAD tenant and I've created a preconfigured solution. How do I get assigned a role for my application?
 
 Ask a global administrator to assign you as a global administrator on the AAD tenant to get permissions to assign roles to users yourself, or ask a global administrator to assign you a role. If you'd like to change the AAD tenant your preconfigured solution has been deployed to, see the next question.
 
-**How do I switch the AAD tenant my remote monitoring preconfigured solution and application are assigned to?**
+### How do I switch the AAD tenant my remote monitoring preconfigured solution and application are assigned to?
 
 You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-monitoring> and redeploy with a newly created AAD tenant. Since you are by default a global administrator when you create a new AAD tenant, you will have access for adding users and assigning roles to those users.
 
@@ -117,7 +111,12 @@ You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-
 
 4. When prompted, set the **tenantid** to be your newly created tenant instead of your previous tenant.
 
-**Why am I seeing this error?** *Your account does not have the proper permissions to create a solution. Please check with your account administrator or try with a different account.*
+
+### I want to change a Service Administrator or Co-Administrator when logged in with an organisational account
+
+See the support article [Changing Service Administrator and Co-Administrator when logged in with an organisational account][lnk-service-admins].
+
+### Why am I seeing this error? "Your account does not have the proper permissions to create a solution. Please check with your account administrator or try with a different account."
 
 Take a look at the diagram below:
 
@@ -136,6 +135,6 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
 [lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
-[lnk-add-coadmin]: https://msdn.microsoft.com/library/azure/gg456328.aspx
+[lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
