@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
+   ms.date="11/01/2015"
    ms.author="kundanap"/>
 
 # Using Custom Script extension With Azure Resource Manager templates
@@ -29,18 +29,16 @@ Ever since its launch, Custom Script extension has been used widely to configure
 
 ## Overview of Azure Resource Manager templates
 
-Azure Resource Manager template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, please refer to the articles below:
+Azure Resource Manager template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
 
-<a href="https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/" target="_blank">Resource Group Overview</a>.
-<br/>
-<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Deploying Templates with Azure CLI</a>.
-<br/>
-<a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Deploying Templates with Azure Powershell</a>.
+- [Resource Group Overview](../resource-group-overview)
+- [Deploying Templates with Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli)
+- [Deploying Templates with Azure Powershell](virtual-machines-deploy-rmtemplates-powershell)
 
 ### Pre-Requistes for running Custom Script extension
 
-1. Install the latest Azure PowerShell Cmdlets or Azure CLI from <a href="http://azure.microsoft.com/downloads" target="_blank">here</a>.
-2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> to install one.
+1. Install the latest Azure PowerShell Cmdlets or Azure CLI from [here](http://azure.microsoft.com/downloads).
+2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow [this](virtual-machines-extensions-install) to install one.
 3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single or multiple storage containers.
 4. Alternatively the scripts can also be uploaded to a Github account.
 5. The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.

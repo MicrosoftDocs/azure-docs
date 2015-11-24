@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/24/2015"
    ms.author="litran"/>
 
 # What is Microsoft PowerApps enterprise?
@@ -145,7 +145,9 @@ The regular Azure app service environment has different features. See [Introduct
 
 4. In the **PowerApps** blade, select **Create App Service Environment to get started** or select **App Service Environment** under *Settings*:  
 ![][5]
-  
+
+> [AZURE.NOTE] If you click on **Create App Service Environment to get started**, you will see one extra blade with details about the App Service Environment. Simply click Create link on that blade to launch the create blade. 
+
 5. Next, enter the name, select the subscription you want to use, select or create a new resource group, and select a virtual network. **Notice** that after you choose a virtual network, it cannot be changed:  
 ![][6]  
 For more information how virtual networks work with an app service environment, see [How to Create an App Service Environment](../app-service-web-how-to-create-an-app-service-environment.md). 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/28/2015"
+   ms.date="11/23/2015"
    ms.author="coreyp"/>
 
 # Onboarding machines for management by Azure Automation DSC
@@ -36,7 +36,7 @@ The following sections outline how you can onboard each type of machine to Azure
 With Azure Automation DSC, you can easily onboard Azure virtual machines (classic) for configuration management using either the Azure portal, or PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM Desired State Configuration extension registers the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its progress or troubleshoot it are provided in the [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section below.
 
 
-### Azure virtual machines
+### Azure portal
 
 In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
 
@@ -102,7 +102,7 @@ To find the registration URL and key for the Automation account to onboard the m
      -ExtensionName DSC `
      -Version 2.6 `
      -PublicConfiguration $PublicConfiguration `
-     -PrivateConfiguration $PrivateConfiguration
+     -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
 
     $VM | Update-AzureVM
@@ -132,9 +132,9 @@ Azure virtual machines can be deployed and onboarded to Azure Automation DSC via
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) cmdlet can be used to onboard virtual machines in the Azure preview portal via PowerShell.
+The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) cmdlet can be used to onboard virtual machines in the Azure preview portal via PowerShell.
 
-### Physical / virtual Windows machines on-premises, or in a cloud other than Azure
+## Physical / virtual Windows machines on-premises, or in a cloud other than Azure
 
 On-premises Windows machines and Windows machines in non-Azure clouds (such as Amazon Web Services) can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
@@ -159,7 +159,7 @@ On-premises Windows machines and Windows machines in non-Azure clouds (such as A
 
 8. Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
-### Physical / virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
+## Physical / virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
 On-premises Linux machines, Linux machines in Azure, and Linux machines in non-Azure clouds can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/24/2015"
    ms.author="litran"/>
 
 # Create a new Office 365 Outlook API in your organization's app service environment
