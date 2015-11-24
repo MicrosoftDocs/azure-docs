@@ -40,7 +40,7 @@
 - Implement Upsert. New upsertXXX methods added to support Upsert feature.
 - Implement ID Based Routing. No public API changes, all changes internal.
 
-### <a name="1.3.0"/>[1.3.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.3.0)
+### <a name="1.3.0"/>1.3.0
 - Release skipped to bring version number in alignment with other SDKs
 
 ### <a name="1.2.0"/>[1.2.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.2.0)
