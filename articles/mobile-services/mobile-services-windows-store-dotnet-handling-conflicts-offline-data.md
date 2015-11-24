@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/12/2015" 
 	ms.author="glenga"/>
 
 

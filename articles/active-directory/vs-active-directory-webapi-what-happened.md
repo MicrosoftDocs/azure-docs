@@ -3,7 +3,7 @@
 	description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory"
     services="active-directory"
 	documentationCenter=""
-	authors="tarcher"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 

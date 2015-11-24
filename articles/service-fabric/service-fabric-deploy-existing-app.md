@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Deploy an existing application in Azure Service Fabric | Microsoft Azure"
+   pageTitle="Deploy a custom application to Azure Service Fabric | Microsoft Azure"
    description="Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="bmscholl"
    manager="timlt"
    editor=""/>
 
@@ -13,124 +13,78 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
-   ms.author="claudioc"/>
+   ms.date="11/17/2015"
+   ms.author="bscholl"/>
 
-# Deploy an existing application in Azure Service Fabric
+# Deploy a custom application to Service Fabric
 
-Azure Service Fabric can be used to deploy existing applications, enabling them to benefit health monitoring and application lifecycle management (ALM).
+You can run any type of existing application, such as Node.js, Java or native applications in Service Fabric. Service Fabric treats those applications like stateless services and places them on nodes in a cluster based on availability and other metrics. This article describes how to package and deploy an existing application to a Service Fabric cluster.
 
-This tutorial explains the process and basic concepts that are involved with taking an existing application and packaging it for deployment to a Service Fabric cluster.
+## Benefits of running a custom application in Service Fabric
+
+There are a couple of advantages that come with running the application in Service Fabric Cluster:
+
+- High availability: Applications that are run in Service Fabric are highly available out of the box. Service Fabric makes sure that always one instance of an application is up and running
+- Health monitoring: Out of the box Service Fabric health monitoring detects if the application is up and running and provides diagnostics information the case of a failure   
+- Application Life cycle management: Besides no downtime upgrades Service Fabric also allows to roll back to the previous version if there is an issue during upgrade.    
+- Density: You can run multiple applications in cluster which eliminates the need for each application to run on its own hardware
+
+In this article we cover the basic steps to package an existing application and deploy it to Service Fabric.  
 
 
 ## Quick overview of Application and Service manifest files
 
-Before getting into the details of deploying an existing application, it is useful to undertand the Service Fabric deployment model. The Service Fabric deployment model relies mainly on two files:
+Before getting into the details of deploying an existing application, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two files:
 
 
 * **Application Manifest**
 
-  The application manifest is used to describe the application and lists the services that compose it plus other parameters,  such as the number of instances, that are used to define how the service(s) should be deployed.In the Service Fabric world,  an application is the 'upgradable unit'. An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform to guarantee that the upgrade process either completely success or, if it fails, it does not leave the application is an unknown/unstable state.
+  The application manifest is used to describe the application and lists the services that compose it plus other parameters, such as the number of instances, that are used to define how the service(s) should be deployed. In the Service Fabric world, an application is the 'upgradable unit'. An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform to guarantee that the upgrade process either completely success or, if it fails, it does not leave the application is an unknown/unstable state.
 
-  This is an example of an application manifest:
-
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
-      <ConfigOverrides />
-    </ServiceManifestImport>
-
-    <DefaultServices>
-      <Service Name="actor2">
-        <StatelessService ServiceTypeName="actor2Type">
-          <SingletonPartition />
-        </StatelessService>
-      </Service>
-    </DefaultServices>
-
-  </ApplicationManifest>
-  ```
 
 * **Service Manifest**
 
-  Service Manifest describes the components of a service. It includes data such as name and type of the service (information that Service Fabric uses to manage the service), its code, configuration and data components plus some additional parameters that can be used to configure the service once it is deployed. We are not going into the details of all the different parameters available in the service manifest, we will go through the subset that is required to make an existing application to run on Service Fabric
+  The service manifest describes the components of a service. It includes data such as name and type of the service (information that Service Fabric uses to manage the service), its code, configuration and data components plus some additional parameters that can be used to configure the service once it is deployed. We are not going into the details of all the different parameters available in the service manifest, we will go through the subset that is required to make an existing application to run on Service Fabric
 
-  This is an example of a service manifest
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
-
-    <CodePackage Name="Code" Version="1.0.0.0">
-      <EntryPoint>
-        <ExeHost>
-          <Program>actor2.exe</Program>
-        </ExeHost>
-      </EntryPoint>
-    </CodePackage>
-
-    <ConfigPackage Name="Config" Version="1.0.0.0" />
-
-    <Resources>
-      <Endpoints>
-        <Endpoint Name="ServiceEndpoint" />
-      </Endpoints>
-    </Resources>
-  </ServiceManifest>
-  ```
-
-## Application Package file structure
-In order to deploy an application using, for instance, the powershell cmdlets, the application needs to follow a predefined directory structure.
+## Application package file structure
+In order to deploy an application to Service Fabric, the application needs to follow a predefined directory structure. Below is an example of that structure.
 
 ```
-\applicationmanifest.xml
-\MyServicePkg
-    \servicemanifest.xml
-    \code
-    \config
-    \data
+|-- AppplicationPackage
+	|-- code
+		|-- existingapp.exe
+	|-- config
+		|--Settings.xml
+    |--data    
+    |-- ServiceManifest.xml
+|-- ApplicationManifest.xml
 ```
 
-The root contains the applicationmanifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires: The servicemanifest.xml and, typically 3 directories:
+The root contains the ApplicationManifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires: The ServiceManifest.xml and, typically 3 directories:
 
 - *code*: contains the service code
 - *config*: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
 - *data*: an additional directory to store additional local data that service may need. Note: Data should be used to store only ephymeral data, Service Fabric does not copy/replicate changes to the data directory if the service needs to be relocated, for instance, during failover.
 
-Note: You can use any arbitrary directory name for Code, Config and Data. Just make sure to use the same value in the ApplicationManifest file.
+Note: You don't have to create the `config` and `data` directories in case you don't need them.
 
 ## The process of packaging an existing app
 
 The process of packaging an existing application is based on the following steps:
 
-- Create the package directory structure
-- Add application's code and configuration files
+- create the package directory structure
+- add application's code and configuration files
 - update the service manifest file
 - update the application manifest
 
+>[AZURE.NOTE]: We do provide a packaging tool allowing you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
 
 ### Create the package directory structure
-You can start by creating the directory structure as described above. I created a directory and copied the application and service manifest from an existing project that I previously had created in Visual Studio.
-
-![][1] ![][2]
-
+You can start by creating the directory structure as described before.
 
 ### Add the application's code and configuration files
-After you have created the directory structure, you can add the application's code and configuration files under the Code and Config directory. You can also create additional directories or sub directories under the Code or Config directories. Service Fabric does an xcopy of the content of the application root directory so there is no predefined structure to use other than creating two top directories Code and Settings (but you can pick different names if you want, more details in the next section).
+After you have created the directory structure, you can add the application's code and configuration files under the code and config directory. You can also create additional directories or sub directories under the code or config directories. Service Fabric does an xcopy of the content of the application root directory so there is no predefined structure to use other than creating two top directories code and settings (but you can pick different names if you want, more details in the next section).
 
 >[AZURE.NOTE]: Make sure that you include all the files/dependencies that the application needs. Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs in order to run. It is not recommended to assume that the dependencies are already installed.
 
@@ -139,39 +93,35 @@ The next step is to edit the Service Manifest file to include the following info
 
 - The name of the service type. This is an 'Id' that Service Fabric uses in order to identify a service
 - The command to use to launch the application (ExeHost)
-- Any script that needs to be run in order to setup/configure the application (SetupEntrypoint
+- Any script that needs to be run in order to setup/configure the application (SetupEntrypoint)
 
-This is an example of a `servicemanifest.xnml` file that 'packages' a node.js application:
+Below is an example of a `ServiceManifest.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="VisualObjectsNodejsWebServicePkg"
-                 Version="1.0.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ServiceTypes>
-    <StatelessServiceType ServiceTypeName="VisualObjectsNodejsWebServiceType" UseImplicitHost="true" />
-  </ServiceTypes>
-
-  <CodePackage Name="Code" Version="1.0.0.0">
-    <EntryPoint>
-      <ExeHost>
-        <Program>node.exe</Program>
-        <Arguments>server.js</Arguments>
-        <WorkingFolder>CodeBase</WorkingFolder>
-      </ExeHost>
-    </EntryPoint>
-  </CodePackage>
-
-  <ConfigPackage Name="Config" Version="1.0.0.0"/>
-
-  <Resources>
-    <Endpoints>
-      <Endpoint Name="ServiceEndpoint" />
-    </Endpoints>
-  </Resources>
-
+<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
+   </ServiceTypes>
+   <CodePackage Name="code" Version="1.0.0.0">
+      <SetupEntryPoint>
+         <ExeHost>
+             <Program>scripts\launchConfig.cmd</Program>
+         </ExeHost>
+      </SetupEntryPoint>
+      <EntryPoint>
+         <ExeHost>
+            <Program>node.exe</Program>
+            <Arguments>bin/www</Arguments>
+            <WorkingFolder>CodePackage</WorkingFolder>
+         </ExeHost>
+      </EntryPoint>
+   </CodePackage>
+   <Resources>
+      <Endpoints>
+         <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
+      </Endpoints>
+   </Resources>
 </ServiceManifest>
 ```
 
@@ -181,12 +131,12 @@ Let's go over the different part of the file that you need to update:
 
 ```xml
 <ServiceTypes>
-  <StatelessServiceType ServiceTypeName="VisualObjectsNodejsWebServiceType" UseImplicitHost="true" />
+  <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />
 </ServiceTypes>
 ```
 
-- You can pick any name that you want for `ServiceTypeName`, the value is used in the `applicationmanifest.xml` to identify the service.
-- You need to specify `UserImplicitHost = "true"`. This attribute tells Service Fabric that the service is based on a self-contained app so that it needs to do is just to launch it as a process and monitor its health.
+- You can pick any name that you want for `ServiceTypeName`, the value is used in the `ApplicationManifest.xml` to identify the service.
+- You need to specify `UseImplicitHost="true"`. This attribute tells Service Fabric that the service is based on a self-contained app so that it needs to do is just to launch it as a process and monitor its health.
 
 ### CodePackage
 The CodePackage specifies the location (and version) of the service's code.
@@ -196,7 +146,16 @@ The CodePackage specifies the location (and version) of the service's code.
 ```
 
 The `Name` element is used to specify the name of the directory in the Application Package that contains the service's code. `CodePackage` also has the `version` attribute that can be used to specify the version of the code and potentially be used to upgrade the service's code using Service Fabric's ALM infrastructure.
+### SetupEntrypoint
 
+```xml
+<SetupEntryPoint>
+   <ExeHost>
+       <Program>scripts\launchConfig.cmd</Program>
+   </ExeHost>
+</SetupEntryPoint>
+```
+The SetupEntrypoint is used to specify any executable or batch file that should be executed before the service's code is launched. It is an optional element so it does not need to be included if there is no intialization/setup that is required. The SetupEntryPoint is executed every time the service is restarted. There is only one SetupEntrypoint so setup/config scripts needs to be bundled on a single batch file if the application's setup/config requires multiple scripts. Like the Entrypoint element, SetupEntrypoint can execute any type of file: executable, batch fiules, powershell cmdlet. In the example above, the SetupEntrypoint is based on a batch file launchConfig.cmd that is located in the `scripts` subdirectory of the Code directory (assuming the WorkingDirectory element is set to Code).
 
 ### Entrypoint
 
@@ -204,12 +163,11 @@ The `Name` element is used to specify the name of the directory in the Applicati
 <EntryPoint>
   <ExeHost>
     <Program>node.exe</Program>
-    <Arguments>server.js</Arguments>
+    <Arguments>bin/www</Arguments>
     <WorkingFolder>CodeBase</WorkingFolder>
   </ExeHost>
 </EntryPoint>
 ```
-
 
 The `Entrypoint` element in the service manifest file is used to specify how to launch the service. The `ExeHost` element specifies the executable (and arguments) that should be used to launch the service.
 
@@ -220,97 +178,49 @@ The `Entrypoint` element in the service manifest file is used to specify how to 
 	- `CodePackage`: the working directory will be set to the root of the application package	(`MyServicePkg`)
 - `WorkingDirectory` element is useful to set the correct working directory so relative paths can be used by either the application or initialization scripts.
 
-There is also another value that you can specify for the `WorkingFolder` element (`Work`) but it is not very useful for the scenario of bringing an existing application.
-
-
-```
-\applicationmanifest.xml
-\MyServicePkg
-	\servicemanifest.xml
-	\code
-		 \bin
-			  \ ...
-	\config
-	\data
-		\...
-```
-
-
-#### The setup entry point
+### Endpoints
 
 ```xml
-<SetupEntryPoint>
-  <ExeHost>
-    <Program>scripts\myAppsetup.cmd</Program>
-  </ExeHost>
-</SetupEntryPoint>
-```
+<Endpoints>
+   <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
+</Endpoints>
 
-The `SetupEntrypoint` is used to specify any executable or batch file that should be executed before the service's code is launched. It is an optional element so it does not need to be included if there is no intialization/setup that is required. The Entrypoint is executed every time the service is restarted. There is only one SetupEntrypoint so setup/config scripts needs to be bundled on a single batch file if the application's setup/config requires multiple scripts. Like the `Entrypoint` element, `SetupEntrypoint` can execute any type of file: executable, batch fiules, powershell cmdlet.
-In the example above, the `SetupEntrypoint` is based on a batch file myAppsetup.cmd that is located in the scripts subdirectory of the Code directory (assuming the `WorkingDirectory` element is set to `Code`).
+```
+The `Endpoint` element specifies the endpoints the application can listen on. In this exmpale the Node.js application listens on port 3000.
 
 ## Application Manifest file
 
-Once you have configured the `servicemanifest.xml` file you need to make some changes to the `applicationmanifest.xml` file to ensure the correct Service type and name are used.
+Once you have configured the `servicemanifest.xml` file you need to make some changes to the `ApplicationManifest.xml` file to ensure the correct Service type and name are used.
 
 ```xml
-<ServiceManifestImport>
-  <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0.0" />
-</ServiceManifestImport>
-<DefaultServices>
-  <Service Name="actor2">
-    <StatelessService ServiceTypeName="MyServiceType" InstanceCount = "1">
-    </StatelessService>
-  </Service>
-</DefaultServices>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
+   </ServiceManifestImport>
+</ApplicationManifest>
 ```
 
 ### ServiceManifestImport
 
-In the `ServiceManifestImport` you can specify one or more services that you want to include in the app. Services are referenced with `ServiceManifestName` that specifies the name of the directory where the `servicemanifest.xml` file is located.
+In the `ServiceManifestImport` you can specify one or more services that you want to include in the app. Services are referenced with `ServiceManifestName` that specifies the name of the directory where the `ServiceManifest.xml` file is located.
 
 ```xml
 <ServiceManifestImport>
-  <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0.0" />
+  <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
 </ServiceManifestImport>
 ```
 
-### DefaultServices
-
-The `DefaultServices` element in the application manifest file is used to define some service properties.
-
-```xml
-<DefaultServices>
-  <Service Name="actor2">
-    <StatelessService ServiceTypeName="MyServiceType" InstanceCount="1">
-    </StatelessService>
-  </Service>
-</DefaultServices>
-```
-
-* `ServiceTypeName` is used as an 'Id' for the service. in the context of porting an existing application, `ServiceTypeName` just need to be a unique identifies for your service.
-* `StatelessService`: Service Fabric supports two types of services: Stateless and Stateful. In the case of porting an existing application the service is a stateless service so `StatelessService` should always be used.
-
-A Service Fabric service can be deployed in various 'configurations', for instance it can be deployed as a single or multiple instances or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.
-In the `applicationmanifest.xml` file you can specify how you want the application to be deployed
-
-* `InstanceCount`: is used to specify how many instances of the service should be launched in the Service Fabric cluster. You can set the `InstanceCount` value depending on the type of application that you are deploying. The two most common scenarios are:
-
-	* `InstanceCount = "1"`: in this case only one instance of the service will be deployed on the cluster. Service Fabric's scheduler determines on which node the service is going to be deployed. A single instance count also makes sense for applications that require a different configuration if they run on multiple instances. In that case it is easier to define multiple services in the same application manifest file and use `InstanceCount = "1"`. So the end result will be to have multiple instances of the same service but each with a specific configuration. A value of `InstanceCount` greater than one makes sense only if the goal is to have multiple instance of the exact same configuration.
-
-	* `InstanceCount ="-1"`: in this case one instance of the service will be deployed on every node in the Service Fabric cluster. The end result will be having one (and only one) instance of the service for each node in the cluster. This is a useful configuration for front-end applications (ex. a REST endpoint) because client applications just need to 'connect' to any of the node in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service running on all nodes in the cluster.
-
-
-### Testing
-For existing application is very useful to be able to see console logs to find out if the application and configuration scripts don't show any error.
-Console redirection can be configured in the `servicemanifest.xml` file using the `ConsoleRedirection` element
+### Setting up logging
+For existing application it is very useful to be able to see console logs to find out if the application and configuration scripts don't show any error.
+Console redirection can be configured in the `ServiceManifest.xml` file using the `ConsoleRedirection` element
 
 ```xml
 <EntryPoint>
   <ExeHost>
     <Program>node.exe</Program>
-    <Arguments>server.js</Arguments>
-    <WorkingFolder></WorkingFolder>
+    <Arguments>bin/www</Arguments>
+    <WorkingFolder>CodeBase</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/>
   </ExeHost>
 </EntryPoint>
@@ -321,37 +231,51 @@ Console redirection can be configured in the `servicemanifest.xml` file using th
 	* `FileRetentionCount` determines how many files are saved in the working directory. A value of, for instance, 5 means that the log files for the previous 5 executions are stored in the working directory.
 	* `FileMaxSizeInKb` specifies the max size of the log files.
 
-Log files are saved on one of the service's working directories, in order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used.
+Log files are saved on one of the service's working directories, in order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used. How to do this is covered later in this article.
 
-In the Service Fabric explorer, identify the node where the service is running
+### Deployment
+The last step is to deploy your application. The PowerShell script below shows how to deploy you application to the local development cluster and start a new Service Fabric service.
 
-![][3]
+```Powershell
 
-After you know the node where the service is currently running, you can find out which is the working directory used
+Connect-ServiceFabricCluster localhost:19000
 
-![][4]
+Write-Host 'Copying application package...'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MulitpleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
 
-When you select the name of the service, on the right panel you can see there the service code and settings are stored
+Write-Host 'Registering application type...'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
 
-![][5]
+New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
-If you click on the link in the 'Disk Location' field you can access the directory where the services is running on.
+New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
-![][6]
+```
+A Service Fabric service can be deployed in various 'configurations', for instance it can be deployed as a single or multiple instances or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.
 
-The log directory contains all log files.
+The `InstanceCount` parameter of `New-ServiceFabricService` cmdlet is used to specify how many instances of the service should be launched in the Service Fabric cluster. You can set the `InstanceCount` value depending on the type of application that you are deploying. The two most common scenarios are:
+* `InstanCount = "1"`: in this case only one instance of the service will be deployed on the cluster. Service Fabric's scheduler determines on which node the service is going to be deployed.
 
-Note: This example shows the case of a single instance of the service running in the cluster. If there are multiple instances you may need to check the log file on all the nodes where the service is running.
+* `InstanceCount ="-1"`: in this case one instance of the service will be deployed on every node in the Service Fabric cluster. The end result will be having one (and only one) instance of the service for each node in the cluster. This is a useful configuration for front-end applications (ex. a REST endpoint) because client applications just need to 'connect' to any of the node in the cluster in order to use the endpoint. This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service running on all nodes in the cluster.
+
+### Check your running application
+
+In Service Fabric Explorer, identify the node where the service is running. In this example it runs on Node1:
+
+![running app](./media/service-fabric-deploy-existing-app/runningapplication.png)
+
+If you navigate to the node and browse to the application, you will see the essential node information including its location on disk.
+
+![location on disk](./media/service-fabric-deploy-existing-app/locationondisk.png)
+
+If you browse to the directory using Server Explorer you can find working directory and the service's logs folder as shown below.
+
+![location on disk](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 
-## What's next
-We are working on a tools that can be used to package an existing application simply by pointing it at the root of the directory structure of the app. The tool takes care of generate the manifest files and configure the basic settings that are required to 'transform' the application in a Service Fabric service.
+## Next steps
+In this article you have learned how to package an existing application and deploy it to Service Fabric. As a next step you can check out additional content for this topic.
 
-See [this](service-fabric-develop-your-service-index.md) if you want more information about how to develop a traditional Service Fabric app.
-
-[1]: ./media/service-fabric-deploy-existing-app/directory-structure-1.png
-[2]: ./media/service-fabric-deploy-existing-app/directory-structure-2.png
-[3]: ./media/service-fabric-deploy-existing-app/service-node-1.png
-[4]: ./media/service-fabric-deploy-existing-app/service-node-2.png
-[5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
-[6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
+- Sample for packaging and deploying a custom application on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the pre-release of the packaging tool.
+- Learn how to [deploy multiple custom applications](service-fabric-deploy-multiple-apps.md).
+- How to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configuring Stateful Reliable Services"
-   description="Learn about configuring stateful Reliable Services in Service Fabric."
+   pageTitle="Overview of the Azure Service Fabric Reliable Services Configuration | Microsoft Azure"
+   description="Learn about configuring stateful Reliable Services in Azure Service Fabric."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="10/28/2015"
    ms.author="sumukhs"/>
 
 # Configuring Stateful Reliable Services
@@ -43,14 +43,12 @@ ReplicatorConfig
 |----|----|-------------|-------|
 |BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
 |ReplicatorEndpoint|N/A|N/A - RequiredParameter|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP Resource Endpoint in the service manifest. Refer to [Service Manifest Resources](service-fabric-service-manifest-resources.md) to read more about defining endpoint resources in service manifest. |
-|RetryInterval|Seconds|5|Time period after which the replicator re-transmits a message if it does not receive an acknowledgement for an operation.|
-|MaxReplicationMessageSize|Bytes|50MB|Maximum size of replication data that can be transmitted in a single message.|
-|MaxPrimaryReplicationQueueSize|Number of operations|1024|Maximum number of operations in the primary queue. An Operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators.This value must be greater than 64 and a power of 2.|
-|MaxSecondaryReplicationQueueSize|Number of operations|2048|Maximum number of operations in the secondary queue. An Operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
-|MaxStreamSizeInMB|MB|1024|Amount of log file space that is reserved. The size in bytes must be larger than 16 times the MaxRecordSize in bytes.|
+|MaxPrimaryReplicationQueueSize|Number of operations|8192|Maximum number of operations in the primary queue. An Operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators.This value must be greater than 64 and a power of 2.|
+|MaxSecondaryReplicationQueueSize|Number of operations|16384|Maximum number of operations in the secondary queue. An Operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
+|CheckpointThresholdInMB|MB|200|Amount of log file space after which the state is checkpointed.|
 |MaxRecordSizeInKB|KB|1024|Largest record size which the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
-|OptimizeForLocalSSD|boolean|false|When true the log is configured so state information is written directly to the replica's dedicated log file. This provides best performance when log files are on solid state disk media or when the VM disk IO rate is highly throttled. When false the state information is staged in the shared log file first and then destaged to the dedicated log file.|
-|OptimizeLogForLowerDiskUsage|boolean|false|When true the log is configured to so that the replica's dedicated log file is created using an NTFS sparse file. This lowers the actual disk space usage for the file. When false the file is created with fixed allocations which provide the best write performance.|
+|OptimizeLogForLowerDiskUsage|boolean|true|When true the log is configured so that the replica's dedicated log file is created using an NTFS sparse file. This lowers the actual disk space usage for the file. When false the file is created with fixed allocations which provide the best write performance.|
+|MaxRecordSizeInKB|KB|1024|Largest record size which the replicator may write in the log. This value must be a multiple of 4 and greater than 16.|
 |SharedLogId|guid|""|Specifies a unique guid to use for identifying the shared log file used with this replica. Typically services should not use this setting however if SharedLogId is specified then SharedLogPath must also be specified.|
 |SharedLogPath|Fully qualified pathname|""|Specifies the fully qualified path where the shared log file for this replica will be created. Typically services should not use this setting however if SharedLogPath is specified then SharedLogId must also be specified.|
 
@@ -62,7 +60,7 @@ ReplicatorConfig
    <Section Name="ReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>
-      <Parameter Name="MaxStreamSizeInMB" Value="512" />
+      <Parameter Name="CheckpointThresholdInMB" Value="512" />
    </Section>
    <Section Name="ReplicatorSecurityConfig">
       <Parameter Name="CredentialType" Value="X509" />
@@ -80,15 +78,11 @@ ReplicatorConfig
 BatchAcknowledgementInterval controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
 The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
 
-The value for MaxStreamSizeInMB determines the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Since the stored information state is used to allow another replica to match the state of a primary replica, it is generally better to have a larger log file as this will reduce the amount of time it takes for the other replica to match the state of the primary. However larger log files may use more disk space and thus reduce the number of replicas that can be hosted on a particular node.  
+The value for CheckpointThresholdInMB controls the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Increasing this to a higher value than the default could result in faster reconfiguration times when a new replica is added to the set due to the partial state transfer that takes place due to availablity of more history of operations in the log, while potentially increasing the recovery time of a replica after a crash.
 
 The OptimizeForLowerDiskUsage setting allows log file space to be "over-provisioned" so that active replicas can store more state information in their log files while inactive replicas would use less disk
 space. Although this allows more replicas to be hosted on a node than would otherwise happen because of a lack of disk space, by setting OptimizeForLowerDiskUsage to false the state information is written to
 the log files more quickly.
-
-The OptimizeForLocalSSD setting is used to disable writing state information to the shared log file first before destaging to the dedicated log file. It should typically be set when the local disk storage
-for the dedicated log file is solid state media as minimizing disk head movement is not an issue. It may also be used when the VM is performing a lot of local disk IO and local disk IO rates are
-significantly throttled by the VM host.
 
 The MaxRecordSizeInKB defines the maximum size of a record that can be written by the replicator into the log file. In most all cases the default 1024KB record size is optimal however if the service is
 causing larger data items to be part of the state information then this value might need to be increased. There is little benefit in making the MaxRecordSizeInKB smaller than 1024 as smaller records

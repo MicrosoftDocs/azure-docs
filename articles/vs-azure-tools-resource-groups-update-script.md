@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/30/2015"
+	ms.date="11/10/2015"
 	ms.author="kempb" />
 
 # Update the Azure Resource Group project PowerShell script
@@ -219,7 +219,7 @@ Test-AzureRmResourceGroupDeployment `
 	@OptionalParameters `
 	-ErrorAction Stop 	
 
-New-AzureRMResourceGroupDeployment
+New-AzureRMResourceGroupDeployment `
 	-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
     -ResourceGroupName $ResourceGroupName `
     -TemplateFile $TemplateFile `

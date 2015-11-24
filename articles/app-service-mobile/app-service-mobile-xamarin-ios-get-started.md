@@ -45,9 +45,13 @@ To complete this tutorial, you need the following:
 
 ## Create a new Azure Mobile App backend
 
+Follow these steps to create a new Mobile App backend.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Configure the server project
+
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
 Follow the steps below to configure the server project to use either the Node.js or .NET backend.
 

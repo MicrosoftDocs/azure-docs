@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+   ms.date="11/09/2015"
+   ms.author="kenhoff"/>
 
 
 # Getting started with the Azure AD Reporting API
