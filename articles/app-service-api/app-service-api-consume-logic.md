@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-api"
 	ms.workload="na"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="11/24/2015"
