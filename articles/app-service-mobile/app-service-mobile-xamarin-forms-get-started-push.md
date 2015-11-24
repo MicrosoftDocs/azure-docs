@@ -16,7 +16,7 @@
 	ms.date="11/23/2015" 
 	ms.author="wesmc"/>
 
-# Add push notifications to your Xamarin.Forms App
+# Add push notifications to your Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 &nbsp;  
@@ -481,6 +481,77 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 
 
 ####Add push notifications to your Windows app
+
+1. In Visual Studio, open **App.xaml.cs** in the **WinApp** project.  Add the following `using` statements.
+
+		using System.Threading.Tasks;
+		using Windows.Networking.PushNotifications;
+		using WesmcMobileAppGaTest;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
+
+2. In App.xaml.cs add the following `InitNotificationsAsync` method. This method gets the push notification channel and registers a template to receive template notifications from notification hub. A template notification that supports `messageParam` will be delivered to this client.
+
+        private async Task InitNotificationsAsync()
+        {
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
+
+            const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
+
+            JObject headers = new JObject();
+            headers["X-WNS-Type"] = "wns/toast";
+
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+                {
+                  {"body", templateBodyWNS},
+                  {"headers", headers} // Only needed for WNS & MPNS
+                };
+
+            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+        }
+
+3. In App.xaml.cs update the `OnLaunched` event handler with the `async` attribute and call `InitNotificationsAsync`
+
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (rootFrame == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                rootFrame = new Frame();
+                // Set the default language
+                rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
+                rootFrame.NavigationFailed += OnNavigationFailed;
+                Xamarin.Forms.Forms.Init(e); 
+                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                {
+                    //TODO: Load state from previously suspended application
+                }
+                // Place the frame in the current Window
+                Window.Current.Content = rootFrame;
+            }
+
+            if (rootFrame.Content == null)
+            {
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+            }
+            // Ensure the current window is active
+            Window.Current.Activate();
+
+            await InitNotificationsAsync();
+        }
+
+4. In Solution Explorer for Visual Studio, open the **Package.appxmanifest** file and set **Toast Capable** to **Yes** under **Notifications**.
+
+5. Build the app and verify you have no errors.  You client app should now register for the template notifications from the Mobile App backend.
 
 
 ####Test push notifications in your Windows app
