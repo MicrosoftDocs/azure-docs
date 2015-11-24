@@ -75,17 +75,17 @@ $connectionParameters = @{
             clientId = "<your AAD app client id>";
             clientSecret = "<your AAD app key>";
             customParameters = @{
-                tenantId = @{
+                TenantId = @{ # this property is optional
                     value = "<your AAD tenant ID>"
                 };
-                resourceUri = @{
+                ResourceUri = @{ # this property is required
                     value = "<the app ID URI of the AAD app protecting your backend>"
                 }
             }
         }
     }
 }
-Add-Member -InputObject $api.Properties -MemberType NoteProperty -Name ConnectionParameters -Value $connectionParameters
+Add-Member -InputObject $api.Properties -MemberType NoteProperty -Name ConnectionParameters -Value $connectionParameters -Force
 
 # update the API resource
 New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Properties $api.Properties
@@ -94,6 +94,8 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 **Notice** that the **token** connection parameter name is important. You can pick your own name as long as it's camel case. You'll use this name later in your backend code or API policy.
 
 Next, go to [Azure portal][19], and go to the **General** settings blade of your API. You should see the additional configuration options.
+![][21]
+
 
 ## Try it out
 
@@ -160,3 +162,4 @@ In this topic, you've seen how to configure an API to connect (and authenticate)
 [18]: ./media/powerapps-configure-apis-aad/aad-application-add-permissions.png
 [19]: https://portal.azure.com
 [20]: https://tools.ietf.org/html/rfc4648
+[21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
