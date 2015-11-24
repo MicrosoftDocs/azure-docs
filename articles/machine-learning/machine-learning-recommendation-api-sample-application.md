@@ -3,7 +3,7 @@
 	description="Azure ML Recommendation Sample Application" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
