@@ -19,7 +19,7 @@
 # Examples of mapping an existing web service to OData through CSDLs
 
 ## Example: FunctionImport for "Raw" data returned using "POST"
-Use POST Raw data to Create a new subordinate and return its server defined URL(location) or to Update part of the subordinate at the server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  Beware Post in not idempotent without a location.
+Use POST Raw data to create a new subordinate and return its server defined URL(location) or to update part of the subordinate at the server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  Beware POST in not idempotent without a location.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -37,7 +37,7 @@ Use POST Raw data to Create a new subordinate and return its server defined URL(
         </FunctionImport>
 
 ## Example: FunctionImport using "DELETE"
-Use DELETE to remove a specified URI
+Use DELETE to remove a specified URI.
 
         <EntitySet Name="DeleteUsageFileEntitySet" EntityType="MyOffer.DeleteUsageFileEntity" />
         <FunctionImport Name="DeleteUsageFile" EntitySet="DeleteUsageFileEntitySet" ReturnType="Collection(MyOffer.DeleteUsageFileEntity)"  d:AllowedHttpMethods="DELETE" d:EncodeParameterValues="true” d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643" >
@@ -58,7 +58,7 @@ Use DELETE to remove a specified URI
         </EntityType>
 
 ## Example: FunctionImport using "POST"
-Use POST Raw data to Create a new subordinate and return its server defined URL(location) or to Update part of the subordinate at the server defined URL.  Where the subordinate is a structure. Beware Post in not idempotent without a location.
+Use POST Raw data to create a new subordinate and return its server defined URL(location) or to update part of the subordinate at the server defined URL.  Where the subordinate is a structure. Beware POST is not idempotent without a location.
 
         <EntitySet Name="CreateANewModelEntitySet2" EntityType=" MyOffer.CreateANewModelEntity2" />
         <FunctionImport Name="CreateModel" EntitySet="CreateANewModelEntitySet2" ReturnType="Collection(MyOffer.CreateANewModelEntity2)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -76,7 +76,7 @@ Use POST Raw data to Create a new subordinate and return its server defined URL(
         </FunctionImport>
 
 ## Example: FunctionImport using "PUT"
-Use PUT to Create a new subordinate or to Update the entire subordinate at a server defined URL.  Where the subordinate is a structure, PUT is idempotent so multiple occurrences will result in the same state, i.e x=5.  Put should be used with the full content of the specified resource.
+Use PUT to create a new subordinate or to update the entire subordinate at a server defined URL.  Where the subordinate is a structure, PUT is idempotent so multiple occurrences will result in the same state, i.e x=5.  Put should be used with the full content of the specified resource.
 
         <EntitySet Name="UpdateAnExistingModelEntitySet" EntityType="MyOffer.UpdateAnExistingModelEntity" />
         <FunctionImport Name="UpdateModel" EntitySet="UpdateAnExistingModelEntitySet" ReturnType="Collection(MyOffer.UpdateAnExistingModelEntity)" d:EncodeParameterValues="true" d:AllowedHttpMethods="PUT" d:BaseUri=”http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -98,7 +98,7 @@ Use PUT to Create a new subordinate or to Update the entire subordinate at a ser
 
 
 ## Example: FunctionImport for "Raw" data returned using "PUT"
-Use PUT Raw Data to Create a new subordinate or to Update the entire subordinate at a server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  PUT is idempotent so multiple occurrences will result in the same state, i.e x=5.  Put should be used with the full content of the specified resource.
+Use PUT Raw data to create a new subordinate or to update the entire subordinate at a server defined URL.  Where the subordinate is a stream, i.e. unstructured, ex. a text file.  PUT is idempotent so multiple occurrences will result in the same state, i.e x=5.  Put should be used with the full content of the specified resource.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
