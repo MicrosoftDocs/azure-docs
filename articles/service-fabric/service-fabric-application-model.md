@@ -18,33 +18,33 @@
 
 # Model an application in Service Fabric
 
-This article provides an overview of the Service Fabric application model and describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
+This article provides an overview of the Azure Service Fabric application model. It also describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
 
 ## Understand the application model
 
-An application is a collection of constituent services that perform a certain function(s). A service performs a complete and standalone function (they can start and run independent of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at runtime, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
+An application is a collection of constituent services that perform a certain function or function. A service performs a complete and standalone function (they can start and run independent of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at runtime, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
 ![][1]
 
 
 An application type is a categorization of an application, consisting of a bundle of service types. A service type is a categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
-Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages.
+Classes (or "types") of applications and services are described through XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages.
 
-![Service Fabric ApplicationTypes and ServiceTypes][Image1]
+![Service Fabric application types and service types][Image1]
 
-Two different manifest files are used to describe applications and services: the service manifest and application manifest, which are covered in detail in the ensuing sections.
+Two different manifest files are used to describe applications and services: the service manifest and application manifest. These are covered in detail in the ensuing sections.
 
-There can be one or more instances of a service type active in the cluster. For example, Stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster (essentially providing redundancy for the service to be available even if one node in a cluster fails). A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster.
+There can be one or more instances of a service type active in the cluster. For example, stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster. This replication essentially provides redundancy for the service to be available even if one node in a cluster fails. A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster.
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
-![Partitions and Replicas within a Service][Image2]
+![Partitions and replicas within a service][Image2]
 
 
 ## Describe a service
 
-The service manifest declaratively defines the service type and version and specifies service metadata such as service type, health properties, load balancing metrics, and the service binaries and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, and the service binaries and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -74,7 +74,7 @@ The service manifest declaratively defines the service type and version and spec
 
 **ServiceTypes** declares what service types are supported by the **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at runtime. Note that service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
-**SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and re-started (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
+**SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. Having a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
 **DataPackage** declares a folder named by the **Name** attribute that contains arbitrary static data to be consumed by the process at runtime.
 
@@ -104,7 +104,7 @@ For more information about other features supported by service manifests, refer 
 ## Describe an application
 
 
-The application manifest declaratively describes the application type and version and specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load balancing domains into which the application is placed are also described.
+The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
 
 ~~~
@@ -130,13 +130,13 @@ Thus, an application manifest describes elements at the application level and re
 
 Like service manifests, **Version** attributes are unstructured strings and not parsed by the system. These are also used to version each component for upgrades.
 
-**ServiceManifestImport** contains references to service manifests composing this application type. Imported service manifests determine what service types are valid within this application type.
+**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type.
 
 **DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
 > [AZURE.NOTE] An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
 
-To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
+To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
@@ -171,21 +171,21 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ~~~
 
-The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with names **MyCodeA** and **MyCodeB**, then there would need to be two folders with the same names containing the necessary binaries for each code package.
+The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with names **MyCodeA** and **MyCodeB**, then there would need to be two folders with the same names to contain the necessary binaries for each code package.
 
-### Using the SetupEntryPoint
-The typical scenarios for using the SetupEntryPoint are where you need need to do do something before the service starts or you need to do a higher privileged operation. Some examples include
-- Setting up and initializing environment variables that the service executable may use. This includes not only executables written with the service fabric programming models but EXEs that are simply used. For example if you deploying a nodejs application then the npm.exe would need environments variations configured.
-- ACL a resource such as a certificate
+### Using SetupEntryPoint
+The typical scenarios for using **SetupEntryPoint** are where you need to do something before the service starts or you need to do a higher privileged operation. Examples include:
+- Setting up and initializing environment variables that the service executable may use. This includes not only executables written with the Service Fabric programming models, but also .exe files that are simply used. For example, if you are deploying a Node.js application, then npm.exe would need environment variations configured.
+- Using an ACL for a resource such as a certificate.
 
-The following are the steps to ensure that you code (exe), batch file or PowerShell are correctly packaged in a Visual Studio project.
+The following are the steps to ensure that your code (.exe), batch file or PowerShell are correctly packaged in a Visual Studio project.
 
 
 ### Building a package using Visual Studio
 
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
-To create a package, simply right click on the application project in Solution Explorer and choose the Package command, as shown below:
+To create a package, simply right-click on the application project in Solution Explorer and choose the Package command, as shown below:
 
 ![][2]
 
