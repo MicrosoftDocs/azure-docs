@@ -18,4 +18,4 @@
 
 # Consume API apps from logic apps 
 
-For information about how to call your own custom API from an App Service logic app, see [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md). Although that article talks about Web Apps, it applies also to API apps.
+For information about how to call your own custom API from an App Service logic app, see [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md). Although that article talks about Web Apps, it applies also to API Apps.
