@@ -1,6 +1,6 @@
-###In Xamarin Studio
+####Configuring the iOS project in Xamarin Studio
 
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID that you created earlier.
+1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the Bundle ID that you created earlier with your new App ID.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 
@@ -16,7 +16,7 @@
 
     This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
 
-### In Visual Studio
+####Configuring the iOS project in Visual Studio
 
 1. In Visual Studio, right-click the project, and then click **Properties**.
 
