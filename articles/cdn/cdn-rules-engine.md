@@ -16,13 +16,13 @@
 	ms.date="10/31/2015" 
 	ms.author="casoper"/>
 
-#Override default HTTP behavior using the rules engine
+# Override default HTTP behavior using the rules engine
 
-##Overview
+## Overview
 
 The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifing HTTP headers.  This tutorial will demonstrate the creation of a rule that will change the caching behavior of CDN assets.
 
-##Tutorial
+## Tutorial
 
 1. From the CDN profile blade, click the **Manage** button.
 
@@ -43,16 +43,20 @@ The rules engine allows you to customize how HTTP requests are handled, such as 
 	![CDN match condition](./media/cdn-rules-engine/cdn-request-type.png)
 	
 	>[AZURE.TIP] There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
+	>
+	>For the full list of match conditions in detail, see [Rules Engine Match Condition and Feature Details](cdn-rules-engine-details.md#match-conditions).
 	
 5.  Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
 
-	![CDN match condition](./media/cdn-rules-engine/cdn-new-feature.png)
+	![CDN feature](./media/cdn-rules-engine/cdn-new-feature.png)
 
 	>[AZURE.NOTE] As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
+	>
+	>For the full list of features in detail, see [Rules Engine Match Condition and Feature Details](cdn-rules-engine-details.md#features).
 	
 6.  Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
 
-##Considerations
+## Considerations
 
 - The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
 

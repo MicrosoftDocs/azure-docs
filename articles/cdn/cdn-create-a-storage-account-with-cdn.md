@@ -33,18 +33,18 @@ components: Blob services, Queue services, and Table services. For more informat
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
 
-> [AZURE.NOTE] There are several methods you can use to create a storage account, including the Azure Management Portal and Powershell.  For this tutorial, we'll be using the Azure Management Portal Preview.  
+> [AZURE.NOTE] There are several methods you can use to create a storage account, including the Azure Portal and Powershell.  For this tutorial, we'll be using the Azure Portal.  
 
 **To create a storage account for an Azure subscription**
 
-1.  Sign in to the [Azure Management Portal](https://portal.azure.com).
+1.  Sign in to the [Azure Portal](https://portal.azure.com).
 2.  In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**. Leave **Classic** selected as the deployment model, then click **Create**.
 
     The **Storage account** blade appears.
 
     ![Create Storage Account][create-new-storage-account]
 
-4. In the **Storage** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
+4. In the **Storage** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
 
     This value becomes the host name within the URI that is used to
     address Blob, Queue, or Table resources for the subscription. To
@@ -131,7 +131,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
     ![CDN endpoint][cdn-endpoint-success]
 
-    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
 
 
 ## Step 4: Access CDN content

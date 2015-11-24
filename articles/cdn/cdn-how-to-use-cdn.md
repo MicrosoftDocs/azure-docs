@@ -34,7 +34,11 @@ The benefits of using CDN to cache Azure data include:
 
 1. Create a CDN profile with endpoint(s) pointing to your origin
 
-	A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.  Once you have created a CDN profile, you can create a new CDN endpoint using the origin you have chosen.
+	A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  Once you have created a CDN profile, you can create a new CDN endpoint using the origin you have chosen.
+	
+	>[AZURE.NOTE] A single Azure subscription is limited to four CDN profiles.  Each CDN profile is limited to four CDN endpoints.
+	
+	>[AZURE.TIP] CDN pricing is applied at the CDN profile level.  If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
 	
 	For a detailed tutorial on creating CDN profiles and endpoints, see [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md).   
 
