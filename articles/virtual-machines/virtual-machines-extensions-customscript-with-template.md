@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
+   ms.date="11/01/2015"
    ms.author="kundanap"/>
 
 # Using Custom Script extension With Azure Resource Manager templates
