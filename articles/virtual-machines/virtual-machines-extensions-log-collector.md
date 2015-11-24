@@ -9,7 +9,7 @@
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="may be required"
+   ms.devlang="powershell"
    ms.topic="article"
    ms.tgt_pltfrm="nad"
    ms.workload="infrastructure"
