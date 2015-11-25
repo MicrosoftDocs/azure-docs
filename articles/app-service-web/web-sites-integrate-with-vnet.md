@@ -27,7 +27,7 @@ VNET Integration gives your web app access to resources in your virtual network 
 The VNET Integration feature:
 
 - requires a Standard or Premium pricing plan 
-- currently will only work with V1 or Classic VNETs  
+- currently will only work with V1 or Classic VNETs 
 - supports TCP and UDP
 - works with Web, Mobile and API apps
 - enables an app to connect to only 1 VNET at a time
@@ -67,11 +67,11 @@ If your app is not in the correct pricing plan the UI will helpfully enable you 
 ###Enabling VNET Integration with a pre-existing VNET###
 The VNET Integration UI allows you to select from a list of your V1 VNETs.  In the image shown below you can see that only one VNET is selectable.  There are multiple reasons that a VNET will be greyed out including:
 
-- the VNET is in another subscription
+- the VNET is in another subscription that your account has access to
 - the VNET does not have Point to Site enabled
 - the VNET does not have a dynamic routing gateway
 
-It is also worth noting that since we do not yet support integrating with V2 VNETs, they are not listed here. 
+It is also worth noting that since we do not yet support integrating with V2 VNETs, they are not listed. 
 
 ![][2]
 
@@ -90,13 +90,13 @@ Be warned that if you want this VNET to connect to any of your other network the
 
 ![][3]
 
-Azure VNETs need to be created within private network addresses.  The private IP address ranges are:
+Azure VNETs normally are created within private network addresses.  By default the VNET Integration feature will route any traffic destined for those IP address ranges into your VNET.  The private IP address ranges are:
 
 - 10.0.0.0/8 - this is the same as 10.0.0.0 - 10.255.255.255
 - 172.16.0.0/12 - this is the same as 172.16.0.0 - 172.31.255.255 
 - 192.168.0.0/16 - this is the same as 192.168.0.0 - 192.168.255.255
  
-The VNET address space needs to be specified in CIDR notation.  If you are unfamiliar with CIDR notation, it is a method for specifying address blocks using an IP address and an integer that represents the network mask. As a quick reference, consider that 10.1.0.0/24 would be 256 addresses and 10.1.0.0/25 would be 512 addresses.  An IPv4 address with a /32 would be just 1 address.  
+The VNET address space needs to be specified in CIDR notation.  If you are unfamiliar with CIDR notation, it is a method for specifying address blocks using an IP address and an integer that represents the network mask. As a quick reference, consider that 10.1.0.0/24 would be 256 addresses and 10.1.0.0/25 would be 128 addresses.  An IPv4 address with a /32 would be just 1 address.  
 
 If you set the DNS server information here then that will be set for your VNET.  After VNET creation you can edit this information from the VNET user experiences.
 
