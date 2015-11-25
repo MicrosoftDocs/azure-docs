@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to Create a Support Ticket for Azure Billing and Subscription Issues? | Microsoft Azure"
+	pageTitle="How to Create a Support Ticket for Azure Billing and Subscription Issues | Microsoft Azure"
 	description="Describes How to Create a Support Ticket for Azure Billing and Subscription Issues"
 	services="billing"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.date="11/23/2015"
 	ms.author="genli"/>
 
-# How to Create a Support Ticket for Azure Billing and Subscription Issues?
+# How to Create a Support Ticket for Azure Billing and Subscription Issues
 
 This article provides the information you will need to open a ticket with Azure Support.
 
@@ -42,7 +42,7 @@ This article provides the information you will need to open a ticket with Azure 
 7. On the next page, provide the following information:
 
  * For **Problem Details**, provide an incident title for your request and then use the text boxes provide required information and to include any additional information about your request.
- * For **Determine Severity**, choose an option that represents the severity of your request. For more information about the severity types, refer to the Microsoft Azure Incident Severity Table.
+ * For **Determine Severity**, choose an option that represents the severity of your request. For more information about the severity types, refer to the [Microsoft Azure Incident Severity Table](http://support.microsoft.com/gp/AzureSevDetails).
  * Use the **File Upload** tool to attach related documentation to your request.
 
 8. If you accept the Agreement for Microsoft Services, click **Submit**.
