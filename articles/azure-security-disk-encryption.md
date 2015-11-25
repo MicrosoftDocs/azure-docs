@@ -106,7 +106,7 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 
 5.  Azure service management updates the VM service model with encryption and key vault configuration and provisions encrypted VM for the customer
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig1.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.JPG)
 
 ## Prerequisites
 
@@ -344,7 +344,7 @@ You can get encryption status using Azure Management (Preview) portal, [PowerShe
 
 You can get the encryption status of the IaaS VM from Azure management preview portal. Logon to Azure preview portal at https://portal.azure.com/, click on virtual machines link in the left menu to see summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name from the subscription dropdown. Click on columns located at the top of the virtual machines page menu. Select Disk Encryption column from the choose column blade and click update. You should see the disk encryption column showing the encryption state “Enabled” or “Not Enabled” for each VM as shown in the figure below.
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig2.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
 
 #### Get encryption status of an encrypted IaaS VM using disk encryption PS Cmdlet
 You can get the encryption status of the IaaS VM from disk encryption PS cmdlet “Get-AzureRmVMDiskEncryptionStatus”. To get the encryption settings for your VM, type in your Azure PowerShell session:
@@ -461,23 +461,23 @@ Azure AD Client ID and secret can also be provisioned using the Azure Service Ma
 
 1.Click the Active Directory tab as shown in Figure below:
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2.Click Add Application and type the application name as shown below:
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3.Click the arrow button and configure the app's properties as shown below:
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the Azure AD Client ID is located in the bottom of the page as shown in figure below.
  
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5.Save the Azure AD client secret by click in the Save button. Click the save button and note the secret from the keys textbox, this is the Azure AD client secret. You should safeguard the Azure AD client secret appropriately.
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Note:** this flow above is not supported in the Preview Portal.
@@ -578,7 +578,7 @@ The sections that follow are necessary in order to prepare a pre-encrypted Windo
 #### Update group policy to allow non-TPM for OS protection
 You need to configure the BitLocker Group Policy setting called BitLocker Drive Encryption, located under Local Computer Policy \Computer Configuration\Administrative Templates\Windows Components. Change this setting to: *Operating System Drives - Require additional authentication at startup - Allow BitLocker without a compatible TPM* as shown in the figure below:
  
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption\disk-encryption-fig8.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig8.JPG)
 
 #### Install BitLocker feature components
 For Windows Server 2012 and above use the below command:
