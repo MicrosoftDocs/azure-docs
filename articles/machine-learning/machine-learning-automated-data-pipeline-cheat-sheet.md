@@ -24,7 +24,7 @@ technology you can use to get your data to your Machine Learning web service whe
 Depending on whether your data is on-premises, in the cloud, or streaming real-time, there are different mechanisms available to move the data to your web service endpoint for scoring.
 This cheat sheet walks you through the decisions you'll need to make and offers links to articles that will help you develop your solution.
 
-## Download the Machine Learning operationalization cheat sheet
+## Download the Machine Learning automated data pipeline cheat sheet
 
 Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.).
 
@@ -32,7 +32,7 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
 
-[op-cheat-sheet]: ./media/machine-learning-automated-data-pipeline-cheat-sheet/ml_operationalization_cheat_sheet_v1.1.png
+[op-cheat-sheet]: ./media/machine-learning-automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
 
 ## More help with Machine Learning Studio
