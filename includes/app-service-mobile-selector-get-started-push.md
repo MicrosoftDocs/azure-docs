@@ -3,4 +3,5 @@
 - [Android](../articles/app-service-mobile-android-get-started-push.md)
 - [Windows](../articles/app-service-mobile-windows-store-dotnet-get-started-push.md)
 - [Xamarin.iOS](../articles/app-service-mobile-xamarin-ios-get-started-push.md)
+- [Xamarin.Forms](../articles/app-service-mobile-xamarin-forms-get-started-push.md)
 

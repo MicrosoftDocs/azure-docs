@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Multi-Geo Help documentation
 
-Currently, all Azure Machine Learning assets are hosted in the South Central United States (SCUS) Azure region. This article describes how you can create a workspace and publish a web service in other Azure regions.
+This article describes how you can create a workspace and publish a web service in other Azure regions.
 
 ## Create a workspace
 
