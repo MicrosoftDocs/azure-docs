@@ -142,7 +142,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-When a particular version of an application type is no longer needed, you should unregister it by using the **Unregister-ServiceFabricApplicationType** command. Unregistering unused types will release storage space used by the application package contents of that type on the Image Store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
+When a particular version of an application type is no longer needed, you should unregister it by using the **Unregister-ServiceFabricApplicationType** command. Unregistering unused types will release storage space used by the application package contents of that type on the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
