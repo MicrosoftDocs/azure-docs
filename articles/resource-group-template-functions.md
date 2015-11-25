@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/12/2015"
+   ms.date="11/25/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -131,9 +131,25 @@ The following example converts the user-provided parameter value to Integer.
 
 ## length
 
-**length(array)**
+**length(array or string)**
 
-Returns the number of elements in an array. Typically, used to specify the number of iterations when creating resources. For an example of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+Or, you can use with a string:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
 
 ## listKeys
 
