@@ -189,7 +189,7 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
 
 ## If you want to use a hardware security module (HSM) ##
 
