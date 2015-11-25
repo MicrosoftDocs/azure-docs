@@ -51,26 +51,26 @@ This tutorial requires the following:
 
 ##<a id="update-server"></a>Update the server project to send push notifications
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-##<a id="configure-app"></a>Configure the existing project for push notifications
+##<a id="configure-app"></a>Configure the client project for push notifications
 
-[AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
+[AZURE.INCLUDE [app-service-mobile-xamarin-android-push-configure-project](../../includes/app-service-mobile-xamarin-android-push-configure-project.md)]
 
 ##<a id="add-push"></a>Add push notifications code to your app
 
-[AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
+[AZURE.INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-##<a name="test-app"></a>Test the app against the published mobile service
+##<a name="test-app"></a>Test the app against the published Mobile App backend
 
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
-###<a id="local-testing"></a> Enable push notifications for local testing
+<!---###<a id="local-testing"></a> Enable push notifications for local testing
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 [AZURE.INCLUDE [mobile-services-android-push-notifications-test](../../includes/mobile-services-android-push-notifications-test.md)]
-
+-->
 <!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 

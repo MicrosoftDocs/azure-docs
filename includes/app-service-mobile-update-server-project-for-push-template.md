@@ -1,14 +1,14 @@
 
 1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
 
-3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+2. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
+3. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -45,3 +45,5 @@
         }
 
     This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
+
+4. Republish the server project.
