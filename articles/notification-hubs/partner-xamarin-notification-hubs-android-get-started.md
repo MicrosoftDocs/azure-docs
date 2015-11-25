@@ -12,8 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
+<<<<<<< HEAD
 	ms.topic="hero-article"
 	ms.date="10/26/2015"
+=======
+	ms.topic="hero-article"
+	ms.date="11/17/2015"
+>>>>>>> 5d52d19148468779fc95210a9b6fd374c11177a3
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs with Xamarin for Android

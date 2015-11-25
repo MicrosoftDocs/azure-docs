@@ -12,32 +12,39 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="11/17/2015"
 	ms.author="awills"/>
 
 # Application Insights for JavaScript web apps
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
+Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics](app-insights-api-custom-events-metrics.md), and you can analyze in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/16-page-views.png)
 
-If you already set up server telemetry for your [ASP.NET][greenbrown] or [Java][java] web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
+If you already set up server telemetry for your [ASP.NET](app-insights-asp-net.md) or [Java](app-insights-java-get-started.md) web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
 #### Quick demo
 
 If you don't have an Azure subscription and would like to try Application Insights on your web page, visit [Try Application Insights](http://aka.ms/ainow).
 
-## Create an Application Insights resource
+## Open an Application Insights resource
 
 The Application Insights resource is where data about your page's performance and usage is displayed. (If you already created a resource, maybe to collect data from your web server, skip this step.)
 
-In the [Azure portal](http://portal.azure.com), create a new Application Insights resource:
+Sign into [Azure portal](http://portal.azure.com).
+
+If you already set up monitoring for the server side of your app, you'll already have a resource:
+
+![Choose Browse, Developer Services, Application Insights.](./media/app-insights-javascript/01-find.png)
+
+If you don't have one, create it:
 
 ![Choose New, Developer Services, Application Insights.](./media/app-insights-javascript/01-create.png)
 
-*Questions already?* [More about creating a resource][new].
+
+*Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 
 ## Add the SDK script to your app or web pages
@@ -51,7 +58,9 @@ Insert the script just before the &lt;/head&gt; tag of every page you want to tr
 * In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml
 * In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
 
-The script contains the instrumentation key that directs the data to your Application Insights resource.
+The script contains the instrumentation key that directs the data to your Application Insights resource. 
+
+([Deeper explanation of the script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 *(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
 
@@ -70,7 +79,7 @@ In the application overview blade, there's a chart near the top that shows avera
 ![](./media/app-insights-javascript/05-browser-page-load.png)
 
 
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
+*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](app-insights-troubleshoot-faq.md).*
 
 Click that chart, and you get a more detailed version:
 
@@ -141,9 +150,9 @@ In the Diagnostic Search blade, set Filters to Page View.
 
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
-> [AZURE.NOTE] If you use [Search][diagnostic], notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
+> [AZURE.NOTE] If you use [Search](app-insights-diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About", but "Abou* " does. And you cannot begin a search term with a wildcard. For example, searching for "*bou" would not match "About".
 
-> [Learn more about diagnostic search][diagnostic]
+> [Learn more about diagnostic search](app-insights-diagnostic-search.md)
 
 ### Page view properties
 
@@ -153,16 +162,20 @@ Select any event to see more detail. In the details page, click "..." to see eve
 
 Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you can find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
-* [Learn about the custom events and metrics API][track].
+* [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 * [API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Server telemetry
 
-If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.
+If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues. Just add the Application Insights SDK to your app:
 
-* [Add Application Insights to an ASP.NET app][greenbrown]
-* [Add Application Insights to a Java web app][java]
+* [Add the SDK to an ASP.NET app](app-insights-asp-net.md)
+* [Add the SDK to a Java web app](app-insights-java-get-started.md)
 
+Or if your web app is already live, you can still add server telemetry without rebuilding or redeploying:
+
+* [Monitor a live ASP.NET app](app-insights-monitor-performance-live-website-now.md)
+* [Monitor a live Java app](app-insights-java-live.md)
 
 ## <a name="video"></a> Video: Tracking Usage
 
@@ -170,16 +183,8 @@ If you haven't done this yet, you can get insights from your server and display 
 
 ## <a name="next"></a> Next steps
 
-[Track usage with custom events and metrics][track]
+* [Track usage](app-insights-web-track-usage.md)
+* [Custom events and metrics](app-insights-api-custom-events-metrics.md)
+* [Build-measure-learn](app-insights-overview-usage.md)
 
 
-
-
-<!--Link references-->
-
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[new]: app-insights-create-new-resource.md
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md

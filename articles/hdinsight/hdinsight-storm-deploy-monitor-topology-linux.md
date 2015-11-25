@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight
@@ -152,7 +152,7 @@ Selecting a spout from the **Spouts** or **Bolts** sections displays the followi
 
 The Storm UI is built on top of the REST API, so you can perform similar management and monitoring functionality by using the REST API. You can use the REST API to create custom tools for managing and monitoring Storm topologies.
 
-For more information, see <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>. The following information is specific to using the REST API with Apache Storm on HDInsight.
+For more information, see [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 > [AZURE.IMPORTANT] The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 

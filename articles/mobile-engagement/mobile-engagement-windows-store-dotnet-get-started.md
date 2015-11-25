@@ -56,13 +56,11 @@ The following steps assume the use of Visual Studio 2015 though the steps are si
 
     ![][1]
 
-> [AZURE.IMPORTANT] Azure Mobile Engagement does not support Windows 10 Universal Windows Apps yet. 
-
 You have now created a new Windows Universal App project into which we will integrate the Azure Mobile Engagement SDK.
 
 ###Connect your app to Mobile Engagement backend
 
-1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. The same Nuget package places the correct platform-specific binaries in each project.
+1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. For Windows 8.x and Windows Phone 8.1 the same Nuget package places the correct platform-specific binaries in each project.
 
 2. Open **Package.appxmanifest** and make sure that the following capability is added there:
 
@@ -82,11 +80,20 @@ You have now created a new Windows Universal App project into which we will inte
 
 			using Microsoft.Azure.Engagement;
 
-	b. Initialize the SDK in the **OnLaunched** method:
+	b. Add a method dedicated to the Engagement initialization and setting:
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c. Initialize the SDK in the **OnLaunched** method:
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -95,7 +102,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -139,17 +146,9 @@ The following sections set up your app to receive them.
 
 ###Initialize the REACH SDK
 
-1. In `App.xaml.cs`, call **EngagementReach.Instance.Init();** in the **OnLaunched** function right after the agent initialization:
+In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **InitEngagement** function right after the agent initialization:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **OnActivated** function right after the agent initialization:
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);
@@ -159,15 +158,34 @@ You're all set for sending a toast. Now we will verify that you have correctly c
 
 ###Grant access to Mobile Engagement to send notifications
 
-1. You'll have to associate your app with a Windows Store App to obtain your **Package security identifier (SID)** and your **Secret Key** (Client Secret). You can create an app from the [Windows Store Dev Center] and then make sure to use **Associate App with Store** from Visual Studio.
+1. Open [Windows Store Dev Center] in your web browser, login and create an account if necessary.
+2. Click **Dashboard** at the top right corner and then click **Create a new app** from the left panel menu. 
 
-	![][7]
+	![][9]
 
-2. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left.
+2. Create your app by reserving its name. 
 
-3. Click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
+	![][10]
+
+3. Once the app has been created, navigate to **Services -> Push notifications** from the left menu.
+
+	![][11]
+
+4. In the Push notifications section, click on **Live Services site** link. 
+
+	![][12]
+
+5. You will be navigated to the Push credentials section. Make sure you are in the **App Settings** section and then copy your **Package SID** and **Client secret**
+
+	![][13]
+
+6. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left. Then, click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
 
 	![][6]
+
+8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. You need to click on **Associate App with Store** from Visual Studio to do this.
+
+	![][7]
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -181,7 +199,7 @@ If you are seeing an in-app notification but not a toast notification and you ar
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Windows Store Dev Center]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Windows Store Dev Center]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -192,4 +210,10 @@ If you are seeing an in-app notification but not a toast notification and you ar
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
+
 

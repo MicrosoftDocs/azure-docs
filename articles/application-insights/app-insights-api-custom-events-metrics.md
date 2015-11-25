@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -118,149 +118,6 @@ From the list below the chart, select an event name. Click through to see indivi
 ![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Click any occurrence to see more detail.
-
-## <a name="properties"></a>Filter, search and segment your data with properties
-
-You can attach properties and measurements to your events (and also to metrics, page views, exceptions, and other telemetry data).
-
-**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you'll want to attach the name of the game to each event, so that you can see which games are more popular. 
-
-There's a limit of about 1k on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
-
-**Metrics** are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you could get separate or stacked graphs for different games.
-
-Metric values should be >= 0 to be correctly displayed.
-
-
-There are some [limits on the number of properties, property values, and metrics](#limits) that you can use.
-
-
-*JavaScript*
-
-    appInsights.trackEvent
-      ("WinGame",
-         // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-
-    appInsights.trackPageView
-        ("page name", "http://fabrikam.com/pageurl.html",
-          // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-          
-
-*C#*
-
-    // Set up some properties and metrics:
-    var properties = new Dictionary <string, string> 
-       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var metrics = new Dictionary <string, double>
-       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
-
-    // Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics);
-
-
-*VB*
-
-    ' Set up some properties:
-    Dim properties = New Dictionary (Of String, String)
-    properties.Add("game", currentGame.Name)
-    properties.Add("difficulty", currentGame.Difficulty)
-
-    Dim metrics = New Dictionary (Of String, Double)
-    metrics.Add("Score", currentGame.Score)
-    metrics.Add("Opponents", currentGame.OpponentCount)
-
-    ' Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics)
-
-
-*Java*
-    
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
-    
-    Map<String, Double> metrics = new HashMap<String, Double>();
-    metrics.put("Score", currentGame.getScore());
-    metrics.put("Opponents", currentGame.getOpponentCount());
-    
-    telemetry.trackEvent("WinGame", properties, metrics);
-
-
-> [AZURE.NOTE] Take care not to log personally identifiable information in properties.
-
-**If you used metrics**, open Metric Explorer and select the metric from the Custom group:
-
-![Open metric explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
-
-*If your metric doesn't appear, or if the Custom heading isn't there, close the selection blade and try later. It can sometimes take an hour for metrics to be aggregated through the pipeline.*
-
-**If you used properties and metrics**, segment the metric by the property:
-
-
-![Set Grouping, then select the property under Group by](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
-
-
-
-**In Diagnostic Search**, you can view the properties and metrics of individual occurrences of an event.
-
-
-![Select an instance, then select '...'](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
-
-
-Use the Search field to see event occurrences with a particular property value.
-
-
-![Type a term into Search](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
-
-[Learn more about search expressions][diagnostic].
-
-#### Alternative way to set properties and metrics
-
-If it's more convenient, you can collect the parameters of an event in a separate object:
-
-    var event = new EventTelemetry();
-
-    event.Name = "WinGame";
-    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
-    event.Properties["game"] = currentGame.Name;
-    event.Properties["difficulty"] = currentGame.Difficulty;
-    event.Metrics["Score"] = currentGame.Score;
-    event.Metrics["Opponents"] = currentGame.Opponents.Length;
-
-    telemetry.TrackEvent(event);
-
-
-
-#### <a name="timed"></a> Timing events
-
-Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
-
-
-*C#*
-
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... perform the timed action ...
-
-    stopwatch.Stop();
-
-    var metrics = new Dictionary <string, double>
-       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
-
-    // Set up some properties:
-    var properties = new Dictionary <string, string> 
-       {{"signalSource", currentSignalSource.Name}};
-
-    // Send the event:
-    telemetry.TrackEvent("SignalProcessed", properties, metrics);
 
 
 
@@ -444,6 +301,21 @@ Remember that the server SDKs include a [dependency module](app-insights-depende
 To turn off the standard dependency tracking module, edit [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 
+
+## Flushing data
+
+Normally the SDK sends data at times chosen to minimize impact on the user. However, in some cases you might want to flush the buffer - for example, if you are using the SDK in an application that shuts down.
+
+*C#*
+
+    telemetry.Flush();
+
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-desktop.md#persistence-channel).
+
+
 ## Authenticated users
 
 In a web app, users are by default identified by cookie. A user might be counted more than once if they access your app from a different machine or browser, or delete cookies. 
@@ -485,10 +357,154 @@ In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart 
 
 You can also [search][diagnostic] for client data points with specific user names and accounts.
 
+## <a name="properties"></a>Filter, search and segment your data with properties
 
-## <a name="defaults"></a>Set defaults for selected custom telemetry
+You can attach properties and measurements to your events (and also to metrics, page views, exceptions, and other telemetry data).
 
-If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
+**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you'll want to attach the name of the game to each event, so that you can see which games are more popular. 
+
+There's a limit of about 1k on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
+
+**Metrics** are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you could get separate or stacked graphs for different games.
+
+Metric values should be >= 0 to be correctly displayed.
+
+
+There are some [limits on the number of properties, property values, and metrics](#limits) that you can use.
+
+
+*JavaScript*
+
+    appInsights.trackEvent
+      ("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
+
+*C#*
+
+    // Set up some properties and metrics:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var metrics = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, metrics);
+
+
+*VB*
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim metrics = New Dictionary (Of String, Double)
+    metrics.Add("Score", currentGame.Score)
+    metrics.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, metrics)
+
+
+*Java*
+    
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("game", currentGame.getName());
+    properties.put("difficulty", currentGame.getDifficulty());
+    
+    Map<String, Double> metrics = new HashMap<String, Double>();
+    metrics.put("Score", currentGame.getScore());
+    metrics.put("Opponents", currentGame.getOpponentCount());
+    
+    telemetry.trackEvent("WinGame", properties, metrics);
+
+
+> [AZURE.NOTE] Take care not to log personally identifiable information in properties.
+
+**If you used metrics**, open Metric Explorer and select the metric from the Custom group:
+
+![Open metric explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+*If your metric doesn't appear, or if the Custom heading isn't there, close the selection blade and try later. It can sometimes take an hour for metrics to be aggregated through the pipeline.*
+
+**If you used properties and metrics**, segment the metric by the property:
+
+
+![Set Grouping, then select the property under Group by](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
+
+
+
+**In Diagnostic Search**, you can view the properties and metrics of individual occurrences of an event.
+
+
+![Select an instance, then select '...'](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
+
+
+Use the Search field to see event occurrences with a particular property value.
+
+
+![Type a term into Search](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
+
+[Learn more about search expressions][diagnostic].
+
+#### Alternative way to set properties and metrics
+
+If it's more convenient, you can collect the parameters of an event in a separate object:
+
+    var event = new EventTelemetry();
+
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
+
+
+#### <a name="timed"></a> Timing events
+
+Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
+
+
+*C#*
+
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... perform the timed action ...
+
+    stopwatch.Stop();
+
+    var metrics = new Dictionary <string, double>
+       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"signalSource", currentSignalSource.Name}};
+
+    // Send the event:
+    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+
+
+
+## <a name="defaults"></a>Default properties for custom telemetry
+
+If you want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
 
 *C#*
 
@@ -525,44 +541,34 @@ Individual telemetry calls can override the default values in their property dic
 
 **For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
+**To add properties to all telemetry** including the data from standard collection modules, [create a telemetry initializer](app-insights-api-filtering-sampling.md#add-properties).
 
-## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
+
+## Sampling, filtering and processing telemetry 
+
+You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
+
+* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry - for example, version numbers, or values calculated from other properties.
+* [Sampling](app-insights-api-filtering-sampling.md#sampling) reduces the volume of data sent from your app to the portal, without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
+* [Filtering](app-insights-api-filtering-sampling.md#filtering) also reduces volume. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+
+[Learn more](app-insights-api-filtering-sampling.md)
+
+
+## Disabling telemetry
+
+To **dynamically stop and start** the collection and transmission of telemetry:
 
 *C#*
-    
-    var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
-    // ...
 
+```C#
 
-## Flushing data
+    using  Microsoft.ApplicationInsights.Extensibility;
 
-Normally the SDK sends data at times chosen to minimize impact on the user. However, in some cases you might want to flush the buffer - for example, if you are using the SDK in an application that shuts down.
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
 
-*C#*
-
-    telemetry.Flush();
-
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
-
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-desktop.md#persistence-channel).
-
-
-
-## Telemetry initializers and processors
-
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service. 
-
-[Learn more](app-insights-api-telemetry-processors.md)
-
-
-## Disable standard telemetry
-
-You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
-
-[Learn more][config].
-
+To **disable selected standard collectors** - for example, performance counters, HTTP requests, or dependencies - delete or comment out the relevant lines in [ApplicationInsights.config][config]. You could do this, for example, if you want to send your own TrackRequest data.
 
 ## <a name="debug"></a>Developer mode
 
@@ -576,6 +582,16 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
+## <a name="ikey"></a> Set the instrumentation key for selected custom telemetry
+
+*C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
+
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
@@ -618,7 +634,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = “MyOperationName”;
+    telemetryClient.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 

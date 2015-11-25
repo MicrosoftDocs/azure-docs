@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Add Mobile Services to an existing app
@@ -67,7 +67,7 @@ At this point, both the Windows Store and Windows Phone Store apps are connected
 
 ##Update the app to use the mobile service
 
-In this section you will update the universal Windows app to use the mobile service as a backend service for the application. You only need to make changes to the MainPage.xaml.cs project file in the GetStartedWithData.Shared project folder. 
+In this section you will update the universal Windows app to use the mobile service as a backend service for the application. You only need to make changes to the MainPage.cs project file in the GetStartedWithData.Shared project folder. 
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
