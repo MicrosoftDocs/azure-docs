@@ -133,7 +133,7 @@ The following example converts the user-provided parameter value to Integer.
 
 **length(array or string)**
 
-Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources.
+Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
     "copy": {
         "name": "websitescopy",
