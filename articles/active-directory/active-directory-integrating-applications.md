@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="mbaldwin" />
 
 # Integrating Applications with Azure Active Directory
