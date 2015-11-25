@@ -19,6 +19,8 @@
 
 # Create a new Dynamics CRM Online API in your organization's app service environment
 
+## Create the API in the Azure portal
+
 1. In the [Azure portal](https://portal.azure.com), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
 
 2. Select **Browse** in the task bar:  
@@ -44,7 +46,7 @@
 9. Enter **Client Id** and **App Key** of your Dynamics CRM Online Azure Active Directory (AAD) application.  If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
-10. Click **OK** to complete the steps.
+10. Select **OK** to complete the steps.
 
 When finished, a new Dynamics CRM Online API is added to your app service environment.
 
@@ -83,7 +85,7 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 8. Set the **Reply URL** under _OAuth 2_ section to the redirect URL you received when you added the new Dynamics CRM Online API in the Azure Portal (in this topic).
 ![Configure Contoso AAD app][12]
 
-9. Click **Save**.
+9. Select **Save**.
 
 A new Azure Active Directory app is created. You can use this app in your Dynamics CRM Online API configuration in the Azure portal.
 
@@ -99,7 +101,7 @@ In this topic, you added the Dynamics CRM Online API to your PowersApps Enterpri
 [3]: ./media/powerapps-create-api-crmonline/browse-to-registered-apis.PNG
 [4]: ./media/powerapps-create-api-crmonline/add-api.PNG
 [5]: ./media/powerapps-create-api-crmonline/select-crmonline-api.png
-[6]: ./media/powerapps-create-api-crmonline/configure-crmonline-settings.png
+[6]: ./media/powerapps-create-api-crmonline/configure-crmonline-settings.PNG
 [7]: ./media/powerapps-create-api-crmonline/launch-aad.PNG
 [8]: ./media/powerapps-create-api-crmonline/aad-tenant-applications.PNG
 [9]: ./media/powerapps-create-api-crmonline/aad-tenant-applications-add-appinfo.PNG

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Check your app usage in PowerApps | Microsoft Azure"
+	pageTitle="Check your app usage in PowerApps Enterprise | Microsoft Azure"
 	description="See all apps, APIs, users, app requests, and update permissions in the Azure portal"
 	services=""
     suite="powerapps"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 
@@ -45,7 +45,7 @@ After PowerApps Enterprise is enabled and ready to be used, you can add administ
 6. Select your users or groups.
 7. Select **OK** to complete the steps.
 
-When you add Administrators to PowerApps, the users and groups you add as administrators can:
+When you add Administrators to PowerApps Enterprise, the users and groups you add as administrators can:
 
 - Add other users as PowerApps administrators.
 - Manage all apps as well as their user access.
@@ -61,40 +61,40 @@ Once given the Owner role on the app service environment's resource group, the P
 
 
 ## Manage your PowerApps and other types of apps
-Once you enable PowerApps and your app service environment, you can add other apps, like web apps and logic apps to the same app service environment. After you do this, the apps are listed under *All apps* along with PowerApps. You can click on each type of app to browse through the apps. 
+Once you enable PowerApps and your app service environment, you can add other apps, like web apps and logic apps to the same app service environment. After you do this, the apps are listed under *All apps* along with apps created in PowerApps. You can click on each type of app to browse through the apps. 
 
 ### View and manage your PowerApps
 
 1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
 2. From the **All apps** tile, select **PowerApps**:  
 ![][3]  
-3. Select a PowerApp to view details of the app, including:  
-	- The APIs the PowerApp uses
-	- Users and groups who have access to the PowerApp 
-	- The PowerApp's analytics (coming soon)
+3. Select an app to view details of the app, including:  
+	- The APIs the app uses
+	- Users and groups who have access to the app 
+	- The app's analytics (coming soon)
 
-#### Add a PowerApp
+#### Add an app
 
-You cannot add a PowerApp through the Azure portal. Currently, you need to go to [PowerApps portal](http://go.microsoft.com/fwlink/p/?LinkId=715583).
+You cannot add an app through the Azure portal. Currently, go to the [PowerApps portal](http://go.microsoft.com/fwlink/p/?LinkId=715583).
 
 #### Delete your apps created in PowerApps
-As a PowerApps Admin, you can delete any app, including PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:    
+As a PowerApps Admin, you can delete any app, including apps created in PowerApps and other types of apps in your app service environment. To delete your app, select the **All apps** tile, select your app, and then select **Delete**:    
 ![][4]
 
 
-#### Give users or groups access to use a PowerApp
+#### Give users or groups access to use an app
 As a PowerApps admin, you can add or remove users and groups to PowerApps.
 
 1. In the [Azure portal](https://portal.azure.com/), open **PowerApps**.
 2. In the **All apps** tile, select **PowerApps**:  
 ![][3]  
-3. Select a PowerApp, such as **Service Desk**. 
+3. Select an app, such as **Service Desk**. 
 4. In **Settings**, select **App user access**:  
 ![][5]  
 5. Select **Add** to add a new user or group. 
 6. Select a role:  
-	- **Can Edit**
-	- **Can View**
+	- Can Edit
+	- Can View
 7. Select the users or groups.
 8. Select **OK** to complete the steps.
 
@@ -142,7 +142,7 @@ Different security methods are used, depending on what you're doing. Here's what
 
 - **Role-based access control** (RBAC): Many Azure offerings use role-based access control to determine who can do what. In PowerApps, RBAC is used in a couple of places:  
 	- When you first enter the PowerApps portal, you can add and manage users who should be administrators of the PowerApps. 
-	- When you create the App Service Environment, you add users or groups to PowerApps, and you can remove users or groups from PowerApps. For example, you can add specific Administrator groups within your company to the *Owners* role; which allows them to create APIs and connections. These APIs and connections are then added to apps created in PowerApps.
+	- When you create the app service environment, you add users or groups to PowerApps, and you can remove users or groups from PowerApps. For example, you can add specific Administrator groups within your company to the *Owners* role; which allows them to create APIs and connections. These APIs and connections are then added to apps created in PowerApps.
 	- When you add users to apps like Web apps, Logic apps, Mobile apps or Logic apps. You can choose the role for these users.  
 		
 		Adding users and assigning roles is just like using [Role-based access control](../role-based-access-control-configure.md) within Azure. Some roles include:   
@@ -159,7 +159,7 @@ Using these roles, you can grant userA **Can View** permission to a Twitter dail
 ## Summary and next steps
 In this topic, you read about the different options to manage your PowerApps and the security methods implemented within PowerApps. 
 
-Now that your Azure portal experience is configured, let's start creating your PowerApps. These are good starters:
+Now that your Azure portal experience is configured, let's start creating your apps. These are good starters:
 
 - [Create an app from a template in PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=715536) 
 - [Create an app from data in PowerApps](http://go.microsoft.com/fwlink/?LinkId=715539) 

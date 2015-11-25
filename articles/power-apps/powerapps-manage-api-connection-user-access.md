@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 
@@ -33,9 +33,9 @@ This topic:
 - Enable [PowerApps in your Azure subscription](powerapps-get-started-azure-portal.md).
 - Create an [App Service environment](powerapps-get-started-azure-portal.md).
 - Create an API using any of the following methods:  
-	- Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md)
-	- Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md)
-	- Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md)
+	- Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+	- Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+	- Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
 
 ## Give users access to the API
@@ -48,7 +48,7 @@ Now that the API is created and added to your app service environment, it's time
 
 
 ## Add a new connection to your API
-The next step is to create the "connection" to your API, which is kind of like a connection string. This allows the API to successfully connect to your "backend" system. For PowerApps Enterprise public preview, only SQL Server's connection can be added and configured. More will be added in the future. 
+The next step is to create the "connection" to your API, which is kind of like a connection string. This allows the API to successfully connect to your "backend" system. For PowerApps Enterprise public preview, only SQL Server's connection can be added and configured. More are being added. 
 
 - [Create SQL Server's connection](powerapps-create-api-sqlserver.md)
 
@@ -70,7 +70,7 @@ Now that users have permissions to the API and its connection, your users can ad
 - Users can see the connection under **My Connections** in PowerApps.
 
 
-## Delete a API
+## Delete an API
 You can also delete an API you previously added. In PowerApps, select the **Manage APIs**, select the API, and select **Delete**:  
 ![][4]
 

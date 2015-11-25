@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create and configure Microsoft managed and IT managed APIs in PowerApps | Microsoft Azure"
+	pageTitle="Create and configure Microsoft managed and IT managed APIs in PowerApps Enterprise | Microsoft Azure"
 	description="Learn about the available APIs in PowerApps and how to register them in the Azure portal"
 	services=""
     suite="powerapps"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/25/2015"
    ms.author="guayan"/>
 
 # Register a Microsoft managed API or an IT managed API
@@ -22,13 +22,13 @@ There are **Microsoft managed** and **IT managed** APIs. When you enable PowerAp
 
 Using the IT managed APIs, you control and monitor everything, including memory, connectivity, trust, and more. The IT managed APIs also include the APIs that can connect to an on-premises system, like SQL Server and SharePoint Server. 
 
-To use the **Microsoft managed** or **IT managed** APIs, you must "register" the APIs in the Azure portal. Once registered, you can use these APIs in your PowerApps. The following options are available: 
+To use the **Microsoft managed** or **IT managed** APIs, you must "register" the APIs in the Azure portal. Once registered, you can use these APIs in your apps. The following options are available: 
 
 - Register a Microsoft managed API or an IT managed API
 - Register an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md)
 - Register using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md)
 
-This article focuses on the Microsoft managed APIs and the IT managed APIs. 
+This article focuses on **registering Microsoft managed APIs and the IT managed APIs**. 
 
 #### Prerequisites to get started
 
@@ -37,13 +37,13 @@ This article focuses on the Microsoft managed APIs and the IT managed APIs.
 
 
 ## View the available Microsoft managed APIs
-The **Microsoft managed** APIs are provided with PowerApps Enterprise and are also hosted by Microsoft. In many scenarios, the Microsoft managed APIs are ideal for PowerApps. For example, if your PowerApp sends a tweet, uploads a file to OneDrive, or displays data from an Excel file, then these Microsoft managed APIs are a good choice. 
+The **Microsoft managed** APIs are provided with PowerApps Enterprise and are also hosted by Microsoft. In many scenarios, the Microsoft managed APIs are ideal for your apps. For example, if your app sends a tweet, uploads a file to OneDrive, or displays data from an Excel file, then these Microsoft managed APIs are a good choice. 
 
 Some additional benefits include: 
 
 - You get all the Microsoft managed APIs available for you to register your own instance. 
-- The resources, including network, memory, or security configurations, are monitored automatically. For example, if you need more memory to display Excel data in your PowerApp, more memory is automatically added. 
-- A trust between your PowerApp and the API, like Office and Twitter, is created automatically. 
+- The resources, including network, memory, or security configurations, are monitored automatically. For example, if you need more memory to display Excel data in your app, more memory is automatically added. 
+- A trust between your app and the API, like Office and Twitter, is created automatically. 
 
 
 #### Microsoft managed APIs
@@ -64,18 +64,18 @@ API | Description | Steps Link
 
 
 ## View the available IT managed APIs
-The **IT managed** APIs are controlled by you and managed by you. They do not run in the Microsoft managed environment. In some scenarios, using these APIs in your own IT managed environment may suit the needs of your PowerApps. For example, your PowerApp uses the Twitter API and you need to use your organization's Twitter key (instead of the Microsoft Twitter key). In this situation, it's best to configure the Twitter API as an IT managed API. In another example, your PowerApps use the SQL Server API to connect to an on-premises database. In an IT managed environment, you can set up a virtual network or use Express Route to connect to on-premises. The choice is yours.
+The **IT managed** APIs are controlled by you and managed by you. They do not run in the Microsoft managed environment. In some scenarios, using these APIs in your own IT managed environment may suit the needs of your apps. For example, your app uses the Twitter API and you need to use your organization's Twitter key (instead of the Microsoft Twitter key). In this situation, it's best to configure the Twitter API as an IT managed API. In another example, your app use the SQL Server API to connect to an on-premises database. In an IT managed environment, you can set up a virtual network or use Express Route to connect to on-premises. The choice is yours.
 
 Some additional benefits include:
 
-- The resources, including network, memory, or security configurations, are monitored by you. For example, if you need more memory to display Excel data in your PowerApp, you control how much more memory to add in your environment. 
-- You set up the trust and control the security between your PowerApps and the API. For example, you determine if the Office365 API can be Microsoft managed (an automatic trust) or use the Office365 API within your own environment (create your own trust). 
-- **All** of the Microsoft managed APIs can also be IT managed. For example, if you want to create your own instance of Office365 and have full control over this instance, you can. You can then use your Office365 IT managed API and the Office365 Microsoft managed API in the same environment. It really depends on the needs of your PowerApp.
+- The resources, including network, memory, or security configurations, are monitored by you. For example, if you need more memory to display Excel data in your app, you control how much more memory to add in your environment. 
+- You set up the trust and control the security between your apps and the API. For example, you determine if the Office365 API can be Microsoft managed (an automatic trust) or use the Office365 API within your own environment (create your own trust). 
+- **All** of the Microsoft managed APIs can also be IT managed. For example, if you want to create your own instance of Office365 and have full control over this instance, you can. You can then use your Office365 IT managed API and the Office365 Microsoft managed API in the same environment. It really depends on the needs of your app.
 - When connecting to on-premises systems or using the Bing Search API, you control security, authentication, licensing, and more.
 
 
 #### IT managed APIs
-> [AZURE.NOTE] Remember, **all** of the Microsoft managed APIs can also be IT managed. The following APIs cannot be Microsoft managed.
+> [AZURE.NOTE] Remember, **all** of the Microsoft managed APIs can also be IT managed. The following APIs are only IT managed; they cannot be Microsoft managed.
 
 API | Description | Steps Link
 --- | --- | ---
@@ -107,7 +107,7 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 
 ## Register a Microsoft managed or IT managed API
 
-1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**. In PowerApps, select **Manage APIs**:  
+1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
 ![][17]
 2. In Manage APIs, select **Add**:  
 ![][18]  
@@ -121,12 +121,12 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 5. Select your specific API and add any configurable properties.
 6. Select **ADD** to complete these steps.
 
-> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment, especially PowerApps.
+> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 
 
 ## Summary and next steps
 
-In this topic, you've seen how to register your own instance of the available APIs  that PowerApps provides out-of-box. Here are some related topics and resources for learning more about PowerApps:  
+In this topic, you've seen how to register your own instance of the available APIs that PowerApps provides out-of-box. Here are some related topics and resources for learning more about PowerApps:  
 
 - [Configure APIs](powerapps-configure-apis.md)
 - [Add a new API](powerapps-register-from-available-apis.md)

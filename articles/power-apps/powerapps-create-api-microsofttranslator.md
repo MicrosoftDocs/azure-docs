@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add the Microsoft Translator API to PowerAps Enterprise | Microsoft Azure"
+	pageTitle="Add the Microsoft Translator API to PowerApps Enterprise | Microsoft Azure"
 	description="Create or configure a new Microsoft Translator API in your organization's app service environment"
 	services=""
     suite="powerapps"
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 # Create a new Microsoft Translator API in your organization's app service environment
+
+## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  

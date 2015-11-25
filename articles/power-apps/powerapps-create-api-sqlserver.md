@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add the SharePoint Server API to PowerAps Enterprise | Microsoft Azure"
+	pageTitle="Add the SQL Server API to PowerApps Enterprise | Microsoft Azure"
 	description="Create or configure a new SQL Server API in your organization's app service environment and add connection to data on-premises"
 	services=""
     suite="powerapps"
@@ -15,11 +15,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 
 # Create a new SQL Server API in your organization's app service environment
+
+## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription. 
 2. Select **Browse** in the task bar:  
@@ -41,8 +43,10 @@ You can connect to SQL Server on-premises. To establish this hybrid connectivity
 - [ExpressRoute](../expressroute-introduction.md)
 - [Site-to-site VPN](../vpn-gateway-create-site-to-site-rm-powershell.md)
 - [Point-to-site connectivity](../vpn-gateway-point-to-site-create.md)  
+
 	> [AZURE.NOTE]  Every app service environment has a virtual  network associated with it. You can establish this network connectivity to this virtual network.  
 - [Hybrid connections](../web-sites-hybrid-connection-get-started.md)  
+
 	> [AZURE.NOTE]  Every registered API in your app service environment has a corresponding web app. You can establish hybrid connections from this web app just like you can from any other web app.
 	
 The following example shows how to create a hybrid connection:  
