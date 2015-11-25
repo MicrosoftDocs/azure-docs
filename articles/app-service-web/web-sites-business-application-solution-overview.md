@@ -39,7 +39,7 @@ Below is an example of a line-of-business application running on App Service Web
 
 Bring your existing web assets to App Service Web Apps from a variety of languages and frameworks.
 
-Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
+Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Team Services], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Secure your assets
 
@@ -93,7 +93,7 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
 
 [FTP]:web-sites-deploy.md#ftp
 [Visual Studio]:web-sites-dotnet-get-started.md
-[Visual Studio Online]:../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]:../cloud-services-continuous-delivery-use-vso.md
 [Git]:web-sites-publish-source-control.md
 
 [HTTPS]:web-sites-configure-ssl-certificate.md

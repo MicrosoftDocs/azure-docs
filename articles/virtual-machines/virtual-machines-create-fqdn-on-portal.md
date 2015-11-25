@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create an FQDN for a VM in the Azure Portal | Microsoft Azure"
+   pageTitle="Create FQDN for a VM in Azure Preview Portal | Microsoft Azure"
    description="Learn how to create a Fully Qualified Domain Name or FQDN for a Resource Manager based virtual machine in the Azure preview portal."
    services="virtual-machines"
    documentationCenter=""

@@ -8,12 +8,12 @@
    editor="cgronlun"/>
  
 <tags
-   ms.service="data-lake"
+   ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Provision an HDInsight cluster with Data Lake Store using Azure PowerShell
@@ -24,8 +24,11 @@
 
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
+
 * **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
+
 
 In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
 
@@ -43,11 +46,7 @@ Before you begin this tutorial, you must have the following:
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
-- **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions. After you have installed Azure PowerShell 1.0 or above, you should run the following cmdlet to install the Azure Data Lake Store module.
-
-		Install-Module AzureRM.DataLakeStore
-
-	For more information on the **AzureRM.DataLakeStore** module, see [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
  
 
 ## Create an Azure Data Lake Store
@@ -88,7 +87,7 @@ Follow these steps to create a Data Lake Store.
 
 	The output for this should be **True**.
 
-4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -121,7 +120,7 @@ Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) instal
 
 4. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
 	When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
 
@@ -133,7 +132,7 @@ In this section, you perform the steps to create a service principal for an Azur
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
-		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
+		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 		
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 		

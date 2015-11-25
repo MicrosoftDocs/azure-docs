@@ -27,13 +27,13 @@ Sampling is currently in Beta, and may change in the future.
 
 ## Configuring  sampling for your application
 
-Sampling is currently available for the ASP.NET SDK or [any   web page](#other-web-pages). 
+Sampling is currently available for the ASP.NET SDK or [any web page](#other-web-pages). 
 
 ### ASP.NET server
 
 1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 
-2. Add this snippet to ApplicationInsights.config
+2. Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -162,3 +162,4 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 * No, sampling for device applications is not supported at the moment. 
 
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc

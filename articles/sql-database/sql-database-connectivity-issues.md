@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Actions to fix transient connection loss | Microsoft Azure"
-	description="Actions to prevent, diagnose, and fix connection errors and other transient faults when interacting with Azure SQL Database."
+	description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
-# Actions to fix connection errors and transient faults in SQL Database
+# Troubleshoot transient faults and connection errors to SQL Database
 
 
-This topic describes how to prevent, diagnose, and mitigate connection errors and transient faults that your client program encounters when it interacts with Azure SQL Database.
+This topic describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient faults that your client program encounters when it interacts with Azure SQL Database.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -31,14 +31,14 @@ This topic describes how to prevent, diagnose, and mitigate connection errors an
 A transient fault is an error for which the underlying cause will soon resolve itself. An occasional cause of transient faults is when the Azure system quickly shifts hardware resources to better load-balance various workloads. During this reconfiguration time span, connections to Azure SQL database might be lost.
 
 
-If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic: 
-[Error messages for SQL Database client programs](sql-database-develop-error-messages).
+If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic:
+[Error messages for SQL Database client programs](sql-database-develop-error-messages.md).
 
 
 ### Connection versus command
 
 
-When a transient error occurs during a connection try, the connection should be retried after delay for several seconds.
+When a transient error occurs during a connection try, the connection should be retried after delaying for several seconds.
 
 
 When a transient error occurs during an SQL query command, the command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
@@ -82,17 +82,10 @@ When your program communicates with Azure SQL Database through a 3rd party middl
 ### Interval increase between retries
 
 
-Your program should always wait at least 6-10 seconds before its first retry. Otherwise the cloud service can suddenly become flooded with requests it is not yet ready to process.
 
+We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
-If more than one retry is necessary, the interval must increase before each successive retry, up to a maximum. Two of the alternative strategies are:
-
-
-- Monotonic increase of the interval. For example, you could add another 5 seconds to each successive interval.
-
-
-- Exponential increase of the interval. For example, you could multiply each successive interval by 1.5.
-
+A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 You might also want to set a maximum number of retries before the program self-terminates.
 
@@ -102,7 +95,7 @@ You might also want to set a maximum number of retries before the program self-t
 
 Code samples with retry logic, in a variety of programming languages, are available at:
 
-- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md) 
+- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -185,7 +178,7 @@ If you forget to configure the IP address, your program will fail with a handy e
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-For more information, see: 
+For more information, see:
 [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
 
 
@@ -212,7 +205,7 @@ For example, when your client program is hosted on a Windows computer, the Windo
 If your client program is hosted on an Azure virtual machine (VM), you should read:<br/>[Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-For background information about cofiguration of ports and IP address, see: 
+For background information about cofiguration of ports and IP address, see:
 [Azure SQL Database firewall](sql-database-firewall-configure.md)
 
 
@@ -312,7 +305,7 @@ Here are some Transact-SQL SELECT statements that query logs of error and other 
 
 | Query of log | Description |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | The [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, including connectivity failures related to reconfiguration, throttling, and excessive resource accumulation.<br/><br/>Ideally you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | The [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, including some that can cause transient faults or connectivity failures.<br/><br/>Ideally you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | The [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) view offers aggregated counts of event types, for additional diagnostics.<br/><br/>**TIP:** You must connect to the **master** database to run this. |
 
 
@@ -430,7 +423,7 @@ Here are links to information about EntLib60:
 - The Logging block abstracts the logging functionality from the log destination so that the application code is consistent, irrespective of the location and type of the target logging store.
 
 
-For details see: 
+For details see:
 [5 - As Easy As Falling Off a Log: Using the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 

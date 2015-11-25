@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/17/2015"
+   ms.date="10/29/2015"
    ms.author="jehollan"/>
 
 #C\# API App
@@ -83,7 +83,7 @@ For example, imagine you are using the Office 365 trigger **New Email**. That re
 }
 ```
 
-But, you want to upload these attachments to a Yammer post. Unfortunately, the schema for Yammer attachments is slightly different. Now, you can now parse this inside your Logic app. For the context object just pass: `@triggerBody()`, and for the expression, pass:
+But, you want to upload these attachments to a Yammer post. Unfortunately, the schema for Yammer attachments is slightly different. Now, you can parse this inside your Logic app. For the context object just pass: `@triggerBody()`, and for the expression, pass:
 
 ```javascript
 JArray YammerAttachments = new JObject();

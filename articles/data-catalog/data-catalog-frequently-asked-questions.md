@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog frequently asked questions
@@ -70,7 +70,7 @@ During preview, **Azure Data Catalog** supports the registration and discovery o
 - Azure Storage Blob
 - Azure Storage Directory
 - HDFS File
-- HDSF Directory
+- HDFS Directory
 - Teradata Table
 - Teradata View
 
@@ -79,7 +79,7 @@ In addition to the assets listed above, **Azure Data Catalog** supports the disc
 - SQL Server Database
 - Oracle Database
 - HDFS Cluster
-- Teradata Database 
+- Teradata Database
 
 
 ## Q: How do I request support for another data source?

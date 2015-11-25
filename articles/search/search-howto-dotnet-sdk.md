@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to use Azure Search from a .NET Application | Microsoft Azure"
+   pageTitle="How to use Azure Search from a .NET Application | Microsoft Azure | Hosted cloud search service"
    description="How to use Azure Search from a .NET Application"
    services="search"
    documentationCenter=""

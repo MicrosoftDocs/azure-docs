@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -294,7 +294,7 @@ The HPC Pack **clusrun** tool can be used to execute commands on Linux nodes eit
 
 ## Next steps
 
-* Try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* Try running a Linux workload on the cluster. For an example, see [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md) or [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Try scaling up the cluster to a larger number of nodes, or deploy size [A8 or A9](virtual-machines-a8-a9-a10-a11-specs.md) compute nodes to run MPI workloads.
 

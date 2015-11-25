@@ -60,7 +60,7 @@ The following is a list of links to online API reference documentation for Azure
 
 [Microsoft Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [Azure IoT device SDK for C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
-[Azure IoT device SDK for .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md
+[Azure IoT device SDK for .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [Azure IoT device SDK for Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
 [Azure IoT device SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Azure IoT service SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/

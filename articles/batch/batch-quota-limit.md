@@ -29,7 +29,7 @@ If you plan to run production Batch workloads, you might need to increase one or
 ## Subscription quotas
 Resource|Default Limit|Maximum Limit
 ---|---|---
-Batch accounts per region per subscription|1|20
+Batch accounts per region per subscription|1|50
 
 ## Batch account quotas
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -89,7 +89,7 @@ Azure support will contact you. Completing the request can take up to 2 business
 
 * [Create and manage an Azure Batch account](batch-account-create-portal.md)
 
-* [API basics for Azure Batch](batch-api-basics.md)
+* [Azure Batch feature overview](batch-api-basics.md)
 
 * [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 

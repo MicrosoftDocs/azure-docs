@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Backing up Azure virtual machines | Microsoft Azure"
-	description="this article provides the procedures for backing up an Azure virtual machine."
+	pageTitle="Back up Azure virtual machines | Microsoft Azure"
+	description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="virtual machine backup; back up virtual machine; backup and disaster recovery"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# Backing up Azure virtual machines
-This article provides the procedures for backing up existing Azure virtual machines, to protected them in accordance with your company’s backup and retention policies.
+# Azure virtual machine back up
+This article provides the procedures for how to back up existing Azure virtual machines, to protect your VMs in accordance with your company’s backup and disaster recovery policies.
 
 First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for VM backup before you proceed.
 
@@ -26,7 +27,7 @@ If you're looking for information about [planning your VM backup infrastructure 
 
 Backing up Azure virtual machines involves three key steps:
 
-![Three steps to back up an Azure virtual machine](./media/backup-azure-vms/3-steps-for-backup.png)
+![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE] Virtual machine backup is local. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need backup, at least 1 backup vault must be created in that region.
 
@@ -72,7 +73,7 @@ You register an Azure virtual machine to associate the it with the Azure Backup 
 
     ![register job](./media/backup-azure-vms/register-create-job.png)
 
-   The virtual machine also appears in the list of registered items along with the status of the registration operation.
+    The virtual machine also appears in the list of registered items along with the status of the registration operation.
 
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
