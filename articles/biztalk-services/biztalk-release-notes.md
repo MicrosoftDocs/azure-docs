@@ -120,7 +120,7 @@ When using user-defined datatypes, copy the files (.dll) to drive:\Program Files
     </AFConnectRuntimeFault>
   </detail>
 </s:Fault> ```  
-> AZURE.IMPORTANT It is recommended to use GACUtil.exe to install a file into the Global Assembly Cache. GACUtil.exe documents how to use this tool and the Visual Studio command line options.  
+> [AZURE.IMPORTANT] It is recommended to use GACUtil.exe to install a file into the Global Assembly Cache. GACUtil.exe documents how to use this tool and the Visual Studio command line options.  
 
 ### Restarting the BizTalk Adapter Service Web Site
 Installing the **BizTalk Adapter Service Runtime*** creates the **BizTalk Adapter Service** web site in IIS that contains the **BAService** application. **BAService** application internally uses relay binding to extend the reach of on-premise service endpoint to the cloud. For a service hosted on-premises, the corresponding relay endpoint will be registered on the Service Bus only when the on-premises service starts.  
