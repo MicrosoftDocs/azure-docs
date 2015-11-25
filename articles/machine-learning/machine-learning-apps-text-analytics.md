@@ -17,7 +17,7 @@
 	ms.author="onewth"/>
 
 
-# Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction and Language Detection #
+# Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction and Language Detection
 
 ## Overview
 
@@ -29,21 +29,21 @@ You can see text analytics in action on our [demo site](https://text-analytics-d
 
 ---
 
-## Sentiment analysis ##
+## Sentiment analysis
 
 The API returns a numeric score between 0 & 1. Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment. Sentiment score is generated using classification techniques. The input features to the classifier include n-grams, features generated from part-of-speech tags, and word embeddings. Currently, English is the only supported language.
  
-## Key phrase extraction ##
+## Key phrase extraction
 
 The API returns a list of strings denoting the key talking points in the input text. We employ techniques from Microsoft Office's sophisticated Natural Language Processing toolkit. Currently, English is the only supported language.
 
-## Language detection ##
+## Language detection
 
 The API returns the detected language and a numeric score between 0 & 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported.
 
 ---
 
-## API Definition ##
+## API Definition
 
 ### Headers
 
@@ -58,9 +58,9 @@ You can find your account key from your account in the [Azure Data Market](https
 
 ---
 
-## Single Response APIs##
+## Single Response APIs
 
-### GetSentiment###
+### GetSentiment
 
 **URL**	
 
@@ -81,7 +81,7 @@ This will return a response as follows:
 
 ---
 
-### GetKeyPhrases###
+### GetKeyPhrases
 
 **URL**
 
@@ -144,7 +144,7 @@ The Text Analytics service allows you to do sentiment and key-phrase extractions
 Note that the IDs entered into the system are the IDs returned by the system. The web service does not check that these IDs are unique. It is the responsibility of the caller to verify uniqueness. 
 
 
-### GetSentimentBatch###
+### GetSentimentBatch
 
 **URL**	
 
@@ -181,7 +181,7 @@ In the response below, you get the list of scores associated with your text Ids:
 
 ---
 
-### GetKeyPhrasesBatch ###
+### GetKeyPhrasesBatch
 
 **URL**
 
@@ -222,7 +222,7 @@ In the response below, you get the list of key phrases associated with your text
 
 ---
 
-### GetLanguageBatch ###
+### GetLanguageBatch
 
 In the POST call below, we are requesting language detection for two text inputs:
 
