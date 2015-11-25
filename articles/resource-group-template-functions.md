@@ -577,9 +577,11 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 | baseUri                            |   Yes    | The base uri string.
 | relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
 
-The following example shows how to create an absolute URI in template link. The result is **http://contoso.com/resources/nested/azuredeploy.json**. 
+The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter will result in a base URI of **http://contoso.com/resources/**.
 
-    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+The following example shows how to construct a link to a nested template based on the value of the parent template.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
 
 ## variables
