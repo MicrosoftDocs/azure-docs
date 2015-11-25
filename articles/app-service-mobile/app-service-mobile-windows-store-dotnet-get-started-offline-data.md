@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/22/2015"
 	ms.author="wesmc"/>
 
 # Enable offline sync for your Windows app
@@ -36,7 +36,7 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of [Create a Windows app][create a windows app].
-* [Azure Mobile Services SQLite Store version 2.0.0-beta][sqlite store nuget]
+* [Azure Mobile Services SQLite Store version 2.0.0-beta2][sqlite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Update the client app to support offline features
@@ -186,11 +186,10 @@ In this section, you will modify the client app to simulate an offline scenario 
 
 1. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile app URL:
 
-         public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://your-service.azurewebsites.fail",
-            "https://your-gateway.azurewebsites.fail",
-            ""
-        );
+         public static MobileServiceClient MobileService = 
+				new MobileServiceClient("https://your-service.azurewebsites.fail");
+
+	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and celluar networks on the device or use airplane mode.
 
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
 3. Enter some new todo items and click **Save** for each one. Push fails for each one with a `PushResult.Status=CancelledByNetworkError`. The new todo items exist only in the local store until they can be pushed to the mobile app backend. 
@@ -199,9 +198,7 @@ In this section, you will modify the client app to simulate an offline scenario 
 
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
-5. (Optional) Use Visual Studio to view your Azure SQL Database table to see that the data in the backend database has not changed. 
-
-   In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents.
+5. (Optional) In Visual Studio, open **Server Explorer**. Navigate to your database in **Azure**->**SQL Databases**. Right-click your database and select **Open in SQL Server Object Explorer**. Now you can browse to your SQL database table and its contents. Verify that the data in the backend database has not changed.
 
 6. (Optional) Use a REST tool such as Fiddler or Postman to query your mobile backend, using a GET query in the form `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
 

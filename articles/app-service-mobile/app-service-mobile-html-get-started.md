@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="11/18/2015"
 	ms.author="glenga"/>
 
 
 #Create an HTML app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+
+>[AZURE.IMPORTANT] This topic is not currently supported by Mobile Apps because the quickstart for HTML/JavaScript apps has been temporarily removed from the Azure portal. We plan to bring it back in the very near future. Thanks you for your patience as we complete the Mobile Apps preview.
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app using an Azure Mobile App backend. You will create both a new Mobile App backend and a simple *To do list* web app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). 
 
 A screenshot from the completed app is below:
 
@@ -45,7 +47,11 @@ To complete this tutorial, you need the following:
 
 ##Create a new Mobile App backend
 
+Follow these steps to create a new Mobile App backend.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
 ## Download the server project
 

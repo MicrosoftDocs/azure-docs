@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # How to set a static private IP address in PowerShell
@@ -43,26 +43,26 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 3. Retrieve the virtual network and subnet you want to create the VM in.
 
-	    $vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
+	    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet	
 	    $subnet = $vnet.Subnets[0].Id
 
 4. If necessary, create a public IP address to access the VM from the Internet.
 
-		$pip = New-AzurePublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+		$pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 
 5. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. This is the main step for this article, where you set the private IP to be static.
 
-		$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
+		$nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 192.168.1.101
 
 6. Create the VM using the NIC created above.
 
-		$vm = New-AzureVMConfig -VMName DNS01 -VMSize "Standard_A1"
-		$vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		$vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-		$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
+		$vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
+		$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName DNS01  -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+		$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+		$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 		$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-		$vm = Set-AzureVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
-		New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+		$vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri -CreateOption fromImage
+		New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
 
 	Expected output:
 
@@ -79,7 +79,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following PowerShell command and observe the values for *PrivateIpAddress* and *PrivateIpAllocationMethod*:
 
-	Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 
 Expected output:
 
@@ -129,9 +129,9 @@ Expected output:
 ## How to remove a static private IP address from a VM
 To remove the static private IP address added to the VM in the script above, run the following PowerShell commands:
 	
-	$nic=Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
-	Set-AzureNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 Expected output:
 
@@ -181,10 +181,10 @@ Expected output:
 ## How to add a static private IP address to an existing VM
 To add a static private IP address to the VM created using the script above, runt he following command:
 
-	$nic=Get-AzureNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+	$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 	$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 	$nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
-	Set-AzureNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ## Next steps
 

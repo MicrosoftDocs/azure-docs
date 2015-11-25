@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/18/2015"
 	ms.author="genli"/>
 
 # How to buy or sign up for an Azure subscription

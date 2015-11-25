@@ -32,13 +32,19 @@ You can navigate Service Fabric Explorer using the tree on the left. At the root
 
 ![Service Fabric Explorer cluster dashboard][sfx-cluster-dashboard]
 
-The cluster contains two sub-trees: one for applications and another for nodes.
+### The cluster map
+
+Nodes in a Service Fabric cluster are placed across a 2-dimensional grid of fault domains and upgrade domains to ensure that your applications remains available in the presence of hardware failures and application upgrades. You can view how the current cluster is laid out using the Cluster Map.
+
+![Service Fabric Explorer cluster map][sfx-cluster-map]
 
 ### Viewing applications and services
 
+The cluster contains two sub-trees: one for applications and another for nodes.
+
 The applications view allows you to navigate through Service Fabric's logical hierarchy: applications, services, partitions, and replicas.
 
-In the example below, the application **MyApp** is made up of two services, **MyStatefulService** and **WebSvcService**. Since **MyStatefulService** is stateful, it includes a partition with one primary and two secondary replicas. By contrast, the WebSvcService is stateless and contains a single instance.
+In the example below, the application **MyApp** is made up of two services, **MyStatefulService** and **WebService**. Since **MyStatefulService** is stateful, it includes a partition with one primary and two secondary replicas. By contrast, the WebSvcService is stateless and contains a single instance.
 
 ![Service Fabric Explorer application view][sfx-application-tree]
 
@@ -70,9 +76,11 @@ Since Service Fabric Explorer is web-based and runs within the cluster, it is ac
 
 ### Discovering the Service Fabric Explorer endpoint for a remote Cluster
 
-You can discover your cluster endpoint from the Service Fabric portal. In order to reach Service Fabric Explorer for a given cluster, simply connect to that endpoint on port 19007:
+In order to reach Service Fabric Explorer for a given cluster, simply point your browser to:
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+The full URL is also available in the cluster essentials pane of the Azure portal.
 
 ### Connecting to a secure cluster
 
@@ -87,12 +95,8 @@ If you attempt to connect to Service Fabric Explorer on a secure cluster, your b
 - [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
