@@ -32,6 +32,8 @@ The following sections describe the roles that control access to the preconfigur
 
 ## AAD roles
 
+The AAD roles control the ability provision preconfigured solutions and manage users in a preconfigured solution.
+
 You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin], but this article focuses primarily on the **Global Administrator** and the **Domain User/Member** roles as used by the preconfigured solutions.
 
 **Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **ADMINISTRATOR** role for the application inside of their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **IMPLICIT READ ONLY**. Global administrators can assign roles for applications using the [Azure management portal][lnk-classic-portal].
@@ -45,11 +47,15 @@ For more information, see the following resources:
 - [Create or Edit users in Azure AD][lnk-create-edit-users]
 - [Assign App roles in AAD][lnk-assign-app-roles]
 
-## Azure admin roles 
+## Azure subscription administrator roles
+
+The Azure admin roles control the ability to map an Azure subscription to an AD tenant.
 
 You can find out more about the Azure Co-Administrator, Service Administrator and Account Administrator roles in the article [How to add or change Azure Co-Administrator, Service Administrator and Account Administrator][lnk-admin-roles].
 
 ## Application roles
+
+The application roles control access to devices in your preconfigured solution.
 
 There are two defined and one implicit role defined in the application that is created when you provision a preconfigured solution.
 
