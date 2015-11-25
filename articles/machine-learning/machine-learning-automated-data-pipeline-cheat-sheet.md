@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Machine Learning operationalization cheat sheet | Microsoft Azure"
-	description="A printable cheat sheet that helps you operationalize your Azure Machine Learning web service using your on-premises, cloud, or streaming data."
+	pageTitle="Cheat sheet for an automated data pipeline for Azure Machine Learning predictions | Microsoft Azure"
+	description="A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premise, streaming, in Azure, or in a third-party cloud service."
 	services="machine-learning"
 	documentationCenter=""
 	authors="garye"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="11/24/2015"
 	ms.author="mithal;garye" />
 
-# Microsoft Azure Machine Learning operationalization cheat sheet
+# Cheat sheet for an automated data pipeline for Azure Machine Learning predictions
 
-The **Microsoft Azure Machine Learning operationalization cheat sheet** helps you navigate through the
+The **Microsoft Azure Machine Learning automated data pipeline cheat sheet** helps you navigate through the
 technology you can use to get your data to your Machine Learning web service where it can be scored by your predictive analytics model.
 
 Depending on whether your data is on-premises, in the cloud, or streaming real-time, there are different mechanisms available to move the data to your web service endpoint for scoring.
@@ -26,13 +26,13 @@ This cheat sheet walks you through the decisions you'll need to make and offers 
 
 ## Download the Machine Learning operationalization cheat sheet
 
-Once you download the Microsoft Azure Machine Learning operationalization cheat sheet, you can print it in tabloid size (11 x 17 in.).
+Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.).
 
-Download the cheat sheet here: **[Microsoft Azure Machine Learning operationalization cheat sheet](TBD)**
+Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](TBD)**
 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
 
-[op-cheat-sheet]: ./media/machine-learning-operationalization-cheat-sheet/ml_operationalization_cheat_sheet_v1.1.png
+[op-cheat-sheet]: ./media/machine-learning-automated-data-pipeline-cheat-sheet/ml_operationalization_cheat_sheet_v1.1.png
 
 
 ## More help with Machine Learning Studio
