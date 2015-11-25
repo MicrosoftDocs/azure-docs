@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # RunAs: Running a Service Fabric application with different security permissions
