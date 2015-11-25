@@ -40,8 +40,17 @@ To complete this tutorial, you need the following:
 
 ## Create a new Azure mobile app backend
 
+Follow these steps to create a new Mobile App backend.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
+
+## Download the server project
+
+1. On your PC, visit the [Azure portal]. Click **Browse All** > **Mobile Apps**, and then click the mobile app backend that you just created.
+
+2. In the Mobile App blade, click **Settings**, and then under **Mobile App**, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead.
 
 ## Configure the server project
 
