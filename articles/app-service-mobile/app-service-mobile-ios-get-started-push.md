@@ -50,7 +50,7 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 ## <a id="add-push"></a>Add push notifications to app
 
-[AZURE.INCLUDE [Add Push Notifications to App](../../includes/app-service-add-push-notifications-to-app.md)]
+[AZURE.INCLUDE [Add Push Notifications to App](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
 ## <a id="test"></a>Test push notifications in app
 
