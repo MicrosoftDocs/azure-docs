@@ -17,10 +17,21 @@
 	ms.author="casoper"/>
 
 #Controlling caching behavior of requests with query strings
+> [AZURE.NOTE] Test text 1
+
+<br />
+
+> [AZURE.SELECTOR]
+- [Standard](cdn-query-string.md)
+- [Premium](cdn-query-string.md)
 
 ##Overview
 
-Query string caching controls how files are to be cached when they contain query strings. Three modes are available:
+Query string caching controls how files are to be cached when they contain query strings. 
+
+> [AZURE.NOTE] Test text 2
+
+Three modes are available:
 
 - **standard-cache**:  This is the default mode.  The CDN edge node will pass the query string from the requestor to the origin on the first request and cache the asset.  All subsequent requests for that asset that are served from the edge node will ignore the query string until the cached asset expires.
 - **no-cache**:  In this mode, requests with query strings are not cached at the CDN edge node.  The assets are retrieved directly from the origin and passed to the requestor with each request.
