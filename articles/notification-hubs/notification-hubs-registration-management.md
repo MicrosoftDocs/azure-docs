@@ -39,7 +39,9 @@ The following are some key advantages to using installations:
 * The installation model makes it easy to do individual pushes - targeting specific device. A system tag **"$InstallationId:[installationId]"** is automatically added with each installation based registration. So you can call a send to this tag to target a specific device without having to do any additional coding.
 * Using installations also enables you to do partial registration updates. The partial update of an installation is requested with a PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). This is particularly useful when you want to update tags on the registration. You don't have to pull down the entire registration and then resend all the previous tags again.
 
-However, installations are currently only supported by the [Notification Hub SDKs for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). See the [Installation Class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx) for more information. To register from a client device using an installation ID without a backend, you would need to use [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) at this time.
+Installations are currently only supported by the [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). See the [Installation Class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx) for more information. To register from a client device using an installation ID without a backend, you would need to use [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) at this time.
+
+An installation can contain the the following properties. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 	// Example installation format to show some supported properties
 	{
@@ -52,16 +54,13 @@ However, installations are currently only supported by the [Notification Hub SDK
 	    templates: {
 	        "templateName1" : {
 				body: "",
-				tags: []
-	        },
+				tags: [] },
 			"templateName2" : {
 				body: "",
 				// Headers are for Windows Store only
 				headers: {
-					"X-WNS-Type": "wns/tile"
-				}
-				tags: []
-			}
+					"X-WNS-Type": "wns/tile" }
+				tags: [] }
 	    },
 	    secondaryTiles: {
 	        "tileId1": {
@@ -71,10 +70,8 @@ However, installations are currently only supported by the [Notification Hub SDK
 	                "otherTemplate": {
 	                    bodyTemplate: "",
 	                    headers: {
-	                        ...
-	                    }
-	                    tags: []
-	                }
+	                        ... }
+	                    tags: [] }
 	            }
 	        }
 	    }
@@ -84,7 +81,7 @@ However, installations are currently only supported by the [Notification Hub SDK
 
 It is important to note that registrations and installations, along with the PNS handles that they contain, do expire. You can set the time to live on the Notification Hub, up to a maximum of 90 days. This limit means that they must be periodically refreshed, and also that they should not be the only store for important information. This automatic expiration also simplifies cleanup when your mobile application is uninstalled.
 
-Registrations and installations must contain the most recent PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end. The following sections describes these two patterns.
+Registrations and installations must contain the most recent PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end. 
 
 #### Templates
 
@@ -115,9 +112,11 @@ The second drawback of registration management from the client app is that, sinc
 
 
 
-#### Example Code snippet to register with a notification hub from a device using an installation 
+#### Example code to register with a notification hub from a device using an installation 
 
 At this time, this is only supported using the [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx).
+
+You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
 
 	class DeviceInstallation
 	{
@@ -196,7 +195,7 @@ At this time, this is only supported using the [Notification Hubs REST API](http
 
    
 
-#### Example code to register with a notification hub from a device using a registration id
+#### Example code to register with a notification hub from a device using a registration
 
 
 These methods create or update a registration for the device on which they are called. This means that in order to update the handle or the tags, you must overwrite the entire registration. Remember that registrations are transient, so you should always have a reliable store with the current tags that a specific device needs.
@@ -262,9 +261,12 @@ Managing registrations from the backend requires writing additional code. The ap
 The advantages of managing registrations from the backend include the ability to modify tags to registrations even when the corresponding app on the device is inactive, and to authenticate the client app before adding a tag to its registration.
 
 
-#### Example code to register with a notification hub from a backend using a installation id
+#### Example code to register with a notification hub from a backend using an installation
 
-The client device still gets its PNS handle and relevant installation properties as before and calls a custom API on the backend that can perform the registration and authorize tags etc. The backend can leverage the [Notification Hub SDKs for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+The client device still gets its PNS handle and relevant installation properties as before and calls a custom API on the backend that can perform the registration and authorize tags etc. The backend can leverage the [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
+ 
 
 	// Initialize the Notification Hub
 	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
