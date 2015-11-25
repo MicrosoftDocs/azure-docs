@@ -27,8 +27,9 @@ This article will help you troubleshoot some common causes of login issues.
 An Account Owner can only access the [Account Center](https://account.windowsazure.com/) whereas Service Administrators (SA) and Co-Administrators (CA) have access to [Azure Portal](https://manage.windowsazure.com/).
 
 Click the links below for instructions on updating the administrator roles:
-- [To update the SA on your account](../bling-add-change-azure-subscription-administrator.md/#change-service-administrator-for-a-subscription)
-- [To add a new CA in the management portal](../billing-add-change-azure-subscription-administrator.md/#add-a-co-administrator-for-a-subscription)
+
+- [To update the SA on your account](#change-service-administrator-for-a-subscription)(../billing-add-change-azure-subscription-administrator.md)
+- [To add a new CA in the management portal](#add-a-co-administrator-for-a-subscription)(../billing-add-change-azure-subscription-administrator.md)
 
 ## Is your subscription associated with a Microsoft account or Organizational account?
 
