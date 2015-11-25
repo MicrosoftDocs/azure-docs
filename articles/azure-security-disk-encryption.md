@@ -55,8 +55,7 @@ The solution does not support the following scenarios, features and technology i
 
 - Ability to disable encryption on the IaaS VM, enabled via Azure disk encryption
  
-- Integration with your on-premises Key Managem
-- ent Service
+- Integration with your on-premises Key Management Service
 
 - Windows Server Technical Preview 3
 
