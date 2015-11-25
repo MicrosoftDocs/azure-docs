@@ -81,7 +81,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
     ![CDN endpoint][cdn-endpoint-success]
 
-    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
 
 ##See Also
 [How to Map Content Delivery Network (CDN) Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
