@@ -64,7 +64,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
 
-	PS c:\> Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+	PS c:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
