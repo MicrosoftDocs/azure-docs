@@ -175,7 +175,7 @@ The folders are named to match the **Name** attributes of each corresponding ele
 
 ### Use SetupEntryPoint
 The typical scenarios for using **SetupEntryPoint** are where you need to do something before the service starts or you need to do a higher-privileged operation. Examples include:
-- Setting up and initializing environment variables that the service executable may use. This includes not only executables written with the Service Fabric programming models, but also .exe files that are simply used. For example, if you are deploying a Node.js application, then npm.exe would need environment variations configured.
+- Setting up and initializing environment variables that the service executable may use. This includes not only executables written with the Service Fabric programming models, but also .exe files that are simply used. For example, if you are deploying a Node.js application, then npm.exe would need environment variables configured.
 - Using an ACL for a resource such as a certificate.
 
 The following are the steps to ensure that your code (.exe), batch file, or PowerShell command is correctly packaged in a Visual Studio project.
