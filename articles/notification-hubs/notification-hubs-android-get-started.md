@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Android apps
@@ -84,10 +84,10 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ###Add code
 
-1. Download the notification-hubs-0.4.jar file from the **Files** tab of the [Notification-Hubs-Android-SDK on Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Also download [notifications\notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) to the **app\libs** directory of your project. You can do this by dragging the files directly into the **libs** folder in the Project View window of Android Studio. Refresh the **libs** folder.
+1. Download the notification-hubs-0.4.jar file from the **Files** tab of the [Notification-Hubs-Android-SDK on Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Also download [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) to the **app\libs** directory of your project. You can do this by dragging the files directly into the **libs** folder in the Project View window of Android Studio. Refresh the **libs** folder.
 
 
-    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
+    >[AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 2. Set up the application to obtain a registration ID from GCM, and use it to register the app instance to the notification hub.
 
