@@ -64,7 +64,7 @@ At this time, multi NIC has the following requirements and constraints:
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -81,12 +81,12 @@ At this time, multi NIC has the following requirements and constraints:
 |D11_v2|2|
 |D12_v2|4|
 |D13_v2|8|
-|D14_v2|16|
+|D14_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |All Other Sizes|1|
 
 ## Network Security Groups (NSGs)
