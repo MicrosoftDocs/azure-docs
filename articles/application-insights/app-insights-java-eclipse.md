@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -130,7 +130,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
@@ -148,7 +148,7 @@ To collect data on other exceptions, you have two options:
 Click the **Servers** tile, and you'll see a range of performance counters.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### Customize performance counter collection
 
@@ -199,7 +199,7 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Unix performance counters

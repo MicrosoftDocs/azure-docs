@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -368,7 +368,7 @@ Application Insights can test your website at regular intervals to check that it
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
-![Web test example](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Learn more about availability web tests.][availability] 
 
