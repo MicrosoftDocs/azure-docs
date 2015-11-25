@@ -2,11 +2,12 @@ Follow these steps to create a new notification hub to use for push notification
 
 1. In the [Azure Portal], click **Browse** > **Mobile Apps**, then click your Mobile App backend, click **All settings**, then under **Mobile** click **Push** > **Notification Hub**.
 
-2. In the create blade, select an existing notification hub, or create a ewclick **+ Notification Hub**, type a new **Notification Hub** name, which can be the same as your Mobile App backend. 
+2. Click **+Notification Hub**, type a new **Notification Hub** name, which can be the same as your Mobile App backend, type a new namespace name or use an existing one, then click **OK** and finally **Create**.
 
-3. 
+	![](./media/app-service-mobile-create-notification-hub/create-new-hub-flow.png)
 
-2. Follow the work flow to create a notification hub. You will need to create a new namespace if there is none in your current resource group. Click **Create** once you've configured all the settings.
+	This creates a new notification hub and connects it to your mobile app. If you have an existing notification hub, you can choose to connect it to your Mobile App backend instead of creating a new one.
 
+Now you have connected a notification hub to your Mobile App backend. Later you will configure this notification hub to connect to a platform notification service (PNS) that sends push notifications to the native device.
 
 [Azure Portal]: https://portal.azure.com/

@@ -30,10 +30,11 @@ In this tutorial, you add push notifications to the [Xamarin.Android quickstart]
 
 This tutorial requires the following:
 
-+ An active Google account.
-+ [Google Cloud Messaging Client Component]. You will add this component during the tutorial.
++ An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+   
++ [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/). You will add this component during the tutorial.
 
-You should already have the [Xamarin.Android] and [Azure Mobile Services][Azure Mobile Services Component] components installed in your project from when you completed [Get started with Mobile Services].
++ Completed [Xamarin.Android quickstart] tutorial.
 
 
 ##<a name="create-hub"></a>Create a Notification Hub
@@ -44,13 +45,13 @@ You should already have the [Xamarin.Android] and [Azure Mobile Services][Azure 
 
 [AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>Configure your mobile service to send push requests
+## Configure Azure to send push notifications
 
-[AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-##<a id="update-server"></a>Update the mobile service to send push notifications
+##<a id="update-server"></a>Update the server project to send push notifications
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ##<a id="configure-app"></a>Configure the existing project for push notifications
 
