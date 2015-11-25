@@ -28,13 +28,15 @@ For example, resources used for development or test may have different security 
 
 ####Configure security policies
 
-Security policies are configured for each subscription. To modify a security policy, you must be an Owner, Contributor, or Security Admin of that subscription. Follow the steps below to configure security polices in Azure Security Center:
+Security policies are configured for each subscription. To modify a security policy, you must be an Owner, Contributor, or Security Manager of that subscription. Follow the steps below to configure security polices in Azure Security Center:
 
 1. Click on the **Security Policy** tile in the Azure Security Center dashboard.
  
-2. In a new blade that opens up on the right side, click the subscription that you want to enable security policies.
+2. In the **Security Policy - Define policy per subscription** blade that opens up on the right side, select the subscription that you want to enable the security policy.
 
-3. The Security policy blade will open with a set of options similar to the one shown below:
+    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig0.png)
+
+3. The **Security policy**  blade for that subscription will open with a set of options similar to the one shown below:
 
     ![Enabling data collection](./media/security-center-policies/security-center-policies-fig1.png)
 
@@ -65,8 +67,8 @@ Security policies are configured for each subscription. To modify a security pol
 | Access Control List on endpoints | Recommends that an [Access Controls List](virtual-machines-set-up-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
 | Network security groups on Subnets and Network Interface | Recommends that [Network Security Groups](virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, Inbound Security Rules are assessed to identify rules that allow Any incoming traffic. |
 | Web Application Firewall | Recommends a Web Application Firewall be provisioned on Resource Manager virtual machines when: [Instance Level Public IP](virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](load-balancer-arm)) |
-| Azure SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
-| Azure SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
+| SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
+| SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 
 10. Once you finish configuring all options, click **Save** to commit those changes.
 

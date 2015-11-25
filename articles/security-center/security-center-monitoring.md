@@ -47,7 +47,7 @@ For example, if you click **Missing system updates** under **Prevention Steps**,
 
 ![Missing system update prevention](./media/security-center-monitoring/security-center-monitoring-fig3.png)
 
-To view the recommended system updates, click the VM’s name. A new blade for that VM opens up with the list of updates that are missing:
+To view the recommended updates details, click the VM’s name. A new blade for that VM opens up with the list of updates that are missing:
 
 ![Recommended system update by VM](./media/security-center-monitoring/security-center-monitoring-fig4.png)
 
