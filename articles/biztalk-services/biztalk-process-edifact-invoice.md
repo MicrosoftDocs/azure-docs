@@ -299,7 +299,7 @@ The most important aspect when working with batches is the actual release of the
 [3]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-3.PNG
 [4]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-4.PNG  
 [5]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-5.PNG  
-[6]: ./media/process-edifact-invoices-using-azure-biztalk-services/process-edifact-invoices-with-auzure-bts-6.PNG  
+[6]: ./media/biztalk-process-edifact-invoices-using-azure-biztalk-services/process-edifact-invoices-with-auzure-bts-6.PNG  
 [7]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-7.PNG  
 [8]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-8.PNG
 [9]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-9.PNG  
