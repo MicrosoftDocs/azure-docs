@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="11/25/2015"
 	ms.author="rgarodia, azuresbcic"/>
 
 # Troubleshoot Azure Sign-up Issues
@@ -53,11 +53,11 @@ Suggestions:
 - Try to use an alternate valid and supported credit card if payment or activation fails.
 - Be sure that the credit card is active and that your bank is not blocking any online transaction for security policies.
 
-## Are you trying to activate an Azure benefit plan like MSDN, Bizspark, BizsparkPlus or MPN?
+## Are you trying to activate an Azure benefit plan like MSDN, BizSpark, BizSparkPlus or MPN?
 Verify through your benefit program channel if you are eligible for the chosen plan:
 - MSDN:
-  - Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/en-us/subscriptions/manage/default.aspx).
-  - If you cannot verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/en-us/subscriptions/contactus.aspx)
+  - Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
+  - If you cannot verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - MPN
   - Sign in to the [MPN portal](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) and verify your eligibility status. You may be eligible for additional benefits if you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx).
   - If you cannot verify your status, contact [MPN support](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
@@ -78,7 +78,7 @@ Suggestions:
 The Azure Terms of Use agreement has a limit of only one available free trial activation for any user that never used Azure before. If you have had any other type of Azure subscription, you will not be able to activate a free trial.
 
 Suggestions:
-- If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](http://www.windowsazure.com/en-us/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.
+- If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](http://www.windowsazure.com/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.
 
 ## Still unable to sign up?
 Please [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for support if you still experience sign-up issues or if your issue is not covered in this article.

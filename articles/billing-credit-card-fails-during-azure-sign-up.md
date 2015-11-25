@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="11/25/2015"
 	ms.author="rgarodia, azuresbcic"/>
 
 # My credit card doesn’t go through when I try to sign up for Azure
@@ -24,7 +24,7 @@ This article discusses common causes of sign-up issues using a credit or debit c
 Azure payment options include:
 
 - Credit or debit card (except for virtual and prepaid cards)
-- Invoice. Once you opt for the invoice option, you can't move to the credit card option for the same Azure subscription. If you are a company and you are interested to learn about alternate payment method being invoiced, please read [Azure Billing - How to invoice]( https://azure.microsoft.com/en-us/pricing/invoicing/). Invoicing payment methods include check, overnight check, and wire transfers.
+- Invoice. Once you opt for the invoice option, you can't move to the credit card option for the same Azure subscription. If you are a company and you are interested to learn about alternate payment method being invoiced, please read [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/). Invoicing payment methods include check, overnight check, and wire transfers.
 
 ##  Are you using a supported credit card for Azure activations or payments?
 - Currently only credit/debit card that are not virtual and not prepaid are accepted.
@@ -53,17 +53,17 @@ Suggestions:
 - Double check each field in your profile at sign-up or at [your profile setting]( https://account.windowsazure.com/Profile/) if you already created an Azure account.
 - Provide accurate information, as profile details are also used to generate billing statements.
 
-## Are you trying to activate an Azure benefit plan like MSDN, Bizspark, or MPN?  
+## Are you trying to activate an Azure benefit plan like MSDN, BizSpark, or MPN?  
 Verify through your benefit program channel if you are eligible for the chosen plan:
 - MSDN:
-  - Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/en-us/subscriptions/manage/default.aspx).
-  - If you cannot verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/en-us/subscriptions/contactus.aspx)
+  - Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
+  - If you cannot verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - MPN
   - Sign in to the [MPN portal](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) and verify your eligibility status. You may be eligible for additional benefits if you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx).
   - If you cannot verify your status, contact [MPN support](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
 - Bizpark:
   - Sign in to the [BizSpark portal](https://www.microsoft.com/bizspark/default.aspx#start-two) and verify your eligibility status for BizSpark and BizSpark Plus.
-  If you cannot verify your status, contact Bizspark Support sending an email to [Contact BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+  If you cannot verify your status, contact BizSpark Support sending an email to [Contact BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
 
 Suggestions:
 
@@ -74,7 +74,7 @@ The Azure Free Trial offer is limited to one free trial activation.
 
 Suggestions:
 
-If a free trial activation fails because you already activated an Azure subscription in the past, please use another available Azure plan listed in the [Microsoft Azure offer details]( http://www.windowsazure.com/en-us/support/legal/offer-details/) instead of the Azure Free Trial plan.
+If a free trial activation fails because you already activated an Azure subscription in the past, please use another available Azure plan listed in the [Microsoft Azure offer details](http://www.windowsazure.com/support/legal/offer-details/) instead of the Azure Free Trial plan.
 
 ## Contact Azure Support
 If you continue to have a sign-up issue after following these troubleshooting steps, please contact [Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
