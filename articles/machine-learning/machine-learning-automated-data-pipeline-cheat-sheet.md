@@ -3,7 +3,7 @@
 	description="A printable cheat sheet that shows you how to set up an automated data pipeline to your Azure Machine Learning web service whether your data is on-premise, streaming, in Azure, or in a third-party cloud service."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garye"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun"/>
 
