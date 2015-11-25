@@ -60,7 +60,7 @@ The DefaultValue attributes specifies the value to be used in the absence of a m
 
 The [Service Fabric application model](service-fabric-application-model.md) enables services to include configuration packages containing custom key-value pairs readable at runtime. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
 
-Suppose that you have the following setting in the service manifest for the `Stateful1` service:
+Suppose that you have the following setting in Config\Settings.xml for the `Stateful1` service:
 
 
     <Section Name="MyConfigSection">
