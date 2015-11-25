@@ -91,7 +91,7 @@ The Azure portal dashboard is the home page you see when you first sign in to th
 
 To pin a tile from the Application Insights overview blade to the portal dashboard, select the header of the tile and then "...".
 
-For a more comprehensive dashboard, use [Power BI](https://azure.microsoft.com/en-us/blog/application-insights-content-pack-for-power-bi/) to display your telemetry.
+For a more comprehensive dashboard, use [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) to display your telemetry.
 
 ## Metrics blades
 
