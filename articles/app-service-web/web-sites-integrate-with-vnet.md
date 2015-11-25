@@ -55,6 +55,7 @@ Here are some things to keep in mind before connecting your web app to a virtual
 ## Enabling VNET Integration ##
 
 You have the option to connect to a new or existing virtual network.  If you create a new network then in addition to just creating the VNET, a dynamic routing gateway will be pre-configured for you and Point to Site VPN will be enabled.  
+
 >[AZURE.NOTE] Configuring a new virtual network integration can take several minutes.  
 
 To enable VNET Integration open your app Settings and then select Networking.  The UI that opens up offers three networking choices.  This guide is only going into VNET Integration though Hybrid Connections and App Service Environments are discussed later in this document.  
