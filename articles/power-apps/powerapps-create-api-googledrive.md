@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/24/2015"
    ms.author="litran"/>
 
 # Create a new Google Drive API in your organization's app service environment
@@ -27,7 +27,7 @@
 3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][16]  
 
-3. In **PowerApps Services**, select **Manage APIs**:  
+3. In **PowerApps**, select **Manage APIs**:  
 ![Browse to registered apis][1]
 
 3. In **Manage APIs**, select **Add** to add the new API:  

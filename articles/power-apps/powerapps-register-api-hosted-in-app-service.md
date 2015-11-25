@@ -43,7 +43,7 @@ This article shows you how to register an API hosted in your app service environ
 
 Developing an API in the app service environment is straightforward. You choose your favorite programming language to build a web API, and then use [Swagger 2.0](http://swagger.io) to describe the API definition. Some examples include:  
 
-- [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
+- [Build and deploy a .NET in Azure App Service](../app-service-api-dotnet-get-started.md)
 - [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
 - [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
 

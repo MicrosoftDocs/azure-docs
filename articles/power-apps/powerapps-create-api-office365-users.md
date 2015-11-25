@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/23/2015"
+   ms.date="11/24/2015"
    ms.author="litran"/>
 
 # Create a new Office 365 Users API in your organization's app service environment
@@ -27,7 +27,7 @@
 3. In the list, you can scroll to find PowerApps or type in *powerapps*:  
 ![][15]  
 
-4. In **PowerApps Services**, select **Manage APIs**:    
+4. In **PowerApps**, select **Manage APIs**:    
 ![Browse to registered apis][1]
 
 5. In **Manage APIs**, select **Add** to add the new API:  
@@ -42,7 +42,7 @@
 ![configure Office 365 Users API settings][4]
 
 9. Enter the *Client Id* and *Client Secret* of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
-	>[AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
 
 10. Select **OK** to complete the steps.
 
@@ -55,7 +55,7 @@ If you don't have an existing AAD app with the key and secret values, then use t
 1. Open [Azure Portal][5].
 
 2. Select **Browse** and then select **Active Directory**:  
-	>[AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
+	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
 3. Select your organization's tenant name:  
 ![Launch Azure Active Directory][6]
