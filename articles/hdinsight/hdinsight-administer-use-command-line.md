@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Azure CLI
@@ -115,6 +115,8 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 ##Create clusters using configuration files
 Typically, you create an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you create a cluster.  
+
+> [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
 	azure hdinsight cluster config create <file>
 

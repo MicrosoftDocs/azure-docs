@@ -33,8 +33,8 @@ Item | Virtual machine name | Gallery image | Minimum size
 --- | --- | --- | ---
 1. | ______________ (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | A2 (Medium)
 2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
 5. | ______________ (majority node for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
 6. | ______________ (first SharePoint application server, example APP1) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
 7. | ______________ (second SharePoint application server, example APP2) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
@@ -111,7 +111,7 @@ Log on to the first domain controller computer by using the credentials of the l
 1.	In the Azure portal, in the left pane, click **Virtual Machines**.
 2.	To connect to a VM, click **Running** in the **Status** column next to its name.
 3.	In the command bar on the bottom of the page, click **Connect**.
-4.	The portal informs you that the .rdp file is being retrieved. Click **OK**.
+4.	The Azure portal informs you that the .rdp file is being retrieved. Click **OK**.
 5.	The browser dialog appears, asking "Do you want to open or save ComputerName.rdp from manage.windowsazure.com?" Click **Open**.
 6.	In the **Remote Desktop Connection** dialog, click **Connect**.
 7.	In the **Windows Security** dialog, click **Use another account**.
