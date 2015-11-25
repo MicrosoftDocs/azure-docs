@@ -32,7 +32,7 @@ Query string caching controls how files are to be cached when they contain query
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-query-string/cdn-manage-btn.png)
+	![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 	
 	The CDN management portal opens.
 	
@@ -40,7 +40,6 @@ Query string caching controls how files are to be cached when they contain query
 	
 	Query string caching options are displayed.
 	
-	![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
 	
 3. After making your selection, click the **Update** button.
 

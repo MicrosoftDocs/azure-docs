@@ -40,7 +40,7 @@ Three modes are available:
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-query-string/cdn-manage-btn.png)
+	![CDN profile blade manage button](./media/cdn-query-string-premium/cdn-manage-btn.png)
 	
 	The CDN management portal opens.
 	
@@ -48,7 +48,7 @@ Three modes are available:
 	
 	Query string caching options are displayed.
 	
-	![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png)
+	![CDN query string caching options](./media/cdn-query-string-premium/cdn-query-string.png)
 	
 3. After making your selection, click the **Update** button.
 
