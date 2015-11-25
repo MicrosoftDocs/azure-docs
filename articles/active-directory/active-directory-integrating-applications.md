@@ -184,7 +184,7 @@ For existing users of the Azure Management Portal, setting the Read directory da
 
 ### Configuring Multi-Tenant Applications
 
-When adding an application to Azure AD, you may want your application to be accessed only by users in your organization. Alternatively, you may want your application to be accessed by users in external organizations. These two application types are called single tenant and multi-tenant applications. You can modify the configuration of a single tenant application to make it a multi-tenant application, which this section discusses below.
+When adding a Web application/API to Azure AD, you may want your it to be accessed only by users in your organization. Alternatively, you may want it to be accessed by users in external organizations. These two application types are called single tenant and multi-tenant applications. You can modify the configuration of a single tenant application to make it a multi-tenant application, which this section discusses below.
 
 It’s important to note the differences between a single tenant and multi-tenant application. A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory. A multi-tenant application intended for use in many organizations. They are typically a software-as-a-service (SaaS) application written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them.
 
@@ -192,7 +192,9 @@ It’s important to note the differences between a single tenant and multi-tenan
 
 If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure Management Portal.
 
->[AZURE.NOTE] When enabling external access, you must ensure that your application’s App ID URI belongs in a verified domain. Additionally, the Return URL must begin with https://. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
+>[AZURE.NOTE] Multi-tenancy only applies to Web applications/APIs; Native applications are multi-tenant by default.  
+>
+>Also, when enabling external access, you must ensure that your application’s App ID URI belongs in a verified domain. Additionally, the Return URL must begin with https://. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
 ##### To enable access to your app for external users
 
