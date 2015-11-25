@@ -14,7 +14,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* In **QSAppDelegate.m**, add the following handler methods. Your app is now updated to support push notifications.
+* In **QSAppDelegate.m**, add the following handler methods. Your app is now updated to support push notifications. Note that UIAlertView is deprecated in iOS9, so we've included two snippets to help display your notifications depending on the iOS version you are on.
 
 ```
         // Registration with APNs is successful
@@ -44,6 +44,21 @@
 
             NSDictionary *apsPayload = userInfo[@"aps"];
             NSString *alertString = apsPayload[@"alert"];
+
+            // Beginning of iOS8 or previous versions.
+
+            UIAlertView *alert = [[UIAlertView alloc]
+                      initWithTitle:@"Notification"
+                      message:alertString
+                      delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil];
+    
+            [alert show];
+
+            // End of iOS8 or previous versions.
+
+            // Beginning of iOS9.
 
             // Create alert with notification content.
             UIAlertController *alertController = [UIAlertController
@@ -79,5 +94,7 @@
             
             // Display alert.
             [currentViewController presentViewController:alertController animated:YES completion:nil];
+
+            // End of iOS9
         }
 ```
