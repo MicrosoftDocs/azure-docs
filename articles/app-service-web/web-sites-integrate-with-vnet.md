@@ -55,7 +55,7 @@ Here are some things to keep in mind before connecting your web app to a virtual
 ## Enabling VNET Integration ##
 
 You have the option to connect to a new or existing virtual network.  If you create a new network then in addition to just creating the VNET, a dynamic routing gateway will be pre-configured for you and Point to Site VPN will be enabled.  
-**NOTE:**  Configuring a new virtual network integration can take several minutes.  
+[AZURE.NOTE]  Configuring a new virtual network integration can take several minutes.  
 
 To enable VNET Integration open your app Settings and then select Networking.  The UI that opens up offers three networking choices.  This guide is only going into VNET Integration though Hybrid Connections and App Service Environments are discussed later in this document.  
 
@@ -86,7 +86,7 @@ If you want to create a new VNET then be aware that you are currently are only a
 
 Be warned that if you want this VNET to connect to any of your other network then you should try to avoid picking IP address space that overlaps with those networks.  
 
-**NOTE:** It can take up to 30 minutes for a new VNET to be provided complete with operating gateways.  The UI will update when it is complete.  
+[AZURE.NOTE] It can take up to 30 minutes for a new VNET to be provided complete with operating gateways.  The UI will update when it is complete.  
 
 ![][3]
 
@@ -158,7 +158,7 @@ If those certificates or network information is changed then you will need to cl
 
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
-**NOTE:** While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  
+[AZURE.NOTE] While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  
 
 ##Pricing details##
 There are a few pricing nuances that you should be aware of when using the VNET Integration feature.  There are 3 related charges to the use of this feature:
