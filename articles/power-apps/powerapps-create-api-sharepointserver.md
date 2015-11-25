@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add the SharePoint Server API to PowerAps Enterprise | Microsoft Azure"
+	pageTitle="Add the SharePoint Server API to PowerApps Enterprise | Microsoft Azure"
 	description="Create or configure a new SharePoint Server API in your organization's app service environment"
 	services=""
     suite="powerapps"
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 # Create a new SharePoint Server API in your organization's app service environment
+
+## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
@@ -37,6 +39,7 @@
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **SharePoint Server**. 
 8. Select **Settings - Configure required settings**.
 9. Enter the *Client Id* and *App Key* for the SharePoint Server Azure Active Directory (AAD app), and the *SharePoint URL* and *Resource Id* of the AAD Proxy app. Follow the steps outlined in the following section to configure connectivity to your on-premises SharePoint Server.  
+
 	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
 	
 10. Select **OK** to complete the steps.

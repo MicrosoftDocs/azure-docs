@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/25/2015"
    ms.author="guayan"/>
 
 # Update an existing API and its properties
 
-The API you register in the App Service Environment is essentially a proxy to your backend service. Once you create the API, you may want to change its properties. For example, you may want to: 
+The API you register in the app service environment is essentially a proxy to your backend service. Once you create the API, you may want to change its properties. For example, you may want to: 
 
 - Add a custom icon for your API.
 - Change how you secure the backend used by the API. 

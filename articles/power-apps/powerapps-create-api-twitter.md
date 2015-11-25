@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add the Twitter API to PowerAps Enterprise | Microsoft Azure"
+	pageTitle="Add the Twitter API to PowerApps Enterprise | Microsoft Azure"
 	description="Create or configure a new Twitter API in your organization's app service environment"
 	services=""
     suite="powerapps"
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 # Create a new Twitter API in your organization's app service environment
+
+## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription. 
 
@@ -42,6 +44,7 @@
 ![configure Twitter API settings][4]
 
 9. Enter the *Consumer Key* and *Consumer Secret* of your Twitter application. If you don't have one, see the "Register a Twitter app for use with PowerApps" section in this topic to create the key and secret values you need.  
+
 	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
@@ -64,7 +67,7 @@ If you don't have an existing Twitter app with the key and secret values, then u
 	b) Enter a value for **Description**.  
 	c) Enter a value for **Website**.  
 	d) Set the **Callback url** to the redirect URL you received when you added the new Twitter API in the Azure Portal (in this topic).  
-	e) gree to the developer agreement and select **Create your Twitter application**.  
+	e) Agree to the developer agreement and select **Create your Twitter application**.  
 
 	![Twitter app create][7]
 

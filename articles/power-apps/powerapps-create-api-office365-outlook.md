@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add the Office 365 Outlook API to PowerAps Enterprise | Microsoft Azure"
+	pageTitle="Add the Office 365 Outlook API to PowerApps Enterprise | Microsoft Azure"
 	description="Create or configure a new Office 365 Outlook API in your organization's app service environment"
 	services=""
     suite="powerapps"
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 # Create a new Office 365 Outlook API in your organization's app service environment
+
+## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
@@ -41,8 +43,9 @@
 8. Select **Settings - Configure required settings**:  
 ![configure Office 365 Outlook API settings][4]
 
-9. Enter the *App Key* and *App Secret* value of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the key and secret values you need.  
-	>[AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+9. Enter the *App Key* and *App Secret* value of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the key and secret values you need. 
+ 
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
