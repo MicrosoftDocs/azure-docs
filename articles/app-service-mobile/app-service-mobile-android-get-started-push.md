@@ -1,0 +1,92 @@
+<properties
+	pageTitle="Add Push Notifications to Android App with Azure  Mobile Apps"
+	description="Learn how to use Azure Mobile Apps to send push notifications to your Android app."
+	services="app-service\mobile"
+	documentationCenter="android"
+	manager="dwrede"
+	editor=""
+	authors="ysxu"/>
+
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="11/23/2015"
+	ms.author="yuaxu"/>
+
+# Add Push Notifications to your iOS App
+
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+
+## Overview
+In this tutorial, you add push notifications to the [Android quick start] project so that every time a record is inserted, a push notification is sent. This tutorial is based on the [Android quick start] tutorial, which you must complete first. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
+
+##Prerequisites
+
+To complete this tutorial, you need the following:
+
+* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
+* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md)
+
+## Enable Google Cloud Messaging
+
+[AZURE.INCLUDE [app-service-mobile-enable-Google-cloud-messaging](../../includes/app-service-mobile-enable-google-cloud-messaging.md)]
+
+##<a name="create-hub"></a>Create a Notification Hub
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
+##Configure Mobile App to send push requests
+
+1. Log on to the [Azure Portal], select **Browse** > **Mobile App** > your app > **Push notification services**.
+
+2. In **Google Cloud Messaging**, enter the **API key** that you obtained from GCM, then click **Save**.
+
+Your Mobile App backend is now configured to work with GCM.
+
+##<a id="update-service"></a>Update the server to send push notifications
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
+
+## <a name="publish-the-service"></a>Publish the mobile backend to Azure
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+
+
+
+
+
+
+## Add push notifications to your app
+
+###Verify Android SDK Version
+
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version.md)]
+
+
+Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to.
+
+If you will be testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
+
+###Add Google Play Services to the project
+
+[AZURE.INCLUDE [Add Play Services](../../includes/mobile-services-add-google-play-services.md)]
+
+###Add code
+
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
+
+## Test the app against the published mobile service
+
+You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
+
+<!-- URLs. -->
+[Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
+[Management Portal]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
