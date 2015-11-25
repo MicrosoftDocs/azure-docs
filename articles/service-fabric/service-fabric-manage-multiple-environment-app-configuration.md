@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/25/2015"
    ms.author="seanmck"/>
 
 # Managing application parameters for multiple environments
