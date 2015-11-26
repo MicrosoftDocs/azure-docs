@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="11/26/2015"
 	ms.author="genli"/>
 
-# How to Create a Support Ticket for Azure Billing and Subscription Issues
+# How to create a support ticket for Azure billing and subscription issues
 
 This article provides the information you will need to open a ticket with Azure Support.
 
