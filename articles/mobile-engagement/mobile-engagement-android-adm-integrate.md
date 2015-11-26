@@ -27,6 +27,8 @@
 
 Integrating ADM allows your application to be pushed when targeting Amazon Android devices.
 
+ADM payloads pushed to the SDK always contain the `azme` key in the data object. Thus if you use ADM for another purpose in your application, you can filter pushes based on that key.
+
 > [AZURE.IMPORTANT] Only Amazon Kindle devices running Android 4.0.3 or above are supported by Amazon Device Messaging; however, you can integrate this code safely on other devices.
 
 ##Sign up to ADM

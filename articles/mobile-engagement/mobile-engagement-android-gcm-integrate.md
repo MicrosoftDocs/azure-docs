@@ -26,7 +26,7 @@
 
 Integrating GCM allows your application to be pushed.
 
-GCM pushes sent to the SDK always contains the `azme` key in the data object. Thus if you use GCM for another purpose in your application, you can filter pushes based on that key.
+GCM payloads pushed to the SDK always contain the `azme` key in the data object. Thus if you use GCM for another purpose in your application, you can filter pushes based on that key.
 
 > [AZURE.IMPORTANT] Only devices running Android 2.2 or above, having Google Play installed and having Google background connection enabled can be pushed using GCM; however, you can integrate this code safely on unsupported devices (it just uses intents).
 
