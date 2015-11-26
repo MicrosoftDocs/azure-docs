@@ -100,7 +100,7 @@ In this topic, you added the Dynamics CRM Online API to your PowersApps Enterpri
 [2]: ./media/powerapps-create-api-crmonline/allresources.png
 [3]: ./media/powerapps-create-api-crmonline/browse-to-registered-apis.PNG
 [4]: ./media/powerapps-create-api-crmonline/add-api.PNG
-[5]: ./media/powerapps-create-api-crmonline/select-crmonline-api.png
+[5]: ./media/powerapps-create-api-crmonline/select-crmonline-api.PNG
 [6]: ./media/powerapps-create-api-crmonline/configure-crmonline-settings.PNG
 [7]: ./media/powerapps-create-api-crmonline/launch-aad.PNG
 [8]: ./media/powerapps-create-api-crmonline/aad-tenant-applications.PNG
