@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/24/2015"
    ms.author="mfussell"/>
 
 # RunAs: Running a Service Fabric application with different security permissions
@@ -21,7 +21,7 @@ Service Fabric provides the ability to secure applications running in the cluste
 
 By default, Service Fabric applications run under the account that the Fabric.exe process is running under. It also provides the capability to run applications under a local user account, specified within the application’s manifest. Supported account types for RunAs are **LocalUser**, **NetworkService**, **LocalService** and **LocalSystem**.
 
-> [AZURE.NOTE] Domain accounts are supported on Windows Server deployments where Active Directory is available. 
+> [AZURE.NOTE] Domain accounts are supported on Windows Server deployments where Active Directory is available.
 
 User groups can be defined and created where one or more users can be added to this group to be managed together. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
@@ -86,9 +86,10 @@ Next under the **ServiceManifestImport** section configure a policy to apply thi
 
 Let's now add the file MySetup.bat to the Visual Studio project in order to test the Administrator privileges. In Visual Studio right click on the service project and add a new file call MySetup.bat. Next it is necessary to ensure that this file is included in the service package, which it is not by default. To ensure that the MySetup.bat file is include in the package select the file, right click to get context menu, choose properties and in the properties dialog ensure that the **Copy to Output Directory** is set to **Copy if newer**. This is shown in the screen shot below.
 
-![Visual Studio CopyToOutput for SetupEntryPoint batch file][Image1]
+![Visual Studio CopyToOutput for SetupEntryPoint batch file][image1]
 
 Now open the MySetup.bat file and add the following commands.
+
 ~~~
 REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
@@ -100,10 +101,7 @@ REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Mana
 ~~~
 
 Next build and deploy the solution to a local development cluster.  Once the service has started, as seen in the Service Fabric Explorer, you can see that the MySetup.bat was successful in a two ways. Open a PowerShell command prompt and type
-~~~
- [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-~~~
-Like this
+
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
@@ -119,18 +117,20 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 In order to run PowerShell from the **SetupEntryPoint** point you can run PowerShell.exe in a batch file pointing to a PowerShell file. First add a PowerShell file to the service project e.g. MySetup.ps1. Remember to set the *Copy if newer* property so that this file is also included in the service package. The example below shows a sample batch file to launch a PowerShell file called MySetup.ps1 which sets a system environment variable called *TestVariable*.
 
 MySetup.bat to launch PowerShell file.
+
 ~~~
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-In the PowerShell file add the following to set a system environment variable
-~~~
+In the PowerShell file add the following to set a system environment variable.
+
+```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-~~~
+```
 
-## Applying RunAsPolicy to services 
-In the steps above you saw how to apply RunAs policy to a SetupEntryPoint. Let's looks a little deeper how to create different principals that can be applied as service policies. 
+## Applying RunAsPolicy to services
+In the steps above you saw how to apply RunAs policy to a SetupEntryPoint. Let's looks a little deeper how to create different principals that can be applied as service policies.
 
 ### Create local user groups
 User groups can be defined and created where one or more users can be added to this group. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The example below shows a local group called **LocalAdminGroup** with Administrator privileges. Two users, Customer1 and Customer2 are made members of this local group.
@@ -169,7 +169,7 @@ You can create a local user that can be used to secure a service within the appl
   </Users>
 </Principals>
 ~~~
- 
+
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,15 +184,15 @@ The **RunAsPolicy** section for a **ServiceManifestImport** specifies the accoun
 
 ~~~
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
-If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying an **SetupEntryPoint** is especially useful when you want to run certain high privilege setup operation under a system account, while the actual service code can run under a lower privileged account. 
+If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying an **SetupEntryPoint** is especially useful when you want to run certain high privilege setup operation under a system account, while the actual service code can run under a lower privileged account.
 
 ### Applying a default policy to all the service code packages
-The **DefaultRunAsPolicy** section is used to specify a default user account for all code packages that don’t have specific **RunAsPolicy** defined. If most code packages specified in service manifests used by an application need to run under the same RunAs user, the application can just define a default RunAs policy with that user account instead of specifying a **RunAsPolicy** for every code package. For example the following example specifies that if a code package does not have **RunAsPolicy** specified, the code package should run under the MyDefaultAccount specified in the Principals section. 
+The **DefaultRunAsPolicy** section is used to specify a default user account for all code packages that don’t have specific **RunAsPolicy** defined. If most code packages specified in service manifests used by an application need to run under the same RunAs user, the application can just define a default RunAs policy with that user account instead of specifying a **RunAsPolicy** for every code package. For example the following example specifies that if a code package does not have **RunAsPolicy** specified, the code package should run under the MyDefaultAccount specified in the Principals section.
 
 ~~~
 <Policies>
@@ -266,7 +266,9 @@ The application manifest below shows many of the different settings described ab
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
+         <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
    </Principals>
    <Policies>
@@ -286,4 +288,4 @@ The application manifest below shows many of the different settings described ab
 * [Specifying Resources in a Service Manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

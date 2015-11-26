@@ -78,6 +78,9 @@ To see these events, open [Search][diagnostic], open Filter, and then choose Cus
 
 ![Drill through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
+
+> [AZURE.NOTE] If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](app-insights-sampling.md)
+
 ### How to see request POST data
 
 Request details don't include the data sent to your app in a POST call. To have this data reported:
