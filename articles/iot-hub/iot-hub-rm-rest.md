@@ -18,6 +18,8 @@
 
 # Tutorial: Create an IoT Hub using C#
 
+[AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
+
 ## Introduction
 
 You can use the [IoT Hub Resource Provider REST API][lnk-rest-api] to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the Resource Provider REST API to create an IoT hub from a C# program.
@@ -28,7 +30,7 @@ In order to complete this tutorial you'll need the following:
 - An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
 
-[AZURE.INCLUDE [iot-hub-prepare-resource-manager](../includes/iot-hub-prepare-resource-manager.md)]
+[AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## Prepare your Visual Studio project
 
@@ -71,7 +73,7 @@ In order to complete this tutorial you'll need the following:
     static string deploymentName = "{Deployment name}";
     ```
 
-[AZURE.INCLUDE [iot-hub-get-access-token](../includes/iot-hub-get-access-token.md)]
+[AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## Use the REST API to create an IoT hub
 
@@ -156,7 +158,7 @@ Use the IoT Hub Resource Provider REST API to create a new IoT hub in your resou
     return true;
     ```
 
-[AZURE.INCLUDE [iot-hub-prepare-retrieve-keys](../includes/iot-hub-prepare-retrieve-keys.md)]
+[AZURE.INCLUDE [iot-hub-retrieve-keys](../../includes/iot-hub-retrieve-keys.md)]
 
 ## Complete and run the application
 
