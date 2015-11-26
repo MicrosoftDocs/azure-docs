@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/25/2015"
    ms.author="guayan"/>
 
 # Configure an API to connect to a backend resource on an Azure Active Directory domain
@@ -35,9 +35,9 @@ To access the backend system on an AAD domain, create an AAD application, and gi
 ![][14]
 2. Select the **Add** button at the bottom. Then:  
 
-	a) Choose **Add an application my organization is developing**. 
-	b) Enter a name for your application and select **Web application and/or web API**. 
-	c) In **Sign-on URL** and **App ID URI**, enter unique URLs within your AAD and URLs that make sense to your organization. For example, you can enter http://powerappssignon.contoso.com or http://powerappsappid.contoso.com.  We recommend using a URL within your organization's AAD domain. The URLs are used as identifiers and there is no requirement that they need to exist. No one is going to browse the URLs you enter. You can enter HTTP or HTTPS.
+	a) Choose **Add an application my organization is developing**.  
+	b) Enter a name for your application and select **Web application and/or web API**.  
+	c) In **Sign-on URL** and **App ID URI**, enter unique URLs within your AAD and URLs that make sense to your organization. For example, you can enter http://powerappssignon.contoso.com or http://powerappsappid.contoso.com.  We recommend using a URL within your organization's AAD domain. The URLs are used as identifiers and there is no requirement that they need to exist. No one is going to browse the URLs you enter. You can enter HTTP or HTTPS.  
 
 3. In the newly created AAD application page, go to the **Configure** tab:  
 ![][15]
@@ -47,7 +47,8 @@ To access the backend system on an AAD domain, create an AAD application, and gi
 6. In **permissions to other applications**:  
 
 	a) Select **Add application**. In the pop-up window, choose the AAD application securing your existing backend:  
-	![][17]
+	![][17]  
+
 	b) Use the drop-down list to add the permissions:  
 	![][18]
 
@@ -93,7 +94,7 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 
 **Notice** that the **token** connection parameter name is important. You can pick your own name as long as it's camel case. You'll use this name later in your backend code or API policy.
 
-Next, go to [Azure portal][19], and go to the **General** settings blade of your API. You should see the additional configuration options.
+Next, go to [Azure portal][19], and go to the **General** settings blade of your API. You should see the additional configuration options:  
 ![][21]
 
 
@@ -101,7 +102,7 @@ Next, go to [Azure portal][19], and go to the **General** settings blade of your
 
 Open an app in PowerApps. In **Available connections**, your new API is listed. When you select **Connect**, it displays an AAD sign-in window. Enter your organization's AAD account details and your connection is created.
 
-Now when a runtime call is made from PowerApps to the API using this connection, your backend receives the user's AAD token in the **x-ms-apim-tokens** HTTP header in the following [Base64 encoding][20] format:  
+Now when a runtime call is made from your app to the API using this connection, your backend receives the user's AAD token in the **x-ms-apim-tokens** HTTP header in the following [Base64 encoding][20] format:  
 
 ```json
 {

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Develop or create an API hosted in the app service environment in PowerApps | Microsoft Azure"
+	pageTitle="Develop or create an API hosted in the app service environment in PowerApps Enterprise | Microsoft Azure"
 	description="Learn how to register a custom API hosted in app service environment in the Azure portal"
 	services=""
     suite="powerapps"
@@ -14,24 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/20/2015"
+   ms.date="11/25/2015"
    ms.author="guayan"/>
 
-# Register an API hosted in your App Service Environment
+# Register an API hosted in your app service environment
 PowerApps supports registering existing APIs hosted anywhere in the cloud or on-premises, which is really powerful. In some scenarios, you may want to develop or create some new APIs. For example, you may want to:
 
 - Implement some new functionality for your organization to use.
-- Build on top of existing functionality or data to provide a better experience for users building their PowerApps.
+- Build on top of existing functionality or data to provide a better experience for users building their apps.
 
 When you host your APIs in your app service environment, you leverage all the existing capabilities of the [app service environment](../app-service-app-service-environment-intro.md), and also get a better integration experience.
 
-To use these APIs, you must "register" the APIs in the Azure portal. The following options are available: 
+To use these APIs in your apps, you must "register" the APIs in the Azure portal. The following options are available: 
 
-- Register a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md)
-- Register an API hosted within your app service environment
-- Register using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md)
+- Register a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+- Register an API hosted within your app service environment.
+- Register using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
-This article shows you how to register an API hosted in your app service environment.
+This article shows you how to **register an API hosted in your app service environment**.
 
 #### Prerequisites to get started
 
@@ -53,7 +53,7 @@ You also have options to deploy your web API into an app service environment, in
 
 After the API is deployed to your app service environment, use the following steps to register:
 
-1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**. In PowerApps, select **Manage APIs**:  
+1. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
 ![][11]
 2. In Manage APIs, select **Add**:  
 ![][12]  
@@ -66,7 +66,7 @@ After the API is deployed to your app service environment, use the following ste
 ![][14]
 5. Select **ADD** to complete these steps.
 
-> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment, especially PowerApps.
+> [AZURE.TIP] When you register an API, you're registering the API to your app service environment. Once in the app service environment, it can be used by other apps within the same app service environment.
 
 ## Summary and next steps
 In this topic, you've seen how to register an APIs hosted in your app service environment. Here are some related topics and resources for learning more about PowerApps: 

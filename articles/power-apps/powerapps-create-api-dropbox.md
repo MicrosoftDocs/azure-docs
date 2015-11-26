@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/24/2015"
+   ms.date="11/25/2015"
    ms.author="litran"/>
 
 # Create a new Dropbox API in your organization's app service environment
+
+## Create the API in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), sign-in with your work account. For example, sign-in with *yourUserName*@*YourCompany*.com. When you do this, you are automatically signed in to your company subscription.
  
@@ -42,7 +44,8 @@
 ![configure dropbox API settings][7]
 
 9. Enter the **App Key** and **App Secret** values of your Dropbox application. If you don't already have one, see the "Register a Dropbox app for use with PowerApps" section in this topic to create the key and secret values you need.  
-	>[AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+
+	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
