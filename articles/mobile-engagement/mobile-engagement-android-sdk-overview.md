@@ -35,7 +35,7 @@ Click to see the [SDK Content](mobile-engagement-android-sdk-content.md).
 
 ##Release notes
 
-##4.1.2
+##4.1.2 (11/25/2015)
 
 - Stability improvements.
 
