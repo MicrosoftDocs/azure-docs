@@ -44,6 +44,7 @@
 ![Configure Dynamics CRM Online API settings][6]
 
 9. Enter **Client Id** and **App Key** of your Dynamics CRM Online Azure Active Directory (AAD) application.  If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
+
 	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
@@ -55,6 +56,7 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 1. Open the [Azure Portal](https://portal.azure.com).
 
 2. Select **Browse** and then select **Active Directory**:  
+
 	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
 3. Select your organization's tenant name:  
@@ -79,10 +81,10 @@ When finished, a new Dynamics CRM Online API is added to your app service enviro
 
 	![Add AAD application - app properties][10]
 
-7. On successful completion, you are redirected to the new AAD app. Select **Configure**:
+7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
 ![Contoso AAD app][11]
 
-8. Set the **Reply URL** under _OAuth 2_ section to the redirect URL you received when you added the new Dynamics CRM Online API in the Azure Portal (in this topic).
+8. Set the **Reply URL** under _OAuth 2_ section to the redirect URL you received when you added the new Dynamics CRM Online API in the Azure Portal (in this topic):  
 ![Configure Contoso AAD app][12]
 
 9. Select **Save**.
