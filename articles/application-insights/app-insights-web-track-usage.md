@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights

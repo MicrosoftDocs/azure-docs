@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/06/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Usage analysis with Application Insights
