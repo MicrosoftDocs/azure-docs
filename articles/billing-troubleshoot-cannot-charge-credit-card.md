@@ -22,9 +22,9 @@
 
 If we are unable to process your payment for some reason, you might receive an email with a message similar to:
 
-We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.
+**We have been unable to charge your credit card for your subscription. To prevent any service interruptions, please update your payment information.**
 
 This can occur if your account is past due. If so, see this article for instructions to make a credit card or invoice payment:
 [Why have you received a notification that your Azure subscription has a past due balance](../billing-azure-subscription-past-due-balance.md).
 
-If you need help or have questions, you can always contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). If you need help opening a ticket see [How to Create a Support Ticket for Azure Billing and Subscription Issues](../billing-create-billing-support-ticket.md).
+If you need help or have questions, you can always contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). If you need help opening a ticket see [How to create a support ticket for Azure billing and subscription issues](../billing-create-billing-support-ticket.md).
