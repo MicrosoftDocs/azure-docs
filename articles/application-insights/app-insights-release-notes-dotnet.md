@@ -16,12 +16,12 @@
  
 # Release Notes for Application Insights SDK for .NET
 
-The [Application Insights SDK for .NET](app-insights-start-monitoring-app-health-usage.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK for .NET](app-insights-asp-net.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 
 #### To install the SDK in your application
 
-See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
+See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 #### To upgrade to the latest SDK 
 

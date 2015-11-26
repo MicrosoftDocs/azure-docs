@@ -32,7 +32,7 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
+* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
 * Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
 
 
@@ -395,7 +395,7 @@ You can add as many initializers as you like.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md

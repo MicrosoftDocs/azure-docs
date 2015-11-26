@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Logs, exceptions and custom diagnostics for ASP.NET in Application Insights
@@ -285,7 +285,7 @@ Up to 500 events per second from each application. Events are retained for seven
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
