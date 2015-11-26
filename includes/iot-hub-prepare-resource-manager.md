@@ -56,3 +56,4 @@ You have now finished creating the Azure AD application that will enable you to 
 - Password
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
+[lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/

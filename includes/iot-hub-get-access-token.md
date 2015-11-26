@@ -37,3 +37,5 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
       return;
     }
     ```
+
+[lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
