@@ -182,8 +182,12 @@ You can now complete the application by calling the **CreateIoTHub** and **ShowI
 
 ## Next steps
 
+- Explore the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
+- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Rsource Manager.
+
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
+[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
