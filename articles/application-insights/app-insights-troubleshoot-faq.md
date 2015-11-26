@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -156,6 +156,17 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 + Make sure Internet Explorer isn't displaying your site in Compatibility mode.
 + Use the browser's debug feature (F12 on some browsers, then choose Network) to verify that data is being sent to dc.services.visualstudio.com.
 
+#### I used to see data, but it has stopped
+
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+
+
+#### I don't see all the data I'm expecting
+
+* **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. You can disable it. [Learn more about sampling.](app-insights-sampling.md)
+
+
 #### <a name="q08"></a>Can I use Application Insights to monitor an intranet web server?
 
 Yes, you can monitor health and usage if your server can send data to the public internet. In your firewall, open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
@@ -165,11 +176,6 @@ But if you want to run web tests for your service, it must be accessible from th
 #### Can I monitor an intranet web server that doesn't have access to the public internet?
 
 You would have to arrange a proxy that can relay https POST calls to dc.services.visualstudio.com 
-
-#### I used to see data, but it has stopped
-
-* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
-* Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
 
 ## Status Monitor doesn't work
 
