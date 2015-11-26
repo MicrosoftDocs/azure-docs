@@ -16,7 +16,7 @@
      ms.date="11/23/2015"
      ms.author="dobett"/>
 
-# Tutorial: Create an IoT Hub using C#
+# Tutorial: Create an IoT Hub using a C# program
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -183,7 +183,7 @@ You can now complete the application by calling the **CreateIoTHub** and **ShowI
 ## Next steps
 
 - Explore the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
-- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Rsource Manager.
+- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
