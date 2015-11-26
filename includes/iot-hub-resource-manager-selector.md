@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR]
-- [C# with template](../articles/iot-hub-rm-template/)
-- [C# with REST](../articles/iot-hub-rm-rest/)
+- [C# with template](iot-hub-rm-template.md)
+- [C# with REST](iot-hub-rm-rest.md)
