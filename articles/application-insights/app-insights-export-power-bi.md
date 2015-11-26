@@ -41,7 +41,7 @@ Noam Ben Zeev shows what we describe in this article.
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
 
-> [AZURE.NOTE] **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+**Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 ## Monitor your app with Application Insights
 

@@ -66,7 +66,7 @@ User and session counts aren't included in the quota for pricing purposes.
 
 *How can I reduce the amount of data my app sends?*
 
-* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search.
+* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. From ASP.NET SDK 2.0.0-beta3, adaptive sampling is enabled by default.
 * [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
 
 

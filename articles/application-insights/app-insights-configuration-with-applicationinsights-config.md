@@ -147,6 +147,29 @@ Telemetry processors can filter and modify each telemetry item just before it is
 
 You can [write your own telemetry processors](app-insights-api-filtering-sampling.md#filtering).
 
+
+#### Adaptive sampling telemetry processor (from 2.0.0-beta3)
+
+This is enabled by default. If your app sends a lot of telemetry, this processor removes some of it.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+The parameter provides the target that the algorithm tries to achieve. Each instance of the SDK works independently, so if your server is a cluster of several machines, the actual volume of telemetry will be multiplied accordingly.
+
+[Learn more about sampling](app-insights-sampling.md).
+
+
+
+#### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
+
 There is also a standard [sampling telemetry processor](app-insights-api-filtering-sampling.md#sampling) (from 2.0.1):
 
 ```XML

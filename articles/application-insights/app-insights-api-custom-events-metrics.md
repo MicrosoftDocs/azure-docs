@@ -104,22 +104,26 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-Here, "WinGame" is the name that appears in the Application Insights portal. Click the Custom Events tile on the overview blade:
+Here, "WinGame" is the name that appears in the Application Insights portal. 
 
-![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
+To see a count of your events, open a [Metric Explorer](app-insights-metrics-explorer.md) blade, add a new chart, and select Events.  
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+To compare the counts of different events, set the chart type to Grid, and group by event name:
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-The chart is grouped by Event name so that you can see the relative contributions of the most significant events. To control this, select the chart and use the Grouping control.
-
-![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-From the list below the chart, select an event name. Click through to see individual occurrences of the event.
+On the grid, click through an event name to see individual occurrences of that event.
 
 ![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Click any occurrence to see more detail.
 
+To focus on specific events in either Search or Metric Explorer, set the blade's filter to the event names that you're interested in:
 
+![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Track Metric
 

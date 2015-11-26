@@ -43,7 +43,7 @@ Before you start:
 [Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
 * Adaptive sampling is recommended. It automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only.  
-* Fixed-rate sampling is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* [Fixed-rate sampling](app-insights-sampling.md) is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
 ### To enable sampling
 

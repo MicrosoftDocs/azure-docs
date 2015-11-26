@@ -35,6 +35,11 @@ Open Diagnostic Search to see the telemetry that the SDK automatically sends.
 
 The details vary from one application type to another. You can click through any individual event to get more detail.
 
+## Sampling 
+
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+
+
 ##<a name="events"></a>Custom events
 
 Custom events show up both in [Diagnostic Search][diagnostic] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
@@ -270,6 +275,11 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 ### <a name="limits"></a>How much data is retained?
 
 Up to 500 events per second from each application. Events are retained for seven days.
+
+### Some of my events or traces don't appear
+
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+
 
 ## <a name="add"></a>Next steps
 
