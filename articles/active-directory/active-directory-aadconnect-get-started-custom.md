@@ -51,7 +51,7 @@ Permissions | By default Azure AD Connect will create four groups local to the s
 
 
 ## User sign-in
-After installing the required components you will be asked to specify how the single sign-on method that users will use.  The table below provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-user-signin.md).
+After installing the required components you will be asked to specify how the single sign-on method that users will use.  The table below provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-aadconnect-user-signin.md).
 
 ![User Signin](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
