@@ -22,8 +22,8 @@ This document explains using the Microsoft ASR Capacity Planning tool, which pro
 Capacity planning tool can be used to analyze the source environment (workloads), bandwidth requirements, resource requirements (VMs, storage) on the target and any additional server resources that are required on the source side (SC VMMs, Configuration Servers, Process Servers etc).  Download [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) tool
  
 There are two modes in which the capacity planner can be used. 
-    -	Quick planning: Get the network and server projections based on average number of VMs, disks, storage and change rate. 
-    -	Detailed planning: Provide the details of each workload at VM level. Analyze the compatibility at the VM level and also get the projections of the network and servers.
+- Quick planning: Get the network and server projections based on average number of VMs, disks, storage and change rate. 
+- Detailed planning: Provide the details of each workload at VM level. Analyze the compatibility at the VM level and also get the projections of the network and servers.
      
 This document assumes the user to be familiar with the Azure Site Recovery. Refer to [Azure Site Recovery Overview](site-recovery-overview)  
 
@@ -46,7 +46,7 @@ Depending on the mode of the planner you want to use, the details required to pr
 
 	![Inputs](./media/site-recovery-capacity-planner/inputs.png)
 
-After entering the details of the source environment, the output displayed will have the guidance which includes
+1. After entering the details of the source environment, the output displayed will have the guidance which includes
 	1.	Network Bandwidth requirements
 		1. Bandwidth required for delta replication (in Megabits/sec). This is computed based on the average daily data change rate. 
 		1. Bandwidth required for initial replication (In Megabits/sec) is also presented. This is computed based on the initial replication inputs presented (last two rows) in the inputs. 
@@ -86,14 +86,14 @@ After entering the details of the source environment, the output displayed will 
  
 **Example** : For 5 VMs with the following values, the tool computed and assigned the best Azure size VM match and suggested whether the VM needs standard storage or premium storage
 
-	![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 In the example two standard storage accounts and one premium storage accounts required for five VMs. VM1, VM2 can go use first standard storage account and VM3 can use 2nd standard storage account. VM4 and VM5 need premium storage account and can be accommodate in a single premium storage account.
 
 ![Workload Qualification](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 
->[Azure.Note] IOPS is calculated at VM level and not at a disk level. If one of the disks of a source VM IOPS is > 500, but total IOPS of the VM is within supported standard Azure VM, and all other values (number of disks, number of NICs, number of CPU cores, Memory size, ) are within a standard VM limit then the tool picks a standard VM instead of premium storage.  User need to manually update the mapping Azure size cell with appropriate DS or GS series VM
+>[AZURE.NOTE] IOPS is calculated at VM level and not at a disk level. If one of the disks of a source VM IOPS is > 500, but total IOPS of the VM is within supported standard Azure VM, and all other values (number of disks, number of NICs, number of CPU cores, Memory size, ) are within a standard VM limit then the tool picks a standard VM instead of premium storage.  User need to manually update the mapping Azure size cell with appropriate DS or GS series VM
 
 
 1.	First column is a validation column for the VMs, disks and churn. 
