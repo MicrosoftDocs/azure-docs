@@ -247,6 +247,8 @@ In addition, perform the following verification steps:
 
 
 ## Next steps
+After the installation has completed, Logoff and Login again before you use Synchronization Service Manager or Synchronization Rule Editor.
+
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
