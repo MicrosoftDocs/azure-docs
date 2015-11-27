@@ -21,9 +21,10 @@
 This document explains using the Microsoft ASR Capacity Planning tool, which provides guidance on the resources that need to be provisioned for seamless Site Recovery operations. 
 Capacity planning tool can be used to analyze the source environment (workloads), bandwidth requirements, resource requirements (VMs, storage) on the target and any additional server resources that are required on the source side (SC VMMs, Configuration Servers, Process Servers etc).  Download [Azure Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) tool
  
-There are two modes in which the capacity planner can be used. 
-- Quick planning: Get the network and server projections based on average number of VMs, disks, storage and change rate. 
-- Detailed planning: Provide the details of each workload at VM level. Analyze the compatibility at the VM level and also get the projections of the network and servers.
+There are two modes in which the capacity planner can be used:
+ 
+- **Quick planning**: Get the network and server projections based on average number of VMs, disks, storage and change rate. 
+- **Detailed planning**: Provide the details of each workload at VM level. Analyze the compatibility at the VM level and also get the projections of the network and servers.
      
 This document assumes the user to be familiar with the Azure Site Recovery. Refer to [Azure Site Recovery Overview](site-recovery-overview)  
 
