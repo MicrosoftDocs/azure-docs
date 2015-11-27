@@ -26,11 +26,11 @@ There are two modes in which the capacity planner can be used:
 - **Quick planning**: Get the network and server projections based on average number of VMs, disks, storage and change rate. 
 - **Detailed planning**: Provide the details of each workload at VM level. Analyze the compatibility at the VM level and also get the projections of the network and servers.
      
-This document assumes the user to be familiar with the Azure Site Recovery. Refer to [Azure Site Recovery Overview](site-recovery-overview)  
+This document assumes the user to be familiar with the Azure Site Recovery. Refer to [Azure Site Recovery Overview](site-recovery-overview.md)  
 
 ## Getting Started
 ###Pre-requisites
-Depending on the mode of the planner you want to use, the details required to proceed changes. In addition to the infrastructure details such as VMs, Disks per VM, Storage per disk, there are a few more details required. The key one is the daily change rate or churn rate. If the source environment is Hyper-V, use the [Hyper-V capacity planning tool](https://www.microsoft.com/en-in/download/details.aspx?id=39057) to get the churn rate and for VMWare, use the [VMware Capacity Planning appliance tool](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)
+Depending on the mode of the planner you want to use, the details required to proceed changes. In addition to the infrastructure details such as VMs, Disks per VM, Storage per disk, there are a few more details required. The key one is the daily change rate or churn rate. If the source environment is Hyper-V, use the [Hyper-V capacity planning tool](https://www.microsoft.com/en-in/download/details.aspx?id=39057) to get the churn rate. Read the instruction to use [Hyper-v capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md). For VMWare, use the [VMware Capacity Planning appliance tool](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance)
 
 ##Quick Planner
 1.	Open the **ASR Capacity Planner.xlsm** file. This requires macros to be run. Therefore **“enable editing”** and **“enable content”** when prompted 
