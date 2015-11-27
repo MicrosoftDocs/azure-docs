@@ -49,7 +49,7 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 
 | Solution | Scenario |
 | ----- | ----- |
-| Before you start | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
+| Before you start | <li>[Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md)</li> |
 | [Express settings](active-directory-aadconnect-get-started-express.md) | <li>Recommended and default option if you have a single forest AD.</li> <li>User sign in with the same password using password synchronization.</li>
 | [Customized settings](active-directory-aadconnect-get-started-custom.md) | <li>Used when you have multiple forests. Supports many on-premises [topologies](active-directory-aadconnect-topologies.md).</li> <li>Customize your sign-in option , such as ADFS for federation or use a 3rd party identity provider.</li> <li>Customize synchronization features, such as filtering and writeback.</li>
 | [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>If you have an existing DirSync server already running.</li>
