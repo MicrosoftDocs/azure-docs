@@ -117,14 +117,14 @@ Add the following **EventCallback** class as a nested class inside the **App** c
 
 ```
 protected static class EventCallback
-        implements IotHubEventCallback
+    implements IotHubEventCallback
 {
-    public void execute(IotHubStatusCode status, Object context)
-    {
-        Integer i = (Integer) context;
-        System.out.println("IoT Hub responded to message " + i.toString()
-                + " with status " + status.name());
-    }
+  public void execute(IotHubStatusCode status, Object context)
+  {
+    Integer i = (Integer) context;
+    System.out.println("IoT Hub responded to message " + i.toString()
+        + " with status " + status.name());
+  }
 }
 ```
 
@@ -133,16 +133,16 @@ Add the following **MessageCallback** class as a nested class inside the **App**
 
 ```
 protected static class MessageCallback
-        implements com.microsoft.azure.iothub.MessageCallback
+    implements com.microsoft.azure.iothub.MessageCallback
 {
-    public IotHubMessageResult execute(Message msg,
-            Object context)
-    {
-        System.out.println(
-                "Received message with content: " + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
+  public IotHubMessageResult execute(Message msg,
+      Object context)
+  {
+    System.out.println(
+        "Received message with content: " + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
 
-        return IotHubMessageResult.COMPLETE;
-    }
+      return IotHubMessageResult.COMPLETE;
+  }
 }
 ```
 
@@ -158,38 +158,38 @@ Replace `<your device connection string>` with a valid device connection string.
 ```
 public static void main( String[] args ) throws IOException, URISyntaxException
 {
-    String connString = "<your device connection string>";
-    IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+  String connString = "<your device connection string>";
+  IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
 
-    DeviceClient client = new DeviceClient(connString, protocol);
+  DeviceClient client = new DeviceClient(connString, protocol);
 
-    MessageCallback messageCallback = new MessageCallback();
-    client.setMessageCallback(messageCallback, null);
+  MessageCallback messageCallback = new MessageCallback();
+  client.setMessageCallback(messageCallback, null);
 
-    client.open();
+  client.open();
 
-    for (int i = 0; i < 10; ++i)
+  for (int i = 0; i < 10; ++i)
+  {
+    String msgStr = "Event Message " + Integer.toString(i);
+    try
     {
-        String msgStr = "Event Message " + Integer.toString(i);
-        try
-        {
-            Message msg = new Message(msgStr);
-            msg.setProperty("messageCount", Integer.toString(i));
-            System.out.println(msgStr);
+      Message msg = new Message(msgStr);
+      msg.setProperty("messageCount", Integer.toString(i));
+      System.out.println(msgStr);
 
-            EventCallback eventCallback = new EventCallback();
-            client.sendEventAsync(msg, eventCallback, i);
-        }
-        catch (Exception e)
-        {
-        }
+      EventCallback eventCallback = new EventCallback();
+      client.sendEventAsync(msg, eventCallback, i);
     }
+    catch (Exception e)
+    {
+    }
+  }
 
-    System.out.println("Press any key to exit...");
-    Scanner scanner = new Scanner(System.in);
-    scanner.nextLine();
+  System.out.println("Press any key to exit...");
+  Scanner scanner = new Scanner(System.in);
+  scanner.nextLine();
 
-    client.close();
+  client.close();
 }
 ```
 
