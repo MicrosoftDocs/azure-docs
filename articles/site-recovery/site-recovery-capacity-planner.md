@@ -46,7 +46,7 @@ Depending on the mode of the planner you want to use, the details required to pr
 
 	![Inputs](./media/site-recovery-capacity-planner/inputs.png)
 
-1.	After entering the details of the source environment, the output displayed will have the guidance which includes
+After entering the details of the source environment, the output displayed will have the guidance which includes
 	1.	Network Bandwidth requirements
 		1. Bandwidth required for delta replication (in Megabits/sec). This is computed based on the average daily data change rate. 
 		1. Bandwidth required for initial replication (In Megabits/sec) is also presented. This is computed based on the initial replication inputs presented (last two rows) in the inputs. 
