@@ -57,7 +57,6 @@ Your Mobile App backend is now configured to work with GCM.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-
 ## Add push notifications to your app
 
 ###Verify Android SDK Version
@@ -84,8 +83,5 @@ You can test the app by directly attaching an Android phone with a USB cable, or
 
 * Tags allow you to target segmented customers with pushes. [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) shows you how to add tags to a device installation.
 
-<!-- URLs. -->
-[Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
-[Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
-[Management Portal]: https://manage.windowsazure.com/
-[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
+<!-- URLs -->
+[Android quick start]: app-service-mobile-android-get-started.md
