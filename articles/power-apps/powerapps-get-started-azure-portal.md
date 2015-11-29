@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="11/29/2015"
    ms.author="litran"/>
 
 # What is Microsoft PowerApps enterprise?
@@ -98,7 +98,7 @@ Now that you have your AD tenant, you can create a new or use an existing Azure 
 
 Now that you have your AD tenant and an Azure subscription, your work subscription administrators can sign up for PowerApps enterprise. The Admin can also add users within your company to 'administer' PowerApps, including giving users permissions, and manage the PowerApps published to your Azure subscription. 
 
-Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=71558) to contact us to learn more about pricing and the sign up process. 
+Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) to contact us to learn more about pricing and the sign up process. 
 
 ![][4]  
 
@@ -176,7 +176,7 @@ Your company is now signed up for PowerApps and has an app service environment. 
 
 - [Monitor your PowerApps apps](powerapps-manage-monitor-usage.md)
 - [Develop an API for PowerApps](powerapps-develop-api.md)
-- [Add a new API, add a connection, and give users access](powerapps-create-new-api.md)
+- [Add a new API, add a connection, and give users access](powerapps-manage-api-connection-user-access.md)
 - [Update an existing API and its properties](powerapps-configure-apis.md)
 
 

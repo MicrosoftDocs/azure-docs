@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="11/29/2015"
    ms.author="litran"/>
 
 # Create a new SharePoint Server API in your organization's app service environment
@@ -51,14 +51,14 @@ When finished, a new SharePoint Server API is added to your app service environm
 
 SharePoint Server use Active Directory for user authentication. APIs in the app serviced environments are authenticated using Azure Active Directory (AAD). You do need to exchange the user’s AAD token and convert it to the AD token. This AD token can then be used to connect to the on-premises service.
 
-[Azure Application Proxy (AAD Proxy)][2] is used for this requirement. It is an Azure Service in GA, and it secures remote access and SSO to on-premises web applications. The steps to enable AAD Proxy is well documented in MSDN. At a high level, the steps include:  
+[Azure Application Proxy (AAD Proxy)](../active-directory-application-proxy-publish.md) is used for this requirement. It is an Azure Service in GA, and it secures remote access and SSO to on-premises web applications. The steps to enable AAD Proxy is well documented in MSDN. At a high level, the steps include:  
 
-1. [Enable Application Proxy Services][3] – This includes:  
+1. [Enable Application Proxy Services](../active-directory-application-proxy-enable.md) – This includes:  
 
 	- Enable Application Proxy in Azure AD
 	- Install and Register the Azure Application Proxy Connector
 
-2. [Publish Applications with Application  Proxy][4] – This includes:  
+2. [Publish Applications with Application  Proxy](../active-directory-application-proxy-publish.md) – This includes:  
 
 	- Publish an Application Proxy app using the wizard. Note the external URL of the intranet sharepoint site once the Proxy app has been created.
 	- Assign users and group to the application.
