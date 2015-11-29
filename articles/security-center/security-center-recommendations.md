@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/2/2015"
    ms.author="terrylan"/>
 
 # Implementing security recommendations in Azure Security Center
@@ -26,7 +26,7 @@ This document walks you through how recommendations in Azure Security Center hel
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ##What is a security recommendation?
-Azure Security Center is continually analyzing the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control.
+Azure Security Center periodically analyses the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control.
 
 ## Setting recommendations
 
@@ -36,7 +36,7 @@ In [Setting security policies in Azure Security Center](https://azure.microsoft.
 - Turn on data collection
 - Choose which recommendations to see as part of your security policy
 
-Policy recommendations currently available center around system updates, baseline rules, antimalware, ACL for endpoints, network security groups on subnets and network interfaces, SQL auditing, SQL transparent data encryption, and web application firewall.  [Setting security policies](https://azure.microsoft.com/documentation/articles/security-center-policies/) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, anti-malware, [ACLs for endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/), [Network Security Groups](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) on subnets and network interfaces, SQL Database auditing, SQL Database transparent data encryption, and web application firewall.  [Setting security policies](https://azure.microsoft.com/documentation/articles/security-center-policies/) provides a description of each recommendation option.
 
 The **Show recommendations for** section of the **Security policy** blade gives you a list of recommendations that you can turn on for the resources in the specified subscription.
 
@@ -68,7 +68,7 @@ The recommendations are shown in a table format where each line represents one p
 - **SEVERITY**: describes the severity of that particular recommendation:
   - **High**: a vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
   - **Medium**: non-critical or additional steps required to complete a process or eliminate a vulnerability
-  - **Low**: a vulnerability due to missing system updates or rules mismatch that should be addressed but does not require immediate attention. (By default, a low recommendation  is not presented but you can filter on Low recommendations if you choose to view them.)
+  - **Low**: a vulnerability that should be addressed but does not require immediate attention. (By default, a low recommendation  is not presented but you can filter on Low recommendations if you choose to view them.)
 
 Use the table below as a reference to understand the available recommendations and what each one will do if you apply it:
 
@@ -77,15 +77,16 @@ Use the table below as a reference to understand the available recommendations a
 | Enable Data Collection for subscriptions/virtual machines | Recommends that you turn on Data Collection in the Security Policy for select VMs. |
 | Resolve mismatch baseline rules | Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved. |
 | Apply system updates | Recommends that you deploy missing system updates to VMs (Windows VMs only). |
-| Configure ACLs for endpoint | Recommends that you configure an Access Control list to restrict inbound access to VMs (Classic VMs only). |
+| Configure ACLs for endpoints | Recommends that you configure an access control list to restrict inbound access to VMs (Classic VMs only). |
 | Add a web application firewall | Recommends that you deploy a Web Application Firewall (WAF) for web endpoints (Resource Manager VMs only). |
 | Finalize web application firewall setup | To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. This recommendation will complete the necessary setup changes. |
 | Enable Antimalware | Recommends that you provision antimalware to VMs (Windows VMs only). |
 | Enable Network Security Groups on subnets/network interfaces | Recommends that you enable Network Security Groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).  |
 | Restrict access through public external endpoints | Recommends that you configure inbound traffic rules for NSGs. |
-| Enable SQL Auditing on SQL servers/databases | Recommends that you turn on Auditing for Azure SQL servers and databases (Azure SQL service only, not including SQL running on your virtual machines). |
+| Enable server SQL Auditing | Recommends that you turn on Auditing for Azure SQL servers (Azure SQL service only, not including SQL running on your virtual machines). |
+| Enable database SQL Auditing | Recommends that you turn on Auditing for Azure SQL databases (Azure SQL service only, not including SQL running on your virtual machines). |
 | Enable Transparent Data Encryption on SQL databases | Recommends that you enable encryption for SQL databases (Azure SQL service only). |
-| Deploy the VM Agent | Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. Information on how to install the VM Agent is available [here](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) |
+| Deploy the VM Agent | Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
 
 ## Applying recommendations
 After reviewing all recommendations, you may decide which one you should apply first. It is recommended to use the severity rating as the main parameter to evaluate which recommendations should be applied first.

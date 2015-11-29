@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/2/2015"
    ms.author="terrylan"/>
 
 # Azure Security Center Frequently Asked Questions (FAQ)
 
-This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources. This FAQ covers questions about using the service, including billing model and capabilities.
+This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
@@ -38,16 +38,16 @@ See [Azure Security Center Pricing](https://azure.microsoft.com/pricing/) for in
 ## Data Collection
 
 ### How do I enable data collection?<a name=data-collection></a>
-You can enable data collection for your Azure subscription(s) in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.) When **Data collection** is turned on, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
+You can enable data collection for your Azure subscription(s) in the Security policy. To enable data collection, [sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected to (see question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
 
 ### What happens when I enable data collection?
-Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and events it into Event Tracing for Windows (ETW) traces. In addition, the operating system is raising event log events on any activity.  The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis.  This is the storage account you configured in the security policy. For more information about the storage account, see question “[Where is my data stored?](#where-is-my-data-stored)”
+Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803(v=vs.85).aspx) (ETW) traces. In addition, the operating system is raising event log events on any activity.  The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis.  This is the storage account you configured in the security policy. For more information about the storage account, see question “[Where is my data stored?](#where-is-my-data-stored)”
 
 ### Does the Monitoring Agent or Security Monitoring extension impact the performance of my server(s)?
-The agent and extension consumes a nominal amount of system resources and should have no impact on the performance.
+The agent and extension consumes a nominal amount of system resources and should have little impact on the performance.
 
 ### How do I roll back if I no longer want Data Collection to be enabled?
-You can turn off **Data collection** for a subscription in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.)  When you click on a subscription, a new blade opens and provides you the option to turn Data collection off. Select the **Delete agents** option in the top ribbon to remove agents from existing virtual machines.
+You can disable **Data collection** for a subscription in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.)  When you click on a subscription, a new blade opens and provides you the option to turn Data collection off. Select the **Delete agents** option in the top ribbon to remove agents from existing virtual machines.
 
 ### Where is my data stored?<a name=where-is-my-data-stored></a>
 For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.) When you click on a subscription, a new blade opens. Click Choose storage accounts to select a region.  Data collected is logically isolated from other customers’ data for security reasons.
@@ -57,18 +57,20 @@ To learn more about Azure storage and storage accounts, see [Storage Documentati
 ## Using Azure Security Center
 
 ### What is a security policy?
-A security policy defines the set of controls which are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company security needs and the type of applications or sensitivity of the data in each subscription. For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring. To learn more about security policies, see [Security monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/).
+A security policy defines the set of controls which are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
+
+For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring. To learn more about security policies, see [Security health monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/).
 
 ### Who can modify a security policy?
-Security policies are configured for each subscription. To modify a security policy, you must be an Owner, Contributor, or Security Admin of that subscription.
+Security policies are configured for each subscription. To modify a security policy, you must be an Owner, Contributor, or Security Manager of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/).
 
 ### What is a security recommendation?
-Azure Security Center is continually analyzing the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
+Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
 
 - Provisioning of antimalware to help identify and remove malicious software
-- Configuring Network Security Groups and rules to control traffic to virtual machines
+- Configuring [Network Security Groups](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) and rules to control traffic to virtual machines
 - Provisioning of a web application firewall to help defend against attacks targeting your web applications
 - Deploying missing system updates
 - Addressing OS configurations that do not match the recommended baselines
@@ -81,22 +83,22 @@ A **Resources health** tile on the **Security Center** blade shows the overall s
 ### What triggers a security alert?
 Azure Security Center automatically collects, analyzes and fuses log data from your Azure resources, the network, and partner solutions like antimalware and firewalls. When threats are detected, a security alert is created. Examples include detection of:
 
-- Compromised virtual machines communicating with known malicious IPs
+- Compromised virtual machines communicating with known malicious IP addresses
 - Advanced malware detected using Windows error reporting
 - Brute force attacks against virtual machines
-- Security alerts from integrated antimalware and firewalls
+- Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
 
 ### How are permissions handled in Azure Security Center?
 Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/).
 
-When a user opens Azure Security Center he will only see recommendations and alerts that are related to resources he has access to.   This means that he will only see items related to resources where he is assigned the role of Owner, Contributor, Reader, or Security Admin to the subscription or resource group that a resource belongs to.
+When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, Reader, or Security Manager to the subscription or resource group that a resource belongs to.
 
-To edit a security policy, you must be an Owner, Contributor, or Security Admin of the subscription.
+To edit a security policy, you must be an Owner, Contributor, or Security Manager of the subscription.
 
 ### What types of virtual machines will be supported?
-Both Classic and Resource Manager virtual machines are supported.
+Both [Classic and Resource Manager](https://azure.microsoft.com/documentation/articles/azure-classic-rm/) virtual machines are supported, including virtual machines that are part of Azure Service Fabric clusters.
 
-Access Control List recommendations apply to Classic virtual machines, and Network Security Groups currently only apply to Resource Manager virtual machines.
+Access Control List recommendations currently apply to Classic virtual machines. Network Security Groups and recommendations for installation of Web Application Firewall currently only apply to Resource Manager virtual machines.
 
 ### Are Linux virtual machines supported?
-Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distributions (distros). 
+Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.
