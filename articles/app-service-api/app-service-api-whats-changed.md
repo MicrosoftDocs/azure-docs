@@ -23,7 +23,7 @@ At the Connect() event in November 2015, a number of improvements were [announce
 > [AZURE.NOTE] The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
 
 ## Overview of changes
-The key features of API Apps – authentication, CORS and API metadata – are moving directly into App Service. With this change, the features will be available across Web, Mobile and API Apps. The API Apps gateway will no longer be needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
+The key features of API Apps – authentication, CORS and API metadata – have moved directly into App Service. With this change, the features will be available across Web, Mobile and API Apps. The API Apps gateway will no longer be needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
 
 [diagram here]
 
@@ -32,9 +32,13 @@ A key design principle with the API Apps update is to enable you to bring your A
 > [AZURE.NOTE] *If you are currently on API Apps preview, migration guidance is detailed below.
 
 ### Authentication
-Azure App Service offers built-in services for authentication and authorization. This tutorial shows how how to protect an API app and how to call it from an HTML/JavaScript client, on behalf of users authenticated by Azure Active Directory. The next tutorial in the series shows how to handle service principal authentication, that is, when you want to make a call from one API app to another without using an individual user's credentials.
+The existing turnkey API Apps, Mobile Services/Apps and Web Apps authentication features have been unified and are available in a single Azure App Service authentication blade in the management portal. For an introduction to authentication services in App Service, see [Expanding App Service authentication / authorization](https://azure.microsoft.com/en-us/blog/announcing-app-service-authentication-authorization/).
 
-For an introduction to authentication and authorization services in Azure App Service, see Expanding App Service authentication / authorization.
+For API scenarios, there are a number of relevant new capabilities:
+
+- **Support for using Azure Active Directory directly**, without client code having to exchange the AAD token for a session token: Your client can just include the AAD tokens in the Authorization header, according to the bearer token specification. This also means no App Service-specific SDK is required on the client or server side. 
+- **Service-to-service or "Internal" access**: If you have a daemon process or some other client needing access to APIs without an interface, you can request a token using an AAD service principal and pass it to App Service for authentication with your application.
+- **Deferred authorization**: Many applications have varying access restrictions for different parts of the application. Perhaps you want some APIs to be publicly available, while others require sign-in. The original Authentication/Authorization feature was all-or-nothing, with the whole site requiring login. This option still exists, but you can alternatively allow your application code to render access decisions after App Service has authenticated the user.
 
 ### CORS
 Instead of a comma-delimited **MS_CrossDomainOrigins** app setting, there is now a blade in the Azure management portal for configuring CORS. Alternatively, it can be configured using Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). Set the **cors** property on the **Microsoft.Web/sites/config** resource type for your **&lt;site name&gt;/web** resource. For example:
