@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="11/29/2015"
    ms.author="litran"/>
 
 # What is Microsoft PowerApps enterprise?
@@ -176,7 +176,7 @@ Your company is now signed up for PowerApps and has an app service environment. 
 
 - [Monitor your PowerApps apps](powerapps-manage-monitor-usage.md)
 - [Develop an API for PowerApps](powerapps-develop-api.md)
-- [Add a new API, add a connection, and give users access](powerapps-create-new-api.md)
+- [Add a new API, add a connection, and give users access](powerapps-manage-api-connection-user-access.md)
 - [Update an existing API and its properties](powerapps-configure-apis.md)
 
 
