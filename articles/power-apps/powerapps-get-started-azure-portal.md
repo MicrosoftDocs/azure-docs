@@ -98,7 +98,7 @@ Now that you have your AD tenant, you can create a new or use an existing Azure 
 
 Now that you have your AD tenant and an Azure subscription, your work subscription administrators can sign up for PowerApps enterprise. The Admin can also add users within your company to 'administer' PowerApps, including giving users permissions, and manage the PowerApps published to your Azure subscription. 
 
-Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=71558) to contact us to learn more about pricing and the sign up process. 
+Without signing up for PowerApps enterprise, you will see a no access blade when you go to [Azure portal](https://portal.azure.com/) and browse for PowerApps.  To sign-up your company, the **subscription administrator** can go to [PowerApps](http://go.microsoft.com/fwlink/p/?LinkId=716848) to contact us to learn more about pricing and the sign up process. 
 
 ![][4]  
 
