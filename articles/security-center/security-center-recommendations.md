@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/2/2015"
+   ms.date="12/02/2015"
    ms.author="terrylan"/>
 
 # Implementing security recommendations in Azure Security Center
@@ -30,13 +30,13 @@ Azure Security Center periodically analyses the security state of your Azure res
 
 ## Setting recommendations
 
-In [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/) you learn to:
+In [Setting security policies in Azure Security Center](security-center-policies.md) you learn to:
 
 - Configure security policies
 - Turn on data collection
 - Choose which recommendations to see as part of your security policy
 
-Current policy recommendations center around system updates, baseline rules, anti-malware, [ACLs for endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/), [Network Security Groups](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) on subnets and network interfaces, SQL Database auditing, SQL Database transparent data encryption, and web application firewall.  [Setting security policies](https://azure.microsoft.com/documentation/articles/security-center-policies/) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, anti-malware, [ACLs for endpoints](virtual-machines-set-up-endpoints.md), [Network Security Groups](virtual-networks-nsg.md) on subnets and network interfaces, SQL Database auditing, SQL Database transparent data encryption, and web application firewall.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 The **Show recommendations for** section of the **Security policy** blade gives you a list of recommendations that you can turn on for the resources in the specified subscription.
 
@@ -101,7 +101,7 @@ Using the Antimalware recommendation, let’s walk through an example on how to 
 5. Enter the required configuration settings on the **Add Extension** blade, and select **OK**.
 ![][6]
 
-[Microsoft Antimalware](https://azure.microsoft.com/documentation/articles/azure-security-antimalware/) is now active on the selected virtual machine.
+[Microsoft Antimalware](azure-security-antimalware.md) is now active on the selected virtual machine.
 
 ## Deploying integrated partner solutions
 
@@ -129,10 +129,10 @@ The logs from that WAF are now fully integrated. Azure Security Center can start
 ## Next steps
 In this document, you were introduced to security recommendations in Azure Security Center. To learn more about Azure Security Center, see the following:
 
-- [Setting security policies in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-policies/) – Learn how to configure security policies
-- [Security health monitoring in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-monitoring/) – Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-managing-and-responding-alerts/) - Learn how to manage and respond to security alerts
-- [Azure Security Center FAQ](https://azure.microsoft.com/documentation/articles/security-center-faq/) – Find frequently asked questions about using the service
+- [Setting security policies in Azure Security Center](security-center-policies.md) – Learn how to configure security policies
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
+- [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance
 
 <!--Image references-->
