@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -267,7 +267,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Scroll down and click the Failures tile](./media/app-insights-java-get-started/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
@@ -364,11 +364,13 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. To set up, click through the empty web tests chart on the overview blade, and provide your public URL. 
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+
+![Scroll down, click Availability, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
-![Web test example](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Learn more about availability web tests.][availability] 
 
