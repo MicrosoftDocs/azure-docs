@@ -44,6 +44,7 @@
 ![configure Office 365 Users API settings][4]
 
 9. Enter the *Client Id* and *Client Secret* of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
+
 	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
 
 10. Select **OK** to complete the steps.

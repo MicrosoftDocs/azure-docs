@@ -59,6 +59,7 @@ If you don't have an existing AAD app with the key and secret values, then use t
 1. Open the [Azure Portal][5].
 
 2. Select **Browse** and then select **Active Directory**.  
+
 	>[AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
 3. Select your organization's tenant name:  
@@ -86,7 +87,7 @@ If you don't have an existing AAD app with the key and secret values, then use t
 7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
 ![Contoso AAD app][10]
 
-8. Set the **Reply URL** under the _OAuth 2_ section to the redirect URL you received when you added the new Office 365 Outlook API in the Azure Portal (in this topic). Then, select ** Add application**:  
+8. Set the **Reply URL** under the _OAuth 2_ section to the redirect URL you received when you added the new Office 365 Outlook API in the Azure Portal (in this topic). Then, select **Add application**:  
 ![Configure Contoso AAD app][11]
 
 9. In the **Permissions to other applications** window, select **Office 365 Exchange Online**, and select **OK**:  
