@@ -18,7 +18,7 @@
 
 # Administration and Development Task List in BizTalk Services  
 
-### Getting Started
+## Getting Started
 When working with Microsoft Azure BizTalk Services, there are several on-premises and cloud-based components to consider. To get started, consider the following process flow:  
 
 |Step|Who's responsible|Task|Related Links|
@@ -33,17 +33,17 @@ When working with Microsoft Azure BizTalk Services, there are several on-premise
 |8.|Administrator|Using the Azure Management Portal, monitor the health of your BizTalk Service, including performance metrics.|[BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)|
 |9.|Administrator|Using the Microsoft Azure BizTalk Services Portal, manage the artifacts used by BizTalk Services and track messages as they are processed by the bridge files.|[Using the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/dn874043.aspx)|
 |10.|Administrator|Create a backup plan to back up the BizTalk Service.|[Business Continuity and Disaster Recovery in BizTalk Services](https://msdn.microsoft.com/library/azure/dn509557.aspx) |  
-## Next
+## Next Steps
 [Tutorials and Samples](https://msdn.microsoft.com/library/azure/hh689895.aspx)
 
 [Create the project in Visual Studio](https://msdn.microsoft.com/library/azure/hh689811.aspx)
 
 [Install Azure BizTalk Services SDK](https://msdn.microsoft.com/library/azure/hh689760.aspx)
 
-### Concepts
+## Concepts
 [Create the project in Visual Studio](https://msdn.microsoft.com/library/azure/hh689811.aspx)
 [EDI, AS2, and EDIFACT Messaging (Business to Business)](https://msdn.microsoft.com/library/azure/hh689898.aspx)  
-### Other Resources  
+## Other Resources  
 [Add Source, Destination, and Bridge Messaging Endpoints](https://msdn.microsoft.com/library/azure/hh689877.aspx)
 [Learn and create Message Maps and Transforms](https://msdn.microsoft.com/library/azure/hh689905.aspx)
 [Using the BizTalk Adapter Service (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx)
