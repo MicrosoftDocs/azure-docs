@@ -61,12 +61,12 @@ The API definition blade is now available across Web, Mobile and API Apps. In th
         }
     }
 
-At this time, the metadata endpoint needs to be publicly accessible without authentication for many downstream clients (e.g. Visual Studio code generation and PowerApps "Add API" flow) to consume it.
+At this time, the metadata endpoint needs to be publicly accessible without authentication for many downstream clients (e.g. Visual Studio code generation and PowerApps "Add API" flow) to consume it. This does mean if you are using App Service authentication and want to expose the API definition from within your app itself, you will need to use the Deferred Authentication option described earlier so that the route to your Swagger metadata is public.
 
 ## Management Portal
 Selecting **New > Web + Mobile > API App** in the portal will create API apps that reflect the new capabilities described in the article. **Browse > API Apps** will only show these new API apps. Once you browse into an API app, the blade shares the same layout and capabilities as those of Web and Mobile Apps. The only differences are quickstart content and ordering of settings.
 
-Existing API apps (or Marketplace API apps created from Logic Apps) with the previous Preview capabilities will still be visible in the Logic Apps designer and with **Browse > All resources**. If you do need to create an API App with the previous Preview capabilities, the package is available in Azure Marketplace as **Web + Mobile > API Apps (Preview)**.
+Existing API apps (or Marketplace API apps created from Logic Apps) with the previous Preview capabilities will still be visible in the Logic Apps designer and with **Browse > All resources**. If you do need to create an API App with the previous Preview capabilities, the package is available and searchable in Azure Marketplace as **Web + Mobile > API Apps (Preview)**.
 
 ## Visual Studio
 Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. Download the SDK from the [Azure downloads page](https://azure.microsoft.com/en-us/downloads/). With the rationalization of the App Service types, publish is also unified under **Publish > Microsoft Azure App Service**:
@@ -80,11 +80,43 @@ Alternatively, you can manually import the publish profile from the management p
 The ability to publish to existing API apps with the previous Preview capabilities remains available in SDK 2.8.1. If you have already published the project, no further action is necessary. To setup publish, choose **API Apps (classic)** from the **More Options** dropdown in the publish dialog.
 
 ## Migrating existing API apps
-### Deprecated
-http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/
-http://www.nuget.org/packages/Microsoft.Azure.AppService
-Internal access
+If your custom API is deployed to the previous Preview version of API Apps, we request that you migrate to the new model for API Apps by December 31, 2015. Since both the old and new model are based on Web APIs hosted in App Service, the majority of existing code can be reused.
 
-Do it by December 31, 2015
+### Hosting and redeployment
+The steps for redeploying are the same as deploying any existing Web API to App Service. Steps:
 
+1. Create an empty API app. This can be done in the portal with New > API App, in Visual Studio from publish or Cloud Explorer, or from Resource Manager tooling. If using Resource Manager tooling or templates, set the **kind** value to **api** on the **Microsoft.Web/sites** resource type to have the quickstarts and settings in the management portal oriented towards API scenarios.
+2. Connect and deploy your project to the empty API app using any of the deployment mechanisms supported by App Service. Read [Azure App Service deployment documentation](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/) to learn more. 
+  
+### Authentication
+The App Service authentication services support the same capabilities that were available with the previous API Apps model. If you are using session tokens and require SDKs, use the following client and server SDKs:
 
+- Client: [Azure Mobile Client SDK](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
+- Server: [Microsoft Azure Mobile App .NET Authentication Extension](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/) 
+
+If you were instead using the App Service alpha SDKs, these are now deprecated:
+
+- Client: [Microsoft Azure AppService SDK](http://www.nuget.org/packages/Microsoft.Azure.AppService)
+- Server: [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
+
+In particular with Azure Active Directory, however, no App Service-specific is required if you are using the AAD token directly.
+
+### Internal access
+The previous API Apps model included a built-in internal access level. This required use of the SDK for signing requests. As described earlier, with the new API Apps model, AAD service principals can be used as an alternate for service-to-service authentication without requiring an App Service-specific SDK. Learn more in [Service principal authentication for API Apps in Azure App Service](http://azure.microsoft.com/en-us/documentation/articles/app-service-api-dotnet-service-principal-auth).
+
+### Discovery
+The previous API Apps model had APIs for discovering other API apps at runtime in the same resource group behind the same gateway. This is especially useful in architectures that implement microservice patterns. While this is not directly supported, a number of options are available:
+
+1. Use the Azure Resource Manager API's for discovery.
+2. Put Azure API Management in front of your App Service-hosted APIs. Azure API Management serves as a facade and can provide a stable external facing url even if you internal topology changes.
+3. Build your own discovery API app and have other API apps register with the discovery app on startup.
+4. At deployment time, populate the app settings of all the API apps (and clients) with the endpoints of the other API apps. This is viable in template deployments and since API Apps now give you control of the url.
+
+### Logic Apps
+The Logic Apps designer will be adding especially seamless integration with the new API Apps model in early 2016. That said, the HTTP connector built into Logic Apps can invoke any HTTP endpoint and supports service principal authentication, which is also supported natively by the App Service authentication services. Learn how to consume an App Service-hosted API in Logic Apps in [Using your custom API hosted on App Service with Logic apps](https://azure.microsoft.com/en-us/documentation/articles/app-service-logic-custom-hosted-api/).
+
+## Next Steps
+To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/en-us/documentation/services/app-service/api/). They have been updated the reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
+
+- [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
