@@ -22,10 +22,10 @@ At the Connect() event in November 2015, a number of improvements were [announce
 
 > [AZURE.NOTE] The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
 
-## Overview of changes
-The key features of API Apps – authentication, CORS and API metadata – have moved directly into App Service. With this change, the features will be available across Web, Mobile and API Apps. The API Apps gateway will no longer be needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
+## Feature changes
+The key features of API Apps – authentication, CORS and API metadata – have moved directly into App Service. With this change, the features are available across Web, Mobile and API Apps. In fact, all three share the same **Microsoft.Web/sites** resource type in Resource Manager. The API Apps gateway is no longer needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
 
-![Alt image text](./media/app-service-api-whats-changed/api-apps-overview.png)
+![API Apps Overview](./media/app-service-api-whats-changed/api-apps-overview.png)
 
 A key design principle with the API Apps update is to enable you to bring your API as is, in your language of choice.  If your API is already deployed as a Web App or Mobile App*, you do not have to redeploy your app to take advantage of the new features.
 
@@ -63,9 +63,28 @@ The API definition blade is now available across Web, Mobile and API Apps. In th
 
 At this time, the metadata endpoint needs to be publicly accessible without authentication for many downstream clients (e.g. Visual Studio code generation and PowerApps "Add API" flow) to consume it.
 
-## Portal
+## Management Portal
+Selecting **New > Web + Mobile > API App** in the portal will create API apps that reflect the new capabilities described in the article. **Browse > API Apps** will only show these new API apps. Once you browse into an API app, the blade shares the same layout and capabilities as those of Web and Mobile Apps. The only differences are quickstart content and ordering of settings.
+
+Existing API apps (or Marketplace API apps created from Logic Apps) with the previous Preview capabilities will still be visible in the Logic Apps designer and with **Browse > All resources**. If you do need to create an API App with the previous Preview capabilities, the package is available in Azure Marketplace as **Web + Mobile > API Apps (Preview)**.
+
 ## Visual Studio
+Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. Download the SDK from the [Azure downloads page](https://azure.microsoft.com/en-us/downloads/). With the rationalization of the App Service types, publish is also unified under **Publish > Microsoft Azure App Service**:
+
+![API Apps Publish](./media/app-service-api-whats-changed/api-apps-publish.png)
+
+To learn more about SDK 2.8.1, read the announcement [blog post](https://azure.microsoft.com/en-us/blog/announcing-the-azure-sdk-2-8-1-for-net).
+
+Alternatively, you can manually import the publish profile from the management portal to enable publish. However, Cloud Explorer, code generation and API app selection/creation will require SDK 2.8.1 or higher.
+
+The ability to publish to existing API apps with the previous Preview capabilities remains available in SDK 2.8.1. If you have already published the project, no further action is necessary. To setup publish, choose **API Apps (classic)** from the **More Options** dropdown in the publish dialog.
+
 ## Migrating existing API apps
+### Deprecated
+http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/
+http://www.nuget.org/packages/Microsoft.Azure.AppService
+Internal access
+
 Do it by December 31, 2015
 
 
