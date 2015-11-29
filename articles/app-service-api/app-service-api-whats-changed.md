@@ -25,7 +25,7 @@ At the Connect() event in November 2015, a number of improvements were [announce
 ## Overview of changes
 The key features of API Apps – authentication, CORS and API metadata – have moved directly into App Service. With this change, the features will be available across Web, Mobile and API Apps. The API Apps gateway will no longer be needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
 
-[diagram here]
+![Alt image text](./media/app-service-api-whats-changed/api-apps-overview.png)
 
 A key design principle with the API Apps update is to enable you to bring your API as is, in your language of choice.  If your API is already deployed as a Web App or Mobile App*, you do not have to redeploy your app to take advantage of the new features.
 
