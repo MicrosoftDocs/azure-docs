@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Use Stream Analytics to feed Power BI from Application Insights
@@ -39,6 +39,9 @@ This article shows how to use [Stream Analytics](http://azure.microsoft.com/serv
 Noam Ben Zeev shows what we describe in this article.
 
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
+
+
+**Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 ## Monitor your app with Application Insights
 
