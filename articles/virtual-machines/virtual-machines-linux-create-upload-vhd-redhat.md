@@ -18,7 +18,7 @@
 
 
 # Prepare a Red Hat-based Virtual Machine for Azure
-In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7 and 7.1 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.
+In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7 and 7.1 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access). 
 
 
 
