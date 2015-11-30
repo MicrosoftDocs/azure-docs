@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Setting up a Service Fabric Cluster using an ARM Template
@@ -37,7 +37,7 @@ This page helps you with setting up of a Service Fabric Cluster using an ARM tem
 
 ## Creating a custom ARM template
 
-2. You have to choices here 
+2. You have two choices here 
 	1. You can acquire a sample template from [Azure quick start template Gallery on github ](https://github.com/Azure/azure-quickstart-templates) and make changes to it.
 	2. Log into the azure portal and use the service fabric portal pages to generate the template for you to customize. The process to do so is described below.
 3. Log on to the Azure Portal [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
@@ -46,7 +46,7 @@ This page helps you with setting up of a Service Fabric Cluster using an ARM tem
 
 ## Deploying the ARM template to Azure using Azure PS
 
-Refer to [Deploying ARM templates using PS ](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) for detailed guidance on how to.
+Refer to [Deploying ARM templates using PS ](resource-group-template-deploy.md) for detailed guidance on how to.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
