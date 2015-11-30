@@ -38,7 +38,7 @@ API Apps provides the following features:
 
 - **Bring your existing API as-is** - You don't have to change any of the code in your existing APIs to take advantage of API Apps features -- just deploy your code to an API app. Your API can use any language or framework supported by App Service, including ASP.NET and C#, Java, PHP, Node.js and Python.
 
-In addition, the features offered by API Apps, Web Apps, and Mobile Apps are interchangeable. This means that an instance of API Apps can take advantage of features for web and mobile development and hosting that Web Apps and Mobile Apps offer. For more information, see the [Web Apps overview](../app-service-web/app-service-web-overview.md) and [Mobile Apps overview](../app-service-mobile/app-service-mobile-value-prop.md).
+In addition, the features offered by API Apps, Web Apps, and Mobile Apps are interchangeable. This means that an instance of API Apps can take advantage of features for web and mobile development and hosting that Web Apps and Mobile Apps offer. The reverse is also true: for example, you can use a web app to host an API and still take advantage of Swagger metadata for client code generation and CORS for cross-domain browser access. For more information, see the [Web Apps overview](../app-service-web/app-service-web-overview.md) and [Mobile Apps overview](../app-service-mobile/app-service-mobile-value-prop.md).
 
 >[AZURE.NOTE] You can use [Azure API Management](../api-management/api-management-key-concepts.md) to control client access to APIs that are hosted by App Service API Apps. While API Apps provides authentication services, there are other access management features it does not offer which API Management does offer, such as endpoint consolidation and throttling.
 
