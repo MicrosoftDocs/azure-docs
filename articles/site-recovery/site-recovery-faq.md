@@ -20,7 +20,7 @@
 # Azure Site Recovery: Frequently asked questions (FAQ)
 ## About this article
 
-This article includes frequently asked questions about Azure Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+This article includes frequently asked questions about Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Support
