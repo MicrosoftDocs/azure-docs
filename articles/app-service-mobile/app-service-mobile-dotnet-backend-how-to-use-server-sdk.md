@@ -291,7 +291,7 @@ You can add push notifications to your server project by extending the **MobileA
 
 At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
-## How to: Add tags to a device installation to enable push-to-tags
+##<a name="tags"></a>How to: Add tags to a device installation to enable push-to-tags
 
 Following the above **How to: Define a custom API controller**, you will want to set up a custom API on your backend to work with Notification Hubs to add tags to a specific device installation. Make sure you pass along the Installation ID stored on the client local storage and the tags you want to add (optional, since you can also specify tags directly on your backend). The following snippet should be added to your controller to work with Notification Hubs to add a tag to a device Installation ID.
 
