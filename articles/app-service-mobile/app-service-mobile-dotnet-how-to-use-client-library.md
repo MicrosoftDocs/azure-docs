@@ -477,7 +477,7 @@ When you use the collection created by calling `ToCollectionAsync` or `ToCollect
 
 Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the section "[Select specific columns](#selecting)" above to select specific columns to display in the UI.
 
-## How to: Obtain a Windows Store package SID
+## <a name="package-sid"></a>How to: Obtain a Windows Store package SID
 
 For Windows apps, a package SID is needed for enabling push notifications and certain authentication modes. To obtain this value:
 
