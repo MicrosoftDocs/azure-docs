@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/17/2015"
+	ms.date="11/29/2015"
 	ms.author="awills"/>
 
 # Application Insights: languages and platforms
@@ -44,6 +44,7 @@ These are implementations we've heard about, including some by third parties.
 + [Azure web apps and VMs](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 + [Concrete](https://github.com/fidmor89/appInsights-Concrete)
++ [Cordova](https://github.com/MSOpenTech/cordova-plugin-ms-appinsights)
 + [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -82,7 +83,7 @@ If there isn't yet an SDK for your language or platform, perhaps you'd like to b
 
 
 
-[Cordova](http://cordova.apache.org/)
+
 
 [Windows Store apps using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
 

@@ -117,7 +117,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling/#filtering).)
+([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 
 <a name="other-web-pages"></a>
@@ -208,7 +208,7 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling/#filtering).)
+([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 ## When  to use sampling?
 
