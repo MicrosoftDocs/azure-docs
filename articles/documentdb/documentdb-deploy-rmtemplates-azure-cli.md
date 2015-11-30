@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage DocumentDB with ARM templates and CLI | Microsoft Azure"
-	description="Deploy and manage database accounts for Azure DocumentDB using Resource Manager templates and Azure CLI."
+	pageTitle="Create a DocumentDB account using ARM templates or CLI | Microsoft Azure"
+	description="Deploy an Azure DocumentDB account using Azure Resource Manager templates or Azure CLI."
 	services="documentdb"
 	authors="mimig1"
 	manager="jhubbard"
@@ -17,16 +17,18 @@
 	ms.date="11/30/2015" 
 	ms.author="mimig"/>
 
-# Deploy and manage DocumentDB by using Azure Resource Manager templates and the Azure CLI
+# Create a DocumentDB database account using ARM templates or Azure CLI
 
 > [AZURE.SELECTOR]
 - [Portal](documentdb-create-account.md)
 - [CLI](documentdb-deploy-rmtemplates-powershell.md)
 
-This article shows you how to use Azure Resource Manager templates or the Azure CLI to create a DocumentDB account. 
+This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure CLI. 
 
 - [Create a DocumentDB account using CLI](#quick-create-documentdb-account)
 - [Create a DocumentDB account from an ARM template](#deploy-documentdb-from-a-template)
+
+DocumentDB accounts are currently the only DocumentDB resource that can be created using ARM templates and the Azure CLI.
 
 ## Getting ready
 
@@ -74,8 +76,6 @@ By default, the Azure CLI starts in the service management mode (**asm** mode). 
 
 	azure config mode arm
 
-
-
 > [AZURE.NOTE] You can switch back to the default set of commands by typing `azure config mode asm`.
 
 ## Understanding Azure resource templates and resource groups
@@ -83,13 +83,6 @@ By default, the Azure CLI starts in the service management mode (**asm** mode). 
 Most applications are built from a combination of different resource types (such as one or more DocumentDB account, storage accounts, a virtual network, or a content delivery network). The default Azure service management API and the Azure preview portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
 *Azure Resource Manager templates* make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group.
-
-You can then manage the overall life cycle of the group's resources by using Azure CLI resource management commands to:
-
-- Stop, start, or delete all of the resources within the group at once.
-- Apply Role-Based Access Control (RBAC) rules to lock down security permissions on them.
-- Audit operations.
-- Tag resources with additional metadata for better tracking.
 
 You can learn lots more about Azure resource groups and what they can do for you in the [Azure Resource Manager overview](../resource-group-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
