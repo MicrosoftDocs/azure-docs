@@ -82,7 +82,7 @@ Before you begin, verify that you have the following:
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell 1.0 or later cmdlets. You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).  
+- Azure PowerShell cmdlets (1.0 or later). You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).  
 
 
 ## 1. Plan your IP address ranges
@@ -115,13 +115,13 @@ Values for VNet2:
 
 ## 2. Connect to your subscription 
 
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager).
+Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
 		    Login-AzureRmAccount
 
-Check the subscriptions for the account. You will be prompted to authenticate with your credentials.
+Check the subscriptions for the account.
 
 		    Get-AzureRmSubscription 
 
