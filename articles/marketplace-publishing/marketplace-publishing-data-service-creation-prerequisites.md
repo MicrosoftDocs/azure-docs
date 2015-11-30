@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/23/2015"
+   ms.date="11/30/2015"
    ms.author="hascipio; avikova" />
 
 # Technical Pre-requisites for creating a Data Service offer for the Azure Marketplace
@@ -27,7 +27,7 @@ A Publisher can decide between multiple technologies when publishing Data Servic
 
 ## SQL Azure Database
 
-Having dataset ready in SQL Azure is Publisher’s responsibility. You’ll need to subscribe to Azure, provision appropriate size of Database and upload your Data into SQL Azure DB. Publisher is also responsible to keep his/her data always up-to-date. More information about subscribing to Azure Services you can find on [https://azure.microsoft.com/en-us/services/sql-database/](https://azure.microsoft.com/en-us/services/sql-database/)
+Having dataset ready in SQL Azure is Publisher’s responsibility. You’ll need to subscribe to Azure, provision appropriate size of Database and upload your Data into SQL Azure DB. Publisher is also responsible to keep his/her data always up-to-date. More information about subscribing to Azure Services you can find on [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)
 
 
 When moving the data into SQL Azure, the Azure Marketplace can expose tables and views. The Publisher can specify which tables/views and columns are exposed to the end-user. Further the content provider can also specify which columns can be queried by the end-user and which ones are only returned in the payload. This gives a high level of flexibility about which data in the database should be exposed. Columns that can be queried need to be backed by one or more database indices.
