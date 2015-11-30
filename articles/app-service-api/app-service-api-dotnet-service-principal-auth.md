@@ -24,13 +24,17 @@
 
 > [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which is not yet publicly available. In a day or two, 2.8.1 will be available and this note will be removed.
 
-Your application could have multiple API apps, for example, a middle tier that is called by mobile and desktop clients, and a data tier that is called by the middle tier. Clients might authenticate to the middle tier by using end user credentials, while the middle tier might authenticate to the data tier by using credentials of a service account. A service account is also known as a *service principal* authentication, and authentication using such an account is also known as a *service-to-service* scenario.
+This tutorial shows how to protect an API app by allowing access only to other API apps that have service account credentials. 
 
-In this tutorial you protect an API app for service-to-service scenarios, using Azure Active Directory for authentication and consuming it from a .NET client. For other protect and consume scenarios, see the [Next steps](#next-steps) section. 
+A service account is also known as a *service principal*, and authentication using such an account is also known as a *service-to-service* scenario. In this tutorial you protect an API app for a service-to-service scenario, using Azure Active Directory for authentication and consuming the API from a .NET client. 
+
+For other protect and consume scenarios, such as by using client certificates, see the [Next steps](#next-steps) section. For an introduction to authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
 
 This is the fourth in a series of tutorials that show how to work with API apps in Azure App Service. For information about the series, see [Get started with API Apps and ASP.NET in Azure App Service](app-service-api-dotnet-get-started.md).
 
 ## The CompanyUsers.API sample project
+
+In this tutorial you use the sample projects that you downloaded in the [first tutorial in this series](app-service-api-dotnet-get-started.md) and the Azure resources (API app and web app) that you created in the earlier tutorials.
 
 The CompanyUsers.API project is simple Web API project that contains one Get method that returns a hard-coded list of contacts. To demonstrate a service-to-service scenario, the Get method in the ContactsList.API calls the CompanyContacts.API Get method and adds the contacts it gets to whatever it has it in its own data store, then returns the combined list.
 

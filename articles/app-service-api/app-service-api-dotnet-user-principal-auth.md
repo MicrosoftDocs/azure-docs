@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="tdykstra"/>
 
 # User authentication for API Apps in Azure App Service
@@ -34,7 +34,7 @@ This is the third in a series of tutorials that show how to work with API apps i
 
 Azure App Service offers built-in services for authentication and authorization. This tutorial shows how how to protect an API app and how to call it from an HTML/JavaScript client, on behalf of users authenticated by Azure Active Directory.  The next tutorial in the series shows how to handle service principal authentication, that is, when you want to make an authenticated call from one API app to another without using an individual user's credentials.
 
-For an introduction to authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/).
+For an introduction to authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
 
 ## The ContactsList.Angular.AAD sample project
 
