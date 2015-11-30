@@ -35,7 +35,7 @@ Azure Security Center is enabled with your Microsoft Azure subscription and acce
 ### How does billing work for Azure Security Center?
 See [Azure Security Center Pricing](https://azure.microsoft.com/pricing/) for information.
 
-## Data Collection
+## Data collection
 
 ### How do I enable data collection?<a name=data-collection></a>
 You can enable data collection for your Azure subscription(s) in the Security policy. To enable data collection, [sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**. Set **Data collection** to **On** and configure the storage accounts where you want data to be collected to (see question “[Where is my data stored?](#where-is-my-data-stored)”). When **Data collection** is enabled, it automatically collects security configuration and event information from all supported virtual machines in the subscription.
@@ -50,7 +50,7 @@ The agent and extension consumes a nominal amount of system resources and should
 You can disable **Data collection** for a subscription in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.)  When you click on a subscription, a new blade opens and provides you the option to turn Data collection off. Select the **Delete agents** option in the top ribbon to remove agents from existing virtual machines.
 
 ### Where is my data stored?<a name=where-is-my-data-stored></a>
-For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.) When you click on a subscription, a new blade opens. Click Choose storage accounts to select a region.  Data collected is logically isolated from other customers’ data for security reasons.
+For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, select **Security Center**, and select **Security policy**.) When you click on a subscription, a new blade opens. Click **Choose storage accounts** to select a region.  Data collected is logically isolated from other customers’ data for security reasons.
 
 To learn more about Azure storage and storage accounts, see [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/) and [About Azure storage accounts](storage-create-storage-account.md).
 
