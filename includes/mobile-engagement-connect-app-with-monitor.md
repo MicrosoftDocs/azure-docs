@@ -1,12 +1,10 @@
-This section shows you how to make sure that your app connects to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature.
+This section shows you how to connect your app to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature. 
 
-1. Navigate to your Mobile Engagement portal. Ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom.
+1. In your **Azure Mobile Engagement** account, make sure you select the app you wish to monitor and manage in the **Mobile Engagement** portal. Navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom. 
 
 	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. You will land in the Mobile Engagement portal. Click the **Monitor** tab here.
-	 
-	![](./media/mobile-engagement-connect-app-with-monitor/click-monitor-tab.png)
+2. You will land in the Mobile Engagement portal. If the Monitor tab is not selected, click on the **Monitor**.
 
 3. The monitor is ready to show you any device in real time, which will start your app.
 	 

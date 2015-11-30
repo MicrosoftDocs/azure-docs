@@ -20,6 +20,7 @@
 
 At the Connect() event in November 2015, a number of improvements were [announced](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) to Azure App Service. These improvements include underlying changes to API Apps to better align with Mobile and Web Apps, reduce concept count and improve deployment and runtime performance. Starting November 30, 2015, new API apps you create using the Azure management portal or the latest tooling will reflect these changes. This article describes these changes, as well as how to redeploy existing apps to take advantage of the capabilities.
 
+
 > [AZURE.NOTE] The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
 
 ## Feature changes
@@ -69,7 +70,12 @@ Selecting **New > Web + Mobile > API App** in the portal will create API apps th
 Existing API apps (or Marketplace API apps created from Logic Apps) with the previous Preview capabilities will still be visible in the Logic Apps designer and with **Browse > All resources**. If you do need to create an API App with the previous Preview capabilities, the package is available and searchable in Azure Marketplace as **Web + Mobile > API Apps (Preview)**.
 
 ## Visual Studio
-Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. Download the SDK from the [Azure downloads page](https://azure.microsoft.com/downloads/). With the rationalization of the App Service types, publish is also unified under **Publish > Microsoft Azure App Service**:
+
+Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. 
+
+> [AZURE.NOTE] The Azure SDK for .NET version 2.8.1 will be available later today. When 2.8.1 is available, download the SDK from the [Azure downloads page](https://azure.microsoft.com/downloads/).
+
+With the rationalization of the App Service types, publish is also unified under **Publish > Microsoft Azure App Service**:
 
 ![API Apps Publish](./media/app-service-api-whats-changed/api-apps-publish.png)
 
