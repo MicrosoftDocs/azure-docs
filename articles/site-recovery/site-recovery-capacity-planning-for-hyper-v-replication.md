@@ -138,5 +138,5 @@ You can ignore metrics which aren't listed here. They're not relevant for Site R
 ## Next steps
 
 - [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md)
-- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure)
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm)
+- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
