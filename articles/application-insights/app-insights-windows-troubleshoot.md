@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Q&A for Application Insights for Windows devices
@@ -25,7 +25,7 @@ Questions or problems with [Visual Studio Application Insights in Windows][windo
 
 *I added Application Insights successfully and ran my app, but I've never seen data in the portal.*
 
-* Wait a minute and click Refresh. Currently, refresh isn't automatic.
+* Wait a minute and click Refresh.
 * Check that you have an instrumentation key defined in the ApplicationInsights.config file, and that it is the same as the key in the Application Insights portal. To see the key, click Essentials on the overview blade.
 * Make sure your app [requests outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx).
 * Is there a firewall between your emulator or test device and the Application Insights portal? You might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
@@ -40,7 +40,11 @@ Questions or problems with [Visual Studio Application Insights in Windows][windo
 
 ## How do I add Application Insights to a Universal App?
 
-Add the NuGet packages manually to each device project in your solution. See [Getting Started - Universal apps][universal].
+If you're creating a new solution in Visual Studio 2015, just select the Add Application Insights option in the new project dialog.  This will send telemetry from all the target app types to the same Application Insights resource.
+
+If you already create the universal app solution, right-click each primary project and select **Add Application Insights**. 
+
+
 
 ## Disabling telemetry
 

@@ -12,7 +12,7 @@
 
         ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
+3. On the **Additional Settings** page, add a new access control record (ACR):
    1. Supply a **Name** for your ACR.
    2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
    3. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.

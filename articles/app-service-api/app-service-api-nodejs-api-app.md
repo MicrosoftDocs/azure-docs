@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="11/24/2015"
 	ms.author="pakefali"/>
 
 # Build and deploy a Node.js API app in Azure App Service
@@ -39,7 +39,7 @@ The screenshot below shows you the completed application:
 
 1. Log in to the [Azure preview portal](https://portal.azure.com).
 
-2. Click **NEW** at the bottom left of the portal.
+2. Click **NEW** at the top left of the portal.
 
 3. Click **Web + Mobile** > **API App**.
 
@@ -67,7 +67,7 @@ The screenshot below shows you the completed application:
 
 ## Enable Git publishing for the new API app
 
-[Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your API app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps that you can use in an API app because API apps are based on web apps: an API app in Azure App Service is a web app with additional features for hosting web services.  
+[Git](http://git-scm.com/) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your API app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps that you can use in an API app because API apps are based on web apps: an API app in Azure App Service is a web app with additional features for hosting web services.  
 
 In the portal you manage the features specific to API apps in the **API App** blade, and you manage the features that are shared with web apps in the **API App Host** blade. So in this section you go to the **API App Host** blade to configure the Git deployment feature.
 
@@ -75,19 +75,18 @@ In the portal you manage the features specific to API apps in the **API App** bl
 
 	![][api-app-host]
 
-2. Find the **Deployment** section of the **API App** blade and click **Set up continuous deployment**. You may need to scroll down to see this part of the blade.
+2. Click on **All Settings > Continuous Deployment > Choose Source > Local Git Repository**.
 
 	![][deployment-part]
 
-3. Click **Choose Source > Local Git Repository**.
 
 5. Click **OK**.
 
-	![][setup-git-publishing]
+	<!--![][setup-git-publishing]-->
 
 6. If you have not previously set up deployment credentials for publishing an API app or other App Service app, set them up now:
 
-	* Click **Set deployment credentials**.
+	* Click **All Settings > Deployment credentials**.
 
 	* Create a user name and password.
 
