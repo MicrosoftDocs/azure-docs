@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="11/30/2015"
 	ms.author="glenga"/>
 
 
@@ -91,7 +91,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
-	+ **.\start-iisexpress.ps1** (Windows computers)
+	+ **launch-windows** (Windows computers)
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 

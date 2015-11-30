@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Register your app to use Microsoft account for authentication
