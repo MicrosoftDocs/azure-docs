@@ -228,7 +228,7 @@ You define resources with the following structure:
 
 | Element name             | Required | Description
 | :----------------------: | :------: | :----------
-| apiVersion               |   Yes    | Version of the REST API to use for creating the resource. To determine the available version numbers for a particular resource type, see [Supported API versions](./resource-manager-supported-services/#supported-api-versions).
+| apiVersion               |   Yes    | Version of the REST API to use for creating the resource. To determine the available version numbers for a particular resource type, see [Supported API versions](../resource-manager-supported-services/#supported-api-versions).
 | type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.
