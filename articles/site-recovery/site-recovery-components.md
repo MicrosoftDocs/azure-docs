@@ -149,7 +149,7 @@ Azure | **Site Recovery vault**: At least one Azure Site Recovery vault (set up 
 
 In this scenario delta replication changes are sent from the Unified Agent running on the protected machine to the process server. The process server optimizes this data and transfers it to the master target server on the secondary site. The configuration server manages the replication process.  
 
-![VMware or physical machine to Azure over the internet ](./media/site-recovery-components/arch-onprem-vmware-onprem.png)
+
 
 
 ## Next steps
