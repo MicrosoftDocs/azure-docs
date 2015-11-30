@@ -11,7 +11,7 @@
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile"
-	ms.devlang=""
+	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
 	ms.author="mahender"/>
