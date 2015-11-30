@@ -1,21 +1,6 @@
-<properties 
-   pageTitle="Install Update 1.2 from the Azure Management Portal"
-   description="Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.2."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 11/16/15-->
 
-#### To install Update 1.2 from the Management Portal
+#### To install Update 1.2 from the Azure portal
 
 1. On the StorSimple service page, select your device. Navigate to **Devices** > **Maintenance**.
 
@@ -76,7 +61,7 @@
 
     ![Maintenance page](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the instructions in [Install Maintenance mode Updates](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.
+13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the instructions in [Install maintenance mode updates](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) to install these updates via the Windows PowerShell for StorSimple.
 
 > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
 

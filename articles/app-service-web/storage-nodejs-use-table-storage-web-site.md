@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web, storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -616,7 +616,7 @@ While the steps in this article describe using the Table Service to store inform
 [Git remote]: http://git-scm.com/docs/git-remote
 
 [Node.js web app with MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[Azure CLI]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node

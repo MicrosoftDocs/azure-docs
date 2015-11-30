@@ -1,21 +1,28 @@
 <properties 
-   pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways | Microsoft Azure"
-   description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. "
+   pageTitle="Configure forced tunneling for VPN Gateways using PowerShell | Microsoft Azure"
+   description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. This article applies to VPN gateways created using the classic deployment model "
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configure forced tunneling
+
+This article applies to VNets and VPN Gateways created using the classic deployment model. If you want to configure forced tunneling for VNets and VPN Gateways created using the Resource Manager deployment model, see [Configure forced tunneling using PowerShell and Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md). 
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+
+## About forced tunneling
 
 Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a site-to-site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. Without forced tunneling, Internet-bound traffic from your VMs in Azure will always traverse from Azure network infrastructure directly out to the Internet, without the option to allow you to inspect or audit the traffic. Unauthorized Internet access can potentially lead to information disclosure or other types of security breaches.
 
@@ -154,7 +161,8 @@ Below are some additional PowerShell cmdlets that you may find helpful when work
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## Next Steps
 
-For information about securing your network traffic. See [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md).
+
+
+
 

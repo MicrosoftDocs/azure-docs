@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -25,7 +25,7 @@
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
-[Application Insights web tests][availability] monitor your application's availability.
+Application Insights supports Java apps running on Linux, Unix or Windows.
 
 You'll need:
 
@@ -106,7 +106,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...
@@ -267,11 +267,11 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Scroll down and click the Failures tile](./media/app-insights-java-get-started/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
-* [Insert calls to TrackException in your code][apiexceptions]. 
+* [Insert calls to trackException() in your code][apiexceptions]. 
 * [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
 
 
@@ -364,11 +364,13 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. To set up, click through the empty web tests chart on the overview blade, and provide your public URL. 
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+
+![Scroll down, click Availability, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 
-![Web test example](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Learn more about availability web tests.][availability] 
 
@@ -381,7 +383,9 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
+## Next steps
 
+For more information, see the [Java Developer Center](/develop/java/).
 
 <!--Link references-->
 

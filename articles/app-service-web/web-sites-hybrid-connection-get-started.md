@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Access on-premises resources using hybrid connections in Azure App Service" 
 	description="Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/24/2015" 
 	ms.author="cephalin"/>
 
 #Access on-premises resources using hybrid connections in Azure App Service
@@ -39,13 +39,11 @@ You can connect a web app in Azure App Service to any on-premises resource that 
 
 > [AZURE.NOTE] If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
 
-1. In the lower left corner of the [Azure Portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Website**.
-	
-	![New button][New]
+1. In the upper left corner of the [Azure Portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Web App**.
 	
 	![New web app][NewWebsite]
 	
-2. On the **Web app** blade, provide a URL >  **Create**. 
+2. On the **Web app** blade, provide a URL and click **Create**. 
 	
 	![Website name][WebsiteCreationBlade]
 	
@@ -64,7 +62,7 @@ Next, you will create a hybrid connection and a BizTalk service for the web app.
 <a name="CreateHC"></a>
 ## Create a Hybrid Connection and a BizTalk Service ##
 
-1. Scroll down the blade for your web app and choose **Hybrid connections**.
+1. In your web app blade click on **All settings** > **Networking** > **Configure your hybrid connection endpoints**.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
@@ -116,7 +114,7 @@ At this point, you have completed an important part of the cloud hybrid connecti
 <a name="InstallHCM"></a>
 ## Install the on-premises Hybrid Connection Manager to complete the connection ##
 
-1. On the web app's blade, click the Hybrid connections icon. 
+1. On the web app's blade, click **All settings** > **Networking** > **Configure your hybrid connection endpoints**. 
 	
 	![Hybrid connections icon][HCIcon]
 	

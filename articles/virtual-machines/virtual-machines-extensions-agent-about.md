@@ -1,24 +1,28 @@
 <properties
- pageTitle="About the virtual machine agent and extensions | Microsoft Azure"
- description="Gives an overview of the agent and extensions, and how to install the agent."
+ pageTitle="Azure VM agent and extensions | Microsoft Azure"
+ description="Gives an overview of the agent and extensions, and how to install the agent, using the classic deployment model."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
- 
-#About the virtual machine agent and extensions
-The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../install-configure-powershell.md) cmdlets or the [Azure CLI](xplat-install.md) to add and configure either when you create a VM or with existing VMs. 
 
-> [AZURE.NOTE] This topic discusses PowerShell and the Azure CLI, but refers to deployment calls that are for the classic deployment model and not the Resource Manager deployment model. For [Azure Compute, Network & Storage Providers under the Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md) for more information about deployment models. 
+#About the virtual machine agent and extensions
+
+The Azure Virtual Machine Agent (VM Agent) is used to install, configure, manage and run Azure Virtual Machine Extensions (VM Extensions). VM Extensions provide dynamic features that Microsoft and other third parties provide. The agent and extensions are added primarily through the Management Portal, but you can also use the [Powershell](../install-configure-powershell.md) cmdlets or the [Azure CLI](xplat-install.md) to add and configure either when you create a VM or with existing VMs.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 
 VM extensions can help you:

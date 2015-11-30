@@ -1,19 +1,4 @@
-<properties
-   pageTitle="Install Maintenance mode updates"
-   description="Explains how to use Windows PowerShell for StorSimple to install maintenance mode updates."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/18/2015"
-   ms.author="alkohli" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To install Maintenance mode updates via Windows PowerShell for StorSimple
 

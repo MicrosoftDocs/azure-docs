@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Table design in SQL Data Warehouse #
@@ -102,7 +102,7 @@ Instead of:
 - **geography**, use a varbinary type
 - **hierarchyid**, CLR type not native
 - **image**, **text**, **ntext** when text based use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use varchar(4000) or smaller for better performance
+- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
 - **numeric**, use decimal
 - **sql_variant**, split column into several strongly typed columns
 - **sysname**, use nvarchar(128)
@@ -123,8 +123,8 @@ Partial support:
 
 There are two choices for distributing data in SQL Data Warehouse:
 
-1. Distribute data based on hashing values from a single column
-2. Distribute data evenly but randomly  
+1. Distribute data evenly but randomly 
+2. Distribute data based on hashing values from a single column
 
 Data distribution is decided at the table level. All tables are distributed. You will assign distribution for each table in your SQL Data Warehouse database.
 

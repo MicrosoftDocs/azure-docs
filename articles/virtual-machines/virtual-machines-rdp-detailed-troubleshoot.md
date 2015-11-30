@@ -6,7 +6,7 @@
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 This article provides detailed troubleshooting steps for complex Remote Desktop errors.
 
@@ -53,8 +55,8 @@ The following sections step through isolating and determining the various root c
 Perform these steps before proceeding to the detailed troubleshooting.
 
 - Check the status of the virtual machine in the Azure portal or the Azure preview portal
-- [Restart the virtual machine](https://msdn.microsoft.com/library/azure/dn763934.aspx)
-- [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx)
+- Restart the virtual machine
+- [Resize the virtual machine](virtual-machines-size-specs.md)
 
 After these steps, try the Remote Desktop connection again.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 	
 # Azure AD B2C Preview: Build a .NET Web API
@@ -40,6 +40,8 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - For the web app, use the **Redirect Uri** `https://localhost:44316/` - it is the default location of the web app client for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
 
+ [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+
 ## 3. Create your policies
 
 In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  The client in this code sample contains three 
@@ -49,7 +51,9 @@ identity experiences - sign-up, sign-in, and edit profile.  You will need to cre
 - Choose either **User ID signup** or **Email signup** in the identity providers blade.
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** claims as an application claim in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  You'll need those policy names shortly. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -91,6 +95,8 @@ of the project and replace the values in the `<appSettings>` section:
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 There are also two `[PolicyAuthorize]` decorators in which you need to provide your sign-in policy name.  The `[PolicyAuthorize]` attribute is used to invoke a particular
 policy when the user attempts to access a page in the app that requires authentication.

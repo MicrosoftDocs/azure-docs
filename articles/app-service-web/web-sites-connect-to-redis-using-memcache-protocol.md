@@ -8,11 +8,11 @@
 	editor="riande"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
-	ms.workload="web"
+	ms.workload="na"
 	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
@@ -112,7 +112,7 @@ Find **Memcached Object Cache** in the list, then click **Install Now**.
 
 ### Enable the Memcache WordPress plugin
 
->[AZURE.NOTE] Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][8] to install Visual Studio Online.
+>[AZURE.NOTE] Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][8] to install Visual Studio Team Services.
 
 In the `wp-config.php` file, add the following code above the stop editing comment near the end of the file.
 

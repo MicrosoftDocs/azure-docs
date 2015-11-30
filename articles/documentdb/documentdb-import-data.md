@@ -2,7 +2,7 @@
 	pageTitle="Import data to DocumentDB | Microsoft Azure" 
 	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # Import data to DocumentDB #
 
@@ -35,7 +35,7 @@ After reading this article, you'll be able to answer the following questions:
 
 Before following the instructions in this article, ensure that you have the following installed:
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) or higher.
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
 ##<a id="Overviewl"></a>Overview of the DocumentDB Data Migration Tool ##
 
@@ -57,8 +57,8 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d).  You may either compile the solution or simply download and extract the compiled version to a directory of your choice.  Then run either:
 
-- Dtui.exe: Graphical interface version of the tool
-- Dt.exe: Command-line version of the tool
+- **Dtui.exe**: Graphical interface version of the tool
+- **Dt.exe**: Command-line version of the tool
 
 ##<a id="JSON"></a>Import JSON files ##
 

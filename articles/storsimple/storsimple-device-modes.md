@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/01/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # Change the device mode on your StorSimple device

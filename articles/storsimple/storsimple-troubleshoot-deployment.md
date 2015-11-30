@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/29/2015"
    ms.author="alkohli" />
 
 # Troubleshoot StorSimple device deployment issues
@@ -257,6 +257,8 @@ The following is the output from controller 1 (the active controller). Only the 
 ## Troubleshoot with the Test-Connection cmdlet
 
 You can use the `Test-Connection` cmdlet to determine whether your StorSimple device can connect to the outside network. If all the networking parameters, including the DNS, are configured correctly in the setup wizard, you can use the `Test-Connection` cmdlet to ping a known address outside of the network, such as outlook.com. 
+
+You should enable ping to troubleshoot connectivity issues with this cmdlet if ping is disabled.
 
 See the following samples of output from the `Test-Connection` cmdlet. 
 

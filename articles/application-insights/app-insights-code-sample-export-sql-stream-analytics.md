@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
+	description="Continuously export Application Insights data to SQL using Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
@@ -21,7 +21,7 @@ This article shows how to move your telemetry data from [Visual Studio Applicati
 
 Continuous export moves your telemetry data into Azure Storage in JSON format. We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.
 
-(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data and publishing the data to the PowerBI visualization suite.)
+(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data.)
 
 We'll start with the assumption that you already have the app you want to monitor.
 
@@ -59,13 +59,13 @@ To get started:
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal][portal].
+1. Create a "classic" storage account in your subscription in the [Azure portal][portal].
 
-    ![In Azure portal, choose New, Data, Storage](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![In Azure portal, choose New, Data, Storage. Select Classic, choose Create. Provide a Storage name.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Copy the storage access key
 
@@ -258,7 +258,7 @@ Replace the default query with:
       ,A.context.location.province as province
       ,A.context.location.city as city
     INTO
-      AIOuput
+      AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
@@ -300,6 +300,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 ## Related articles
 
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Export to PowerBI using Stream Analytics](app-insights-export-power-bi.md)
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -310,6 +311,6 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

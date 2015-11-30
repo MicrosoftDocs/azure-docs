@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
 
->[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview.
+>[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. During the preview period, you cannot scale to, from, or within a premium tier cache.
 
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure preview portal](https://portal.azure.com).
 
@@ -48,6 +48,7 @@ Select the desired pricing tier from the **Pricing tier** blade and click **Sele
 
 >[AZURE.NOTE] You can scale to a different pricing tier with the following restrictions.
 >
+>-	You can't scale to or from a **Premium** cache.
 >-	You can't scale from a **Standard** cache to a **Basic** cache.
 >-	You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a subsequent scaling operation to the desired size.
 >-	You can't scale from a larger size down to the **C0 (250 MB)** size.
@@ -86,6 +87,10 @@ For more information, see the [Manage Redis Cache using MAML](https://github.com
 
 The following list contains answers to commonly asked questions about Azure Redis Cache scaling.
 
+## Can I scale to, from, or within a Premium cache
+
+During the preview period, scaling is not available for **Premium** caches.
+
 ## After scaling, do I have to change my cache name or access keys
 
 No, your cache name and keys are unchanged during a scaling operation.
@@ -115,6 +120,8 @@ Note that while Standard caches have a 99.9% SLA for availability, there is no S
 **Basic** caches are offline during scaling operations to a different size, but remain available when scaling from **Basic** to **Standard**.
 
 ## Operations that are not supported
+
+You can't scale to, from, or within a **Premium** cache.
 
 You can't change from a **Standard** to a **Basic** cache.
 

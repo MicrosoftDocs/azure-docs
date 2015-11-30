@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory Editor
@@ -62,7 +62,6 @@ There are four buttons on the toolbar that you can use to create Azure Data Fact
 2. You will see the JSON template for creating a compute linked service in the Editor canvas to the right. Do the following:
 	1. For **On-demand HDInsight cluster**, specify values for the following properties: 
 		1. For the **clusterSize** property, specify the size of the HDInsight cluster you want the Data Factory service to create at runtime. 
-		2. For the **jobsContainer** property, specify the name of the default blob container where you want the cluster logs will be stored.
 		3. For the **timeToLive** property, specify the allowed idle time before the HDInsight cluster is deleted. For example: 00:05:00 indicates that the cluster should be be deleted after 5 minutes of idle time.
 		4. For the **version** property, specify HDInsight version for the cluster (default: version 3.1).
 		5. For the **linkedServiceName** property, specify the Azure storage linked service to be associated with the HDInsight cluster. 

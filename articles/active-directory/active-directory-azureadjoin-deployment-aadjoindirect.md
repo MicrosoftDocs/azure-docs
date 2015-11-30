@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure" 
-	description="A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users)." 
+	description="Explains how administrators can set up Azure AD Join for their end users (employees, students, other users). It also discusses the different real-world scenarios for using Azure AD Join." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Usage scenarios and deployment considerations for Azure AD Join 
@@ -53,7 +54,7 @@ Enterprises can provide cloud-only accounts to partner companies and organizatio
 *	Windows 10 (Professional and Enterprise SKUs)
 
 ### Administrator Tasks
-* [Set up device registration and MFA](active-directory-azureadjoin-setup.md)
+* [Set up device registration](active-directory-azureadjoin-setup.md)
 
 ### User Tasks
 * [Setting up a new Windows 10 device with Azure AD during Setup](active-directory-azureadjoin-user-frx.md)
@@ -68,7 +69,7 @@ You can set up your users and employees to user their personal Windows devices t
 ### Prerequisites
 **At the enterprise level (administrator)**
 
-*	Azure AD Subscription
+*	Azure AD subscription
 
 **At the user level**
 
@@ -77,12 +78,16 @@ You can set up your users and employees to user their personal Windows devices t
 
 ### Administrator Tasks
 
-* [Set up device registration and MFA](active-directory-azureadjoin-setup.md)
+* [Set up device registration](active-directory-azureadjoin-setup.md)
 
 ### User Tasks
 * [Join a personal Windows 10 device to your organization](active-directory-azureadjoin-personal-device.md)
 
 
 ## Additional Information
+* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Authenticating identities without passwords through Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)

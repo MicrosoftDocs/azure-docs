@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="09/03/2015"
+	 ms.date="11/26/2015"
 	 ms.author="aashishr"; "jimpark"/>
 
 # Getting started with Azure Backup

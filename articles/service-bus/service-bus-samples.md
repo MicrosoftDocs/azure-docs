@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="service-bus-samples"
+   pageTitle="Service Bus samples overview | Microsoft Azure"
    description="Categorizes and describes Service Bus samples with links to each."
    services="service-bus"
    documentationCenter="na"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/08/2015"
    ms.author="sethm" />
 
 # Service Bus samples
 
-The Service Bus samples demonstrate key features in Service Bus (cloud service) and Service Bus for Windows Server. This topic categorizes and describes the samples available, with links to each.
+The Service Bus samples demonstrate key features in Service Bus (cloud service) and Service Bus for Windows Server. This article categorizes and describes the samples available, with links to each.
 
->[AZURE.NOTE] Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/windowsazure).
+>[AZURE.NOTE] Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com).
 
 ## Service Bus brokered messaging
 
@@ -57,7 +57,7 @@ These samples describe basic messaging and relay functionality.
 |---|---|---|---|
 |[Getting Started: Messaging with Queues](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a queue.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|
 |[Getting Started: Messaging With Topics](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a topic with multiple subscriptions.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|
-|[Getting Started with Event Hubs](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097)|Demonstrates the basic capabilities of Event Hubs, such as creating an Event Hub, sending events to an Event Hub, consuming events using the Event Processor.|2.4|Microsoft Azure Service Bus|
+|[Getting Started with Event Hubs](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|Demonstrates the basic capabilities of Event Hubs, such as creating an Event Hub, sending events to an Event Hub, consuming events using the Event Processor.|2.4|Microsoft Azure Service Bus|
 
 ### Exploring features
 
@@ -65,9 +65,9 @@ The following samples demonstrate various features of Service Bus.
 
 |Sample Name|Description|Minimum SDK Version|Availability|
 |---|---|---|---|
-|[HTTP Token Providers](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-Token-38f2cfc5)|Demonstrates the different ways of authenticating an HTTP/REST client with Service Bus.|2.1|Microsoft Azure Service Bus; Service Bus for Windows Server|
-|[Service Bus HTTP Client](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-client-fe7da74a)|Demonstrates how to send messages to and receive messages from Service Bus via HTTP/REST.|2.3|Microsoft Azure Service Bus; Service Bus for Windows Server|
-|[Service Bus Autoforwarding](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Autoforwarding-b9df470b)|Demonstrates how to automatically forward messages from a queue, subscription, or deadletter queue into another queue or topic. It also demonstrates how to send a message into a queue or topic via a transfer queue.|2.3|Microsoft Azure Service Bus; Service Bus for Windows Server|
+|[HTTP Token Providers](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|Demonstrates the different ways of authenticating an HTTP/REST client with Service Bus.|2.1|Microsoft Azure Service Bus; Service Bus for Windows Server|
+|[Service Bus HTTP Client](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|Demonstrates how to send messages to and receive messages from Service Bus via HTTP/REST.|2.3|Microsoft Azure Service Bus; Service Bus for Windows Server|
+|[Service Bus Autoforwarding](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|Demonstrates how to automatically forward messages from a queue, subscription, or deadletter queue into another queue or topic. It also demonstrates how to send a message into a queue or topic via a transfer queue.|2.3|Microsoft Azure Service Bus; Service Bus for Windows Server|
 |[Brokered Messaging: WCF Channel Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|Demonstrates how to use Microsoft Azure Service Bus using Windows Communication Foundation (WCF) channels. The sample shows the use of WCF channels to send and receive messages via a Service Bus queue. The sample shows both session and non-session communication over the Service Bus.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|
 |[Brokered Messaging: Transactions](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|Demonstrates how to use the Microsoft Azure Service Bus messaging features within a transaction scope in order to ensure batches of messaging operations are committed atomically.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|
 |[Brokered Messaging: Management Operations Using REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|Demonstrates how to perform management operations on Service Bus using REST.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|

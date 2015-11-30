@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Frequently asked questions for Azure Virtual Machines"
-	description="Provides answers to some of the most common questions about Azure virtual machines"
+	pageTitle="Frequently asked questions for VMs | Microsoft Azure"
+	description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,9 +17,12 @@
 	ms.date="07/17/2015"
 	ms.author="cynthn"/>
 
-# Azure Virtual Machines FAQ
+# Frequently asked question about Azure Virtual Machines created with the classic deployment model
 
-This article addresses some common questions users ask about Azure virtual machines, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For basic information, start with [About Virtual Machines](virtual-machines-about.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
+This article addresses some common questions users ask about Azure virtual machines created with the classic deployment model, based on input from the Azure VM Support team, as well as from forums, newsgroups, and comments in other articles. For basic information, start with [About Virtual Machines](virtual-machines-about.md).
 
 ## What can I run on an Azure VM?
 
@@ -72,7 +75,7 @@ You need to establish a remote connection to log on to the virtual machine, usin
 
 If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension to help fix the problem. For Windows VMs, additional options include:
 
-- In the Azure Preview Portal, find the VM, then click **Reset Remote Access** from the Command bar.
+- In the Azure preview portal, find the VM, then click **Reset Remote Access** from the Command bar.
 - Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
 - Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
 
@@ -101,7 +104,7 @@ If you’ve forgotten the user name or password and you’ve installed the VM Ag
 
 Additional details:
 
-- For the Linux images, if you use the Management Portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
+- For the Linux images, if you use the Azure portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
 - For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
 
 ## Can Azure run anti-virus on my virtual machines?
@@ -124,7 +127,7 @@ Azure charges an hourly price based on the VM’s size and operating system. For
 
 You are charged when the VM status is Running or Stopped, but you are not charged when the VM status is Stopped (De-allocated). To put a VM in the Stopped (De-allocated) state, do one of the following:
 
-- Shut down or delete the VM from the Management Portal.
+- Shut down or delete the VM from the Azure portal.
 - Use the Stop-AzureVM cmdlet, available in the Azure PowerShell module.
 - Use the Shutdown Role operation in the Service Management REST API and specify StoppedDeallocated for the PostShutdownAction element.
 
@@ -132,7 +135,7 @@ For more details, see [Virtual Machines Pricing](http://azure.microsoft.com/pric
 
 ## Will Azure reboot my VM for maintenance?
 
-Generally, you can start, stop, or restart your VM whenever you need to. (For details, see [About starting, stopping, and restarting an Azure VM](https://msdn.microsoft.com/library/azure/dn763934.aspx)). Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
+Generally, you can start, stop, or restart your VM whenever you need to. Azure sometimes restarts your VM as part of regular, planned maintenance updates in the Azure datacenters. Unplanned maintenance events can occur when Azure detects a serious hardware problem that affects your VM. For unplanned events, Azure automatically migrates the VM to a healthy host and restarts the VM.
 
 For any standalone VM (meaning the VM isn’t part of an availability set), Azure notifies the subscription’s Service Administrator by email at least one week before planned maintenance because the VMs could be restarted during the update. Applications running on the VMs could experience downtime.
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Release notes for Application Insights for Windows" 
-	description="The latest updates." 
+	description="The latest updates for Windows Store SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store

@@ -108,7 +108,9 @@ For information about how to use Azure PowerShell, see [How to Use Azure PowerSh
 
 The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. For information about installing Azure CLI, see [Install the Azure CLI](xplat-cli-install.md).
 
+## Next steps
 
+For more information, see the [PHP Developer Center](/develop/php/).
 
 
 [install-php]: http://www.php.net/manual/en/install.php

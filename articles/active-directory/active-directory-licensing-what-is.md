@@ -1,20 +1,21 @@
 <properties
-   pageTitle="What is Microsoft Azure Active Directory licensing? | Microsoft Azure"
-   description="Description of Microsoft Azure AD licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="swadhwa"
-   editor=""/>
+    pageTitle="What is Microsoft Azure Active Directory licensing? | Microsoft Azure"
+    description="Description of Microsoft Azure AD licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions"
+    services="active-directory"
+	keywords="Azure AD licensing"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/16/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # What is Microsoft Azure Active Directory licensing?
 

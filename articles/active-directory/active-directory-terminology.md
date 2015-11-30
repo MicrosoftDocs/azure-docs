@@ -4,21 +4,21 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Azure AD terminology
 
-Microsoft Azure Active Directory (Azure AD) has a unique set of terminology that relate to cloud, hybrid and on-premises scenarios. The following table defines these terms to provide you with a basic understanding for how they are used.
+Microsoft Azure Active Directory (Azure AD) has a unique set of terminology that relate to cloud, hybrid, and on-premises scenarios. The following table defines these terms to provide you with a basic understanding for how they are used.
 
  Term  | Definition
 ------------- | -------------

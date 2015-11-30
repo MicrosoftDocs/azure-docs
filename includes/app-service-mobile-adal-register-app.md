@@ -22,7 +22,7 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-Your application is now configured in AAD so that users can log in using AAD single sign-on.
+Your application is now configured in AAD so that users can log in using AAD sign-on.
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to configure your Mobile App with Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
+[How to configure your Mobile App with Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md

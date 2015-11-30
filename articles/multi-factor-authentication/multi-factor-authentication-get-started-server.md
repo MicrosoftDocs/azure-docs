@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -154,6 +154,26 @@ By clicking on the email icon on the left you can setup the settings for sending
 On the Email Content tab, you will see all of the various email templates that are available to choose from.  So depending on how you have configured your users to use multi-factor authentication, you can choose the template that best suits you.
 
 ![Email templates](./media/multi-factor-authentication-get-started-server/email2.png)
+
+## How the Azure Multi-Factor Authentication Server handles user data
+
+When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’s data is stored in the on-premises servers. No persistent user data is stored in the cloud. When the user performs a two-factor authentication, the MFA Server sends data to the Azure MFA cloud service to perform the authentication. When these authentication requests are sent to the cloud service, the following fields are sent in the request and logs so that they are available in the customer's authentication/usage reports. Some of the fields are optional so they can be enabled or disabled within the Multi-Factor Authentication Server. The communication from the MFA Server to the MFA cloud service uses SSL/TLS over port 443 outbound. These fields are:
+
+- Unique ID - either username or internal MFA server ID
+- First and Last Name - optional
+- Email Address - optional
+- Phone Number - when doing a voice call or SMS authentication
+- Device token - when doing mobile app authentication
+- Authentication Mode 
+- Authentication Result 
+- MFA Server Name 
+- MFA Server IP 
+- Client IP – if available
+
+
+
+In addition to the fields above, the authentication result (success/denial) and reason for any denials is also stored with the authentication data and available through the authentication/usage reports.
+
 
 ## Advanced Azure Multi-Factor Authentication Server Configurations
 For additional information on advanced setup and configuration information use the table below.

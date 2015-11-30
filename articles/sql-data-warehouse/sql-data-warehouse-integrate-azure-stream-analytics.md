@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/02/2015"
+   ms.date="09/30/2015"
    ms.author="sahajs;twounder"/>
 
 # Use Azure Stream Analytics with SQL Data Warehouse
@@ -36,11 +36,14 @@ Then, create an Azure SQL Data Warehouse database
 ## Specify job output: Azure SQL Data Warehouse database
 
 ### Step 1
+
 In your Stream Analytics job click **OUTPUT** from the top of the page, and then click **ADD OUTPUT**.
 
 ### Step 2
+
 Select SQL Database and click next.
-![][Add Output]
+
+![][add-output]
 
 ### Step 3
 Enter the following values on the next page:
@@ -52,40 +55,41 @@ Enter the following values on the next page:
 - *Database*: Specify the name of a destination database.
 - *Server Name*: Specify the server name for the database you just specified. You can use the Azure Portal to find this.
 
-![][Server Name]
+![][server-name]
 
 - *User Name*: Specify the user name of an account that has write permissions for the database.
 - *Password*: Provide the password for the specified user account.
 - *Table*: Specify the name of the target table in the database.
 
-![][Add Database] 
+![][add-database] 
 
 ### Step 4
+
 Click the check button to add this job output and to verify that Stream Analytics can successfully connect to the database.
 
-![][Test Connection]
+![][test-connection]
 
 When the connection to the database succeeds, you will see a notification at the bottom of the portal. You can click Test Connection at the bottom to test the connection to the database.
 
-
-
-
 ## Next steps
+
 For an overview of integration, see [SQL Data Warehouse integration overview][].
 
 For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
-[Add Output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
-[Server Name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
-[Add Database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
-[Test Connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
+
+[add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
+[server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
+[add-database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
+[test-connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
 
 <!--Article references-->
+
 [Introduction to Azure Stream Analytics]: stream-analytics-introductiond.md
 [Get started using Azure Stream Analytics]: stream-analytics-get-started.md
 [SQL Data Warehouse development overview]:  sql-data-warehouse-overview-develop.md
-[SQL Data Warehouse integration overview]:  sql-data-warehouse-overview-integration.md
+[SQL Data Warehouse integration overview]:  sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 

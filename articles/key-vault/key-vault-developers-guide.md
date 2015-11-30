@@ -1,19 +1,19 @@
 <properties
    pageTitle="Key Vault Developer's Guide | Microsoft Azure"
-   description="Developers can use Azure Key Vault  to manage cryptographic keys within the Microsoft Azure environment. "
+   description="Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. "
    services="key-vault"
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Azure Key Vault Developer's Guide
 
@@ -34,30 +34,35 @@ Operations against key vaults are authenticated and authorized by using Azure Ac
 ## Programming for Key Vault
 
 The Key Vault management system for programmers consists of several interfaces, with REST as the foundation.
+[Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
-The REST API is the foundation of all programmatic interaction with the Key Vault.
+## Managing Key Vaults
 
-Key Vault has its own REST endpoint which is described in the [Key Vault REST API Reference](https://msdn.microsoft.com/library/azure/dn903609.aspx)
+Azure Key Vault containers (vaults) can be managed using REST, PowerShell or CLI, as described in the following articles:
 
-### .NET
-
-The .NET API is a set of wrappers that allows implementation through the C# programming model without needing to interact directly with the REST endpoint. Here you can find the [Azure Key Vault .NET client API reference](https://msdn.microsoft.com/library/azure/dn903301.aspx).
-
-### Node.js
-
-The Node.js API is a set of wrappers that allows implementation through the JavaScript programming model without needing to interact directly with the REST endpoint.  Here you can find the [Microsoft Azure SDK for Node.js - Key Vault Management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
-
-## Managing Key Vault with PowerShell and CLI
-
-Azure Key Vault keys and secrets can also be managed using PowerShell and CLI, as described in the following articles:
-
+- [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Create and Manage Key Vaults with PowerShell](key-vault-get-started.md)
 - [Create and Manage Key Vaults with CLI](key-vault-manage-with-cli.md)
-- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](https://msdn.microsoft.com/library/azure/dn903624.aspx)
-- [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-## See also
 
-- [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
+## How-tos
+
+The following articles provide task specific guidance:
+
+- [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](key-vault-hsm-protected-keys.md)
+
+## Examples
+
+- This download contains both the sample application HelloKeyVault and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
+- Use this tutorial to help you learn how to use Azure Key Vault from a web application in Azure. [Use Azure Key Vault from a Web Application] (key-vault-use-from-web-application.md)
+
+## Supporting Libraries
+
+- [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides IKey and IKeyResolver interfaces for locating keys from identifiers and performing operations with keys.
+
+- [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
+

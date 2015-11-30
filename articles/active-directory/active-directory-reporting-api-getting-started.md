@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+   ms.date="11/09/2015"
+   ms.author="kenhoff"/>
 
 
 # Getting started with the Azure AD Reporting API
@@ -156,6 +156,11 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 Once you finish editing the script, run it and verify that the expected data from the AuditEvents report is returned.
 
 The script returns lists all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can comment experiment with modifying the script to return data from other reports, and comment out the output formats that you do not need.
+
+## Notes
+
+- There is no limit on the number of events returned by the Azure AD Reporting API (using OData pagination).
+	- For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
 
 
 ## Next Steps

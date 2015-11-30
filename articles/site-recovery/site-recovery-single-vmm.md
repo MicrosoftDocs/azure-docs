@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  Set up protection with a single VMM server
@@ -43,7 +43,7 @@ To make VMM highly available it can be deployed as a virtual machine in a Window
 ## Before you start
 
 - The walkthrough steps explain how to deploy Site Recovery with a single standalone VMM server.
-- Make sure you have the [prerequisites](site-recovery-vmm-to-vmm.md/#before-you-start) in place before you start deployment.
+- Make sure you have the [prerequisites](site-recovery-vmm-to-vmm.md#before-you-start) in place before you start deployment.
 - The single VMM server must have at least two clouds configured. One cloud will act as the protected cloud and the other is performing protection.
 - The clouds that you want to protect must contain the following:
 	- One or more VMM host groups
@@ -63,19 +63,19 @@ If you run into problems setting up this scenario post your questions on the [Az
 	- [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
 	- [Creating a private cloud in VMM](https://technet.microsoft.com/library/jj860425.aspx) and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 3. Add the source Hyper-V host server on which the virtual machine you want to protect is located to the cloud you're going to protect (the source cloud). Add the target Hyper-V host server to the cloud on the VMM server that will be providing the protection.
-4. [Create](site-recovery-vmm-to-vmm.md/#step-1-create-a-site-recovery-vault) an Azure Site Recovery vault and generate a vault registration key.
-4. [Install](site-recovery-vmm-to-vmm.md/#step-3-install-the-azure-site-recovery-provider) the Azure Site Recovery Provider on the VMM server and register the server in the vault. 
-5. Make sure that the clouds appear in the Site Recovery portal, and [configure cloud protection settings](site-recovery-vmm-to-vmm.md/#step-4-configure-cloud-protection-settings).
+4. [Create](site-recovery-vmm-to-vmm.md#step-1-create-a-site-recovery-vault) an Azure Site Recovery vault and generate a vault registration key.
+4. [Install](site-recovery-vmm-to-vmm.md#step-3-install-the-azure-site-recovery-provider) the Azure Site Recovery Provider on the VMM server and register the server in the vault. 
+5. Make sure that the clouds appear in the Site Recovery portal, and [configure cloud protection settings](site-recovery-vmm-to-vmm.md#step-4-configure-cloud-protection-settings).
 	- In **Source Location** and **Target Location**, specify the name of the single VMM server.
 	- In **Replication Method**, select **Over the network** for the initial replication because the clouds are located on the same server.
 
-6. Optionally [configure network mapping](site-recovery-vmm-to-vmm.md/#step-5-configure-network-mapping):
+6. Optionally [configure network mapping](site-recovery-vmm-to-vmm.md#step-5-configure-network-mapping):
 
 	- In **Source** and **Target** specify the name of the single VMM server.
 	- In **Network on Source** select the VM network that’s configured for the cloud you’re protecting.
 	- In **Network on Target** select the VM network that’s configured for the cloud you want to use for protection.
 	- Network mapping can be configured between two virtual machine (VM) networks on the same VMM server. If the same VMM network exists in two different sites, you can map between the same networks.
-7. [Enable protection](site-recovery-vmm-to-vmm.md/#step-7-enable-virtual-machine-protection) for virtual machines in the VMM cloud you want to protect. 
+7. [Enable protection](site-recovery-vmm-to-vmm.md#step-7-enable-virtual-machine-protection) for virtual machines in the VMM cloud you want to protect. 
 7. In the Hyper-V Manager console, set up replication for the VMM virtual machine with Hyper-V Replica. The VMM virtual machine shouldn't be added to any VMM clouds.
 
 
@@ -86,7 +86,7 @@ If you run into problems setting up this scenario post your questions on the [Az
 Recovery plans group together virtual machines that should be failed over and recovered together. 
 
 1. When you create a recovery plan in **Source** and **Target** specify the name of the single VMM server. In **Select Virtual Machines**, virtual machines that are associated with the primary cloud will be displayed.
-2. Then [create and customize recovery plans](https://msdn.microsoft.com/library/azure/dn337331.aspx).
+2. Then [create and customize recovery plans](site-recovery-create-recovery-plans.md).
 
 
 ### Recovery

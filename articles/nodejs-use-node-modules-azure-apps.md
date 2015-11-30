@@ -1,6 +1,6 @@
-<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="11/20/2015" ms.author="robmcm"/>
 
 
 
@@ -70,8 +70,10 @@ When your application is ready for production, you can lock-down version require
 
 Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Interface for Mac and Linux].
 
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
+
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
-[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli.md
+[How to use the Azure Command-Line Interface for Mac and Linux]: xplat-cli-install.md
 [build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md

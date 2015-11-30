@@ -1,5 +1,5 @@
 <properties
-	pageTitle="About images for virtual machines"
+	pageTitle="About images for virtual machines | Microsoft Azure"
 	description="Learn about how images are used with virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/13/2015"
 	ms.author="cynthn"/>
 
 # About images for virtual machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 Images are used in Azure to provide a new virtual machine with an operating system. An image might also have one or more data disks. Images are available from several sources:
 

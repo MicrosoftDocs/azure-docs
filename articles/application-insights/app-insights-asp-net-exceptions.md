@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
-	description="Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry." 
+	description="Capture exceptions from ASP.NET apps along with request telemetry." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnose failures and exceptions in ASP.NET apps with Application Insights  
+
+
+# Set up Application Insights: Diagnose exceptions
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 By monitoring your application with [Visual Studio Application Insights][start], you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
@@ -73,6 +77,9 @@ To see these events, open [Search][diagnostic], open Filter, and then choose Cus
 
 
 ![Drill through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+
+> [AZURE.NOTE] If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group, so that you can navigate between related events. [Learn about sampling.](app-insights-sampling.md)
 
 ### How to see request POST data
 
@@ -418,11 +425,10 @@ Add the attribute to the service implementations:
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [Sample](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -442,9 +448,9 @@ Note that it will be different from the 'Exceptions' count calculated by the App
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

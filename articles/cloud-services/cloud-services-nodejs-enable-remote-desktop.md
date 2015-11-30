@@ -3,7 +3,7 @@
 	description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 # Enabling Remote Desktop in Azure
@@ -109,7 +109,7 @@ instances in the cloud, disable remote desktop access using [Azure PowerShell].
 
 - [Remotely Accessing Role Instances in Azure] 
 - [Using Remote Desktop with Azure Roles]
-
+- [Node.js Developer Center](/develop/nodejs/)
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 

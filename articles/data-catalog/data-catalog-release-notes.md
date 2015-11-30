@@ -13,18 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/04/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
 
-## Notes for the September 4, 2015 release of Azure Data Catalog
+## Notes for the November 20, 2015 release of Azure Data Catalog
 
-### Data profile may be missing for some registered data assets
+### Opening Data Sources in Power BI Desktop
 
-When registering data sources with the data profiling option selected in the data source registration tool, the data profile information may not be included when registering Oracle tables and views with multi-byte characters in column names.
+When using the "Open in Power BI Desktop" option from the **Azure Data Catalog** portal, users may encounter one of two problems in the Power BI Desktop application:
 
-These restrictions are due to a known issue in the September 4 release, and will be addressed in a future update to Azure Data Catalog.
+- A dialog box with the title "Unable to Open Document" is displayed
+- The Power BI Desktop application opens, but the file appears to be empty
+
+For each situation, the problem can be resolved by downloading and installing the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+
+## Notes for the November 13, 2015 release of Azure Data Catalog
+
+### Registering and connecting to Teradata
+
+When connecting to Teradata data sources users must have installed the correct Teradata ODBC driver that match the bitness (32-bit or 64-bit) of the software being used.
+
+As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
+
+## Notes for the November 6, 2015 release of Azure Data Catalog
+
+### Users may encounter errors when launching the data source registration tool
+
+When launching the **Azure Data Catalog** data source registration tool from the **Azure Data Catalog** portal, users who have previously installed an older version of the tool may receive this message: "Application cannot be started. Contact the application vendor."
+
+Users who receive this message should use Windows control panel to remove the existing "Azure Data Catalog" application, and then re-launch the tool from the **Azure Data Catalog** portal.
 
 ## Notes for the July 13, 2015 release of Azure Data Catalog
 
@@ -43,7 +62,7 @@ Support for SQL Server Reporting Services (SSRS) data sources in the initial pre
 
 ### Opening data assets in Excel
 
-When opening data assets in Microsoft Excel from the Azure Data Catalog portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
+When opening data assets in Microsoft Excel from the **Azure Data Catalog** portal, users may be prompted with a **Microsoft Excel Security Notice** dialog box. This is standard, expected behavior, and users can select **Enable** to continue.
 
 For more information, see [Enable or disable security alerts about links and files from suspicious websites](https://support.office.com/en-us/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 

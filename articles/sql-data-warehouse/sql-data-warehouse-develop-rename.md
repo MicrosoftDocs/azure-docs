@@ -1,9 +1,9 @@
 <properties
    pageTitle="Rename in SQL Data Warehouse | Microsoft Azure"
-   description="Tips for renaming objects and databases in Azure SQL Data Warehouse for developing solutions."
+   description="Tips for renaming tables in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -13,57 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="11/05/2015"
+   ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Rename in SQL Data Warehouse
-SQL Server supports object and database renaming via the stored procedure sp_rename and sp_renamedb respectively.
+While SQL Server supports database renaming via the stored procedure ```sp_renamedb```, SQL Data Warehouse uses DDL syntax to achieve the same goal.  The DDL command is ```RENAME OBJECT```.
 
-SQL Data Warehouse uses DDL syntax to achieve the same goal. The DDL commands are RENAME OBJECT and RENAME DATABASE.
+## Rename table
 
-## Rename object
-
-It is important to understand that the name only affects the object being renamed - there is no propagation of the name change. Consequently any views using the old name of an object will be invalid until an object with the old name has been created. Consequently you will often see `RENAME OBJECT` appearing in pairs.
+Currently, only tables can be renamed.  The syntax to rename a table is:
 
 ```
-RENAME OBJECT product.item to item_old;
-RENAME OBJECT product.item_new to item;
+RENAME OBJECT Customer TO NewCustomer;
 ```
 
-## Rename database
+When renaming a table, all objects and properties associated with the table are updated to reference the new table name. For example, table definitions, indexes, constraints, and permissions are updated. Views are not updated.
 
-Database renaming is very similar to that of object. 
+## Rename external table
 
-```
-RENAME DATABASE AdventureWorks TO Contoso;
-```
+Renaming an external table changes the table name within SQL Server PDW. It does not effect the location of the external data for the table.
 
-It is important to remember that you cannot rename an object or a database if other users are connected to it or are using it. You may need to terminate open sessions first. To terminate a session you need to use the [KILL][] command. Please be careful when using KILL. Once executed the targeted session will be terminated and any uncommitted work will be rolled back.
-
-> [AZURE.NOTE] Sessions in SQL Data Warehouse are prefixed by 'SID' you will need to include this and the the session number when invoking the KILL command. For example KILL 'SID1234' would kill session 1234 - assuming you have the right permissions to execute it.
-
-## Killing sessions
-In order to rename a database you may need to kill sessions connected to your SQL Data Warehouse. The following query will generate a distinct list of KILL commands to clear the connections (save for the current session).
-
-```
-SELECT 'KILL '''+session_id+''''
-FROM	sys.dm_pdw_exec_requests r
-WHERE r.session_id <> SESSION_ID()
-AND EXISTS
-(	SELECT 	*
-	FROM 	sys.dm_pdw_lock_waits w
-	WHERE 	r.session_id = w.session_id
-)
-GROUP BY session_id
-;
-```
-
-## Switching schemas
-If the intent is to change the schema that an object belongs to then that is achieved via `ALTER SCHEMA`:
+## Change a table schema
+If the intent is to change the schema that an object belongs to then that is achieved via ALTER SCHEMA:
 
 ```
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 ```
+
+## Table rename requires exclusive table lock
+
+It is important to remember that you cannot rename a table while it is in use.  A rename of a table requires an exclusive lock on the table.  If the table is in use, you may need to terminate the session using the table.  To terminate a session you need to use the [KILL](https://msdn.microsoft.com/library/ms173730.aspx) command.  Take care when using ```KILL``` as when a session is terminated and any uncommitted work will be rolled back.  Sessions in SQL Data Warehouse are prefixed by 'SID'.  You will need to include this and the session number when invoking the KILL command.  For example ```KILL 'SID1234'```
 
 
 ## Next steps
@@ -73,11 +52,3 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[KILL]: https://msdn.microsoft.com/en-us/library/ms173730.aspx
-
-<!--Other Web references-->
-[Azure management portal]: http://portal.azure.com/
-
-

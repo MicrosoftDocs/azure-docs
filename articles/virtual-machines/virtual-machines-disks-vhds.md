@@ -1,5 +1,5 @@
 <properties
-	pageTitle="About disks and VHDs for virtual machines"
+	pageTitle="About disks and VHDs | Microsoft Azure"
 	description="Learn about the basics of disks and VHDs for virtual machines in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,22 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="11/04/2015"
 	ms.author="cynthn"/>
 
-# About disks and VHDs for virtual machines
+# About disks and VHDs for Azure virtual machines
 
-All virtual machines in Azure are configured with at least two disks when you create the virtual machine – one is an operating system disk and the other is a temporary local disk, sometimes called a resource disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have data disks, and they are also stored as VHDs.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+
+
+Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – an operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs.
+
+## Operating system disk
+
+Every virtual machine has one attached operating system disk. It’s registered as a SATA drive and labeled as the C: drive. This disk has a maximum capacity of 1023 gigabytes (GB). When Azure creates an operating system disk, three copies of the disk are created for high durability. Additionally, if you configure the virtual machine for geo-replication, your VHD is also replicated to different sites more than 400 miles apart.
+
+##Temporary disk
+
+The temporary disk is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
 
 >[AZURE.WARNING] Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk for a Windows virtual machine, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md).
 
-## About disks
+## Data disk
 
-Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – an operating system disk and a temporary disk. They also can have one or more data disks.
-
-- The **operating system disk** - Every virtual machine has one attached operating system disk. It’s registered as a SATA drive and labeled as the C: drive. This disk has a maximum capacity of 1023 gigabytes (GB). When Azure creates an operating system disk, three copies of the disk are created for high durability. Additionally, if you configure the virtual machine for geo-replication, your VHD is also replicated to different sites more than 400 miles apart.
-- The **temporary disk** is automatically created for you. On Windows virtual machines, this disk is labeled as the D: drive. On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.
-- A **data disk** is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 	For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
@@ -61,6 +69,7 @@ Linux virtual machines:
 
 Windows virtual machines:
 
--  [Attach a disks and prep it for use](storage-windows-attach-disk.md)
+-  [Attach a disks and prepare it for use](storage-windows-attach-disk.md)
+- [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md)
 -  [Capture a Windows virtual machine](virtual-machines-capture-image-windows-server.md)
 -  [Detach a disk](storage-windows-detach-disk.md)

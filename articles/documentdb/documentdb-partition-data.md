@@ -1,6 +1,6 @@
 <properties      
     pageTitle="Partition and Scale Data in DocumentDB with Sharding | Microsoft Azure"      
-    description="Review how to scale data with a technique called sharding. Learn about shards, how to partition data in DocumentDB, and when to use Hash, Range and Lookup partitioning."         
+    description="Review how to scale data with a technique called sharding. Learn about shards, how to partition data in DocumentDB, and when to use Hash and Range partitioning."         
     keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="09/14/2015"      
+    ms.date="10/05/2015"      
     ms.author="arramac"/> 
 
 # Partition and scale data in DocumentDB
@@ -24,7 +24,7 @@ You can achieve near-infinite scale in terms of storage and throughput for your 
 
 After reading this article on data scaling you will be able to answer the following questions:   
 
- - What is hash, range and lookup partitioning?
+ - What is hash and range partitioning?
  - When would you use each partitioning technique and why?
  - How do you go about building a partitioned application on Azure DocumentDB?
 
@@ -56,13 +56,13 @@ A special case of range partitioning is when the range is a single value. This i
 
 In hash partitioning, partitions are assigned based on the value of a hash function, allowing you to evenly distribute requests and data across a number of partitions. This is commonly used to partition data produced or consumed from a large number of distinct clients, and is useful for storing user profiles, catalog items, and IoT ("Internet of Things") device telemetry data. 
 
-> [AZURE.TIP] You should use hash partitioning whenever there are too many entities to enumerate through lookup partitioning (e.g. users or devices) and the request rate is fairly uniform across entities.
+> [AZURE.TIP] You should use hash partitioning whenever there are too many entities to enumerate (e.g. users or devices) and the request rate is fairly uniform across entities.
 
 ## Choosing the right partitioning technique
 
 So which partitioning technique is right for you? It depends on the type of data and your common access patterns. Picking the right partitioning technique at design time allows you to avoid technical debt, and handle growth in data size and request volumes.
 
-- **Range partitioning** is generally used in the context of dates, as it gives you an easy and natural mechanism for aging out partitions by timestamp. It is also useful when queries are generally constrained to a time range since that is aligned with the partitioning boundaries. It also allows you to group and organize unordered and unrelated sets of data in a natural way e.g., group tenants by organization or states by geographic region. Lookup also offers fine-grained control for migrating data between collections. 
+- **Range partitioning** is generally used in the context of dates, as it gives you an easy and natural mechanism for aging out partitions by timestamp. It is also useful when queries are generally constrained to a time range since that is aligned with the partitioning boundaries. It also allows you to group and organize unordered and unrelated sets of data in a natural way e.g., group tenants by organization or states by geographic region. Range also offers fine-grained control for migrating data between collections. 
 - **Hash partitioning** is useful for uniform load balancing of requests to make effective use of your provisioned storage and throughput. Using *consistent hashing* algorithms allow you to minimize the amount of data that has to be moved when adding or removing a partition.
 
 You don't have to choose just one partitioning technique. A *composite* of these techniques can also be useful depending on the scenario. For example, if you're storing vehicle telemetry data, a good approach would be to partition device telemetry data by range on timestamp for easy manageability of partitions, then sub-partition on VIN (vehicle identification number) in order to scale-out for throughput (range-hash composite partitioning).
@@ -78,7 +78,7 @@ Let's take a closer look at each of these areas.
 
 ## Routing creates and queries
 
-Routing document creation requests is straight-forward for both hash and range partitioning. The document is created on the partition from the hash, lookup, or range value corresponding to the partition key.
+Routing document creation requests is straight-forward for both hash and range partitioning. The document is created on the partition from the hash or range value corresponding to the partition key.
 
 Queries and reads should typically be scoped to a single partition key, so queries can be fanned out to only the matching partitions. Queries across all data however, would require you to *fan-out* the request across multiple partitions, then merge the results. Keep in mind that some queries might have to perform custom logic to merge results for e.g. when fetching the top N results.
 
@@ -92,7 +92,7 @@ If not, you can store it in any persistent store. A common design pattern we've 
 
 With DocumentDB, you can add and remove collections at any time and use them to store new incoming data or re-balance data available on existing collections. Review the [Limits](documentdb-limits.md) page for the number of collections. You can always call us to increase these limits.
 
-Adding and removing a new partition with lookup and range partitioning is straightforward. For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map. Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort. You need to either 
+Adding and removing a new partition with range partitioning is straightforward. For example, adding a new geographic region or new time range for recent data, you just need to append the new partitions to the partition map. Splitting an existing partition into multiple partitions, or merge two partitions requires a little more effort. You need to either 
 
 - Take the shard offline for reads.
 - Route reads to both the partitions using the old partitioning configuration as well as the new partitioning configuration during migration. Note that transactions and consistency level guarantees will not be available until migration is complete.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # Monitor a storage account in the Azure portal
@@ -24,14 +24,14 @@ You can monitor your storage account from the Azure portal. When you configure y
 
 > [AZURE.NOTE] Additional costs are associated with examining monitoring data in the Azure portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 
-> The Azure File service does not currently support Storage Analytics.
+> Azure File storage currently supports Storage Analytics metrics, but does not yet support logging. You can enable metrics for Azure File storage via the [Azure preview portal](https://ms.portal.azure.com).
 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ## How to: Configure monitoring for a storage account
 
-1. In the [Azure portal](https://manage.windowsazure.com/), click **Storage**, and then click the storage account name to open the dashboard.
+1. In the [Azure management portal](https://manage.windowsazure.com/), click **Storage**, and then click the storage account name to open the dashboard.
 
 2. Click **Configure**, and scroll down to the **monitoring** settings for the blob, table, and queue services.
 

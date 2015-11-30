@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create applications that use Service Bus queues | Microsoft Azure"
+   pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
    description="How to write a simple queue-based application that uses Service Bus."
    services="service-bus"
    documentationCenter="na"

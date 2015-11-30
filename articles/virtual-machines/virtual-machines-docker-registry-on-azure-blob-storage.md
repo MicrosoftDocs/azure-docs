@@ -1,12 +1,12 @@
-<properties title="Deploying Your Own Private Docker Registry on Azure"
-  pageTitle="Deploying Your Own Private Docker Registry on Azure"
+<properties 
+  pageTitle="Deploying Your Own Private Docker Registry on Azure | Microsoft Azure"
   description="Describes how you can use Docker Registry to host your container images on the Azure Blob Storage service."
   services="virtual-machines"
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
   manager="" 
-  tags="" />
+  tags="azure-service-management,azure-resource-manager" />
 
 <tags
   ms.service="virtual-machines"
@@ -18,6 +18,10 @@
   ms.author="ahmetb" />
 
 # Deploying Your Own Private Docker Registry on Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+
 
 This document describes what a Docker private registry is and shows how you can deploy a Docker Registry 2.0
 container image to a Docker private registry on Microsoft Azure using Azure Blob Storage.
@@ -55,7 +59,7 @@ images on Azure Blob Storage, you can have several benefits:
 **Security:** Your Docker images do not leave Azure datacenters, so they do
   not cross the public Internet as they would if you were using Docker Hub.
   
-**Performance:** Your Docker images are stored are stored within the same
+**Performance:** Your Docker images are stored within the same
 datacenter or region as your applications. This means the images will be
 pulled faster and more reliably compared to Docker Hub.
 
