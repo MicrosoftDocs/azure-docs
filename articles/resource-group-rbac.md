@@ -40,7 +40,7 @@ For the Azure cross-platform CLI tool, use the following command to list **all**
 
 If you're using the Azure Resource Manager PowerShell module (AzureRm), use the following command to list **all** actions, for **all** Resource Providers.
 
-    Get-AzureRmResourceProviderOperation -OperationSearchString *;
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## Role examples
 To understand RBAC concepts, let's look at some examples of common role definitions:
