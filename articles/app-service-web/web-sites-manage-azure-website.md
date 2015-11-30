@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/28/2015" 
 	ms.author="erikre"/>
 
 # Manage a web app in Azure App Service
@@ -66,7 +66,7 @@ While your web app is running, you want to make sure it is available, and that i
 ### Backups
 
 - Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Learn about the options for [database recovery](http://msdn.microsoft.com/library/azure/hh852669.aspx) in Azure SQL Database.
+- Learn about the options for [database recovery](https://azure.microsoft.com/en-us/documentation/articles/sql-database-business-continuity/) in Azure SQL Database.
 
 ### Troubleshooting
 
@@ -85,7 +85,7 @@ If you have not enabled automatic backups, you can create a [manual backup](web-
 
 Consider using [staged deployment](web-sites-staged-publishing.md). This option lets you publish updates to a staging deployment that runs side-by-side with your production deployment. 
 
-If you use Visual Studio Online, you can set up continuous deployment from source control:
+If you use Visual Studio Team Services, you can set up continuous deployment from source control:
 
 - [Using Team Foundation Version Control (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
 - [Using Git](../cloud-services-continuous-delivery-use-vso-git.md)

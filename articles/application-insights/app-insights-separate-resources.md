@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # Separate Application Insights resources for development, test and production
@@ -28,7 +28,7 @@ The data received from your application is stored and processed by Application I
 
 In the [portal.azure.com](https://portal.azure.com), add an Application Insights resource:
 
-![Click New, Application Insights](./media/app-insights-create-new-resource/01-new.png)
+![Click New, Application Insights](./media/app-insights-separate-resources/01-new.png)
 
 
 * **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose one of the web types for web pages, and one of the phone types for other devices.
@@ -46,7 +46,7 @@ Creating the resource takes a few seconds. You'll see an alert when it's done.
 
 The instrumentation key identifies the resource that you created. 
 
-![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-create-new-resource/02-props.png)
+![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-separate-resources/02-props.png)
 
 You'll need the instrumentation keys of all the resources to which your app will send data.
 
@@ -94,6 +94,6 @@ The iKey is also used in your app's web pages, in the [script that you got from 
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

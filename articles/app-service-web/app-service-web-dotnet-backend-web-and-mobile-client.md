@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="mobile"
+	ms.workload="na"
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"

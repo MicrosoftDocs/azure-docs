@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
@@ -38,7 +38,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
-          <version>[0.9,)</version>
+          <version>[1.0,)</version>
        </dependency>
     </dependencies>
 
@@ -48,7 +48,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
-          <version>[0.9,)</version>
+          <version>[1.0,)</version>
        </dependency>
     </dependencies>
 
@@ -58,7 +58,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-          <version>[0.9,)</version>
+          <version>[1.0,)</version>
        </dependency>
     </dependencies>
 
@@ -70,15 +70,15 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 **Logback**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '0.9.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
 
 **Log4J v2.0**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '0.9.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
 
 **Log4J v1.2**
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '0.9.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
 
 #### Otherwise ...
 

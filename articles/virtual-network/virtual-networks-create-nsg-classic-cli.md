@@ -32,7 +32,7 @@ The sample Azure CLI commands below expect a simple environment already created 
 ## How to create the NSG for the front end subnet
 To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 

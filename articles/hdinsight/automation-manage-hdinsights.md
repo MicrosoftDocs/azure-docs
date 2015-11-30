@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Manage Azure HDInsight using Azure Automation"
-	description="Learn about how the Azure Automation service can be used to manage Azure HDInsight."
+	description="Learn how the Azure Automation service can be used to manage Azure HDInsight."
 	services="HDInsight, automation"
 	documentationCenter=""
 	authors="elcooper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/20/2015"
 	ms.author="elcooper"/>
 
 

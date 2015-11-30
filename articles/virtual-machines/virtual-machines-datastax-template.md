@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,9 +18,12 @@
 
 # DataStax on Ubuntu with a Resource Manager template
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
+
 DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra--the commercially supported, enterprise-ready NoSQL distributed database technology that is widely acknowledged as agile, always on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
 
-In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs by using a Resource Manager template deployed through [Azure PowerShell](../powershell-install-configure.md) or the [Azure CLI](../xplat-cli.md).
+In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs by using a Resource Manager template deployed through [Azure PowerShell](../powershell-install-configure.md) or the [Azure CLI](../xplat-cli-install.md).
 
 Newly deployed clusters based on this template will have the topology described in the following diagram, although other topologies can be easily achieved by customizing the template presented in this article:
 
@@ -229,7 +232,7 @@ When deploying, please keep in mind that a new Azure storage account needs to be
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.  
 
-To do that, go to the [Azure portal](https://portal.azure.com) and do the following:
+To do that, go to the [Azure preview portal](https://portal.azure.com) and do the following:
 
 - Click **Browse** on the left-hand navigation bar, and then scroll down and click **Resource Groups**.  
 - Click the resource group that you just created, to bring up the "Resource Group” blade.  

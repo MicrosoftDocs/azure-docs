@@ -40,8 +40,7 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Enter `https://localhost:44316/` as a **Reply URL** - it is the default URL for this code sample.
 - Copy down the **Application ID** that is assigned to your app.  You will need it shortly.
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Create your policies
 
@@ -52,7 +51,9 @@ identity experiences - sign-up, sign-in, and edit profile.  You will need to cre
 - Choose **User ID signup** or **Email signup** in the identity providers blade.
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** claim as an application claim in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  You'll need those policy names shortly. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -101,6 +102,8 @@ Next, open the `web.config` file in the root of the project, and enter your app'
   </appSettings>
 ...
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Now, Add an "OWIN Startup Class" to the project called `Startup.cs`.  Right click on the project --> **Add** --> **New Item** --> Search for "OWIN".  
 Change the class declaration to `public partial class Startup` - we've already implemented part of this class for you in another file.  

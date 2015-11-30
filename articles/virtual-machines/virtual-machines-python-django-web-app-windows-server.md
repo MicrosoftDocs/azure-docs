@@ -27,7 +27,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
 
 This tutorial describes how to host a Django-based website on Microsoft
 Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Azure. After completing this tutorial, you will have a Django-based application up and running in the cloud.
@@ -51,7 +52,7 @@ A screenshot of the completed application appears next.
 1. Follow the instructions given [here](virtual-machines-windows-tutorial-classic-portal.md) to create an Azure virtual machine of the Windows Server 2012 R2 Datacenter distribution.
 
 1. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
- - Navigate to your newly created virtual machine in the Azure Portal and click the **ENDPOINTS** tab.
+ - Navigate to your newly created virtual machine in the Azure portal and click the **ENDPOINTS** tab.
  - Click the **ADD** button at the bottom of the screen.
 	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 

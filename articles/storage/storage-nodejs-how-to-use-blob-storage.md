@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples are written in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -201,7 +201,7 @@ The `result` contains an `entries` collection, which is an array of objects that
 
 To download data from a blob, use the following:
 
-* **getBlobToFile** - writes the blob contents to file
+* **getBlobToLocalFile** - writes the blob contents to file
 
 * **getBlobToStream** - writes the blob contents to a stream
 

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Managing databases and logins in Azure SQL Database
@@ -79,7 +79,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### Using new logins
 
-In order to connect to Microsoft Azure SQL Database using the logins you create, you must first grant each login database-level permissions by using the ``CREATE USER`` command. For more information, see [Granting Database-Level Permissions to a Login](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms).
+In order to connect to Microsoft Azure SQL Database using the logins you create, you must first grant each login database-level permissions by using the ``CREATE USER`` command. For more information, see the **Granting database access to a login** section below.
 
 Because some tools implement tabular data stream (TDS) differently, you may need to append the Azure SQL Database server name to the login in the connection string using the ``<login>@<server>`` notation. In these cases, separate the login and Azure SQL Database server name with the ``@`` symbol. For example, if your login was named **login1** and the fully qualified name of your Azure SQL Database server is **servername.database.windows.net**, the username parameter of your connection string should be: **login1@servername**. This restriction places limitations on the text you can choose for the login name. For more information, see [CREATE LOGIN (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE] You must use a strong password when creating a login. For more information, see [Strong Passwords](https://msdn.microsoft.com/library/ms161962.aspx).
 
-This next example shows how to create a database user named **login1User** in the database **database1** that corresponds to the login **login1**:
+This next example shows how to create a database user named **login1User** in the database **database1** that corresponds to the login **login1**. To execute the following example, you must first make a new connection to database1, using a login with the **ALTER ANY USER** permission in that database. Any user connecting as a member of the **db_owner** role will have that permission, such as the login which created the database.
 
 ```
 -- Establish a new connection to the database1 database

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/18/2015"
 	ms.author="tarcher"/>
 
 # How to debug a Node.js web app in Azure App Service
@@ -63,7 +63,7 @@ Diagnostic logs can be accessed in three ways; Using the File Transfer Protocol 
 
 	npm install azure-cli -g
 
-Once installed, the tools can be accessed using the 'azure' command. The command-line tools must first be configured to use your Azure subscription. For information on how to accomplish this task, see the **How to download and import publish settings** section of the [How to Use The Azure Command-Line Tools] article.
+Once installed, the tools can be accessed using the 'azure' command. The command-line tools must first be configured to use your Azure subscription. For information on how to accomplish this task, see the **How to download and import publish settings** section of the [How to Use The Azure Command-Line Tools](../xplat-cli-connect) article.
 
 ###FTP
 
@@ -73,7 +73,7 @@ To access the diagnostic information through FTP, visit the [Azure preview porta
 
 The FTP URL returned in the dashboard is for the **LogFiles** directory, which will contain the following sub-directories:
 
-* [Deployment Method] - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
+* [Deployment Method](web-sites-deploy) - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
 
 * nodejs - Stdout and stderr information captured from all instances of your application (when loggingEnabled is true.)
 
@@ -89,7 +89,7 @@ This will download a **diagnostics.zip** in the current directory. This archive 
 
 * LogFiles
 
-	* [Deployment method] - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
+	* [Deployment method](web-sites-deploy) - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
 
 	* nodejs - Stdout and stderr information captured from all instances of your application (when loggingEnabled is true.)
 
@@ -106,7 +106,7 @@ This will return a stream of log events that are updated as they occur on the se
 
 In this article you learned how to enable and access diagnostics information for Azure. While this information is useful in understanding problems that occur with your application, it may point to a problem with a module you are using or that the version of Node.js used by App Service Web Apps is different than the one used in your deployment environment.
 
-For information in working with modules on Azure, see [Using Node.js Modules with Azure Applications].
+For information in working with modules on Azure, see [Using Node.js Modules with Azure Applications](../nodejs-use-node-modules-azure-apps).
 
 For information on specifying a Node.js version for your application, see [Specifying a Node.js version in an Azure application].
 
@@ -120,7 +120,7 @@ For more information, see also the [Node.js Developer Center](/develop/nodejs/).
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
 [Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Specifying a Node.js version in an Azure application]: ../nodejs-specify-node-version-azure-apps.md
 

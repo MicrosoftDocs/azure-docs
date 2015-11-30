@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 The next step is to write a method that uses the REST-style HTTP PUT command to create a queue.
 
-Paste the following code directly after the `GetToken()` code you added in the previous step:
+Paste the following code directly after the `GetSASToken()` code you added in the previous step:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)

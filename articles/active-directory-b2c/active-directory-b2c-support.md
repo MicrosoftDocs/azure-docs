@@ -48,6 +48,6 @@ You can file support requests for Azure Active Directory (AD) B2C on the Azure p
 If you missed step 2 outlined above and try to create a support request in the context of your B2C tenant, you will see the following error.
 
 > [AZURE.IMPORTANT]
-Don't attempt to sign up for a new Azure subscription in your B2C tenant.
+> Don't attempt to sign up for a new Azure subscription in your B2C tenant.  
 
 ![Support - No subscription](./media/active-directory-b2c-support/support-no-sub.png)

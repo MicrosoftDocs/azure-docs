@@ -19,7 +19,8 @@
 
 # How to configure an availability set for virtual machines in the classic deployment model
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines] [].
 
@@ -36,9 +37,9 @@ You can put virtual machines into an availability set by using one of two option
 
 You can use either the Azure portal or Azure PowerShell commands to do this.
 
-To use the portal:
+To use the Azure portal:
 
-1. If you haven't already done so, sign in to the [portal](http://manage.windowsazure.com).
+1. If you haven't already done so, sign in to the Azure portal.
 
 2. On the command bar, click **New**.
 
@@ -71,10 +72,10 @@ To use Azure PowerShell commands to create an Azure virtual machine and add it t
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
-In the portal, you can add existing virtual machines to an existing availability set
+In the Azure portal, you can add existing virtual machines to an existing availability set
  or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
 
-1. If you have not already done so, sign in to the [portal](http://manage.windowsazure.com).
+1. If you have not already done so, sign in to the Azure portal.
 
 2. On the command bar, click **Virtual Machines**.
 

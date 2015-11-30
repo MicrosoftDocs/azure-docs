@@ -19,7 +19,8 @@
 
 # Redis cluster with a Resource Manager template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a Redis cluster with the Resource Manager deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 Redis is an open-source key-value cache and store, where keys can contain data structures such as strings, hashes, lists, sets and sorted sets. Redis supports a set of atomic operations on these data types.  With the release of Redis version 3.0, Redis Cluster is now available in the latest stable version of Redis.  Redis Cluster is a distributed implementation of Redis where data is automatically sharded across multiple Redis nodes, with the ability to continue operations when a subset of nodes is experiencing failures.
 
@@ -347,7 +348,7 @@ During the deployment, you will see something like this:
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.
 
-To do that, go to the [Azure portal](https://portal.azure.com), and do the following:
+To do that, go to the [Azure preview portal](https://portal.azure.com), and do the following:
 
 - In the left-hand navigation bar, click **Browse**, and then scroll down and click **Resource Groups**.
 - Select the resource group that you just created, to bring up the “Resource Group” blade.

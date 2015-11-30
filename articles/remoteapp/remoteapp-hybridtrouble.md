@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@ A hybrid collection is hosted in and stores data in the Azure cloud but also let
 Haven't created your collection yet? See [Create a hybrid collection](remoteapp-create-hybrid-deployment.md) for the steps.
 
 If you are having trouble creating your collection, or if the collection isn't working the way you think it should, check out the following information.
+
+## Your image is invalid ##
+If you see a message like, "GoldImageInvalid" when you are waiting for Azure to provision your collection, it means that your template image doesn't meet the [defined image requirements](remoteapp-imagereqs.md). So, go read those [requirements](remoteapp-imagereqs.md), fix your image, and try to create your collection again.
 
 ## Does your VNET use forced tunneling? ##
 RemoteApp does not currently support using VNETs that have forced tunneling enabled. If you need this function, contact the [RemoteApp team](mailto:remoteappforum@microsoft.com) to request support.
@@ -81,3 +84,4 @@ Make sure the domain details provided are valid and the domain controller is rea
 ## What domain name did you specify when you created your collection? ##
 
 The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local). For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.
+

@@ -47,7 +47,7 @@ After you enable Remote Desktop (Windows), Windows PowerShell remoting (Windows)
 
 From a REST client, follow these instructions:
 
-1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx).
+1. Ensure that you have a client certificate to connect to the Azure portal. To obtain a client certificate, follow the steps presented in [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850.aspx). 
 
 1. Set a header entry named x-ms-version with a value of 2013-11-01.
 

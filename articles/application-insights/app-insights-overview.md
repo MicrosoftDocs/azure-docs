@@ -12,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
 
-Application Insights is an extensible analytics service that helps you understand the performance and usage of your live application. It's designed for developers, to help you continuously improve the performance and usability of your app. 
+Application Insights is an extensible analytics service that monitors your live application. It helps you detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve the performance and usability of your app. 
 
-It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. 
+![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
-It is aimed at the development team. With it, you can:
+It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud. 
+
+Application Insights is aimed at the development team. With it, you can:
 
 * [Analyze usage patterns][knowUsers] to understand your users better and continuously improve your app. 
  * Page view counts, new and returning users, geolocation, platforms, and other core usage statistics
@@ -30,14 +32,14 @@ It is aimed at the development team. With it, you can:
  *  Alerts on performance changes or crashes.
  *  Metrics to help diagnose performance issues, such as response times, CPU usage, dependency tracking.
  *  Availability tests for web apps.
- *  Crash and exception reports and alerts
+ *  Exception reports and alerts.
  *  Powerful diagnostic log search (including log traces from your favorite logging frameworks).
 
 The SDK for each platform includes a range of modules that monitor the app straight out of the box. In addition, you can code your own telemetry for more detailed and tailored analytics.
 
 Telemetry data collected from your application is stored and analysed in the Azure Portal, where there are intuitive views and powerful tools for fast diagnosis and analysis.
 
-![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
+
 
 Want even deeper analysis? [Export](app-insights-export-telemetry.md) your data [to SQL](app-insights-code-sample-export-telemetry-sql-database.md), [to Power BI](app-insights-export-power-bi.md), or your own tools.
 
@@ -51,13 +53,10 @@ There are SDKs for a growing range of platforms. Currently the list includes:
  * [Azure Cloud Services](app-insights-cloudservices.md)
  * [J2EE servers][java]
  * [Web pages][client]: HTML+JavaScript
- * [Windows Phone, Windows Store, Windows 10 universal apps, and direct integration with the Windows 10 developer portal][windows]
- * [Windows desktop][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [Windows desktop and server apps][desktop]
  * [Other platforms][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
-Application Insights can also get telemetry from existing ASP.NET web apps on IIS without rebuilding them.
+Application Insights can also get telemetry from existing ASP.NET web apps without rebuilding them.
 
 If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
 
@@ -87,7 +86,7 @@ The impact on your performance is very small. Tracking calls non-blocking, and a
 
 1. You'll need a subscription to [Microsoft Azure](http://azure.com). It's free to sign up, and you can choose the free [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) of Application Insights.
 
-2. Sign into [Azure Preview Portal](http://portal.azure.com)
+2. Sign into [Azure Portal](http://portal.azure.com)
 3. Create an Application Insights resource. This is where you'll see data from your app.
 
     ![Add, Developer Services, Application Insights.](./media/app-insights-overview/11-new.png)
@@ -135,13 +134,13 @@ For more details, choose your app type under Get Started in the navigation bar o
 
 <!--Link references-->
 
-[android]:app-insights-android.md
+[android]: https://github.com/Microsoft/ApplicationInsights-Android
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[ios]: app-insights-ios.md
+[greenbrown]: app-insights-asp-net.md
+[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md

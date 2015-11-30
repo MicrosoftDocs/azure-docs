@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -40,7 +40,7 @@ Elastic database pools in Azure SQL Database enable SaaS ISVs to optimize the pr
 
 Elastic database pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
-The more databases you can add to a pool the greater your savings become, but depending on your application utilization pattern, it is possible to see savings with as few as 2 S3 databases.  
+The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as 2 S3 databases.  
 
 The following sections will help you understand how to assess if your specific collection of databases will benefit from using an elastic database pool. The examples use Standard elastic database pools but the same principles also apply to Basic and Premium pools.
 
@@ -220,8 +220,8 @@ If you run into the following warnings while running the script you can ignore t
 
 When the script completes it will output the estimated number of eDTUs required for an elastic pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring an elastic  database pool to hold these databases. Once the pool is created and databases moved into the pool, it should be monitored closely for a few days and any adjustments to the pool eDTU configuration should be made as needed.
 
+> [AZURE.IMPORTANT] This script contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-To select the entire script for copying, click any text in the script 3 times (triple-click).
 
     
     param (

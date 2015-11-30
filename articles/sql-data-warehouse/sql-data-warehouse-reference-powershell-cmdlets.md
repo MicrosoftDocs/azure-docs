@@ -102,7 +102,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 
 <!--Article references-->
 [SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 

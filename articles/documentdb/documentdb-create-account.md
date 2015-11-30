@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/26/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Create a DocumentDB database account using the Azure preview portal
+# Create a DocumentDB database account
 
 To use Microsoft Azure DocumentDB, you must create a DocumentDB database account by using the Azure preview portal. 
 
@@ -41,7 +41,7 @@ After you have documents in a collection, you can use [DocumentDB SQL](documentd
 
 To learn more about DocumentDB, explore these resources:
 
--	[Learning map for DocumentDB](documentdb-learning-map.md)
+-	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 
  

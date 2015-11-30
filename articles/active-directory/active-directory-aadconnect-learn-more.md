@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Active Directory Connect - Learn More" 
-	description="Learn more about Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure Active Directory Connect - Learn More"
+	description="Learn more about Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2015" 
-	ms.author="billmath"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
+	ms.author="billmath;andkjell"/>
 
 # Azure Active Directory Connect - Learn More
 
@@ -41,5 +41,3 @@ Ignite 2015 presentation on extending your on-premises directories to the cloud.
 Watch this video to learn how easy it is to extend your on-premises Active Directory to the cloud by using the express settings of Azure Active Directory Connect.
 
 [AZURE.VIDEO azure-active-directory-connect-express-settings]
-
- 

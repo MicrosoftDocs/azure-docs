@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy and manage Apache Storm topologies on HDInsight | Microsoft Azure"
-   description="Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on HDInsight. Use Hadoop tools for Visual Studio."
+   pageTitle="Deploy and manage Apache Storm topologies on Linux-based HDInsight | Microsoft Azure"
+   description="Learn how to deploy, monitor and manage Apache Storm topologies using the Storm Dashboard on Linux-based HDInsight. Use Hadoop tools for Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/14/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 # Deploy and manage Apache Storm topologies on Linux-based HDInsight
@@ -152,13 +152,20 @@ Selecting a spout from the **Spouts** or **Bolts** sections displays the followi
 
 The Storm UI is built on top of the REST API, so you can perform similar management and monitoring functionality by using the REST API. You can use the REST API to create custom tools for managing and monitoring Storm topologies.
 
-For more information, see <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">Storm UI REST API</a>. The following information is specific to using the REST API with Apache Storm on HDInsight.
+For more information, see [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 > [AZURE.IMPORTANT] The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### Base URI
 
-The base URI for the REST API on Linux-based HDInsight clusters is **https://headnode0:8744/api/v1/</a>**.
+The base URI for the REST API on Linux-based HDInsight clusters is available on the head node at **https://HEADNODEFQDN:8744/api/v1/**; however, the domain name of the head node is generated during cluster creation and is not static.
+
+You can find the fully qualified domain name (FQDN) for the cluster head node in several different ways:
+
+* __From an SSH session__: Use the command `headnode -f` from an SSH session to the cluster.
+* __From Ambari Web__: Select __Services__ from the top of the page, then select __Storm__. From the __Summary__ tab, select __Storm UI Server__. The FQDN of the node that the Storm UI and REST API is running on will be at the top of the page.
+* __From Ambari REST API__: Use the command `curl -u admin:PASSWORD -G "https://CLUSTERNAME
+.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace __PASSWORD__ with the admin password for the cluster. Replace __CLUSTERNAME__ with the cluster name. In the response, the "host_name" entry contains the FQDN of the node.
 
 ### Authentication
 

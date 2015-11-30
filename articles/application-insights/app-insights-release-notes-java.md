@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Release notes for Application Insights for Java" 
-	description="The latest updates." 
-	services="application-insights" 
+<properties
+	pageTitle="Release notes for Application Insights for Java"
+	description="The latest updates for Java SDK."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="awills"/>
- 
+
 # Release Notes for Application Insights SDK for Java
 
 The [Application Insights SDK for Java](app-insights-java-get-started.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
@@ -22,7 +22,7 @@ The [Application Insights SDK for Java](app-insights-java-get-started.md) sends 
 
 See [Get started with the SDK for Java](app-insights-java-get-started.md).
 
-#### To upgrade to the latest SDK 
+#### To upgrade to the latest SDK
 
 After you upgrade, you'll need to merge back any customizations you made to ApplicationInsights.xml. Take a copy of it to compare with the new file.
 
@@ -33,9 +33,15 @@ After you upgrade, you'll need to merge back any customizations you made to Appl
 
 *Otherwise*
 
-* Download the latest version of [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones. 
- 
+* Download the latest version of [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) and replace the old ones.
+
 Compare the old and new ApplicationInsights.xml. Many of the changes you see are because we added and removed modules. Reinstate any customizations that you made.
+
+## Version 1.0.2
+- Prevent from overriding the instrumentation key using the one specified in the config when it's provided explicitly in code.
+- Handle all successfull HTTP status codes and report the relevant HTTP Requests as successful.
+- Handle all exceptions thrown by the ConfigurationFileLocator .
+
 
 ## Version 1.0.1
 - The [Java agent](app-insights-java-agent.md) collects dependency information about the following:
@@ -66,4 +72,3 @@ Compare the old and new ApplicationInsights.xml. Many of the changes you see are
 - Support collecting performance counters from 32-bit Windows machines.
 - Support manual tracking of dependencies using a new ```trackDependency``` method API.
 - Ability to tag a telemetry item as synthetic, by adding a ```SyntheticSource``` property to the reported item.
- 

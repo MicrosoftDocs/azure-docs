@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with delivering Video-on-Demand (VoD) content using .NET SDK"
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET."
+	pageTitle="Get started with delivering content on demand using .NET SDK"
+	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="11/08/2015"
 	ms.author="juliako"/>
 
 
-# Get started with delivering Video-on-Demand (VoD) content using .NET SDK
+# Get started with delivering content on demand using .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -30,12 +30,18 @@ This tutorial walks you through the steps of implementing a Video-on-Demand (VoD
 
 The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.  
 
+
+##Download sample
+
+Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
+
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services SDK for .NET.
 
 - Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 or .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later.
 
 
 The following tasks are shown in this Quickstart.
@@ -119,14 +125,14 @@ To change the number of streaming reserved units, do the following:
 
 4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure portal, select your media services account, and then click the **MANAGE KEYS** button.
 
-	 <pre><code>
-	&lt;configuration&gt;
-        &lt;appSettings&gt;
-    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-  	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-	</code></pre>
+		<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
+		  
+		</configuration>
 
 5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 
@@ -254,22 +260,23 @@ Add the following method to the Program class.
 
 	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
 	{
-		// Prepare a job with a single task to transcode the specified asset
-        // into a multi-bitrate asset.
-
+	
+	    // Prepare a job with a single task to transcode the specified asset
+	    // into a multi-bitrate asset.
+	
 	    IJob job = _context.Jobs.CreateWithSingleTask(
-	        MediaProcessorNames.AzureMediaEncoder,
-	        MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
+	        "Media Encoder Standard",
+	        "H264 Multiple Bitrate 720p",
 	        asset,
 	        "Adaptive Bitrate MP4",
 	        options);
-
-		Console.WriteLine("Submitting transcoding job...");
-
-
+	
+	    Console.WriteLine("Submitting transcoding job...");
+	
+	
 	    // Submit the job and wait until it is completed.
 	    job.Submit();
-
+	
 	    job = job.StartExecutionProgressTask(
 	        j =>
 	        {
@@ -277,11 +284,11 @@ Add the following method to the Program class.
 	            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
 	        },
 	        CancellationToken.None).Result;
-
+	
 	    Console.WriteLine("Transcoding job finished.");
-
+	
 	    IAsset outputAsset = job.OutputMediaAssets[0];
-
+	
 	    return outputAsset;
 	}
 
@@ -421,13 +428,18 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
 
+##Next Steps: Media Services learning paths
 
-##Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 
 
 <!-- Anchors. -->

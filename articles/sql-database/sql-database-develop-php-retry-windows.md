@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="07/21/2015"
-	ms.author="mebha"/>
+	ms.date="10/20/2015"
+	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using PHP on Windows with Transient Fault Handling
@@ -134,8 +134,7 @@ The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) functio
 		}
 	?>
 	
-## Further reading
-
+## Next steps
 
 For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://technet.microsoft.com/library/cc793139.aspx).
 

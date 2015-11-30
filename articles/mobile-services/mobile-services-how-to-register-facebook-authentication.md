@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register for Facebook authentication | Microsoft Azure" 
+	pageTitle="Register for Facebook authentication | Azure Mobile Services" 
 	description="Learn how to use Facebook authentication in your Azure Mobile Services app." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Register your apps for Facebook authentication with Mobile Services
@@ -22,11 +22,11 @@
 
 This topic shows you how to register your apps to be able to use Facebook to authenticate with Azure Mobile Services. 
 
->[AZURE.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Get Started with Authentication</a> tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Get Started with Mobile Services</a>.
+>[AZURE.NOTE] This tutorial is about [Azure Mobile Services], a solution to help you build scalable mobile applications for any platform. Mobile Services makes it easy to sync data, authenticate users, and send push notifications. This page supports the [Get Started with Authentication](mobile-services-ios-get-started-users.md) tutorial which shows how to log users into your app. If this is your first experience with Mobile Services, please complete the tutorial [Get Started with Mobile Services](mobile-services-ios-get-started.md).
 	
-To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
+To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
 
-1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook Developers</a> website and sign-in with your Facebook account credentials.
+1. Navigate to the [Facebook Developers](http://go.microsoft.com/fwlink/p/?LinkId=268285) website and sign-in with your Facebook account credentials.
 
 2. (Optional) If you have not already registered, click **My Apps** then click **Register as a Developer**, accept the policy and follow the registration steps. 
 
@@ -50,12 +50,14 @@ To complete the procedure in this topic, you must have a Facebook account that h
     >[AZURE.IMPORTANT] The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 	&nbsp;
 
-8. Click the **Advanced** tab, type the URL of your mobile service appended with the path _/login/facebook_ in **Valid OAuth redirect URIs**, then click **Save Changes**. 
-	&nbsp;
+8. Click the **Advanced** tab, type one of the following URL formats in **Valid OAuth redirect URIs**, then click **Save Changes**:
+ 
+	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-     >[AZURE.NOTE] For a .NET backend mobile service published to Azure by using Visual Studio, the redirect URL is the URL of your mobile service appended with the path _signin-facebook_ your mobile service as a .NET service, such as `https://todolist.azure-mobile.net/signin-facebook`.  
+	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed. 
+
        
-
 9. Click **Status & Review** > **Yes** to enable general public access to your app.
 
 	The Facebook account you used to register the new app is an administrator of the app and has access to the app as administrator. This step grants the general public access so that the app can authenticate by using other Facebook accounts. 

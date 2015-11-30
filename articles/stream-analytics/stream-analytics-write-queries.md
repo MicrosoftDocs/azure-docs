@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Write Queries| Microsoft Azure" 
-	description="Write Queries learning path segment."
+	pageTitle="Write Queries | Microsoft Azure" 
+	description="Write queries in Stream Analytics | learning path segment."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,18 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Write Queries
+# How to write queries in Stream Analytics
 
 Stream processing logic in Azure Stream Analytics is implemented as a "standing query" that is defined before a job starts and executed on data as it reaches the job. The data transformation is expressed in a SQL-like query language, which is largely a subset of T-SQL with some added language extensions like [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) used to express temporal semantics.  
 
 ## To author a Stream Analytics query: ##
 
-1. In your Stream Analytics Job, click **Query**.
+1. In your Stream Analytics Job in the Azure Management portal, click **Query**.
 
     ![Select Query](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)  
+
+    In the Azure preview portal, click **Query**.
+
+    ![Select Query Preview](./media/stream-analytics-write-queries/query-preview-portal.png)  
 
 2.	New jobs have a query template to help get you started. The query template performs a "pass-through" query that projects all fields from input events into the output.  
 
@@ -36,6 +40,8 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
 ## To test a query: ##
 
 You can test that your query behaves as expected by running it in the browser over one or more local JSON files containing test data. This will not start the job or have any billing implications.
+
+> [AZURE.NOTE] Currently in-browser query testing is not supported in the Azure preview portal.  
 
 1.	Make sure that there are no errors in the query (otherwise the Test button will be disabled) and then click the Test button.  
 

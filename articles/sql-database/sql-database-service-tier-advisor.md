@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
 # SQL Database pricing tier recommendations
@@ -27,12 +27,16 @@ Get pricing tier recommendations during the following tasks:
 
 - [Change the service tier and performance level (pricing tier) of a SQL database](sql-database-scale-up.md)
 - [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md)
+- Browse to your V12 server - if your databases can [benefit in an elastic database pool](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), the server blade will display a message indicating a recommended pool. Click the message to create the recommended pool.
 - [Create an elastic database pool](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## Overview
 
-The SQL Database service analyzes current performance and feature requirements by assessing historical resource usage for a SQL database. In addition, the minimum acceptable service tier is determined based on the size of the database, and enabled [business continuity](https://msdn.microsoft.com/library/azure/hh852669.aspx) features. 
+The SQL Database service analyzes current performance and feature requirements by assessing historical resource usage for a SQL database. In addition, the minimum acceptable service tier is determined based on the size of the database, and enabled [business continuity](sql-database-business-continuity.md) features. 
 
 This information is analyzed and the service tier and performance level that is best suited for running the database’s typical workload and maintaining it's current feature set is recommended.
 
@@ -55,9 +59,8 @@ Based on your database's usage, there are currently 2 categories of recommendati
 Get pricing tier recommendations by selecting an existing Web or Business database and clicking on the **Pricing tier** tile. (Pricing tier recommendations are also available when you [Upgrade Azure SQL server to V12](sql-database-v12-upgrade.md).)
 
 1. Sign in to the [Azure Preview Portal](https://portal.azure.com/).
-2. Click **BROWSE** in the left menu.
-3. Click **SQL databases** in the **Browse** blade.
-4. In the **SQL databases** blade, click the database that you want the service to analyze.
+2. Click **BROWSE** > **SQL databases**.
+4. In the **SQL databases** blade, click the database that you want to see a recommendation for:
 
     ![Select database][1]
 

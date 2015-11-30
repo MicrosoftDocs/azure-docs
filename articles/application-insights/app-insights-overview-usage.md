@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/06/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Usage analysis with Application Insights
@@ -37,7 +37,7 @@ In the [Azure portal](https://portal.azure.com), create an Application Insights 
 
 ![Open Quick start and click Get code to monitor my web pages. Copy the script into the head of your master web page.](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
-You can also add Application Insights to your [ASP.NET](app-insights-start-monitoring-app-health-usage.md) or [J2EE](app-insights-java-get-started.md) server code so as to combine telemetry from both client and server.
+You can also add Application Insights to your [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md) server code so as to combine telemetry from both client and server.
 
 
 ### Run your project and see first results
@@ -287,8 +287,4 @@ And of course, when the feature is live, make sure you look at the analytics and
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
-
-<!--Link references-->
-
-[start]: app-insights-get-started.md
  
