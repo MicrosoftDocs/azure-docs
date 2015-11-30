@@ -11,17 +11,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for .NET
 
-The [Application Insights SDK for .NET](app-insights-start-monitoring-app-health-usage.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK for .NET](app-insights-asp-net.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 
 #### To install the SDK in your application
 
-See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
+See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 #### To upgrade to the latest SDK 
 
@@ -32,8 +32,13 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
 * Rebuild your solution.
 
+
+## Version 2.0.0-beta3
+
+- [Adaptive sampling](app-insights-sampling.md)
+
 ## Version 2.0.0-beta2
-- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK](app-insights-api-telemetry-processors/#telemetry-processors)
 - Removed context initializers. Use [Telemetry Initializers]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) instead.
 - Updated Application Insights for .Net framework 4.6. 
 - Custom event names can now be up to 512 characters.

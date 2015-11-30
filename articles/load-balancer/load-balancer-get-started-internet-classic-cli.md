@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Azure"
+   pageTitle="Get started creating an Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI"
    services="load-balancer"
    documentationCenter="na"
@@ -17,13 +17,13 @@
    ms.date="11/06/2015"
    ms.author="joaoma" />
 
-# Get started creating Internet facing load balancer (classic) in the Azure CLI
+# Get started creating an Internet facing load balancer (classic) in the Azure CLI
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -46,25 +46,31 @@ This guide shows how to create an Internet load balancer based on the scenario a
 ## Create endpoint and load balancer set 
 
 The scenario assumes the virtual machines "web1" and "web2" were created. 
-This guide will create a load balancer set using port 80 as public port and 80 as local port. A probe port is also configured on port 80 and called the load balancer set "lbset"
+This guide will create a load balancer set using port 80 as public port and port 80 as local port. A probe port is also configured on port 80 and named the load balancer set "lbset".
 
 
 ### Step 1 
 
-Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1"
+Create the first endpoint and load balancer set using `azure network vm endpoint create` for virtual machine "web1".
 
-	azure network endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
 
+Parameters used:
 
+**-k** - local virtual machine port<br>
+**-o** - protocol<BR>
+**-t** - probe port<BR>
+**-b** - load balancer name<BR>
+ 
 ## Step 2 
 
 Add a second virtual machine "web2" to the load balancer set.
 
-	azure network endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
 ## Step 3 
 
-Verify the load balancer configuration using `azure vm show` 
+Verify the load balancer configuration using `azure vm show` .
 
 	azure vm show web1
 

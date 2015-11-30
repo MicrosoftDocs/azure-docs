@@ -36,7 +36,7 @@ Quickly create new sites from a popular CMS in the gallery or bring your existin
 
 The Azure Marketplace provides templates from the popular website content management systems (CMS), such as Orchard, Umbraco, Drupal, and [WordPress]. You can create a web app using your favorite CMS flavor. You can choose from various database backends to meet your needs, including [Azure SQL Database] and [MySQL].
 
-Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
+Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Team Services], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Publish reliably
 
@@ -103,7 +103,7 @@ Make your .COM site attractive with rich media, such as:
 [Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]:web-sites-deploy.md#ftp
 [Visual Studio]:web-sites-dotnet-get-started.md
-[Visual Studio Online]:../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]:../cloud-services-continuous-delivery-use-vso.md
 [Git]:web-sites-publish-source-control.md
 
 [deploying to a staging slot]:web-sites-staged-publishing.md 

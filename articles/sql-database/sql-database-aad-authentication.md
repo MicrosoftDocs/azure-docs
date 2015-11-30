@@ -80,7 +80,7 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - Only an Azure Active Directory administrator can initially connect to the Azure SQL Server using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
 - We recommend setting the connection timeout to 30 seconds.
 - Some tools like BI and Excel are not supported.
-- Azure Active Directory authentication only supports the **.NET Framework Data Provider for SqlServer** (at least version .NET Framework 4.6). Therefor Management Studio (available with SQL Server 2016) and data-tier applications (DAC and .bacpac) can connect, but **sqlcmd.exe** cannot connect because **sqlcmd** uses the ODBC provider.
+- Azure Active Directory authentication only supports the **.NET Framework Data Provider for SqlServer** (at least version .NET Framework 4.6). Therefore Management Studio (available with SQL Server 2016) and data-tier applications (DAC and .bacpac) can connect, but **sqlcmd.exe** cannot connect because **sqlcmd** uses the ODBC provider.
 - Two-factor authentication or other forms of interactive authentication are not supported.
 
 
@@ -151,6 +151,8 @@ Each Azure SQL Server starts with a single server administrator account which is
 	![choose admin][10]
 
 	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
+
+> [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the master database as a SQL Server authentication login. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication login is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
 
 To later remove an Admin, at the top of the **Active Directory admin** blade, click **Remove admin**.
 

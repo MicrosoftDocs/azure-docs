@@ -59,7 +59,7 @@ Most Azure services are supported over ExpressRoute.
 	**The following services are not supported:**
 
 	- CDN
-	- Visual Studio Online Load Testing
+	- Visual Studio Team Services Load Testing
 	- Multi-factor Authentication
 
 ## Data and connections

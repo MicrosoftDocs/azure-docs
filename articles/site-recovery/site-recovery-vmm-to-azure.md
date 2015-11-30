@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  Set up protection between an on-premises VMM site and Azure
@@ -105,7 +105,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 	![Quick Start Icon](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
-2. In the dropdown list, select **Between an on-premises Hyper-V site and Microsoft Azure**.
+2. In the dropdown list, select **Between an on-premises VMM site and Microsoft Azure**.
 3. In **Prepare VMM Servers**, click **Generate registration key** file. The key file is generated automatically and is valid for 5 days after it's generated. If you're not accessing the Azure portal from the VMM server you'll need to copy this file to the server.
 
 	![Registration key](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
@@ -166,29 +166,31 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 8. Click *Next* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  *VMM Servers* tab on the **Servers** page in the vault.
 
 >[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
->
->1. Download the Provider installation file and registration key to a folder say C:\ASR
->2. Stop the System Center Virtual Machine Manager Service
->3. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
->
+
+1. Download the Provider installation file and registration key to a folder say C:\ASR
+1. Stop the System Center Virtual Machine Manager Service
+1. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. Install the provider by executing the following command
->
+1. Install the provider by executing the following command
+
 		C:\ASR> setupdr.exe /i
->5. Register the provider by running the following command
->
+1. Register the provider by running the following command
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####Command line Install Parameter List####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+
+  
+#### Command line Install Parameter List
+
  - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
  - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
  - **/EncryptionEnabled** : Optional Parameter that you need to use only in the VMM to Azure Scenario if you need encryption of your virtual machines at at rest in Azure. Please ensure that the name of the file you provide has a **.pfx** extension.
  - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
  - **/proxyport** : Optional parameter that specifies the port of the proxy server.
  - **/proxyUsername** : Optional parameter that specifies the Proxy user name (if proxy requires authentication).
- - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
+ - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).  
 
 
 ## Step 4: Create an Azure storage account
@@ -280,7 +282,16 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 
 4. On the configure tab of the virtual machine properties following network properties could be modified.
 
-    1. Number of network adapters of target virtual machine - Number of network adapters on target virtual machine depends on the size of the virtual machine chosen. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virutal machine chosen.  
+
+	1.  Number of network adapters of target virtual machine - The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-size-specs.md#size-tables) for the number of nics supported by the virtual machine size. 
+
+		When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time.The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
+
+
+		- If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
+		- If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
+		- For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter. 	
+
 
 	1. Network of the target virtual machine - The network to which the virtual machine connects to is determined by network mapping of the network of source virtual machine. In case source virtual machine has more than one network adapters and source networks are mapped to different networks on target, then the user would have to choose between one of the target networks.
 
@@ -289,6 +300,8 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 	1. Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the ip for the target virtual machine. User can use this capability to retain the ip of the source virtual machine after a failover. If no IP is provided any available IP would be given to network adapter at the time of failover. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the failover would fail.  
 
 		![Modify network properties](./media/site-recovery-vmm-to-azure/MultiNic.png)
+
+>[AZURE.NOTE] Linux virtual machines that use static ip are not supported.
 
 ## Test your deployment
 To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines and run a test failover for the plan.  Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
