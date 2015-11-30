@@ -22,14 +22,11 @@
 > [AZURE.SELECTOR]
 - [Portal](documentdb-create-account.md)
 - [CLI](documentdb-deploy-rmtemplates-powershell.md)
-- [PowerShell](documentdb-deploy-rmtemplates-powershell.md)
 
 This article shows you how to use Azure Resource Manager templates and the Azure CLI to create a DocumentDB account. 
 
 - [Create a DocumentDB account using CLI](#quick-create-documentdb-account)
 - [Create a DocumentDB account from an ARM template](#deploy-documentdb-from-a-template)
-
-You can also use the Azure Quickstart templates to have a DocumentDB account created for you, see *Todo: Update link* [Azure Quickstart templates](http://azure.microsoft.com/documentation/templates/).
 
 ## Getting ready
 
