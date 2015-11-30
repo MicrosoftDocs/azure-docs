@@ -22,7 +22,7 @@
 
 ## Overview
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which is not yet publicly available. In a day or two, 2.8.1. will be available and this note will be removed.
+> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which is not yet publicly available. In a day or two, 2.8.1 will be available and this note will be removed.
 
 Your application could have multiple API apps, for example, a middle tier that is called by mobile and desktop clients, and a data tier that is called by the middle tier. Clients might authenticate to the middle tier by using end user credentials, while the middle tier might authenticate to the data tier by using credentials of a service account. A service account is also known as a *service principal* authentication, and authentication using such an account is also known as a *service-to-service* scenario.
 
