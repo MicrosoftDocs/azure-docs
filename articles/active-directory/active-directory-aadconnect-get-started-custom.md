@@ -51,7 +51,7 @@ Permissions | By default Azure AD Connect will create four groups local to the s
 
 
 ## User sign-in
-After installing the required components you will be asked to specify how the single sign-on method that users will use.  The table below provides a brief description of the available options.
+After installing the required components you will be asked to specify how the single sign-on method that users will use.  The table below provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-aadconnect-user-signin.md).
 
 ![User Signin](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
@@ -247,6 +247,8 @@ In addition, perform the following verification steps:
 
 
 ## Next steps
+After the installation has completed, Logoff and Login again before you use Synchronization Service Manager or Synchronization Rule Editor.
+
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
