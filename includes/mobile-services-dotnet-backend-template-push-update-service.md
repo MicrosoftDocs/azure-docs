@@ -31,6 +31,6 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    This code will send a template push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
+    This code sends a template push notification (with the text of the inserted item) after inserting a todo item. When an exception occurs, an error is logged.
 
 3. Republish your mobile service project to Azure.
