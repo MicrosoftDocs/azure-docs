@@ -62,6 +62,8 @@ Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you
 
 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
+[Web and Business Pricing](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
+
 [Service tiers](sql-database-service-tiers.md)
 
 [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)

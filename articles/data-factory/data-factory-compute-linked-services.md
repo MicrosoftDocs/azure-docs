@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Compute Linked Services | Microsoft Azure" 
-	description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Compute Linked Services | Microsoft Azure"
+	description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -24,16 +24,16 @@ This article explains different compute environments that you can use to process
 
 In this type of configuration, the computing environment is fully managed by the Azure Data Factory service. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.
 
-> [AZURE.NOTE] The on-demand configuration is currently supported only for Azure HDInsight clusters. 
+> [AZURE.NOTE] The on-demand configuration is currently supported only for Azure HDInsight clusters.
 
 ## Azure HDInsight On-Demand Linked Service
 
 The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data. The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
 
-Note the following **important** points about on-demand HDInsight linked service: 
+Note the following **important** points about on-demand HDInsight linked service:
 
 - You will not see the on-demand HDInsight cluster created in your Azure subscription; the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.
-- The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure Portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
+- The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure Portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) article for details.
 - You will be charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
@@ -46,7 +46,6 @@ Note the following **important** points about on-demand HDInsight linked service
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 4,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "00:05:00",
 	      "version": "3.1",
 		  "osType": "linux",
@@ -64,17 +63,16 @@ Note the following **important** points about on-demand HDInsight linked service
 Property | Description | Required
 -------- | ----------- | --------
 type | The type property should be set to **HDInsightOnDemand**. | Yes
-clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes 
-jobscontainer | The blob container that holds data used by pig/hive/package jobs and where the cluster logs will be stored. | Yes
+clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes
 timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
 version | Version of the HDInsight cluster | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
-osType | Type of operating system. Allowed values are: windows (default) and linux | No 
+osType | Type of operating system. Allowed values are: windows (default) and linux | No
 
 ### Advanced Properties
 
-You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster. 
+You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -95,7 +93,6 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
 	      "clusterSize": 16,
-	      "jobsContainer": "adfjobs",
 	      "timeToLive": "01:30:00",
 	      "version": "3.1",
 	      "linkedServiceName": "adfods1",
@@ -123,19 +120,19 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	  }
 	}
 
-## Bring your own compute environment 
+## Bring your own compute environment
 
 In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory. The computing environment is managed by the user and the Data Factory service uses it to execute the activities.
- 
-This type of configuration is supported for the following compute environments: 
+
+This type of configuration is supported for the following compute environments:
 
 - Azure HDInsight
-- Azure Batch 
+- Azure Batch
 - Azure Machine Learning.
 
 ## Azure HDInsight Linked Service
 
-You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory. 
+You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.
 
 ### Example
 
@@ -169,10 +166,10 @@ linkedServiceName | Name of the linked service for the blob storage used by this
 You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory. You can run .NET custom activities using either Azure Batch or Azure HDInsight.
 
 See following topics if you are new to Azure Batch service:
- 
 
-- [Azure Batch Technical Overview](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Management Portal](../batch/batch-technical-overview.md) to create the Azure Batch account using Azure Management Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
+
+- [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
+- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Management Portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure Management Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet to create an Azure Batch pool.
 
 ### Example
@@ -190,9 +187,9 @@ See following topics if you are new to Azure Batch service:
 	  }
 	}
 
-Append "**.<region name**" to the name of your batch account for the **accountName** property. Example: 
-	
-			"accountName": "mybatchaccount.eastus" 
+Append "**.<region name**" to the name of your batch account for the **accountName** property. Example:
+
+			"accountName": "mybatchaccount.eastus"
 
 Another option is to provide the batchUri endpoint as shown below.  
 
@@ -237,9 +234,9 @@ apiKey | The published workspace model’s API. | Yes
 
 
 ## Azure Data Lake Analytics Linked Service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md) in a pipeline. 
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory before using the [Data Lake Analytics U-SQL activity](data-factory-usql-activity.md) in a pipeline.
 
-The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
+The following example provides JSON definition for an Azure Data Lake Analytics linked service.
 
 	{
 	    "name": "AzureDataLakeAnalyticsLinkedService",
@@ -249,7 +246,7 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 	            "accountName": "adftestaccount",
 	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
 	            "authorization": "<authcode>",
-				"sessionId": "<session ID>", 
+				"sessionId": "<session ID>",
 	            "subscriptionId": "<subscription id>",
 	            "resourceGroupName": "<resource group name>"
 	        }
@@ -257,15 +254,15 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 	}
 
 
-The following table provides descriptions for the properties used in the JSON definition. 
+The following table provides descriptions for the properties used in the JSON definition.
 
 Property | Description | Required
 -------- | ----------- | --------
 Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
 accountName | Azure Data Lake Analytics Account Name. | Yes
-dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No 
-authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. | Yes 
-subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
+dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No
+authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. | Yes
+subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used).
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
 sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
@@ -273,12 +270,3 @@ sessionId | session id from the OAuth authorization session. Each session id is 
 ## Azure SQL Linked Service
 
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) article for details about this linked service.
-
-
-  
-
-
-
-     
- 
-   

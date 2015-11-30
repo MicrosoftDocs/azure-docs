@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic deployment model using the preview portal | Microsoft Azure"
+   pageTitle="Get started creating an Internet facing load balancer in classic deployment model using the preview portal | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic deployment model using the preview portal"
    services="load-balancer"
    documentationCenter="na"
@@ -17,14 +17,14 @@
    ms.date="11/03/2015"
    ms.author="joaoma" />
 
-#Get started creating Internet facing load balancer (classic) in the preview portal
+#Get started creating an Internet facing load balancer (classic) in the preview portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model.
- You can also [Get started creating a load balancer with Azure resource manager powerShell](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+
  
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
