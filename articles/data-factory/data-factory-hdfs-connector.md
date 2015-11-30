@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="spelluru"/>
 
 # Move data From on-premises HDFS using Azure Data Factory
@@ -32,9 +32,9 @@ The sample below shows:
 
 1.	A linked service of type [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#hdfs-dataset-type-properties).
+3.	An input [dataset](data-factory-create-datasets.md) of type [FileShare](#hdfs-dataset-type-properties).
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](#hdfs-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#hdfs-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from a query result in an on-premises HDFS to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -44,7 +44,7 @@ As a first step, please setup the data management gateway as per the instruction
 This example uses the Windows authentication. See [HDFS linked service](#hdfs-linked-service-properties) section for different types of authentication you can use. 
 
 	{
-	    "name": "AzureBlobHdfsDataSet",
+	    "name": "HDFSLinkedService",
 	    "properties":
 	    {
 	        "type": "Hdfs",
@@ -77,10 +77,10 @@ This dataset refers to the HDFS folder DataTransfer/UnitTest/. The pipeline copi
 Setting “external”: ”true” and specifying externalData policy (optional) informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 	
 	{
-	    "name": "input",
+	    "name": "InputDataset",
 	    "properties": {
 	        "type": "FileShare",
-	        "linkedServiceName": "hdfs",
+	        "linkedServiceName": "HDFSLinkedService",
 	        "typeProperties": {
 	            "folderPath": "DataTransfer/UnitTest/"
 	        },
@@ -100,7 +100,7 @@ Setting “external”: ”true” and specifying externalData policy (optional)
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
 	{
-	    "name": "AzureBlobHdfsDataSet",
+	    "name": "OutputDataset",
 	    "properties": {
 	        "type": "AzureBlob",
 	        "linkedServiceName": "AzureStorageLinkedService",
@@ -167,8 +167,8 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        [
 	            {
 	                "name": "HdfsToBlobCopy",
-	                "inputs": [ {name: "input"} ],
-	                "outputs": [ {name: "output"} ],
+	                "inputs": [ {"name": "InputDataset"} ],
+	                "outputs": [ {"name": "OutputDataset"} ],
 	                "type": "Copy",
 	                "typeProperties":
 	                {
@@ -176,7 +176,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	                    {
 	                        "type": "FileSystemSource"
 	                    },
-	                    sink:
+	                    "sink":
 	                    {
 	                        "type": "BlobSink"
 	                    }
