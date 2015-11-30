@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Monitor a Docker host in Application Insights" 
-	description="Docker host perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps." 
+	pageTitle="Monitor Docker applications in Application Insights" 
+	description="Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -15,13 +15,16 @@
 	ms.date="11/20/2015" 
 	ms.author="awills"/>
  
-# Monitor a Docker host in Application Insights
+# Monitor Docker applications in Application Insights
 
 Performance counters and exception reports from a [Docker](https://www.docker.com/) host can be charted on Application Insights. Install the [Application Insights](app-insights-overview.md)  app in a container in your host, and it will display overall performance counters for the host, as well as for the other images.
 
 With Docker you distribute your apps in lightweight containers complete with all dependencies. They'll run on any host machine that runs a Docker Engine.
 
-Application Insights can monitor the performance and activity of your Docker host and containers.
+Application Insights for Docker helps you monitor your containerized applications by collecting telemetry about the performance and activity of your Docker hosts, images, containers and the applications running within them.
+
+To do so, you run a single Application Insights container on your Docker host, which talks to the Docker agent and sends telemetry data back to Application Insights, providing you with diagnostics and data analysis tools.
+
 
 ![example](./media/app-insights-docker/00.png)
 
@@ -35,28 +38,32 @@ An Application Insights resource is the place where you'll view and analyze your
 2.	Sign into the [Azure Portal](https://portal.azure.com), and create a new Application Insights resource. Choose Other for the application type. (This choice just affects the initial selection of charts you see, and it isn't too important.)
 
     ![example](./media/app-insights-docker/01-new.png)
+
 3.	You can always get to your new monitoring resource by using Browse, All. But you probably also opted to put a tile for your app on the Home dashboard that you see whenever you go to the portal.
 
     Open the new resource now.
-4.	Add the Docker tile: Choose **Edit**, then **Add tiles**, and drag the Docker tile from the gallery. It will just show empty charts at first.
+
+4.	Add the Docker tile: Choose **Add Tile**, drag the Docker tile from the gallery, and then click **Done**. 
 
     ![example](./media/app-insights-docker/03.png)
+
 
 5. Click the **Essentials** drop-down and copy the Instrumentation Key. You'll use this to tell the SDK where to send its telemetry.
 
 Keep that browser window handy, as you'll come back to it soon to look at your telemetry.
 
 
-## Install Application Insights on your host
+## Run the Application Insights monitor on your host
  
-Now that you've got somewhere to display the telemetry, you can set up the app that will collect and send it.
-1.	Sign in to your Docker host.
-2.	Search for the Microsoft Application Insights image on Docker Hub and pull it to your host. 
-3.	Set the instrumentation key:
+Now that you've got somewhere to display the telemetry, you can set up the containerized app that will collect and send it.
 
-    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
+1.	Connect to your Docker host. 
+2.	Edit your instrumentation key into this command, and then run it:
 
-4. Run the image.
+    docker run -v /var/run/docker.sock:/docker.sock -d https://hub.docker.com/r/microsoft/applicationinsights/ ikey=000000-1111-2222-3333-444444444
+
+
+Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
 
 ## View your telemetry
 
@@ -73,7 +80,15 @@ Here are some of the views you can get.
 
 ![example](./media/app-insights-docker/10.png)
 
-Click any image name for more detail.
+
+![example](./media/app-insights-docker/11.png)
+
+
+
+Click any host or image name for more detail.
+
+
+
 To customize the view, click any chart, the grid heading, or use Add Chart. 
 
 [Learn more about metrics explorer](app-insights-metrics-explorer.md).
@@ -81,7 +96,7 @@ To customize the view, click any chart, the grid heading, or use Add Chart.
 ## Individual events
 
 
-![example](./media/app-insights-docker/12.png)
+![example](./media/app-insights-docker/13.png)
 
 To investigate individual events, click [Search](app-insights-diagnostic-search.md). Search and filter 
 to find the events you want. Click any event to get more detail.
