@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/24/2015"
+      ms.date="11/30/2015"
       ms.author="hascipio; avikova" />
 
 # Mapping an existing web service to OData through CSDL
@@ -37,7 +37,7 @@ The **data flow** is in the opposite direction:
 
   ![drawing](media/marketplace-publishing-data-service-creation-odata-mapping/figure-1.png)
 
-For background on Atom, Atom Pub, and the OData protocol upon which the Azure Marketplace extensions build, please review: [http://msdn.microsoft.com/en-us/library/ff478141.aspx](http://msdn.microsoft.com/en-us/library/ff478141.aspx)
+For background on Atom, Atom Pub, and the OData protocol upon which the Azure Marketplace extensions build, please review: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
 Excerpt from above link:
   	*“The purpose of the Open Data protocol (hereafter referred to as OData) is to provide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for the Advancement of Structured Information Standards) Standards so that anyone that wants to can build servers, clients or tools without royalties or restrictions.”*
@@ -73,17 +73,17 @@ An extension to the ATOM pub where each entry represents one row of a result set
 
 ### CSDL - Conceptual Schema Definition Language
 
-Allows defining functions (SPROCs) and entities that are exposed through a database. More information found here: [http://msdn.microsoft.com/en-us/library/bb399292.aspx](http://msdn.microsoft.com/en-us/library/bb399292.aspx)  
+Allows defining functions (SPROCs) and entities that are exposed through a database. More information found here: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)  
 
 > [AZURE.TIP] Click the **other versions** dropdown and select a version if you don’t see the article.
 
 ### EDM - Entry Data Model
-- Overview: [http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
-[OverviewLink]:http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx
-- Preview: [http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx][PreviewLink]
-[PreviewLink]:http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx
-- Data types: [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLink]:http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx
+- Overview: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
+[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Preview: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Data types: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
+[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 The following shows the detailed Left to Right flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back:
 
@@ -209,7 +209,7 @@ Connects to a service that is exposing an web application endpoint (like a C# ap
         <!-- Parameters of the web service call:
         @Name should match exactly (case sensitive) the {…} placeholders in the @d:BaseUri, @d:UriTemplate, and d:RequestBody, i.e. “name” parameter in above BaseURI.
         @Mode is always "In", compatibility with CSDL
-        @Type is the EDM.SimpleType of the parameter, see http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx
+        @Type is the EDM.SimpleType of the parameter, see http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
         @d:Nullable indicates whether the parameter is required.
         @d:Regex - optional, attribute to describe the string, limiting unwanted input at the entry of the system
         @d:Description - optional, is used by Service Explorer as help information
@@ -238,7 +238,7 @@ Connects to a service that is exposing an web application endpoint (like a C# ap
         <!-- If these nodes are outside a namespace, add the prefix in the xpath. -->
         <!--
         @Name - define your user readable name, will become an XML element in the ATOM feed, so comply with the XML element naming restrictions (no spaces or other illegal characters).
-        @Type is the EDM.SimpleType of the parameter, see http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx.
+        @Type is the EDM.SimpleType of the parameter, see http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx.
         @d:Map uses an Xpath query to point at the location to extract the content from your services response.
         The "." is relative to the repeating node in the EntityType @d:Map Xpath expression.
         -->
