@@ -18,8 +18,6 @@
 
 # App Service API Apps metadata for API discovery and code generation 
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which will be available later today.
-
 Support for [Swagger 2.0](http://swagger.io/) API metadata is built into App Service API Apps. You don't have to use Swagger, but if you do use it, you can take advantage of API Apps features that make discovery and consumption easier.   
 
 ## Swagger endpoint

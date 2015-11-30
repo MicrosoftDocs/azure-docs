@@ -22,8 +22,6 @@
 
 ## Overview
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which will be available later today.
- 
 This tutorial shows how to protect an API app by allowing access only to users who have been authenticated by Azure Active Directory. The sample client uses AngularJS.
 
 ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)

@@ -16,7 +16,7 @@
 	ms.date="11/23/2015"
 	ms.author="yuaxu"/>
 
-# Add Push Notifications to your iOS App
+# Add Push Notifications to your Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 &nbsp;  
