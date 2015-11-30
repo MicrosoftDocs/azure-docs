@@ -226,48 +226,44 @@ The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package] to establish 
 > [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
 we recommend the use of a SQL Express data store and using the sql driver.
 
-1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly
-require 64 Bit support, the 32 Bit version will consume less memory when running.
+1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly require 64 Bit support, the 32-bit version consumes less memory when running.
 
-2. Run the SQL Server 2014 Configuration Manager.
+2. Run the SQL Server 2014 Configuration Manager as follows:
 
-  a. Expand the **SQL Server Network Configuration** node in the left hand tree menu.
-  b. Click on **Protocols for SQLEXPRESS**.
-  c. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.
-  d. Right-click on **TCP/IP** and select **Properties**.
-  e. Click on the **IP Addresses** tab.
-  f. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
+	  1. Expand the **SQL Server Network Configuration** node in the left hand tree menu. 
+	  2. Click on **Protocols for SQLEXPRESS**.  
+	  3. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.  
+	  4. Right-click on **TCP/IP** and select **Properties**.  
+	  5. Click on the **IP Addresses** tab.  
+	  6. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.  
 
-  ![Configure SQL Express for TCP/IP][3]
-
-  g. Click on **OK**.  Click on **OK** in the pop-up dialog.
-  h. Click on **SQL Server Services** in the left hand tree menu.
-  i. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
-  j. Close the SQL Server 2014 Configuration Manager.
+  		![Configure SQL Express for TCP/IP][3]
+	  7. Click on **OK**. Click on **OK** in the pop-up dialog.
+	  8. Click on **SQL Server Services** in the left hand tree menu.
+	  9. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
+	  10. Close the SQL Server 2014 Configuration Manager.
 
 3. Create a Run the SQL Server 2014 Management Studio and connect to your local SQL Express instance
 
-  a. Right-click on your instance in the Object Explorer and select **Properties**
-  b. Select the **Security** page.
-  c. Ensure the **SQL Server and Windows Authentication mode** is selected
-  d. Click on **OK**
+  1. Right-click on your instance in the Object Explorer and select **Properties**
+  2. Select the **Security** page.
+  3. Ensure the **SQL Server and Windows Authentication mode** is selected
+  4. Click on **OK**
 
-  ![Configure SQL Express Authentication][4]
+  		![Configure SQL Express Authentication][4]
+  5. Expand **Security** > **Logins** in the Object Explorer
+  6. Right-click on **Logins** and select **New Login...**
+  7. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
+  8. Click on **OK**
 
-  e. Expand **Security** > **Logins** in the Object Explorer
-  f. Right-click on **Logins** and select **New Login...**
-  g. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
-  h. Click on **OK**
+  		![Add a new user to SQL Express][5]
+  9. Right-click on your new login and select **Properties**
+  10. Select the **Server Roles** page
+  11. Check the box next to the **dbcreator** server role
+  12. Click on **OK**
+  13. Close the SQL Server 2015 Management Studio
 
-  ![Add a new user to SQL Express][5]
-
-  i. Right-click on your new login and select **Properties**
-  j. Select the **Server Roles** page
-  k. Check the box next to the **dbcreator** server role
-  l. Click on **OK**
-  m. Close the SQL Server 2015 Management Studio
-
-Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
+Make sure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
 
 The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.  You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
 
@@ -340,7 +336,7 @@ Once the Mobile App backend is created, you can choose to either connect an exis
 
 <!-- END OF ALTERNATE INCLUDE -->
 
-Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed sucessfully.  Once successfully deployed, a Connection String will be created for the SQL Azure database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
+Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed successfully.  Once successfully deployed, a Connection String will be created for the SQL Azure database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
 
 ### <a name="howto-tables-auth"></a>Require Authentication for access to tables
 
@@ -519,7 +515,7 @@ more details about configuring authentication in an  Azure App Service, review t
 - [How to configure Microsoft Authentication]
 - [How to configure Twitter Authentication]
 
-### <a name="howto-customapi-basic"></a>Define a Simple Custom API
+### <a name="howto-customapi-basic"></a>Define a simple custom API
 
 Custom APIs are defined in much the same way as the Tables API.
 
@@ -557,7 +553,7 @@ Let's take a simple API that will return the server date using the _Date.now()_ 
 
 Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.  
 
-### <a name="howto-customapi-auth"></a>Require Authentication for access to a Custom API
+### <a name="howto-customapi-auth"></a>Require authentication for access to a custom API
 
 Azure Mobile Apps SDK implements authentication in the same way for both the tables endpoint and custom APIs.  To add authentication to the API developed in the previous section, add an **access** property:
 
