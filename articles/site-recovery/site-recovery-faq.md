@@ -27,7 +27,7 @@ This article includes frequently asked questions about Azure Site Recovery. If y
 
 ###What does Site Recovery do?
 
-Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-overview/).
+Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating and automating replication from on-premises virtual machines and physical servers to Azure, or to a secondary datacenter. [Learn more](site-recovery-overview.md).
 
 
 ### What can Site Recovery protect?
@@ -43,13 +43,13 @@ It depends on the deployment scenario.
 
 Check the Hyper-V host server prerequisites in:
 
-- [Replicating Hyper-V VMs (without VMM) to Azure](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-hyper-v-site-to-azure/#before-you-start)
-- [Replicating Hyper-V VMs (with VMM) to Azure](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmm-to-azure/#before-you-start)
-- [Replicating Hyper-V VMs to a secondary datacenter](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmm-to-vmm/#before-you-start)
+- [Replicating Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md/#before-you-start)
+- [Replicating Hyper-V VMs (with VMM) to Azure](site-recovery-vmm-to-azure.md/#before-you-start)
+- [Replicating Hyper-V VMs to a secondary datacenter](site-recovery-vmm-to-vmm.mf/#before-you-start)
 
 Regarding guest operating systems:
 
-- If you're replicating to a secondary datacenter see a list of the supported guest operating systems for VMs running on Hyper-V host servers in [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/en-us/library/mt126277.aspx).
+- If you're replicating to a secondary datacenter see a list of the supported guest operating systems for VMs running on Hyper-V host servers in [Supported guest operating systems for Hyper-V VMs](https://technet.microsoft.com/library/mt126277.aspx).
 - If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 Site Recovery can protect any workload running on a supported VM.
@@ -74,17 +74,17 @@ Yes. You can either replicate Hyper-V VMs in the cloud on the VMM server to Azur
 
 ### What physical servers can I protect?
 
-You can protect physical servers running Windows and Linux, to Azure or to a secondary site. For operating system requirements read [What do I need?](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmware-to-azure/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
+You can protect physical servers running Windows and Linux, to Azure or to a secondary site. For operating system requirements read [What do I need?](site-recovery-vmware-to-azure.md/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
 Note that physical servers will run as VMs in Azure if your on-premises server goes down. Failback to an on-premises physical server isn't currently supported but you can fail back to a virtual machine running on Hyper-V or VMware.
 
 ### What VMware VMs can I protect?
 
-For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines with VMware tools running. for exact requirements see [What do I need?](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmware-to-azure/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
+For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines with VMware tools running. for exact requirements see [What do I need?](site-recovery-vmware-to-azure.md/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 
-Virtual machines you want to replicate to Azure should comply with [Azure requirements](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-best-practices/#virtual-machines). 
+Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-best-practices.md/#virtual-machines). 
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
 
