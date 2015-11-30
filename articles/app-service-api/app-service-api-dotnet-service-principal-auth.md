@@ -22,7 +22,7 @@
 
 ## Overview
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which is not yet publicly available. In a day or two, 2.8.1 will be available and this note will be removed.
+> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which will be available later today.
 
 This tutorial shows how to protect an API app by allowing access only to other API apps that have service account credentials. 
 

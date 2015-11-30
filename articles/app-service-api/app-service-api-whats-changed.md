@@ -73,7 +73,7 @@ Existing API apps (or Marketplace API apps created from Logic Apps) with the pre
 
 Most Web Apps tooling will work with new API apps since they share the same underlying **Microsoft.Web/sites** resource type. The Azure Visual Studio tooling, however, should be upgraded to version 2.8.1 or later since it exposes a number of capabilities specific to APIs. 
 
-> [AZURE.NOTE] The Azure SDK for .NET version 2.8.1 is not yet publicly available. In a day or two, 2.8.1 will be available and this note will be removed. When 2.8.1 is available, download the SDK from the [Azure downloads page](https://azure.microsoft.com/downloads/).
+> [AZURE.NOTE] The Azure SDK for .NET version 2.8.1 will be available later today. When 2.8.1 is available, download the SDK from the [Azure downloads page](https://azure.microsoft.com/downloads/).
 
 With the rationalization of the App Service types, publish is also unified under **Publish > Microsoft Azure App Service**:
 
