@@ -27,9 +27,9 @@ The first step is to create a service namespace, and to obtain a Shared Access S
 
 ### To create a service namespace and obtain a SAS key
 
-1. To create a namespace in the Azure portal, follow the steps in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx).
+1. To create a namespace in the [Azure classic portal][], follow the steps in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx).
 
-2. In the main window of the Azure portal, click the name of the service namespace you created in the previous step.
+2. In the main window of the portal, click the name of the service namespace you created in the previous step.
 
 3. Click **Configure** to view the shared access policies for the namespace.
 
@@ -300,7 +300,7 @@ As with the previous steps, there is very little difference between implementing
 
 	This step configures a service that uses the previously defined default **webHttpRelayBinding**. It also uses the default **sbTokenProvider**, which is defined in the next step.
 
-6. After the `<services>` element, create a `<behaviors>` element with the following content, replacing "SAS_KEY" with the *Shared Access Signature* (SAS) key you obtained from the Azure portal in Step 1.
+6. After the `<services>` element, create a `<behaviors>` element with the following content, replacing "SAS_KEY" with the *Shared Access Signature* (SAS) key you obtained from the [Azure classic portal][] in Step 1.
 
 	```
 	<behaviors>
@@ -581,3 +581,5 @@ Now that you've built an application that uses the Service Bus relay service, se
 - [Azure Service Bus architectural overview](service-bus-fundamentals-hybrid-solutions.md#relays)
 
 - [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)
+
+[Azure classic portal]: http://manage.windowsazure.com
