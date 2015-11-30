@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/29/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting Search
@@ -28,7 +28,7 @@
  - [Backfill](active-directory-reporting-backfill.md)
  - [Latencies](active-directory-reporting-latencies.md)
  - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
- 
+
 Azure Active Directory provides directory admins the ability to search for user security, activity, and audit events across multiple reports.
 
 To find the search panel, navigate to the **Azure Management Portal -> Your Azure Active Directory -> Reports.** The panel can be found at the top of the list of reports.
