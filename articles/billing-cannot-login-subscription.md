@@ -28,13 +28,11 @@ An Account Owner can only access the [Account Center](https://account.windowsazu
 
 Click the links below for instructions on updating the administrator roles:
 
-- [To update the SA on your account][updateSA]
+- [To update the SA on your account][./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription]
 
- [updateSA]:https://azure.microsoft.com/en-us/documentation/articles/billing-add-change-azure-subscription-administrator/#change-service-administrator-for-a-subscription
+ [updateSA]:https://azure.microsoft.com/en-us/documentation/articles/
 
-- [To add a new CA in the management portal][addCA]
-
- [addCA]:https://azure.microsoft.com/en-us/documentation/articles/billing-add-change-azure-subscription-administrator/#add-a-co-administrator-for-a-subscription
+- [To add a new CA in the management portal][./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription]
 
 ## Is your subscription associated with a Microsoft account or Organizational account?
 
