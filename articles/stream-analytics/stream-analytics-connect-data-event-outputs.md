@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Connect Stream Analytics output targets
@@ -22,7 +22,7 @@
 ---
 When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed. How are the consumers of the data transformation viewing the results of the Stream Analytics job? What tool(s) will they be using to analyze the output? Is data retention or warehousing a requirement?
 
-Azure Stream Analytics provides seven different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
+Azure Stream Analytics provides eight different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI, Table storage and DocumentDB. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes. When you add an output element, the element must already exist. For instance, if you add Azure Table Storage, the table must already exist.
 
 ## Using a SQL Database as an output ##
 ---
@@ -252,6 +252,23 @@ Then supply the details as shown below and select next.
 Verify your data format and serialization are correct.
 
 ![graphic33][graphic33]
+
+
+## DocumentDB ##
+---
+### Introduction to DocumentDB concepts ###
+Azure DocumentDB is a fully-managed NoSQL document database service that offers query and transactions over schema-free data, predictable and reliable performance, and rapid development.
+
+### Parameters ###
+
+To start using a Service Bus Topics output, the following information will be needed:
+
+1. Account Name – The name of the DocumentDB account. This can also be the endpoint for the account.
+2. Account Key - The shared access key for the DocumentDB account.
+3. Database - The DocumentDB database name.
+4. Collection Name Pattern - The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Note that collections must exist before the Stream Analytics job is started and will not be created automatically.
+5. Partition Key - The name of the field in output events used to specify the key for partitioning output across collections.
+6. Document ID - The name of the field in output events used to specify the primary key which insert or update operations are based on.
 
 
 ## Get help

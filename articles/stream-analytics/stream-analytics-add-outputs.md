@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/> 
 
 # How to **add outputs** to Stream Analytics jobs
@@ -51,6 +51,8 @@ To add an output to your Stream Analytics job:
     ![Add event hub](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)  
 
     ![Azure preview portal Add event hub](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)  
+
+Note that when you add an output element, the element must already exist. For instance, if you add Azure Table Storage, the table must already exist.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

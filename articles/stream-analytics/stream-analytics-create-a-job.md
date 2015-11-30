@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/> 
 
 # Create a Stream Analytics job
 
-The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It consists of one or more input data sources, a query expressing the data transformation, and one or more output targets that results are written to.
+The top-level resource in Azure Stream Analytics is a Stream Analytics Job.  It consists of one or more input data sources, a query expressing the data transformation, and one or more output targets that results are written to. Outputs must already exist. The job will not for example create a Blob Storage output for you.
 
 To start using Stream Analytics, create a new Stream Analytics job.  Note that this action has no billing implications until the job is started.
 
