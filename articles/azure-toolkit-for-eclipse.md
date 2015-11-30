@@ -20,40 +20,40 @@
 
 # Azure Toolkit for Eclipse #
 
-The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. It is an Open Source project, whose source code is available under the Apache License 2.0 from the project's site at <a href="https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava">https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava</a>.
+The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. It is an Open Source project, whose source code is available under the Apache License 2.0 from the project's site at:
+
+* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
 
 The following topics provide information about the Azure Toolkit for Eclipse:
 
-[What's New in the Azure Toolkit for Eclipse][]
-[Installing the Azure Toolkit for Eclipse][]
-[Creating a Hello World Application for Azure in Eclipse][]
-[Deploying Large Deployments][]
-[Using the Azure Service Runtime Library in JSP][]
-[Enabling Remote Access for Azure Deployments in Eclipse][]
-[Debugging Azure Applications in Eclipse][]
-[Azure Project Properties][]
-[Azure Role Properties][]
-[Azure Service Endpoints][]
-[Azure Storage Account List][]
-[Session Affinity][]
-[SSL Offloading][]
-[How to Use SSL Offloading][]
-[How to Maintain Session Data with Session Affinity][]
-[Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java][]
-[How to Authenticate Web Users with Azure Access Control Service Using Eclipse][]
-[How to Use Co-located Caching][]
-[How to Use Dedicated Caching][]
-[How to Use JMS with AMQP 1.0 in Azure with Eclipse][]
+* [What's New in the Azure Toolkit for Eclipse][]
+* [Installing the Azure Toolkit for Eclipse][]
+* [Creating a Hello World Application for Azure in Eclipse][]
+* [Deploying Large Deployments][]
+* [Using the Azure Service Runtime Library in JSP][]
+* [Enabling Remote Access for Azure Deployments in Eclipse][]
+* [Debugging Azure Applications in Eclipse][]
+* [Azure Project Properties][]
+* [Azure Role Properties][]
+* [Azure Service Endpoints][]
+* [Azure Storage Account List][]
+* [Session Affinity][]
+* [SSL Offloading][]
+* [How to Use SSL Offloading][]
+* [How to Maintain Session Data with Session Affinity][]
+* [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java][]
+* [How to Authenticate Web Users with Azure Access Control Service Using Eclipse][]
+* [How to Use Co-located Caching][]
+* [How to Use Dedicated Caching][]
+* [How to Use JMS with AMQP 1.0 in Azure with Eclipse][]
+
+>[AZURE.NOTE] For more information about using Azure with Java, see the [Azure Java Developer Center][].
 	
 ## See Also ##
-
-<a href="http://go.microsoft.com/fwlink/?LinkID=699547">Java Developer Guidance</a> 
 
 [Installing the Azure Toolkit for Eclipse][] 
 
 [What's New in the Azure Toolkit for Eclipse][]
-
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
