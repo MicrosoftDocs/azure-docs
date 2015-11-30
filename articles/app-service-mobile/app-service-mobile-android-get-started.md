@@ -16,7 +16,7 @@
     ms.date="11/20/2015"
     ms.author="yuaxu"/>
 
-#Create an iOS app
+#Create an Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 &nbsp;  
