@@ -24,6 +24,8 @@ API Apps is one of four app types offered by [Azure App Service](../app-service/
 
 API Apps provides a rich platform for building, hosting, and consuming APIs in the cloud and on-premises. Deploy your API as an API app in App Service and benefit from enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
+> [AZURE.NOTE] For details about what's new in the November 30 release of API Apps enhancements, see [App Service API Apps - What's changed](app-service-api-whats-changed.md).
+
 ## Why API Apps?
 
 API Apps provides the following features available today in public preview:
