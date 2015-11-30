@@ -3,7 +3,7 @@
 	description="Azure AD Connect Windows Remote Managed hints for using with AD FS."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="andkjell"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/13/2015"
-	ms.author="billmath"/>
+	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect - Windows Remote Managed Hints
 
