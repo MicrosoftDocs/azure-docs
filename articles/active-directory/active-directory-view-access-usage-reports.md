@@ -17,6 +17,8 @@
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
+# View your access and usage reports
+
 ## Reporting Documentation Articles
 
  - [Reporting API](active-directory-reporting-api-getting-started.md)
@@ -27,8 +29,6 @@
  - [Backfill](active-directory-reporting-backfill.md)
  - [Latencies](active-directory-reporting-latencies.md)
  - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
-
-# View your access and usage reports
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
