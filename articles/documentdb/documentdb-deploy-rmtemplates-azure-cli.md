@@ -51,13 +51,18 @@ You can also run Azure CLI as a Docker container by using the following [Docker 
 
 If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-You need to have a work or school account to use Azure resource management templates. If you have one, you can type `azure login` and enter your user name and password, and you should successfully log in.
+You need to have a work or school account to use Azure resource management templates. If you have one, you can type the following command and follow the prompts to log in.
+
+	azure login
 
 > [AZURE.NOTE] If you don't have one, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
-Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
+Your account may have more than one subscription. You can list your subscriptions by typing the following command: 
 
-    azure account list
+	azure account list
+
+Which produces the following output:
+
     info:    Executing command account list
     data:    Name                              Id                                    Tenant Id                            Current
     data:    --------------------------------  ------------------------------------  ------------------------------------  -------
@@ -96,7 +101,6 @@ First, create a resource group by replacing these values in the following PowerS
 
 	`azure group create <Resource group name> <Location>`
 
-
 For example:
 
 	azure group create new_res_grp westus
@@ -119,7 +123,7 @@ Second, create a DocumentDB account in the new resource group by entering the fo
 
 > [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the normal Windows Command Prompt. 
 
-    azure resource create -g <resourceGroupName> -n <databaseAccountName> -r "Microsoft.DocumentDB/databaseAccounts" -o "2014-04-01" -l <databaseAccountLocation> -p "{\"databaseAccountOfferType\":\"Standard\"}" 
+    azure resource create -g <resourceGroupName> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2014-04-01" -l <databaseAccountLocation> -p "{\"databaseAccountOfferType\":\"Standard\"}" 
 
 For example: 
 
@@ -198,21 +202,28 @@ Now create a parameters file to specify the values of those parameters. Copy the
 
 Update the values "sampledatabasename" and "West US" to the database name and region you'd like to use, then save the file. 
 
-> [AZURE.WARNING] Database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters.
+> [AZURE.TIP] Database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters.
 
 ### Step 2: Create the DocumentDB account by using the template
 
 Once you have your local files, you must create a resource group for your template deployment and then deploy the template.
 
-To create the resource group, type `azure group create <group name> <location>` with the name of the group you want and the datacenter location into which you want to deploy. This happens quickly:
+To create the resource group, run the following command with the name of the group you want to create and the datacenter location into which you want to deploy.
+
+	azure group create <group name> <location>
+
+For example:
 
     azure group create new_res_group westus
+
+You will received the following type of information:
+
     info:    Executing command group create
-    + Getting resource group myResourceGroup
-    + Creating resource group myResourceGroup
-    info:    Created resource group myResourceGroup
+    + Getting resource group new_res_group
+    + Creating resource group new_res_group
+    info:    Created resource group new_res_group
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup
-    data:    Name:                myResourceGroup
+    data:    Name:                new_res_group
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
     data:    Tags: null
@@ -221,16 +232,14 @@ To create the resource group, type `azure group create <group name> <location>` 
 
 To create a new deployment for your resource group, run the following command and provide the path to the template file, the path to the parameter file, the name of the resource group in which to deploy, and a deployment name (optional). 
 
-    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
+    azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n azuredeploy
 
 For example: 
 
-    azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g myResourceGroup
+    azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
 You will receive the following type of information: 
 
-    C:\Users\test>azure group deployment create -f azure
-    deploy.json -e azuredeploy.parameters.json -g new_res_group
     info:    Executing command group deployment create
     + Initializing template configurations and parameters
     + Creating a deployment
@@ -247,7 +256,7 @@ You will receive the following type of information:
     data:    location             String  West US
     info:    group deployment create command OK
 
-> [AZURE.TIP] If you received the error "Deployment provisioning state was not successful", there is likely a problem with the parameter's you've chosen. Ensure that your database account name is using only valid characters, that the location you've specified is a region in which DocumentDB is available.  
+> [AZURE.TIP] If you received the error "Deployment provisioning state was not successful", there is likely a problem with the parameters you've chosen. Ensure that your database account name is using only valid characters, that the location you've specified is a region in which DocumentDB is available.  
 
 ## Next steps
 
