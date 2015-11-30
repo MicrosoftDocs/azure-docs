@@ -1,10 +1,10 @@
-Video 1: short introduction:
-<https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/915>
 
-Video 2: Deeper dive:
-<https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203>
+\[FIXME:Video 1: short introduction:
+<https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/915>\]
 
-Video 3: CI/CD using Azure Container Service \[FIXME: post to Channel 9
+[AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+\[FIXME: Video 3: CI/CD using Azure Container Service post to Channel 9
 and link here\]
 
 ![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
