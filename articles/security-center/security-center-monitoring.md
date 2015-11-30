@@ -22,7 +22,7 @@ Learn how to use monitoring capabilities in Azure Security Center using this wal
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
 ##What is security health monitoring?
-We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to have a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
+We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
 
 ##Monitor compliance with policies
 After enabling [security policies](security-center-policies.md) for the subscription’s resources, Azure Security Center will analyze the security of your resources to identify potential vulnerabilities.  While information about your network configuration is available instantly, it may take an hour or more for information about virtual machine configuration, such as security update status and OS configuration, to be available. You can view the security state of your resources, along with any issues in the Resource Security Health blades. You can also view a list of those issues on the Recommendations blades.
@@ -60,9 +60,9 @@ The prevention status for networking shows the virtual networks monitored by Azu
 
 Similar to the virtual machines resource health information, this blade provides a summarized list of issues on the top of the blade and a list of monitored networks on the bottom.
 
-In the networking status breakdown section, prevention steps such as [ACLs on endpoints](virtual-machines-set-up-endpoints.md) not enabled, [Network Security Groups](virtual-networks-nsg.md) not enabled and healthy are listed. You can click on any of these and get more details and to take further actions to resolve the issue. 
+In the networking status breakdown section, prevention steps such as [ACLs on endpoints](virtual-machines-set-up-endpoints.md) not enabled, [Network Security Groups](virtual-networks-nsg.md) not enabled and Healthy Subnets are listed. You can click on any of these and get more details and to take further actions to resolve the issue. 
 
-An example of this will be the **NSGs on subnets not enabled** alert. If you click on this alert, the **Configure Missing Network Security Groups for Subnets** blade will open up. There you will see a description of a subnet that doesn’t have the Network Security Group enabled on it and the list of network interface cards that belongs to this subnet. Select the subnet in which you want to apply the security group and click **Configure NSG** option. The **Choose network security** group blade will open up as shown below:
+An example of this will be the **NSGs on subnets not enabled** alert. If you click on this alert, the **Configure Missing Network Security Groups for Subnets** blade will open up. There you will see a description of a subnet that doesn’t have the Network Security Group enabled on it and the list of network interface cards that belong to this subnet. Select the subnet in which you want to apply the security group and click **Configure NSG** option. The **Choose network security** group blade will open up as shown below:
 
 ![Recommended system update by VM](./media/security-center-monitoring/security-center-monitoring-fig6.png)
 
@@ -76,11 +76,11 @@ You can click on any one of these recommendations and get more details and to ta
 ![Recommended system update by VM](./media/security-center-monitoring/security-center-monitoring-fig8.png)
 
 ###Applications
-If your Azure workload has applications located in resource manager VMs with exposed web ports (TCP ports 80 and 443), Azure Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click in the **Applications** tile, the **Applications** blade will open up with a series of recommendations in the prevention steps section and it also shows the application breakdown per host/virtual IP as shown below:
+If your Azure workload has applications located in [resource manager VMs](resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Azure Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click in the **Applications** tile, the **Applications** blade will open up with a series of recommendations in the prevention steps section and it also shows the application breakdown per host/virtual IP as shown below:
 
 ![Recommended system update by VM](./media/security-center-monitoring/security-center-monitoring-fig9.png)
 
-Just like any other recommendations for the previous resources, you can click on it to see more details about the issue and how to remediate. The example shown in Figure 11 is an application that was identified as **Unsecure Web Application**. When you select the application that was considered not secure, another blade will open with the option available, which in this case is to enable the Web Application Firewall.
+Just like any of the other recommendations for the previous resources, you can click on it to see more details about the issue and how to remediate. The example shown in figure below is an application that was identified as **Unsecure Web Application**. When you select the application that was considered not secure, another blade will open with the option available, which in this case is to enable the Web Application Firewall.
 
 ![Recommended system update by VM](./media/security-center-monitoring/security-center-monitoring-fig10.png)
 
