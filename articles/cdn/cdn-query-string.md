@@ -26,7 +26,7 @@
 
 Query string caching controls how files are to be cached when they contain query strings. 
 
-> [AZURE.WARNING] The Standard and Premium CDN tiers provide the same query string caching functionality, but the user interface differs.  This document describes the **Standard** tier user interface.  For the Premium tier, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
+> [AZURE.NOTE] The Standard and Premium CDN tiers provide the same query string caching functionality, but the user interface differs.  This document describes the **Standard** tier user interface.  For the Premium tier, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
 
 Three modes are available:
 
