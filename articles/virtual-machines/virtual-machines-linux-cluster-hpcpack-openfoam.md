@@ -235,7 +235,7 @@ Save the downloaded installation package for the OpenFOAM Source Pack (OpenFOAM-
     ```
     clusrun /nodegroup:LinuxNodes /interleaved source /openfoam/settings.sh `&`& /opt/OpenFOAM/OpenFOAM-2.3.1/Allwmake
     ```
-`   
+    
     >[AZURE.NOTE]The “\`” symbol in the command is an escape symbol for PowerShell. “\`&” means the “&” is a part of the command.
 
 ## Prepare to run an OpenFOAM job
