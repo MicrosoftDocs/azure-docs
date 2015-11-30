@@ -7,8 +7,6 @@
 \[FIXME: Video 3: CI/CD using Azure Container Service post to Channel 9
 and link here\]
 
-![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
-
 Azure Container Service (ACS) provides a way to simplify the creation,
 configuration, and management of a cluster of virtual machines that are
 preconfigured to run containerized applications. Using an optimized
@@ -16,6 +14,8 @@ configuration of popular open-source scheduling and orchestration tools,
 ACS enables you to use your existing skills or draw upon a large and
 growing body of community expertise to deploy and manage container-based
 applications on Microsoft Azure.
+
+![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
 
 ACS leverages Docker to ensure that your application containers are
 fully portable. It also supports your choice of Marathon, Chronos and
