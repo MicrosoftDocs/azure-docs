@@ -35,21 +35,17 @@ To complete this tutorial, you need the following:
 
 ## Enable Google Cloud Messaging
 
-[AZURE.INCLUDE [app-service-mobile-enable-Google-cloud-messaging](../../includes/app-service-mobile-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a name="create-hub"></a>Create a Notification Hub
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-##Configure Mobile App to send push requests
+##Configure the Mobile App backend to send push requests
 
-1. Log on to the [Azure Portal], select **Browse** > **Mobile App** > your app > **Push notification services**.
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-2. In **Google Cloud Messaging**, enter the **API key** that you obtained from GCM, then click **Save**.
-
-Your Mobile App backend is now configured to work with GCM.
-
-##<a id="update-service"></a>Update the server to send push notifications
+##<a id="update-service"></a>Update the server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 

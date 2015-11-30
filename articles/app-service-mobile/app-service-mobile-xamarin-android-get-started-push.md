@@ -45,7 +45,7 @@ This tutorial requires the following:
 
 [AZURE.INCLUDE [Enable GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## Configure Azure to send push notifications
+##Configure the Mobile App backend to send push requests
 
 [AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
@@ -55,22 +55,19 @@ This tutorial requires the following:
 
 ##<a id="configure-app"></a>Configure the client project for push notifications
 
-[AZURE.INCLUDE [app-service-mobile-xamarin-android-push-configure-project](../../includes/app-service-mobile-xamarin-android-push-configure-project.md)]
+[AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
 ##<a id="add-push"></a>Add push notifications code to your app
 
-[AZURE.INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
+[AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
 
-##<a name="test-app"></a>Test the app against the published Mobile App backend
+## <a name="test"></a>Test push notifications in your app
 
-You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
-
-<!---###<a id="local-testing"></a> Enable push notifications for local testing
-
-[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
+You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator. There are additional configuration steps required when running on an emulator.
 
 [AZURE.INCLUDE [mobile-services-android-push-notifications-test](../../includes/mobile-services-android-push-notifications-test.md)]
--->
+
+
 <!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 
