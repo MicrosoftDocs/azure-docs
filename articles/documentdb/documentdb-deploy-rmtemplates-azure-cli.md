@@ -90,14 +90,16 @@ You can learn lots more about Azure resource groups and what they can do for you
 
 First, create a resource group by replacing these values in the following PowerShell command and running it: 
 
--  `<Resource group name/> ` with the name of the resource group to create.
+-  `<Resource group name/>` with the name of the resource group to create.
 -  `<Location/> ` with the location in which to create the resource group. 
 
-    azure group create <Resource group name> <Location>
+
+	`azure group create <Resource group name> <Location>`
+
 
 For example:
 
-    azure group create new_res_grp westus
+	azure group create new_res_grp westus
 
 Which produces the following output:
 
