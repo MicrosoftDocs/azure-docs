@@ -52,7 +52,7 @@ From Azure Security Center, you can set security policies, monitor security conf
 
 You can define policies for your Azure subscriptions according to your company's security requirements and tailored to the type of applications or sensitivity of the data in each subscription. For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII may require a higher level of security.
 
-> [AZURE.NOTE] To edit a security policy, you must be an Owner, Contributor, or Security Manager of the subscription.
+> [AZURE.NOTE] To edit a security policy, you must be an Owner or Contributor of the subscription.
 
 Click the **Security policy** tile for a list of your subscriptions and choose a subscription to view the policy details.  
 
@@ -95,9 +95,13 @@ Azure Security Center automatically collects, analyzes and integrates log data f
 - Brute Force attacks against virtual machines
 - Security alerts from integrated antimalware and firewalls
 
-Clicking the **Security alerts** tile displays a list of prioritized alerts. Selecting an alert shows more information about the attack and suggestions on how to remediate it.
+Clicking the **Security alerts** tile displays a list of prioritized alerts.
 
 ![][5]
+
+Selecting an alert shows more information about the attack and suggestions on how to remediate it.
+
+![][6]
 
 ## Get started
 To get started with Azure Security Center you must have a subscription to Microsoft Azure. Azure Security Center is enabled with your Azure subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
@@ -121,4 +125,5 @@ In this document you were introduced to Azure Security Center, its key capabilit
 [2]: ./media/security-center-intro/security-policy.png
 [3]: ./media/security-center-intro/recommendations.png
 [4]: ./media/security-center-intro/resources-health.png
-[5]: ./media/security-center-intro/security-alerts.png
+[5]: ./media/security-center-intro/security-alert.png
+[6]: ./media/security-center-intro/security-alert-detail.png

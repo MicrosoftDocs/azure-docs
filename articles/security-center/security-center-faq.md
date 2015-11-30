@@ -62,7 +62,7 @@ A security policy defines the set of controls which are recommended for resource
 For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring. To learn more about security policies, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
 
 ### Who can modify a security policy?
-Security policies are configured for each subscription. To modify a security policy, you must be an Owner, Contributor, or Security Manager of that subscription.
+Security policies are configured for each subscription. To modify a security policy, you must be an Owner or Contributor of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-policies.md).
 
@@ -91,9 +91,9 @@ Azure Security Center automatically collects, analyzes and fuses log data from y
 ### How are permissions handled in Azure Security Center?
 Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](role-based-access-control-configure.md).
 
-When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, Reader, or Security Manager to the subscription or resource group that a resource belongs to.
+When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
 
-To edit a security policy, you must be an Owner, Contributor, or Security Manager of the subscription.
+To edit a security policy, you must be an Owner or Contributor of the subscription.
 
 ### What types of virtual machines will be supported?
 Both [Classic and Resource Manager](azure-classic-rm.md) virtual machines are supported, including virtual machines that are part of Azure Service Fabric clusters.

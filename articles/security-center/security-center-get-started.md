@@ -81,9 +81,12 @@ Address **Security Alerts**:
 
 19.	Return to the **Security Center** blade and click the **Security alerts** tile.
 20.	On the **Security alerts** blade, a list of alerts is displayed. The alerts were detected by Azure Security Center analysis of your security logs and network activity. Alerts from integrated partner solutions are also included.
+
+  ![][6]
+
 21.	Click an alert to view additional information.
 
-![][6]
+  ![][7]
 
 ## Next steps
 In this document, you were introduced to the security monitoring and policy management components in Azure Security Center. To learn more, see the following:
@@ -101,4 +104,5 @@ In this document, you were introduced to the security monitoring and policy mana
 [3]: ./media/security-center-get-started/security-policy.png
 [4]: ./media/security-center-get-started/recommendations.png
 [5]: ./media/security-center-get-started/resources-health.png
-[6]: ./media/security-center-get-started/security-alerts.png
+[6]: ./media/security-center-get-started/security-alert.png
+[7]: ./media/security-center-get-started/security-alert-detail.png
