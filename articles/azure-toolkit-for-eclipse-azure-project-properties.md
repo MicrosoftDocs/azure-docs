@@ -22,7 +22,9 @@
 
 Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
 
-This is done through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
+## Configuring Azure Project Properties ##
+
+Configuring your Azure Project Properties is accomplished through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
 
 ![][ic719480]
 
@@ -36,15 +38,20 @@ Within this property page, you can change the following items:
 
 [Azure Toolkit for Eclipse][]
 
+[Installing the Azure Toolkit for Eclipse][] 
+
 [Azure Role Properties][]
 
 [Azure Storage Account List][]
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 

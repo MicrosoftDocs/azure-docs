@@ -41,6 +41,22 @@ In the **Service Endpoints** dialog, take one of the following actions:
     6. From the **Active Set** dropdown list, select the active set that you created and click **OK**.
     7. Once you've created your private Azure platform `preferenceset` element, you can change the values assigned to it by clicking the **Edit** button in the **Services Endpoint** dialog. You can also create multiple private Azure platform `preferenceset` elements, if you desire.
 
+## See Also ##
+
+[Azure Toolkit for Eclipse][]
+
+[Installing the Azure Toolkit for Eclipse][] 
+
+[What's New in the Azure Toolkit for Eclipse][]
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
+
+<!-- URL List -->
+
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+
 <!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png

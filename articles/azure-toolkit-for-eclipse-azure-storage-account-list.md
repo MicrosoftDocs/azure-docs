@@ -74,9 +74,22 @@ It may take several minutes for your storage account to be created. After it is 
 
 >[AZURE.NOTE] Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
 
+## See Also ##
+
+[Azure Toolkit for Eclipse][]
+
+[Installing the Azure Toolkit for Eclipse][] 
+
+[What's New in the Azure Toolkit for Eclipse][]
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
+
 <!-- URL List -->
 
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Azure Management Portal]: https://manage.windowsazure.com/
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

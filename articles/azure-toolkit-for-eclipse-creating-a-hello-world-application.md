@@ -61,7 +61,8 @@ As soon as you have a Java web application ready to test, you can use the follow
 1. In Eclipse's Project Explorer, click **MyHelloWorld**.
 1. In the Eclipse toolbar, click the **Publish to Azure Cloud** button,
     ![][ic710882]
-1. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application. ![][ic789598]
+1. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
+    ![][ic789598]
     This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
     However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
 1. In the **Publish to Azure** dialog:
@@ -159,6 +160,10 @@ Select the subscription and cloud service that contains your deployment, select 
 
 [Installing the Azure Toolkit for Eclipse][] 
 
+[What's New in the Azure Toolkit for Eclipse][]
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
+
 <!-- URL List -->
 
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -167,6 +172,7 @@ Select the subscription and cloud service that contains your deployment, select 
 [Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

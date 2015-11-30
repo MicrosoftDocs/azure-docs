@@ -22,6 +22,8 @@
 
 This article contains information on the latest updates to the Azure Toolkit for Eclipse.
 
+## Azure Toolkit for Eclipse Releases ##
+
 ### September 1, 2015 ###
 
 The Azure Toolkit for Eclipse - September 2015 release includes the following enhancements:
@@ -274,6 +276,8 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 [Azure Toolkit for Eclipse][]
 
 [Installing the Azure Toolkit for Eclipse][] 
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 

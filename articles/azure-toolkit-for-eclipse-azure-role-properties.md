@@ -22,7 +22,9 @@
 
 Various configuration settings for your Azure role can be set within the Azure Toolkit for Eclipse.
 
-This is done through the property dialogs for your worker role. Open the context menu for the role in Eclipse's Project Explorer pane and select the **Azure** sub-menu. (If you don't see the role in the Eclipse Project Explorer, expand your Azure project in Project Explorer.)
+## Configuring Azure Role Properties ##
+
+Configuring your Azure Role Properties is accomplished through the property dialogs for your worker role. Open the context menu for the role in Eclipse's Project Explorer pane and select the **Azure** sub-menu. (If you don't see the role in the Eclipse Project Explorer, expand your Azure project in Project Explorer.)
 
 ![][ic789599]
 
@@ -389,12 +391,21 @@ Within this dialog, you can enable SSL offloading, allowing you to easily enable
 
 ## See Also ##
 
+[Azure Toolkit for Eclipse][]
+
+[Installing the Azure Toolkit for Eclipse][] 
+
 [Azure Project Properties][]
+
 [Azure Storage Account List][]
+
 [What's New in the Azure Toolkit for Eclipse][]
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
@@ -403,6 +414,7 @@ Within this dialog, you can enable SSL offloading, allowing you to easily enable
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
 [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
 [How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
