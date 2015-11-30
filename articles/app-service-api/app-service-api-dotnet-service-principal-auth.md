@@ -34,7 +34,7 @@ This is the fourth in a series of tutorials that show how to work with API apps 
 
 Azure App Service offers built-in services for authentication and authorization. You're free to handle authentication in your own code, but App Service offers a turnkey solution if you want to minimize the amount of code you have to write and maintain. 
 
-You can you use any of five authentication providers supported by App Service: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account. And you can protect an API written in any language supported by App Service: without writing any code in your API, you can require user log-in or a token to access it.
+You can use any of five authentication providers supported by App Service: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account. And you can protect an API written in any language supported by App Service: without writing any code in your API, you can require user log-in or a token to access it.
 
 Azure App Service handles authentication and leaves authorization to be handled by your code. You can configure App Service to only allow authenticated users to call your API, or you can allow all callers. In either case, App Service passes authentication information to your app in the HTTP headers, and your code can use that information to make authorization choices. 
 
