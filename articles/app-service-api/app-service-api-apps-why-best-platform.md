@@ -51,7 +51,7 @@ In addition, the features offered by API Apps, Web Apps, and Mobile Apps are int
 
 ## Getting started
 
-To get started with API apps, follow the [Get started with API Apps](app-service-dotnet-api-get-started.md) tutorial.
+To get started with API apps, follow the [Get started with API Apps](app-service-api-dotnet-get-started.md) tutorial.
 
 To see a list of known issues with API Apps, see [the API Apps known issues forum post](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
