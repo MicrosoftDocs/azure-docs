@@ -13,20 +13,20 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/13/2015"
+ms.date="11/30/2015"
 ms.author="larryfr"/>
 
 #Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight
 
 HDInsight uses Azure storage Blobs for data storage. While HDInsight must have full access to the blob used as default storage for the cluster, you can restrict permissions to data stored in other blobs used by the cluster. For example, you may want to make some data read-only. You can do this using Shared Access Signatures.
 
-Shared Access Signatures (SAS) are a feature of Azure storage accounts that lets you provide restricted access to data for a specific period of time. In this document, you will learn how to use SAS to enable read and list-only access to a blob container for an HDInsight cluster.
+Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data. In this document, you will learn how to use SAS to enable read and list-only access to a blob container from HDInsight.
 
 ##Requirements
 
 * An Azure subscription
 
-* Visual Studio (for C#) OR Python
+* C# or Python. C# example code is provided as a Visual Studio solution.
 
     * Visual Studio must be version 2013 or 2015
     
@@ -34,7 +34,7 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that lets
 
 * A Linux-based HDInsight cluster OR Azure PowerShell - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a new cluster and add a Shared Access Signature during cluster creation.
 
-* The example files from [TBD]. This repository contains the following:
+* The example files from [TBD]. This repository has the following:
 
     * A Visual Studio project that can create a storage container, stored policy, and SAS for use with HDInsight
     
@@ -68,7 +68,7 @@ For more information on Shared Access Signatures, see [Understanding the SAS mod
 
 ##Create a stored policy and generate a SAS
 
-Currently you must create a stored policy programmatically. You can find both a C# and Python example of creating a stored policy and SAS at [TBD].
+Currently you must create a stored policy programmatically. You can find both the C# and Python example of creating a stored policy and SAS at [TBD].
 
 ###Create a stored policy and SAS using C\#
 
@@ -118,7 +118,7 @@ When creating an HDInsight cluster, you must specify a primary storage account a
 
 In order to use a Shared Access Signature to limit access to a container, you must add a custom entry to the __core-site__ configuration for the cluster.
 
-* For __Windows-based__ or __Linux-based__ HDInsight clusters, you can do this during cluster creation using either PowerShell or the .NET SDK.
+* For __Windows-based__ or __Linux-based__ HDInsight clusters, you can do this during cluster creation using PowerShell.
 
 * For __Linux-based__ HDInsight clusters, you change the configuration after cluster creation using Ambari.
 
@@ -130,7 +130,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
 2. From the prompt, type the following:
 
-        Install-Module \Path\To\CreateCluster\HDInsightSAS.psm1
+        Import-Module \Path\To\CreateCluster\HDInsightSAS.psm1
         
     This will install a new function named __New-HDInsightClusterWithSAS__.
     
