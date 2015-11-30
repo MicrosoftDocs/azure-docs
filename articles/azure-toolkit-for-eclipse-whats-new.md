@@ -22,7 +22,7 @@
 
 This article contains information on the latest updates to the Azure Toolkit for Eclipse.
 
-## September 1, 2015 ##
+### September 1, 2015 ###
 
 The Azure Toolkit for Eclipse - September 2015 release includes the following enhancements:
 
@@ -32,7 +32,7 @@ The Azure Toolkit for Eclipse - September 2015 release includes the following en
 *  This functionality is currently intended only for development and test purposes or non-mission-critical applications, and is not recommended for production.)
 * **Azure Explorer view for blobs, queues and tables in Azure storage**. This allows developers to perform a set of common tasks with their storage artifacts directly from the Eclipse IDE. For example: deleting, uploading or downloading blobs.
 
-## August 1, 2015 ##
+### August 1, 2015 ###
 
 The Azure Toolkit for Eclipse - August 2015 release includes the following enhancements:
 
@@ -41,7 +41,7 @@ The Azure Toolkit for Eclipse - August 2015 release includes the following enhan
 * **Version 2.7 of the Azure SDK**. This most recent update to the Azure SDK is the new pre-requisite for the Toolkit when installed on Windows. (Note this is not needed on non-Windows operating systems.)
 * **Support for the Zulu OpenJDK v7 update**. For more information, see the [Azul Systems web page for the Zulu OpenJDK][].
 
-## May 1, 2015 ##
+### May 1, 2015 ###
 
 The Azure Toolkit for Eclipse - May 2015 release includes the following enhancements:
 
@@ -51,7 +51,7 @@ The Azure Toolkit for Eclipse - May 2015 release includes the following enhancem
 * **Deployment Upgrade Instead of Republish**. If you are republishing a deployment project when the previous version is already live, the toolkit now uses Azure's deployment upgrade functionality instead of shutting down the previous deployment and republishing from scratch as it did in the past. This enables your cloud service to run without interruption whenever possible, helping achieve high availability even during an update, and speeds up the re-publishing process.
 * **Support for the latest Zulu OpenJDK v8 - update 40**. For more information, see the [Azul Systems web page for the Zulu OpenJDK][].
 
-## March 9, 2015 ##
+### March 9, 2015 ###
 
 The Azure Toolkit for Eclipse - March 2015 release includes the following enhancements:
 
@@ -64,7 +64,7 @@ The Azure Toolkit for Eclipse - March 2015 release includes the following enhanc
 * **Tomcat and Jetty availability on Azure for simpler, faster deployment**. Developers can now reference various Tomcat and Jetty versions that are available on Azure directly instead of having to upload a Java server to their accounts (or via the Toolkit), so there is no need to upload a Java server for quick, getting-started scenarios.
 * **Shortcut method for publishing Java web apps to Azure cloud services**. To reduce the learning curve for simple development and test scenarios, developers can now publish Java applications more directly to Azure. Instead of having to go through the process of creating and configuring an Azure deployment project, applications will be deployed with a default instance of Tomcat v8 and Zulu JVM (OpenJDK).
 
-## January 30, 2015 ##
+### January 30, 2015 ###
 
 The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - January 2015 release includes the following enhancements:
 
@@ -72,7 +72,7 @@ The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - January 2015 re
 * **Inclusion of Application Insights SDK**. This newly-released client API library (v0.9.0) is now part of the Package for Azure Libraries for Java.
 * **Updated Package for Azure Libraries for Java**. This update includes Azure Libraries for Java v0.7.0 and Storage Client API v2.0.0, as well as the newly-released Application Insights SDK v0.9.0.
 
-## November 12, 2014 ##
+### November 12, 2014 ###
 
 The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - November 2014 release includes the following enhancements:
 
@@ -80,7 +80,7 @@ The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - November 2014 r
 * **Support for updated version of the Zulu OpenJDK v1.8, v1.7 and v1.6 packages**. For more information, see the [Azul Systems web page for the Zulu OpenJDK][].
 * **Support for the new Standard D sizes for cloud services**, which offer increased performance and additional memory resources. For more information, see [Virtual Machine and Cloud Service Sizes for Azure][].
 
-## October 17, 2014 ##
+### October 17, 2014 ###
 
 The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - October 2014 release includes the following enhancements:
 
@@ -90,7 +90,7 @@ The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - October 2014 re
 * **Updated version of the Package for Azure Libraries for Java client API library**. For more information, see the [Microsoft Azure Client API][].
 * **Bug Fixes.** This release contains a number of miscellaneous bug fixes which were based on user reports and testing.
 
-## August 5, 2014 ##
+### August 5, 2014 ###
 
 The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - August 2014 release includes the following enhancements
 
@@ -101,7 +101,7 @@ The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - August 2014 rel
 * **Architectural changes behind the Publish to Cloud feature.** The Toolkit is now using the newly released Microsoft Azure Client API for Java for its publish-to-cloud support.
 * **Bug Fixes.** This release contains a number of user-requested bug fixes.
 
-## June 12, 2014 ##
+### June 12, 2014 ###
 
 The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - June 2014 release is a minor servicing update which provides the following enhancements:
 
@@ -110,7 +110,7 @@ The Azure Toolkit for Eclipse (by Microsoft Open Technologies) - June 2014 relea
 * **Updated version of the Package for Azure Libraries for Java client API library.** For more information, see the [Microsoft Azure Client API][].
 * **Bug Fixes.** This release contains a number of user-requested bug fixes.
 
-## April 4, 2014 ##
+### April 4, 2014 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - April 2014 release has released. This is an update accompanying the release of the Azure SDK 2.3, which is a pre-requisite and will be downloaded automatically when you install the plugin. This update includes new features, bug fixes, and some feedback-driven usability enhancements since the February 2014 Preview:
 
@@ -123,7 +123,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - April 2014 relea
 * **Express Emulator used for local emulation.** The Azure Express Emulator is now used as the emulator when debugging your applications locally.
 * **Azure has been rebranded as Microsoft Azure.** UI screens now reflect that Azure has been rebranded and no longer called Azure.
 
-## February 6, 2014 ##
+### February 6, 2014 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - February 2014 Preview has released. This update includes new features, bug fixes, and some feedback-driven usability enhancements since the October 2013 Preview:
 
@@ -138,7 +138,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - February 2014 Pr
 * **Support for A5 Azure Virtual Machine size.** You can now deploy a cloud service to the high memory A5 Virtual Machine size. For more information about this VM size, see [Virtual Machine and Cloud Service Sizes for Azure][].
 * **Support for Microsoft Windows Server 2012 R2.** You can now select Windows Server 2012 R2 as the cloud operating system.
 
-## October 22, 2013 ##
+### October 22, 2013 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - October 2013 Preview has released. This update includes new features, bug fixes, and some feedback-driven usability enhancements since the September 2013 Preview:
 
@@ -151,14 +151,14 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - October 2013 Pre
 * **Add a role from the Project context menu.** The **Azure** project context menu now contains a new menu item, **Add Role**, which provides a quicker and more discoverable way for you to add a new role to your Azure project.
 * **An update to the Package for the Azure Libraries for Java (by Microsoft Open Technologies) library.** This is based on version 0.4.6 of the [Microsoft Azure Client API][].
 
-## September 25, 2013 ##
+### September 25, 2013 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - September 2013 Preview has released. This update includes new features, bug fixes, and some feedback-driven usability enhancements since the August 2013 Preview:
 
 * **Ability to deploy the Azul Zulu OpenJDK package available on Azure.** A new option has been added when specifying the JDK to use with your Azure deployment. Using this option, you can deploy a third party JDK package directly on the Azure cloud, without having to upload your own. Azul Systems is providing the first such package called Zulu, based on the OpenJDK, which can now be deployed using this option.
 * **An update to the Package for the Azure Libraries for Java (by Microsoft Open Technologies) library.** This is based on version 0.4.5 of the [Microsoft Azure Client API][].
 
-## August 1, 2013 ##
+### August 1, 2013 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - August 2013 Preview has released. This is an update accompanying the release of the Azure SDK 2.1, which is a pre-requisite and will be downloaded automatically when you install the plugin. This update includes new features, bug fixes, and some feedback-driven usability enhancements since the July 2013 Preview:
 
@@ -166,7 +166,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - August 2013 Prev
 * **Support for the Azure SDK 2.1 release.** The Azure Plugin for Eclipse (by Microsoft Open Technologies) - August 2013 Preview requires Azure SDK 2.1. Do not use the August 2013 preview with earlier versions of the Azure SDK, and do not use Azure SDK 2.1 with earlier versions of the Azure Plugin for Eclipse.
 * **Support for the Eclipse Kepler release.** Related to this, the new minimum required Eclipse IDE version is Indigo. The Azure Plugin for Eclipse is no longer officially tested on Helios.
 
-## July 3, 2013 ##
+### July 3, 2013 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - July 2013 Preview has released. This update includes new features, bug fixes, and some feedback-driven usability enhancements since the May 2013 Preview:
 
@@ -177,7 +177,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - July 2013 Previe
 * **Support for A6 and A7 Azure Virtual Machine sizes.** You can now deploy a cloud service to the high memory A6 and A7 Virtual Machine sizes. For more information about these sizes, see [Virtual Machine and Cloud Service Sizes for Azure][].
 * **An update to the Package for the Azure Libraries for Java (by Microsoft Open Technologies) library.** This is based on version 0.4.4 of the [Microsoft Azure Client API][].
 
-## May 1, 2013 ##
+### May 1, 2013 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - May 2013 Preview has released. This is a major update accompanying the release of the Azure SDK 2.0, which is a pre-requisite and will be downloaded automatically when you install the plugin. This release includes new features, bug fixes, and some feedback-driven usability enhancements since the February 2013 Preview:
 
@@ -188,7 +188,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - May 2013 Preview
 * **Support for sticky sessions on Windows Server 2012.** Previously, sticky sessions worked only on Windows Server 2008 R2, now both cloud operating system targets support session affinity.
 * **Package upload performance improvements.** Even when the JDK and application server are embedded in the deployment package, the upload portion of the deployment process can be approximately twice as fast as compared to previous versions.
 
-## February 8, 2013 ##
+### February 8, 2013 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - February 2013 Preview has released. This is a minor update which includes bug fixes, feedback-driven usability enhancements and some new features since the November 2012 Preview:
 
@@ -196,7 +196,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - February 2013 Pr
 * Ability to change the order in which user-defined components of a role are processed, through the addition of **Move Up** and **Move Down** buttons in the **Components** section of the **Azure Role Properties**.
 * An update to the **Package for the Azure Libraries for Java (by Microsoft Open Technologies)** library, based on version 0.4.0 of the [Microsoft Azure Client API][].
 
-## November 5, 2012 ##
+### November 5, 2012 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - November 2012 Preview has released. This is a major update which includes a number of new features, as well as additional bug fixes and feedback-driven usability enhancements since the September 2012 Preview:
 
@@ -206,7 +206,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - November 2012 Pr
 * An improved **New Project** wizard, with a new page at the end that provides users with the ability to quickly enable several common key features in their project: sticky sessions, caching and remote debugging.
 * Automatic reduction of role instances to 1 when running in the compute emulator, to avoid port binding conflicts between server instances.
 
-## September 28, 2012 ##
+### September 28, 2012 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - September 2012 Preview has released. This service update includes a number of additional bug fixes since the August 2012 Preview, as well as some feedback-driven usability enhancements in existing features:
 
@@ -216,7 +216,7 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - September 2012 P
 * Role context menu improvements for faster access to role-specific configuration settings.
 * Minor refinements in the **Publish to cloud** wizard and a number of additional bug fixes.
 
-## August 28, 2012 ##
+### August 28, 2012 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - August 2012 Preview has released. This service update includes additional bug fixes since the July 2012 Preview, as well as several feedback-driven usability enhancements for existing features:
 
@@ -227,11 +227,11 @@ The Azure Plugin for Eclipse (by Microsoft Open Technologies) - August 2012 Prev
     * **Automatic discovery of the JDK location** on your computer (which you can override if desired).
     * **Automatic detection of the server type** when you select the application server installation directory.
 
-## July 15, 2012 ##
+### July 15, 2012 ###
 
 The Azure Plugin for Eclipse (by Microsoft Open Technologies) - July 2012 Preview, which addresses a number of the highest priority bugs found and/or reported by users after the June 2012 release, has released. This is a service update only, no new features are contained.
 
-## June 7, 2012 ##
+### June 7, 2012 ###
 
 Azure Plugin for Eclipse (by Microsoft Open Technologies) - June 2012 CTP has released. New features include:
 
@@ -254,7 +254,7 @@ Azure Plugin for Eclipse (by Microsoft Open Technologies) - June 2012 CTP has re
 * **Components UI:** Makes it easier for advanced users to set up project dependencies between individual Azure roles in the project and other external resources such as Java application projects; also makes it easy to describe their deployment logic. For more information, see [Components properties][].
 * **Automatic upgrade of previous versions of projects:** When you open a workspace that has Azure project created with a previous version of the plugin, the old projects will be shown in Eclipse as closed, because previous versions of projects are not compatible with the new release. If you attempt to open one of these old projects, an upgrade wizard will start. If you agree to the upgrade, a new project, with **_Upgraded** appended to the name, will be created and automatically updated to work with the new release. You can rename the new project as needed. As part of the upgrade, your original project will not be modified (and will remain closed).
 
-## December 10, 2011 ##
+### December 10, 2011 ###
 
 Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
