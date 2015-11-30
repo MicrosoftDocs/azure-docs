@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="11/30/2015" 
 	ms.author="billmath"/>
 
 # Getting started the MFA Server Mobile App Web Service
@@ -32,7 +32,7 @@ In order to use the Azure Multi-Factor Authentication App, the following are req
 - The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 6.x or IIS 7.x on the server that the Azure Multi-Factor Authentication Server
 - The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.
 - Mobile App Web Service must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL
-- Mobile App Web Service must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “Azure Multi-Factor Authentication Admins”. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server server if it is not joined to a domain.
+- Mobile App Web Service must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “PhoneFactor Admins”. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.
 
 
 Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following three steps:
