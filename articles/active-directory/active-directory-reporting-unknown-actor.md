@@ -18,6 +18,17 @@
 
 # Azure Active Directory Reporting 'Unknown Actor' event
 
+## Reporting Documentation Articles
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [Audit Events](active-directory-reporting-audit-events.md)
+ - [Retention](active-directory-reporting-retention.md)
+ - [Previews](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Backfill](active-directory-reporting-backfill.md)
+ - [Latencies](active-directory-reporting-latencies.md)
+ - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
+
 On rare occasions, you may see unusual values in the "Actor" or "User" fields in Azure AD Reports. This behavior is expected, and is caused by one of two events:
 
 ## A Service Principal is acting on the directory, without a user context

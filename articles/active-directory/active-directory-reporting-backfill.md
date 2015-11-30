@@ -18,6 +18,17 @@
 
 # Azure Active Directory Report Retention Policies
 
+## Reporting Documentation Articles
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [Audit Events](active-directory-reporting-audit-events.md)
+ - [Retention](active-directory-reporting-retention.md)
+ - [Previews](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Backfill](active-directory-reporting-backfill.md)
+ - [Latencies](active-directory-reporting-latencies.md)
+ - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
+
 After a directory is opted-in to reports, the reports backfill data for a certain number of days, indicated here.
 
 Report                                                  | Description
