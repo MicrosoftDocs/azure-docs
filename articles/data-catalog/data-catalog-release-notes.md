@@ -13,11 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
 
+## Notes for the November 20, 2015 release of Azure Data Catalog
+
+### Opening Data Sources in Power BI Desktop
+
+When using the "Open in Power BI Desktop" option from the **Azure Data Catalog** portal, users may encounter one of two problems in the Power BI Desktop application:
+
+- A dialog box with the title "Unable to Open Document" is displayed
+- The Power BI Desktop application opens, but the file appears to be empty
+
+For each situation, the problem can be resolved by downloading and installing the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+
+## Notes for the November 13, 2015 release of Azure Data Catalog
+
+### Registering and connecting to Teradata
+
+When connecting to Teradata data sources users must have installed the correct Teradata ODBC driver that match the bitness (32-bit or 64-bit) of the software being used.
+
+As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
 
 ## Notes for the November 6, 2015 release of Azure Data Catalog
 

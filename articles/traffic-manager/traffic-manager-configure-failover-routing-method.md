@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Configure Failover routing method
@@ -32,23 +32,22 @@ Note that Azure Websites already provides failover traffic routing method functi
 7. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. In order to monitor endpoints, you must specify a path and filename. Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default). For more information about monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
 8. After you complete your configuration changes, click **Save** at the bottom of the page.
 9. Test the changes in your configuration. See [Testing Traffic Manager Settings](traffic-manager-testing-settings.md) for more information.
-10. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a Company Internet Domain to a Traffic Manager Domain](traffic-manager-point-internet-domain.md).
+10. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md).
 
 ## Next steps
 
-[About Traffic Manager traffic routing Methods](traffic-manager-load-balancing-methods.md)
+[Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
 
-[What is Traffic Manager?](traffic-manager-overview.md)
+[Traffic Manager routing methods](traffic-manager-load-balancing-methods.md)
+
+[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+
+[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
 [Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="11/24/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure preview portal
@@ -124,6 +124,8 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 	- **Scale Cluster**: Increase and decrease the number of cluster worker nodes.
 	- **Remote Desktop**: Enable and disable remote desktop (RDP) access, and configure the RDP username.  The RDP user name must be different from the HTTP user name.
 	- **Partner of Record**:
+    
+    > [AZURE.NOTE] This is a generic list of available settings; not all of them will be present for all cluster types.
 
 6. Click **Properties**:
 
@@ -156,7 +158,7 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
->[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [Get familiar with the cluster portal interface](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface).
+>[AZURE.NOTE] Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-adminster-use-management-portal/#list-and-show-clusters).
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -266,7 +268,7 @@ By default, these services are granted for access. You can revoke/grant the acce
 
 ##Find the default storage account
 
-Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](list-and-show-clusters).
+Each HDInsight cluster has a default storage account. The default storage account and its keys for a cluster apears under **Settings**/**Properties**/**Azure Storage Keys**. See [List and show clusters](#list-and-show-clusters).
 
 	
 ##Find the resource group 
@@ -276,7 +278,7 @@ In the ARM mode, each HDInsight cluster is created with an Azure resource group.
 - The cluster list has a **Resource Group** column.
 - Cluster **Essential** tile.  
 
-See [List and show clusters](list-and-show-clusters).
+See [List and show clusters](#list-and-show-clusters).
    
 ##Open HDInsight Query console
 
@@ -338,7 +340,7 @@ To monitor the cluster, browse the file system, and check logs, click **Hadoop U
 
 ##Open Yarn UI
 
-To use Yarn user interface, click **Hadoop UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
+To use Yarn user interface, click **Yarn UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
 
 ##Connect to clusters using RDP
 

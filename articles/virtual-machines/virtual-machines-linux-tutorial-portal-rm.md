@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure Preview Portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
