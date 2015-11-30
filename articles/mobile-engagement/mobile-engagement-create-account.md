@@ -37,9 +37,9 @@ To start monitoring and managing your application, navigate to your Mobile Engag
 
 Once you are in the  Mobile Engagement portal, you can analiyze, create and manage segments, reach out to the users, etc.:    
 
+- [Monitor real time data about your application](mobile-engagement-user-interface-monitor.md)
 - [Analyze historical data about your application](mobile-engagement-user-interface-analytics.md)
 - [Create and manage segments of users to identify usage patterns](mobile-engagement-user-interface-segments.md)
-- [Monitor real time data about your application](mobile-engagement-user-interface-monitor.md)
 - [Reach out to the users of your application with push notifications](mobile-engagement-user-interface-reach.md)
 
 ##See Also
