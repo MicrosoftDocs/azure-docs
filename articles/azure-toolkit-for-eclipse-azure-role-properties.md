@@ -8,9 +8,9 @@
     editor=""/>
 
 <tags
-    ms.service=""
-    ms.workload=""
-    ms.tgt_pltfrm="na"
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
     ms.date="11/20/2015" 
