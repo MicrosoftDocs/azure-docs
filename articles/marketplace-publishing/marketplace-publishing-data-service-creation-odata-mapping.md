@@ -13,23 +13,23 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/10/2015"
+      ms.date="11/24/2015"
       ms.author="hascipio; avikova" />
 
 # Mapping an existing web service to OData through CSDL
-## Introduction
 
-Microsoft’s Azure Marketplace exposes services to the end-users by using the OData protocol. Services that are exposed by content providers (Data Owners) are exposed in a variety of forms, such as REST, SOAP, WCF, etc. This document gives an overview on how to use a CSDL to map an existing service to an OData compatible service. It explains how to create the mapping document (CSDL) that transforms the input request from the client via a service call and the output (data) back to the client via an OData compatible feed.
+This article gives an overview on how to use a CSDL to map an existing service to an OData compatible service. It explains how to create the mapping document (CSDL) that transforms the input request from the client via a service call and the output (data) back to the client via an OData compatible feed. Microsoft’s Azure Marketplace exposes services to the end-users by using the OData protocol. Services that are exposed by content providers (Data Owners) are exposed in a variety of forms, such as REST, SOAP, etc.
 
+## What is a CSDL and its structure?
 A CSDL (Conceptual Schema Definition Language) is a specification defining how to describe web service or database service in common XML verbiage to the Azure Marketplace.
 
 Simple overview of the **request flow:**
 
-  Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)
+  `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`
 
 The **data flow** is in the opposite direction:
 
-  Client <- Azure Marketplace <- Content Provider’s WebService
+  `Client <- Azure Marketplace <- Content Provider’s WebService`
 
 **Figure 1** diagrams how a client would obtain data from a content provider (your service) by going through the Azure Marketplace.  The CSDL is used by the Mapping/Transformation component to handle the request and data pass between the content provider’s service(s) and the requesting client.
 
@@ -42,7 +42,7 @@ For background on Atom, Atom Pub, and the OData protocol upon which the Azure Ma
 Excerpt from above link:
   	*“The purpose of the Open Data protocol (hereafter referred to as OData) is to provide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for the Advancement of Structured Information Standards) Standards so that anyone that wants to can build servers, clients or tools without royalties or restrictions.”*
 
-**Three Critical Pieces that have to be defined by the CSDL are:**
+### Three Critical Pieces that have to be defined by the CSDL are:
 
 - The **endpoint** of the Service Provider
   The Web Address (URI) of the Service
@@ -55,7 +55,7 @@ The following diagram shows an overview of the flow from where the client enters
 
   ![drawing](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
 
-Steps:
+### Steps:
 
 1. Client sends request via Service call complete with Input Parameters defined in XML to the Azure Marketplace
 2. CSDL is used to validate the Service call.
@@ -75,12 +75,15 @@ An extension to the ATOM pub where each entry represents one row of a result set
 
 Allows defining functions (SPROCs) and entities that are exposed through a database. More information found here: [http://msdn.microsoft.com/en-us/library/bb399292.aspx](http://msdn.microsoft.com/en-us/library/bb399292.aspx)  
 
-> [AZURE.TIP] Click the **other versions** dropdown and select a version if you don’t see the article.)
+> [AZURE.TIP] Click the **other versions** dropdown and select a version if you don’t see the article.
 
 ### EDM - Entry Data Model
-- Overview: [http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx](http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx)
-- Preview: [http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx](http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx)
-- Data types: [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx](http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx)
+- Overview: [http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
+[OverviewLink]:http://msdn.microsoft.com/en-us/library/vstudio/ee382825(v=vs.100).aspx
+- Preview: [http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx][PreviewLink]
+[PreviewLink]:http://msdn.microsoft.com/en-us/library/aa697428(v=vs.80).aspx
+- Data types: [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx][DataTypesLink]
+[DataTypesLink]:http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx
 
 The following shows the detailed Left to Right flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back:
 
@@ -139,7 +142,7 @@ Relating the CSDL terms to the [Publishing Portal](https://publish.windowsazure.
 **Hierarchy:**
   A Company (Content Provider) owns Offer(s) which have Plan(s), namely service(s), which line up with an API.
 
-###WebService CSDL Example
+### WebService CSDL Example
 
 Connects to a service that is exposing an web application endpoint (like a C# application)
 
@@ -256,7 +259,7 @@ Connects to a service that is exposing an web application endpoint (like a C# ap
 ###DataService CSDL Example
 
 Connects to a service that is exposing a database table or view as an endpoint
-Below example shows two APIs for Data base based API CSDL (can use views rather than tables). In the future, we will support automatic generation of the CSDL from the data base.
+Below example shows two APIs for Data base based API CSDL (can use views rather than tables).
 
         <?xml version="1.0"?>
         <!-- The namespace attribute below is used by our system to generate C#. You can change “MyCompany.MyOffer” to something that makes sense for you, but change “MyOffer” consistently throughout the document. -->
@@ -310,6 +313,6 @@ Below example shows two APIs for Data base based API CSDL (can use views rather 
         </Schema>
 
 ## See Also
-- [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
-- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
-- [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)
+- If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
+- If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).

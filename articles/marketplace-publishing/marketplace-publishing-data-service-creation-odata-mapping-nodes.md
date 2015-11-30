@@ -13,10 +13,11 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/11/2015"
+      ms.date="11/24/2015"
       ms.author="hascipio; avikova" />
 
-# Understanding the nodes for mapping an existing web service to OData through CSDL
+# Understanding the nodes schema for mapping an existing web service to OData through CSDL
+This document will help clarify the node structure for mapping an OData protocol to CSDL. It is important to note that the node structure is well formed XML. So root, parent, and child schema is applicable when designing your OData mapping.
 
 ## Ignored elements
 The following are the high level CSDL elements (XML nodes) that are not going to be used by the Azure Marketplace backend during the import of the web service’s metadata. They can be present but will be ignored.
@@ -38,35 +39,27 @@ The following describes the changes (added and ignored elements) to the various 
 ## FunctionImport node
 A FunctionImport node represents one URL (entry point) that exposes a service to the end-user. The node allows describing how the URL is addressed, which parameters are available to the end-user and how these parameters are provided.
 
-Details about this node are found at [http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx]('http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx')
+Details about this node are found at [http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx][MSDNFunctionImportLink]
+
+[MSDNFunctionImportLink]:'http://msdn.microsoft.com/en-us/library/cc716710(v=vs.100).aspx'
 
 The following are the additional attributes (or additions to attributes) that are exposed by the FunctionImport node:
 
 **d:BaseUri** -
-The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}. 
-Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable).
-
-	Example:
-	`d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
+The URI template for the REST resource that is exposed to Marketplace. Marketplace uses the template to construct queries against the REST web service. The URI template contains placeholders for the parameters in the form of {parameterName}, where parameterName is the name of the parameter. Ex. apiVersion={apiVersion}.
+Parameters are allowed to appear as URI parameters or as part of the URI path. In the case of the appearance in the path they are always mandatory (can’t be marked as nullable). *Example:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name** - The name of the imported function.  Cannot be the same as other defined names in the CSDL.  Ex. Name="GetModelUsageFile"
 
-**EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used.
+**EntitySet** *(optional)* - If the function returns a collection of entity types, the value of the **EntitySet** must be the entity set to which the collection belongs. Otherwise, the **EntitySet** attribute must not be used. *Example:* `EntitySet="GetUsageStatisticsEntitySet"`
 
-	Example: 
-	`EntitySet="GetUsageStatisticsEntitySet"`
+**ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value. The following are the supported types:
 
-**ReturnType** *(Optional)* - Specifies the type of elements returned by the URI.  Do not use this attribute if the function does not return a value.
+ - **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
+ - **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg) Other examples:
 
-	The following are the supported types:
-
-	- **Collection (<Entity type name>)**: specifies a collection of defined entity types. The name is present in the Name attribute of the EntityType node. An example is Collection(WXC.HourlyResult).
-	- **Raw (<mime type>)**: specifies a raw document/blob that is returned to the user. An example is Raw(image/jpeg)
-
-	Examples:
-
-	- ReturnType="Raw(text/plain)"
-	- ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
+  - ReturnType="Raw(text/plain)"
+  - ReturnType="Collection(sage.DeleteAllUsageFilesEntity)"*
 
 **d:Paging** - Specifies how paging is handled by the REST resource. The parameter values are used within curly braches, e.g. page={$page}&itemsperpage={$size} The options available are:
 
@@ -76,15 +69,12 @@ Parameters are allowed to appear as URI parameters or as part of the URI path. I
 - **PageSize:** paging is expressed through a logical page and size (items per page). Page represents the current page that is returned. Parameter value: $page
 - **Size:** size represents the number of items returned for each page. Parameter value: $size
 
-**d:AllowedHttpMethods** *(Optional)* - Specifies which verb is handled by the REST resource. Also, restricts accepted verb to the specified value.  Default = POST.  The options available are:
+**d:AllowedHttpMethods** *(Optional)* - Specifies which verb is handled by the REST resource. Also, restricts accepted verb to the specified value.  Default = POST.  *Example:* `d:AllowedHttpMethods="GET"` The options available are:
 
 - **GET:** usually used to return data
 - **POST:** usually used to insert new data
 - **PUT:** usually used to update data
 - **DELETE:** used to delete data
-
-	Example: 
-	`d:AllowedHttpMethods="GET"`
 
 Additional child nodes (not covered by the CSDL documentation) within the FunctionImport node are:
 
@@ -94,7 +84,8 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 - **GET:** Used if the request is a HTTP GET
 
 	Example:
-        <d:RequestBody d:httpMethod="POST">
+
+        `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
         <req1:Request xmlns:r1="http://schemas.mysite.com//generic/requests/1" Version="1.0">
         <req1:Query>{Query}</req1:Query><req1:AppId>D453474</req1:AppId>
@@ -102,11 +93,9 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
         </req1:DestinationSchemas>
         </req1: Request>
         ]]>
-        </d:RequestBody>
+        </d:RequestBody>`
 
-**d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.**
-
-	The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
+**d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.** The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
 
 -	**d:Prefix:** The prefix for the namespace, as seen in the XML results returned by the service, e.g. f:FirstName, f:LastName, where f is the prefix.
 - **d:Uri:** The full URI of the namespace used in the result document. It represents the value that the prefix is resolved to at runtime.
@@ -124,11 +113,7 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 - The optional map attribute (an xpath) which specifies where to find the title in the response returned from the service request.
 - -Or - The title specified as value of the node.
 
-**d:Rights** *(Optional)*
-
-The rights (e.g. copyright) associated with the function.
-
-The value for the rights is coming from
+**d:Rights** *(Optional)* - The rights (e.g. copyright) associated with the function. The value for the rights is coming from:
 
 - The optional map attribute (an xpath) which specifies where to find the rights in the response returned from the service request.
 -	-Or - The rights specified as value of the node.
@@ -160,19 +145,18 @@ The value for the rights is coming from
 
 This node represents one parameter that is exposed as part of the URI template / request body that has been specified in the FunctionImport node.
 
-A very helpful details document page about the “Parameter Element” node is found at [http://msdn.microsoft.com/en-us/library/ee473431.aspx](http://msdn.microsoft.com/en-us/library/ee473431.aspx)  (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.)
-
-**Example:** 
-`<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
+A very helpful details document page about the “Parameter Element” node is found at [http://msdn.microsoft.com/en-us/library/ee473431.aspx](http://msdn.microsoft.com/en-us/library/ee473431.aspx)  (Use the **Other Version** dropdown to select a different version if necessary to view the documentation). *Example:* `<Parameter Name="Query" Nullable="false" Mode="In" Type="String" d:Description="Query" d:SampleValues="Rudy Duck" d:EncodeParameterValue="true" MaxLength="255" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Identity"/>`
 
 | Parameter Attribute | Is Required | Value |
 |----|----|----|
 | Name | Yes | The name of the parameter. Case sensitive!  Match the BaseUri case. **Example:** `<Property Name="IsDormant" Type="Byte" />` |
-| Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx](http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx). **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Type | Yes | The parameter type. The value must be an **EDMSimpleType** or a complex type that is within the scope of the model. For more information, see “6 Supported Parameter/Property types”.  (Case Sensitive! First char is uppercase, rest are lower case.)  Also see,  [http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx][MSDNParameterLink]. **Example:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode | No | **In**, Out, or InOut depending on whether the parameter is an input, output, or input/output parameter. (Only “IN” is available in Azure Marketplace.) **Example:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength | No | The maximum allowed length of the parameter. **Example:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precision | No | The precision of the parameter. **Example:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
 | Scale | No | The scale of the parameter. **Example:** `<Property Name="SICCode" Type="Decimal" Precision="10" Scale="0" />` |
+
+[MSDNParameterLink]:'http://msdn.microsoft.com/en-us/library/bb399548(v=VS.100).aspx'
 
 The following are the attributes that have been added to the CSDL specification:
 
@@ -214,9 +198,7 @@ The XPath expression would be /foo/bar because each of the bar node is the repea
 
 This node contains one property of the record.
 
-Details about this node are found at [http://msdn.microsoft.com/en-us/library/bb399546.aspx](http://msdn.microsoft.com/en-us/library/bb399546.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.)
-
-Example:  
+Details about this node are found at [http://msdn.microsoft.com/en-us/library/bb399546.aspx](http://msdn.microsoft.com/en-us/library/bb399546.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.) *Example:*
         `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name" 	Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
 		...
@@ -238,11 +220,7 @@ Example:
 
 The following are the additional attributes that have been added to the CSDL specification:
 
-**d:Map**
-
-XPath expression executed against the service output and extracts one property of the output.
-
-The XPath specified is relative to the repeating node that has been selected in the EntityType node’s XPath. It is also possible to specify an absolute XPath to allow including a static resource in each of the output nodes, like for example a copyright statement that is only found once in the original service output but should be present in each of the rows in the OData output. Example from the service:
+**d:Map** - XPath expression executed against the service output and extracts one property of the output. The XPath specified is relative to the repeating node that has been selected in the EntityType node’s XPath. It is also possible to specify an absolute XPath to allow including a static resource in each of the output nodes, like for example a copyright statement that is only found once in the original service output but should be present in each of the rows in the OData output. Example from the service:
 
         `<foo>
           <bar>
@@ -294,6 +272,6 @@ The following are the supported types for parameters and properties. (Case sensi
 
 
 ## See Also
-- [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
-- [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
-- [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md)
+- If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
+- If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
