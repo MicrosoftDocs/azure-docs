@@ -81,7 +81,6 @@ Address **Security Alerts**:
 
 19.	Return to the **Security Center** blade and click the **Security alerts** tile.
 20.	On the **Security alerts** blade, a list of alerts is displayed. The alerts were detected by Azure Security Center analysis of your security logs and network activity. Alerts from integrated partner solutions are also included.
-
   ![][6]
 
 21.	Click an alert to view additional information.
