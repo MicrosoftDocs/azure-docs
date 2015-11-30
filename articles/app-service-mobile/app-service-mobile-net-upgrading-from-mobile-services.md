@@ -20,7 +20,7 @@
 
 App Service Mobile is a new way to build mobile applications using Microsoft Azure. To learn more, see [What are Mobile Apps?].
 
-This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile App. While you perform this upgrade, your existing Mobile Services application can continue to operate. 
+This topic describes how to upgrade an existing .NET backend application from Azure Mobile Services to a new App Service Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate. 
 
 When a mobile backend is upgraded to Azure App Service, it has access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
 
@@ -48,7 +48,7 @@ In many cases, upgrading will be as simple as switching to the new Mobile Apps s
 
 >[AZURE.TIP] It is advised that you read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use which are called out below.
 
-The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish chaneges to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
+The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
 You will then have two versions of the application: one which stays the same and serves published apps in the wild, and the other which you can then upgrade and target with a new client release. You can move and test your code at your pace, but you should make sure that any bug fixes you make get applied to both. Once you feel that a desired number of client apps in the wild have updated to the latest version, you can delete the original migrated app if you desire.
 
@@ -64,7 +64,7 @@ The first step in upgrading is to create the Mobile App resource which will host
 
 Next, create the second application instance by following the [.NET backend creation instructions](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). When prompted to select you App Service Plan or "hosting plan" choose the plan of your migrated application.
 
-You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values from the **Configure** tab of the Mobile Services section of the [Azure Management Portal]. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your Mobile App site and select **Settings**, **Application settings**, and add these to the **Connection strings** section, overwriting any existing values.
+You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values by opening [Preview Azure Management Portal] and navigating to the original application, then click **Settings** > **Application settings**. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your new upgrade site and paste them in, overwriting any existing values. Repeat this process for any other application settings your app needs. If not using a migrated service, you can read connection strings and app settings from the **Configure** tab of the Mobile Services section of the [Azure Management Portal].
 
 Make a copy of the ASP.NET project for your application and publish it to your new site. Using a copy of your client application updated with the new URL, validate that everything works as expected.
 
@@ -121,7 +121,7 @@ Please make sure you have MS_MobileServiceName set if you do the above. You can 
 
 ### CORS
 
-Mobile Services included some support for CORS by wrapping the ASP.NET CORS solution. This wrapping layer has been removed to give the developer more control, so you can directly leverage ASP.NET CORS support. Please see http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api to learn more.
+Mobile Services included some support for CORS by wrapping the ASP.NET CORS solution. This wrapping layer has been removed to give the developer more control, so you can directly leverage [ASP.NET CORS support](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 The main areas of concern if using CORS are that the `eTag` and `Location` headers must be allowed in order for the client SDKs to work properly.
 
@@ -132,7 +132,7 @@ For push, the main item that you may find missing from the Server SDK is the Pus
 Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be upgraded individually. One option is to create a scheduled [Web Job] on the Mobile App code site. You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.
 
 ### Miscellaneous changes
-All ApiControllers which will be consumed by a mobile client must now have the [MobileAppController] attribute. This is no longer included by default so that other ApiControllers to go unaffected by the mobile formatters. 
+All ApiControllers which will be consumed by a mobile client must now have the `[MobileAppController]` attribute. This is no longer included by default so that other ApiControllers to go unaffected by the mobile formatters. 
 
 The `ApiServices` object is no longer part of the SDK. To access Mobile App settings, you can use the following:
 
