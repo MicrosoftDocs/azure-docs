@@ -79,9 +79,9 @@ Verify that you have the following items below before beginning your configurati
 
 		Get-AzureRmSubscription
 
-2. Specify your Azure subscription name. 
+2. Specify the subscription that you want to use. 
 
-		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 		
 3. Create a resource group.
 
