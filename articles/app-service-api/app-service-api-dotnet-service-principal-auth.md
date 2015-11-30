@@ -22,8 +22,6 @@
 
 ## Overview
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which will be available later today.
-
 This tutorial shows how to protect an API app by allowing access only to other API apps that have service account credentials. 
 
 A service account is also known as a *service principal*, and authentication using such an account is also known as a *service-to-service* scenario. In this tutorial you protect an API app for a service-to-service scenario, using Azure Active Directory for authentication and consuming the API from a .NET client. 

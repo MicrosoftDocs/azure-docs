@@ -22,8 +22,6 @@
 
 ## Overview
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which will be available later today.
-
 In this tutorial, you create an [App Service API app](app-service-api-apps-why-best-platform.md), deploy an ASP.NET Web API to the API app, and consume the API app from an ASP.NET MVC client. The tutorial assumes that you are familiar with ASP.NET but have no prior experience with Microsoft Azure. On completing the tutorial, you'll have a Web API and client application up and running in the cloud.
 
 The sample application is a simple contacts list. The following illustration shows how the MVC app displays data received from the API.
