@@ -20,7 +20,10 @@
 
 At the Connect() event in November 2015, a number of improvements were [announced](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) to Azure App Service. These improvements include underlying changes to API Apps to better align with Mobile and Web Apps, reduce concept count and improve deployment and runtime performance. Starting November 30, 2015, new API apps you create using the Azure management portal or the latest tooling will reflect these changes. This article describes these changes, as well as how to redeploy existing apps to take advantage of the capabilities.
 
-> [AZURE.NOTE] The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
+
+> [AZURE.NOTE] ] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which is not yet publicly available. In a day or two, 2.8.1 will be available and this note will be removed.
+>
+> The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
 
 ## Feature changes
 The key features of API Apps – authentication, CORS and API metadata – have moved directly into App Service. With this change, the features are available across Web, Mobile and API Apps. In fact, all three share the same **Microsoft.Web/sites** resource type in Resource Manager. The API Apps gateway is no longer needed or offered with API Apps. This also makes it easier to use Azure API Management since there will be just the single API Management gateway.
