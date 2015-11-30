@@ -22,19 +22,25 @@
 
 ## Overview
 
-> [AZURE.NOTE] Some of the Visual Studio features presented in this article depend on the Azure SDK for .NET version 2.8.1, which will be available later today.
- 
-This tutorial shows how to protect an API app by allowing access only to users who have been authenticated by Azure Active Directory. The sample client uses AngularJS.
+This tutorial shows how to use the Authentication and Authorization features of Azure App Service to protect an API app, and how to consume the API app on behalf of end users. The authentication provider shown in the tutorial is Azure Active Directory, and the sample client is an AngularJS single page application running in a browser.
 
 ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
  
 This is the third in a series of tutorials that show how to work with API apps in Azure App Service. For information about the series, see [Get started with API Apps and ASP.NET in Azure App Service](app-service-api-dotnet-get-started.md).
 
-## Authentication and authorization in Azure App Service
+## Authentication and Authorization in Azure App Service
 
-Azure App Service offers built-in services for authentication and authorization. This tutorial shows how how to protect an API app and how to call it from an HTML/JavaScript client, on behalf of users authenticated by Azure Active Directory.  The next tutorial in the series shows how to handle service principal authentication, that is, when you want to make an authenticated call from one API app to another without using an individual user's credentials.
+Azure App Service offers built-in services for authentication and authorization. You're free to handle authentication in your own code, but App Service offers a turnkey solution if you want to minimize the amount of code you have to write and maintain. 
 
-For an introduction to authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
+You can use any of five authentication providers supported by App Service: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account. And you can protect an API written in any language supported by App Service: without writing any code in your API, you can require user log-in or a token to access it.
+
+Azure App Service handles authentication and leaves authorization to be handled by your code. You can configure App Service to only allow authenticated users to call your API, or you can allow all callers. In either case, App Service passes authentication information to your app in the HTTP headers, and your code can use that information to make authorization choices. 
+
+* In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims. Claims information is populated for you in .NET classes.
+
+* For APIs written in other languages, App Service passes on the JWT token in the Authorization header of an HTTP request. In addition, Azure sets some special headers (for example, `x-ms-client-principal-id`) to give you easier access to the most important claims.
+
+For more information about authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
 
 ## The ContactsList.Angular.AAD sample project
 

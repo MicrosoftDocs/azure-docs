@@ -46,7 +46,7 @@ This page helps you with setting up of a Service Fabric Cluster using an ARM tem
 
 ## Deploying the ARM template to Azure using Azure PS
 
-Refer to [Deploying ARM templates using PS ](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/) for detailed guidance on how to.
+Refer to [Deploying ARM templates using PS ](resource-group-template-deploy.md) for detailed guidance on how to.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
