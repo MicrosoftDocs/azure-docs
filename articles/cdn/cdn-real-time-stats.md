@@ -26,10 +26,10 @@ This document explains real-time stats in Microsoft Azure CDN. This functionalit
 
 The following graphs are available when viewing real-time statistics for the HTTP-based platforms:
 
-* [Bandwidth](#Bandwidth)
-* [Status Codes](#Status-Codes)
-* [Cache Statuses](#Cache-Statuses)
-* [Connections](#Connections)
+* [Bandwidth](#bandwidth)
+* [Status Codes](#status-codes)
+* [Cache Statuses](#cache-statuses)
+* [Connections](#connections)
 
 > [AZURE.NOTE] Each of the above graphs displays real-time statistics for a given period of time. A sliding window of data is displayed once the specified time has passed. This means that old data will be removed from the graph to make room for new data. The length of time for this sliding window can be set by the Time span of graphs option.
  
