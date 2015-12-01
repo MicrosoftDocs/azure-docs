@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Assigning administrator roles in Azure AD"
+	pageTitle="Assigning administrator roles in Azure AD | Microsoft Azure"
 	description="Explains what admin roles are available with Azure AD and how to assign them."
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
 # Assigning administrator roles in Azure AD
 
 Depending on the size of your company, you may want to designate several administrators who serve different functions. These administrators will have access to various features in the Azure portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things.
 
-It's  important to understand that a user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure portal, or by using the Azure AD module for Windows PowerShell.
+It's  important to understand that a user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure classic portal, or by using the Azure AD module for Windows PowerShell.
 
 The following administrator roles are available:
 
@@ -71,9 +71,9 @@ The global administrator has access to all administrative features. By default, 
 ## Assign or remove administrator roles
 
 
-1. In the Management Portal, click **Active Directory**, and then click on the name of your organization’s directory.
+1. In the Azure classic portal, click **Active Directory**, and then click the name of your organization’s directory.
 2. On the **Users** page, click the display name of the user you want to edit.
-3. Select the **Organizational Role** drop-down menu, and then select the administrator role that you want to assign to this user, or select **User** if you want to remove an existing administrator role.
+3. In the **Organizational Role** list, select the administrator role that you want to assign to this user, or select **User** if you want to remove an existing administrator role.
 4. In the **Alternate Email Address** box, type an email address. This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.
 5. Select **Allow** or **Block** to specify whether to allow the user to sign in and access services.
 6. Specify a location from the **Usage Location** drop-down list.
