@@ -40,6 +40,8 @@ Within this property page, you can change the following items:
 
 [Installing the Azure Toolkit for Eclipse][] 
 
+[Creating a Hello World Application for Azure in Eclipse][]
+
 [Azure Role Properties][]
 
 [Azure Storage Account List][]
@@ -51,6 +53,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->

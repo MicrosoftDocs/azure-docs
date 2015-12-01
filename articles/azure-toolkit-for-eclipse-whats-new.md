@@ -277,6 +277,8 @@ Azure Plugin for Eclipse - December 2011 CTP has released. New features include:
 
 [Installing the Azure Toolkit for Eclipse][] 
 
+[Creating a Hello World Application for Azure in Eclipse][]
+
 For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->

@@ -53,6 +53,8 @@ The following topics provide information about the Azure Toolkit for Eclipse:
 
 [Installing the Azure Toolkit for Eclipse][] 
 
+[Creating a Hello World Application for Azure in Eclipse][]
+
 [What's New in the Azure Toolkit for Eclipse][]
 
 <!-- URL List -->

@@ -80,15 +80,16 @@ It may take several minutes for your storage account to be created. After it is 
 
 [Installing the Azure Toolkit for Eclipse][] 
 
-[What's New in the Azure Toolkit for Eclipse][]
+[Creating a Hello World Application for Azure in Eclipse][]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Azure Management Portal]: https://manage.windowsazure.com/
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->

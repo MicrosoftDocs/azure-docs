@@ -393,13 +393,13 @@ Within this dialog, you can enable SSL offloading, allowing you to easily enable
 
 [Azure Toolkit for Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Installing the Azure Toolkit for Eclipse][]
+
+[Creating a Hello World Application for Azure in Eclipse][]
 
 [Azure Project Properties][]
 
 [Azure Storage Account List][]
-
-[What's New in the Azure Toolkit for Eclipse][]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
@@ -409,6 +409,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
 [Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -417,7 +418,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
-[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
