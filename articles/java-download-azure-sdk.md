@@ -27,7 +27,9 @@ This article contains instructions for downloading and installing the Azure Libr
 To manually install the Azure Libraries for Java, click <http://go.microsoft.com/fwlink/?LinkId=690320> to download a ZIP file which contains all of the libraries and all dependencies.
 
 Once you have downloaded the zip file to your computer, extract the contents and use one of the following options to add the JAR files to your project:
+
 * Import the JAR files into your Java project in Eclipse.
+
 * Configure the **Build Path** for your Java project in Eclipse to include the path to the JAR files.
 
 For detailed information on setting up build paths in Eclipse, see the [Java Build Path][] article at the Eclipse website.
