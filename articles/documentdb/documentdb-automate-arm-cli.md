@@ -55,21 +55,21 @@ Which produces the following output:
 
     info:    Executing command login
     |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
-    Enter the code E9MHPDNSK to authenticate. If you're signing in as an Azure
+    Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
 > [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 
-![](media/documentdb-automate-arm-cli/azure-cli-login-code.png)
+![Screenshot showing the device login screen for Microsoft Azure CLI](media/documentdb-automate-arm-cli/azure-cli-login-code.png)
 
 Once you've entered the code, select the identity you want to use in the browser.
 
-![](media/documentdb-automate-arm-cli/identity-cli-login.png)
+![Screenshot showing where to select the Microsoft identity account associated with the Azure subscription you want to use](media/documentdb-automate-arm-cli/identity-cli-login.png)
 
 
-![](media/documentdb-automate-arm-cli/login-confirmation.png)
+![Screenshot showing confirmation of login to the Windows Azure Cross-platform Command Line Interface](media/documentdb-automate-arm-cli/login-confirmation.png)
 
 When that process completes, the command shell provides the following output, at which time you can close the browser window.
 
@@ -105,16 +105,16 @@ To create a new resource group, run the following command, specify the name of t
 
 For example:
 
-	azure group create new_res_grp westus
+	azure group create new_res_group westus
 
 Which produces the following output:
 
     info:    Executing command group create
-    + Getting resource group new_res_grp
-    + Creating resource group new_res_grp
-    info:    Created resource group new_res_grp
-    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_grp
-    data:    Name:                new_res_grp
+    + Getting resource group new_res_group
+    + Creating resource group new_res_group
+    info:    Created resource group new_res_group
+    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_group
+    data:    Name:                new_res_group
     data:    Location:            West US
     data:    Provisioning State:  Succeeded
     data:    Tags: null
@@ -151,7 +151,9 @@ Which produces the following output as your new account is provisioned:
     data:
     info:    resource create command OK
 
-After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the Azure portal](https://portal.azure.com), on the DocumentDB Accounts blade.
+If you encounter errors, see [Troubleshooting](#troubleshooting). 
+
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the DocumentDB Accounts blade.
 
 ## <a id="deploy-documentdb-from-a-template"></a>Task: Create a DocumentDB account using an ARM template
 
@@ -170,27 +172,26 @@ You can learn lots more about Azure resource groups and what they can do for you
 Create a local template file with the following content. Name the file azuredeploy.json.
 
     {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", 
-    "contentVersion": "1.0.0.0", 
-    "parameters": {
-        "databaseAccountName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-    },
-    "resources": [
-        { 
-    	"apiVersion": "2015-04-08", 
-    	"type": "Microsoft.DocumentDb/databaseAccounts", 
-	    "name": "[parameters('databaseAccountName')]",  
-	    "location": "[resourceGroup().location]",  
-	    "properties": { 
-	        "name": "[parameters('databaseAccountName')]", 
-	        "databaseAccountOfferType":  "Standard" 
-	    } 
-        }
-    ]
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "type": "string"
+            }
+        },
+        "variables": { },
+        "resources": [
+            {
+                "apiVersion": "2015-04-08",
+                "type": "Microsoft.DocumentDb/databaseAccounts",
+                "name": "[parameters('databaseAccountName')]",
+                "location": "[resourceGroup().location]",
+                "properties": {
+                    "name": "[parameters('databaseAccountName')]",
+                    "databaseAccountOfferType": "Standard"
+                }
+            }
+        ]
     }
 
 This template requires only one parameter, the DocumentDB database account name to create. The location of the new database account is set to the same location as the resource group.
@@ -200,13 +201,13 @@ Because the template only takes one parameter, you can either enter the value at
 To create a parameter file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
 
     {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "databaseAccountName": {
-            "value": "sampledatabasename"
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "databaseAccountName": {
+                "value": "sampledatabasename"
+            }
         }
-    }
     }
 
 In the azuredeploy.parameters.json file, update the value "sampledatabasename" to the database name you'd like to use, then save the file. 
@@ -227,16 +228,16 @@ To create a new resource group, run the following command, specify the name of t
 
 For example:
 
-	azure group create new_res_grp westus
+	azure group create new_res_group westus
 
 Which produces the following output:
 
     info:    Executing command group create
-    + Getting resource group new_res_grp
-    + Creating resource group new_res_grp
-    info:    Created resource group new_res_grp
-    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_grp
-    data:    Name:                new_res_grp
+    + Getting resource group new_res_group
+    + Creating resource group new_res_group
+    info:    Created resource group new_res_group
+    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_group
+    data:    Name:                new_res_group
     data:    Location:            West US
     data:    Provisioning State:  Succeeded
     data:    Tags: null
@@ -290,7 +291,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 ## Troubleshooting
 
-If you encounter errors while creating your resource group or database account, use the following command to view the log for the resource group.
+If you encounter errors while creating your resource group or database account,  such as `Deployment provisioning state was not successful`, use the following command to view the log for the resource group.
 
     azure group log show <resourcegroupname> --last-deployment
 
@@ -300,7 +301,7 @@ For example:
 
 Then see [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md) for additional  information.
 
-Remember that database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters. An invalid database account name will cause the error `Deployment provisioning state was not successful`.
+Remember that database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters. 
 
 ## Next steps
 
