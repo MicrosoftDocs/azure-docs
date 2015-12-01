@@ -21,7 +21,7 @@
 # Create a scalable elastic database pool for SQL databases in Azure portal
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
