@@ -21,7 +21,7 @@
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
 > [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
-in this document use v2.0.0-alpha6 of [azure-mobile-apps].
+in this document use v2.0.0-beta1 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -104,7 +104,7 @@ Visual Studio 2015 requires an extension to develop Node.js.js applications with
 
 5. Right-click on the **npm** node and select **Install New npm packages...**.
 
-6. You will need to refresh the npm catalog on creating your first Node.js application - click on **Refresh**.
+6. You may need to refresh the npm catalog on creating your first Node.js application.  If this is required, you will be prompted - click on **Refresh**.
 
 7. Enter _azure-mobile-apps_ in the search box.  Click on the **azure-mobile-apps 2.0.0** package, then click on **Install Package**.
 
@@ -218,8 +218,8 @@ If you define tables statically, then you must also call the tables.initialize()
 The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for serving data out of the box: SDK provides three options for serving data out of the box:
 
 - Use the **memory** driver to provide a non-persistent example store
-- Use the **sql** driver to provide a SQL Express data store for development
-- Use the **sql** driver to provide a SQL Azure data store for production
+- Use the **mssql** driver to provide a SQL Express data store for development
+- Use the **mssql** driver to provide a SQL Azure data store for production
 
 The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package] to establish and use a connection to both SQL Express and SQL Azure.  This package requires that you enable TCP connections on your SQL Express instance.
 
@@ -290,7 +290,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
             origins: [ 'localhost' ]
         },
         data: {
-            provider: 'sql',
+            provider: 'mssql',
             server: '127.0.0.1',
             database: 'mytestdatabase',
             user: 'azuremobile',
