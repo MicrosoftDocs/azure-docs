@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Deploy Azure Resources using a template | Microsoft Azure"
 	description="Learn to use some of the available clients in the Azure Resource Management Library to deploy a virtual machine, virtual network, and storage account"
 	services="virtual-machines,virtual-networks,storage"
@@ -298,7 +298,7 @@ To specify values for the resource parameters that were defined in the template,
           }
         }
 
-    >[AZURE.NOTE] Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine. To do this, see [About images for virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-images/), and then replace {source-image-name} with the name of the vhd file that you want to use. For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Replace {subscription-id} with the identifier of your subscription.
+    >[AZURE.NOTE] Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine. To do this, see [About images for virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-images/), and then replace {source-image-name} with the name of the vhd file that you want to use. For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Replace {subscription-id} with the identifier of your subscription.
 
 
 4.	Save the parameters file that you created.

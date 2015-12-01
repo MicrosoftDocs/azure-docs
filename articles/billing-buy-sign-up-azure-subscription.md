@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="How to buy or sign up for an Azure subscription | Microsoft Azure"
 	description="Describes How to buy or sign up for an Azure subscription"
 	services="billing"
@@ -25,7 +25,7 @@ To sign up for an Azure Free Trial subscription, you must provide a phone number
 
 >[AZURE.NOTE] Your phone number and credit card details are used only to verify your identity. Although your credit card won’t be charged, Microsoft will place an authorization hold on it for a minimal amount to verify that the credit card is valid. The hold will be released within 3-5 business days, depending on your financial institution’s policies.
 
-1. Open the [Azure free trial page](https://azure.microsoft.com/en-us/pricing/free-trial/), and then select **Try it now**.
+1. Open the [Azure free trial page](https://azure.microsoft.com/pricing/free-trial/), and then select **Try it now**.
 2. Sign in with your Microsoft account or School/Work account.
 3. In the **About you** section, enter your personal information.  
 ![The screenshot of personal information](./media/billing-buy-sign-up-azure-subscription/AboutYou.png)

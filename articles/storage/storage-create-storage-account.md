@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
 	description="Learn how to create, manage, or delete a storage account in the Azure portal."
 	services="storage"
@@ -65,7 +65,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	>[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
 	>
-	>Additionally, see [Azure Regions](https://azure.microsoft.com/en-us/regions/#services) for more information about what services are available in which region.
+	>Additionally, see [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
 
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.

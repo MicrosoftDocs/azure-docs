@@ -72,7 +72,7 @@ single trained model and eliminate the rest from the experiment. For an
 example of developing a predictive analysis experiment, see [Develop a
 predictive analytics solution for credit risk assessment in Azure
 Machine
-Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+Learning](https://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### The predictive experiment
 
@@ -111,7 +111,7 @@ complex (for example, you have multiple paths for training that you join
 together), you might prefer to do this conversion manually. For more
 details on how this conversion process works, see [Convert a Machine
 Learning training experiment to a predictive
-experiment](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/).
+experiment](https://azure.microsoft.com/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/).
 
 ### The web service
 
@@ -121,7 +121,7 @@ it as an ***Azure web service***. Users can now send data to your model using
 the web service REST API and receive back the results. For more
 information on how to do this, see [How to consume an Azure Machine
 Learning web service that has been deployed from a Machine Learning
-experiment](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-consume-web-services/).
+experiment](https://azure.microsoft.com/documentation/articles/machine-learning-consume-web-services/).
 
 Once you deploy the web service, the predictive experiment and web
 service remain connected, and you can go back-and-forth between them:
@@ -223,7 +223,7 @@ retrain it with new data, you have two choices:
     experiment to make it a ***retraining experiment***, then you can
     deploy it as a ***retraining web* service**. For instructions on how
     to do this, see [Retrain Machine Learning models
-    programmatically](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-retrain-models-programmatically/).
+    programmatically](https://azure.microsoft.com/documentation/articles/machine-learning-retrain-models-programmatically/).
 
 2.  **Go back to the original training experiment and use different
     training data to develop your model** - Your predictive experiment
@@ -258,20 +258,20 @@ For more details on this process, see the following articles:
 
 -   converting the experiment - [Convert a Machine Learning training
     experiment to a predictive
-    experiment](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)
+    experiment](https://azure.microsoft.com/documentation/articles/machine-learning-convert-training-experiment-to-scoring-experiment/)
 
 -   deploying the web service - [Deploy an Azure Machine Learning web
-    service](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-publish-a-machine-learning-web-service/)
+    service](https://azure.microsoft.com/documentation/articles/machine-learning-publish-a-machine-learning-web-service/)
 
 -   retraining the model - [Retrain Machine Learning models
-    programmatically](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-retrain-models-programmatically/)
+    programmatically](https://azure.microsoft.com/documentation/articles/machine-learning-retrain-models-programmatically/)
 
 For examples of the whole process, see:
 
 -   [Machine learning tutorial: Create your first experiment in Azure
     Machine Learning
-    Studio](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/)
+    Studio](https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/)
 
 -   [Walkthrough: Develop a predictive analytics solution for credit
     risk assessment in Azure Machine
-    Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)
+    Learning](https://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/)

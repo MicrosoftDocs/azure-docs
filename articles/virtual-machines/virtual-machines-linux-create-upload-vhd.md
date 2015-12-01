@@ -164,7 +164,7 @@ From the Azure PowerShell window you used in the previous step, type:
 
 For more information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE] The [Azure Powershell 1.0 Preview version](https://azure.microsoft.com/en-us/blog/azps-1-0-pre/) significantly changes the way it handles cmdlets for the classic and Resource Manager deployment model. This article does not use the Preview version yet. 
+> [AZURE.NOTE] The [Azure Powershell 1.0 Preview version](https://azure.microsoft.com/blog/azps-1-0-pre/) significantly changes the way it handles cmdlets for the classic and Resource Manager deployment model. This article does not use the Preview version yet. 
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage

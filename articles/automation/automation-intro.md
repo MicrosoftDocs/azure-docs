@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="What is Azure Automation | Microsoft Azure"
 	description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC."
 	services="automation"
@@ -92,7 +92,7 @@ A variety of resources are available for you to learn more about Azure Automatio
 
 * **Azure Automation Library** is where you are right now. The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
 * [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automating Azure operations using Windows PowerShell. Runbooks use these cmdlets to work with Azure resources. 
-* [Management Blog](https://azure.microsoft.com/en-us/blog/tag/azure-automation/) provides the latest information on Azure Automation and other management technologies from Microsoft. You should subscribe to this blog to stay up to date with the latest from the Azure Automation team. 
+* [Management Blog](https://azure.microsoft.com/blog/tag/azure-automation/) provides the latest information on Azure Automation and other management technologies from Microsoft. You should subscribe to this blog to stay up to date with the latest from the Azure Automation team. 
 * [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community. 
 * [Azure Automation Cmdlets](https://msdn.microsoft.com/library/mt244122.aspx) provides information for automating administration tasks. It contains cmdlets to manage Automation accounts, assets, runbooks, DSC.
 

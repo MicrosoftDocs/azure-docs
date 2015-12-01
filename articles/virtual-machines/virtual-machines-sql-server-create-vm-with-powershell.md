@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Create a SQL Server Virtual Machine in PowerShell | Microsoft Azure"
 	description="Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images."
 	services="virtual-machines"
@@ -32,7 +32,7 @@ This article provides steps for how to create a SQL Server virtual machine in Az
 
 ## Install and Configure PowerShell
 
-1. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/). 
+1. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
  
 2. [Install the latest Azure PowerShell cmdlets](../powershell-install-configure.md/#how-to-install-azure-powershell).
 
