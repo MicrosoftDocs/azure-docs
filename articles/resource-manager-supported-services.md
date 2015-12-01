@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -160,7 +160,7 @@ To discover which regions are available for a particular resource type in your s
 
 ### PowerShell
 
-The following example shows how to get the supported regions for web sites using Azure PowerShell 1.0 Preview. For more information about the 1.0 Preview release, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
+The following example shows how to get the supported regions for web sites using Azure PowerShell 1.0. For more information about the 1.0 release, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -214,7 +214,7 @@ To discover which API versions are available for resource types, use the [List a
 
 ### PowerShell
 
-The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0 Preview.
+The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
