@@ -27,7 +27,7 @@ This guide teaches you to perform common scenarios using the latest [Azure Mobil
 
 ## Reference documentation
 
-The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-services/iOS/v2/).
+The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-services/iOS/v3/).
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
