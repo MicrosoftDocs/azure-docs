@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
 # How to use the Android client library for Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
@@ -133,7 +137,7 @@ The following code returns all items from the *ToDoItem* table whose *complete* 
                     final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
-                		Log.i(TAG, "Read object with ID " + item.id);  
+                		Log.i(TAG, "Read object with ID " + item.id);
 					}
                 } catch (Exception exception) {
                     createAndShowDialog(exception, "Error");
