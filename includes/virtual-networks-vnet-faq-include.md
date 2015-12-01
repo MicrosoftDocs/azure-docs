@@ -1,4 +1,4 @@
-﻿## Virtual Network Basics
+## Virtual Network Basics
 
 ### What is an Azure Virtual network (VNet)?
 
@@ -205,7 +205,7 @@ No. A MAC address cannot be statically configured.
 
 ### Will the MAC address remain the same for my VM once it has been created?
 
-No. A VM's MAC address can change for a different reasons. If the VM is put in the status Stopped (Deallocated), if you change the VM size, or if there is service healing or planned maintenance of the host server, the MAC address is not retained.
+No. It will only change if the VM is put in the status Stopped (Deallocated). If you change the VM size, or if there is service healing or planned maintenance of the host server, the MAC address is retained.
 
 ### Can I connect to the internet from a VM in a VNet?
 
