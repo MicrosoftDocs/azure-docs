@@ -204,7 +204,7 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-* For information on working with Azure Resource Manager from the Azure preview portal, see [Using resource groups to manage your Azure resources][psrm].
+* For information on working with Azure Resource Manager from the Azure portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
