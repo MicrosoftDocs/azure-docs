@@ -26,7 +26,7 @@ Managing and tuning the performance of relational databases is a challenging tas
 - The ability to drill down into the details of a query.
 ​
 
-> [AZURE.NOTE] Query Performance Insight is currently in preview and is only available in the [Azure Preview Portal](https://portal.azure.com/).
+> [AZURE.NOTE] Query Performance Insight is currently in preview and is only available in the [Azure portal](https://portal.azure.com/).
 
 
 
@@ -63,7 +63,7 @@ Query Performance Insight is easy to use:
 
 ## Review top DTU consuming queries
 
-In the [preview portal](https://portal.azure.com) do the following:
+In the [portal](https://portal.azure.com) do the following:
 
 1. Browse to a SQL database and click **Query Performance Insight**. 
 
