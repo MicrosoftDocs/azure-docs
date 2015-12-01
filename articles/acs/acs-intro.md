@@ -1,3 +1,23 @@
+<properties
+   pageTitle="Azure Container Sercvice Introduvtion | Microsoft Azure"
+   description="Azure Container Service (ACS) provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="rgardler"
+   manager="nepeters"
+   editor=""
+   tags="acs, azure-container-service"
+   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   
+<tags
+   ms.service="virtual-machines"
+   ms.devlang=""
+   ms.topic="home-page"
+   ms.tgt_pltfrm=""
+   ms.workload="na"
+   ms.date="12/02/2015"
+   ms.author="rogardle"/>
+
 <!---
 \[FIXME:Video 1: short introduction:
 <https://channel9.msdn.com/Events/Visual-Studio/Connect-event-2015/915>\]
@@ -57,7 +77,7 @@ only need to decide on the size of your cluster and whether you want to
 use Docker Swarm or Apache Mesos to manage your applications.
 
 You can also [use the command
-line](https://azure.microsoft.com/en-us/documentation/articles/resource-group-template-deploy/)
+line](/documentation/articles/resource-group-template-deploy/)
 to create Azure Container Services using these same templates. Once you
 are familiar with the structure of these templates you will be able to
 write your own and fully automate the creation of an Azure Container
