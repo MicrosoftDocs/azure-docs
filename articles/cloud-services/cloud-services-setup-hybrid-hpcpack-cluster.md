@@ -86,7 +86,7 @@ You first install Microsoft HPC Pack on an on-premises computer running Windows 
 	![Finish][install_hpc7]
 
 ## Prepare the Azure subscription
-Use the [Azure portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node.
+Use the [Azure classic portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node.
 
 - Upload a management certificate (needed for secure connections between the head node and the Azure services)
 
@@ -99,7 +99,7 @@ Use the [Azure portal](https://manage.windowsazure.com) to perform the following
 ### <a>Upload the default management certificate</a>
 HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
 
-1. From the head node computer, sign in to the [Azure portal](https://manage.windowsazure.com).
+1. From the head node computer, sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
 2. Click **Settings**, and then click **Management Certificates**.
 

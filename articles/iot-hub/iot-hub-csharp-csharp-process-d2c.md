@@ -104,7 +104,7 @@ Additional information on IoT Hub:
 [Azure Storage]: https://azure.microsoft.com/en-us/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/en-us/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md

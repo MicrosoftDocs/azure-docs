@@ -18,6 +18,8 @@
 
 # Build and deploy a Node.js API app in Azure App Service
 
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+
 ## Prerequisites
 1. [Node.js](nodejs.org) running on development machine (this sample assumes Node.js version 4.2.2 is installed)
 1. [GitHub](https://github.com/) account
