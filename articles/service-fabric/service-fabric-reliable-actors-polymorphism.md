@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="12/01/2015"
    ms.author="seanmck"/>
 
 # Polymorphism in the Reliable Actor framework
 
-The Reliable Actor framework simplifies distributed systems programming by allowing you to build your service using many of the same techniques that you would use in object-oriented design. One of those techniques in polymporphism, allowing types and interfaces to inherit from more generalized parents. Inheritance in the actor framework generally follows the .NET model with a few additional constraints.
+The Reliable Actor framework simplifies distributed systems programming by allowing you to build your service using many of the same techniques that you would use in object-oriented design. One of those techniques is polymporphism, allowing types and interfaces to inherit from more generalized parents. Inheritance in the actor framework generally follows the .NET model with a few additional constraints.
 
 ## Interfaces
 
