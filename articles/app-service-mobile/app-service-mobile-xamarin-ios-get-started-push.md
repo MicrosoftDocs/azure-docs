@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.iOS App
@@ -68,7 +68,7 @@ To configure your app to send notifications, create a new hub and configure it f
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-##Configure your Xamarin.Forms project
+##Configure your Xamarin.iOS project
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
@@ -89,7 +89,8 @@ To configure your app to send notifications, create a new hub and configure it f
 
 1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
 
-        using Microsoft.WindowsAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
 2. In **AppDelegate**, override the **FinishedLaunching** event: 
 
@@ -108,16 +109,27 @@ To configure your app to send notifications, create a new hub and configure it f
             return true;
         }
 
-3. In the same file, override the **RegisteredForRemoteNotifications** event:
+3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a simple template notification that will be sent across all supported platforms by the server. 
+ 
+	For more information on templates with Notification Hubs, see [Templates](notification-hubs-templates.md). 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
+            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+            {
+                {"body", templateBodyAPNS}
+            };
+
             // Register for push with your mobile app
             var push = client.GetPush();
-            push.RegisterAsync(deviceToken);
+            push.RegisterAsync(deviceToken, templates);
         }
+
 
 4. Then, override the **DidReceivedRemoteNotification** event:
 
