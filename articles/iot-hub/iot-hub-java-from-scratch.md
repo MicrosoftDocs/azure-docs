@@ -30,182 +30,181 @@ See [Prepare your development environment][devbox-setup] for information about p
 
 ## Create the project
 
-In your command-line tool, execute the following command to create a new, empty Maven project in a suitable location on your development machine:
+1. In your command-line tool, execute the following command to create a new, empty Maven project in a suitable location on your development machine:
 
-```
-mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-```
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-> [AZURE.NOTE] This is a single, long command. Make sure you copy the complete command if you want to paste it into you command-line tool.
+  > [AZURE.NOTE] This is a single, long command. Make sure you copy the complete command if you want to paste it into you command-line tool.
 
-This command creates a project folder named *iot-device* that has the standard Maven project structure. For more information, see [Maven in 5 Minutes][maven-five-minutes] on the Apache website.
+  This command creates a project folder named *iot-device* that has the standard Maven project structure. For more information, see [Maven in 5 Minutes][maven-five-minutes] on the Apache website.
 
-Open the **pom.xml** file in the iot-device folder in a text editor.
+2. Open the **pom.xml** file in the iot-device folder in a text editor.
 
-Add the following new **dependency** section after the existing one to include the required client libraries:
+3. Add the following new **dependency** section after the existing one to include the required client libraries:
 
-```
-<dependency>
-  <groupId>com.microsoft.azure.iothub-java-client</groupId>
-  <artifactId>iothub-java-client</artifactId>
-  <version>1.0.0-preview.4</version>
-</dependency>
-```
+    ```
+    <dependency>
+      <groupId>com.microsoft.azure.iothub-java-client</groupId>
+      <artifactId>iothub-java-client</artifactId>
+      <version>1.0.0-preview.4</version>
+    </dependency>
+    ```
 
-Add the following **build** section after the **dependencies** section so that the final JAR file includes the dependencies and the manifest identifies the **main** class.
+4. Add the following **build** section after the **dependencies** section so that the final JAR file includes the dependencies and the manifest identifies the **main** class.
 
-```
-<build>
-  <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-shade-plugin</artifactId>
-      <executions>
-        <execution>
-          <phase>package</phase>
-          <goals>
-            <goal>shade</goal>
-          </goals>
-        </execution>
-      </executions>
-      <configuration>
-        <finalName>${artifactId}-${version}-with-deps</finalName>
-      </configuration>
-    </plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>2.6</version>
-      <configuration>
-        <archive>
-          <manifest>
-            <addClasspath>true</addClasspath>
-            <mainClass>com.mycompany.app.App</mainClass>
-          </manifest>
-        </archive>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
-```
+    ```
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <finalName>${artifactId}-${version}-with-deps</finalName>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <mainClass>com.mycompany.app.App</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+    ```
 
-Save the **pom.xml** file.
+5. Save the **pom.xml** file.
 
 ## Create the application
 
-Open the **App.java** file in the iot-device/src/main/java/com/mycompany/app folder in a text editor.
+1. Open the **App.java** file in the iot-device/src/main/java/com/mycompany/app folder in a text editor.
 
-Add the following **import** statements, which include the IoT device libraries, after the **package** statement:
+2. Add the following **import** statements, which include the IoT device libraries, after the **package** statement:
 
-```
-import com.microsoft.azure.iothub.DeviceClient;
-import com.microsoft.azure.iothub.IotHubClientProtocol;
-import com.microsoft.azure.iothub.Message;
-import com.microsoft.azure.iothub.IotHubStatusCode;
-import com.microsoft.azure.iothub.IotHubEventCallback;
-import com.microsoft.azure.iothub.IotHubMessageResult;
+    ```
+    import com.microsoft.azure.iothub.DeviceClient;
+    import com.microsoft.azure.iothub.IotHubClientProtocol;
+    import com.microsoft.azure.iothub.Message;
+    import com.microsoft.azure.iothub.IotHubStatusCode;
+    import com.microsoft.azure.iothub.IotHubEventCallback;
+    import com.microsoft.azure.iothub.IotHubMessageResult;
+    
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    import java.security.InvalidKeyException;
+    import java.util.Scanner;
+    
+    import javax.naming.SizeLimitExceededException;
+    ```
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.InvalidKeyException;
-import java.util.Scanner;
+3. Add the following **EventCallback** class as a nested class inside the **App** class. The **execute** method in the **EventCallback** class is invoked when the device receives an acknowledgment from your IoT hub in response to a device-to-cloud message.
 
-import javax.naming.SizeLimitExceededException;
-```
-
-Add the following **EventCallback** class as a nested class inside the **App** class. The **execute** method in the **EventCallback** class is invoked when the device receives an acknowledgment from your IoT hub in response to a device-to-cloud message.
-
-```
-protected static class EventCallback
-    implements IotHubEventCallback
-{
-  public void execute(IotHubStatusCode status, Object context)
-  {
-    Integer i = (Integer) context;
-    System.out.println("IoT Hub responded to message " + i.toString()
-        + " with status " + status.name());
-  }
-}
-```
-
-
-Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method in the **MessageCallback** class enables you to send a feedback message to your IoT hub in response to a cloud-to-device message received by the device.
-
-```
-protected static class MessageCallback
-    implements com.microsoft.azure.iothub.MessageCallback
-{
-  public IotHubMessageResult execute(Message msg,
-      Object context)
-  {
-    System.out.println(
-        "Received message with content: " + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-
-      return IotHubMessageResult.COMPLETE;
-  }
-}
-```
-
-Replace the  existing **main** method with the following code that:
-
-- Creates a **DeviceClient** instance.
-- Initializes the message callback for cloud-to-device messages.
-- Opens the **DeviceClient** to enable it to send device-to-cloud messages and receive cloud-to-device messages.
-- Sends ten sample messages to your IoT hub.
-
-Replace `<your device connection string>` with a valid device connection string. You can provision a device and retrieve its connection string using either the [DeviceExplorer][lnk-device-explorer] tool or the [IoT Hub Explorer][lnk-iothub-explorer] tool.
-
-```
-public static void main( String[] args ) throws IOException, URISyntaxException
-{
-  String connString = "<your device connection string>";
-  IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
-
-  DeviceClient client = new DeviceClient(connString, protocol);
-
-  MessageCallback messageCallback = new MessageCallback();
-  client.setMessageCallback(messageCallback, null);
-
-  client.open();
-
-  for (int i = 0; i < 10; ++i)
-  {
-    String msgStr = "Event Message " + Integer.toString(i);
-    try
+    ```
+    protected static class EventCallback
+        implements IotHubEventCallback
     {
-      Message msg = new Message(msgStr);
-      msg.setProperty("messageCount", Integer.toString(i));
-      System.out.println(msgStr);
-
-      EventCallback eventCallback = new EventCallback();
-      client.sendEventAsync(msg, eventCallback, i);
+      public void execute(IotHubStatusCode status, Object context)
+      {
+        Integer i = (Integer) context;
+        System.out.println("IoT Hub responded to message " + i.toString()
+            + " with status " + status.name());
+      }
     }
-    catch (Exception e)
+    ```
+
+4. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method in the **MessageCallback** class enables you to send a feedback message to your IoT hub in response to a cloud-to-device message received by the device.
+
+    ```
+    protected static class MessageCallback
+        implements com.microsoft.azure.iothub.MessageCallback
     {
+      public IotHubMessageResult execute(Message msg,
+          Object context)
+      {
+        System.out.println(
+            "Received message with content: " + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
+    
+          return IotHubMessageResult.COMPLETE;
+      }
     }
-  }
+    ```
 
-  System.out.println("Press any key to exit...");
-  Scanner scanner = new Scanner(System.in);
-  scanner.nextLine();
+5. Replace the  existing **main** method with the following code that:
 
-  client.close();
-}
-```
+  - Creates a **DeviceClient** instance.
+  - Initializes the message callback for cloud-to-device messages.
+  - Opens the **DeviceClient** to enable it to send device-to-cloud messages and receive cloud-to-device messages.
+  - Sends ten sample messages to your IoT hub.
 
-To compile the code and package it into a JAR file, execute the following command at a command prompt in the **iot-device** project folder:
+  Replace `<your device connection string>` with a valid device connection string. You can provision a device and retrieve its connection string using either the [DeviceExplorer][lnk-device-explorer] tool or the [IoT Hub Explorer][lnk-iothub-explorer] tool.
 
-```
-mvn package
-```
+    ```
+    public static void main( String[] args ) throws IOException, URISyntaxException
+    {
+      String connString = "<your device connection string>";
+      IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    
+      DeviceClient client = new DeviceClient(connString, protocol);
+    
+      MessageCallback messageCallback = new MessageCallback();
+      client.setMessageCallback(messageCallback, null);
+    
+      client.open();
+    
+      for (int i = 0; i < 10; ++i)
+      {
+        String msgStr = "Event Message " + Integer.toString(i);
+        try
+        {
+          Message msg = new Message(msgStr);
+          msg.setProperty("messageCount", Integer.toString(i));
+          System.out.println(msgStr);
+    
+          EventCallback eventCallback = new EventCallback();
+          client.sendEventAsync(msg, eventCallback, i);
+        }
+        catch (Exception e)
+        {
+        }
+      }
+    
+      System.out.println("Press any key to exit...");
+      Scanner scanner = new Scanner(System.in);
+      scanner.nextLine();
+    
+      client.close();
+    }
+    ```
 
-To run the application, execute the following command at a command prompt in the **iot-device** project folder:
+6. To compile the code and package it into a JAR file, execute the following command at a command prompt in the **iot-device** project folder:
 
-```
-java -jar target/iot-device-1.0-SNAPSHOT-with-deps.jar
-```
+    ```
+    mvn package
+    ```
 
-You can use the [DeviceExplorer][lnk-device-explorer] tool to monitor the device-to-cloud messages that your IoT hub receives and to send cloud-to-device messages to your device from your IoT hub.
+7. To run the application, execute the following command at a command prompt in the **iot-device** project folder:
+
+    ```
+    java -jar target/iot-device-1.0-SNAPSHOT-with-deps.jar
+    ```
+
+8. You can use the [DeviceExplorer][lnk-device-explorer] tool to monitor the device-to-cloud messages that your IoT hub receives and to send cloud-to-device messages to your device from your IoT hub.
 
 ## Change logging granularity
 
