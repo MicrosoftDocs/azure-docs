@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/25/2015"
 	ms.author="krisragh"/>
 
 
@@ -50,11 +50,16 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 ## <a id="add-push"></a>Add push notifications to app
 
-[AZURE.INCLUDE [Add Push Notifications to App](../../includes/app-service-add-push-notifications-to-app.md)]
+[AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
 ## <a id="test"></a>Test push notifications in app
 
 [AZURE.INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
+
+##<a id="more"></a>More
+
+* Templates give you flexibility to send cross-platform pushes and localized pushes. [How to Use iOS Client Library for Azure Mobile Apps](app-service-mobile-ios-how-to-use-client-library.md#templates) shows you how to register templates.
+* Tags allow you to target segmented customers with pushes. [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) shows you how to add tags to a device installation.
 
 <!-- Anchors.  -->
 [Generate iOS certificate signing request]: #certificates
