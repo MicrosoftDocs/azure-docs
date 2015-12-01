@@ -59,8 +59,6 @@ The following articles demonstrate using the Azure Toolkit for Eclipse to add Az
 * [How to Authenticate Web Users with Azure Access Control Service Using Eclipse][]
 * [How to Use JMS with AMQP 1.0 in Azure with Eclipse][]
 
->[AZURE.NOTE] For more information about using Azure with Java, see the [Azure Java Developer Center][].
-	
 ## See Also ##
 
 [Installing the Azure Toolkit for Eclipse][] 
@@ -68,6 +66,8 @@ The following articles demonstrate using the Azure Toolkit for Eclipse to add Az
 [Creating a Hello World Application for Azure in Eclipse][]
 
 [What's New in the Azure Toolkit for Eclipse][]
+
+For more information about using Azure with Java, see the [Azure Java Developer Center][].
 
 <!-- URL List -->
 
