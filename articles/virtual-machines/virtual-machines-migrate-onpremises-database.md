@@ -62,7 +62,7 @@ Use the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard in Micro
 
 ### Get Latest Version of the Deploy a SQL Server Database to a Microsoft Azure VM wizard
 
-Use the latest version of Microsoft SQL Server Management Studio for SQL Server to ensure that you have the latest version of the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard. The latest version of this wizard incorporates the most recent updates to the Azure portal and supports the newest Azure VM images in the gallery (older versions of the wizard may not work). To get the latest version of Microsoft SQL Server Management Studio for SQL Server, [download it](http://go.microsoft.com/fwlink/?LinkId=616025) and install it on a client computer with connectivity to the database that you plan to migrating and to the internet.
+Use the latest version of Microsoft SQL Server Management Studio for SQL Server to ensure that you have the latest version of the **Deploy a SQL Server Database to a Microsoft Azure VM** wizard. The latest version of this wizard incorporates the most recent updates to the Azure classic portal and supports the newest Azure VM images in the gallery (older versions of the wizard may not work). To get the latest version of Microsoft SQL Server Management Studio for SQL Server, [download it](http://go.microsoft.com/fwlink/?LinkId=616025) and install it on a client computer with connectivity to the database that you plan to migrating and to the internet.
 
 ### Configure the existing Azure virtual machine and SQL Server instance (if applicable)
 

@@ -38,9 +38,9 @@ VM Scale Sets can be defined and deployed using JSON templates and REST calls ju
 
 Specific VMSS integration areas such as imperative command support in scripting and programming languages, and full portal integration are under development and will be released in stages during the preview.
 
-## Deploying and Managing VM Scale Sets with the Azure portal
+## Deploying and Managing VM Scale Sets with the Azure classic portal
 
-Initially you cannot create a VM Scale Set from scratch in the Azure portal. Portal support is being worked on and in the first stage of this work you can only see scale sets in the portal that you've already created, and will have to use a template/script approach to create them. In all cases "portal" is assumed to mean the new Azure portal: [https://portal.azure.com/](https://portal.azure.com/).
+Initially you cannot create a VM Scale Set from scratch in the Azure classic portal. Portal support is being worked on and in the first stage of this work you can only see scale sets in the portal that you've already created, and will have to use a template/script approach to create them. In all cases "portal" is assumed to mean the new Azure classic portal: [https://portal.azure.com/](https://portal.azure.com/).
 
 You can however make use of the portal's ability to deploy a template to deploy any resource, including scale sets. An easy way to deploy a simple scale set is to use a link like this:
 
@@ -576,7 +576,7 @@ The Insights Autoscale integrates directly with VM Scale Sets. To set it up you 
 
 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale).
 
-In future autoscale with VM Scale Sets will also be integrated directly with the Azure portal.
+In future autoscale with VM Scale Sets will also be integrated directly with the Azure classic portal.
 
 ## Deploying a VM Scale Set as a compute cluster in a PaaS cluster manager
 

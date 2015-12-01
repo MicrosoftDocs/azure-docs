@@ -121,7 +121,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 1. [The basics: Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md)
 4. [The basics: Certificate Use and Management](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [The basics: Selecting Linux Usernames](virtual-machines-linux-usernames.md)
-6. [The basics: Log on to a Linux VM Using the Azure Portal](virtual-machines-linux-how-to-log-on.md)
+6. [The basics: Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-how-to-log-on.md)
 7. [The basics: SSH](virtual-machines-linux-use-ssh-key.md)
 8. [The basics: How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [The basics: Using Root](virtual-machines-linux-use-root-privileges.md)
@@ -150,7 +150,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 
 1. [Images](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [How to: Use Service Bus from Java with AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841073.aspx)
-3. [How to: Set up Tomcat7 on Linux Using the Azure Portal](virtual-machines-linux-setup-tomcat7-linux.md)
+3. [How to: Set up Tomcat7 on Linux Using the Azure classic portal](virtual-machines-linux-setup-tomcat7-linux.md)
 4. [Video: Azure Java SDK for Service Management](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [Blog: Getting Started with Azure Management Libraries for Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [GitHub repo: Azure Toolkit for Eclipse with Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
@@ -264,7 +264,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 1. Docker
 	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-../xplat-cli-install.md)
-	- [Using the Docker VM Extension from the Azure Preview Portal](virtual-machines-docker-with-portal.md)
+	- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
 	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
 	- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
