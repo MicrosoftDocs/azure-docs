@@ -32,7 +32,7 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
     
     * Python must be version 2.7 or higher
 
-* A Linux-based HDInsight cluster OR Azure PowerShell - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a new cluster and add a Shared Access Signature during cluster creation.
+* A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a new cluster and add a Shared Access Signature during cluster creation.
 
 * The example files from [TBD]. This repository has the following:
 
@@ -126,29 +126,58 @@ In order to use a Shared Access Signature to limit access to a container, you mu
 
 An example of creating an HDInsight cluster that uses the SAS is included in the `CreateCluster` directory of the repository. To use it, use the following steps:
 
-1. Open a new Azure PowerShell prompt.
+1. Open the `CreateCluster\HDInsightSAS.ps1` file in a text editor and modify the following values at the beginning of the document.
 
-2. From the prompt, type the following:
-
-        Import-Module \Path\To\CreateCluster\HDInsightSAS.psm1
+        # Replace 'mycluster' with the name of the cluster to be created
+        $clusterName = 'mycluster'
+        # Valid values are 'Linux' and 'Windows'
+        $osType = 'Linux'
+        # Replace 'myresourcegroup' with the name of the group to be created
+        $resourceGroupName = 'myresourcegroup'
+        # Replace with the Azure data center you want to the cluster to live in
+        $location = 'North Europe'
+        # Replace with the name of the default storage account to be created
+        $defaultStorageAccountName = 'mystorageaccount'
+        # Replace with the name of the SAS container created earlier
+        $SASContainerName = 'sascontainer'
+        # Replace with the name of the SAS storage account created earlier
+        $SASStorageAccountName = 'sasaccount'
+        # Replace with the SAS token generated earlier
+        $SASToken = 'sastoken'
+        # Set the number of worker nodes in the cluster
+        $clusterSizeInNodes = 2
         
-    This will install a new function named __New-HDInsightClusterWithSAS__.
+    For example, change `'mycluster'` to the name of the cluster you want to create. The SAS values should match the values from the previous steps when creating a storage account and SAS token.
     
-3. Use the following command to create a new cluster that uses the read+list-only SAS created earlier:
+    Once you have changed the values, save the file.
 
-        New-HDInsightClusterWithSAS -clusterName "CLUSTERNAME" -resourceGroupName "RESOURCEGROUPNAME" -location "LOCATION" -defaultStorageAccountName "DEFAULTSTORAGEACCOUNT" -SASStorageAccountName "SASSTORAGEACCOUNT" -SASContainerName "SASCONTAINTER" -SASToken "SASTOKEN"
+1. Open a new Azure PowerShell prompt. If you are unfamiliar with Azure PowerShell, or have not installed it, see [Install and configure Azure PowerShell][powershell].
+
+2. From the prompt, use the following to authenticate to your Azure subscription:
+
+        Login-AzureRmAccount
+    
+    When prompted, login with the account for your Azure subscription.
+    
+    If your login is associated with multiple Azure subscriptions, you may need to use `Select-AzureRmSubscription` to select the subscription you wish to use.
+
+2. From the prompt, change directories to the `CreateCluster` directory that contains the HDInsightSAS.ps1 file. Then use the following to run the script
         
-    Replace the following values in the command:
+        .\HDInsightSAS.ps1
     
-    * __CLUSTERNAME__: The name of the HDInsight cluster that will be created.
-    * __RESOURCEGROUPNAME__: The name of the resource group that will contain the cluster.
-    * __LOCATION__: The data region that the cluster and other resources will be created in. For example __North Europe__.
-    * __DEFAULTSTORAGEACCOUNT__: The name of a new storage account that will be used as the default store for HDInsight. This must be different than the storage account used for the SAS.
-    * __SASSTORAGEACCOUNT__: The name of the storage account that was used to create the SAS.
-    * __SASCONTAINER__: The container that was used to create the SAS.
-    * __SASTOKEN__: The SAS value that was created earlier.
+    As the script runs, it will log output to the PowerShell prompt as it creates the resource group and storage accounts. It will then prompt you to enter the HTTP user for the HDInsight cluster. This is the user account used to secure HTTP/s access to the cluster.
+    
+    If you are creating a Linux-based cluster, you will also be prompted for an SSH user account name and password. This is used to remotely login to the cluster.
+    
+    > [AZURE.IMPORTANT] When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
+    >
+    > - Must be at least 10 characters in length
+    > - Must contain at least one digit
+    > - Must contain at least one non-alphanumeric character
+    > - Must contain at least one upper or lower case letter
 
-    > [AZURE.NOTE] It will take a while for this script to complete, usually around 15 minutes. When the script returns, the cluster has been created.
+
+It will take a while for this script to complete, usually around 15 minutes. When the script completes without any errors, the cluster has been created.
 
 ###Update an existing cluster to use the SAS
 
@@ -236,3 +265,5 @@ Now that you have learned how to add limited-access storage to your HDInsight cl
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+
+[powershell]: ../powershell-install-configure.md
