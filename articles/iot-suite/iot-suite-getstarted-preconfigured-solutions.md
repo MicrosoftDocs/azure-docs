@@ -28,7 +28,7 @@ In order to complete this tutorial, you’ll need the following:
 
 -   An active Azure subscription.
 
-    If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
+    If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 
 ## Provision the Remote Monitoring preconfigured solution
 
@@ -110,7 +110,7 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 
 -   [IoT Suite overview][]
 
-[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [Guidance on customizing preconfigured solutions]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [IoT Suite overview]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
