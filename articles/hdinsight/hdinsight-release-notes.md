@@ -655,7 +655,7 @@ This release contains the following updates.
 
 <tr>
 <td>HDinsight on Linux (Preview)</td>
-<td>Clusters can be deployed running on Ubuntu Linux. For more details, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-get-started/" target ="_blank">Getting Started with HDInsight on Linux</a>.</td>
+<td>Clusters can be deployed running on Ubuntu Linux. For more details, see [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-get-started.md).</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>
