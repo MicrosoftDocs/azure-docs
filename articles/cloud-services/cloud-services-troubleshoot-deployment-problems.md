@@ -1,6 +1,6 @@
 <properties
  pageTitle="Troubleshoot Cloud Service deployment problems | Microsoft Azure"
- description="There are a few common probelms you may run into when deploying a Cloud Service to Azure. This article provides solutions to some of them."
+ description="There are a few common problems you may run into when deploying a Cloud Service to Azure. This article provides solutions to some of them."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
