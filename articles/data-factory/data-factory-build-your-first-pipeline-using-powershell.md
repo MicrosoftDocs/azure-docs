@@ -37,16 +37,16 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 >   
 > This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
 >    
-> If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.   
+> If you are using Azure PowerShell 1.0, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.   
 
 ## Step 1: Creating the data factory
 
 In this step, you use Azure PowerShell to create an Azure Data Factory named ADFTutorialDataFactoryPSH.
 
 1. Start Azure PowerShell and run the following commands. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
-	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure preview portal.  
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
 	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the preview portal.
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 2. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode.
 
 		Switch-AzureMode AzureResourceManager

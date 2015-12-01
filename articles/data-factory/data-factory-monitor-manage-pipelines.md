@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitor and manage Azure Data Factory pipelines" 
-	description="Learn how to use Azure Management Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
+	description="Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@ The Data Factory service provides reliable and complete view of your storage, pr
 This article describes how to monitor, manage and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
 
 ## Understand pipelines and activity states
-Using the Azure Preview Portal, you can view your data factory as a diagram, view activities in a pipeline, view input and output datasets, and more. This section also provides how a slice transitions from one state to another state.   
+Using the Azure Portal, you can view your data factory as a diagram, view activities in a pipeline, view input and output datasets, and more. This section also provides how a slice transitions from one state to another state.   
 
 ### Navigate to your data factory
-1.	Sign-in to the [Azure Preview Portal](http://portal.azure.com).
+1.	Sign-in to the [Azure Portal](http://portal.azure.com).
 2.	Click **Browse All** and select **Data Factories**.
 	
 	![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
