@@ -41,7 +41,7 @@ You should already have the [Xamarin.Android] and [Azure Mobile Services][Azure 
 
 ##<a id="update-server"></a>Update the mobile service to send push notifications
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-template-push-update-service](../../includes/mobile-services-dotnet-backend-template-push-update-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
 
 ##<a id="configure-app"></a>Configure the existing project for push notifications
 

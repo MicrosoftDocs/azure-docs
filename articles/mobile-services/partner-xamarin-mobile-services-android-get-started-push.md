@@ -42,7 +42,7 @@ You should already have the [Xamarin.Android] and the [Azure Mobile Services Com
 
 >[AZURE.TIP] The following steps show you how to update the script registered to the insert operation on the TodoItem table in the Azure Management Portal. You can also access and edit this mobile service script directly in Visual Studio, in the Azure node of Server Explorer. 
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-template-push-insert-script](../../includes/mobile-services-javascript-backend-template-push-insert-script.md)]
+[AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
 ##<a id="configure-app"></a>Configure the existing project for push notifications
