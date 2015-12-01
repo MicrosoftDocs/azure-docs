@@ -67,7 +67,9 @@ mobile device data back to HDInsight by using the following path:
 
 	/tutorials/usesqoop/importeddata
 
-The tutorial contains the following steps:
+## Run Sqoop using PowerShell
+
+The PowerShell sample in this section performs the following steps:
 
 1. Connect to Azure.
 2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
@@ -130,9 +132,8 @@ The tutorial contains the following steps:
 
 	To examine the modified data file, you can use the preview portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample about using Azure PowerShell to download a file and display the file content.
 
-## Run Sqoop import and export using PowerShell
 
-Use the folloing PowerShell script to run Sqoop jobs:
+### The PowerShell sample
 
 	# Prepare an Azure SQL database to be used by the Sqoop tutorial
 	
@@ -524,13 +525,7 @@ Use the folloing PowerShell script to run Sqoop jobs:
 	
 	#endregion
 
-
-
-
-
-
-
-## Run Sqoop export using .NET SDK
+## Run Sqoop using .NET SDK
 
 In this section, you will create a C# console application to export the hivesampletable to the SQL Database table you created earlier in this tutorials.
 
