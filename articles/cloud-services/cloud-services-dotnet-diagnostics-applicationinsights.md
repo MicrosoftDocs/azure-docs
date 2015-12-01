@@ -57,17 +57,17 @@ The following is how the various Azure diagnostics log types map to Application 
 
 To view Azure diagnostics data in Application Insights:
 
-- Use [Metrics explorer](https://azure.microsoft.com/documentation/articles/app-insights-metrics-explorer/) to visualize any custom performance counters or counts of different types of windows event log events.
+- Use [Metrics explorer](../application-insights/app-insights-metrics-explorer.md) to visualize any custom performance counters or counts of different types of windows event log events.
 
 ![Custom Metrics in Metrics Explorer][5]
 
-- Use [Search](https://azure.microsoft.com/documentation/articles/app-insights-diagnostic-search/) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhanded exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue. 
+- Use [Search](../application-insights/app-insights-diagnostic-search.md) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhanded exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue. 
 
 ![Search Traces][6]
 
 ## Next Steps
 
-- [Add the Application Insights SDK to your cloud service](https://azure.microsoft.com/documentation/articles/app-insights-cloudservices/) to send data about requests, exceptions, dependencies, and any custom telemetry from your application. Combined with the Azure Diagnostics data you can get a complete view of your application and system all in the same Application Insight resource.  
+- [Add the Application Insights SDK to your cloud service](../application-insights/app-insights-cloudservices.md) to send data about requests, exceptions, dependencies, and any custom telemetry from your application. Combined with the Azure Diagnostics data you can get a complete view of your application and system all in the same Application Insight resource.  
 
 
 <!--Image references-->
