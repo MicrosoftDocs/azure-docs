@@ -17,7 +17,7 @@
 
 # Azure Event Hubs overview
 
-Many modern solutions intend to provide adaptive customer experiences or to improve products through continuous feedback and automated telemetry. Such solutions are faced with the challenge of how to securely and reliably process very large amounts of information from many concurrent publishers. Microsoft Azure Event Hubs is a managed platform service that provides a foundation for large-scale data intake in a broad variety of scenarios. Examples of such scenarios are behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry data collected from industrial machines or connected vehicles. The common role that Event Hubs plays in solution architectures is that it acts as the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event producers and event consumers to decouple the production of an event stream from the consumption of those events.
+Many modern solutions intend to provide adaptive customer experiences or to improve products through continuous feedback and automated telemetry. Such solutions are faced with the challenge of how to securely and reliably process very large amounts of information from many concurrent publishers. Microsoft Azure Event Hubs is a managed platform service that provides a foundation for large-scale data intake in a broad variety of scenarios. Examples of such scenarios are behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry data collected from industrial machines or connected vehicles. The common role that Event Hubs plays in solution architectures is that it acts as the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events.
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
@@ -144,7 +144,7 @@ For detailed pricing information, see [Event Hubs Pricing](http://azure.microsof
 
 ### Publisher policy
 
-Event Hubs enables granular control over event producers through *publisher policies*. Publisher policies are a set of run-time features designed to facilitate large numbers of independent event producers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
+Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are a set of run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 

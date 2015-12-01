@@ -3,7 +3,7 @@
    description="Article provides an introduction for generating, collecting, and analyzing security logs from services hosted on Azure.  It is intended for IT professionals and security analysts who deal with information asset management on a daily basis, including those responsible for their organization's security and compliance efforts."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Microsoft Azure security and audit log management
