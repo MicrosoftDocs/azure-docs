@@ -29,7 +29,7 @@ This guide shows you how to perform common scenarios using the managed client li
 
 ## Reference documentation
 
-The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET Client Reference](https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.aspx).
+The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET Client Reference](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.aspx).
 
 ##<a name="setup"></a>Setup and Prerequisites
 

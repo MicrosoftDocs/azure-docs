@@ -25,7 +25,7 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 
 ## Reference documentation
 
-The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference](https://msdn.microsoft.com/en-us/library/azure/dn961176.aspx).
+The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176.aspx).
 
 ## <a name="create-app"></a>How to: Create a .NET backend for your mobile application
 
