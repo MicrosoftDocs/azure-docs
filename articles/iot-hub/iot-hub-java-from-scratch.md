@@ -36,9 +36,9 @@ See [Prepare your development environment][devbox-setup] for information about p
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-  > [AZURE.NOTE] This is a single, long command. Make sure you copy the complete command if you want to paste it into you command-line tool.
+    > [AZURE.NOTE] This is a single, long command. Make sure you copy the complete command if you want to paste it into you command-line tool.
 
-  This command creates a project folder named *iot-device* that has the standard Maven project structure. For more information, see [Maven in 5 Minutes][maven-five-minutes] on the Apache website.
+    This command creates a project folder named *iot-device* that has the standard Maven project structure. For more information, see [Maven in 5 Minutes][maven-five-minutes] on the Apache website.
 
 2. Open the **pom.xml** file in the iot-device folder in a text editor.
 
@@ -152,7 +152,7 @@ See [Prepare your development environment][devbox-setup] for information about p
   - Opens the **DeviceClient** to enable it to send device-to-cloud messages and receive cloud-to-device messages.
   - Sends ten sample messages to your IoT hub.
 
-  Replace `<your device connection string>` with a valid device connection string. You can provision a device and retrieve its connection string using either the [DeviceExplorer][lnk-device-explorer] tool or the [IoT Hub Explorer][lnk-iothub-explorer] tool.
+    Replace `<your device connection string>` with a valid device connection string. You can provision a device and retrieve its connection string using either the [DeviceExplorer][lnk-device-explorer] tool or the [IoT Hub Explorer][lnk-iothub-explorer] tool.
 
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException
