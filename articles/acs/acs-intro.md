@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Container Sercvice Introduvtion | Microsoft Azure"
+   pageTitle="Azure Container Sercvice Introduction | Microsoft Azure"
    description="Azure Container Service (ACS) provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications."
    services="virtual-machines"
    documentationCenter=""
@@ -11,12 +11,14 @@
    
 <tags
    ms.service="virtual-machines"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="home-page"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/02/2015"
    ms.author="rogardle"/>
+
+# Azure Container Service Introduction
 
 <!---
 \[FIXME:Video 1: short introduction:
