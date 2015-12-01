@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # iOS authentication with Azure Mobile Apps
