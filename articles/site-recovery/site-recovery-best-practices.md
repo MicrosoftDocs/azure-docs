@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get ready to deploy Azure Site Recovery"
+	pageTitle="Prepare for Azure Site Recovery deployment"
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises servers to Azure or to a secondary datacenter."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/22/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
-# Get ready to deploy Azure Site Recovery
+# Prepare for Azure Site Recovery deployment
 
 ## About this article
 
