@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What workloads does Azure Site Recovery support?" 
+	pageTitle="What workloads can you protect with Azure Site Recovery?" 
 	description="Azure Site Recovery protects your workloads and applications by coordinating the replication, failover and recovery of on-premises virtual machines and physical servers to Azure or to a secondary on-premises site" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/22/2015" 
+	ms.date="12/01/2015" 
 	ms.author="raynew"/>
 
-# Site Recovery Workload Guidance
+# What workloads can you protect with Azure Site Recovery?
 
 Azure Site Recovery enables customers to deploy application-aware availability solutions that contribute to your organization's business continuity and disaster recovery (BCDR) strategy. Whether it's Windows Server or Linux-based apps, Microsoft enterprise applications or offerings from other vendors, you can use Azure Site Recovery to enable disaster recovery, on-demand development and testing environments, and cloud migration.
 
