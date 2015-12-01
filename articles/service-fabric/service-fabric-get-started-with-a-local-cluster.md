@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="11/20/2015"
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading applications on your local cluster
@@ -133,7 +133,7 @@ The new version of the application will now only count words that begin with a v
 2. Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster and begin upgrading fabric:/WordCount.
 
     ```powershell
-    Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" @{"UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
+    Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
 
     You should see output in PowerShell that looks something like this as the upgrade begins.

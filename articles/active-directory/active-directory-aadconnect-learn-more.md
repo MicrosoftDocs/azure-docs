@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="Azure Active Directory Connect - Learn More"
 	description="Learn more about Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="andkjell"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/24/2015"
-	ms.author="billmath"/>
+	ms.author="billmath;andkjell"/>
 
 # Azure Active Directory Connect - Learn More
 

@@ -38,6 +38,7 @@ U-SQL | Grammar Railroad Diagrams |  1 | in progress, using [this](http://bottle
 Service | Securing Jobs, Data and Tables in Data Lake Analytics |1| in progress | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 Service | Moving job output to SQL Data Warehouse using Data Factory |1 | in progress | [@mumian](https://github.com/mumian) | 
 Tools  | Using the Diagnostics Tooling | 1 | Pending | [@mumian](https://github.com/mumian) | 
+U-SQL  | Explain Techniques for doing range-based JOINs | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 

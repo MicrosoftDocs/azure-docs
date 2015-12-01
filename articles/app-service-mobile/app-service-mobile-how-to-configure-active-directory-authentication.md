@@ -40,7 +40,9 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
     ![][0]
 	
-16. By default, App Service provides login but does not restrict access to your site content and APIs - this is the responsibility of your app code. If you wish to have the site completely protected by Azure Active Directory login, change the **Action to take when request is not authenticated** dropdown to use the **Azure Active Directory** option. This will require all requests to be authenticated; unauthenticated requests will be redirected to log in with Azure Active Directory.
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+
+17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
 17. Click **Save**. 
 
@@ -94,11 +96,37 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 
     ![][1]
 	
-16. By default, App Service provides login but does not restrict access to your site content and APIs - this is the responsibility of your app code. If you wish to have the site completely protected by Azure Active Directory login, change the **Action to take when request is not authenticated** dropdown to use the **Azure Active Directory** option. This will require all requests to be authenticated; unauthenticated requests will be redirected to log in with Azure Active Directory.
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+
+17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
 17. Click **Save**. 
 
 You are now ready to use Azure Active Directory for authentication in your app. 
+
+## (Optional) Configure a native client application
+
+Azure Active Directory also allows you to register native clients, which provides greater control over permissions mapping. You need this if you wish to perform logins using a library such as the **Active Directory Authentication Library**.
+
+1. Navigate to **Active Directory** in the [Azure Management Portal].
+
+2. Select your directory, and then select the **Applications** tab at the top. Click **ADD** at the bottom to create a new app registration. 
+
+3. Click **Add an application my organization is developing**.
+
+4. In the Add Application Wizard, enter a **Name** for your application and click the  **Native Client Application** type. Then click to continue.
+
+5. In the **Redirect URI** box, enter your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+
+6. Once the native application has been added, click the **Configure** tab. Find the **Client ID** and make a note of this value.
+
+7. Scroll the page down to the **Permissions to other applications** section and click **Add application**.
+
+8. Search for the web application that you registered earlier and click the plus icon. Then click the check to close the dialog.
+
+9. On the new entry you just added, open the **Delegated Permissions** dropdown and select **Access (appName)**. Then click **Save**.
+
+You have now configured a native client application which can access your App Service application.
 
 ## <a name="related-content"> </a>Related Content
 

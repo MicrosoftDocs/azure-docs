@@ -3,7 +3,7 @@
 	description="Application Insights performs deep analysis of your app telemetry and warns you of potential problems." 
 	services="application-insights" 
     documentationCenter="windows"
-	authors="antonfr" 
+	authors="antonfrMSFT" 
 	manager="douge"/>
 
 <tags 
@@ -25,6 +25,8 @@ Application Insights performs deep analysis of your app telemetry, and can warn 
 ## What is Proactive Detection?
 
 Proactive detection uses machine learning and data mining algorithms to detect abnormal patterns that impact application performance. Proactive detection automatically analyzes performance telemetry collected by Application Insights. It sends you email about any abnormal performance in the application. You don't have to set any thresholds rules. Proactive detection notifications are  integrated with Application Insights analytics capabilities which enables a quick triage and diagnosis of the issues. 
+
+Proactive detection is in preview and isn't available for all Application Insights users yet. If you would like to try it out, please contact AppInsightsML@microsoft.com and we will work with you to set it up.
 
 ## About the proactive alert
 
@@ -107,10 +109,8 @@ There's a web full of advice on improving your server responses and page load ti
 * *Do I have to subscribe to this service in order to receive notifications?*
  * No. Our bot periodically surveys the data from all Application Insights users, and sends notifications if it detects problems.
 * *Can I unsubscribe or get the notifications sent to my colleagues instead?*
- * Click the link in the alert or email. Open anomaly settings.
+ * Click the unsubscribe link in the alert or email. 
  
-    ![](./media/app-insights-proactive-detection/01.png)
-
     Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
 * *I don't want to be flooded with these messages.*
  * They are limited to one per day. You won't get repeats of any message.

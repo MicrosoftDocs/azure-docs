@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Integrating Applications with Azure Active Directory
@@ -350,4 +350,4 @@ In order for a company administrator to remove an app’s access to their direct
 
 - Understand the [Azure Active Directory application manifest](active-directory-application-manifest.md)
 
-- Visit the [Active Directory developer's guide](active-directory-developer's guide.md)
+- Visit the [Active Directory developer's guide](active-directory-developers-guide.md)
