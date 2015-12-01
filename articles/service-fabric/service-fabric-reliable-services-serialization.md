@@ -54,8 +54,8 @@ To use a custom serializer for a given type, we need to
 ### How to implement a custom serializer
 Custom serializers need to implement the IStateSerializer<T> interface.
 The two core methods in this interface are
-- T Read(BinaryReader binaryReader);
-- void Write(T value, BinaryWriter binaryWriter);
+* T Read(BinaryReader binaryReader);
+* void Write(T value, BinaryWriter binaryWriter);
 
 First is used by the ReliableObject to read the serialized object from a stream using a BinaryReader.
 Second is used for the reverse operation: to write the object into a stream using a Binary Writer.
@@ -140,12 +140,12 @@ For DataContract versioning see [Data Contract Versioning](https://msdn.microsof
 If a breaking change is required, state needs to be moved from a service instance with the old data version to a service with the new data version at application level.
 
 ### When is a serializer used
- 1. Write operations on Reliable Objects will cause it to be serialized, replicated, and stored in a Log.
- 2. After enough operations are logged, the latest data from memory is serialized and checkpointed to disk.
- 3. For re-building a replica, the checkpointed files on disk and recent data from the Log are directly sent byte-for-byte (i.e. the data is not re-serialized) from a primary replica. These bytes are deserialized into C# objects on the secondary replica.
- 4. During recovery, the checkpoint files and recent data Log are deserialized.
- 5. During backup, the checkpoint files and recent log data are copied byte-for-byte.
- 6. During restore, the previously backed up checkpoint files and Log data are copied back into place and will be deserialized.
+ * Write operations on Reliable Objects will cause it to be serialized, replicated, and stored in a Log.
+ * After enough operations are logged, the latest data from memory is serialized and checkpointed to disk.
+ * For re-building a replica, the checkpointed files on disk and recent data from the Log are directly sent byte-for-byte (i.e. the data is not re-serialized) from a primary replica. These bytes are deserialized into C# objects on the secondary replica.
+ * During recovery, the checkpoint files and recent data Log are deserialized.
+ * During backup, the checkpoint files and recent log data are copied byte-for-byte.
+ * During restore, the previously backed up checkpoint files and Log data are copied back into place and will be deserialized.
 
 ## Next steps
  * [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
