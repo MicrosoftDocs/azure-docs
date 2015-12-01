@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric application deployment"
+   pageTitle="Service Fabric application deployment | Microsoft Azure"
    description="How to deploy and remove applications in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
