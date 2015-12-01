@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CDN - Overriding default HTTP behavior using the rules engine " 
+	pageTitle="CDN - Overriding default HTTP behavior using the rules engine" 
 	description="The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers." 
 	services="cdn" 
 	documentationCenter=".NET" 
@@ -21,6 +21,8 @@
 ## Overview
 
 The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifing HTTP headers.  This tutorial will demonstrate the creation of a rule that will change the caching behavior of CDN assets.
+
+> [AZURE.NOTE] Rules engine is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
 
 ## Tutorial
 
@@ -59,6 +61,12 @@ The rules engine allows you to customize how HTTP requests are handled, such as 
 ## Considerations
 
 - The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
+
+## See also
+* [Azure CDN Overview](cdn-overview.md)
+* [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Advanced HTTP Reports](cdn-advanced-http-reports.md)
+* [Analyze Edge Performance](cdn-edge-performance.md)
 
 
 	

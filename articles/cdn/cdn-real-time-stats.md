@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/2/2015" 
+	ms.date="12/02/2015" 
 	ms.author="casoper"/>
 
 # Real-time stats in Microsoft Azure CDN
@@ -94,4 +94,7 @@ You can also choose to temporarily hide logged data for a particular response co
 This graphical representation of the average number of connections per minute allows you to view how many connections have been established to your servers. A connection consists of each request for an asset that passes through our CDN.
 
 ## See also
-[Azure CDN Overview](cdn-overview.md)
+* [Azure CDN Overview](cdn-overview.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Advanced HTTP Reports](cdn-advanced-http-reports.md)
+* [Analyze Edge Performance](cdn-edge-performance.md)

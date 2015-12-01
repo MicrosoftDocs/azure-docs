@@ -202,3 +202,6 @@ URL Rewrite  | Rewrites the request URL.
 
 The Web Application Firewall feature determines whether a request will be screened by Web Application Firewall. 
 
+## See also
+* [Azure CDN Overview](cdn-overview.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)

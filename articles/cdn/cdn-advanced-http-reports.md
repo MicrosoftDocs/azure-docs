@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/31/2015" 
+	ms.date="12/02/2015" 
 	ms.author="casoper"/>
 
 # Advanced HTTP reports in Microsoft Azure CDN
@@ -191,4 +191,7 @@ The left-hand side of the graph (y-axis) indicates the file name for each of the
 Directly below the bar chart, the following information will be listed for the top 250 requested assets: relative path (including file name), the number of requests that resulted in a 404 Not Found status code, the total number of times that the asset was requested, and the percentage of requests that resulted in a 404 Not Found status code.
 
 ## See also
-[Azure CDN Overview](cdn-overview.md)
+* [Azure CDN Overview](cdn-overview.md)
+* [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
+* [Analyze Edge Performance](cdn-edge-performance.md)
