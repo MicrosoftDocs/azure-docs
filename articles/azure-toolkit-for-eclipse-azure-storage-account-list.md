@@ -36,7 +36,7 @@ This dialog can also be opened from an **Accounts** link on dialog boxes that us
 ## To import your storage accounts using a publish settings file ##
 
 1. Within the **Storage Accounts** dialog, click **Import from PUBLISH-SETTINGS file**.
-2. (Skip this step if you have already saved a publish settings file to your local machine.) In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you&#39;ll be prompted to save an Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages - they are provided by the Azure portal and are intended for Visual Studio users.) Save it to your local machine.
+2. (Skip this step if you have already saved a publish settings file to your local machine.) In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages - they are provided by the Azure portal and are intended for Visual Studio users.) Save it to your local machine.
 3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally previously, and then click **Open**.
 4. Click **OK** to close the **Import Subscription Information** dialog.
 
@@ -90,7 +90,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552

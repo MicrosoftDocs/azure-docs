@@ -66,7 +66,7 @@ Within the **Caching** property page, you can specify global settings for the fo
 * the cache size as a percent of memory.
 * the storage account name for saving the cache state when your application runs as a cloud service, or none if you do not want to save the cache state. (The storage account name is not used when you run your application in the compute emulator.) If you set the storage account name to **(auto)** (which is the default), your caching configuration will automatically use the same storage account as the one you select in the **Publish to Azure** dialog.
 
->[AZURE.NOTE] The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the Azure management portal, the deployment will not function properly.
+>[AZURE.NOTE] The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][], the deployment will not function properly.
 
 The following dialog shows the properties for a cache.
 
@@ -406,6 +406,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
