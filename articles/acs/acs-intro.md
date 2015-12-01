@@ -36,8 +36,6 @@ trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)
 Using Azure Container Service
 -----------------------------
 
- 
-
 Our goal with the Azure Container Service is to provide a container
 hosting environment, using open source tools and technologies, which are
 popular among our customers today. To this end, we expose the standard
@@ -46,12 +44,6 @@ endpoints you can leverage any software that is capable of talking to
 those endpoints. For example, in the case of the Docker Swarm endpoint
 you might choose to use Docker Compose, while for Apache Mesos you may
 choose to use the DCOS CLI.
-
- 
-
-![A Typical configuration of an ACS cluster, showing jumpbox, agents and masters.](media/acs-intro/acs-resource-group.png)
-
-  
 
 Creating a Docker Cluster Using Azure Container Service
 -------------------------------------------------------
@@ -78,15 +70,19 @@ Deploying an Application
 ------------------------
 
 During preview we provide a choice of either Docker Swarm or Apache
-Mesos as the orchestration engine. Should there be sufficient demand for
-additional orchestration options we will add them in due course.
+Mesos (with DCOS Marathon and DCOS Chronos frameworks)
+for orchestration. 
 
 ### Using Apache Mesos
 
 Apache Mesos is an open source project housed at the Apache Software
 Foundation. It lists some of the [biggest names in
 IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
-users and contributors, and packs an impressive features set.
+users and contributors.
+
+![ACS configured for Swarm showing agents and masters.](media/acs-intro/acs-mesos.png)
+
+Mesos packs an impressive features set.
 
 -   Scalability to 10,000s of nodes
 
@@ -116,7 +112,7 @@ handles dependencies and time based schedules.
 
 Marathon and Chronos provide a Web UI from which you can deploy your
 applications. You will access this at an URL that looks something like
-[http://DNS\_PREFIX.REGION.cloudapp.azure.com](http://dns_prefix.region.cloudapp.azure.com/)
+`http://DNS\_PREFIX.REGION.cloudapp.azure.com`
 where DNS\_PREFIX and REGION are both defined at deployment time. Of
 course, you can also provide your own DNS name.
 
@@ -136,7 +132,11 @@ Using Docker Swarm
 Docker Swarm provides native clustering for Docker. Because Docker Swarm
 serves the standard Docker API, any tool that already communicates with
 a Docker daemon can use Swarm to transparently scale to multiple hosts
-on Azure Container Service. Supported tools include, but are not limited
+on Azure Container Service. 
+
+![ACS configured to use Apache Mesos, showing jumpbox, agents and masters.](media/acs-intro/acs-swarm.png)
+
+Supported tools for managing containers on a Swarm cluster include, but are not limited
 to, the following:
 
 -   Dokku
