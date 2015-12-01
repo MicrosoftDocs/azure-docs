@@ -42,7 +42,7 @@ To start a backup, the service needs to invoke **IReliableStateManager.BackupAsy
 As shown below, the simplest overload of **BackupAsync** takes in Func<< BackupInfo, bool >> called **backupCallback**.
 
 ```C#
-BackupInfo backupInfo = await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+await this.StateManager.BackupAsync(this.BackupCallbackAsync);
 ```
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (BackupInfo.Directory). The callback function expects to move the BackupInfo.Directory to an external Store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
