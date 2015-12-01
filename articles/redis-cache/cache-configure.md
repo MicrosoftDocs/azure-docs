@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/09/2015"
+   ms.date="11/30/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
 
 This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.
 
->[AZURE.NOTE] The Azure Redis Cache Premium tier is currently in preview. During the preview period, premium features can only be configured during the cache creation process. For more information on using premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md), [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
+>[AZURE.NOTE] For more information on configuring and using premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md), [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 ## Configure Redis cache settings
 
