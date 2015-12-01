@@ -20,7 +20,7 @@
 
 This article contains instructions for downloading and installing the Azure Libraries for Java.
 
->[AZURE.NOTE] The Azure Libraries for Java are distributed under the [Apache License, Version 2.0][license].
+**Note:** The Azure Libraries for Java are distributed under the [Apache License, Version 2.0][license].
 
 ## Azure Libraries for Java - Manual Download ##
 
@@ -32,15 +32,15 @@ Once you have downloaded the zip file to your computer, extract the contents and
 
 For detailed information on setting up build paths in Eclipse, see the [Java Build Path][] article at the Eclipse website.
 
->[AZURE.NOTE] See the license.txt and ThirdPartyNotices.txt file file inside the ZIP for license and other information.
+**Note:** See the license.txt and ThirdPartyNotices.txt file file inside the ZIP for license and other information.
 
 ## Azure Libraries for Java - Building with Maven ##
 
-### Set up your project to use Maven for build ###
+### Step 1 - Set up your project to use Maven for build ###
 
 To create Maven projects in Eclipse which use the Azure libraries for Java, following the instructions in the [Getting Started with Azure Management Libraries for Java][maven-getting-started] article. 
 
-### Configure your Maven settings with the requisite dependencies ### 
+### Step 2 - Configure your Maven settings with the requisite dependencies ###
 
 Once your project has been configured to use Maven for build, you can add the the requisite dependencies to your pom.xml file using syntax like the following example. Note that you do not need to add every dependency that is listed in the following example; you only need to add the specific dependencies which your project requires.
 
@@ -90,7 +90,7 @@ Once your project has been configured to use Maven for build, you can add the th
         <version>0.6.0</version>
     </dependency>
 
->[AZURE.NOTE] Within each `<version>` element in the preceding example, replace the version numbers in this example with valid version numbers, which can be obtained from the [Azure Libraries Repository on Maven][].
+**Note:** Within each `<version>` element in the preceding example, replace the version numbers in this example with valid version numbers, which can be obtained from the [Azure Libraries Repository on Maven][].
 
 ## Installing the Azure Toolkit for Eclipse ##
 
@@ -102,7 +102,7 @@ This section contains basic instructions for installing the Azure Toolkit for Ec
 1. Macintosh or Linux operting systems listed in the [What's New in the Azure Toolkit for Eclipse][] article.
 1. Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
 
-### Basic Installation steps ### 
+### Basic Installation steps ###
 
 1. In Eclipse, from the **Help** menu, select **Install New Software**.
 1. Enter the site location <http://dl.msopentech.com/eclipse> and press **Enter**.
