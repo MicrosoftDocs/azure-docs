@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Map storage in Azure Site Recovery for Hyper-V virtual machine replication between on-premises datacenters | Microsoft Azure"
-	description="Set up storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery."
+	description="Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -17,7 +17,7 @@
 	ms.author="raynew"/>
 
 
-# Map storage in Azure Site Recovery for Hyper-V virtual machine replication between on-premises datacenters
+# Prepare storage mapping for Hyper-V virtual machine replication between two on-premises datacenters with Azure Site Recovery
 
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. This article describes storage mapping, which helps you make optimal use of storage when you're using Site Recovery to replicate Hyper-V virtual machines between two on-premises datacenters.
@@ -26,7 +26,7 @@ After reading this article post any questions on the [Azure Recovery Services Fo
 
 ## Overview
 
-Storage mapping is only relevant when you're replicating Hyper-V virtual machines that are located in VMM clouds from a primary datacenter to a secondary datacenter using Hyper-V Replica or SAN replication. 
+Storage mapping is only relevant when you're replicating Hyper-V virtual machines that are located in VMM clouds from a primary datacenter to a secondary datacenter using Hyper-V Replica or SAN replication, as follows:
 
 
 - **On-premises to on-premises replication with Hyper-V Replica)**—You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
