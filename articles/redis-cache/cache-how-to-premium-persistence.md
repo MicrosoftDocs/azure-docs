@@ -55,7 +55,7 @@ Redis persistence is configured on the **Redis data persistence** blade. For new
 
 To enable Redis persistence, click **Enabled** to enable RDB (Redis database) backup. To disable Redis persistence on a previously enabled premium cache, click **Disabled**.
 
-Select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
+To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
 
 Click **Storage Account** to select the storage account to use, and choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. 
 
@@ -65,7 +65,7 @@ Click **Storage Account** to select the storage account to use, and choose eithe
 
 Click **OK** to save the persistence configuration.
 
-After the cache is created, the first backup is initiated once the backup frequency interval elapses.
+The next backup (or first backup for new caches) is initiated once the backup frequency interval elapses.
 
 
 
