@@ -28,7 +28,7 @@ enterprise grade features of Azure while still maintaining application
 portability, including at the orchestration layers.
 
 While the service is in preview, we ask that those interested in testing
-the service self-nominate \[FIXME: add link\]. You will first need an
+the service [self-nominate](http://aka.ms/acspreview). You will first need an
 Azure Subscription, if you don’t have one yet then why not sign up for a
 [free
 trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
@@ -56,7 +56,7 @@ choose to use the DCOS CLI.
 Creating a Docker Cluster Using Azure Container Service
 -------------------------------------------------------
 
-Once you have requested \[FIXME: add link\] and been granted access to
+Once you have [requested](http://aka.ms/acspreview) and been granted access to
 the preview, you can use one of a number of Azure Resource Manager
 templates that allow you to deploy your first cluster through the Azure
 Portal. Using these templates, you can quickly create a service and
@@ -154,6 +154,6 @@ Getting Started
 ---------------
 
 While the service is in preview we ask that those interested testing the
-service self-nominate \[FIXME: add link\]. You will first need an Azure
+service [self-nominate](http://aka.ms/acspreview). You will first need an Azure
 Subscription, if you don’t have one yet then why not sign up for a [free
 trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
