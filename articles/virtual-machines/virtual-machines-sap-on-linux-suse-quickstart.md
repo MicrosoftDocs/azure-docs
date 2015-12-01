@@ -29,7 +29,7 @@ The following list should simply help to avoid some potential pitfalls and make 
 
 
 
-## SUSE Images on Microsoft Azure for testing SAP NetWeaver
+## SUSE Images on Microsoft Azure for testing SAP 
 
 For SAP testing on Azure only SLES 11SP4 and SLES 12 should be used. A special SUSE image can
 be found in the Azure image gallery : "SLES 11 SP3 for SAP CAL"
@@ -150,6 +150,7 @@ one single VM including SAP GUI, Browser, SAP management console and so on a lit
 installing it on the Azure SLES images :
 
    SLES 11
+
    ```
    zypper in -t pattern gnome
    ```
