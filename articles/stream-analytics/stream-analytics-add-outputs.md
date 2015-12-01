@@ -52,7 +52,7 @@ To add an output to your Stream Analytics job:
 
     ![Azure preview portal Add event hub](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)  
 
-Note that when you add an output element, the element must already exist. For instance, if you add Azure Table Storage, the table must already exist.
+> [Azure.Note] Any output element added to the job, must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
