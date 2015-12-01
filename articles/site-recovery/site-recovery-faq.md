@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="11/22/2015" 
+	ms.date="12/01/2015" 
 	ms.author="raynew"/>
 
 
 # Azure Site Recovery: Frequently asked questions (FAQ)
 ## About this article
 
-This article includes frequently asked questions about Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+This article includes frequently asked questions about Site Recovery. If you have questions after reading through theh FAQ, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Support
