@@ -41,28 +41,28 @@ All new tests on Azure should be done with Azure Resource Manager. To look for S
 and versions using Azure Powershell or CLI use the following commands. The output can then be used
 e.g. to define the OS image in a json template for deploying a new SUSE Linux VM :
 
-1. look for existing publishers including SUSE :
+* look for existing publishers including SUSE :
 
    ```
    PS  : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
    CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 
-2. look for existing offerings from SUSE :
+* look for existing offerings from SUSE :
       
    ```
    PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
       
-3. look for SUSE SLES offerings :
+* look for SUSE SLES offerings :
       
    ```
    PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    CLI : azure vm image list-skus westeurope SUSE SLES
    ```
       
-4. look for a specific version of a SLES sku :
+* look for a specific version of a SLES sku :
       
    ```
    PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
