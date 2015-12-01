@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -54,7 +54,7 @@ The list of error numbers that are categorized as transient faults is available 
 ## C# code sample
 
 
-The C# code sample in the present topic contains custom detection and retry logic to handle transient errors.
+The C# code sample in the present topic contains custom detection and retry logic to handle transient errors. The sample assumes .NET Framework 4.5.1 or later is installed.
 
 
 The code sample follows a few basic guidelines or recommendations that apply regardless of which technology you use to interact with Azure SQL Database. You can see the general recommendations at:
@@ -131,8 +131,6 @@ namespace RetryAdo2
 			int retryIntervalSeconds = 10;
 			bool returnBool = false;
 
-			Program program = new Program();
-
 			for (int tries = 1; tries <= 5; tries++)
 			{
 				try
@@ -142,8 +140,7 @@ namespace RetryAdo2
 						H.Thread.Sleep(1000 * retryIntervalSeconds);
 						retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
 					}
-
-					program.GetSqlConnectionStringBuilder(out sqlConnectionSB);
+					this.GetSqlConnectionStringBuilder(out sqlConnectionSB);
 
 					sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
 
@@ -193,6 +190,10 @@ SELECT TOP 3
 			_sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
 			_sqlConnectionSB["Password"] = "MyPassword";
 			_sqlConnectionSB["Database"] = "MyDatabase";
+
+			// Adjust these values if you like. (.NET 4.5.1 or later.)
+			_sqlConnectionSB["ConnectRetryCount"] = 3;
+			_sqlConnectionSB["ConnectRetryInterval"] = 10;  // Seconds.
 
 			// Leave these values as they are.
 			_sqlConnectionSB["Trusted_Connection"] = false;

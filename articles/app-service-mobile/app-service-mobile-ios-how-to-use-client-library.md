@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -198,6 +198,21 @@ Alternatively, delete by providing a row ID:
 
 At minimum, the `id` attribute must be set when making deletes.
 
+##<a name="templates"></a>How to: Register push templates to send cross-platform notifications
+
+To register templates, simply pass along templates with your **client.push registerDeviceToken** method in your client app.
+
+        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+        	...
+        }];
+
+Your templates will be of type NSDictionary and can contain multiple templates in the following format:
+
+        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+
+Note that all tags will be stripped away for security. To add tags to installations or templates within installations, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+
+To send notifications utilizing these registered templates, work with [Notification Hubs APIs](https://msdn.microsoft.com/library/azure/dn495101.aspx)
 
 ##<a name="errors"></a>How to: Handle Errors
 
