@@ -135,14 +135,14 @@ If you specify an instance, it will be collected as a property "CounterInstanceN
 If you prefer, you can write code to have the same effect:
 
     var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollector.Counters.Add(new PerformanceCounterCollectionRequest(
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)\# Items Sold", "Items sold"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
 In addition, if you want to collect system performance counters and push them to Application Insights, you can use the snippet below:
 
     var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollector.Counters.Add(new PerformanceCounterCollectionRequest(
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
