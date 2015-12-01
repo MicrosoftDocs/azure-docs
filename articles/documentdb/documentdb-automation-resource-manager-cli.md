@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB Automation - Resource Manager - CLI | Microsoft Azure"
-	description="Use Azure Resource Manager templates or Azure CLI to deploy a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
+	description="Use Azure Resource Manager templates or CLI to deploy a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
 	services="documentdb"
 	authors="mimig1"
 	manager="jhubbard"
@@ -23,12 +23,12 @@
 - [Azure Portal](documentdb-create-account.md)
 - [Azure CLI and ARM](documentdb-deploy-armtemplates-powershell.md)
 
-This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure CLI. 
+This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure Command-Line Interface (CLI). 
 
 - [Create a DocumentDB account using CLI](#quick-create-documentdb-account)
 - [Create a DocumentDB account using an ARM template](#deploy-documentdb-from-a-template)
 
-DocumentDB accounts are currently the only DocumentDB resource that can be created using ARM templates and the Azure CLI.
+DocumentDB database accounts are currently the only DocumentDB resource that can be created using ARM templates and the Azure CLI.
 
 ## Getting ready
 
@@ -36,18 +36,18 @@ Before you can use the Azure CLI with Azure resource groups, you need to have th
 
 ### Update your Azure CLI version
 
-At the command prompt, type `azure --version` to see whether you have already installed version 0.9.10 or later.
+At the command prompt, type `azure --version` to see whether you have already installed version 0.9.11 or later.
 
 	azure --version
-    0.9.10 (node: 0.12.7)
+    0.9.11 (node: 0.12.7)
 
-If your version is not 0.9.10 or later, you need to either [install the Azure CLI](../xplat-cli-install.md) or update by using one of the native installers or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
+If your version is not 0.9.11 or later, you need to either [install the Azure CLI](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
 
 ### Set your Azure account and subscription
 
 If you don't already have an Azure subscription but you do have a Visual Studio subscription, you can activate your [Visual Studio subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-You need to have a work or school account or a Microsoft account identity to use Azure resource management templates. If you have one, type the following command and follow the prompts to log in.
+You need to have a work or school account or a Microsoft account identity to use Azure resource management templates. If you have one of these accounts, type the following command.
 
 	azure login
 
@@ -64,14 +64,15 @@ Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and e
 
 ![Screenshot showing the device login screen for Microsoft Azure CLI](media/documentdb-automation-resource-manager-cli/azure-cli-login-code.png)
 
-Once you've entered the code, select the identity you want to use in the browser.
+Once you've entered the code, select the identity you want to use in the browser and provide your user name and password if needed.
 
 ![Screenshot showing where to select the Microsoft identity account associated with the Azure subscription you want to use](media/documentdb-automation-resource-manager-cli/identity-cli-login.png)
 
+You'll receive the following confirmation screen when you're successfully logged in, and you can then close the browser window.
 
-![Screenshot showing confirmation of login to the Windows Azure Cross-platform Command Line Interface](media/documentdb-automation-resource-manager-cli/login-confirmation.png)
+![Screenshot showing confirmation of login to the Microsoft Azure Cross-platform Command Line Interface](media/documentdb-automation-resource-manager-cli/login-confirmation.png)
 
-When that process completes, the command shell provides the following output, at which time you can close the browser window.
+The command shell also provides the following output.
 
     -info:    Added subscription Visual Studio Ultimate with MSDN
 	+
@@ -85,17 +86,21 @@ By default, the Azure CLI starts in the service management mode (**asm** mode). 
 
 	azure config mode arm
 
+Which provides the following output:
+
+	info:    New mode is arm
+
 You can switch back to the default set of commands by typing `azure config mode asm`.
 
 ## <a id="quick-create-documentdb-account"></a>Task: Create a DocumentDB account using CLI
 
-In order to create a DocumentDB account, you first need a resource group. If you already have a resource group that you'd like to use, skip to [Step 2](#create-documentdb-account-cli).
+Use the instructions in this section to create a DocumentDB account with Azure CLI. 
 
 ### Step 1: Create or retrieve your resource group
 
-In order to create a DocumentDB account, you first need a resource group. 
+In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, skip to [Step 2](#create-documentdb-account-cli).
 
-If you already have a resource group that you'd like to use, skip to [Step 3](#create-account-from-template). To  review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
+To review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
     azure group list
 
@@ -115,7 +120,7 @@ Which produces the following output:
     info:    Created resource group new_res_group
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/new_res_group
     data:    Name:                new_res_group
-    data:    Location:            West US
+    data:    Location:            westus
     data:    Provisioning State:  Succeeded
     data:    Tags: null
     data:
@@ -127,7 +132,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 Create a DocumentDB account in the new or existing resource group by entering the following command at the command prompt:
 
-> [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the normal Windows Command Prompt. 
+> [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
 
     azure resource create -g <resourceGroupName> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{\"databaseAccountOfferType\":\"Standard\"}" 
 
@@ -153,7 +158,7 @@ Which produces the following output as your new account is provisioned:
 
 If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the DocumentDB Accounts blade.
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
 ## <a id="deploy-documentdb-from-a-template"></a>Task: Create a DocumentDB account using an ARM template
 
@@ -194,31 +199,31 @@ Create a local template file with the following content. Name the file azuredepl
         ]
     }
 
-This template requires only one parameter, the DocumentDB database account name to create. The location of the new database account is set to the same location as the resource group.
+This template requires only one parameter, the database account name to create. The location of the new database account is set to the same location as the resource group.
 
 Because the template only takes one parameter, you can either enter the value at the command line, or create a parameter file to specify the value. 
 
-To create a parameter file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
+To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "databaseAccountName": {
-                "value": "sampledatabasename"
+                "value": "samplearmacct"
             }
         }
     }
 
-In the azuredeploy.parameters.json file, update the value "sampledatabasename" to the database name you'd like to use, then save the file. 
+In the azuredeploy.parameters.json file, update the value "samplearmacct" to the database name you'd like to use, then save the file. 
 
 > [AZURE.TIP] Database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters.
 
 ### Step 2: Create or retrieve your resource group
 
-In order to create a DocumentDB account, you first need a resource group. 
+In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, skip to [Step 3](#create-account-from-template).
 
-If you already have a resource group that you'd like to use, skip to [Step 3](#create-account-from-template). To  review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
+To review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
     azure group list
 
@@ -258,7 +263,7 @@ For example:
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
-OR to specify the database account name parameter without a parameter file, and instead get prompted for the value:
+OR to specify the database account name parameter without a parameter file, and instead get prompted for the value, run the following command:
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
@@ -267,9 +272,9 @@ For example (which shows the prompt and entry for a database account named new\_
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    databaseAccountName: new_db_acct
+    databaseAccountName: newarmacct
 
-As the account is provisioned, you will receive the following type of information: 
+As the account is provisioned, you will receive the following information: 
 
     info:    Executing command group deployment create
     + Initializing template configurations and parameters
@@ -283,15 +288,17 @@ As the account is provisioned, you will receive the following type of informatio
     data:    Mode               : Incremental
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
-    data:    databaseAccountName  String  sampledatabasename
+    data:    databaseAccountName  String  newarmacct
     data:    location             String  West US
     info:    group deployment create command OK
 
 If you encounter errors, see [Troubleshooting](#troubleshooting).  
 
+After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
+
 ## Troubleshooting
 
-If you encounter errors while creating your resource group or database account,  such as `Deployment provisioning state was not successful`, use the following command to view the log for the resource group.
+If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, use the following command to view the log for the resource group.
 
     azure group log show <resourcegroupname> --last-deployment
 
@@ -301,14 +308,14 @@ For example:
 
 Then see [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md) for additional  information.
 
-Remember that database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters. 
+Remember that database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. 
 
 ## Next steps
 
 Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
 
 - The Azure portal, as described in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md).
-- The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
+- The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
 - The [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. 
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections. 
