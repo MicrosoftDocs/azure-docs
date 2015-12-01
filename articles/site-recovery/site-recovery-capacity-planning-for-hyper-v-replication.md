@@ -11,13 +11,13 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
+	ms.workload="storage-backup-recovery"
 	ms.date="12/01/2015"
-	ms.author="raynew/>
+	ms.author="raynew" />
 
 # Plan capacity for Hyper-V virtual machine replication
 
-Azure Site Recovery uses Hyper-V Replica to replicate Hyper-V virtual machines from an on-premises site to Azure, or to a secondary datacenter. The Capacity Planner tool for Site Recovery can help you figure out your replication and bandwidth requirements for Hyper-V virtual machine replication. 
+Azure Site Recovery uses Hyper-V Replica to replicate Hyper-V virtual machines from an on-premises site to Azure, or to a secondary datacenter. The Capacity Planner tool for Site Recovery helps you to figure out your replication and bandwidth requirements for Hyper-V virtual machine replication. 
 
 ## Before you start
 
