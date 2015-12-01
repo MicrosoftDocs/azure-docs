@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Protect Hyper-V virtual machines with a single VMM server"
+	pageTitle="Azure Site Recovery: Replicate Hyper-V virtual machines (single VMM server)"
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located in on-premises VMM clouds to Azure or to a secondary VMM cloud."
 	services="site-recovery"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="11/29/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
-#  Protect Hyper-V virtual machines with a single VMM server
+#  Azure Site Recovery: Replicate Hyper-V virtual machines (single VMM server)
 
 The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by orchestrating and automating replication of on-premises physical servers and virtual machines to Azure, or to a secondary on-premises datacenter. This article describes how to deploy Site Recovery to protect Hyper-V virtual machines that are located in a VMM cloud, when you only have a single VMM server in your deployment. If you have any questions after reading this article post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr). 
 
