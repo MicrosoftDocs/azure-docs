@@ -23,7 +23,7 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 
 >[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) is open source on GitHub. The repository contains the entire server SDK unit test suite as well as some sample projects.
 
-## How to: Create a .NET backend for your mobile application
+## <a name="create-app"></a>How to: Create a .NET backend for your mobile application
 
 If you are starting a new project, you can create an App Service application using either the [Azure Preview Management Portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish the project to your cloud-based App Service mobile app.
 
@@ -291,7 +291,7 @@ You can add push notifications to your server project by extending the **MobileA
 
 At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
-## How to: Add tags to a device installation to enable push-to-tags
+##<a name="tags"></a>How to: Add tags to a device installation to enable push-to-tags
 
 Following the above **How to: Define a custom API controller**, you will want to set up a custom API on your backend to work with Notification Hubs to add tags to a specific device installation. Make sure you pass along the Installation ID stored on the client local storage and the tags you want to add (optional, since you can also specify tags directly on your backend). The following snippet should be added to your controller to work with Notification Hubs to add a tag to a device Installation ID.
 
