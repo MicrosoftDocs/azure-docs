@@ -647,7 +647,7 @@ This release contains the following updates.
 
 <tr>
 <td>HDInsight 3.2 clusters</td>
-<td>Hadoop 2.6/HDP2.2 is available with HDInsight 3.2 clusters. It contains major updates to all of the open-source components. For more details, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">What's new in HDInsight</a> and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
+<td>Hadoop 2.6/HDP2.2 is available with HDInsight 3.2 clusters. It contains major updates to all of the open-source components. For more details, see What's new in HDInsight and <a href ="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html" target="_blank">HDP 2.2.0.0 Release Notes</a>.</td>
 <td>Open-source software</td>
 <td>All</td>
 <td>N/A</td>
@@ -655,7 +655,7 @@ This release contains the following updates.
 
 <tr>
 <td>HDinsight on Linux (Preview)</td>
-<td>Clusters can be deployed running on Ubuntu Linux. For more details, see [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-get-started.md).</td>
+<td>Clusters can be deployed running on Ubuntu Linux. For more details, see Get Started with HDInsight on Linux.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -663,7 +663,7 @@ This release contains the following updates.
 
 <tr>
 <td>Storm General Availability</td>
-<td>Apache Storm clusters are generally available. For more details, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/" target="_blank">Getting started using Storm in HDInsight</a>.</td>
+<td>Apache Storm clusters are generally available. For more details, see Get started using Storm in HDInsight.</td>
 <td>Service</td>
 <td>Storm</td>
 <td>N/A</td>
@@ -679,7 +679,7 @@ This release contains the following updates.
 
 <tr>
 <td>Cluster scaling</td>
-<td>You can change the number of data nodes for a running HDInsight cluster without having to delete or re-create it. Currently, only Hadoop Query and Apache Storm cluster types have this ability, but support for Apache HBase cluster type is soon to follow. For more information, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-cluster-scaling/" target="_blank">Cluster scaling in HDInsight</a>.</td>
+<td>You can change the number of data nodes for a running HDInsight cluster without having to delete or re-create it. Currently, only Hadoop Query and Apache Storm cluster types have this ability, but support for Apache HBase cluster type is soon to follow. For more information, see Manage HDInsight clusters.</td>
 <td>Service</td>
 <td>Hadoop, Storm</td>
 <td>N/A</td>
@@ -687,7 +687,7 @@ This release contains the following updates.
 
 <tr>
 <td>Visual Studio tooling</td>
-<td>In addition to complete tooling for Apache Storm, the tooling for Apache Hive in Visual Studio has been updated to include statement completion, local validation, and improved debugging support. For more information, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get Started with HDInsight Hadoop Tools for Visual Studio</a>.</td>
+<td>In addition to complete tooling for Apache Storm, the tooling for Apache Hive in Visual Studio has been updated to include statement completion, local validation, and improved debugging support. For more information, see Get Started with HDInsight Hadoop Tools for Visual Studio.</td>
 <td>Tooling</td>
 <td>Hadoop</td>
 <td>N/A</td>
@@ -695,7 +695,7 @@ This release contains the following updates.
 
 <tr>
 <td>Hadoop Connector for DocumentDB</td>
-<td>With Hadoop Connector for DocumentDB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across DocumentDB collections or across database accounts. For more information and a tutorial, see <a href="http://azure.microsoft.com/documentation/articles/documentdb-run-hadoop-with-hdinsight/" target="_blank">Run Hadoop jobs using DocumentDB and HDInsight</a>.</td>
+<td>With Hadoop Connector for DocumentDB, you can perform complex aggregations, analysis, and manipulations over your schema-less JSON documents stored across DocumentDB collections or across database accounts. For more information and a tutorial, see Run Hadoop jobs using DocumentDB and HDInsight.</td>
 <td>Service</td>
 <td>Hadoop</td>
 <td>N/A</td>
