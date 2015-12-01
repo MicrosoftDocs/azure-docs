@@ -86,6 +86,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533

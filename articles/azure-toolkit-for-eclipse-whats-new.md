@@ -284,6 +284,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [Azul Systems web page for the Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529

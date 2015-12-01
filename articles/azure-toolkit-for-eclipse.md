@@ -59,6 +59,7 @@ The following topics provide information about the Azure Toolkit for Eclipse:
 
 <!-- URL List -->
 
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
 [Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
