@@ -48,21 +48,21 @@ e.g. to define the OS image in a json template for deploying a new SUSE Linux VM
    CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 
-1. look for existing offerings from SUSE :
+2. look for existing offerings from SUSE :
       
    ```
    PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
       
-1. look for SUSE SLES offerings :
+3. look for SUSE SLES offerings :
       
    ```
    PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    CLI : azure vm image list-skus westeurope SUSE SLES
    ```
       
-1. look for a specific version of a SLES sku :
+4. look for a specific version of a SLES sku :
       
    ```
    PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
