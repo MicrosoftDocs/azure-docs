@@ -156,7 +156,7 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
 
 ## Looping on a nested resource
 
-You cannot use a copy loop for a nested resource. If you need to create multiple instances of a resource that you typically define as a nested resource of another resource, you must instead create the resource as a top-level resource, and define the relationship with the parent resource through the **type** and **name** properties.
+You cannot use a copy loop for a nested resource. If you need to create multiple instances of a resource that you typically define as nested within another resource, you must instead create the resource as a top-level resource, and define the relationship with the parent resource through the **type** and **name** properties.
 
 For example, suppose you typically define a dataset as a nested resource within a Data Factory.
 
@@ -176,7 +176,7 @@ For example, suppose you typically define a dataset as a nested resource within 
         }
     }]
     
-To create multiple instances of datasets, you would need to change your template as shown below. Notice that the full-qualified type is specified and the name includes the data factory name.
+To create multiple instances of datasets, you would need to change your template as shown below. Notice the full-qualified type and the name includes the data factory name.
 
     "resources": [
     {
@@ -185,20 +185,17 @@ To create multiple instances of datasets, you would need to change your template
         ...
     },
     {
-            "type": "Microsoft.DataFactory/datafactories/datasets",
-            "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
-            "dependsOn": [
-                "[variables('dataFactoryName')]"
-            ],
-            "copy": { 
-                "name": "datasetcopy", 
-                "count": "[parameters('count')]" 
-            } 
-            ...
-        }
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "dependsOn": [
+            "[variables('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[parameters('count')]" 
+        } 
+        ...
     }]
-
-
 
 ## Next steps
 - If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
