@@ -55,10 +55,12 @@ It may take several minutes for your storage account to be created. After it is 
 
 ## To add an existing storage account to the list ##
 
-1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal].)
+1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal][].)
 2. Within the **Storage Accounts** dialog, click **Add**.
-3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
+3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal][] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
+
     ![][ic719497]
+
 4. Click **OK** to close the **Add Storage Account** dialog.
 
 ## To modify a storage account to use a new access key ##
