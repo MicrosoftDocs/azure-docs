@@ -22,7 +22,7 @@
 
 This article provides the information you will need to open a ticket with Azure Support.
 
-**Note** Only the Azure account administrator has permission to access the Account Center.
+>[AZURE.NOTE]Only the Azure account administrator has permission to access the Account Center.
 
 1. Go to the [Azure Support](http://azure.microsoft.com/support) web site and click **Get Support**. You can also submit an incident from the Microsoft Azure portal or from the Azure Accounts Center.
 
