@@ -66,4 +66,5 @@ To proper design the synchronization of your hybrid identity solution ensure tha
 
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+

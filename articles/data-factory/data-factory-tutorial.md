@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Measuring effectiveness of a marketing campaign  
@@ -238,7 +238,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 1. Click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
 2. Do the following in the JSON script: 
 	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
-	2. For the **jobsContainer** property, specify the name of the default container where the cluster logs will be stored. For the purpose of this tutorial, specify **adfjobscontainer**.
 	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted. 
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **HDInsightStorageLinkedService** that you had created in the Get started tutorial. 
@@ -248,7 +247,6 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"

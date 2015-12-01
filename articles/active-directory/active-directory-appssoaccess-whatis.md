@@ -122,7 +122,7 @@ Once you’ve found your application, you can get started by follow the step-by-
 
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-*	**Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](active-directory-saas-custom-apps.md).
 
 
 *	**Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:

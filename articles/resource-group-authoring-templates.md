@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/30/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
 
 Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
-This topic describes the sections of the template. For the actual schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
+This topic describes the sections of the template. For the actual schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas). Visual Studio provides tools to assist you with creating templates. For more information about using Visual Studio with your templates, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) and [Editing Resource Manager templates with Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
 You must limit the size your template to 1 MB, and each parameter file to 64 KB. The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
@@ -228,7 +228,7 @@ You define resources with the following structure:
 
 | Element name             | Required | Description
 | :----------------------: | :------: | :----------
-| apiVersion               |   Yes    | Version of the API that supports the resource. For the available versions and schemas for resources, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion               |   Yes    | Version of the REST API to use for creating the resource. To determine the available version numbers for a particular resource type, see [Supported API versions](../resource-manager-supported-services/#supported-api-versions).
 | type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
 | location                 |   No     | Supported geo-locations of the provided resource.

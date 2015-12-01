@@ -61,4 +61,4 @@ Make sure to take notes of each answer and understand the rationale behind the a
 [Define data protection strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## See Also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)

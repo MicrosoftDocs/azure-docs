@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/25/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -131,9 +131,25 @@ The following example converts the user-provided parameter value to Integer.
 
 ## length
 
-**length(array)**
+**length(array or string)**
 
-Returns the number of elements in an array. Typically, used to specify the number of iterations when creating resources. For an example of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+Or, you can use with a string:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
 
 ## listKeys
 
@@ -496,6 +512,25 @@ The following example converts the user-provided parameter value to upper case.
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## trim
+
+**trim (stringToTrim)**
+
+Removes all leading and trailing white-space characters from the specified string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToTrim                       |   Yes    | The string to trim.
+
+The following example trims the white-space characters from the user-provided parameter value.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -530,6 +565,23 @@ The following example shows how to create a unique name for a storage account ba
         "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
+
+## uri
+
+**uri (baseUri, relativeUri)**
+
+Creates an absolute URI by combining the baseUri and the relativeUri string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| baseUri                            |   Yes    | The base uri string.
+| relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
+
+The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter will result in a base URI of **http://contoso.com/resources/**.
+
+The following example shows how to construct a link to a nested template based on the value of the parent template.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
 
 ## variables

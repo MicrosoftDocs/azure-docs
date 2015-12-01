@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="11/20/2015"
 	ms.author="aashishr"; "jimpark"/>
 
 
@@ -188,8 +188,6 @@ The retention policy defines how long recovery points created from backup jobs a
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE] PowerShell cmdlets currently do not support the setting of long term retention policies. Use the Azure Backup UI console to set long term retention policies.
 
 The retention policy must be associated with the main policy using the cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
