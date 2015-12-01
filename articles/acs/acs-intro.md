@@ -147,8 +147,7 @@ operations team when working with an ACS cluster.
 Full documentation and support will be provided to preview participants
 and will be published here once the service is opened to the public.
 
-Using Docker Swarm
-------------------
+### Using Docker Swarm
 
 Docker Swarm provides native clustering for Docker. Because Docker Swarm
 serves the standard Docker API, any tool that already communicates with
@@ -171,8 +170,8 @@ to, the following:
 Full documentation and support will be provided to preview participants
 and will be published here once the service is opened to the public.
 
-Getting Started
----------------
+Gaining Access
+--------------
 
 While the service is in preview we ask that those interested testing the
 service [self-nominate](http://aka.ms/acspreview). You will first need an Azure
