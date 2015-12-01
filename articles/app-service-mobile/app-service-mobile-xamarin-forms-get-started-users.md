@@ -40,7 +40,7 @@ You must first complete the [Xamarin.Forms quickstart tutorial](app-service-mobi
 
 ##Add authentication to the portable class library 
 
-Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache results. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support can implement this interface in the platform specific project. You can then authenticate before making any calls against the restricted table from the portable class library.
+Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache data. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support can implement this interface in the platform specific project. You will add code to authenticate before making any calls against the restricted table from the portable class library.
 
 1. In Visual Studio or Xamarin Studio, open App.cs from the **portable** project. Add the following `IAuthenticate` interface definition immediately before the `App` class definition.
 
@@ -274,7 +274,7 @@ In this section you will add authentication for the WinPhone81 project. If you a
 2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only. 
 
 
-3. Next, open MainPage.xaml.cs in the WinApp project and add the following `using` statement. Replace <*Your portable class library namespace*> with the namespace for your portable class library.
+3. Next, open MainPage.xaml.cs in the WinPhone81 project and add the following `using` statement. Replace <*Your portable class library namespace*> with the namespace for your portable class library.
 
 		using Microsoft.WindowsAzure.MobileServices;
 		using System.Threading.Tasks;
