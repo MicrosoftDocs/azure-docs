@@ -59,7 +59,7 @@ This tutorial requires the following:
 
 ##<a id="add-push"></a>Add push notifications code to your app
 
-[AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
+[AZURE.INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
 ## <a name="test"></a>Test push notifications in your app
 
