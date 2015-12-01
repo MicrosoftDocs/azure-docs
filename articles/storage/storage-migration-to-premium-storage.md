@@ -3,8 +3,8 @@
     description="Migrate your existing virtual machines to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines."
     services="storage"
     documentationCenter="na"
-    authors="tamram"
-    manager="adinah"
+    authors="ms-prkhad"
+    manager=""
     editor=""/>
 
 <tags

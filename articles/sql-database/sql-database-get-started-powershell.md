@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="Create an Azure SQL Database using PowerShell" 
-    description="Create an Azure SQL Database using PowerShell" 
-    services="sql-database" 
+    pageTitle="New SQL Database setup with PowerShell | Microsoft Azure" 
+    description="Learn now to create a new SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets." 
+    keywords="create new sql database,database setup"
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
-    editor=""/>
+    editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
@@ -16,7 +17,7 @@
     ms.date="10/20/2015"
     ms.author="sstein"/>
 
-# Create a SQL Database using PowerShell
+# Create a new SQL database and perform common database setup tasks with PowerShell cmdlets 
 
 **Single database**
 
@@ -26,14 +27,12 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-## Overview
-
-This article shows you how to create a SQL Database using PowerShell.
+Learn how to create a new SQL database and do common database setup tasks using PowerShell cmdlets.
 
 > [AZURE.IMPORTANT] Starting with the release of Azure PowerShell 1.0 Preview, the Switch-AzureMode cmdlet is no longer available, and cmdlets that were in the Azure ResourceManger module have been renamed. The examples in this article use the new PowerShell 1.0 Preview naming convention. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running, and due to the removal of Switch-AzureMode, you should download and install the latest Azure PowerShell by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. Due to the removal of Switch-AzureMode, you should download and install the latest Azure PowerShell by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 - If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
@@ -57,7 +56,7 @@ To select the subscription you need your subscription Id. You can copy it from t
 
 After successfully running **Select-AzureRMSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureRMSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
 
-## Create a resource group, server, and firewall rule
+## Database setup: Create a resource group, server, and firewall rule
 
 Now you have access to run cmdlets against your selected Azure subscription so the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRMLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
 
@@ -91,7 +90,7 @@ To allow other Azure services to access the server add a firewall rule and set b
 For more information, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 
 
-## Create a SQL database
+## Create a new SQL database
 
 Now you have a resource group, a server, and a firewall rule configured so you can access the server.
 
@@ -103,7 +102,7 @@ The following command creates a new (blank) SQL database at the Standard service
 
 The database details appear after the database is successfully created.
 
-## Create a SQL database PowerShell script
+## Create a new SQL database PowerShell script
 
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
@@ -136,6 +135,7 @@ The database details appear after the database is successfully created.
 
 
 ## Next steps
+After you create a new SQL database and perform basic database setup tasks, you're ready for the following:
 
 - [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
 

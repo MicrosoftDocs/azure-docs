@@ -18,7 +18,7 @@
 
 
 #Getting Started with Azure SQL Data Sync (Preview)
-In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal.
+In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Management portal.
 
 This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
