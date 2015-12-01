@@ -36,10 +36,6 @@ This document explains advanced HTTP reporting in Microsoft Azure CDN. These rep
 	
 	Report options are displayed.
 
-## Reports
-
-Each of the advanced HTTP reports are described below. 
-
 ## Geography Reports (Map-Based)
 
 There are five reports that take advantage of a map to indicate the regions from which your content is being requested. These reports are World Map, United States Map, Canada Map, Europe Map, and Asia Pacific Map.
