@@ -76,8 +76,7 @@ start deploying applications to it straight away. To get started you
 only need to decide on the size of your cluster and whether you want to
 use Docker Swarm or Apache Mesos to manage your applications.
 
-You can also [use the command
-line](/documentation/articles/resource-group-template-deploy/)
+You can also [use the command line](/documentation/articles/resource-group-template-deploy/)
 to create Azure Container Services using these same templates. Once you
 are familiar with the structure of these templates you will be able to
 write your own and fully automate the creation of an Azure Container
