@@ -33,11 +33,17 @@ Before you begin this article, you must have the following:
 
 ##Install Azure PowerShell 1.0 and greater
 
+First you must unintall the 0.9x versions.
+
+To check the version of the installed PowerShell:
+
+	Get-Module *azure*
+	
+To uninstall the older version, run Programs and Features in the control panel. 
+
 There are two main options for installing Azure PowerShell. 
 
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
-
-- [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from PowerShell ISE or Windows PowerShell console:
+- [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from elevated PowerShell ISE or elevated Windows PowerShell console:
 
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
@@ -53,6 +59,8 @@ There are two main options for installing Azure PowerShell.
 		Import-Module Azure
 
 	For more information, see [PowerShell Gallery](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
 
 WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
 

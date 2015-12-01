@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell
@@ -43,24 +43,7 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
-- **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md). After you have installed Azure PowerShell 1.0 or above, you should run the following cmdlet to install the Azure Data Lake Analytics module.
-
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
-
-	For more information on the **AzureRM.DataLakeStore** module, see [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). 
-    For more information on the **AzureRM.DataLakeAnalytics** module, see [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics). 
-
-	If you are creating a Data Lake account for the first time, run:
-
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	To connect to Azure, use the following cmdlets:
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Create Data Lake Analytics account
 
