@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Map networks in Azure Site Recovery for Hyper-V virtual machine replication  | Microsoft Azure"
+	pageTitle="Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery  | Microsoft Azure"
 	description="Set up network mapping for Hyper-V virtual machine replication from an on-premises datacenter to Azure, or to a secondary site."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
 
-# Map networks in Azure Site Recovery for Hyper-V virtual machine replication
+# Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover, and recovery of virtual machines and physical servers. 
 
