@@ -109,7 +109,7 @@ To configure your app to send notifications, create a new hub and configure it f
             return true;
         }
 
-3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a very simple template notification that will be sent across all supported platforms by the server.
+3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a simple template notification that will be sent across all supported platforms by the server.
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
