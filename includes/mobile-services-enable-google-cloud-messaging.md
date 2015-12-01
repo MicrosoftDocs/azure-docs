@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Click **Credentials**, and then click **Add Credential**->**API Key** 
+5. Click **Credentials**, and then click **Add Credentials**->**API Key** 
 
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)

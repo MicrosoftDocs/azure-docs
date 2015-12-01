@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Batch technical overview | Microsoft Azure"
+	pageTitle="Azure Batch service basics | Microsoft Azure"
 	description="Learn about the concepts, workflows, and scenarios of the Azure Batch service for large-scale parallel and HPC workloads"
 	services="batch"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Basics of Azure Batch
 
-# Technical overview of Azure Batch for large-scale parallel and HPC workloads
 Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines (compute nodes) and can scale the compute resources to meet the needs of the job. With the Batch service, you programmatically define Azure compute resources and large-scale batch jobs that run on demand or on a schedule, and you don't need to manually configure and manage an HPC cluster, individual VMs, virtual networks, or a job scheduler.
 
 ## Use cases
@@ -48,7 +48,7 @@ For a comparison of Batch with other HPC solution options in Azure, see [Batch a
 
 Develop with the Batch APIs to create and manage pools of compute nodes and to schedule the jobs and tasks that run on them. Write client applications or front-ends to run jobs and tasks on demand, on a schedule, or as part of a larger workflow managed by tools such as [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-See [API basics for Azure Batch](batch-api-basics.md) for more about the Batch concepts.
+See [Azure Batch feature overview](batch-api-basics.md) for more about the Batch concepts.
 
 ### Accounts you'll need
 

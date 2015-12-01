@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create an Oracle Database VM with the Azure portal | Microsoft Azure" 
-	description="Learn how to create a virtual machine with an Oracle Database on it using the classic deployment model and the Azure preview portal." 
-	services="virtual-machines" 
-	authors="bbenz" 
+<properties
+	pageTitle="Create an Oracle Database VM with the Azure portal | Microsoft Azure"
+	description="Learn how to create a virtual machine with an Oracle Database on it using the classic deployment model and the Azure preview portal."
+	services="virtual-machines"
+	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Windows" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="Windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
-	
+
 #Create an Oracle Database virtual machine in Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
@@ -24,7 +24,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 ##To create an Oracle Database VM in Azure
 
-1.	Log in to the [Azure portal](https://ms.portal.azure.com/).
+1.	Log in to the [Azure preview portal](https://ms.portal.azure.com/).
 
 2.	Click **Marketplace**, click **Compute**, and then type **Oracle** into the search box.
 
@@ -57,7 +57,7 @@ The following example shows you how you can create a virtual machine (VM) based 
 
 ##To create your database using the Oracle Database VM in Azure
 
-1.	Log in to the [Azure portal](https://ms.portal.azure.com/).
+1.	Log in to the [Azure preview portal](https://ms.portal.azure.com/).
 
 2.	Click **Virtual Machines**.
 
@@ -149,7 +149,7 @@ To allow your database to be reached remotely (for example, from a client comput
 
 ### Create a public endpoint for port 1521
 
-1.	Log in to the [Azure portal](https://ms.portal.azure.com/).
+1.	Log in to the [Azure preview portal](https://ms.portal.azure.com/).
 
 2.	Click **Browse**.
 

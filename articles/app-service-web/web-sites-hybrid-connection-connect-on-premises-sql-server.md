@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Connect to on-premises SQL Server from a web app in Azure App Service using Hybrid Connections
@@ -140,7 +140,7 @@ Next, you will create a hybrid connection and a BizTalk service for the web app.
 <a name="CreateHC"></a>
 ## C. Create a Hybrid Connection and a BizTalk Service ##
 
-1. Back in the portal, scroll down your web app's blade and click **Network Feature status** > **Configure your hybrid connection endpoints**.
+1. Back in the portal, go to settings and click **Networking** > **Configure your hybrid connection endpoints**.
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -207,7 +207,7 @@ In this step, you edit the connection string that tells your application where t
 
 	- If you are connecting to a named instance instead of a default instance (for example, YourServer\SQLEXPRESS), you must configure your SQL Server to use static ports. For information on configuring static ports, see [How to configure SQL Server to listen on a specific port](http://support.microsoft.com/kb/823938). By default, named instances use UDP and dynamic ports, which are not supported by Hybrid Connections.
 
-	- It is recommended that you specify the port (1433 by default, as shown in the example) n the connection string so that you can be sure that your local SQL Server has TCP enabled and is using the correct port.
+	- It is recommended that you specify the port (1433 by default, as shown in the example) on the connection string so that you can be sure that your local SQL Server has TCP enabled and is using the correct port.
 
 	- Remember to use SQL Server Authentication to connect, specifying the user ID and password in your connection string.
 
