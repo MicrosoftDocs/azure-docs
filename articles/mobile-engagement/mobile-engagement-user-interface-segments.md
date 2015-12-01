@@ -17,10 +17,14 @@
    ms.author="piyushjo"/>
 
 # How to create and manage segments of users to identify usage patterns
+
+This article describes the **SEGMENTS** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+
 The Segments section of the UI allows you to work on segmenting your users based on the different behavior and analytics that you can get from the application and can also access through the Segments API. Segments are first computed 24 hours after they are created, and they are recomputed every 24 hours based on the latest analytics information. Once a segment is calculated, it displays a "Day to day history" chart each day.
 
-### See also
-- [API Documentation - Segments API][Link 4], [Troubleshooting Guide - Analytics][Link 21]
+For more information, see: [API Documentation - Segments API][Link 4], [Troubleshooting Guide - Analytics][Link 21]
+
+>[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
 ## Create Segments
 You can create a segment based on up to 10 criteria on a specific period up to 60 days in the past from the analytics section. 
