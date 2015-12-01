@@ -139,8 +139,9 @@ describes how to set up Linux RAID on Azure using mdadm :
 In case there should be an issue with the standard Azure SUSE repository there is a simple
 command to reset it :
 
+   ```
    service guestregister restart
-   
+   ```
 
 ## Gnome Desktop
 
@@ -149,10 +150,15 @@ one single VM including SAP GUI, Browser, SAP management console and so on a lit
 installing it on the Azure SLES images :
 
    SLES 11
+   ```
    zypper in -t pattern gnome
+   ```
       
    SLES 12
+   
+   ```
    zypper in -t pattern gnome-basic
+   ```
 
 ## SAP-Oracle Support on Linux in the Cloud
  
