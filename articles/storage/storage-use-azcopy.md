@@ -937,7 +937,7 @@ Note that FIPS compliant algorithms is disabled by default on your Windows machi
 
 | Version | What's New                                                                                      				| Referenced .NET Client Library Version | Target Storage REST API Version |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
-| [**V5.0.0**](http://xdmrelease.blob.core.windows.net/azcopy-5-0-0/MicrosoftAzureStorageTools.msi)  | **Current release version. Includes all the functionality from V4.2.0. All features for File and Table storage are now GA.** | **V6.0.0** | **2015-04-05**
+| [**V5.0.0**](http://xdmrelease.blob.core.windows.net/azcopy-5-0-0/MicrosoftAzureStorageTools.msi)  | **Current release version. Includes all functionality from V4.2.0. All features for File and Table storage are now GA.** | **V6.0.0** | **2015-04-05**
 | [V4.2.0](http://xdmrelease.blob.core.windows.net/azcopy-4-2-0-preview/MicrosoftAzureStorageTools.msi)  | Includes all the functionality from V3.2.0. Also supports File Storage Share SAS, File Storage asynchronous copying, exporting Table entities to CSV and specifying manifest name when exporting Table entities | V5.0.0 | 2015-02-21
 | [V3.2.0](http://xdmrelease.blob.core.windows.net/azcopy-3-2-0/MicrosoftAzureStorageTools.msi)  | Supports Append Blob and FIPS compliant MD5 Setting | V5.0.0 | 2015-02-21
 | [V4.1.0](http://xdmrelease.blob.core.windows.net/azcopy-4-1-0-preview/MicrosoftAzureStorageTools.msi)  | Includes all the functionality from V3.1.0. Supports synchronously copying blobs and files and specifying content type for destination blobs and files | V4.3.0 | 2014-02-14
