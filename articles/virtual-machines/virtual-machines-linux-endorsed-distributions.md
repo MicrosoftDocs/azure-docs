@@ -37,7 +37,7 @@ The Azure Linux Agent is already pre-installed on the Azure Gallery images and a
 
 Distribution|Version|Drivers|Agent
 ---|---|---|---
-Canonical Ubuntu|Ubuntu 12.04, 14.04, 15.04 and 15.10|In Kernel|Package: In repo under "walinuxagent" <p><p>Source: [GitHub](https://github.com/Azure/WALinuxAgent)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 and 15.10|In Kernel|Package: In repo under "walinuxagent" <p><p>Source: [GitHub](https://github.com/Azure/WALinuxAgent)
 CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In Kernel|Package: In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo   under "WALinuxAgent"<p><p>Source: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494.4.0+ |In Kernel|Source: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6.4+, 7.0+|In Kernel|Package: In repo under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
