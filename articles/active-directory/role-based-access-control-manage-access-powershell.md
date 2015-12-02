@@ -110,5 +110,42 @@ To remove access for users, groups and applications use:
 
 ![](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
+## Create custom role
+To create a custom role, use the `New-AzureRmRoleDefinition` command.
+
+The following example creates a custom role called *Virtual Machine Operator* that grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers, and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions.
+
+![](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
+
+## Modify a custom role
+To modify a custom role first, use the `Get-AzureRmRoleDefinition` command to retrieve role definition. Then, make desired changes to the role definition. Finally, use `Set-AzureRmRoleDefinition` command to save the modified role definition.
+
+The following example adds the `Microsoft.Insights/diagnosticSettings/*` operation to the *Virtual Machine Operator* custom role.
+
+![](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-1.png)
+
+The following example adds an Azure subscription to the assignable scopes of the Virtual Machine Operator custom role.
+
+![](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
+
+## Delete a custom role
+
+To delete a custom role, use the `Remove-AzureRmRoleDefinition` command.
+
+The following example removes the *Virtual Machine Operator* custom role.
+
+![](./media/role-based-access-control-manage-access-powershell/4-remove-azurermroledefinition.png)
+
+## List custom roles
+To list the roles that are available for assignment at a scope, use the `Get-AzureRmRoleDefinition` command.
+
+The following example lists all role available for assignment in the selected subscription.
+
+![](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition-1.png)
+
+In the following example, the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role.
+
+![](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
+
 ## RBAC topics
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
