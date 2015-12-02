@@ -47,7 +47,7 @@ Category | Hadoop on Linux
 ---------| -------------------
 **Cluster OS** | Ubuntu 12.04 Long Term Support (LTS)
 **Cluster Type** | Hadoop, Spark, HBase, Storm
-**Deployment** | Azure preview portal, Azure CLI, Azure PowerShell
+**Deployment** | Azure portal, Azure CLI, Azure PowerShell
 **Cluster UI** | Ambari
 **Remote Access** | Secure Shell (SSH), REST API, ODBC, JDBC
 
@@ -83,9 +83,9 @@ The following example scripts are provided by the HDInsight team:
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-## What are the Hadoop components?
+## What are the Hadoop components and utilties?
 
-The following components are included on HDInsight clusters.
+The following components and utilities are included on HDInsight clusters.
 
 * **[Ambari](#ambari)**: Cluster provisioning, management, and monitoring.
 
