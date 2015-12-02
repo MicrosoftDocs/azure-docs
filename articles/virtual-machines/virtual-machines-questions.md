@@ -73,7 +73,7 @@ If you’re having problems with Remote Desktop or SSH, install and use the [VMA
 
 For Windows VMs, additional options include:
 
-- In the Azure portal, find the VM, then click **Reset Remote Access** from the Command bar.
+- In the Azure classic portal, find the VM, then click **Reset Remote Access** from the Command bar.
 - Review [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
 - Use Windows PowerShell Remoting to connect to the VM, or create additional endpoints for other resources to connect to the VM. For details, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
 
@@ -107,7 +107,7 @@ If you’ve forgotten the user name or password and you’ve installed the VM Ag
 Additional details:
 
 
-- For the Linux images, if you use the Azure portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
+- For the Linux images, if you use the Azure classic portal, ‘azureuser’ is given as a default user name, but you can change this by using ‘From Gallery’ instead of ‘Quick Create’ as the way to create the virtual machine. Using ‘From Gallery’ also lets you decide whether to use a password, an SSH key, or both to log you in. The user account is a non-privileged user that has ‘sudo’ access to run privileged commands. The ‘root’ account is disabled.
 
 
 - For Windows images, you’ll need to provide a user name and password when you create the VM. The account is added to the Administrators group.
