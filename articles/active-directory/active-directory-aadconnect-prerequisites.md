@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prerequisites for Azure Active Directory Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect: Prerequisites and hardware | Microsoft Azure"
    description="Article description that will be displayed on landing pages and in most search results"
    services="active-directory"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="11/16/2015"
    ms.author="andkjell;billmath"/>
 
-# Prerequisites for Azure Active Directory Connect (Azure AD Connect)
+# Prerequisites for Azure AD Connect
 This topic describes the pre-requisites and the hardware requirements for Azure AD Connect.
 
 ## Before you install Azure AD Connect
