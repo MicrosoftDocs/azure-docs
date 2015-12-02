@@ -21,7 +21,7 @@
 
 ## Introduction
 
-Historically, managing a resource (such as a database server, database, or web app) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, you had to manually coordinate changes to the application infrastructure. In the Azure preview portal, you can utilize Azure Resource Manager to create resource groups to deploy and manage all the resources in an application together.
+Historically, managing a resource (such as a database server, database, or web app) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, you had to manually coordinate changes to the application infrastructure. In the Azure portal, you can utilize Azure Resource Manager to create resource groups to deploy and manage all the resources in an application together.
 
 Typically, a resource group contains resources related to a specific application. For example, a group may contain a web app that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage account that stores non-relational assets. Every resource in a resource group should share the same lifecycle. For more information about Resource Manager, see [Resource Manager overview](../resource-group-overview.md).
 
@@ -125,7 +125,7 @@ Since resource groups allow you to manage the lifecycle of all the contained res
 
 ## Tagging resources
 
-You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags through the preview portal, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags through the portal, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 ## Deploying a custom template
 
