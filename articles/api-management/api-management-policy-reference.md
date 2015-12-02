@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
@@ -34,6 +34,11 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Control flow][] - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions][].
 	-	[Forward request][] - Forwards the request to the backend service.
 	-	[Log to Event Hub][] - Sends messages in the specified format to a message target defined by a [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) entity.
+	-	[Return response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
+	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.
+	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Sends a request to the specified URL.
+	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Allows you to change the HTTP method for a request.
+	-	[Set status code](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Changes the HTTP status code to the specified value.
 	-	[Set variable][] - Persist a value in a named [context][] variable for later access.
 -	[Authentication policies][]
 	-	[Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
