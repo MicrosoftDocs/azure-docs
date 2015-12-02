@@ -280,7 +280,7 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	When you select an API app to generate code for, Visual Studio retrieves the metadata from this URL. 
 
-## Consume from .NET by using generated client code 
+## <a id="codegen"></a> Consume from .NET by using generated client code 
 
 One of the advantages of integrating Swagger into Azure API apps is automatic code generation. Generated client classes make it easier to write code that calls an API app.
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/20/2015"
+   ms.date="11/30/2015"
    ms.author="rajram"/>
 
 # Get started with the AS2 Connector and add it to your Logic App

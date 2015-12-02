@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/02/2015"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
@@ -21,7 +21,7 @@
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
 > [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
-in this document use v2.0.0-alpha6 of [azure-mobile-apps].
+in this document use v2.0.0-beta1 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -104,7 +104,7 @@ Visual Studio 2015 requires an extension to develop Node.js.js applications with
 
 5. Right-click on the **npm** node and select **Install New npm packages...**.
 
-6. You will need to refresh the npm catalog on creating your first Node.js application - click on **Refresh**.
+6. You may need to refresh the npm catalog on creating your first Node.js application.  If this is required, you will be prompted - click on **Refresh**.
 
 7. Enter _azure-mobile-apps_ in the search box.  Click on the **azure-mobile-apps 2.0.0** package, then click on **Install Package**.
 
@@ -218,30 +218,31 @@ If you define tables statically, then you must also call the tables.initialize()
 The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for serving data out of the box: SDK provides three options for serving data out of the box:
 
 - Use the **memory** driver to provide a non-persistent example store
-- Use the **sql** driver to provide a SQL Express data store for development
-- Use the **sql** driver to provide a SQL Azure data store for production
+- Use the **mssql** driver to provide a SQL Express data store for development
+- Use the **mssql** driver to provide a SQL Azure data store for production
 
 The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package] to establish and use a connection to both SQL Express and SQL Azure.  This package requires that you enable TCP connections on your SQL Express instance.
 
 > [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
 we recommend the use of a SQL Express data store and using the sql driver.
 
-1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly require 64 Bit support, the 32-bit version consumes less memory when running.
+1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly
+require 64 Bit support, the 32 Bit version will consume less memory when running.
 
-2. Run the SQL Server 2014 Configuration Manager as follows:
+2. Run the SQL Server 2014 Configuration Manager.
 
-	  1. Expand the **SQL Server Network Configuration** node in the left hand tree menu. 
-	  2. Click on **Protocols for SQLEXPRESS**.  
-	  3. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.  
-	  4. Right-click on **TCP/IP** and select **Properties**.  
-	  5. Click on the **IP Addresses** tab.  
-	  6. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.  
-
-  		![Configure SQL Express for TCP/IP][3]
-	  7. Click on **OK**. Click on **OK** in the pop-up dialog.
-	  8. Click on **SQL Server Services** in the left hand tree menu.
-	  9. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
-	  10. Close the SQL Server 2014 Configuration Manager.
+  1. Expand the **SQL Server Network Configuration** node in the left hand tree menu.
+  2. Click on **Protocols for SQLEXPRESS**.
+  3. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.
+  4. Right-click on **TCP/IP** and select **Properties**.
+  5. Click on the **IP Addresses** tab.
+  6. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
+  
+	 	 ![Configure SQL Express for TCP/IP][3]
+  7. Click on **OK**.  Click on **OK** in the pop-up dialog.
+  8. Click on **SQL Server Services** in the left hand tree menu.
+  9. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
+  10. Close the SQL Server 2014 Configuration Manager.
 
 3. Create a Run the SQL Server 2014 Management Studio and connect to your local SQL Express instance
 
@@ -251,19 +252,21 @@ we recommend the use of a SQL Express data store and using the sql driver.
   4. Click on **OK**
 
   		![Configure SQL Express Authentication][4]
+
   5. Expand **Security** > **Logins** in the Object Explorer
   6. Right-click on **Logins** and select **New Login...**
   7. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
   8. Click on **OK**
 
   		![Add a new user to SQL Express][5]
+
   9. Right-click on your new login and select **Properties**
   10. Select the **Server Roles** page
   11. Check the box next to the **dbcreator** server role
   12. Click on **OK**
   13. Close the SQL Server 2015 Management Studio
 
-Make sure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
+Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
 
 The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.  You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
 
@@ -286,7 +289,7 @@ An example _azureMobile.js_ file implementing the database settings given above 
             origins: [ 'localhost' ]
         },
         data: {
-            provider: 'sql',
+            provider: 'mssql',
             server: '127.0.0.1',
             database: 'mytestdatabase',
             user: 'azuremobile',
@@ -302,7 +305,7 @@ being stored in the cloud.  Always configure production settings in App Settings
 
 ### <a name="howto-use-sqlazure"></a>Use SQL Azure as your Production Datastore
 
-<!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
+<!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 Using SQL Azure as a data store is identical across all Azure App Service application types. If you have not done so already, follow these steps to create a new Mobile App backend.
 
@@ -334,9 +337,9 @@ Once the Mobile App backend is created, you can choose to either connect an exis
 
 11. Back on the **Add data connection** blade again, click on **OK** to create the database.
 
-<!-- END OF ALTERNATE INCLUDE -->
+<!--- END OF ALTERNATE INCLUDE -->
 
-Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed successfully.  Once successfully deployed, a Connection String will be created for the SQL Azure database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
+Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed sucessfully.  Once successfully deployed, a Connection String will be created for the SQL Azure database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
 
 ### <a name="howto-tables-auth"></a>Require Authentication for access to tables
 
@@ -515,7 +518,7 @@ more details about configuring authentication in an  Azure App Service, review t
 - [How to configure Microsoft Authentication]
 - [How to configure Twitter Authentication]
 
-### <a name="howto-customapi-basic"></a>Define a simple custom API
+### <a name="howto-customapi-basic"></a>Define a Simple Custom API
 
 Custom APIs are defined in much the same way as the Tables API.
 
@@ -553,7 +556,7 @@ Let's take a simple API that will return the server date using the _Date.now()_ 
 
 Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.  
 
-### <a name="howto-customapi-auth"></a>Require authentication for access to a custom API
+### <a name="howto-customapi-auth"></a>Require Authentication for access to a Custom API
 
 Azure Mobile Apps SDK implements authentication in the same way for both the tables endpoint and custom APIs.  To add authentication to the API developed in the previous section, add an **access** property:
 
@@ -641,3 +644,4 @@ Node.js applications have access to a wide range of diagnostic log tools.  Inter
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
+>>>>>>> c5a847a734eb780a6fddf1a43d29a871a204adb5

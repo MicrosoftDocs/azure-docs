@@ -106,7 +106,7 @@ Restart xrdp service, use:
 
 
 ##Connect your Linux VM from a Windows machine
-In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure portal and click `Connect` to connect your Linux VM, you will see below login window:
+In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure classic portal and click `Connect` to connect your Linux VM, you will see below login window:
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 

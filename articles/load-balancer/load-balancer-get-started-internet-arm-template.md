@@ -70,3 +70,11 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 4. Run the **azure group deployment create** cmdlet to deploy the new load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
+
+## Next steps
+
+[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

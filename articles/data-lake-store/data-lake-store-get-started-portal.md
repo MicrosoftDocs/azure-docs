@@ -30,7 +30,7 @@ Learn how to use the Azure Preview Portal to create an Azure Data Lake Store acc
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="signup"></a>Enable your Azure subscription for Data Lake Store Public Preview
 
