@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/02/2015"
+	ms.date="12/01/2015"
 	ms.author="anhoh"/>
 
 # View, edit, and create stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer

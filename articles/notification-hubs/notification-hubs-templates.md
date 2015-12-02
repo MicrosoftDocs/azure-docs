@@ -52,7 +52,7 @@ You can create similar payloads for MPNS (Windows Phone) and GCM (Android) platf
 
 This requirement forces the app backend to produce different payloads for each platform, and effectively makes the backend responsible for part of the presentation layer of the app. Some concerns include localization and graphical layouts (especially for Windows Store apps that include notifications for various types of tiles).
 
-The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform independent message is a single property: **message = Hello!**.
+The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. The Notification Hubs template feature enables a client app to associate devices with templates whether you are working with Installations (preferred) or Registrations. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform independent message is a single property: **message = Hello!**.
 
 The following picture illustrates the above process:
 
@@ -73,11 +73,11 @@ The corresponding template for the Windows Store client app is:
 		</visual>
 	</toast>
 
-Notice that the actual message is substituted for the expression $(message). This expression instructs the Notification Hub, whenever it sends a message to this particular registration, to build a message that follows this template.
+Notice that the actual message is substituted for the expression $(message). This expression instructs the Notification Hub, whenever it sends a message to this particular registration, to build a message that follows it and switches in the common value.
 
-Client applications can create multiple registrations in order to use multiple templates; for example, a template for alert messages and a template for tile updates. Client applications can also mix native registrations (registrations with no template) and template registrations.
+If you are working with Installation model, the installation “templates” key holds a JSON of multiple templates. If you are working with Registration model, the client application can create multiple registrations in order to use multiple templates; for example, a template for alert messages and a template for tile updates. Client applications can also mix native registrations (registrations with no template) and template registrations.
 
-The Notification Hub sends one notification for each registration without considering whether they belong to the same client app. This behavior can be used to translate platform-independent notifications into more notifications. For example, the same platform independent message to the Notification Hub can be seamlessly translated in a toast alert and a tile update, without requiring the backend to be aware of it. Note that some platforms (for example, iOS) might collapse multiple notifications to the same device if they are sent in a short period of time.
+The Notification Hub sends one notification for each template without considering whether they belong to the same client app. This behavior can be used to translate platform-independent notifications into more notifications. For example, the same platform independent message to the Notification Hub can be seamlessly translated in a toast alert and a tile update, without requiring the backend to be aware of it. Note that some platforms (for example, iOS) might collapse multiple notifications to the same device if they are sent in a short period of time.
 
 ##Using templates for personalization
 
@@ -111,7 +111,7 @@ By using this pattern, the backend only sends a single message without having to
 
 ##How to register templates
 
-For more information about how to register for templates, see [Registration Management](notification-hubs-registration-management.md).
+To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](notification-hubs-registration-management.md).
 
 ##Template expression language
 

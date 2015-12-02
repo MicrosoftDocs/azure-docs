@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -58,8 +58,7 @@ Databases in an elastic database pool are backed up automatically by the system 
 
 ### Geo-Restore
 
-Geo-Restore allows you to recover a database in a pool to a server in a different region. During the preview, to restore a database in a pool on a different server, the target server needs to have a pool with the same name as the source pool. If needed, create a new pool on the target server and give it the same name prior to restoring the database. If a pool with the same name on the target server doesn’t exist the Geo-Restore operation will fail.
-You can perform Geo-Restore operations using the Azure Portal or REST API. PowerShell cmdlet support is coming soon.
+Geo-Restore allows you to recover a database in a pool to a server in a different region. During the preview, to restore a database in a pool on a different server, the target server needs to have a pool with the same name as the source pool. If needed, create a new pool on the target server and give it the same name prior to restoring the database. If a pool with the same name on the target server doesn’t exist the Geo-Restore operation will fail. For details, see [Recover using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore).
 
 
 ### Geo-Replication

@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Disable, Enable, or Delete a Profile
 
 
-You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints. When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface. When you want to re-enable the profile, you can easily do so in the Management Portal and referrals will resume. When you create a Traffic Manager profile in the Management Portal, it’s automatically enabled.
+You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints. When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface. When you want to re-enable the profile, you can easily do so in the Azure portal and referrals will resume. When you create a Traffic Manager profile in the Azure portal, it’s automatically enabled.
 
 ## To disable a profile
 

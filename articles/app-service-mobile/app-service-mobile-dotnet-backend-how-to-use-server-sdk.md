@@ -23,7 +23,11 @@ This topic shows you how to use the .NET backend server SDK in key Azure App Ser
 
 >[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) is open source on GitHub. The repository contains the entire server SDK unit test suite as well as some sample projects.
 
-## How to: Create a .NET backend for your mobile application
+## Reference documentation
+
+The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176.aspx).
+
+## <a name="create-app"></a>How to: Create a .NET backend for your mobile application
 
 If you are starting a new project, you can create an App Service application using either the [Azure Preview Management Portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish the project to your cloud-based App Service mobile app.
 
@@ -65,7 +69,7 @@ To install the SDK, right-click on the server project in Visual Studio, select *
 
 ###<a name="server-project-setup"></a> Initialize the server project
 
-A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. To add this class in Visual Studio, right-click on your server project and select **Add** -> **New Item**, then **Web** -> **General** -> **OWIN Startup class**.
+A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. Ensure that you have referenced the NuGet package `Microsoft.Owin.Host.SystemWeb`. To add this class in Visual Studio, right-click on your server project and select **Add** -> **New Item**, then **Web** -> **General** -> **OWIN Startup class**.
 
 This will generate a class with the following attribute:
 
@@ -85,13 +89,16 @@ In the `Configuration()` method of your OWIN startup class, set up the server pr
 	    app.UseWebApi(config);
 	}
 
-To enable individual features, you must call extension methods on the **MobileAppConfiguration** object before calling **ApplyTo**. For example, the following code adds the default routes to all API controllers during initialization:
+To enable individual features, you must call extension methods on the **MobileAppConfiguration** object before calling **ApplyTo**. For example, the following code adds the default routes to all API controllers that have the attribute `[MobileAppController]` during initialization:
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
+Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`.
+
 Many of the feature extension methods are available via additional NuGet packages you can include, which are described in the section below. 
+
 The server quickstart from the Azure Portal calls **UseDefaultConfiguration()**. This equivalent to the following setup:
     
 		new MobileAppConfiguration()
@@ -150,7 +157,9 @@ A table controller provides access to entity data in a table-based data store, s
 		//...
 	}
 
-Table controllers are initialized by using the **AddTables** extension method. The following example initializes a table controller that uses Entity Framework for data access:
+Table controllers are initialized by using the **AddTables** extension method. This adds routes under `/tables/` for all subclasses of `TableController`. 
+
+The following example initializes a table controller that uses Entity Framework for data access:
 
     new MobileAppConfiguration().AddTables(
         new MobileAppTableConfiguration()
@@ -159,10 +168,9 @@ Table controllers are initialized by using the **AddTables** extension method. T
  
 For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class in the quickstart server project download from the Azure portal.
 
-
 ## How to: Define a custom API controller
 
-The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. The Custom API controller 
+The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the attribute `MobileAppControllerAttribute`. This attribute registers the route and also sets up the Mobile Apps JSON serializer. 
 
 1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
@@ -188,7 +196,7 @@ The custom API controller provides the most basic functionality to your Mobile A
     
 	Note that you do not need to call **MapApiControllers** if you instead call **UseDefaultConfiguration**, which initializes all features. 
 
-Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it will not be correctly consumed by clients using any Mobile App client SDK. 
+Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly consumed by clients using any Mobile App client SDK. 
 
 
 ## How to: Add authentication to a server project
@@ -291,7 +299,7 @@ You can add push notifications to your server project by extending the **MobileA
 
 At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-overview.md).
 
-## How to: Add tags to a device installation to enable push-to-tags
+##<a name="tags"></a>How to: Add tags to a device installation to enable push-to-tags
 
 Following the above **How to: Define a custom API controller**, you will want to set up a custom API on your backend to work with Notification Hubs to add tags to a specific device installation. Make sure you pass along the Installation ID stored on the client local storage and the tags you want to add (optional, since you can also specify tags directly on your backend). The following snippet should be added to your controller to work with Notification Hubs to add a tag to a device Installation ID.
 

@@ -32,7 +32,7 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-start-monitoring-app-health-usage.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
+* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
 * Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
 
 
@@ -43,7 +43,7 @@ Before you start:
 [Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
 * Adaptive sampling is recommended. It automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only.  
-* Fixed-rate sampling is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* [Fixed-rate sampling](app-insights-sampling.md) is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
 ### To enable sampling
 
@@ -395,7 +395,7 @@ You can add as many initializers as you like.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md

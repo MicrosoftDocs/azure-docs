@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect Sync: Understanding Users and Contacts | Microsoft Azure"
-	description="Explains users and contacts in Azure AD Connect Sync."
+	pageTitle="Azure AD Connect sync: Understanding Users and Contacts | Microsoft Azure"
+	description="Explains users and contacts in Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,7 +17,7 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: Understanding Users and Contacts
+# Azure AD Connect sync: Understanding Users and Contacts
 
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
 

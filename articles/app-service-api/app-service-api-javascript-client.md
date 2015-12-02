@@ -18,6 +18,8 @@
 
 # Consume an Azure API App using HTML and JavaScript
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Overview
 
 This article shows how to create an HTML and JavaScript client for an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](/documentation/services/app-service/). The article assumes a working knowledge of HTML and JavaScript, and uses the [AngularJS](https://angularjs.org/) JavaScript framework for making REST calls to the API App. 

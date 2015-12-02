@@ -39,9 +39,9 @@ For version 2.0, the data includes:
 
 
 ## How to enable the extension
-The extension can be enabled through the [Azure preview portal](https://ms.portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
+The extension can be enabled through the [Azure portal](https://ms.portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
 
-To view and configure the system and performance data directly from the Azure preview portal, follow these [steps](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog").
+To view and configure the system and performance data directly from the Azure portal, follow these [steps](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL to the Windows blog").
 
 
 This article focuses on enabling and configuring the extension through Azure CLI commands.This allows you to read and view the data from the storage table directly.

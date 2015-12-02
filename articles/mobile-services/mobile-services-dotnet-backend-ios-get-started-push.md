@@ -19,6 +19,11 @@
 
 # Add Push Notifications to iOS App and .NET Backend
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 This topic shows you how to add push notifications to the [quickstart project](mobile-services-dotnet-backend-ios-get-started.md), so that your mobile service sends a push notification each time a record is inserted. You must complete [Get Started with Mobile Services] first.

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Scale mobile services backed by Azure SQL Database | Microsoft Azure" 
-	description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Scale mobile services backed by Azure SQL Database | Microsoft Azure"
+	description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database"
+	services="mobile-services"
+	documentationCenter=""
+	authors="lindydonna"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/08/2015"
 	ms.author="donnam;ricksal"/>
 
 # Scale mobile services backed by Azure SQL Database
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Azure Mobile Services makes it very easy to get started and build an app that connects to a cloud-hosted backend that stores data in a SQL database. As your app grows, scaling your service instances is as simple as adjusting scale settings in the portal to add more computational and networking capacity. However, scaling the SQL database backing your service requires some proactive planning and monitoring as the service receives more load. This document will walk you through a set of best practices to ensure continued great performance of your SQL-backed mobile services.
 
@@ -35,11 +40,11 @@ This topic walks you through these basic sections:
 If you suspect your mobile service is experiencing problems under load, the first place to check is the **Dashboard** tab for your service in the [Azure Management Portal][]. Some of the things to verify here:
 
 - Your usage meters including **API Calls** and **Active Devices** meters are not over quota
-- **Endpoint Monitoring** status indicates service is up (only available if service is using the Standard tier and Endpoint Monitoring is enabled) 
+- **Endpoint Monitoring** status indicates service is up (only available if service is using the Standard tier and Endpoint Monitoring is enabled)
 
 If any of the above is not true, consider adjusting your scale settings on the *Scale* tab. If that does not address the issue, you can proceed and investigate whether Azure SQL Database may be the source of the issue. The next few sections cover a few different approaches to diagnose what may be going wrong.
 
-### Choosing the Right SQL Database Tier 
+### Choosing the Right SQL Database Tier
 
 It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions and three different service tiers:
 
@@ -52,7 +57,7 @@ To convert a mobile service using the Web and Business Edition to the Basic, Sta
 
 1. Launch the [Azure Management Portal][].
 2. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
-3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, or Premium service tier. 
+3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, or Premium service tier.
 4. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
 5. Configure your mobile service to use the database you just created. Navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
 
@@ -75,10 +80,10 @@ Once you are familiar with the different database tiers, we can explore database
 5. Navigate to the **Monitor** tab
 6. Ensure the relevant metrics are displayed by using the **Add Metrics** button. Include the following
     - *CPU Percentage* (available only in Basic/Standard/Premium tiers)
-    - *Physical Data Reads Percentage* (available only in Basic/Standard/Premium tiers) 
+    - *Physical Data Reads Percentage* (available only in Basic/Standard/Premium tiers)
     - *Log Writes Percentage* (available only in Basic/Standard/Premium tiers)
-    - *Storage* 
-7. Inspect the metrics over the time window when your service was experiencing issues. 
+    - *Storage*
+7. Inspect the metrics over the time window when your service was experiencing issues.
 
     ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
 
@@ -90,7 +95,7 @@ If the metrics indicate your database is incurring high utilization, consider **
 As soon as possible, consider these additional mitigation steps:
 
 - **Tune your database.**
-  It is frequently possible to reduce database utilization and avoid having to scale to a higher tier by optimizing your database. 
+  It is frequently possible to reduce database utilization and avoid having to scale to a higher tier by optimizing your database.
 - **Consider your service architecture.**
   Frequently your service load is not distributed evenly over time but contains "spikes" of high demand. Instead of scaling the database up to handle the spikes, and having it go underutilized during periods of low demand, it is frequently possible to adjust the service architecture to avoid such spikes, or to handle them without incurring database hits.
 
@@ -99,7 +104,7 @@ The remaining sections of this document contain tailored guidance to help with i
 
 ### Configuring Alerts
 
-It is frequently useful to configure alerts for key database metrics as a proactive step to ensure you have plenty of time to react in case of resource exhaustion. 
+It is frequently useful to configure alerts for key database metrics as a proactive step to ensure you have plenty of time to react in case of resource exhaustion.
 
 1. Navigate to the **Monitoring** tab for the database you want to set up alerts for
 2. Ensure the relevant metrics are displayed as described in the previous section
@@ -107,7 +112,7 @@ It is frequently useful to configure alerts for key database metrics as a proact
     ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
 4. Provide a name and description for the alert
     ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
-5. Specify the value to use as the alert threshold. Consider using **80%** to allow for some reaction time. Also be sure to specify an email address that you actively monitor. 
+5. Specify the value to use as the alert threshold. Consider using **80%** to allow for some reaction time. Also be sure to specify an email address that you actively monitor.
     ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
 For more information on diagnosing SQL issues, see [Advanced Diagnostics](#AdvancedDiagnosing) at the bottom of this document.
@@ -131,7 +136,7 @@ As mentioned above, it's not always better to add more indexes to a table, becau
 
 - Consider adding indexes to columns that are frequently used in predicates (e.g., WHERE clauses) and join conditions, while balancing the database considerations below.
 - Write queries that insert or modify as many rows as possible in a single statement, instead of using multiple queries to update the same rows. When there is only one statement, the database engine can better optimize how it maintains indexes.
-	
+
 #### Database considerations
 
 Large numbers of indexes on a table affect the performance of INSERT, UPDATE, DELETE, and MERGE statements because all indexes must be adjusted appropriately as data in the table changes.
@@ -170,7 +175,7 @@ To define an index in Entity Framework, use the attribute `[Index]` on the field
 		[Index]
         public bool Complete { get; set; }
     }
-		 
+
 For more information on indexes, see [Index Annotations in Entity Framework][]. For further tips on optimizing indexes, see [Advanced Indexing](#AdvancedIndexing) at the bottom of this document.
 
 <a name="Schema"></a>
@@ -179,7 +184,7 @@ For more information on indexes, see [Index Annotations in Entity Framework][]. 
 Here are a few issues to be aware of when picking the data types for your objects, which in turn translates to the schema of your SQL database. Tuning the schema can frequently bring significant performance improvements since SQL has custom optimized ways of handling indexing and storage for different data types:
 
 - **Use the provided ID column**. Every mobile service table comes with a default ID column configured as the primary key and has an index set on it. There is no need to create an additional ID column.
-- **Use the correct datatypes in your model.** If you know a certain property of your model will be a numeric or boolean, be sure to define it that way in your model instead of as a string. In the JavaScript backend, use literals such as `true` instead of `"true"` and `5` instead of `"5"`. In the .NET backend, use the `int` and `bool` types when you declare the properties of your model. This enables SQL to create the correct schema for those types, which makes queries more efficient.  
+- **Use the correct datatypes in your model.** If you know a certain property of your model will be a numeric or boolean, be sure to define it that way in your model instead of as a string. In the JavaScript backend, use literals such as `true` instead of `"true"` and `5` instead of `"5"`. In the .NET backend, use the `int` and `bool` types when you declare the properties of your model. This enables SQL to create the correct schema for those types, which makes queries more efficient.
 
 <a name="Query"></a>
 ## Query Design
@@ -191,7 +196,7 @@ Here are some guidelines to consider when querying the database:
     - Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](mobile-services-how-to-use-server-scripts.md#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
 - **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
     - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
+    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.
 
 For more information on improving query design, including how to analyze query plans, see [Advanced Query Design](#AdvancedQuery) at the bottom of this document.
 
@@ -211,13 +216,13 @@ This section covers some more advanced diagnostic tasks, which may be useful if 
 ### Prerequisites
 To perform some of the diagnostic tasks in this section, you need access to a management tool for SQL databases such as **SQL Server Management Studio** or the management functionality built into the **Azure Management Portal**.
 
-SQL Server Management Studio is a free Windows application, which offers the most advanced capabilities. If you do not have access to a Windows machine (for example if you are using a Mac), consider provisioning a Virtual Machine in Azure as shown in [Create a Virtual Machine Running Windows Server](../virtual-machines-windows-tutorial.md) and then connecting remotely to it. If you intend to use the VM primarily for the purpose of running SQL Server Management Studio, a **Basic A0** (formerly "Extra Small") instance should be sufficient. 
+SQL Server Management Studio is a free Windows application, which offers the most advanced capabilities. If you do not have access to a Windows machine (for example if you are using a Mac), consider provisioning a Virtual Machine in Azure as shown in [Create a Virtual Machine Running Windows Server](../virtual-machines-windows-tutorial.md) and then connecting remotely to it. If you intend to use the VM primarily for the purpose of running SQL Server Management Studio, a **Basic A0** (formerly "Extra Small") instance should be sufficient.
 
 The Azure Management Portal offers a built-in management experience, which is more limited, but is available without a local install.
 
 The following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
 
-#### Obtain SQL connection information 
+#### Obtain SQL connection information
 1. Launch the [Azure Management Portal][].
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
@@ -240,7 +245,7 @@ The following steps walk you through obtaining the connection information for th
 5. You should now be connected.
 
 #### SQL Database Management Portal
-1. On Azure SQL Database tab for your database, select the **Manage** button 
+1. On Azure SQL Database tab for your database, select the **Manage** button
 2. Configure the connection with the following values
     - Server: *should be pre-set to the right value*
     - Database: *leave blank*
@@ -271,26 +276,26 @@ To execute any of the queries below, past it into the window and select **Run**.
 
 The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
 
-    SELECT TOP 10 * 
-    FROM sys.resource_stats 
-    WHERE database_name = 'todoitem_db' 
+    SELECT TOP 10 *
+    FROM sys.resource_stats
+    WHERE database_name = 'todoitem_db'
     ORDER BY start_time DESC
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 > Please execute this query on the **master** database on your server, the **sys.resource\_stats** view is only present on that database.
 
-The result will contain the following useful metrics: CPU (% of tier limit), Storage (megabytes), Physical Data Reads (% of tier limit), Log Writes (% of tier limit), Memory (% of tier limit), Worker Count, Session Count, etc. 
+The result will contain the following useful metrics: CPU (% of tier limit), Storage (megabytes), Physical Data Reads (% of tier limit), Log Writes (% of tier limit), Memory (% of tier limit), Worker Count, Session Count, etc.
 
 #### SQL connectivity events
 
 The **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** view contains the details of connectivity-related events.
 
-    select * from sys.event_log 
+    select * from sys.event_log
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 > Please execute this query on the **master** database on your server, the **sys.event\_log** view is only present on that database.
 
 <a name="AdvancedIndexing" />
@@ -304,7 +309,7 @@ A table or view can contain the following types of indexes:
 
 To provide a real-world analogy: consider a book or a technical manual. The contents of each page are a record, the page number is the clustered index, and the topic index in the back of the book is a nonclustered index. Each entry in the topic index points to the clustered index, the page number.
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 > By default, the JavaScript backend of Azure Mobile Services sets **\_createdAt** as the clustered index. If you remove this column, or if you want a different clustered index, be sure to follow the [clustered index design guidelines](#ClusteredIndexes) below. In the .NET backend, the class `EntityData` defines `CreatedAt` as a clustered index using the annotation `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
@@ -315,18 +320,18 @@ Every table should have a clustered index on the column (or columns, in the case
 - Narrow - uses a small datatype, or is a [composite key][Primary and Foreign Key Constraints] of a small number of narrow columns
 - Unique, or mostly unique
 - Static - value is not frequently changed
-- Ever-increasing 
+- Ever-increasing
 - (Optional) Fixed-width
 - (Optional) nonnull
 
 The reason for the **narrow** property is that all other indexes on a table use the key values from the clustered index as lookup keys. In the example of a topic index at the back of a book, the clustered index is a page number and is a small number. If the chapter title were instead included in the clustered index, then the topic index would itself be much longer, because the key value would then be (chapter name, page number).
 
-The key should be **static** and **ever-increasing** to avoid having to maintain the physical location of the records (which means either moving records physically, or potentially fragmenting storage by splitting the pages where the records are stored). 
+The key should be **static** and **ever-increasing** to avoid having to maintain the physical location of the records (which means either moving records physically, or potentially fragmenting storage by splitting the pages where the records are stored).
 
 The clustered index will be most valuable for queries that do the following:
 
-- Return a range of values by using operators such as BETWEEN, >, >=, <, and <=. 
-	- After the row with the first value is found by using the clustered index, rows with subsequent indexed values are guaranteed to be physically adjacent. 
+- Return a range of values by using operators such as BETWEEN, >, >=, <, and <=.
+	- After the row with the first value is found by using the clustered index, rows with subsequent indexed values are guaranteed to be physically adjacent.
 - Use JOIN clauses; typically these are foreign key columns.
 - Use ORDER BY, or GROUP BY clauses.
 	- An index on the columns specified in the ORDER BY or GROUP BY clause may remove the need for the Database Engine to sort the data, because the rows are already sorted. This improves query performance.
@@ -344,14 +349,14 @@ To set the clustered index in the .NET backend using Entity Framework, set the `
 
 For the JavaScript backend, you can only modify the clustered index of a table by changing the database schema directly, either through SQL Server Management Studio or the Azure SQL Database Portal.
 
-The following guides describe how to set a clustered or nonclustered index by modifying the database schema directly:  
+The following guides describe how to set a clustered or nonclustered index by modifying the database schema directly:
 
 - [Creating and Modifying PRIMARY KEY Constraints][]
 - [Create Nonclustered Indexes][]
 - [Create Clustered Indexes][]
 - [Create Unique Indexes][]
 
-#### Find top N missing indexes 
+#### Find top N missing indexes
 You can write SQL queries on dynamic management views that will tell you more detailed information about the resource usage of individual queries or give you heuristics on what indexes to add. The following query determines which 10 missing indexes would produce the highest anticipated cumulative improvement, in descending order, for user queries.
 
     SELECT TOP 10 *
@@ -361,9 +366,9 @@ You can write SQL queries on dynamic management views that will tell you more de
 
 The following example query runs a join across these tables to get a list of the columns that should be part of each missing index and calculates an 'index advantage' to determine if the given index should be considered:
 
-    SELECT * from 
+    SELECT * from
     (
-        SELECT 
+        SELECT
         (user_seeks+user_scans) * avg_total_user_cost * (avg_user_impact * 0.01) AS index_advantage, migs.*
         FROM sys.dm_db_missing_index_group_stats migs
     ) AS migs_adv,
@@ -378,23 +383,23 @@ The following example query runs a join across these tables to get a list of the
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [Missing Index Dynamic Management Views](sys-missing-index-stats).
 
 <a name="AdvancedQuery" />
-### Advanced Query Design 
+### Advanced Query Design
 
-Frequently it's difficult to diagnose what queries queres are most expensive for the database. 
+Frequently it's difficult to diagnose what queries queres are most expensive for the database.
 
 #### Finding top N queries
 
 The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
 
-	SELECT TOP 5 query_stats.query_hash AS "Query Hash", 
+	SELECT TOP 5 query_stats.query_hash AS "Query Hash",
 	    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
 	    MIN(query_stats.statement_text) AS "Statement Text"
-	FROM 
-	    (SELECT QS.*, 
+	FROM
+	    (SELECT QS.*,
 	    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-	    ((CASE statement_end_offset 
+	    ((CASE statement_end_offset
 	        WHEN -1 THEN DATALENGTH(st.text)
-	        ELSE QS.statement_end_offset END 
+	        ELSE QS.statement_end_offset END
 	            - QS.statement_start_offset)/2) + 1) AS statement_text
 	     FROM sys.dm_exec_query_stats AS QS
 	     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
@@ -435,7 +440,7 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 - [Code First Data Annotations][]
 
 <!-- IMAGES -->
- 
+
 [SSMS]: ./media/mobile-services-sql-scale-guidance/1.png
 [PortalSqlManagement]: ./media/mobile-services-sql-scale-guidance/2.png
 [PortalSqlMetrics]: ./media/mobile-services-sql-scale-guidance/3.png
@@ -469,7 +474,7 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 
 [Primary and Foreign Key Constraints]: http://msdn.microsoft.com/library/ms179610(v=sql.120).aspx
 [Index Basics]: http://technet.microsoft.com/library/ms190457(v=sql.105).aspx
-[General Index Design Guidelines]: http://technet.microsoft.com/library/ms191195(v=sql.105).aspx 
+[General Index Design Guidelines]: http://technet.microsoft.com/library/ms191195(v=sql.105).aspx
 [Unique Index Design Guidelines]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
 [Clustered Index Design Guidelines]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
@@ -482,4 +487,4 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 
 <!-- BLOG LINKS -->
 [How much does that key cost?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
- 
+

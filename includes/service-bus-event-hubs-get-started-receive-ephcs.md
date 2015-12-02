@@ -4,7 +4,7 @@
 
 In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
-1. Log on to the [Azure portal], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
 
 2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
 
@@ -124,7 +124,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 [Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 <!-- Images -->
 
