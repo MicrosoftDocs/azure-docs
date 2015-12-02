@@ -54,7 +54,7 @@ Released: 2015 November
 
 **New supported scenario:**
 
-- Supports multiple on-premises Exchange organizations. See [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/en-us/library/jj873754.aspx) for more information.
+- Supports multiple on-premises Exchange organizations. See [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx) for more information.
 
 **Fixed issues:**
 
