@@ -45,7 +45,7 @@ The value of the `Microsoft.ServiceBus.ConnectionString` setting is the Service 
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Where `[namespace]` and `SharedAccessKey` are obtained from the Azure portal. For more information, see [How to Use Service Bus Queues][].
+Where `[namespace]` and `SharedAccessKey` are obtained from the [Azure classic portal][]. For more information, see [How to use Service Bus queues][].
 
 When using AMQP, append the connection string with `;TransportType=Amqp`. This notation informs the client library to make its connection to Service Bus using AMQP 1.0.
 
@@ -199,6 +199,7 @@ Ready to learn more? Visit the following links:
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[Azure classic portal]: http://manage.windowsazure.com
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

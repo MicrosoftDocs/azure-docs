@@ -73,13 +73,14 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
 - [Architecture](service-fabric-reliable-services-platform-architecture.md)
 - [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 - [Configuring Stateful Reliable Services](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Serialization](../Service-Fabric/service-fabric-reliable-services-serialization.md)
 - [Reliable Services Programming Model Advanced Usage](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 
 Communicating with Reliable Services and the abstractions which clients can use to discover and communicate with the service endpoints are described in the following:
 
 - [Communicating with services](service-fabric-connect-and-communicate-with-services.md)
 - [Service Communication Model](service-fabric-reliable-services-communication.md)
-- [Default communication stack provided by Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
+- [Default communication stack provided by Reliable Services Framework](service-fabric-reliable-services-communication-remoting.md)
 - [WCF based communication stack for Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 - [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 

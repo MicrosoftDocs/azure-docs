@@ -108,10 +108,10 @@ Log on to the first domain controller computer by using the credentials of the l
 
 ### <a id="logon"></a>To log on to a virtual machine by using a Remote Desktop connection
 
-1.	In the Azure portal, in the left pane, click **Virtual Machines**.
+1.	In the Azure classic portal, in the left pane, click **Virtual Machines**.
 2.	To connect to a VM, click **Running** in the **Status** column next to its name.
 3.	In the command bar on the bottom of the page, click **Connect**.
-4.	The portal informs you that the .rdp file is being retrieved. Click **OK**.
+4.	The Azure classic portal informs you that the .rdp file is being retrieved. Click **OK**.
 5.	The browser dialog appears, asking "Do you want to open or save ComputerName.rdp from manage.windowsazure.com?" Click **Open**.
 6.	In the **Remote Desktop Connection** dialog, click **Connect**.
 7.	In the **Windows Security** dialog, click **Use another account**.
@@ -205,14 +205,14 @@ Next, perform the following steps to add more account properties to the new user
 
 Next, update the DNS servers for your virtual network so that Azure assigns virtual machines the IP addresses of the two new domain controllers to use as their DNS servers. Note that this procedure uses values from Table V (for your virtual network settings).
 
-1.	In the left pane of the Azure portal, click **Networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
+1.	In the left pane of the Azure classic portal, click **Networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
 2.	Click **Configure**.
 3.	In **DNS Servers**, remove the entries corresponding to the DNS servers that are located on your on-premises network.
 4.	In **DNS Servers**, add two entries with friendly names and the IP addresses of these two table items:
  - Table V – Item 6 – Value column
  - Table V – Item 7 – Value column
 5.	In the command bar at the bottom, click **Save**.
-6.	In the left pane of the Azure portal, click **Virtual Machines**, and then click the **Status** column next to the name of your first domain controller.
+6.	In the left pane of the Azure classic portal, click **Virtual Machines**, and then click the **Status** column next to the name of your first domain controller.
 7.	In the command bar, click **Restart**.
 8.	When the first domain controller is started, click the **Status** column next to the name of your second domain controller.
 9.	In the command bar, click **Restart**. Wait until the second domain controller is started.

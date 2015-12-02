@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/> 
 
 
-# Setting up alerts
+# Setting up alerts in Azure Stream Analytics
 
 ## Monitor page
 

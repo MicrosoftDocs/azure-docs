@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
     pageTitle="Cache Migrate to Redis"
     description="Learn how to migrate Managed Cache Service applications to Azure Redis Cache"
     services="redis-cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="10/23/2015"
+    ms.date="11/30/2015"
     ms.author="sdanie" />
 
 # Migrate from Managed Cache Service to Azure Redis Cache
@@ -42,7 +42,7 @@ Azure Managed Cache Service and Azure Redis Cache are similar but implement some
 |Managed Cache Service feature|Managed Cache Service support|Azure Redis Cache support|
 |---|---|---|
 |Named caches|A default cache is configured, and in the Standard and Premium cache offerings, up to nine additional named caches can be configured if desired.|Azure Redis caches have 16 databases that can be used to implement a similar functionality to named caches. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).|
-|High Availability|Provides high availability for items in the cache in the Standard and Premium cache offerings. If items are lost due to a failure, backup copies of the items in the cache are still available. Writes to the secondary cache are made synchronously.|High availability is available in the Standard and Premium cache offerings, which have a two node Primary/Replica configuration (each shard in a Premium cache has a primary/replica pair). Writes to the replica are made asynchronously. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/en-us/pricing/details/cache/).|
+|High Availability|Provides high availability for items in the cache in the Standard and Premium cache offerings. If items are lost due to a failure, backup copies of the items in the cache are still available. Writes to the secondary cache are made synchronously.|High availability is available in the Standard and Premium cache offerings, which have a two node Primary/Replica configuration (each shard in a Premium cache has a primary/replica pair). Writes to the replica are made asynchronously. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).|
 |Notifications|Allows clients to receive asynchronous notifications when a variety of cache operations occur on a named cache.|Client applications can use Redis pub/sub or [Keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) to achieve a similar functionality to notifications.|
 |Local cache|Stores a copy of cached objects locally on the client for extra-fast access.|Client applications would need to implement this functionality using a dictionary or similar data structure.|
 |Eviction Policy|None or LRU. The default policy is LRU.|Azure Redis Cache supports the following eviction policies: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. The default policy is volatile-lru. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration).|
@@ -56,7 +56,7 @@ Microsoft Azure Redis Cache is available in the following tiers:
 
 -	**Basic** – Single node. Multiple sizes up to 53 GB.
 -	**Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
--	**Premium** – Currently in preview. Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). No SLA during the preview period.
+-	**Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 

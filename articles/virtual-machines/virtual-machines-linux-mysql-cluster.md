@@ -45,7 +45,7 @@ You will need a Microsoft Azure account with a valid subscription able to create
 
 ### Affinity group
 
-An affinity group for the solution is created by logging into the Azure Portal scrolling down to Settings and creating a new affinity group. Allocated resources created later will be assigned to this affinity group.
+An affinity group for the solution is created by logging into the Azure classic portal scrolling down to Settings and creating a new affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 
@@ -55,7 +55,7 @@ A new network is created, and a subnet is created inside the network. We chose a
 
 The first Ubuntu 13.10 VM is created using an Endorsed Ubuntu Gallery image, and called `hadb01`. A new cloud service is created in the process, called hadb. We call it this way to illustrate the shared, load-balanced nature that the service will have when we add more resources. The creation of `hadb01` is uneventful and completed using the portal. An endpoint for SSH is automatically created, and our created network is selected. We also choose to create a new availability set for the VMs.
 
-Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, `hadb02`. For the second VM we will also use Ubuntu 13.10 VM from the Gallery using the Portal but we will choose to use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected for us. An SSH endpoint will be created, too.
+Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, `hadb02`. For the second VM we will also use Ubuntu 13.10 VM from the Gallery using the portal but we will choose to use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected for us. An SSH endpoint will be created, too.
 
 After both VMs have been created, we will take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure)
 
@@ -153,7 +153,7 @@ You also need to enable networking for MySQL if you want to make queries from ou
 
 ### Creating the MySQL Load Balanced Set
 
-We will go back to the Azure Portal and browse to the `hadb01` VM, then Endpoints. We will create a new Endpoint, choose MySQL (TCP 3306) from the dropdown and tick on the *Create new load balanced set* box. We will call our load balanced endpoint `lb-mysql`. We will leave most of the options alone except for time which we'll reduce to 5 (seconds, minimum)
+We will go back to the portal and browse to the `hadb01` VM, then Endpoints. We will create a new Endpoint, choose MySQL (TCP 3306) from the dropdown and tick on the *Create new load balanced set* box. We will call our load balanced endpoint `lb-mysql`. We will leave most of the options alone except for time which we'll reduce to 5 (seconds, minimum)
 
 After the endpoint is created we go to `hadb02`, Endpoints, and create a new endpoint but we will choose `lb-mysql`, then select MySQL from the dropdown menu. You can also use the Azure CLI for this step.
 
@@ -313,7 +313,7 @@ And this screenshot shows both nodes, with one master and one slave:
 
 We're ready for an automatic failover simulation. There are two ways to doing this: soft and hard. The soft way is using the cluster's shutdown function: ``crm_standby -U `uname -n` -v on``. Using this on the master, the slave will take over. Remember to set this back to off (crm_mon will tell you one node is on standby otherwise)
 
-The hard way is shutting down the primary VM (hadb01) via the Portal or changing the runlevel on the VM (i.e., halt, shutdown) then we're helping Corosync and Pacemaker by signaling master's going down. We can test this (useful for maintenance windows) but we can also force the scenario by just freezing the VM.
+The hard way is shutting down the primary VM (hadb01) via the portal or changing the runlevel on the VM (i.e., halt, shutdown) then we're helping Corosync and Pacemaker by signaling master's going down. We can test this (useful for maintenance windows) but we can also force the scenario by just freezing the VM.
 
 ## STONITH
 

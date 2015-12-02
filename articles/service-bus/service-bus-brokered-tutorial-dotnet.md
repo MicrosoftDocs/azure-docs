@@ -33,7 +33,7 @@ The following are some administrative and prerequisite steps you should follow b
 
 1. To create a service namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. In the main window of the Azure portal, click the name of the namespace you created in the previous step.
+1. In the main window of the [Azure classic portal][], click the name of the namespace you created in the previous step.
 
 1. Click **Configure**.
 
@@ -107,8 +107,8 @@ The next step is to create a Visual Studio project and write two helper function
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
 1. Outside `Main()`, define a `ParseCSV()` method that parses the list of messages in Data.csv and loads the messages into a [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) table, as shown here. The method returns a **DataTable** object.
@@ -170,7 +170,8 @@ The next step is to create a Visual Studio project and write two helper function
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -632,7 +633,7 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 1. Before you run the application, you must ensure that you have created a service namespace and obtained a SAS key, as described in [Introduction and Prerequsites](#introduction-and-prerequisites).
 
-1. Open a browser and go to the [Azure portal](http://manage.windowsazure.com).
+1. Open a browser and go to the [Azure classic portal][].
 
 1. Click **Service Bus** in the left-hand tree.
 
@@ -644,9 +645,10 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md/#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
 
-To learn more about Service Bus, see the following topics.
+To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus architecture](service-bus-architecture.md)
 
+[Azure classic portal]: http://manage.windowsazure.com

@@ -82,16 +82,16 @@ To create the virtual network with the settings from Tables V, S, D, and L, use 
 
 > [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using ExpressRoute for your site-to-site connection, see [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
-After creating the Azure virtual network, the Azure Management Portal will determine the following:
+After creating the Azure virtual network, the Azure classic portal will determine the following:
 
 - The public IPv4 address of the Azure VPN gateway for your virtual network.
 - The Internet Protocol security (IPsec) pre-shared key for the site-to-site VPN connection.
 
-To see these in the Azure Management Portal after you create the virtual network, click **Networks**, click the name of the virtual network, and then click the **Dashboard** menu option.
+To see these in the Azure classic portal after you create the virtual network, click **Networks**, click the name of the virtual network, and then click the **Dashboard** menu option.
 
-Next, you’ll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure the Virtual Network Gateway in the Management Portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
+Next, you’ll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure the Virtual Network Gateway in the Azure classic portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
-Next, create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For the details, see [Configure a Virtual Network Gateway in the Management Portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
+Next, create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For the details, see [Configure a Virtual Network Gateway in the Azure classic portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
 Next, ensure that the address space of the virtual network is reachable from your on-premises network. This is usually done by adding a route corresponding to the virtual network address space to your VPN device and then advertising that route to the rest of the routing infrastructure of your organization network. Work with your IT department to determine how to do this.
 

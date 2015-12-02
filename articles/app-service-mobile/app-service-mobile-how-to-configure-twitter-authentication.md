@@ -18,6 +18,9 @@
 
 # How to configure your App Service application to use Twitter login
 
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+&nbsp;
+
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure App Service to use Twitter as an authentication provider.
@@ -25,8 +28,8 @@ This topic shows you how to configure Azure App Service to use Twitter as an aut
 To complete the procedure in this topic, you must have a Twitter account that has a verified email address. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
 
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]
+This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
 
 
 ## <a name="register"> </a>Register your application with Twitter
@@ -38,12 +41,8 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, paste the **Callback URL** you copied earlier. This is your Mobile App gateway appended with the path, _/.auth/login/twitter/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
 
-    ![][0]
-	
-
 	> [AZURE.NOTE]
 	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-twitter_ path.
-
 
 3.  At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. This registers the app displays the application details.
 
@@ -56,9 +55,8 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 ## <a name="secrets"> </a>Add Twitter information to your application
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Twitter**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]
+If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Twitter**. Paste in the values you obtained earlier and click **Save**.
 
 
 13. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
@@ -68,8 +66,10 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 15. Click **Twitter**. Paste in the App ID and App Secret values which you obtained previously. Then click **OK**.
 
     ![][1]
-	
-16. By default, App Service provides login but does not restrict access to your site content and APIs - this is the responsibility of your app code. If you wish to have the site completely protected by Twitter login, change the **Action to take when request is not authenticated** dropdown to use the **Twitter** option. This will require all requests to be authenticated; unauthenticated requests will be redirected to log in with Twitter.
+
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+
+17. (Optional) To restrict access to your site to only users authenticated by Twitter, set **Action to take when request is not authenticated** to **Twitter**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Twitter for authentication.
 
 17. Click **Save**. 
 

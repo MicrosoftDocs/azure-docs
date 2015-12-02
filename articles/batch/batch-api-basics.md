@@ -1,6 +1,6 @@
 <properties
-	pageTitle="API basics for Azure Batch | Microsoft Azure"
-	description="Learn the basic concepts of the Batch service and its APIs from a developer's standpoint."
+	pageTitle="Azure Batch feature overview | Microsoft Azure"
+	description="Learn the features of the Batch service and its APIs from a development standpoint."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
+	ms.date="11/19/2015"
 	ms.author="yidingz;v-marsma"/>
 
-# API basics for Azure Batch
+# Overview of Azure Batch features
 
 This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] or [Batch .NET][batch_net_api] APIs, you will use many of the entities and features discussed below.
 
-> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Azure Batch technical overview](batch-technical-overview.md).
+> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Azure Batch basics](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Workflow of the Batch service
 
@@ -66,7 +66,7 @@ When you use the Azure Batch service, you will take advantage of the following r
 
 ### <a name="account"></a>Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and the account key. To create a batch account, check out [Create and manage an Azure Batch account in the Azure preview portal](batch-account-create-portal.md).
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and the account key. To create a batch account, check out [Create and manage an Azure Batch account in the Azure portal](batch-account-create-portal.md).
 
 ### <a name="computenode"></a>Compute node
 

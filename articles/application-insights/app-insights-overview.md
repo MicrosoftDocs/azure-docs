@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # What is Application Insights?
@@ -21,7 +21,7 @@ Application Insights is an extensible analytics service that monitors your live 
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
-It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud; device apps on Windows, iOS, Android, OSX and other platforms. 
+It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud. 
 
 Application Insights is aimed at the development team. With it, you can:
 
@@ -32,7 +32,7 @@ Application Insights is aimed at the development team. With it, you can:
  *  Alerts on performance changes or crashes.
  *  Metrics to help diagnose performance issues, such as response times, CPU usage, dependency tracking.
  *  Availability tests for web apps.
- *  Crash and exception reports and alerts
+ *  Exception reports and alerts.
  *  Powerful diagnostic log search (including log traces from your favorite logging frameworks).
 
 The SDK for each platform includes a range of modules that monitor the app straight out of the box. In addition, you can code your own telemetry for more detailed and tailored analytics.
@@ -53,13 +53,10 @@ There are SDKs for a growing range of platforms. Currently the list includes:
  * [Azure Cloud Services](app-insights-cloudservices.md)
  * [J2EE servers][java]
  * [Web pages][client]: HTML+JavaScript
- * [Windows Phone, Windows Store, Windows 10 universal apps, and direct integration with the Windows 10 developer portal][windows]
- * [Windows desktop][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [Windows desktop and server apps][desktop]
  * [Other platforms][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
-Application Insights can also get telemetry from existing ASP.NET web apps on IIS without rebuilding them.
+Application Insights can also get telemetry from existing ASP.NET web apps without rebuilding them.
 
 If your app has client, server and other components, you can instrument them all. The data will be integrated in the Application Insights portal so that, for example, you can correlate events at the client with events at the server.
 
@@ -142,7 +139,7 @@ For more details, choose your app type under Get Started in the navigation bar o
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md

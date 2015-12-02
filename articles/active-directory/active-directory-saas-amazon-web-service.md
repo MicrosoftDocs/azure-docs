@@ -219,7 +219,7 @@ The following screenshot shows an example for this.
 
      a. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. In the **Attribute Value** textbox, type **mail**.
+     b. In the **Attribute Value** textbox, type **userprincipalname**.
 
      c. Click **Complete** to close the **Add User Attribute** dialog.
 
@@ -295,7 +295,7 @@ The objective of this section is to create a user called Britta Simon in Amazon 
 5. On the Create User dialog, perform the following steps: 
 <br><br>![Configure Single Sign-On][30]<br>
 
-     a. In the **Enter User Names** textboxes, type Brita Simon's user name in Azure AD.
+     a. In the **Enter User Names** textboxes, type Brita Simon's user name (userprincipalname) in Azure AD.
 
      b. Click **Create**.
 

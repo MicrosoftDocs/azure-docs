@@ -16,7 +16,7 @@
    ms.date="10/20/2015"
    ms.author="andkjell"/>
 
-# Prevent accidental deletes
+# Azure AD Connect sync: Prevent accidental deletes
 This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
 
 When installing Azure AD Connect, prevent accidental deletes will be enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory which would effect a large number of users.

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
     pageTitle="Migrating to Azure Premium Storage | Microsoft Azure"
     description="Migrate your existing virtual machines to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines."
     services="storage"
@@ -50,7 +50,7 @@ Follow the steps specified in the relevant section depending on your scenario.
 ### Considerations
 
 #### VM sizes
-The Azure VM size specifications are listed in [Sizes for virtual machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
+The Azure VM size specifications are listed in [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md). Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 
 #### Disk sizes

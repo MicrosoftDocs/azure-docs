@@ -12,20 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="cherylmc" />
 
 # VPN Gateway FAQ
 
-## Connecting to virtual networks
+## Connecting to Virtual Networks
 
 ### Can I connect virtual networks in different Azure regions?
-
 Yes. In fact, there is no region constraint. One virtual network can connect to another virtual network in the same region, or in a different Azure region.
 
 ### Can I connect virtual networks in different subscriptions?
-
 Yes.
+
 ### Can I connect to multiple sites from a single virtual network?
 
 You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#multi-site-and-vnet-to-vnet-connectivity) FAQ section.
@@ -43,11 +42,13 @@ The following cross-premises connections are supported:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
+For more information about cross-premises connections, see [About secure cross-premises connectivity](vpn-gateway-cross-premises-options.md).
+
 ### What is the difference between a site-to-site connection and point-to-site?
 
-**Site-to-site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
+**Site-to-Site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
 
-**Point-to-site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection. 
+**Point-to-Site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the point-to-site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection. 
 
 Note: You can configure your virtual network to use both site-to-site and point-to-site concurrently, provided that you create your site-to-site connection using a dynamic routing gateway. 
 
@@ -61,7 +62,7 @@ ExpressRoute connections offer better security, more reliability, higher bandwid
 
 See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more details.
 
-## Site-to-site connections and VPN devices
+## Site-to-Site connections and VPN devices
 
 ### What should I consider when selecting a VPN device?
 
@@ -81,7 +82,7 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## Point-to-site connections
+## Point-to-Site connections
 
 Presently, point-to-site connections are available only for the classic deployment model (also known as Service Management). We are working on a point-to-site solution for the Azure Resource Manager deployment model. When that is available, this page will be updated.
 
@@ -97,9 +98,11 @@ The following operating systems are supported:
 
 - Windows Server 2012
 
+- Windows 10
+
 ### Can I use any software VPN client for point-to-site that supports SSTP?
 
-No. Support is limited only to the Windows operating system versions listed above. The Windows 10 client is presently being verified.
+No. Support is limited only to the Windows operating system versions listed above.
 
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 
@@ -135,11 +138,11 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ## Gateways
 
-### What is a static-routing gateway?
+### What is a policy-based (static-routing) gateway?
 
 Static routing gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
 
-### What is a dynamic-routing gateway?
+### What is a route-based (dynamic-routing) gateway?
 
 Dynamic routing gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route based VPNs are configured as any-to-any (or wild cards).
 
@@ -167,7 +170,7 @@ Please note that you must not deploy virtual machines or role instances in the g
 
 ### How do I specify which traffic goes through the VPN gateway?
 
-If you are using the Azure Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
+If you are using the Azure Classic Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
 
 ### Can I configure Forced Tunneling?
 
@@ -177,11 +180,18 @@ Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on premises networks and your virtual network subnets.
 
+### Why are certain ports opened on my VPN gateway?
+
+They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
+
+A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+
+
 ### More information about gateway types, requirements, and throughput
 
 For more information, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 
-## Multi-site and VNet-to-VNet connectivity
+## Multi-Site and VNet-to-VNet connectivity
 
 ### Which type of gateways can support multi-site and VNet-to-VNet connectivity?
 
@@ -240,7 +250,7 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
-You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Management Portal and save the settings for the RDP connection to your computer. The settings will contain the necessary connection information.
+You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Azure Classic Portal and save the settings for the RDP connection to your computer. The settings will contain the necessary connection information.
 
 If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address. You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network. For example, if you have a point-to-site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.
 
