@@ -70,7 +70,7 @@ Make a copy of the ASP.NET project for your application and publish it to your n
 
 ## Updating the server project
 
-Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. First, you should remove all references to the Mobile Services packages. In the NuGet package manager, search for WindowsAzure.MobileServices.Backend. Most apps will see several packages here, including WindowsAzure.MobileServices.Backend.Tables and WindowsAzure.MobileServices.Backend.Entity. In such a case, start with the lowest package in the dependency tree, such as Entity, and remove it. When prompted, do not remove all dependant packages. Repeat this process until you have removed WindowsAzure.MobileServices.Backend itself.
+Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. First, you should remove all references to the Mobile Services packages. In the NuGet package manager, search for `WindowsAzure.MobileServices.Backend`. Most apps will see several packages here, including `WindowsAzure.MobileServices.Backend.Tables` and `WindowsAzure.MobileServices.Backend.Entity`. In such a case, start with the lowest package in the dependency tree, such as `Entity`, and remove it. When prompted, do not remove all dependant packages. Repeat this process until you have removed `WindowsAzure.MobileServices.Backend` itself.
 
 At this point you will have a project that no longer references Mobile Services SDKs.
 
@@ -99,8 +99,9 @@ with
 
 If your app makes use of the authentication features, you will also need to register an OWIN middleware. In this case, you should move the above configuration code into a new OWIN Startup class.
  
-1. In Visual Studio, right click on your project and select **Add** -> **New Item**. Select **Web** -> **General** -> **OWIN Startup class**. 
-2. Move the above code for MobileAppConfiguration from `WebApiConfig.Register()` to the `Configuration()` method of your new startup class.
+1. Add the NuGet package `Microsoft.Owin.Host.SystemWeb` if it is not already included in your project.
+2. In Visual Studio, right click on your project and select **Add** -> **New Item**. Select **Web** -> **General** -> **OWIN Startup class**. 
+3. Move the above code for MobileAppConfiguration from `WebApiConfig.Register()` to the `Configuration()` method of your new startup class.
 
 Make sure the `Configuration()` method ends with:
 
@@ -118,6 +119,78 @@ To ensure that you have the same schema being referenced as before, use the foll
         string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
         
 Please make sure you have MS_MobileServiceName set if you do the above. You can also provide another schema name if your application customized this previously.
+
+### System Properties
+
+#### Naming 
+
+In the Azure Mobile Services server SDK, system properties always contain a double underscore (`__`) prefix for the properties:
+
+- __createdAt
+- __updatedAt
+- __deleted
+- __version
+
+The Mobile Services client SDKs have special logic for parsing system properties in this format.
+
+In Azure Mobile Apps, system properties no longer have a special format and have the following names:
+
+- createdAt
+- updatedAt
+- deleted
+- version
+
+The Mobile Apps client SDKs use the new system properties names, so no changes are required to client code. However, if you are directly making REST calls to your service then you should change your queries accordingly.
+
+#### Local store 
+
+The changes to the names of system properties mean that an offline sync local database for Mobile Services is not compatible with Mobile Apps. If possible, you should avoid upgrading client apps from Mobile Services to Mobile Apps until after pending changes have been sent to the server. Then, the upgraded app should use a new database filename.
+
+If a client app is upgraded from Mobile Services to Mobile Apps while there are pending offline changes in the operation queue, then the system database must be updated to use the new column names. On iOS, this can be achieved using lightweight migrations to change the column names. On Android and the .NET managed client, you should write custom SQL to rename the columns for your data object tables.
+
+On iOS, you should change your Core Data schema for your data entities to match the following. Note that the properties `createdAt`, `updatedAt` and `version` no longer have an `ms_` prefix:
+
+| Attribute |  Type   | Note                                                 |
+|---------- |  ------ | -----------------------------------------------------|
+| id        | String, marked required  | primary key in remote store         |
+| createdAt | Date    | (optional) maps to createdAt system property         |
+| updatedAt | Date    | (optional) maps to updatedAt system property         |
+| version   | String  | (optional) used to detect conflicts, maps to version |
+
+#### Querying system properties
+
+In Azure Mobile Services, system properties are not sent by default, but only when they are requested using the query string `__systemProperties`. In contrast, in Azure Mobile Apps system properties are **always selected** since they are part of the server SDK object model. 
+
+This change mainly impacts custom implementations of domain managers, such as extensions of `MappedEntityDomainManager`. In Mobile Services, if a client never requests any system properties, it is possible to use a `MappedEntityDomainManager` that does not actually map all properties. However, in Azure Mobile Apps, these unmapped properties will cause an error in GET queries. 
+
+The easiest way to resolve the issue is to modify your DTOs so that they inherit from `ITableData` instead of `EntityData`. Then, add the `[NotMapped]` attribute to the fields that should be omitted. 
+
+For example, the following defines `TodoItem` with no system properties:
+
+    using System.ComponentModel.DataAnnotations.Schema;
+
+    public class TodoItem : ITableData
+    {
+        public string Text { get; set; }
+
+        public bool Complete { get; set; }
+
+        public string Id { get; set; }
+
+        [NotMapped]
+        public DateTimeOffset? CreatedAt { get; set; }
+
+        [NotMapped]
+        public DateTimeOffset? UpdatedAt { get; set; }
+
+        [NotMapped]
+        public bool Deleted { get; set; }
+
+        [NotMapped]
+        public byte[] Version { get; set; }
+    }
+
+Note: if you get errors on `NotMapped`, add a reference to the assembly `System.ComponentModel.DataAnnotations`.
 
 ### CORS
 

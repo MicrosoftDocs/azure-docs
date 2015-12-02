@@ -44,7 +44,6 @@ These are implementations we've heard about, including some by third parties.
 + [Azure web apps and VMs](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 + [Concrete](https://github.com/fidmor89/appInsights-Concrete)
-+ [Cordova](https://github.com/MSOpenTech/cordova-plugin-ms-appinsights)
 + [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
@@ -80,12 +79,3 @@ These are implementations we've heard about, including some by third parties.
 ## <a name="projects"></a> Build your own SDK
 
 If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home)
-
-
-
-
-
-
-[Windows Store apps using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
-
-<!--Link references-->

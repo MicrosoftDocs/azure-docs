@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect sync: Functions Reference | Microsoft Azure"
-	description="Reference of declarative provisioning expressions in Azure AD Connect Sync."
+	description="Reference of declarative provisioning expressions in Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,7 +17,7 @@
 	ms.author="markusvi"/>
 
 
-# Azure AD Connect Sync: Functions Reference
+# Azure AD Connect sync: Functions Reference
 
 
 In Azure Active Directory Sync, functions are used to manipulate an attribute value during synchronization. <br>

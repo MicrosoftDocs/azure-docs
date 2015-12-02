@@ -31,7 +31,7 @@ You are probably not using the right Azure account or subscription with the Azur
 
 1. Add-AzureAccount - Use the right user ID and password
 2. Get-AzureSubscription - View all the subscriptions for the account. 
-3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Portal.
 
 ## Problem: Fail to launch Data Gateway Express Setup from Azure Portal
 The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If you fails to start the Express Setup, you can
@@ -185,9 +185,9 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
 	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
 
-### Use Azure Preview Portal to troubleshoot the error
+### Use Azure Portal to troubleshoot the error
 
-1.	Login to [Azure Preview Portal][azure-preview-portal]. 
+1.	Login to [Azure Portal][azure-portal]. 
 2.	Click **ADFTutorialDataFactory** from the **Startboard**. If you don’t see the data factory link on the **Startboard**, click **BROWSE** hub and click **Everything**. Click **Data factories…** in the **Browse** blade, and click **ADFTutorialDataFactory**.
 3.	Notice that you see **With errors** on the **Datasets** tile. Click **With errors**. You should see **Datasets with errors** blade.
 
@@ -270,7 +270,7 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
  
 
 ## <a name="pighivewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
-This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell. 
+This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Portal and Azure PowerShell. 
 
 
 ### Walkthrough: Use Azure Portal to troubleshoot an error with Pig/Hive processing
@@ -362,7 +362,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 

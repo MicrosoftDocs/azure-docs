@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Using Windows PowerShell Scripts to Publish to Dev and Test Environments | Microsoft Azure"
    description="Learn how to use Windows PowerShell scripts from Visual Studio to publish to development and test environments."
    services="visual-studio-online"
@@ -349,4 +349,4 @@ To get help for functions you can use at the Windows PowerShell command prompt, 
 
 ## Next steps
 
-Learn more about PowerShell scripting by reading [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) and see other Azure PowerShell scripts at the [Script Center](https://azure.microsoft.com/en-us/documentation/scripts/).
+Learn more about PowerShell scripting by reading [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) and see other Azure PowerShell scripts at the [Script Center](https://azure.microsoft.com/documentation/scripts/).

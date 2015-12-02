@@ -19,7 +19,7 @@
 
 # SQL Server IaaS Agent Extension
 
-This extension enables SQL Server in Azure Virtual Machines to use certain services, listed in this article, which can only be used with this extension installed. This extension is automatically installed for SQL Server Gallery Images in the Azure preview portal. It can be installed on any SQL Server VM in Azure which has the Azure VM Guest Agent installed.
+This extension enables SQL Server in Azure Virtual Machines to use certain services, listed in this article, which can only be used with this extension installed. This extension is automatically installed for SQL Server Gallery Images in the Azure portal. It can be installed on any SQL Server VM in Azure which has the Azure VM Guest Agent installed.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -41,7 +41,7 @@ Requirements to use the extension on your VM:
 - **SQL automated patching**: This service lets you configure a maintenance window during which updates to your VM can take place, so  you can avoid updates during peak times for your workload. To see more information about this service, see [Automated patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
 ## Add the extension with Powershell
-If you provision your SQL Server VM using the [Azure preview portal](https://portal.azure.com/), the extension will be automatically installed. For SQL Server VMs provisioned with the [Azure portal](https://manage.windowsazure.com), or for VMs which you bring your own SQL license to, you can add this extension to an existing VM using the following Azure PowerShell cmdlet.
+If you provision your SQL Server VM using the [Azure portal](https://portal.azure.com/), the extension will be automatically installed. For SQL Server VMs provisioned with the [Azure classic portal](https://manage.windowsazure.com), or for VMs which you bring your own SQL license to, you can add this extension to an existing VM using the following Azure PowerShell cmdlet.
 
 **Set-AzureVMSqlServerExtension**
 
