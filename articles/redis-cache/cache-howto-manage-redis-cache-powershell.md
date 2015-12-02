@@ -24,8 +24,6 @@
 
 This topic shows you how to create, update and delete an Azure Redis Cache.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
-
 ## Prerequisites ##
 
 Before you can use Windows PowerShell with Azure Resource Manager, you need the following:
