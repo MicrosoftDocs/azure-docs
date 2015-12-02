@@ -121,7 +121,8 @@ This guide is intended to help IT professionals understand and use the various S
 [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-simplerulegroup.md)
 
 [Troubleshooting dynamic memberships to groups](active-directory-accessmanagement-troubleshooting.md)
-Delegated / Self-Service Stuff
+
+also make sure to delegated/self-service stuff is included
 
 ##B2B: Allow Partner Access to Applications
 
@@ -175,7 +176,7 @@ Delegated / Self-Service Stuff
 
 [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
 
-##TBD
+##Access Panel: A Portal for
 
 [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md)
 
@@ -194,3 +195,4 @@ something about reports related to managing apps, sign ins to apps, security rep
 [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 
 [Azure Active Directory Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview)
+
