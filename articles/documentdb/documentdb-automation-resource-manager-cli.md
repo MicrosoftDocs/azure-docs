@@ -5,6 +5,7 @@
 	authors="mimig1"
 	manager="jhubbard"
 	editor=""
+    tags="azure-resource-manager"
 	documentationCenter=""/>
 
 
@@ -58,7 +59,7 @@ Which produces the following output:
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../resource-group-create-work-id-from-personal.md).
 
 Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 
@@ -78,7 +79,7 @@ The command shell also provides the following output.
 	+
 	info:    login command OK
 
-In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](xplat-cli-connect.md).
+In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
 
 ### Switch to the Azure CLI resource group mode
 
@@ -306,7 +307,7 @@ For example:
 
     azure group log show new_res_group --last-deployment
 
-Then see [Troubleshooting resource group deployments in Azure](resource-group-deploy-debug.md) for additional  information.
+Then see [Troubleshooting resource group deployments in Azure](../resource-group-deploy-debug.md) for additional  information.
 
 Remember that database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. 
 
