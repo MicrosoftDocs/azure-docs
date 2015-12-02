@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect features in preview | Microsoft Azure"
+   pageTitle="Azure AD Connect: Features in preview | Microsoft Azure"
    description="This topic describes in more detail features which are in preview in Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 # More details about features in preview

@@ -18,6 +18,11 @@
 
 # Add push notifications to your Mobile Services app
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##Overview
@@ -99,7 +104,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
 
-    ![][111]  
+    ![][111]
 
     This downloads the signing certificate and saves it to your computer in your Downloads folder.
 

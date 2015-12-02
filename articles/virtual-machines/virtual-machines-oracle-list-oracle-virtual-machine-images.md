@@ -22,7 +22,7 @@ ms.author="bbenz" />
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-To create virtual machines based on Oracle images, sign in to the [Azure preview portal](https://ms.portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure preview portal](https://ms.portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
+To create virtual machines based on Oracle images, sign in to the [Azure portal](https://ms.portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://ms.portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 

@@ -58,7 +58,7 @@ In both cases, you can retrieve your connection string using the `CloudConfigura
 
 ### Configure your connection string when using Cloud Services
 
-The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the Azure portal without redeploying your application. For example, add a `Setting` label to your service definition (***.csdef**) file, as shown in the next example.
+The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (***.csdef**) file, as shown in the next example.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -87,7 +87,7 @@ You then specify values in the service configuration (.cscfg) file.
 </ServiceConfiguration>
 ```
 
-Use the Shared Access Signature (SAS) key name and key values retrieved from the Azure portal as described in the previous section.
+Use the Shared Access Signature (SAS) key name and key values retrieved from the Azure classic portal as described in the previous section.
 
 ### Configure your connection string when using Azure websites or Azure Virtual Machines
 
@@ -102,7 +102,7 @@ When using websites or Virtual Machines, it is recommended that you use the .NET
 </configuration>
 ```
 
-Use the SAS name and key values that you retrieved from the Azure portal, as described in the previous section.
+Use the SAS name and key values that you retrieved from the Azure classic portal, as described in the previous section.
 
 ## Create a topic
 
@@ -330,7 +330,7 @@ Now that you've learned the basics of Service Bus topics and subscriptions, foll
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus Brokered Messaging .NET Tutorial][].
 -   Service Bus samples: Download from [Azure Samples][] or see the [overview](service-bus-samples.md).
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 

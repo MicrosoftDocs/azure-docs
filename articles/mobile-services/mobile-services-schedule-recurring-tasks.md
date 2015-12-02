@@ -18,6 +18,11 @@
 
 # Schedule recurring jobs in Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
@@ -42,7 +47,7 @@ Next, you need to create a new table in which to store tweets.
 
 3. In **Table name** type _Updates_, then click the check button.
 
-##<a name="add-job"></a>Create a new scheduled job  
+##<a name="add-job"></a>Create a new scheduled job
 
 Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 

@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # Build a service using an existing SQL database with the Mobile Services .NET backend
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 The Mobile Services .NET backend makes it easy to take advantage of existing assets in building a mobile service. One particularly interesting scenario is using an existing SQL database (either on-premises or in the cloud), that may already be used by other applications, to make existing data available to mobile clients. In this case it's a requirement that database model (or *schema*) remain unchanged, in order for existing solutions to continue working.
 

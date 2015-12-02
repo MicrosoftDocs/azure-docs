@@ -36,7 +36,7 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of [Create a Windows app][create a windows app].
-* [Azure Mobile Services SQLite Store version 2.0.0-beta2][sqlite store nuget]
+* [Azure Mobile Services SQLite Store][sqlite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Update the client app to support offline features
@@ -48,13 +48,9 @@ Azure Mobile App offline features allow you to interact with a local database wh
     * **Windows 8.1 Runtime:** Install [SQLite for Windows 8.1].
     * **Windows Phone 8.1:** Install [SQLite for Windows Phone 8.1].
 
-    >[AZURE.NOTE] If you are using Internet Explorer, clicking the link to install SQLite may prompt you to download the .vsix as a .zip file. Save the file to a location on your hard drive with the .vsix extension instead of .zip. The double click the .vsix file in Windows Explorer to run the installation.
+    >[AZURE.NOTE] These instructions will also work for Windows 10 UAP projects, but you should instead install [SQLite for Windows 10].
 
-2. In Visual Studio open the project that you completed in the [Create a Windows app] tutorial. Install the **WindowsAzure.MobileServices.SQLiteStore** NuGet package for the Windows 8.1 runtime and Windows Phone 8.1 projects.
-
-    In Solution Explorer, right click the solution and click **Manage Nuget Packages for Solution** to run NuGet Package Manager. In the "Online" tab, select the option "Include Prerelease" in the dropdown at the top. Search for **SQLiteStore** to install the 2.0.0-beta of `WindowsAzure.MobileServices.SQLiteStore`. 
-
-    Then, add the NuGet reference to both the Windows Store 8.1 and Windows Phone 8.1 projects.
+2. In Visual Studio open the project that you completed in the [Create a Windows app] tutorial. Install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package for the Windows 8.1 runtime and Windows Phone 8.1 projects. Add the NuGet reference to both the Windows Store 8.1 and Windows Phone 8.1 projects.
 
     >[AZURE.NOTE] If the installation creates an additional reference to a different version of SQLite than you have installed, you will get a compilation error. You should resolve this error by removing the duplicate in the **References** node in your projects.
 
@@ -269,11 +265,11 @@ When we want to synchronize the local store with the server, we used the `IMobil
 <!-- URLs. -->
 [Offline Data Sync in Azure Mobile Apps]: ../app-service-mobile-offline-data-sync.md
 [create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[sqlite for windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[sqlite for windows phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
-[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
  
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

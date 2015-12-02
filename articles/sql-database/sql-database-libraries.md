@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="pehteh"/>
 
 # Connection libraries for SQL Database and SQL Server

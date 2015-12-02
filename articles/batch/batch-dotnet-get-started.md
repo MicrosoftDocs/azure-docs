@@ -63,7 +63,7 @@ To support the application, a container is created in Azure Storage, the text fi
 
 	- **[account-name]** - The name of the storage account that you previously created.
 
-	- **[account-key]** - The primary key of the storage account. You can find the primary key on the Storage page in the Azure preview portal.
+	- **[account-key]** - The primary key of the storage account. You can find the primary key on the Storage page in the Azure portal.
 
 2. Save the App.config file.
 
@@ -208,7 +208,7 @@ A pool of compute nodes is the first set of resources that you must create when 
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Replace the bracketed values with those associated with your Batch account, each of which can be found in the [Azure preview portal](https://portal.azure.com). To locate these values, log in to the [Azure preview portal](https://portal.azure.com) and:
+	Replace the bracketed values with those associated with your Batch account, each of which can be found in the [Azure portal](https://portal.azure.com). To locate these values, log in to the [Azure portal](https://portal.azure.com) and:
 
 	- **[account-name]** - Click **Batch Accounts**, select the Batch account you created earlier
 	- **[account-url]** - Within the Batch account blade, click **Properties** > **URL**
@@ -487,7 +487,7 @@ Because you are charged for resources in Azure, it's always a good idea to delet
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. At this point you can go into the Azure preview portal to look at the resources that were created. To delete the resources, press Enter until the program finishes.
+8. At this point you can go into the Azure portal to look at the resources that were created. To delete the resources, press Enter until the program finishes.
 
 ## Next steps
 

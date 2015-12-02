@@ -18,6 +18,8 @@
 
 # Protect an API app: Add Azure Active Directory or social provider authentication
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Overview
 
 This tutorial shows how to protect an API app so that only authenticated users can access it. The tutorial also shows code that you can use in an ASP.NET API app to retrieve information about the logged-on user.

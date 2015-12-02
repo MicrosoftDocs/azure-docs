@@ -18,6 +18,8 @@
 
 # Consume an internal API app in Azure App Service from a .NET client 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Overview
 
 This tutorial shows how to write code for an ASP.NET [API app](app-service-api-apps-why-best-platform.md) that calls another API app configured for **Internal** access level. Both API apps must be in the same resource group.  The same code can be used to call an internal API app from a [mobile app](../app-service-mobile/app-service-mobile-value-prop-preview.md).

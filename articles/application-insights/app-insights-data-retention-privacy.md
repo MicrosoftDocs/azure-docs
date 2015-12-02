@@ -59,6 +59,10 @@ Telemetry data include:
 
 User and session counts aren't included in the quota for pricing purposes.
 
+*What happens if my app exceeds the per-second rate?*
+
+* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. Some versions of the SDK then try to resend, spreading a surge out over several minutes; others such as the JavaScript SDK just drop the refused data.
+
 *How do I know how many data points my app is sending?*
 
 * Open Settings/Quota and Pricing to see the Data Volume chart.
@@ -66,7 +70,7 @@ User and session counts aren't included in the quota for pricing purposes.
 
 *How can I reduce the amount of data my app sends?*
 
-* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search.
+* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. From ASP.NET SDK 2.0.0-beta3, adaptive sampling is enabled by default.
 * [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
 
 
@@ -245,7 +249,7 @@ This product includes GeoLite2 data created by MaxMind, available from [http://w
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/

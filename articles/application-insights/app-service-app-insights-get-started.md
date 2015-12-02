@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Visual Studio Application Insights
 
 Application Insights is an extensible analytics service that monitors your live application. It helps you detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve the performance and usability of your app. 
 
-![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
+![Chart user activity statistics, or drill into specific events.](./media/app-service-app-insights-get-started/00-sample.png)
 
 It works with both web and stand-alone apps on a wide variety of platforms: .NET or J2EE, hosted on-premises or in the cloud. 
 
@@ -43,7 +43,7 @@ Telemetry data collected from your application is stored and analysed in the Azu
 
 Want even deeper analysis? [Export](app-insights-export-telemetry.md) your data [to SQL](app-insights-code-sample-export-telemetry-sql-database.md), [to Power BI](app-insights-export-power-bi.md), or your own tools.
 
-![Viewing data in Power BI](./media/app-insights-overview/210.png)
+![Viewing data in Power BI](./media/app-service-app-insights-get-started/210.png)
 
 ## Platforms and languages
 
@@ -65,7 +65,7 @@ If your app has client, server and other components, you can instrument them all
 
 You install a small SDK in your application, and set up an account in the Application Insights portal. The SDK monitors your app and sends telemetry data to the portal. The portal shows you statistical charts and provides powerful search tools to help you diagnose any problems.
 
-![The Application Insights SDK in your app sends telemetry to your Application Insights resource in the Azure portal.](./media/app-insights-overview/01-scheme.png)
+![The Application Insights SDK in your app sends telemetry to your Application Insights resource in the Azure portal.](./media/app-service-app-insights-get-started/01-scheme.png)
 
 The SDK has several modules which collect telemetry, for example to count users, sessions, and performance. You can also write your own custom code to send telemetry data to the portal. Custom telemetry is particularly useful to trace user stories: you can count events such as button clicks, achievement of particular goals, or user mistakes.
 
@@ -132,7 +132,7 @@ If you aren't using Visual Studio, or if those options aren't available for your
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [ios]: https://github.com/Microsoft/ApplicationInsights-iOS
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-overview-usage.md
