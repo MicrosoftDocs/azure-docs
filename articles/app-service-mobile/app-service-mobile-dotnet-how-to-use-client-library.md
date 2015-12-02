@@ -27,6 +27,10 @@
 
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDK for the .NET backend, see [Work with .NET backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
+## Reference documentation
+
+The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET Client Reference](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.aspx).
+
 ##<a name="setup"></a>Setup and Prerequisites
 
 We assume that you have already created and published your Mobile App backend project, which includes at one table.  In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `Id`, `Text`, and `Complete`. This is the same table created when you complete the [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md)
@@ -307,13 +311,9 @@ The Mobile Apps client enables you to register for push notifications with Azure
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Note that in this example, two tags are included with the registration. For more information on Windows apps, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md). 
+Note that in this example, two tags are included with the registration. For more information on Windows apps, including how to register for template registrations, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md). 
 
-<!--- Remove until Xamarin.Android push is supported.
-Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
-
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
->-->
+Xamarin apps require some additional code to be able to register an app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 ## How to: Register push templates to send cross-platform notifications
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.iOS App
@@ -26,18 +26,18 @@
 
 This tutorial is based on the [Xamarin.iOS quickstart tutorial](app-service-mobile-xamarin-ios-get-started.md), which you must complete first. You will add push notifications to the Xamarin.iOS quick start project so that every time a record is inserted, a push notification is sent. If you do not use the downloaded quick start server project, you must add the push notification extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
 
-The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
-
 ##Prerequisites
 
 To complete this tutorial, you need the following:
 
 * An active Azure account.  
-If you don't have an account yet, sign up for an Azure trial and get up to 10 free mobile apps. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+If you don't have an account yet, sign up for an Azure trial and get up to 10 free Mobile App backends. You can keep using them even after your trial ends. See [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 * A Mac with [Xamarin Studio] and [Xcode] v4.4 or later installed it. You can run the Xamarin.iOS app using Visual Studio on a Windows computer if you want, but it's a bit more complicated because you have to connect to a networked Mac running the Xamarin.iOS Build Host. If you're interested in doing that, see [Installing Xamarin.iOS on Windows].
 
 * A physical iOS device. Push notifications are not supported by the iOS simulator.
+
+* An [Apple Developer Program membership](https://developer.apple.com/programs/ios/), required to register with the Apple Push Notification Service (APNS).
 
 * Complete the [Xamarin.iOS quickstart tutorial](app-service-mobile-xamarin-ios-get-started.md).
 
@@ -68,7 +68,7 @@ To configure your app to send notifications, create a new hub and configure it f
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-##Configure your Xamarin.Forms project
+##Configure your Xamarin.iOS project
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
@@ -89,7 +89,8 @@ To configure your app to send notifications, create a new hub and configure it f
 
 1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
 
-        using Microsoft.WindowsAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
 2. In **AppDelegate**, override the **FinishedLaunching** event: 
 
@@ -108,16 +109,28 @@ To configure your app to send notifications, create a new hub and configure it f
             return true;
         }
 
-3. In the same file, override the **RegisteredForRemoteNotifications** event:
+3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a simple template notification that will be sent across all supported platforms by the server. 
+ 
+	For more information on templates with Notification Hubs, see [Templates](../notification-hubs/notification-hubs-templates.md). 
+
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
             MobileServiceClient client = QSTodoService.DefaultService.GetClient;
 
+            const string templateBodyAPNS = "{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+            {
+                {"body", templateBodyAPNS}
+            };
+
             // Register for push with your mobile app
             var push = client.GetPush();
-            push.RegisterAsync(deviceToken);
+            push.RegisterAsync(deviceToken, templates);
         }
+
 
 4. Then, override the **DidReceivedRemoteNotification** event:
 
