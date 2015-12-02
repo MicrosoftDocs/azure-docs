@@ -21,7 +21,7 @@
 # Azure Container Service Introduction
 
 > [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
-
+<br />
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
 Azure Container Service (ACS) provides a way to simplify the creation,
