@@ -5,6 +5,7 @@
   * [Enable Strict Transport Security - HSTS](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)
 * [Restricting Access By Client IP Address](http://microsoftazurewebsitescheatsheet.info/#filtering-traffic-by-ip)
 * [Restricting Access By Client Behavior](http://microsoftazurewebsitescheatsheet.info/#dynamic-ip-restrictions)
+* [Web Vulnerability Scanning](https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 * [Configure TLS mutual authentication](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/)
 * [Using a Client Certificate From Your App](https://azure.microsoft.com/en-us/blog/using-certificates-in-azure-websites-applications/)
 * [Removing standard Server Headers](https://azure.microsoft.com/en-us/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
