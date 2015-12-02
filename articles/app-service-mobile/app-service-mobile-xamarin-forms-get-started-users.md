@@ -270,7 +270,6 @@ In this section you will add authentication for the WinApp project. If you are n
 
 
 
-
 <!-- Images. -->
 
 <!-- URLs. -->
