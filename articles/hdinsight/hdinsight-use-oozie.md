@@ -194,7 +194,7 @@ The PowerShell script in this section performs the following steps:
 
 	To examine the OOzie job results, use Visual Studio or other tools to connect to the Azure SQL Database.
 
-Here is the script.  You can run the script from Windows Azure ISE. You only need to configure the first 7 variables.
+Here is the script.  You can run the script from Windows PowerShell ISE. You only need to configure the first 7 variables.
 
 	#region - provide the following values
 	
