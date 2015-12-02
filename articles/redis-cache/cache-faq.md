@@ -212,7 +212,7 @@ Azure Cache currently has three offerings:
 >
 >During this period, we encourage all existing Managed Cache Service and In-Role Cache service customers to migrate to Azure Redis Cache. Azure Redis Cache provides more features and a better value overall. For more information on migrating, please visit the [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md) documentation webpage. 
 >
->If you have any questions, please [contact us](https://azure.microsoft.com/en-us/support/options/?WT.mc_id=azurebg_email_Trans_933). 
+>If you have any questions, please [contact us](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933). 
 
 ### Azure Redis Cache
 Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
