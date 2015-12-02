@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="cherylmc" />
 
 # About secure cross-premises connectivity for virtual networks
@@ -36,7 +36,7 @@ The table below can help you decide the best connectivity option for your soluti
 |------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Azure Supported Services** | Cloud Services and Virtual Machines                                                          | Cloud Services and Virtual Machines                                                                     | [Services list](../expressroute/expressroute-faqs.md#supported-services)                                                       |
 | **Typical Bandwidths**       | Typically < 100 Mbps aggregate                                                               | Typically < 100 Mbps aggregate                                                                          | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps                                                               |
-| **Protocols Supported**      | Secure Sockets Tunneling Protocol (SSTP)                                                     | [IPsec](http://go.microsoft.com/fwlink/p/?LinkId=618592)                                                | Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...)                                                                                                    |
+| **Protocols Supported**      | Secure Sockets Tunneling Protocol (SSTP)                                                     | IPsec                                                | Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...)                                                                                                    |
 | **Routing**                  | Route-based (dynamic)                                                                        | We support policy-based (static routing) and route-based (dynamic routing VPN)                 | BGP                                                                                                                                  |
 | **Connection resiliency**    | active-passive                                                                               | active-passive                                                                                          | active-active                                                                                                                        |
 | **Typical use case**         | Prototyping, dev / test / lab scenarios for cloud services and virtual machines              | Dev / test / lab scenarios and small scale production workloads for cloud services and virtual machines | Access to all Azure services (validated list), Enterprise-class and mission critical workloads, Backup, Big Data, Azure as a DR site |
@@ -63,7 +63,7 @@ A site-to-site VPN allows you to create a secure connection between your on-prem
 - The VPN device you use must be compatible with the gateway type that is required for your solution. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 - The Gateway SKU will also impact aggregate throughput. See [Gateway SKUs](vpn-gateway-about-vpngateways.md#gateway-skus) for more information. 
 
-For information about configuring a site-to-site VPN gateway connection, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md). 
+For information about configuring a site-to-site VPN gateway connection using the Azure Classic Portal and the classic deployment model, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md). For information about configuring a site-to-site VPN using the Resource Manager deployment model, see [Create a virtual network with a site-to-site VPN connection](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Point-to-Site connections
