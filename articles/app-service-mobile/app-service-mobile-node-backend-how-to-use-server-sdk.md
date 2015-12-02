@@ -644,4 +644,3 @@ Node.js applications have access to a wide range of diagnostic log tools.  Inter
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
->>>>>>> c5a847a734eb780a6fddf1a43d29a871a204adb5
