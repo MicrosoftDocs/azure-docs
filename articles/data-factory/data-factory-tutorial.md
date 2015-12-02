@@ -248,7 +248,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
 		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.1",
+		    	    "version": "3.2",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
 		    	}
 			}

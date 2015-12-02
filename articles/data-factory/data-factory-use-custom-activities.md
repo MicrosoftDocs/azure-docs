@@ -248,7 +248,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
