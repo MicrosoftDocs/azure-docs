@@ -79,7 +79,7 @@ A token service is a custom cloud service, which uses an IoT Hub *Shared Access 
 
 These are the main steps of the token service pattern:
 
-1. Create an [IoT Hub shared access policy][lnk-devguide-security] with **DeviceConnect** permissions for your IoT hub. You can create this policy in the [preview portal][lnk-preview-portal] or programmatically. The token service uses this policy to sign the tokens it creates.
+1. Create an [IoT Hub shared access policy][lnk-devguide-security] with **DeviceConnect** permissions for your IoT hub. You can create this policy in the [Azure portal][lnk-portal] or programmatically. The token service uses this policy to sign the tokens it creates.
 2. When a device needs to access your IoT hub, it requests a signed token from your token service. The device can authenticate with your custom device identity registry/authentication scheme to determine the device identity the token service uses to create the token.
 3. The token service returns a token, created as per [IoT Hub Developer Guide - Security][lnk-devguide-security], using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated. The token service uses the shared access policy to construct the token.
 4. The device uses the token directly with the IoT hub.
@@ -113,7 +113,7 @@ Follow these links to learn more about Azure IoT Hub:
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
-[lnk-preview-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.com
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp

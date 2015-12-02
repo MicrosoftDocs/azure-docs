@@ -84,7 +84,7 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 
 - **Number of concurrent relay listeners per namespace** – Service Bus enforces a limit of 2000 concurrent relay listeners per service namespace. If this quota is reached, subsequent requests to open additional relay listeners will be rejected and an exception will be received by the calling code.
 
-- **Number of topics/queues per service namespace** – The maximum number of topics/queues (durable storage-backed entities) on a service namespace is limited to 10,000. If this quota is reached, subsequent requests for creation of a new topic/queue on the service namespace will be rejected. In this case, the Azure portal will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
+- **Number of topics/queues per service namespace** – The maximum number of topics/queues (durable storage-backed entities) on a service namespace is limited to 10,000. If this quota is reached, subsequent requests for creation of a new topic/queue on the service namespace will be rejected. In this case, the [Azure classic portal][] will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
 
 - **Message size quotas**
 	- **Queue/Topic/Subscription**
@@ -96,7 +96,7 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 
 	Messages that exceed these size quotas will be rejected and an exception will be received by the calling code.
 
-- **Number of subscriptions per topic** – The maximum number of subscriptions per topic is limited to 2,000. If this quota is reached, subsequent requests for creating additional subscriptions to the topic will be rejected. In this case, the management portal will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
+- **Number of subscriptions per topic** – The maximum number of subscriptions per topic is limited to 2,000. If this quota is reached, subsequent requests for creating additional subscriptions to the topic will be rejected. In this case, the [Azure classic portal][] will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
 
 - **Number of SQL filters per topic** – The maximum number of SQL filters per topic is limited to 2,000. If this quota is reached, any subsequent requests for creation of additional filters on the topic will be rejected and an exception will be received by the calling code.
 
@@ -113,3 +113,5 @@ To learn more about Service Bus messaging, see the following topics.
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Azure Service Bus Architectural Overview](fundamentals-service-bus-hybrid-solutions.md)
 - [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+
+[Azure classic portal]: http://manage.windowsazure.com
