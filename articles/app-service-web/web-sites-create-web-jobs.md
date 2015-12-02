@@ -22,7 +22,7 @@
 
 You can run programs or scripts in WebJobs in your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
-This article shows how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
+This article shows how to deploy WebJobs by using the [Azure Portal](https://portal.azure.com). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
@@ -104,9 +104,9 @@ Other CRON schedule examples:
 
 The following alternate technique makes use of the Azure Scheduler. In this case, your WebJob does not have any direct knowledge of the schedule. Instead, the Azure Scheduler gets configured to trigger your WebJob on a schedule. 
 
-The Azure management portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [old portal](http://manage.windowsazure.com).
+The Azure Portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [classic portal](http://manage.windowsazure.com).
 
-1. In the [old portal](http://manage.windowsazure.com) go to the WebJob page and click **Add**.
+1. In the [classic portal](http://manage.windowsazure.com) go to the WebJob page and click **Add**.
 
 1. In the **How to Run** box, choose **Run on a schedule**.
 	
@@ -152,7 +152,7 @@ The Azure management portal doesn't yet have the ability to create a scheduled W
 	
 ### <a name="Scheduler"></a>Scheduled jobs and Azure Scheduler
 
-Scheduled jobs can be further configured in the Azure Scheduler pages of the [old portal](http://manage.windowsazure.com).
+Scheduled jobs can be further configured in the Azure Scheduler pages of the [classic portal](http://manage.windowsazure.com).
 
 1.	On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
 	
