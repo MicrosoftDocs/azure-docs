@@ -1,3 +1,4 @@
+<properties 
    pageTitle="Azure Mobile Engagement User Interface - Analytics" 
    description="Learn how to analyze historical data about your application using Azure Mobile Engagement" 
    services="mobile-engagement" 
