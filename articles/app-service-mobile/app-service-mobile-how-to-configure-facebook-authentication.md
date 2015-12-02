@@ -70,7 +70,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
 
 
-13. Back in the [Azure Management Portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **Authentication/Authorization** is **On**.
+13. Back in the [Azure Management Portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
 
 15. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
 
