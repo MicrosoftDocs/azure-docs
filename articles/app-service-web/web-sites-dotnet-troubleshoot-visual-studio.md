@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -72,7 +72,7 @@ Visual Studio provides access to a subset of the web app management functions an
    
 	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Apps: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure preview portal. For more information, see [How to Configure Web Apps](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure classic portal. For more information, see [How to Configure Web Apps](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Access web app files in Server Explorer
 
@@ -157,7 +157,7 @@ This section shows how to debug remotely using the project you create in [Gettin
 
 6. For Visual Studio 2012 with Update 4 or later:<a id="vs2012"></a>
 
-	* In the Azure Management Portal, go to **Settings > Application settings** for your web app, and then scroll down to the **Debugging** section.
+	* In the Azure classic portal, go to **Settings > Application settings** for your web app, and then scroll down to the **Debugging** section.
 
 	* Set **Remote Debugging** to **On**, and set **Remote Visual Studio Version** to **2012**.
 
@@ -167,7 +167,7 @@ This section shows how to debug remotely using the project you create in [Gettin
 
 	* Select **Show processes from all users**.
 
-	* When you're prompted for credentials, enter the user name and password that has permissions to deploy content to the web app. To get these credentials, go to the Dashboard tab for your web app in the management portal and click **Download the publish profile**. Open the file in a text editor, and you'll find the user name and password after the first occurrences of **userName=** and **userPWD=**. 
+	* When you're prompted for credentials, enter the user name and password that has permissions to deploy content to the web app. To get these credentials, go to the Dashboard tab for your web app in the classic portal and click **Download the publish profile**. Open the file in a text editor, and you'll find the user name and password after the first occurrences of **userName=** and **userPWD=**. 
 
 	* When the processes appear in the **Available Processes** table, select **w3wp.exe**, and then click **Attach**.
 
@@ -272,7 +272,7 @@ If your function [wrote logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.
 
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48 hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
 
-* You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx).
+* You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Diagnostic logs overview
 
@@ -480,9 +480,9 @@ Web server logs record all HTTP activity for the web app. In order to see them i
 	![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
-By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
+By default, when you first enable web server logs by using Visual Studio, Azure writes the logs to the file system. As an alternative, you can use the classic portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
 
-If you use the management portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
+If you use the classic portal to enable web server logging to an Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
 
 ## <a name="detailederrorlogs"></a>View detailed error message logs
 
@@ -532,7 +532,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 ## <a name="storagelogs"></a>View storage logs
 
-Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the management portal, and view them in the **Logs** tab of the **Azure Web App** window.
+Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the classic portal, and view them in the **Logs** tab of the **Azure Web App** window.
 
 You can send logs to any or all of three destinations:
 
@@ -575,9 +575,9 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
 	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	This opens the **Configure** tab in the Azure portal for your web app.
+	This opens the **Configure** tab in the classic portal for your web app.
 
-2. In the portal **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Table Storage)** to **On**.
+2. In the classic portal's **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Table Storage)** to **On**.
 
 3. Change **Logging Level** to **Information**.
 
@@ -591,7 +591,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
 6. In the **Manage table storage for application diagnostics** box click the check mark to close the box.
 
-6. In the portal **Configure** tab, click **Save**.
+6. In the classic portal's **Configure** tab, click **Save**.
 
 7. In the browser window that displays the application web app, click **Home**, then click **About**, and then click **Contact**.
 
@@ -643,13 +643,13 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 2. In Visual Studio, in the **Configuration** tab of the **Azure Web App** window, click **Open in Management Portal**.
 
-3. In the Azure preview portal blade for your web app, click **Settings > Deployment credentials**, and then enter a new user name and password.
+3. In the Azure Portal(https://portal.azure.com) blade for your web app, click **Settings > Deployment credentials**, and then enter a new user name and password.
 
 	![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 	**When you log in, you have to use the full user name with the web app name prefixed to it. For example, if you enter "myid" as a user name and the site is "myexample", you log in as "myexample\myid".
 
-5. In a new browser window, go to the URL that is shown under **FTP hostname** or **FTPS hostname** in the **Web App** portal blade for your web app. 
+5. In a new browser window, go to the URL that is shown under **FTP hostname** or **FTPS hostname** in the **Web App** blade for your web app. 
 
 6. Log in using the FTP credentials that you created earlier (including the web app name prefix for the user name).
 
@@ -766,7 +766,7 @@ The Microsoft TechNet website includes a [Using Failed Request Tracing](http://w
 
 ### Debugging Cloud Services
 
-If you want to debug an Azure Cloud Service rather than a web app, see [Debugging Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx).
+If you want to debug an Azure Cloud Service rather than a web app, see [Debugging Cloud Services](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

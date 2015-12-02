@@ -46,7 +46,7 @@ If the **IISNode.yml** file did not already exist within your application, you m
 
 > [AZURE.NOTE] If your web app was created using the Azure Command-Line Tools or Azure PowerShell Cmdlets, a default **IISNode.yml** file is automatically created.
 
-To restart the web app, select the web app in the [Azure preview portal](https://portal.azure.com), and then click **RESTART** button:
+To restart the web app, select the web app in the [Azure Portal](https://portal.azure.com), and then click **RESTART** button:
 
 ![restart button][restart-button]
 
@@ -67,7 +67,7 @@ Once installed, the tools can be accessed using the 'azure' command. The command
 
 ###FTP
 
-To access the diagnostic information through FTP, visit the [Azure preview portal](https://portal.azure.com), select your web app, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
+To access the diagnostic information through FTP, visit the [Azure Portal](https://portal.azure.com), select your web app, and then select the **DASHBOARD**. In the **quick links** section, the **FTP DIAGNOSTIC LOGS** and **FTPS DIAGNOSTIC LOGS** links provide access to the logs using the FTP protocol.
 
 > [AZURE.NOTE] If you have not previously configured user name and password for FTP or deployment, you can do so from the **QuickStart** management page by selecting **Set up deployment credentials**.
 
@@ -114,7 +114,6 @@ For more information, see also the [Node.js Developer Center](/develop/nodejs/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
