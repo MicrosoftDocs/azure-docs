@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Elastic database Split-Merge tool tutorial | Microsoft Azure"
 	description="Splitting and Merging with elastic database tools"
-	services="sql-database" documentationCenter=""  
+	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
 	manager="jeffreyg"
