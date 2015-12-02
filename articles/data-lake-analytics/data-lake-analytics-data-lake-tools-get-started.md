@@ -151,7 +151,7 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 		
 		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code. 
 
-5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose.  For more information, see [Run U-SQL locally](#run-u-sql-locally).
+5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose. For more information, see [Run U-SQL locally](#run-u-sql-locally).
 
 	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
@@ -169,7 +169,7 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	* Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
 	* Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-	* Job Graph. Four graphs are provided to visualize the job’s information:  Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
+	* Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
 	* MetaData Operations. It shows all the metadata operations.
 	* State History. 
 	* Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information. 
@@ -193,9 +193,9 @@ Job playback enables you to watch job execution progress and visually detect out
 
 **To view job execution progress**  
 
-1. Click **Load Profile** on the upper right corner.  See the previous screen shot.
+1. Click **Load Profile** on the upper right corner. See the previous screen shot.
 2. Click on the Play button on the bottom left corner to review the job execution progress. 
-3. During the playback, click **Pause**  to stop it or directly drag the progress bar to specific positions. 
+3. During the playback, click **Pause** to stop it or directly drag the progress bar to specific positions. 
 
 
 ###Heat Map 
