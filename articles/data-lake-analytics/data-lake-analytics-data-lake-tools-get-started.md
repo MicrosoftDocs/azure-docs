@@ -149,9 +149,9 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	- **Insert Azure Path**
 		
-		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click OK button the file path will be inserted to your code. 
+		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code. 
 
-5. Specify the Data Lake Analytics account, Database, and Schema:
+5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local) to run the script locally for the testing purpose.  For more information, see [Run U-SQL locally](#run-u-sql-locally).
 
 	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
@@ -201,6 +201,71 @@ Job playback enables you to watch job execution progress and visually detect out
 ###Heat Map 
 
 Data Lake Tools for Visual Studio provides user-selectable color-overlays on job view to indicate progress, data I/O, execution time, I/O throughput of each stage. Through this, users can figure out potential issues and distribution of job properties directly and intuitively. You can choose a data source to display from the drop-down list.  
+
+## Run U-SQL locally
+
+Using the U-SQL local run experience in Visual Studio, you can: 
+
+- Run U-SQL scripts locally, along with C# Assemblies. 
+- Debug C# assemblies locally. 
+- View local tables, assemblies in Server Explorer just as you can do for Azure Data Lake Analytics service. 
+
+You will see a *Local* account in Visual Studio, and the installer creates a *DataRoot* folder located *C:\LocalRunRoot*. The DataRoot folder will be used:
+
+- Store  metadata including tables, DBs, TVFs, etc.
+- For a certain script: if a relative path is referenced in input/output paths, we will look up the DataRoot (as well as the script’s path if the it’s input)
+- The DataRoot folder will NOT be referenced if you are trying to register an assembly and use a relative path (see “Use assemblies when doing local run” part for more details)
+
+Compare running U-SQL applications locally vs. in Azure Data Lake Analyics Service:
+
+| |Run scripts locally|Run scripts in Data Lake service|
+|-|-------------------|--------------------------------|
+|File Set|U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.|Filesets works well in ADLA service |
+|Execution model | Slow performance due to low parallelism, because job plans are executed serially in a single process. | High performance becasue of job plans are executed in parallel across machines.|
+|Job graph |Local run can't show job graphs in Visual Studio. This will be addressed in the future. | You will see job graphs in Visual Studio.|
+|Server Explorer|Cannot create table/DB etc. in Server Explorer for the local account|Can use full functional Server Explorer.|
+|Relative path resolution |When a relative path is referenced - In script input (EXTRACT * FROM “/path/abc”): both the DataRoot path and the script path will be searched. In script output (OUTPUT TO “path/abc”): the DataRoot path will be used as the output folder. In assembly registration (CRREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot. In registered TVF/View or other metadata entiteis: the DataRoot Path will be searched, but not the script path. |If a relative path is referenced, then the default storage account will be used as root folder and will be searched accordingly.|
+
+
+### Run U-SQL scripts locally
+For instructions on developing U-SQL scripts, see [Develop and test U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder. 
+
+![Submit U-SQL Visual Studio project locally](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
+
+You can also right-click a script and then click **Run Local Plan** in the context menu, or press **CTRL+F5** to trigger local run.
+
+### Use assemblies in local run
+
+There are two ways to run the customized C# files:
+
+- Write assemblies in the code behind file and the assemblies will be automatically registered and dropped after the script is done. 
+- Create a C# assembly project and register the output dll to the local account through a script like below. Please note that the path is relative to the script rather than the DataRoot folder.
+
+![Use assemblies in u-sql local run](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
+ 
+### Debug scripts and C# assemblies locally
+
+You can debug C# assemblies without submitting & registering it to the Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
+
+**To debug local code in code behind file**
+1.	Set breakpoints in the code behind file. 
+2.	Press **F5** to debug the script locally.
+
+The following procedure only works in Visual Studio 2015. In older Visual Studio you may need to manually add the pdb files. 
+
+**To debug local code in a referenced C# project**
+1.	Create a C# Assembly project, and build it to generate the output dll.
+2.	Register the dll using a U-SQL statement:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+3.	Set breakpoints in the C# code.
+4.	Press **F5** to debug the script with referencing the C# dll locally.  
+ 
+
+
+
+
+
 
 
 
