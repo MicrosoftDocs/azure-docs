@@ -56,16 +56,13 @@ Sign into your work or school account:
 
 > 2. If no directory exists, select **Create your directory** and provide the requested information.
 
-> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-
-> During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
+> 3. Select your directory and add a new user. This new user can sign in using a work or school account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information, as it is used in step 5 below.
 
 > 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
 
 > 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
 
 > For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
-
 
 ### View account and subscription details
 
@@ -78,13 +75,6 @@ To get the available Azure accounts, type:
 To get your Azure subscriptions, type:
 
 	Get-AzureSubscription
-
-
-
-
-
-
-
 
 ## Step 4: Test<a id="Ex"></a>
 
