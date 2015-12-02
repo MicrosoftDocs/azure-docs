@@ -20,7 +20,7 @@
 
 # Azure Container Service Introduction
 
-[AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
 Azure Container Service (ACS) provides a way to simplify the creation,
 configuration, and management of a cluster of virtual machines that are
