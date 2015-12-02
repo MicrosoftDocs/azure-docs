@@ -32,7 +32,7 @@
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
-1. In the [Azure portal](https://manage.windowsazure.com), from the web app's page, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page.
+1. In the [classic portal](https://manage.windowsazure.com), from the web app's page, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page.
 
 2. To view additional metrics for the web app, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box.
 
@@ -52,14 +52,14 @@ In **Standard** web app mode, you can receive alerts based on your web app monit
 
 ##<a name="howtoviewusage"></a>How to: View usage quotas for a web app
 
-Web apps can be configured to run in either **Shared** or **Standard** mode from the web app's **Scale** management page in the [Azure portal](https://manage.windowsazure.com). Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 web apps per region in **Shared** mode. The pool of resources available to each web app subscription for this purpose is shared by other web app in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other web apps, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web app's **Dashboard** management page.
+Web apps can be configured to run in either **Shared** or **Standard** mode from the web app's **Scale** management page in the [classic portal](https://manage.windowsazure.com). Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 web apps per region in **Shared** mode. The pool of resources available to each web app subscription for this purpose is shared by other web app in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other web apps, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web app's **Dashboard** management page.
 
 >[AZURE.NOTE] When a web app is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. There are no limits to the resources a subscription can use for running web apps in **Standard** mode. However, the number of **Standard** mode web apps that can be created per region is 500.
 
 ### How to: View usage quotas for web apps configured for Shared mode ###
 To determine the extent that a web app is impacting resource usage quotas, follow these steps:
 
-1. Open the web app's **Dashboard** management page in the [Azure portal](https://manage.windowsazure.com).
+1. Open the web app's **Dashboard** management page in the [classic portal](https://manage.windowsazure.com).
 2. Under the **usage overview** section the usage quotas for your respective [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan are displayed, which is a subset of the following:
 	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
 	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
@@ -76,7 +76,7 @@ Quotas are not a matter of performance or cost, but it's the way Azure governs r
 
 ##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a web app
 
-Diagnostics are enabled on the **Configure** tab for the web app in the [Azure portal](https://manage.windowsazure.com). There are two types of diagnostics: **application diagnostics** and **site diagnostics**.
+Diagnostics are enabled on the **Configure** tab for the web app in the [classic portal](https://manage.windowsazure.com). There are two types of diagnostics: **application diagnostics** and **site diagnostics**.
 
 #### Application Diagnostics ####
 
@@ -164,7 +164,7 @@ Log files can be downloaded using either FTP, Azure PowerShell, or the Azure CLI
 
 **FTP**
 
-1. Open the web app's **Dashboard** management page in the [Azure portal](https://manage.windowsazure.com) and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
+1. Open the web app's **Dashboard** management page in the [classic portal](https://manage.windowsazure.com) and make note of the FTP site listed under **Diagnostics Logs** and the account listed under **Deployment User**. The FTP site is where the log files are located and the account listed under Deployment User is used to authenticate to the FTP site.
 2. If you have not yet created deployment credentials, the account listed under **Deployment User** is listed as **Not set**. In this case you must create deployment credentials as described in the Reset Deployment Credentials section of the Dashboard because these credentials must be used to authenticate to the FTP site where the log files are stored. Azure does not support authenticating to this FTP site using Live ID credentials.
 3. Consider using an FTP client such as [FileZilla][fzilla] to connect to the FTP site. An FTP client provides greater ease of use for specifying credentials and viewing folders on an FTP site than is typically possible with a browser.
 4. Copy the log files from the FTP site to your local computer.

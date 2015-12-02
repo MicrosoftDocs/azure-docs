@@ -139,13 +139,13 @@ Now that you have created the web app and retrieved all the NuGet packages for t
 
 3. Close your browser. In the Command Window, press **Ctrl+C** to shut down the application or close the Command Window. 
 
-## Create a web app in the Azure preview portal
+## Create a web app in the Azure Portal
 
-The following steps will guide you through creating a web app in the Azure preview portal.
+The following steps will guide you through creating a web app in the Azure Portal.
 
-1. Log in to the [Azure preview portal](https://portal.azure.com).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 
-2. Click **NEW** at the top left of the portal.
+2. Click **NEW** at the top left of the Portal.
 
 3. Click **Web Apps > Web App**.
 
@@ -165,7 +165,7 @@ The following steps will guide you through creating a web app in the Azure previ
 
 Git is a distributed version control system that you can use to deploy your Azure App Service web app. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository.   
 
-1. Log into the [Azure preview portal](https://portal.azure.com).
+1. Log into the [Azure Portal](https://portal.azure.com).
 
 2. Click **Browse**.
 
@@ -258,7 +258,7 @@ This can be done in two ways:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* In the Azure preview portal, locate the web app blade for your web app, and click **Browse** to view your app 
+* In the Azure Portal, locate the web app blade for your web app, and click **Browse** to view your app 
 * in your default browser.
 
 ![Azure web app](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
