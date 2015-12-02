@@ -50,7 +50,7 @@ enterprise grade features of Azure while still maintaining application
 portability, including at the orchestration layers.
 
 While the service is in preview, we ask that those interested in testing
-the service [self-nominate](http://aka.ms/acspreview). Once you have been given preview access, an email will be sent with further details including deployment templates and getting started instructions. In order to use the service, you will need an Azure subscription, if you don’t have one yet, then why not sign up for a
+the service [self-nominate](http://aka.ms/acspreview). Once preview access has been provided, an email will be sent with further details including deployment templates and getting started instructions. In order to use the service, you will need an Azure subscription, if you don’t have one yet, then why not sign up for a
 [free
 trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
 
