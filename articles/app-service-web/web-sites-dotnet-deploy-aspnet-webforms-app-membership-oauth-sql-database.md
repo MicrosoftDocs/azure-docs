@@ -43,7 +43,7 @@ You'll build a simple contact list web application that is built on ASP.NET 4.5 
 ![Contacts - Edit Page](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
 >[AZURE.NOTE] 
-To complete this tutorial, you need an Azure account. If you don't have an account, you can <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Azure before signing up for an account, go to [Try App Service](https://tryappservice.azure.com/), where you can immediately create a short-lived ASP.NET starter site in Azure for free. No credit card required, no commitments.
+To complete this tutorial, you need an Azure account. If you don't have an account, you can <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your Visual Studio subscriber benefits</a> or <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>. If you want to get started with Azure before signing up for an account, go to [Try App Service](https://tryappservice.azure.com/), where you can immediately create a short-lived ASP.NET starter site in Azure for free. No credit card required, no commitments.
 
 ##Set up the Development Environment 
 To start, set up your development environment by installing the Visual Studio 2013 and the Azure SDK for .NET.

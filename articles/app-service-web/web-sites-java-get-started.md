@@ -27,7 +27,7 @@
 
 This tutorial shows how to create a Java [web app in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the [Azure Portal](https://portal.azure.com/). The Azure Portal is a web interface that you can use to manage Azure resources.
 
-> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits][] or [sign up for a free trial][].
+> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits][] or [sign up for a free trial][].
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service][]. There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
@@ -171,7 +171,7 @@ At this point, you have a Java application server running in your web app in Azu
 For more information about developing Java applications in Azure, see the [Java Developer Center](/develop/java/).
 
 <!-- External Links -->
-[activate your MSDN subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
+[activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
