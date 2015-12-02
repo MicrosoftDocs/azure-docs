@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Data Catalog developer samples"
+   pageTitle="Data Catalog developer samples | Microsoft Azure"
    description="Get started developing catalog apps using the Data Catalog REST API."
    services="data-catalog"
    documentationCenter=""
