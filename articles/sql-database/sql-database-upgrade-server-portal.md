@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade to Azure SQL Database V12 using the Azure preview portal | Microsoft Azure" 
-	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure preview portal." 
+	pageTitle="Upgrade to Azure SQL Database V12 using the Azure portal | Microsoft Azure" 
+	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure portal." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,15 +13,15 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="11/11/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein"/>
 
 
-# Upgrade to Azure SQL Database V12 using the Azure preview portal
+# Upgrade to Azure SQL Database V12 using the Azure portal
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -55,7 +55,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Start the upgrade
 
-1. In the [Azure Preview Portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
+1. In the [Azure portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
 2. Select **Latest SQL database update**, then select **Upgrade this server**.
 
       ![upgrade server][1]
@@ -100,7 +100,7 @@ After all databases on the server are eligible you are ready to start the upgrad
 
 ## Move your databases into an elastic database pool
 
-In the [Azure preview portal](https://ms.portal.azure.com/) browse to the V12 server and click **Add pool**.
+In the [Azure portal](https://portal.azure.com/) browse to the V12 server and click **Add pool**.
 
 -or-
 
@@ -138,7 +138,7 @@ Additional monitoring information:
 
 
 
-**Alerts:** Set up 'Alerts' in the Azure Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
+**Alerts:** Set up 'Alerts' in the Azure portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
 
 For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
 
