@@ -80,14 +80,14 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	You will see your published web app in the browser when publishing is complete. 
 
-1. To create a CDN endpoint, log into the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+1. To create a CDN endpoint, log into the [Azure classic portal](https://manage.windowsazure.com). 
 2. Click **New** > **App Services** > **CDN** > **Quick Create**. Select **http://*&lt;sitename>*.azurewebsites.net/** and click **Create**.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	> [AZURE.NOTE] Once your CDN endpoint is created, the classic portal will show you its URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
-3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
+3. Back in the classic portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 

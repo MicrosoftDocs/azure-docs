@@ -18,6 +18,8 @@
 
 # Connect to on-premises SQL Server from an API app in Azure App Service using Hybrid Connections
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 Hybrid Connections can connect [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) API apps to on-premises resources that use a static TCP port. Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. 
 
 In this tutorial, you will learn how to create an App Service API app in the [Azure preview](http://go.microsoft.com/fwlink/?LinkId=529715) that connects to a local on-premises SQL Server database using the new Hybrid Connection feature. The tutorial assumes no prior experience using Azure or SQL Server.

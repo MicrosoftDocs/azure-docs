@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
@@ -22,10 +22,7 @@
 
 [AZURE.INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-##Overview
 Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
-
-##What is Oozie?
 
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
@@ -55,40 +52,11 @@ The workflow you will implement by following the instructions in this tutorial c
 
 > [AZURE.NOTE] For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
 
-> [AZURE.NOTE] This tutorial works on HDInsight versions 3.0 and 2.1. This tutorial has not been tested on HDInsight emulator.
-
-
-##Prerequisites
+###Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
 - **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
-- **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Provision Hadoop clusters in HDInsight by using custom options][hdinsight-provision] or [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]. You will need the following data to go through the tutorial:
-
-	<table border = "1">
-	<tr><th>Cluster property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
-	<tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>The HDInsight cluster on which you will run this tutorial.</td></tr>
-	<tr><td>HDInsight cluster username</td><td>$clusterUsername</td><td></td><td>The HDInsight cluster user name. </td></tr>
-	<tr><td>HDInsight cluster user password </td><td>$clusterPassword</td><td></td><td>The HDInsight cluster user password.</td></tr>
-	<tr><td>Azure Storage account name</td><td>$storageAccountName</td><td></td><td>An Azure Storage account that is available to the HDInsight cluster. For this tutorial, use the default storage account specified during the cluster provision process.</td></tr>
-	<tr><td>Azure blob container name</td><td>$containerName</td><td></td><td>For this example, use the name of the blob container used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
-	</table>
-
-- **An Azure SQL database**. You must configure a firewall rule for the Azure SQL database to allow access from your workstation. For instructions about creating an Azure SQL database and configuring the firewall, see [Getting started with Microsoft Azure SQL database][sqldatabase-get-started]. This article provides a Windows PowerShell script for creating the Azure SQL database table that is needed for this tutorial.
-
-	<table border = "1">
-	<tr><th>SQL database property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
-	<tr><td>SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>Azure SQL database to which Sqoop will export data. </td></tr>
-	<tr><td>SQL database login name</td><td>$sqlDatabaseLogin</td><td></td><td>Azure SQL database login name.</td></tr>
-	<tr><td>SQL database login password</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Azure SQL database login password.</td></tr>
-	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>Azure SQL database to which Sqoop will export data. </td></tr>
-	</table>
-
-	> [AZURE.NOTE] By default, an Azure SQL database allows connections from Azure services, such as Azure HDInsight. If this firewall setting is disabled, you must enabled it from the Azure preview portal. For instructions about creating a  SQL database and configuring firewall rules, see [How to Create and Configure an Azure SQL Database][sqldatabase-create-configue].
-
-
-> [AZURE.NOTE] Filling in the values in the tables will be helpful for going through this tutorial.
-
 
 ##Define Oozie workflow and the related HiveQL script
 

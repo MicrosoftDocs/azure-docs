@@ -16,7 +16,7 @@
    ms.date="11/10/2015"
    ms.author="andkjell"/>
 
-# Understanding the default configuration
+# Azure AD Connect sync: Understanding the default configuration
 
 This article walks you through the default configuration of Azure AD Connect sync. The goal is that the reader will understand how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD sync using the installation wizard.
 

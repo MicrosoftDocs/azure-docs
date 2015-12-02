@@ -85,9 +85,9 @@ If your company uses a proxy server, then you need to add Microsoft Azure to the
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
 ### Step 1: Create an Azure data factory
-In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
+In this step, you use the Azure Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
-1.	After logging into the [Azure Preview Portal](https://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade.
+1.	After logging into the [Azure Portal](https://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade.
 
 	![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png) 
   
@@ -402,7 +402,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 **Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a pipeline and scheduled the pipeline.
 
 #### View the data factory in a Diagram View 
-1. In the **Azure Preview Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
+1. In the **Azure Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
 
 	![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
@@ -415,7 +415,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 ### Step 6: Monitor the datasets and pipelines
 In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about monitoring, see [Monitor and Manage Pipelines](monitor-manage-pipelines.md).
 
-1. Navigate to **Azure Preview Portal** (if you have closed it)
+1. Navigate to **Azure Portal** (if you have closed it)
 2. If the blade for **ADFTutorialOnPremDF** is not open, open it by clicking **ADFTutorialOnPremDF** on the **Startboard**.
 3. You should see the **count** and **names** of tables and pipeline you created on this blade.
 
