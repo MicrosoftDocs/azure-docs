@@ -104,9 +104,9 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 ## Step 2: Create a storage account in Azure ##
 
-You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure portal to create a storage account.
+You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure classic portal to create a storage account.
 
-1. Sign in to the Azure portal.
+1. Sign in to the Azure classic portal.
 
 2. On the command bar, click **New**.
 
@@ -184,7 +184,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 ## Step 4: Upload the .vhd file ##
 
-When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Azure portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
+When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Azure classic portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
 
 
 1. From the Azure PowerShell window you used in the previous step, type:
@@ -200,7 +200,7 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
     **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts “Linux” or “Windows” as a parameter.
 
-2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure portal.  
+2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure classic portal.  
 
     ![add image](./media/virtual-machines-freebsd-create-upload-vhd/addfreebsdimage.png)
 

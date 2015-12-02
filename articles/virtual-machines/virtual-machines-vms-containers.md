@@ -129,7 +129,7 @@ These abilities are often then migrated to tools like [Puppet](https://puppetlab
 
 More recently, Azure released the [Azure resource management](virtual-machines-azurerm-versus-azuresm.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../resource-group-authoring-templates.md) with the Azure resource management API using:
 
-- the [Azure preview portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
+- the [Azure portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
 - the [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - the [Azure PowerShell modules](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -187,7 +187,7 @@ Docker on Microsoft Azure:
 - [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Using the Docker VM Extension from the Azure Preview Portal](virtual-machines-docker-with-portal.md)
+- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
 - [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)

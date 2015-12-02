@@ -55,7 +55,7 @@ In both cases, you can retrieve your connection string using the [CloudConfigura
 
 ### Configure your connection string when using Cloud Services
 
-The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the Azure portal without redeploying your application. For example, add a `Setting` label to your service definition (.csdef) file, as shown in the next example.
+The service configuration mechanism is unique to Azure Cloud Services projects and enables you to dynamically change configuration settings from the [Azure classic portal][] without redeploying your application. For example, add a `Setting` label to your service definition (.csdef) file, as shown in the next example.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,7 +83,7 @@ You then specify values in the service configuration (.cscfg) file, as shown in 
 </ServiceConfiguration>
 ```
 
-Use the Shared Access Signature (SAS) key name and key values retrieved from the Azure portal as described in the previous section.
+Use the Shared Access Signature (SAS) key name and key values retrieved from the Azure classic portal as described in the previous section.
 
 ### Configure your connection string when using websites or Azure Virtual Machines
 
@@ -98,7 +98,7 @@ When using websites or Virtual Machines, it is recommended that you use the .NET
 </configuration>
 ```
 
-Use the SAS name and key values that you retrieved from the Azure portal, as described in the previous section.
+Use the SAS name and key values that you retrieved from the Azure classic portal, as described in the previous section.
 
 ## Create a queue
 
@@ -255,7 +255,7 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 -   Build a working application that sends and receives messages to and from a Service Bus queue with the [Service Bus brokered messaging .NET tutorial][].
 -   Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Service Bus brokered messaging .NET tutorial]: service-bus-brokered-tutorial-dotnet.md

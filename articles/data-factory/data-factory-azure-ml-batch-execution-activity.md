@@ -38,7 +38,7 @@ Over time, the predictive models in the Azure ML scoring experiments need to be 
   
 After you are done with retraining, you want to update the scoring web service (predictive experiment exposed as a web service) with the newly trained model. You do this by following the steps below: 
 
-1. Add a non-default end point to the scoring web service. The default endpoint of the web service cannot be updated, so you will need to create a new non-default endpoint using the Azure Management Portal. See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for both conceptual information and procedural steps.
+1. Add a non-default end point to the scoring web service. The default endpoint of the web service cannot be updated, so you will need to create a new non-default endpoint using the [Azure Classic Portal](http://manage.windowsazure.com). See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for both conceptual information and procedural steps.
 2. Update existing Azure ML linked services for scoring to use the non-default endpoint. YYou should start using the new endpoint to use the web service that is updated.
 3. Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.  
 

@@ -60,7 +60,7 @@ If you would like to use Azure Blob Storage to host your page content, you can c
 #### Create a storage account
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com/).
-2. Click on **+ New** -> **Data + Storage** -> **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial [here](https://azure.microsoft.com/en-us/pricing/free-trial/).
+2. Click on **+ New** -> **Data + Storage** -> **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial [here](https://azure.microsoft.com/pricing/free-trial/).
 3. Provide a **Name** for the storage account (for example, "contoso") and pick the appropriate selections for **Pricing tier**, **Resource Group** and **Subscription**. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
 4. Go back to the Startboard and click on the storage account that you just created.
 5. Under the **Summary** section, click **Containers** and then **+ Add**.
