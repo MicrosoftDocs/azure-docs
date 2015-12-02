@@ -25,7 +25,7 @@ This tutorial shows you how to create a PHP web app in [Azure App Service](http:
 
 You will learn:
 
-* How to create an Azure web app and a SQL Database using the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
+* How to create an Azure web app and a SQL Database using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
  
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
@@ -40,7 +40,7 @@ By following this tutorial, you will build a simple registration web application
 
 Follow these steps to create an Azure web app and a SQL Database:
 
-1. Log in to the [Azure preview portal](https://portal.azure.com/).
+1. Log in to the [Azure Portal](https://portal.azure.com/).
 
 2. Open the Azure Marketplace by clicking the **New** icon on the top left of the dashboard, click on **Select All** next to Marketplace and selecting **Web + Mobile**.
 	
@@ -287,7 +287,6 @@ To publish changes to application, follow these steps:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 

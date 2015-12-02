@@ -27,7 +27,7 @@ In order to copy the marketing campaign effectiveness data from Azure Blob to on
 > [AZURE.IMPORTANT] 
 > This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
 >    
-> If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
+> If you are using Azure PowerShell 1.0, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
 
 ## Pr-requisites
 
@@ -45,7 +45,7 @@ In this walkthrough, you will perform the following steps:
 2. [Step 2: Create a linked service for the on-premises SQL Server](#OnPremStep2). In this step, you first create a database and a table on your on-premises SQL Server computer and then create the linked service: **OnPremSqlLinkedService**.  
 3. [Step 3: Create table and pipeline](#OnPremStep3). In this step, you will create a table **MarketingCampaignEffectivenessOnPremSQLTable** and pipeline **EgressDataToOnPremPipeline**. 
 
-4. [Step 4: Monitor pipeline and view the result](#OnPremStep4). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.
+4. [Step 4: Monitor pipeline and view the result](#OnPremStep4). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
 
 
 ## <a name="OnPremStep1"></a> Step 1: Create a Data Management Gateway
@@ -56,7 +56,7 @@ You must have at least one gateway installed in your corporate environment as we
 
 If you have an existing data gateway that you can use, skip this step.
 
-1.	Create a logical data gateway. In the **Azure Preview Portal**, click **Linked Services** on the **DATA FACTORY** blade.
+1.	Create a logical data gateway. In the **Azure Portal**, click **Linked Services** on the **DATA FACTORY** blade.
 2.	Click **Add (+) Data Gateway** on the command bar.  
 3.	In the **New data gateway** blade, click **CREATE**.
 4.	In the **Create** blade, enter **MyGateway** for the Data gateway **name**.
@@ -102,7 +102,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 
 ### Create the linked service
 
-1.	In the **Azure Preview Portal**, click **Linked Services** tile on the **DATA FACTORY** blade for **LogProcessingFactory**.
+1.	In the **Azure Portal**, click **Linked Services** tile on the **DATA FACTORY** blade for **LogProcessingFactory**.
 2.	In the **Linked Services** blade, click **Add (+) Data Store**.
 3.	In the **New data store** blade, enter **OnPremSqlLinkedService** for the **Name**. 
 4.	Click **Type (Settings required)** and select **SQL Server**. You should see the **DATA GATEWAY**, **Server**, **Database**, and **CREDENTIALS** settings in the **New data store** blade now. 
@@ -159,7 +159,7 @@ Congratulations! You have successfully gone through the walkthrough to use your 
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

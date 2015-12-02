@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Monitor and manage Azure Data Factory pipelines" 
-	description="Learn how to use Azure Management Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
+	description="Learn how to use Azure Classic Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@ The Data Factory service provides reliable and complete view of your storage, pr
 This article describes how to monitor, manage and debug your pipelines. It also provides information on how to create alerts and get notified on failures.
 
 ## Understand pipelines and activity states
-Using the Azure Preview Portal, you can view your data factory as a diagram, view activities in a pipeline, view input and output datasets, and more. This section also provides how a slice transitions from one state to another state.   
+Using the Azure Portal, you can view your data factory as a diagram, view activities in a pipeline, view input and output datasets, and more. This section also provides how a slice transitions from one state to another state.   
 
 ### Navigate to your data factory
-1.	Sign-in to the [Azure Preview Portal](http://portal.azure.com).
+1.	Sign-in to the [Azure Portal](http://portal.azure.com).
 2.	Click **Browse All** and select **Data Factories**.
 	
 	![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -183,12 +183,12 @@ For example:
 
 
 ## Debug pipelines
-Azure Data Factory provides rich capabilities via Azure portal and Azure PowerShell to debug and troubleshoot pipelines.
+Azure Data Factory provides rich capabilities via Azure Classic Portal and Azure PowerShell to debug and troubleshoot pipelines.
 
 ### Find errors in a pipeline
 If the activity run fails in a pipeline, the dataset produced by the pipeline is in an error state due to the failure. You can debug and troubleshoot errors in Azure Data Factory using the following mechanisms.
 
-#### Use Azure Portal to debug an error:
+#### Use Azure Classic Portal to debug an error:
 
 1.	Click **With errors** on **Datasets** tile on the data factory home page.
 	
@@ -264,7 +264,7 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 ## Re-run failures in a pipeline
 
-### Using Azure Portal
+### Using Azure Classic Portal
 
 Once you troubleshoot and debug failures in a pipeline, you can re-run failures by navigating to the error slice and clicking the **Run** button on the command bar.
 
@@ -395,26 +395,44 @@ To retrieve the list of deployed Azure Resource Group deployments, use the cmdle
 
 
 #### Troubleshooting User Events
-You can see all the events generated after clicking on the **Operations** tile, and alerts can be setup on any of these operations visible on the **Events** blade:
-
-![Operations](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-To see the alerts setup using Power shell, you can run the following command, and see all the alerts created.  This will show the alerts set up for both metrics and events with resource type as **microsoft.insights/alertrules**.
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-If you see the alert generation events on the portal blade but you don't receive email notifications, check whether e-mail address specified is set to receive emails from external senders. The alert e-mails may have been blocked by your e-mail settings.
+- You can see all the events generated after clicking on the **Operations** tile, and alerts can be setup on any of these operations visible on the **Events** blade:
+
+	![Operations](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- See [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) article for PowerShell cmdlets that you can use to add/get/remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet: 
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	Run the following get-help commands to see details and examples for the Get-AlertRule cmdlet. 
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- If you see the alert generation events on the portal blade but you don't receive email notifications, check whether e-mail address specified is set to receive emails from external senders. The alert e-mails may have been blocked by your e-mail settings.
 
 ### Alerts on Metrics
 Data Factory allows you to capture various metrics and create alerts on metrics. You can monitor and create alerts on the following metrics for the slices in your data factory.

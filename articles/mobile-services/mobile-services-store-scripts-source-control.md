@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
-	ms.author="ggailey777"/> 
+	ms.date="09/15/2015"
+	ms.author="ggailey777"/>
 
 # Store your mobile service project code in source control
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)

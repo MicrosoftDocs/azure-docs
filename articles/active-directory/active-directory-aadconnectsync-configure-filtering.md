@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect sync Configure filtering | Microsoft Azure"
+	pageTitle="Azure AD Connect sync: Configure filtering | Microsoft Azure"
 	description="Explains how to configure filtering in Azure AD Connect sync."
 	services="active-directory"
 	documentationCenter=""

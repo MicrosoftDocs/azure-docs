@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Provision HBase clusters on Azure Virtual Network

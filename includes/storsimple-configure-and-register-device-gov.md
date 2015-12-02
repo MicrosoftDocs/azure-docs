@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### To configure and register the device
 
@@ -90,7 +90,7 @@
 
      The firmware status should be **UpToDate**.
 
-10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure Management Portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
+10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
 
      `Set-CloudPlatform -AzureGovt_US`
 
@@ -126,7 +126,7 @@
 
 16. Exit the serial console.
 
-17. Return to the Government Portal, and complete the following steps:
+17. Return to the Azure Government Portal, and complete the following steps:
   1. Double-click your StorSimple Manager service to access the **Quick Start** page.
   2. Click **View connected devices**.
   3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.

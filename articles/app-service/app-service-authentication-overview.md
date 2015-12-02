@@ -18,6 +18,8 @@
 
 # Authentication for API apps and mobile apps in Azure App Service
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Overview
 
 This article explains the built-in authentication features for [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) and [mobile apps](../app-service-mobile/app-service-mobile-value-prop-preview.md). 

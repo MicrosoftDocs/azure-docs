@@ -96,7 +96,7 @@ To customize the view, click any chart, the grid heading, or use Add Chart.
 
 [Learn more about metrics explorer](app-insights-metrics-explorer.md).
 
-## Individual events
+### Individual events
 
 
 ![example](./media/app-insights-docker/13.png)
@@ -104,10 +104,20 @@ To customize the view, click any chart, the grid heading, or use Add Chart.
 To investigate individual events, click [Search](app-insights-diagnostic-search.md). Search and filter 
 to find the events you want. Click any event to get more detail.
  
-## Exceptions by container name
+### Exceptions by container name
  
 
 ![example](./media/app-insights-docker/14.png)
+
+### Processor time and available memory performance counters, enriched and grouped by Docker container name
+
+
+![example](./media/app-insights-docker/15.png)
+
+### Request telemetry sent from application instrumented with AI SDK, enriched with Docker context
+
+
+![example](./media/app-insights-docker/16.png)
 
 
 

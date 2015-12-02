@@ -31,7 +31,7 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 ### Azure Portal
 
-1. Browse to your web app in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) and click on the **Settings** button.
+1. Browse to your web app in the [Azure Portal](https://portal.azure.com) and click on the **Settings** button.
 
 	![Web App Settings][settings-button]
 
@@ -161,7 +161,6 @@ For more information, see the [PHP Developer Center](/develop/php/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php

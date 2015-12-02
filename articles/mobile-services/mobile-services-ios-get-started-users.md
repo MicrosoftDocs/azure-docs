@@ -18,6 +18,11 @@
 
 # Add Authentication to Existing App
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 In this tutorial, you add authentication to the [Mobile Services Quick Start tutorial] using a supported identity provider.
