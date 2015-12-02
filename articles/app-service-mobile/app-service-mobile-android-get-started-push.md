@@ -33,13 +33,13 @@ To complete this tutorial, you need the following:
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
 * Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md)
 
-## Enable Google Cloud Messaging
-
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
-
 ##<a name="create-hub"></a>Create a Notification Hub
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
+## Enable Google Cloud Messaging
+
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##Configure the Mobile App backend to send push requests
 
