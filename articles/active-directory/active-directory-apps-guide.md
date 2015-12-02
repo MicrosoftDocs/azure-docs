@@ -27,7 +27,31 @@ This guide is intended to help IT professionals understand and use the various S
 [Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md)
 [Managing access to apps](active-directory-managing-access-to-apps.md)
 
-##Assigning Access to Apps
+##Cloud App Discovery: Find which SaaS Apps are being Used in Your Organization
+
+[Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+[Cloud App Discovery Security and Privacy Considerations](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+[Cloud App Discovery Registry Settings for Proxy Services](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+
+##Federated Single Sign-On (SSO): Sign Into Apps Using Azure AD Accounts
+
+[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md) | #mess
+[Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md) | overview?
+[Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+[Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md)
+[How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md)
+[Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md)
+
+##Password-Based Single Sign-On: SSO for Non-Federated Apps
+
+[Sharing accounts with Azure AD](active-directory-sharing-accounts.md)
+[How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
+[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+
+
+
+##Giving Users Access to Apps
 
 [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 [Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md)
@@ -63,20 +87,6 @@ This guide is intended to help IT professionals understand and use the various S
 [Azure AD and Applications: Assigning Users to an Application](active-directory-applications-guiding-developers-assigning-users.md)
 [Azure AD and Applications: Requiring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-##Single Sign-On
-
-[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md) | #mess
-[Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md) | overview?
-[Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
-[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-[Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md)
-[How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md)
-[Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md)
-
-[Sharing accounts with Azure AD](active-directory-sharing-accounts.md)
-[How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
-[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
-
 ##B2B: Allow Partner Access to Applications
 
 [Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -87,12 +97,6 @@ This guide is intended to help IT professionals understand and use the various S
 [CSV file format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-csv-file-format.md)
 [External user object attribute changes for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-object-attribute-changes.md)
 [External user token format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-token-format.md)
-
-##Cloud App Discovery: Find which SaaS Apps are being Used in Your Organization
-
-[Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-[Cloud App Discovery Security and Privacy Considerations](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
-[Cloud App Discovery Registry Settings for Proxy Services](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 
 ##Conditional Access: Enforce Security Requirements when Users Attempt to Access High-Risk Applications
 
