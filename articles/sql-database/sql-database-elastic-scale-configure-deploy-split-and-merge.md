@@ -1,11 +1,11 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Elastic database Split-Merge tool tutorial | Microsoft Azure"
 	description="Splitting and Merging with elastic database tools"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
+	documentationCenter=""
+	authors="sidneyh"
 	manager="jeffreyg"
-	authors="sidneyh"/>
+	editor=""/>
 
 <tags
 	ms.service="sql-database"
