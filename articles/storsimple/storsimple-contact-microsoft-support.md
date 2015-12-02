@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/06/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Contact Microsoft Support
@@ -30,13 +30,13 @@ Perform the following steps to create a support request:
 
 #### To create a support request
 
-1. A support request can be created through the [Management Portal](http://manage.windowsazure.com/). In the [Management Portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
+1. A support request can be created through the [Azure classic portal](http://manage.windowsazure.com/). In the [portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
 
 	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
 
 2. In the **Contact Microsoft Support** dialog:								
 
-	1. From the drop-down list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
+	1. From the dropdown list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
 
 	2. Click the check icon ![Check icon](./media/storsimple-contact-microsoft-support/IC740895.png) to **Create Ticket**.
 
