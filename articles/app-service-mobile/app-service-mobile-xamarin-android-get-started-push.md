@@ -63,9 +63,19 @@ This tutorial requires the following:
 
 ## <a name="test"></a>Test push notifications in your app
 
-You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator. There are additional configuration steps required when running on an emulator.
+You can test the app by using a virtual device in the emulator. There are additional configuration steps required when running on an emulator.
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-test](../../includes/mobile-services-android-push-notifications-test.md)]
+1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager. 
+
+	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
+
+2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to use add an existing Google account to the device to create a new one.
+
+	![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
+
+3. Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the notification area. You can open the notification drawer to view the full text of the notification.
+
+	![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 
 <!-- URLs. -->

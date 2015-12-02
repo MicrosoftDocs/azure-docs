@@ -27,7 +27,7 @@
             }
         }
 
-	This enables you to access the Mobile Services client instance from the service process.
+	This enables you to access the mobile client instance from the push handler service process.
 
 4.	Add the following code to the **OnCreate** method, after the **MobileServiceClient** is created:
 
