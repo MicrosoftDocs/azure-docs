@@ -30,10 +30,8 @@ Managing and tuning the performance of relational databases is a challenging tas
 ## Prerequisites
 
 - Query Performance Insight is only available with Azure SQL Database V12.
-- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running.
+- Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is running on your database. The portal will prompt you to turn Query Store on if it is not already running.
 
-> [AZURE.NOTE] Enabling Query Store will not impact the performance of your database.
- 
  
 ## Permissions
 
@@ -50,7 +48,7 @@ Query Performance Insight is easy to use:
 
 - Review the list of top resource-consuming queries. 
 - Select an individual query to view it's details.
-- Click **Settings** to customize how CPU consumption data is displayed or to show a different time period.
+- Click **Settings** to customize how data is displayed or to show a different time period.
 
 
 
