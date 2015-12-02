@@ -26,7 +26,7 @@
 This guide will demonstrate how to perform common scenarios using the
 Azure Blob storage service. The samples are written in C\# and
 use the Azure Storage Client Library for .NET. The Storage Client Library is an SDK that simplifies interacting with Blob Storage REST API's. The scenarios covered in this guide include
-**uploading**, **listing**, **downloading**, and **deleting** blobs and should take you about an hour to complete. If you want to watch a Getting Started Video see [Introduction To Storage In Five Minutes](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) or you can read the [Getting Started with Storage In Five Minutes](https://azure.microsoft.com/documentation/articles/storage-getting-started-guide/) guide.
+**uploading**, **listing**, **downloading**, and **deleting** blobs and should take you about an hour to complete. If you want to watch a Getting Started Video see [Introduction To Storage In Five Minutes](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) or you can read the [Getting Started with Storage In Five Minutes](storage-getting-started-guide.md) guide.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
