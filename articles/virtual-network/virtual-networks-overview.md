@@ -53,7 +53,7 @@ Notice how the Azure infrastructure takes on the role of the router, allowing ac
     
 ## Subnets
 
-Subnet is a range of IP addresses in the VNet.You can divide your VNet into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure route tables and NSGs to a subnet.
+Subnet is a range of IP addresses in the VNet, you can divide a VNet into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure route tables and NSGs to a subnet.
 
 ## IP addresses
 
@@ -71,7 +71,7 @@ Virtual machines and cloud services in a Virtual network can be exposed to Inter
 
 To learn more about load balancing in Azure, visit [Load balancer overview](../load-balancer-overview.md).
 
-## Network Security Groups (NSG)
+## Network Security Group (NSG)
 
 You can create NSGs to control inbound and outbound access to network interfaces (NICs), VMs, and subnets. Each NSG contains one or more rules specifying whether or not traffic is approved or denied based on source IP address, source port, destination IP address, and destination port. To learn more about NSGs, visit [What is a Network Security Group](../virtual-networks-nsg.md).
 
