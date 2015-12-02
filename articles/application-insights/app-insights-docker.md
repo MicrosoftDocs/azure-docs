@@ -59,7 +59,7 @@ Now that you've got somewhere to display the telemetry, you can set up the conta
 
 1.	Connect to your Docker host. 
 2.	Edit your instrumentation key into this command, and then run it:
-
+ 
 ```
 
     docker run -v /var/run/docker.sock:/docker.sock -d https://hub.docker.com/r/microsoft/applicationinsights/ ikey=000000-1111-2222-3333-444444444

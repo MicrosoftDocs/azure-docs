@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Online (VSO)."
    services="service-fabric"
@@ -125,7 +125,7 @@ Note that the build definition you create from these instructions doesn't suppor
 
 ### Install Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/en-us/campaigns/service-fabric/).
+Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/).
 
 ### Register Service Fabric SDK's NuGet repository
 

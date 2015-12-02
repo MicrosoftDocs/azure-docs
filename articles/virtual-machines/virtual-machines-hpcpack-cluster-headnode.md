@@ -1,6 +1,6 @@
 <properties
  pageTitle="Create an HPC Pack head node in an Azure VM | Microsoft Azure"
- description="Learn how to use the Azure portal and the classic deployment model to create a Microsoft HPC Pack head node in an Azure VM."
+ description="Learn how to use the Azure classic portal and the classic deployment model to create a Microsoft HPC Pack head node in an Azure VM."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -48,7 +48,7 @@ The following are high level steps to create an Azure VM for the HPC
 Pack head node. You can use a variety of Azure tools to do these steps in the Azure classic (Service Management) deployment model.
 
 
-1. If you plan to create a VNet for the head node VM, see [Create a virtual nework (classic) by using the Azure preview portal](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. If you plan to create a VNet for the head node VM, see [Create a virtual nework (classic) by using the Azure portal](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
 
     **Considerations**
 
@@ -64,7 +64,7 @@ Pack head node. You can use a variety of Azure tools to do these steps in the Az
 
     * For a simple proof of concept deployment, you can omit this step and later promote the head node VM as a domain controller.
 
-3. In the Azure portal or Azure preview portal, create a classic VM by selecting the HPC Pack 2012 R2 image from the Azure Marketplace. (See steps for the Azure portal [here](virtual-machines-windows-tutorial-classic-portal.md).)
+3. In the Azure classic portal or Azure portal, create a classic VM by selecting the HPC Pack 2012 R2 image from the Azure Marketplace. (See steps for the Azure classic portal [here](virtual-machines-windows-tutorial-classic-portal.md).)
 
     **Considerations**
 
