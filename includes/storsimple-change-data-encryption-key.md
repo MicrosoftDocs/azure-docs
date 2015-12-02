@@ -1,10 +1,10 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### Step 1: Authorize a device to change the service data encryption key in the Management Portal
 
 Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
 
-This step is performed in the Management Portal. The service administrator can select a device from a displayed list of the devices that are eligible to be authorized. The device is then authorized to start the service data encryption key change process.
+This step is performed in the Azure classic portal. The service administrator can select a device from a displayed list of the devices that are eligible to be authorized. The device is then authorized to start the service data encryption key change process.
 
 #### Which devices can be authorized to change service data encryption keys?
 
@@ -21,7 +21,7 @@ A device must meet the following criteria before it can be authorized to initiat
 - You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. In such cases, the eligible devices are the ones that have completed the service data encryption key change.
 
 > [AZURE.NOTE]
-> In the Management Portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.
+> In the Azure classic portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.
 
 Perform the following steps to select and authorize a device to initiate the service data encryption key change.
 
@@ -39,7 +39,7 @@ Perform the following steps to select and authorize a device to initiate the ser
 
 This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.
 
-> [AZURE.NOTE] No operations can be performed in the Management Portal of your StorSimple Manager service until the key rollover is completed.
+> [AZURE.NOTE] No operations can be performed in the Azure classic portal of your StorSimple Manager service until the key rollover is completed.
 
 If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
 
