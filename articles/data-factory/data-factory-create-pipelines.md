@@ -256,9 +256,9 @@ longRetryInterval | TimeSpan | 00:00:00 | The delay between long retry attempts
 ## Authoring and managing a pipeline
 Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
 
-### Using Azure Preview Portal
+### Using Azure Portal
 
-1. Log into [Azure Preview Portal](https://portal.azure.com/).
+1. Log into [Azure Portal](https://portal.azure.com/).
 2. Navigate to your Azure Data Factory instance in which you wish to create a pipeline
 3. Click  **Author and Deploy** tile in the **Summary** lens. 
  
