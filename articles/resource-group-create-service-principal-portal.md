@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
@@ -113,7 +113,7 @@ Select the role you wish to assign the application to, and search for the applic
 
 ![select users](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-For more information about working with users, applications and roles, see [Manage access using the Azure Management Portal](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Get access token in code
 

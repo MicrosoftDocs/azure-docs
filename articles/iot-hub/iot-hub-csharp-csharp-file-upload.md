@@ -53,7 +53,7 @@ Now you are ready to run the applications.
 
 1.  From within Visual Studio, right click your solution and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for both **SimulatedDevice**, and **SendCloudToDevice** apps.
 
-2.  Press **F5**, and you should see all applications start. Select the **SendCloudToDevice** window and press a key. You will see the simulated device output a message when it has uploaded the file, and the **SendCloudToDevice** app show the successful feedback receipt. You can use the [Azure preview portal] or Visual Studio Server Explorer to check the presence of the file in your storage account.
+2.  Press **F5**, and you should see all applications start. Select the **SendCloudToDevice** window and press a key. You will see the simulated device output a message when it has uploaded the file, and the **SendCloudToDevice** app show the successful feedback receipt. You can use the [Azure portal] or Visual Studio Server Explorer to check the presence of the file in your storage account.
 
   ![][50]
 
@@ -80,7 +80,7 @@ Additional information on IoT Hub:
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/
