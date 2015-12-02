@@ -124,7 +124,7 @@ This guide is intended to help IT professionals understand and use the various S
 
 also make sure to delegated/self-service stuff is included
 
-##B2B: Allow Partner Access to Applications
+##B2B: Enable Partner Access to Applications
 
 [Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration](active-directory-b2b-what-is-azure-ad-b2b.md)
 
@@ -176,7 +176,7 @@ also make sure to delegated/self-service stuff is included
 
 [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
 
-##Access Panel: A Portal for
+##Access Panel: A Portal for Accessing Your Apps and More
 
 [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md)
 
@@ -195,4 +195,3 @@ something about reports related to managing apps, sign ins to apps, security rep
 [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 
 [Azure Active Directory Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview)
-
