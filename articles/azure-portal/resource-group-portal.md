@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Azure preview portal to manage Azure resources | Microsoft Azure" 
+	pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
 	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 
-# Using the Azure Preview Portal to manage your Azure resources
+# Using the Azure Portal to manage your Azure resources
 
 ## Introduction
 
@@ -25,7 +25,7 @@ Historically, managing a resource (such as a database server, database, or web a
 
 Typically, a resource group contains resources related to a specific application. For example, a group may contain a web app that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage account that stores non-relational assets. Every resource in a resource group should share the same lifecycle. For more information about Resource Manager, see [Resource Manager overview](../resource-group-overview.md).
 
-This topic provides an overview of how to use resource groups within the Azure preview portal. Currently, not every service supports the preview portal or Resource Manager. For those services, you will need to use the [portal](https://manage.windowsazure.com). For the status of each service, see [Resource Manager support for services, regions, and API versions](resource-manager-supported-services.md)
+This topic provides an overview of how to use resource groups within the Azure portal. Currently, not every service supports the portal or Resource Manager. For those services, you will need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Resource Manager support for services, regions, and API versions](resource-manager-supported-services.md)
 
 ## Create resource group and resources
 
@@ -131,7 +131,7 @@ You can apply tags to resource groups and resources to logically organize your a
 
 If you want to execute a deployment but not use any of the templates in the Marketplace, you can create customized template that defines the infrastructure for your solution. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-To deploy a customized template through the preview portal, select **New**, **Marketplace**, and **Everything**.
+To deploy a customized template through the portal, select **New**, **Marketplace**, and **Everything**.
 
 ![find template deployment](./media/resource-group-portal/launch-template.png)
 
