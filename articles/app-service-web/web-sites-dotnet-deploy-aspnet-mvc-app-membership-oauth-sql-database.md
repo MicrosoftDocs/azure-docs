@@ -449,7 +449,7 @@ In this section you will add a local user and the *canEdit* role to the membersh
 
 ## Use Temporary Code to Add New Social Login Users to the canEdit Role  ##
 
-In this section you will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth provider to the *canEdit* role. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053.aspx) in the future which will allow you to create and edit user accounts and roles. Until then, you can accomplish the same function by using temporary code.
+In this section you will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth provider to the *canEdit* role. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) in the future which will allow you to create and edit user accounts and roles. Until then, you can accomplish the same function by using temporary code.
 
 1. Open the **Controllers\AccountController.cs** file and navigate to the **ExternalLoginConfirmation** method.
 

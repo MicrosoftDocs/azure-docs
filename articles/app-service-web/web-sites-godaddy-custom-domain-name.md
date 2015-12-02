@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
-If you have purchased domain through Azure App Service Web Apps then refer to the final step of <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Buy Domain for Web Apps</a> article.
+If you have purchased domain through Azure App Service Web Apps then refer to the final step of [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md).
 
 This article provides instructions on using a custom domain name that was purchased directly from [GoDaddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 

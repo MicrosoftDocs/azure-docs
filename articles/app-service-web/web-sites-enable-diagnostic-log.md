@@ -40,7 +40,7 @@ You can enable or disable the following kinds of logs:
 
 ### Application diagnostics
 
-Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
+Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -259,7 +259,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 
 ##<a name="nextsteps"></a> Next steps
 
-- [How to Monitor Web Apps](/en-us/manage/services/web-sites/how-to-monitor-websites/)
+- [How to Monitor Web Apps](/manage/services/web-sites/how-to-monitor-websites/)
 - [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

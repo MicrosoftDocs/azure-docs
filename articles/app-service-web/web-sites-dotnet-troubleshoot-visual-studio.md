@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools that help debug a web app while it runs in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -72,7 +72,7 @@ Visual Studio provides access to a subset of the web app management functions an
    
 	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Apps: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure classic portal. For more information, see [How to Configure Web Apps](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	If you want to perform a web app management task that can't be done in this window, click **Open in Management Portal** to open a browser window to the Azure classic portal. For more information, see [How to Configure Web Apps](/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 ## <a name="remoteview"></a>Access web app files in Server Explorer
 
@@ -272,7 +272,7 @@ If your function [wrote logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.
 
 * A timer starts on the server when you enable the remote debugging feature, and after 48 hours the feature is automatically turned off. This 48 hour limit is done for security and performance reasons. You can easily turn the feature back on as many times as you like. We recommend leaving it disabled when you are not actively debugging.
 
-* You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx).
+* You can manually attach the debugger to any process, not only the web app process (w3wp.exe). For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Diagnostic logs overview
 
@@ -766,7 +766,7 @@ The Microsoft TechNet website includes a [Using Failed Request Tracing](http://w
 
 ### Debugging Cloud Services
 
-If you want to debug an Azure Cloud Service rather than a web app, see [Debugging Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx).
+If you want to debug an Azure Cloud Service rather than a web app, see [Debugging Cloud Services](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
