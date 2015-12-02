@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="11/25/2015"
+   ms.date="12/02/2015"
    ms.author="riande"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
 
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
+
 This topic shows you how to create, update and delete an Azure Redis Cache.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
 
 ## Prerequisites ##
 
@@ -88,6 +94,7 @@ The following script demonstrates how to create, update and delete an Azure Redi
 
 To learn more about using Windows PowerShell with Azure, see the following resources:
 
+- [Azure Redis Cache cmdlet documentation on MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the AzureResourceManager module.
 - [Using Resource groups to manage your Azure resources](../azure-portal/resource-group-portal.md): Learn how to create and manage resource groups in the Azure preview portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
