@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
@@ -44,24 +44,26 @@ Before you begin this HBase tutorial, you must have the following:
 2. Click **New** in the upper left corner, and then click **Data + Analytics**, **HDInsight**.
 3. Enter the following values:
 
-	- **Cluster Name**: Enter a name to identify this cluster.
-	- **Cluster Type**: Select **HBase**.
-	- **Cluster Operating System**: Select **Ubuntu**.
-	- **Version**: Select the version of the cluster that you want to use. For more information on what is included with different HDInsight versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
-    - **Subscription**: If you have multiple Azure subscriptions, select the one you want to use for this cluster.
-	- **Resource Group**: Add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
+
+	- **Cluster Name** - Enter a name to identify this cluster.
+	- **Cluster Type** - Select **HBase**.
+	- **Cluster Operating System**: Select **Linux**. For creating Windows-based HBase cluster, see  [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+	- **Version** - Select an HBase version.
+	- **Subscription** - Select your Azure subscription used for creating this cluster.
+	- **Resource Group** -  Create a new Azure resource group or select an existing one. For more information, see [Azure Resource Manager Overview](resource-group-overview.md)
 	- **Credentials**.  Enter a password for the HTTP web service user. The default username is **admin**. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. For more information on using SSH with HDInsight, see one of the following articles:
 
 		- [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 	Click **Select** to save the changes.
-	- **Data Source**: select an existing or create a new Azure Storage account to be used as the default file system for the cluster. The storage account location determines the cluster location.  An HDInsight cluster and the dependent Azure storage account must be located in the same data center.
-	The default name for **Default Container** is the cluster name.  
-	- **Node Pricing Tiers:** select the number of region servers for the HBase cluster.
+	- **Data Source** - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. The default storage account location determines the location of the cluster location. The default storage account and the cluster must co-locate in the same data center.
+	- **Note Pricing Tiers** - Select the number of region servers for the HBase cluster
 
-		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
+		> [AZURE.WARNING] For high availability of HBase services, you must create a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Script actions, and add additional storage accounts.
+		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
+
+	- **Optional Configuration** - Configure Azure virtual network, configure Script actions, and add additional storage accounts.
 
 4. Click **Create**.
 
