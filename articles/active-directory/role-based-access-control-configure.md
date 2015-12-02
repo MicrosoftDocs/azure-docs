@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/2/2015"
+	ms.date="12/02/2015"
 	ms.author="inhenk"/>
 
 # Azure Active Directory Role-based Access Control
@@ -191,4 +191,4 @@ Custom role creation succeeds only if the user creating the role is allowed to c
 Users who are allowed to update custom roles for all **AssignableScopes** of a role can modify that custom role. Users that can perform `Microsoft.Authorization/roleDefinition/write` operation on all the **AssignableScopes** of a custom role can modify that custom role. For instance, if a custom role is assignable in two Azure subscriptions (i.e. It has two subscriptions in its **AssignableScopes** property) - a user must be Owner (or User Access Administrators) of both subscriptions, to be able to modify the custom role.
 
 **Who can view custom roles that are available for assignment at a scope?**
-Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope. All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. 
+Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope. All built-in roles in Azure RBAC allow viewing of roles that are available for assignment.
