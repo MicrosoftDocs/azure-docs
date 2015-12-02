@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-You can obtain the values for the SAS key name and value from the [Azure portal][] **Connection Information** window.
+You can obtain the values for the SAS key name and value from the [Azure classic portal][] **Connection Information** window.
 
 ```
 bus_service.create_topic('mytopic')
@@ -158,7 +158,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the Azure portal or programmatically. The following example shows how to delete the topic named `mytopic`:
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure classic portal][] or programmatically. The following example shows how to delete the topic named `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -177,7 +177,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 -   See [Queues, topics, and subscriptions][].
 -   Reference for [SqlFilter.SqlExpression][].
 
-[Azure portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [Python Azure package]: https://pypi.python.org/pypi/azure  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx

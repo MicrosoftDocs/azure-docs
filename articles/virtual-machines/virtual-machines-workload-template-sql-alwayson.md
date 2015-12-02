@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Server AlwaysOn with Azure Resource Manager template | Microsoft Azure"
-	description="Easily deploy five servers that support SQL Server AlwaysOn with a Resource Manager template and the Azure preview portal, Azure PowerShell, or the Azure CLI."
+	description="Easily deploy five servers that support SQL Server AlwaysOn with a Resource Manager template and the Azure portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Use the instructions in this article to deploy SQL Server AlwaysOn using an Azur
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-You can run the template with the Azure preview portal, Azure PowerShell, or the Azure CLI.
+You can run the template with the Azure portal, Azure PowerShell, or the Azure CLI.
 
-## Azure preview portal
+## Azure portal
 
-To deploy this workload using an Azure Resource Manager template and the Azure preview portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+To deploy this workload using an Azure Resource Manager template and the Azure portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 

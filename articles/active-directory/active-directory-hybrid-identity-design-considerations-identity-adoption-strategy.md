@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Azure"
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
 	documentationCenter=""
@@ -40,7 +40,7 @@ The scenarios defined in the above figure are:
 - **Federated**: these identities exist both on-premises and in the cloud.  Using Azure AD Connect, these users are either created or joined with existing Azure AD accounts.  
  
 >[AZURE.NOTE]
-For more information about the Synchronization options read [Integrating your on-premises identities with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect/).
+For more information about the Synchronization options read [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 The following table will help in determining the advantages and disadvantages of each of the following strategies:
 
@@ -125,7 +125,7 @@ If this the case then the multi-forest-single Azure AD topology should be consid
 - If you have a linked mailbox, then there is also another account in a different forest used to sign in.
 
 >[AZURE.NOTE]
-Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-design-concepts/#sourceanchor) for more considerations regarding the use of SourceAnchor.
+Objects that exist in both on-premises and in the cloud are “connected” via a unique identifier. In the context of Directory Synchronization, this unique identifier is referred to as the SourceAnchor. In the context of Single Sign-On, this is referred to as the ImmutableId. [Design concepts for Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) for more considerations regarding the use of SourceAnchor.
 
 If the above are not true and you have more than one active account or more than one mailbox, Azure AD Connect will pick one and ignore the other.  If you have linked mailboxes but no other account, these accounts will not be exported to Azure AD and that user will not be a member of any groups.  This is different from how it was in the past with DirSync and is intentional to better support these multi-forest scenarios. A multi-forest scenario is shown in the figure below.
  
@@ -189,7 +189,7 @@ Even though you may have settled on a solution for your strategy, you still need
 | On-premises AD                                                      | Multi-Factor Authentication Server      |
 
 >[AZURE.NOTE]
-You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
+You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
 
 ## Multi-Factor Auth Provider
 Multi-factor authentication is available by default for global administrators who have a Azure Active Directory tenant. However, if you wish to extend multi-factor authentication to all of your users and/or want to your global administrators to be able to take advantage features such as the management portal, custom greetings, and reports, then you must purchase and configure Multi-Factor Authentication Provider.
@@ -201,4 +201,4 @@ You should also ensure that the multi-factor authentication design option that y
 [Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## See also
-[Design considerations overview]((active-directory-hybrid-identity-design-considerations-overview.md)
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
