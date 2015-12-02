@@ -73,7 +73,7 @@ You can use remote desktop to access the role and view more complete errors remo
 
 2. During the deployment of the solution using Visual Studio, choose to “Configure Remote Desktop connections…” For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](https://msdn.microsoft.com/library/gg443832.aspx).
 
-3. In the Microsoft Azure Management Portal, once the instance shows a status of **Ready**, click on one of the role instances.
+3. In the Microsoft Azure classic portal, once the instance shows a status of **Ready**, click on one of the role instances.
 
 4. Click the **Connect** icon in the **Remote Access** area of the ribbon
 

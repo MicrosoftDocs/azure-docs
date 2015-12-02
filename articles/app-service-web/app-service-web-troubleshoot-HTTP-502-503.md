@@ -50,7 +50,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ####	Track Service health
 
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure preview portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
 
 ####	Monitor your web app
 
@@ -126,14 +126,14 @@ You can set the scaling to be Manual or Automatic.
 
 ####	Use AutoHeal
 
-AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure preview portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
+AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
 For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
 
 
 ####	Restart the web app
 
-This is often the simplest way to recover from one-time issues. On the [Azure preview portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Known Networks" 
+	pageTitle="Known Networks | Microsoft Azure" 
 	description="By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="markvi"/>
 
 # Known Networks

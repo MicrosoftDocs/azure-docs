@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
@@ -103,7 +108,7 @@ You can manually add the Azure extensions to your application using the followin
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip  
+    	$ unzip azure.zip
 
     This creates an **azure** directory containing the entire package source, examples and documentation. The source will reside in the **azure/src** directory.
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect design concepts | Microsoft Azure"
+   pageTitle="Azure AD Connect: Design concepts | Microsoft Azure"
    description="This topic details certain implementation design areas"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Design concepts for Azure AD Connect

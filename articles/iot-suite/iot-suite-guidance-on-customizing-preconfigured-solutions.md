@@ -45,7 +45,7 @@ The second job operates on the Device-to-Threshold values created in the **Rules
 
 ## Adding your own rules
 
-In addition to changing the preconfigured Azure Stream Analytics jobs, you can use the Azure preview portal to add new jobs or add new queries to existing jobs.
+In addition to changing the preconfigured Azure Stream Analytics jobs, you can use the Azure portal to add new jobs or add new queries to existing jobs.
 
 ## Customizing devices
 

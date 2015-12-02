@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -25,12 +25,12 @@ support is consistent, you need to know the current status for each service. Thi
 When deploying your resources, you also need to know which regions support those resources and which API versions are available for the resources. The section [Supported regions](#supported-regions) shows you how to find out which regions will work for your subscription and resources. The section [Supported API versions](#supported-api-versions) shows you how to determine which API versions you can use.
 
 The following tables list which services support deployment and management through Resource Manager and which do not. The column titled **Move Resources** refers to whether resources of this type can be moved to both a 
-new resource group and a new subscription. The column titled **Preview Portal** indicates whether you can create the service through the preview portal.
+new resource group and a new subscription. The column titled **Portal** indicates whether you can create the service through the [Azure portal](https://portal.azure.com).
 
 
 ## Compute
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Virtual Machines | Yes | Yes, many options | No       | [Create VM](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch   | Yes     | [Yes (classic only)](https://portal.azure.com/#create/Microsoft.BatchAccount) |  Yes  | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) |        |
@@ -46,7 +46,7 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 
 ## Networking
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Application Gateway | Yes |  |      |          |        |
 | DNS     | Yes     |  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
@@ -57,7 +57,7 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 
 ## Data & Storage
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.DocumentDB) | Yes  | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) |   |
 | Storage | Yes     | [Yes](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) |  No  | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Storage account](resource-manager-template-storage.md) |
@@ -70,7 +70,7 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 
 ## Web & Mobile
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | API Management | Yes | No | Yes  | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
 | API Apps | Yes | [Yes](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
@@ -86,7 +86,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Analytics
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Event Hub | Yes   | No |         | [Create Event Hub](https://msdn.microsoft.com/library/azure/dn790676.aspx) |        |
 | Stream Analytics | Yes | [Yes](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) |        |          |        |
@@ -97,7 +97,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Media & CDN
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | CDN | Yes (preview) | No |  |  |  |
 | Media Service | No | No |  |  |  |
@@ -105,7 +105,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Hybrid Integration
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk Services | Yes | No |        |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Service Bus | Yes | No |     | [Service Bus REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) |        |
@@ -114,7 +114,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Identity & Access Management 
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Azure Active Directory | No | No | -  | - | - |
 | Azure Actice Directory B2C | No | No | - | - | - |
@@ -122,7 +122,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Developer Services 
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
 | Application Insights | Yes | [Yes](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | No   |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Maps | Yes   | [Yes](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) |         |          |        |
@@ -130,7 +130,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Management 
 
-| Service | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Automation | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Yes     |          |        |
 | Key Vault | Yes    | No | Yes            | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) |        |
@@ -140,7 +140,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Resource Manager
 
-| Feature | Resource Manager Enabled | Preview Portal | Move Resources | REST API | Schema |
+| Feature | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Authorization | Yes | N/A | N/A | [Management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Role-based access control](https://msdn.microsoft.com/library/azure/dn906885.aspx)  | [Resource lock](resource-manager-template-lock.md)<br />[Role assignments](resource-manager-template-role.md)  |
 | Resources | Yes | N/A | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Resource links](resource-manager-template-links.md) |
@@ -160,7 +160,7 @@ To discover which regions are available for a particular resource type in your s
 
 ### PowerShell
 
-The following example shows how to get the supported regions for web sites using Azure PowerShell 1.0 Preview. For more information about the 1.0 Preview release, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)
+The following example shows how to get the supported regions for web sites using Azure PowerShell 1.0. For more information about the 1.0 release, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -214,7 +214,7 @@ To discover which API versions are available for resource types, use the [List a
 
 ### PowerShell
 
-The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0 Preview.
+The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     

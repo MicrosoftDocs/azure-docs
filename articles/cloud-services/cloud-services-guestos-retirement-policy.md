@@ -57,7 +57,7 @@ If customers set their Guest OS to automatically update, they never have to worr
 
 Guest OS Versions are released every month. Because of the rate of regular releases, each version has a fixed lifespan.
 
-At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure Management Portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
+At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure classic portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
 
 At a later time, the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary. 
 
@@ -67,7 +67,7 @@ These periods may be made longer at Microsoft's discretion to ease customer tran
 
 ### Notifications during retirement 
 
-* **Family retirement** <br>Microsoft will use blog posts and management portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
+* **Family retirement** <br>Microsoft will use blog posts and Azure classic portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
 
 
 * **Version Retirement** <br>All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. 
