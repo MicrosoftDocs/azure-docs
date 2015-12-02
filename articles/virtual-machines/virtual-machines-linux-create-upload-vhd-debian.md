@@ -64,4 +64,4 @@ There is the script available in Credativ website, which could help you to build
 
         # azure_build_image --option release=wheezy --option image_prefix=lilidebian7 --option image_size_gb=30 SECTION
 
-If any issue to use this script, just file a issue to Credative [](https://gitlab.credativ.com/groups/de/issues).
+If any issue to use this script, just file a issue to Credativ [here](https://gitlab.credativ.com/groups/de/issues).
