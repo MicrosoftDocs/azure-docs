@@ -67,21 +67,19 @@ HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, or St
 
 #### Example customization scripts
 
-Script Actions are scripts that are ran during cluster provisioning, and can be used to install additional components on the cluster. For Linux-based clusters, these are Bash scripts.
+Script Actions are scripts that run during cluster provisioning, and can be used to install additional components on the cluster. For Linux-based clusters, these are Bash scripts.
 
-The following are example scripts provided by the HDInsight team:
+The following example scripts are provided by the HDInsight team:
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Hue](hdinsight-hadoop-hue-linux.md): A set of web applications used to interact with a cluster. Linux clusters only.
 
-	> [AZURE.NOTE] The Hue script is available only for Linux-based clusters.
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md): Graph processing to model relationships between things or people.
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md): An open-source language and environment for statistical computing used in machine learning.
 
-* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md): An enterprise-scale search platform that allows full-text search on data.
 
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
-
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
+* [Spark](hdinsight-hadoop-spark-install-linux.md): High-performance framework for big-data analysis applications. Good for iterative algorithms in machine learning and graph computations.
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
@@ -90,8 +88,6 @@ For information on developing your own Script Actions, see [Script Action develo
 The following components are included on HDInsight clusters.
 
 * **[Ambari](#ambari)**: Cluster provisioning, management, and monitoring.
-
-	> [AZURE.NOTE] Only a subset of the Ambari REST API is provided for Windows-based HDInsight clusters.
 
 * **[Avro](#avro)** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment.
 
