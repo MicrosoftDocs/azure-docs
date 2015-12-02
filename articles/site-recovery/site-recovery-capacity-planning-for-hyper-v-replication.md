@@ -83,37 +83,33 @@ We recommend you set up a single Hyper-V host as a recovery server so that a dum
 
 After you've prepared your primary site and set up a recovery server you can run the tool.
 
-1. [Download](https://www.microsoft.com/en-us/download/details.aspx?id=39057) the tool from the Microsoft Download Center.
+1. [Download](https://www.microsoft.com/download/details.aspx?id=39057) the tool from the Microsoft Download Center.
 2. Run the tool from one of the primary servers (or one of the nodes from the primary cluster). Right-click the .exe file, and then choose **Run as administrator**.
 3. In **Before you begin** specify for how long you want to collect data. We recommend you run the tool during production hours to ensure that data is representative. If you're only trying to validate network connectivity, you can collect for a minute only.
 
-![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image2.png)
+	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image2.png)
 
-5. Specify the **Primary site details**, as shown, and then click **Next**. The tool automatically detects the name of the server it's running on.
+4. In  **Primary site details** specify the server name or FQDN for a standalone host, or for a cluster specify the FQDN of the client accept point, cluster name, or any node in the cluster and then click **Next**. The tool automatically detects the name of the server it's running on. The tool picks up VMs that can be monitored for the specified servers.
 
-	- For a standalone host, enter the server name or FQDN.
-	- For a cluster you can enter the FAQDN of the client accept point, the cluster name, or any node in the cluster. The tool picks up VMs that can be monitored for the specified servers.
-		
-  ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image3.png)
+	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image3.png)
 
+5. In **Replica Site Details** if you're replicating to Azure or if you're replicating to a secondary datacenter and haven't set up a replica server, select **Skip tests involving replica site**. If you are replicating to a secondary datacenter and you've set up a replica type in the FQDN of the standalone server or the client access point for the cluster in **Server name (or) Hyper-V Replica Broker CAP**. 
 
-6. In **Replica Site Details** if you're replicating to Azure or if you're replicating to a secondary datacenter and haven't set up a replica server, select **Skip tests involving replica site**. If you are replicating to a secondary datacenter and you've set up a replica type in the FQDN of the standalone server or the client access point for the cluster in **Server name (or) Hyper-V Replica Broker CAP**. 
+	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image4.png)
 
-   ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image4.png)
-
-7. In **Extended Replica Details** enable **Skip the tests involving Extended Replica site**. They aren't supported by Site Recovery.
-8. In **Choose VMs to Replicate** the tools connects to the server or cluster and displays VMs and disks running on the primary server, in accordance with the settings you specified on the **Primary Site Details** page. Note that VMs that are already enabled for replication or that aren't running won't be displayed. Select the VMs for which you want to collect metrics. Selecting the VHDs automatically collects data for the VMs too.
+6. In In **Extended Replica Details** enable **Skip the tests involving Extended Replica site**. They aren't supported by Site Recovery.
+7. In **Choose VMs to Replicate** the tools connects to the server or cluster and displays VMs and disks running on the primary server, in accordance with the settings you specified on the **Primary Site Details** page. Note that VMs that are already enabled for replication or that aren't running won't be displayed. Select the VMs for which you want to collect metrics. Selecting the VHDs automatically collects data for the VMs too.
 9. If you've configured a replica server or cluster, in **Network information** specify the approximate WAN bandwidth you think will be used between the primary and replica sites and select the certificates if you've configured certificate authentication.
 
-   ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image5.png)
+	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image5.png)
 
 10. In **Summary** check settings, and click **Next** to begin collecting metrics. Tool progress and status is displayed on the **Calculate Capacity** page. When the tool finishes running click **View Report** to go over the output. By default reports and logs are stored in **%systemdrive%\Users\Public\Documents\Capacity Planner**.
 
-![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image6.png)
+	![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image6.png)
 
 
 ## Step 4: Interpret the results
-You can ignore metrics which aren't listed here. They're not relevant for Site Recovery.
+Here are the important metrics. You can ignore metrics which aren't listed here. They're not relevant for Site Recovery.
 
 ### On-premises to on-premises replication
   - Impact of replication on the primary host's compute, memory
