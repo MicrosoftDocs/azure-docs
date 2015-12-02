@@ -31,7 +31,6 @@ The Reach section of the UI is the Push campaign management tool where you can c
 2.    Polls - allow you to gather information from end users by asking them questions.
 3.    Data Pushes - allow you to send a binary or base64 data file. The information contained in a data push is sent to your application to modify your users' current experience in your app. Your application needs to be able to process the data in a data push.
 
-For more information, see:  [Concepts - Glossary][Link 6]
 
 ## Three categories of Real time statistics shown for each campaign
 
@@ -39,9 +38,8 @@ For more information, see:  [Concepts - Glossary][Link 6]
 2.    Replied - how many users reacted to the notification by either opening it from outside of app or closing it in the app. 
 3.    Actioned - how many users clicked on the link in the notification to be redirected to a new location in the app, to a store, or to a web browser. 
 
-> Note: More verbose campaign statistics are available from the via Reach API Stats
+> [AZURE.NOTE]: More verbose campaign statistics are available from the via Reach API Stats
 
-For more information, see: [Concepts - Glossary][Link 6], [API Documentation - Reach API - Stats][Link 4]
 
 
 ## Campaign Details
@@ -54,13 +52,14 @@ You can edit, clone, delete, or activate campaigns that have not been activated 
 
 To see details or statistics of a campaign, click on it. You can then switch from the details to the statistics view of an open campaign that has already been activated and switch from the simple to advanced view of the statistics to view more detailed information (depending on your permissions). You can also use the reach feedback information from a previous campaign as targeting criteria in a new campaign. Reach Feedback statistics can also be gathered with **Stats** from the Reach API. You can also customize the audience of your Push campaigns based on previous campaigns.
 
-For more information, see:  [UI Documentation - Reach - New Push Campaign][27], [API Documentation - Reach API - Stats][Link 4]
 
 ![Reach2][19]
 
-##See also
--  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4], [Troubleshooting Guide - Push/Reach][Link 23]
--  [Reach - Campaign][Link 27], [Reach - Criterion][Link 28], [Reach - Content][Link 29], [Reach - How To][Link 3]
+
+## See also
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
