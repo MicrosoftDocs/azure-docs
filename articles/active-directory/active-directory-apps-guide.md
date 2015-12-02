@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="liviodlc"/>
 
 #The SaaS App Management Guide for Azure Active Directory
@@ -29,6 +29,8 @@ This guide is intended to help IT professionals understand and use the various S
 [Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md)
 
 [Managing access to apps](active-directory-managing-access-to-apps.md)
+
+[How and why applications are added to Azure AD](active-directory-how-applications-are-added.md) | dunno which category this fits into
 
 ##Cloud App Discovery: Find which SaaS Apps are being Used in Your Organization
 
@@ -61,6 +63,26 @@ This guide is intended to help IT professionals understand and use the various S
 [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
 
 [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+
+##Conditional Access: Enforce Additional Security Requirements for High-Risk Apps
+
+[Managing Risk With Conditional Access](active-directory-conditional-access.md)
+
+[Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md)
+
+[Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
+
+[Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+[Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
+
+[Azure Authenticator for Android](active-directory-conditional-access-azure-authenticator-app.md)
+
+[Conditional access device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+
+[Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
+
+[Setting up on-premises conditional access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md)
 
 ##App Proxy: Enable SSO and Remote Access to On-Premises Applications
 
@@ -102,7 +124,25 @@ This guide is intended to help IT professionals understand and use the various S
 
 [Azure AD and Applications: Requiring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
-##Managing Who has Access to which Apps
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
+
+[Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications](../active-directory-b2c/active-directory-b2c-overview.md)
+
+##Automatically Provision and Deprovision User Accounts in SaaS Apps
+
+[Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+[Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
+
+[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)
+
+[Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+
+[Attribute-based app provisioning with scoping filters](active-directory-saas-scoping-filters.md)
+
+[Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+
+##Tools for Managing who has Access to which Apps
 
 [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
@@ -142,47 +182,11 @@ also make sure to delegated/self-service stuff is included
 
 [External user token format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-token-format.md)
 
-##Conditional Access: Enforce Security Requirements when Users Attempt to Access High-Risk Applications
-
-[Managing Risk With Conditional Access](active-directory-conditional-access.md)
-
-[Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md)
-
-[Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
-
-[Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
-
-[Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
-
-[Azure Authenticator for Android](active-directory-conditional-access-azure-authenticator-app.md)
-
-[Conditional access device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-
-[Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
-
-[Setting up on-premises conditional access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md)
-
-##Automatically Provision and Deprovision User Accounts in SaaS Apps
-
-[Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
-
-[Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-
-[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)
-
-[Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-
-[Attribute-based app provisioning with scoping filters](active-directory-saas-scoping-filters.md)
-
-[Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
-
-##Access Panel: A Portal for Accessing Your Apps and More
-
-[How and why applications are added to Azure AD](active-directory-how-applications-are-added.md)
+##Access Panel: A Portal for Users to Access Apps and More
 
 [Introduction to Access Panel](active-directory-saas-access-panel-introduction.md)
 
-##Reporting
+##Reporting (needs better headline)
 
 something about reports related to managing apps, sign ins to apps, security reports
 
