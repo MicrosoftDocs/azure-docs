@@ -36,7 +36,7 @@ Azure has a marketplace with thousands of items that you can create from one pla
 
 1.	Windows Server 2012 is featured, so you can select it from the Compute category.  
 2.	Fill out some basic inputs on a form.
-3.	Click ‘Create’ and you’re VM will begin to provision immediately.
+3.	Click ‘Create’ and your VM will begin to provision immediately.
 
 The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
