@@ -310,6 +310,10 @@ Then see [Troubleshooting resource group deployments in Azure](resource-group-de
 
 Remember that database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. 
 
+Error information is also available in the Azure Portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
+
+![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
+
 ## Next steps
 
 Now that you have a DocumentDB account, the next step is to create a DocumentDB database. You can create a database by using one of the following:
