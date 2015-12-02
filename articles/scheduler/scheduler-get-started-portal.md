@@ -1,4 +1,4 @@
-<properties
+﻿<properties
  pageTitle="Get started using Azure Scheduler in the Azure portal | Microsoft Azure"
  description=""
  services="scheduler"
@@ -19,7 +19,7 @@
 
 ## Configure Scheduler using the Azure portal to quickly and easily create jobs
 
-To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, refer to [Azure Free Trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, refer to [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Get started
 

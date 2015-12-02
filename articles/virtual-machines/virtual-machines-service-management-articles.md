@@ -24,7 +24,7 @@
 
 ## Get started
 
-[Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+[Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 
 [Create a custom virtual machine running Windows in Azure](virtual-machines-windows-create-custom.md)
 

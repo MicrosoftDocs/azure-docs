@@ -32,7 +32,7 @@ API Apps provides the following features:
 
 - **Simple access control** - Protect an API app from unauthenticated access with no changes to your code. Built-in authentication services secure APIs for access by other services or by clients representing users. Supported identity providers include Azure Active Directory and third-party providers such as Facebook and Twitter. Clients can use Active Directory Authentication Library (ADAL) or the Mobile Apps SDK. For more information, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
 
-- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, consuming, debugging, and managing API apps. For more information, see [Announcing the Azure SDK 2.8.1 for .NET](/blog/announcing-the-azure-sdk-2-8-1-for-net/).
+- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, consuming, debugging, and managing API apps. For more information, see [Announcing the Azure SDK 2.8.1 for .NET](/blog/announcing-azure-sdk-2-8-1-for-net/).
 
 - **Integration with Logic Apps** - API apps that you create can be consumed by [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md). For information about ongoing changes in how API Apps integrates with Logic Apps, see [App Service API Apps - What's changed](app-service-api-whats-changed.md).   
 

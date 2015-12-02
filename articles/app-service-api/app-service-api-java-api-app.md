@@ -18,6 +18,8 @@
 
 # Build and deploy a Java API app in Azure App Service
 
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+
 This tutorial shows how to create a Java application and deploy it to Azure App Service API Apps using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Java. The code in this tutorial is built using [Maven](https://maven.apache.org/). [Jax-RS](https://jax-rs-spec.java.net/) is used to create the RESTful Service, and is generated based on [Swagger](http://swagger.io) metadata specification using the [Swagger Editor](http://editor.swagger.io/).
 
 ## Prerequisites

@@ -45,3 +45,5 @@
         }
 
     This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
+
+	For more information on templates with Notification Hubs, see [Templates](notification-hubs-templates.md). 

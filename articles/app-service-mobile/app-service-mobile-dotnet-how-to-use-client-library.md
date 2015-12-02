@@ -27,6 +27,10 @@
 
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDK for the .NET backend, see [Work with .NET backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
+## Reference documentation
+
+The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET Client Reference](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.aspx).
+
 ##<a name="setup"></a>Setup and Prerequisites
 
 We assume that you have already created and published your Mobile App backend project, which includes at one table.  In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `Id`, `Text`, and `Complete`. This is the same table created when you complete the [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md)
@@ -476,6 +480,18 @@ To use the new collection on Windows Phone 8 and "Silverlight" apps, use the `To
 When you use the collection created by calling `ToCollectionAsync` or `ToCollection`, you get a collection which can be bound to UI controls. This collection is paging-aware, i.e., a control can ask the collection to "load more items", and the collection will do it for the control. At that point there is no user code involved, the control will start the flow. However, since the collection is loading data from the network, it's expected that some times this loading will fail. To handle such failures, you may override the `OnException` method on `MobileServiceIncrementalLoadingCollection` to handle exceptions resulting from calls to `LoadMoreItemsAsync` performed by controls.
 
 Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the section "[Select specific columns](#selecting)" above to select specific columns to display in the UI.
+
+## <a name="package-sid"></a>How to: Obtain a Windows Store package SID
+
+For Windows apps, a package SID is needed for enabling push notifications and certain authentication modes. To obtain this value:
+
+1. In Visual Studio Solution Explorer, right-click the Windows Store app project, click **Store** > **Associate App with the Store...**.
+2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
+3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest.
+4. Log into the [Windows Dev Center](https://dev.windows.com/en-us/overview) using your Microsoft Account. Under **My apps**, click the app registration you just created.
+5. Click **App management** > **App identity**, and then scroll down to find your **Package SID**.
+
+Many uses of the package SID treat it as a URI, in which case you will need to use _ms-app://_ as the scheme. Make note of the version of your package SID formed by concatenating this value as a prefix.
 
 <!--- We want to just point to the authentication topic when it's done
 ##<a name="authentication"></a>How to: Authenticate users

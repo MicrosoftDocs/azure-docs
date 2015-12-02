@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Creating and deploying Azure Resource Group deployment projects | Microsoft Azure"
    description="Creating and deploying Azure Resource Group deployment projects"
    services="visual-studio-online"
@@ -17,7 +17,7 @@
 
 # Creating and deploying Azure Resource Group deployment projects
 
-The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md). For a more detailed, end-to-end Azure Resource Group deployment scenario, see [Azure Resource Group for Visual Studio](https://azure.microsoft.com/en-us/blog/azure-resource-manager-2-5-for-visual-studio/).
+The **Azure Resource Group** deployment project template is available in Visual Studio when Azure SDK 2.6 is installed. Azure Resource Group projects let you group together and publish multiple related Azure resources in a single deployment operation. Azure Resource Group projects use a technology called **Azure Resource Manager** to do their work. **Azure Resource Manager** is a REST API service that lets you define Azure resource groups, which contain multiple Azure resources that are typically used together and have a similar lifecycle. By using resource groups, you can operate on all the resources in a group with a single function call, instead of calling different functions for each individual resource. To learn more about Azure resource groups, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md). For a more detailed, end-to-end Azure Resource Group deployment scenario, see [Azure Resource Group for Visual Studio](https://azure.microsoft.com/blog/azure-resource-manager-2-5-for-visual-studio/).
 
 Azure Resource Group projects contain Azure Resource Manager JSON templates, which define the elements that are deployed to a resource group. See [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) for more information.
 

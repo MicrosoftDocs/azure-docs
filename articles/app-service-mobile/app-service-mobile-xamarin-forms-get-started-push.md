@@ -543,5 +543,3 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 

@@ -232,7 +232,7 @@ When deploying, please keep in mind that a new Azure storage account needs to be
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.  
 
-To do that, go to the [Azure preview portal](https://portal.azure.com) and do the following:
+To do that, go to the [Azure portal](https://portal.azure.com) and do the following:
 
 - Click **Browse** on the left-hand navigation bar, and then scroll down and click **Resource Groups**.  
 - Click the resource group that you just created, to bring up the "Resource Group” blade.  
