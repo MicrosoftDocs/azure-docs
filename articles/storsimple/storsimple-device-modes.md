@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Change the device mode on your StorSimple device
@@ -64,7 +64,7 @@ If your system goes into recovery mode, you should contact Microsoft Support for
 
 You can place the StorSimple device into maintenance mode (from normal mode) to perform maintenance or install maintenance mode updates. Perform the following procedures to enter or exit maintenance mode.
 
-> [AZURE.IMPORTANT] Before entering maintenance mode, verify that both device controllers are healthy by accessing the **Hardware Status** on the **Maintenance** page in the Management Portal. If the controller is not healthy, contact Microsoft Support for the next steps. For more information, go to [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+> [AZURE.IMPORTANT] Before entering maintenance mode, verify that both device controllers are healthy by accessing the **Hardware Status** on the **Maintenance** page in the Azure classic portal. If the controller is not healthy, contact Microsoft Support for the next steps. For more information, go to [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
 #### To enter maintenance mode
 
@@ -76,7 +76,7 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 	`Enter-HcsMaintenanceMode`
 
-4. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Management Portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
+4. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
 
 5. Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in maintenance mode.
 
