@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a custom virtual machine | Microsoft Azure"
-	description="Learn how to create a custom virtual machine from the Azure portal using the classic deployment model."
+	description="Learn how to create a custom virtual machine from the Azure classic portal using the classic deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"

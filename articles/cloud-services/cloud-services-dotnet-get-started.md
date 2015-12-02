@@ -131,7 +131,7 @@ You'll do the following steps to run the application in the cloud:
 
 An Azure cloud service is the environment the application will run in.
 
-1. In your browser, open the [Azure portal](http://manage.windowsazure.com).
+1. In your browser, open the [Azure classic portal](http://manage.windowsazure.com).
 
 2. Click **New > Compute > Cloud Service > Quick Create**.
 
@@ -153,7 +153,7 @@ An Azure cloud service is the environment the application will run in.
 
 When the app runs in the cloud, it will use a cloud-based database.
 
-1. In the [Azure portal](http://manage.windowsazure.com), click **New > Data Services > SQL Database > Quick Create**.
+1. In the [Azure classic portal](http://manage.windowsazure.com), click **New > Data Services > SQL Database > Quick Create**.
 
 1. In the **Database Name** box, enter *contosoads*.
 
@@ -189,7 +189,7 @@ An Azure storage account provides resources for storing queue and blob data in t
 
 In a real-world application, you would typically create separate accounts for application data versus logging data, and separate accounts for test data versus production data. For this tutorial you'll use just one account.
 
-1. In the [Azure portal](http://manage.windowsazure.com), click **New > Data Services > Storage > Quick Create**.
+1. In the [Azure classic portal](http://manage.windowsazure.com), click **New > Data Services > Storage > Quick Create**.
 
 4. In the **URL** box, enter a URL prefix.
 
@@ -228,7 +228,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 	Leave the file open for editing.
 
-2. In the [Azure portal](http://manage.windowsazure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, click the **Dashboard** tab, and then click **Show connection strings**.
+2. In the [Azure classic portal](http://manage.windowsazure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, click the **Dashboard** tab, and then click **Show connection strings**.
 
 	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 	![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. In the *Web.Release.config* transform file, delete `{connectionstring}` and paste in its place the ADO.NET connection string from the Azure portal.
+4. In the *Web.Release.config* transform file, delete `{connectionstring}` and paste in its place the ADO.NET connection string from the Azure classic portal.
 
 5. In the connection string that you pasted into the *Web.Release.config* transform file, replace `{your_password_here}` with the password you created for the new SQL database.
 
@@ -345,7 +345,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 9. You can now test the app by creating, viewing, and editing some ads, as you did when you ran the application locally.
 
->[AZURE.NOTE] When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the [Azure portal](http://manage.windowsazure.com), go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
+>[AZURE.NOTE] When you're finished testing, delete or stop the cloud service. Even if you're not using the cloud service, it's accruing charges because virtual machine resources are reserved for it. And if you leave it running, anyone who finds your URL can create and view ads. In the [Azure classic portal](http://manage.windowsazure.com), go to the **Dashboard** tab for your cloud service, and then click the **Delete** button at the bottom of the page. If you just want to temporarily prevent others from accessing the site, click **Stop** instead. In that case, charges will continue to accrue. You can follow a similar procedure to delete the SQL database and storage account when you no longer need them.
 
 ## Create the application from scratch
 
