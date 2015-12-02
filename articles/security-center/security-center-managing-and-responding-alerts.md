@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="12/01/2015"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -47,7 +47,7 @@ In the bottom part of this blade you have the details for each alert. You can so
 - **Severity**: shows the severity level, which can be high, medium or low.
   
 
-### Responding to a Security Alert
+### Responding to a security alert
 Many activities could indicate a possible attack on your organization. For example, a network administrator performing a legitimate network capture might appear similar to someone launching some form of attack. In other cases, a badly configured system might lead to a number of false positives in an intrusion detection system, which could make it more difficult to spot genuine incidents. After you review the security alerts using Azure Security Center, you can start to take actions based on the alert’s severity.
 
 To take an action, select the alert that you want to respond and a new blade will open on the right with more details as shown below: 
@@ -60,7 +60,7 @@ In this case, the alerts that was triggered refers to suspicious Remote Desktop 
   
 > [AZURE.NOTE] The remediation suggested by Azure Security Center will vary according to the security alert and in some cases, you may have to use other Azure capabilities in order to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using [Network ACL](virtual-networks-acl.md) or a [Network Security Group](virtual-networks-nsg.md) rule.
 
-### Additional Tasks
+### Additional tasks
 You can filter alerts based on date, state and severity. Under the Security Alerts blade, click Filter and enable the options that you want as shown below:
 
 ![Enabling data collection](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5.png)
