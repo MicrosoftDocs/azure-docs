@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/30/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -80,7 +80,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 4. Browse to the folder where you want to upload files, 
 5. Right-click any blank space, and then click **Upload**. 
 
-## Develop and test U-SQL scripts 
+## Develop U-SQL scripts 
 
 The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
@@ -151,7 +151,7 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 		
 		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code. 
 
-5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local) to run the script locally for the testing purpose.  For more information, see [Run U-SQL locally](#run-u-sql-locally).
+5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose.  For more information, see [Run U-SQL locally](#run-u-sql-locally).
 
 	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
@@ -227,8 +227,8 @@ Compare running U-SQL applications locally vs. in Azure Data Lake Analyics Servi
 |Relative path resolution |When a relative path is referenced - In script input (EXTRACT * FROM “/path/abc”): both the DataRoot path and the script path will be searched. In script output (OUTPUT TO “path/abc”): the DataRoot path will be used as the output folder. In assembly registration (CRREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot. In registered TVF/View or other metadata entiteis: the DataRoot Path will be searched, but not the script path. |If a relative path is referenced, then the default storage account will be used as root folder and will be searched accordingly.|
 
 
-### Run U-SQL scripts locally
-For instructions on developing U-SQL scripts, see [Develop and test U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder. 
+### Test U-SQL scripts locally
+For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder. 
 
 ![Submit U-SQL Visual Studio project locally](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
 
