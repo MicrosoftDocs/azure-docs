@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/2/2015"
 	ms.author="inhenk"/>
 
 # Manage Role Based Access Control (RBAC) with Azure PowerShell
@@ -26,14 +26,14 @@
 ### List all available roles
 To list RBAC roles available for assignment and to inspect the operations to which they grant access use:
 
-		Get-AzureRoleDefinition
+		Get-AzureRmRoleDefinition
 
 ![](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
 ### List actions of a role
 To list the actions for a specific role use:
 
-    Get-AzureRoleDefinition <role name>
+    Get-AzureRmRoleDefinition <role name>
 
 ![](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition2.png)
 
@@ -41,26 +41,26 @@ To list the actions for a specific role use:
 ### List all role assignments in the selected subscription
 To list RBAC access assignments effective at the specified subscription, resource, or resource group use:
 
-    Get-AzureRoleAssignment
+    Get-AzureRmRoleAssignment
 
 ###	List role assignments effective on a resource group
 To list the access assignments for a resource group use:
 
-    Get-AzureRoleAssignment -ResourceGroupName <resource group name>
+    Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
 
 ![](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment1.png)
 
 ### List role assignments to a user, including ones assigned to users groups
 To list access assignments to the specified user as well as to the groups of which the user is member use:
 
-    Get-AzureRoleAssignment -ExpandPrincipalGroups
+    Get-AzureRmRoleAssignment -ExpandPrincipalGroups
 
 ![](./media/role-based-access-control-manage-access-powershell/4-get-azure-rm-role-assignment2.png)
 
 ### List classic service administrator and co-admin role assignments
 To list access assignments for the classic subscription administrator and co-administrators use:
 
-    Get-AzureRoleAssignment -IncludeClassicAdministrators
+    Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## Grant Access
 ### Search for object ids
@@ -69,44 +69,44 @@ In order to use the following command sequences, you must find the object ids fi
 #### Find the object id for an Azure AD Group
 To get the object id for an Azure AD Group use:
 
-    Get-AzureADGroup -SearchString <group name in quotes>
+    Get-AzureRmADGroup -SearchString <group name in quotes>
 
 #### Find the object id for an Azure AD Service Principal
 To get the object id for an Azure AD Service Principal use:
-    Get-AzureADServicePrincipal -SearchString <service name in quotes>
+    Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 
 ### Assign role to group at subscription scope
 To grant access to a group at subscription scope use:
 
-    New-AzureRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
+    New-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment1.png)
 
 ### Assign role to application at subscription scope
 To grant access to an application at subscription scope use:
 
-    New-AzureRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
+    New-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
 ### Assign role to user at resource group scope
 To grant access to a user at resource group scope:
 
-    New-AzureRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+    New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment3.png)
 
 ### Assign role to group at resource scope
 To grant access to a group at the resource scope use:
 
-    New-AzureRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
+    New-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## Remove access
 To remove access for users, groups and applications use:
 
-    Remove-AzureRoleAssignment -ObjId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
+    Remove-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
 
 ![](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
