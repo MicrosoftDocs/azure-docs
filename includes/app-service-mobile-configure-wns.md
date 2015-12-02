@@ -1,5 +1,5 @@
 
-1. In the [Azure Portal]( https://azure.portal.com/), click **Browse** > **Mobile Apps**, then click your Mobile App backend, click **All settings**, then under **Mobile** click **Push**.
+1. In the [Azure Portal]( https://azure.portal.com/), click **Browse** > **App Services**, then click your Mobile App backend > **All settings**, then under **Mobile** click **Push**.
 
 2. In Push notification services, click **Windows (WNS)**, enter the **Security key** (client secret) and **Package SID** that you obtained from the Live Services site, then click **Save**.
 

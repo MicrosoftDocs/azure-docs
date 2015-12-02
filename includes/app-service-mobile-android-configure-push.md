@@ -1,5 +1,5 @@
 
-1. In the [Azure Portal]( https://azure.portal.com/), click **Browse** > **Mobile Apps**, then click your Mobile App backend, click **All settings**, then under **Mobile** click **Push**.
+1. In the [Azure Portal]( https://azure.portal.com/), click **Browse** > **App Services**, locate and click your Mobile App backend > **All settings**, then under **Mobile** click **Push**.
 
 2. In Push notification services, click **Google (GCM)**, enter the **API Key** value that you obtained from GCM in the previous procedure, then click **Save**.
 
