@@ -18,6 +18,11 @@
 
 # Get Started with Offline Data Sync in Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 Offline sync allows you to view, add, or modify data in a mobile app even when there is no network connection. In this tutorial, you'll learn how your app can automatically store changes in a local offline database and sync those changes whenever it's back online.

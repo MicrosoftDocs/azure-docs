@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -184,7 +189,7 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 ##Test the client using authentication
 
 1. In Visual Studio,run the client app.
-2. You will receive a prompt to login against your Azure Active Directory.  
+2. You will receive a prompt to login against your Azure Active Directory.
 3. The app authenticates and returns the todo items.
 
     ![][15]
