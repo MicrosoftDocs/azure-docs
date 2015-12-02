@@ -83,8 +83,8 @@ The service manifest declaratively defines the service type and version. It spec
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
-    <Parameter Name="MySettingA" Value="Foo" />
-    <Parameter Name="MySettingB" Value="Bar" />
+    <Parameter Name="MySettingA" Value="Example1" />
+    <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
 ~~~
