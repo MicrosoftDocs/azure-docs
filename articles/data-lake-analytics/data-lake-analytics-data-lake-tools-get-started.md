@@ -216,16 +216,20 @@ You will see a *Local* account in Visual Studio, and the installer creates a *Da
 - For a certain script: if a relative path is referenced in input/output paths, we will look up the DataRoot (as well as the script’s path if the it’s input)
 - The DataRoot folder will NOT be referenced if you are trying to register an assembly and use a relative path (see “Use assemblies when doing local run” part for more details)
 
-Compare running U-SQL applications locally vs. in Azure Data Lake Analyics Service:
+### Known issues and limitations
 
-| |Run scripts locally|Run scripts in Data Lake service|
-|-|-------------------|--------------------------------|
-|File Set|U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.|Filesets works well in ADLA service |
-|Execution model | Slow performance due to low parallelism, because job plans are executed serially in a single process. | High performance becasue of job plans are executed in parallel across machines.|
-|Job graph |Local run can't show job graphs in Visual Studio. This will be addressed in the future. | You will see job graphs in Visual Studio.|
-|Server Explorer|Cannot create table/DB etc. in Server Explorer for the local account|Can use full functional Server Explorer.|
-|Relative path resolution |When a relative path is referenced - In script input (EXTRACT * FROM “/path/abc”): both the DataRoot path and the script path will be searched. In script output (OUTPUT TO “path/abc”): the DataRoot path will be used as the output folder. In assembly registration (CRREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot. In registered TVF/View or other metadata entiteis: the DataRoot Path will be searched, but not the script path. |If a relative path is referenced, then the default storage account will be used as root folder and will be searched accordingly.|
+- U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.
+- Slow performance due to low parallelism, because job plans are executed serially in a single process. 
+- Local run can't show job graphs in Visual Studio. This will be addressed in the future. 
+- Cannot create table/DB etc. in Server Explorer for the local account.
+- When a relative path is referenced:
 
+    - In script input (EXTRACT * FROM “/path/abc”) - both the DataRoot path and the script path will be searched. 
+    - In script output (OUTPUT TO “path/abc”): the DataRoot path will be used as the output folder. 
+    - In assembly registration (CRREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot. 
+    - In registered TVF/View or other metadata entiteis: the DataRoot Path will be searched, but not the script path. 
+    
+    For scripts ran on Data Lake serivce, the default storage account will be used as root folder and will be searched accordingly.
 
 ### Test U-SQL scripts locally
 For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder. 
