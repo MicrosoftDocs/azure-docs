@@ -20,10 +20,6 @@
 
 # Azure Container Service Introduction
 
-> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
-<br/>
-> [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
-
 Azure Container Service (ACS) provides a way to simplify the creation,
 configuration, and management of a cluster of virtual machines that are
 preconfigured to run containerized applications. Using an optimized
@@ -170,3 +166,13 @@ While the service is in preview we ask that those interested testing the
 service [self-nominate](http://aka.ms/acspreview). You will first need an Azure
 Subscription, if you don’t have one yet then why not sign up for a [free
 trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)?
+
+Videos
+------
+Azure Con Announcement
+
+> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
+
+Getting Started with ACS  
+
+> [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
