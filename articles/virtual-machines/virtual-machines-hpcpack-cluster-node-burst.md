@@ -56,7 +56,7 @@ subscription (or subscriptions).
 
 ## Step 1: Create a cloud service and a storage account to add Azure nodes
 
-Use the Azure portal or equivalent tools to configure the following, which are needed to deploy
+Use the Azure classic portal or equivalent tools to configure the following, which are needed to deploy
 your Azure nodes:
 
 * A new Azure cloud service
