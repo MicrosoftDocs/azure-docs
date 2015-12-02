@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mimig"/>
 
-# Automate DocumentDB database account creation using ARM templates or Azure CLI
+# Automate DocumentDB database account creation using Azure Resource Manager templates and Azure CLI
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-deploy-armtemplates-powershell.md)
+- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 
 This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure Command-Line Interface (CLI). 
 
