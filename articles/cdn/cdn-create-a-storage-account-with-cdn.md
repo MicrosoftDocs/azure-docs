@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/31/2015" 
+	ms.date="12/02/2015" 
 	ms.author="casoper"/>
 
 
@@ -75,7 +75,7 @@ administrator or a co-administrator for the associated subscription.
 
 A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
 
-> [AZURE.TIP] If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-CDN-endpoint).
+> [AZURE.TIP] If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-cdn-endpoint).
 
 **To create a new CDN profile**
 
@@ -121,11 +121,11 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 5. In the **Origin hostname** dropdown, select your storage account.
 
-6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**/
+6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**.  You must specify at least one protocol (HTTP or HTTPS). 
 
     > [AZURE.NOTE] This configuration enables all of your publicly visible containers in your storage account for caching in the CDN.  If you want to limit the scope to a single container, use **Origin path**.  Note the container must have its visibility set to public.
 
-7. Click the **Create** button to create the new endpoint.
+7. Click the **Add** button to create the new endpoint.
 
 8. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
 
@@ -151,11 +151,7 @@ Delivery Network (CDN), you can take one of the following steps:
 -   You can disable or delete the CDN endpoint using the Management Portal.
 -   You can modify your hosted service to no longer respond to requests for the object.
 
-An object already cached in the CDN will remain cached until the
-time-to-live period for the object expires. When the time-to-live period
-expires, the CDN will check to see whether the CDN endpoint is still
-valid and the object still anonymously accessible. If it is not, then
-the object will no longer be cached.
+An object already cached in the CDN will remain cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
 
 
 ## Additional resources

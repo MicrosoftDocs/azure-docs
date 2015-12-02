@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/31/2015" 
+	ms.date="12/02/2015" 
 	ms.author="casoper"/>
 
 
@@ -87,7 +87,7 @@ Caching for cloud services has the following constraints:
 When you enable CDN access for on a cloud service, the Management Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from a cloud service. For example, given a cloud service named myHostedService and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:
 
 
-- **Azure cloud service URL**: `http://myHostedService.cloudapp.net/cdn/music.aspx` 
+- **Azure cloud service URL**: `http://myHostedService.cloudapp.net/music.aspx` 
 - **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
 
 ## Caching content from custom origins
@@ -96,28 +96,26 @@ You can cache objects to the CDN that are provided by any publicly accessible we
 
 Caching for custom origins has the following constraints: 
 
-
 - The CDN should be used to cache static content only.
 
 	>[AZURE.WARNING] Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.
-- Your cloud service must be deployed to in a production deployment.
-- Your cloud service must provide the object on port 80 using HTTP.
-- The cloud service must place the content to be cached in, or delivered from, the /cdn folder on the cloud service.
+- The content on the custom origin must be hosted on a server with a public IP address.  CDN edge nodes are incapable of retrieving assets from intranet servers behind a firewall.
 
-When you enable CDN access for on a cloud service, the Management Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from a cloud service. For example, given a cloud service named myHostedService and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:
+When you enable CDN access for on a custom origin, the Azure Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from the custom origin. For example, given a site located at www.contoso.com and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:
 
 
-- **Azure cloud service URL**: `http://myHostedService.cloudapp.net/cdn/music.aspx` 
+- **Custom origin URL**: `http://www.contoso.com/music.aspx` 
 - **Azure CDN URL**: `http://<identifier>.azureedge.net/music.aspx` 
 
 ## Caching specific content with query strings
 
-You can use query strings to differentiate objects retrieved from a cloud service. For example, if the cloud service displays a chart that can vary you can pass a query string to retrieve the specific chart required. For example: 
+You can use query strings to differentiate objects retrieved from an origin. For example, if the origin displays a chart that can vary you can pass a query string to retrieve the specific chart required. For example: 
 
 `http://<identifier>.azureedge.net/chart.aspx?item=1`
 
-Query strings are passed as string literals. If you have a service that takes two parameters, such as `?area=2&item=1` and make subsequent call to the service using `?item=1&area=2`, you will cache two copies of the same object.
- 
+Query strings are passed as string literals. If you have a service that takes two parameters, such as `?area=2&item=1` and make subsequent calls to the origin using `?item=1&area=2`, you will cache two copies of the same object.
+
+> [AZURE.NOTE] For more information
 
 ## Accessing cached content over HTTPS
 

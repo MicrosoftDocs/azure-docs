@@ -64,7 +64,7 @@ The left-hand side of the graph (y-axis) indicates how many hits occurred in the
 
 * If you hover over a bar, the name and the total number of hits that occurred in the region will be displayed as a tooltip.
 * The tooltip for the Top Cities report identifies a city by its name, state/province, and country abbreviation.
-* If the city or region (i.e., state/province) from which a request originated from could not be determined, then it will indicate that they are unknown. If the country is unknown, then two question marks (i.e., ??) will be displayed.
+* If the city or region (i.e., state/province) from which a request originated could not be determined, then it will indicate that they are unknown. If the country is unknown, then two question marks (i.e., ??) will be displayed.
 * A report may include metrics for "Europe" or the "Asia/Pacific Region." Those items are not meant to provide statistical information on all IP addresses in those regions. Rather, they only apply to requests that originate from IP addresses that are spread out over Europe or Asia/Pacific instead of to a specific city or country.
 
 The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred for the top 250 regions. View a description for each of these metrics.

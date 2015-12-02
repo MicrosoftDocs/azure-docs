@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/31/2015" 
+	ms.date="12/02/2015" 
 	ms.author="casoper"/>
 
 # Improve performance by compressing files
 
-This topic discusses how to improve file transfer speed and increases page load performance by compressing your files.
+This topic discusses how to improve file transfer speed and increase page load performance by compressing your files.
 
 There are two ways CDN can support compression: 
 
@@ -74,7 +74,7 @@ There are two ways CDN can support compression:
 2. An edge server checks whether there is **Accept-Encoding** header.
 	1. If included, this header identifies the requested compression method.
 	1. If missing, this type of request will be served in an uncompressed format.
-3.	The closest edge POP checks the cache status, compression method and if it still has a valid TTL.
+3.	The closest edge POP checks the cache status, compression method and if it still has a valid time-to-live.
 	1.	Cache Miss:  if the requested version is not cached, the request is forwarded to the origin.
 	2.	Cache HIT with same compression method: The edge server will immediately deliver the compressed content to the client.
 	3.	Cache HIT with different compression method: The edge server will transcode the asset to the requested compression method. 
