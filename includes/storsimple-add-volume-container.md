@@ -15,7 +15,7 @@
 
     ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
 
-3. If you specified **Select a bandwidth template**, choose from the drop-down list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+3. If you specified **Select a bandwidth template**, choose from the dropdown list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
 
     ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
 
