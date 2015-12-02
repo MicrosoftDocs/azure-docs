@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Learn how to perform REST searches using Azure Search, a cloud hosted search service on Microsoft Azure."
 	services="search"
@@ -18,7 +18,7 @@
 
 # How to search StackExchange data using Azure Search
 
-This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/en-us/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
+This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
 
 ## Getting started
 

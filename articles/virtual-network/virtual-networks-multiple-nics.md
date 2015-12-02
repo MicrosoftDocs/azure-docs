@@ -72,12 +72,12 @@ At this time, multi NIC has the following requirements and constraints:
 |DS11|2|
 |DS12|4|
 |DS13|8|
-|DS14|16|
+|DS14|8|
 |D1_v2|1|
 |D2_v2|2|
 |D3_v2|4|
 |D4_v2|8|
-|D5_v2|16|
+|D5_v2|8|
 |D11_v2|2|
 |D12_v2|4|
 |D13_v2|8|

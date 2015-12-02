@@ -41,7 +41,7 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ##Create Data Lake Analytics account
 
