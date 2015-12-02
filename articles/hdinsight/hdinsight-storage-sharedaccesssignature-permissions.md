@@ -256,6 +256,28 @@ Once connected to the cluster, use the following steps to verify that you can on
         
     This time, the operation should complete successfully.
     
+##Troubleshooting
+
+###A task was canceled
+
+__Symptoms__: When creating a cluster using the PowerShell script, you may receive the following error message:
+
+    New-AzureRmHDInsightCluster : A task was canceled.
+    At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
+    +     New-AzureRmHDInsightCluster `
+    +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
+
+__Cause__: This error can occur if you use a password for the admin/HTTP user for the cluster, or (for Linux-based clusters,) the SSH user.
+
+__Resolution__: Use a password that meets the following criteria:
+
+- Must be at least 10 characters in length
+- Must contain at least one digit
+- Must contain at least one non-alphanumeric character
+- Must contain at least one upper or lower case letter
+
 ##Next steps
 
 Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
