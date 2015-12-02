@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="12/02/2015"
 	ms.author="tomfitz"/>
 
 
@@ -51,9 +51,9 @@ The following example shows a storage account with a tag.
         }
     ]
 
-## Tags in the preview portal
+## Tags in the portal
 
-Tagging resources and resource groups in the preview portal is easy. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade.
+Tagging resources and resource groups in the portal is easy. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade.
 
 ![Tags part on resource and resource group blades](./media/resource-group-using-tags/tag-icon.png)
 
@@ -139,7 +139,7 @@ To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cm
     rbacdemo-group
     tag-demo
 
-For Azure PowerShell versions earlier than 1.0 Preview use the following commands to get resources with a specific tag.
+For Azure PowerShell versions earlier than 1.0, use the following commands to get resources with a specific tag.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -184,4 +184,4 @@ When you download the usage CSV for services that support tags with billing, the
 - You can apply restrictions and conventions across your subscription with customized policies. The policy you define could require that a particular tag be set for all resources. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 - For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
 - For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
-- For an introduction to using the preview portal, see [Using the Azure preview portal to manage your Azure resources](./resource-group-portal.md)  
+- For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](./resource-group-portal.md)  
