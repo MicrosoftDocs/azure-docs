@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Troubleshoot Azure Sign-up Issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.

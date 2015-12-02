@@ -27,7 +27,7 @@ An application is a collection of constituent services that perform a certain fu
 ![][1]
 
 
-An application type is a categorization of an application, consisting of a bundle of service types. A service type is a categorization of a service. The categorization can have different settings and configurations, but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
+An application type is a categorization of an application and consists of a bundle of service types. A service type is a categorization of a service. The categorization can have different settings and configurations, but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
 Classes (or "types") of applications and services are described through XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages.
 
@@ -74,11 +74,11 @@ The service manifest declaratively defines the service type and version. It spec
 
 **ServiceTypes** declares what service types are supported by **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. Note that service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
-**SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. Having a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
+**SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
 **DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
-**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
+**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -89,7 +89,7 @@ The service manifest declaratively defines the service type and version. It spec
 </Settings>
 ~~~
 
-> [AZURE.NOTE] A service manifest can contain multiple code, configuration, and data packages, each of which can be versioned independently.
+> [AZURE.NOTE] A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -128,7 +128,7 @@ Thus, an application manifest describes elements at the application level and re
 </ApplicationManifest>
 ~~~
 
-Like service manifests, **Version** attributes are unstructured strings and not parsed by the system. These are also used to version each component for upgrades.
+Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. These are also used to version each component for upgrades.
 
 **ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type.
 
@@ -171,13 +171,13 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ~~~
 
-The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with names **MyCodeA** and **MyCodeB**, then there would need to be two folders with the same names to contain the necessary binaries for each code package.
+The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with the names **MyCodeA** and **MyCodeB**, then two folders with the same names would contain the necessary binaries for each code package.
 
 ### Use SetupEntryPoint
 
 Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-- Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs to have some environment variables configured for deploying a node.js application.
+- Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 
 - Setting up access control by installing security certificates.
 
@@ -185,7 +185,7 @@ Typical scenarios for using **SetupEntryPoint** are when you need to run an exec
 
 If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
-To create a package, right-click on the application project in Solution Explorer and choose the Package command, as shown below:
+To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
 
 ![][2]
 

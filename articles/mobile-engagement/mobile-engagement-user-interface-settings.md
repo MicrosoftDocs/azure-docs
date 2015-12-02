@@ -18,9 +18,8 @@
 
 # How to manage the global settings of your application
 
-The **Settings** menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application. Settings include the following: Details, Projects, Native Push, Push Speed, Tag (app info), and Commercial Pressure. The Tag (app info) menu option of the Settings section can be managed by your application (using the SDK) or by your backend (using the Device API). The **Glossary** in “Concepts” includes the definitions of terms and abbreviations, such as the following: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
+The **Settings** menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application. Settings include the following: Details, Projects, Native Push, Push Speed, Tag (app info), and Commercial Pressure. The Tag (app info) menu option of the Settings section can be managed by your application (using the SDK) or by your backend (using the Device API). 
 
-For more information, see: [API Documentation - Device API][Link 4], [Concepts - Glossary][Link 6], [Troubleshooting Guide - Service][Link 24]
 
 >[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
@@ -48,7 +47,7 @@ Allows you to register a new certificate or delete and existing certificate for 
 
 After providing credentials or certificates for at least one Native Push service, you can select "Any time" when creating Reach Campaigns, and also use the "notifier" parameter in the PUSH API.
 
-For more information, see: [API documentation - Reach API] [Link 4],[API documentation - Push API] [Link 4], [UI Documentation - Reach - New Push Campaign][Link 27]
+
 
 ### Apple Push Notification Service (APNS)
 
@@ -70,14 +69,20 @@ You will need your Package security identifier (SID) and your Secret key.
 To enable Native Push using GCM, you need to follow the instructions from Google. Then you must paste a server simple API key, configured without IP restrictions. 
 Requires integration with the SDK for Android v1.12.0+.
 
-For more information, see: [SDK Documentation - Android - How to Integrate GCM][Link 5], [Google Developer - GCM Guide](http://developer.android.com/guide/google/gcm/gs.html), [Google Developer - GCM Documentation](http://developer.android.com/google/gcm/index.html)
+For more information, see: 
+
+- [SDK Documentation Android How to Integrate GCM][Link 5]
+- [Google Developer GCM Guide](http://developer.android.com/guide/google/gcm/gs.html)
  
 ### Amazon Device Messaging for Android (ADM)
 
 To enable Native Push using ADM, you must provide Amazon <OAuth credentials> consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).
 
-For more information, see: [SDK Documentation - Android - How to Integrate ADM][Link 5], [Amazon Developer - ADM Documentation](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+For more information, see: 
 
+- [SDK Documentation Android How to Integrate ADM][Link 5]
+- [Amazon Developer ADM Documentation](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+ 
 ![settings6][51]
 
 ## Push Speed
@@ -89,18 +94,18 @@ Shows the current push speed of your application and allows you to define the pu
 ## Tag (app info)
 
 ![settings11][56]
-
-For more information, see: 
-
-- [API Documentation - Device API][Link 4]
-- [UI Documentation - Reach - New Push Campaign][Link 27]
   
 ## Commercial Pressure
 
 
 ![settings12][57]
 
-For more information, see: [UI Documentation - Reach - New Push Campaign][Link 27],  [UI Documentation - Segments][Link 18]
+
+## See also
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
+
  
 
 <!--Image references-->
