@@ -245,7 +245,7 @@ There are two ways to run the customized C# files:
  
 ### Debug scripts and C# assemblies locally
 
-You can debug C# assemblies without submitting & registering it to the Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
+You can debug C# assemblies without submitting and registering it to the Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
 
 **To debug local code in code behind file**
 1.	Set breakpoints in the code behind file. 
