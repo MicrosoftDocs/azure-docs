@@ -29,12 +29,12 @@ AzCopy is a command-line utility designed for high-performance uploading, downlo
 > Note that for AzCopy 4.x, command-line options and functionality may change in future releases.
 
 
-We also released an open-sourced library based on the core data movement framework that powers AzCopy, please find more details at [Introducing Azure Storage Data Movement Library Preview] (https://azure.microsoft.com/en-us/blog/introducing-azure-storage-data-movement-library-preview-2/)
+We also released an open-sourced library based on the core data movement framework that powers AzCopy, please find more details at [Introducing Azure Storage Data Movement Library Preview] (https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 
 ## Download and install AzCopy
 
 1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr).
-2. Run the installation. By default, the AzCopy installation creates a folder named `AzCopy` under `%ProgramFiles(x86)%\Microsoft SDKs\Azure\` (on a machine running 64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\` (on a machine running 32-bit Windows). However, you can change the installation path from the setup wizard.
+2. Run the installation. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe` (on a machine running 64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe` (on a machine running 32-bit Windows). However, you can change the installation path from the setup wizard.
 3. If desired, you can add the AzCopy installation location to your system path.
 
 ## Understand the AzCopy command-line syntax
@@ -970,7 +970,7 @@ For more information about Azure Storage and AzCopy, see the following resources
 - [Create an SMB file share in Azure with File storage](storage-dotnet-how-to-use-files.md)
 
 ### Azure Storage blog posts:
-- [DML: Introducing azure storage data movement library preview] (https://azure.microsoft.com/en-us/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [DML: Introducing azure storage data movement library preview] (https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy: Introducing synchronous copy and customized content type] (http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: Announcing General Availability of AzCopy 3.0 plus preview release of AzCopy 4.0 with Table and File support](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 - [AzCopy: Optimized for Large-Scale Copy Scenarios](http://go.microsoft.com/fwlink/?LinkId=507682)

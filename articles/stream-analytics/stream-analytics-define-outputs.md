@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs
 
 When authoring a Stream Analytics job, one consideration is how the output of the job will be consumed. How are the consumers of the data transformation viewing the results of the Stream Analytics job? What tools will they be using to analyze the output? Is data retention or warehousing a requirement?
 
-In order to enable a variety of application patterns, Azure Stream Analytics provides seven different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage are all supported outputs. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
+In order to enable a variety of application patterns, Azure Stream Analytics provides different methods for storing and viewing job outputs. This provides ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job, must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 
 ## SQL Database ##

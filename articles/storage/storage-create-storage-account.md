@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
 	description="Learn how to create, manage, or delete a storage account in the Azure portal."
 	services="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/12/2015"
 	ms.author="tamram"/>
 
 
@@ -35,7 +35,7 @@ You are billed for Azure Storage usage based on your storage account. Storage co
 - Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.
 - Replication determines how many copies of your data are maintained at once, and in what locations.
 - Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same datacenters to reduce or eliminate data egress charges.)  
+- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)  
 
 The [Azure pricing](http://azure.microsoft.com/pricing/details/#storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data transfers pricing details](http://azure.microsoft.com/pricing/details/data-transfers/) page provides detailed pricing information for data egress.
 
@@ -47,7 +47,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 1. Sign in to the [Azure portal](https://manage.windowsazure.com).
 
-2. Click **Create New**, click **Storage**, and then click **Quick Create**.
+2. Click **New** in the taskbar at the bottom of the page. Choose **Data Services** | **Storage**, and then click **Quick Create**.
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
@@ -59,13 +59,13 @@ For details about storage account capacity and performance targets, see [Azure S
 
 	See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
 
-4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same datacenter with other Azure services that you are using to improve performance and lower costs.
+4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs.
 
 	Note that you must select an affinity group when your storage account is created. You cannot move an existing account to an affinity group. For more information on affinity groups, see [Service colocation with an affinity group](#service-co-location-with-an-affinity-group) below.
 
 	>[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
 	>
-	>Additionally, see [Azure Regions](https://azure.microsoft.com/en-us/regions/#services) for more information about what services are available in which region.
+	>Additionally, see [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
 
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
@@ -99,9 +99,9 @@ The URL for accessing an object in a storage account is built by appending the o
 
 You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in an Azure storage account](storage-custom-domain-name.md) for details.
 
-### Service colocation with an affinity group
+### Service co-location with an affinity group
 
-An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same datacenter or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
+An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
 > [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Azure portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups by using the Azure Service Management API. See <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on affinity groups</a> for more information.
 

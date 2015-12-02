@@ -13,27 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/22/2015"
    ms.author="piyushjo"/>
 
-# How to manage your account profile and test devices 
-The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
+# How to manage your account profile and test devices
+ 
+This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+ 
+To get to the my account page, click on your account on the top of the page.
 
-### See also
--  [Troubleshooting Guide - Service][Link 24]
+The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 
 ![MyAccount1][7]  
 
 ## Profile:
-You can view or change any of your account settings: Password, First Name, Last Name, Organization, Phone Number, Time Zone, or E-mail opt-in or opt-out of e-mail updates. You can also give another user permission to use your application based on their e-mail address from “home”.
-
-### See also
--  [UI Documentation - Home][Link 13]
+You can view or change any of your account settings shown below. You can also give another user permission to use your application based on their e-mail address from the [Home](mobile-engagement-interface-home.md).
 
 ![MyAccount2][8]  
 
 ## Devices:
-You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns. Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.) are displayed when you click "New Device". 
+You can view, add, or remove test Device ID's of the test devices that you can use to test your **reach** or **push** campaigns. Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.) are displayed when you click "New Device". 
  
 ![MyAccount3][9]  
  
@@ -55,6 +54,13 @@ Click to this event in the Monitor.
 You should find your Device ID in the list of the devices that have performed this event.
 Then, you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform".
 >(Be aware that when IDFA is disabled for iOS, the Device ID may change over the time if you uninstall and reinstall your app.)
+
+##Troubleshooting Guide
+-  [Troubleshooting Guide - Service][Link 24]
+
+## See also
+-  [UI Documentation - Home][Link 13]
+
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

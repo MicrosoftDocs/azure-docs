@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Use Azure Premium Storage with SQL Server | Microsoft Azure"
 	description="This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines."
 	services="virtual-machines"
@@ -293,7 +293,7 @@ You can use an existing image. Or, you can [take an image of an existing machine
     $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
  
 #### Step 4: Copy Blob between Storage Accounts
-    #Get Image VHD from Portal
+    #Get Image VHD 
     $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
     $containerName = 'vhds'
     
@@ -683,7 +683,7 @@ As you are going to be taking out at least one SQL Server down at a time, you sh
 
     Set-ClusterQuorum -NodeMajority  
 
-For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/en-us/library/jj612870.aspx).
+For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### Step 6: Extract Existing Endpoints and ACLs
     #GET Endpoint info
@@ -877,7 +877,7 @@ The code below also uses the added option here you can import the machine and us
     
     #SET Azure ACLs or Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
     
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
@@ -1095,11 +1095,11 @@ For information for individual blobs:
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
     
     
-    #STOP!!! CHECK in portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure classic portal or Machine Endpoints through powershell that these Endpoints are created!
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### Step 23: Test Failover
 

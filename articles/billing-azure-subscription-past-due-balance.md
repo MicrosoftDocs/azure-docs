@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/23/2015"
 	ms.author="genli"/>
 
 # Why have you received a notification that your Azure subscription has a past due balance?
@@ -28,9 +28,9 @@ The service will be canceled and your resources will no longer be available. Any
 
 Pay your outstanding balance in full.
 
-**Scenario 1**: If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice. If you need help, contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+**Scenario 1**: If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice. If you need help, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-**Scenario 2**: If the bill is not paid because the credit card on file was declined, or has expired, use another credit card or payment method for the subscriptions, or contact your bank to resolve the issue. For instructions about how to change the payment method in Azure, see [How to change the credit card used to pay for an Azure subscription](./billing-how-to-change-credit-card.md). You must log on as an Account Administrator to make this change. 
+**Scenario 2**: If the bill is not paid because the credit card on file was declined, or has expired, use another credit card or payment method for the subscriptions, or contact your bank to resolve the issue. For instructions about how to change the payment method in Azure, see [How to change the credit card used to pay for an Azure subscription](./billing-how-to-change-credit-card.md). You must log on as an Account Administrator to make this change.
 
 
-**Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Microsoft Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
+**Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.

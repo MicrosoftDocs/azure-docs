@@ -90,11 +90,15 @@ Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALin
 
   For most of Linux, use
 
-      #sudo cp waagent /usr/sbin
+    #sudo cp waagent /usr/sbin
 
   For CoreOS, use:
 
     #sudo cp waagent /usr/share/oem/bin/
+
+  If this is the new installation of Azure Linux Agent, run below:
+ 
+    #sudo /usr/sbin/waagent -install -verbose
 
 ###For the version 2.1.x, use:
 

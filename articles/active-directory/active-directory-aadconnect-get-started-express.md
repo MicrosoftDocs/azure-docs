@@ -52,7 +52,7 @@ Selecting Express Settings is the default option and is one of the most common s
 	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. Once the installation completes, click **Exit**.
-
+9. After the installation has completed, Logoff and Login again before you use Synchronization Service Manager or Synchronization Rule Editor.
 
 <br>
 <br>

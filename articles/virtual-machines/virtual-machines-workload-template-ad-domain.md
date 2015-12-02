@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Highly-available Active Directory Domain Services ARM template | Microsoft Azure"
-	description="Easily deploy two servers acting as Active Directory Domain Services domain controllers with a Resource Manager Template and the Azure Preview portal, Azure PowerShell, or the Azure CLI."
+	description="Easily deploy two servers acting as Active Directory Domain Services domain controllers with a Resource Manager Template and the Azure portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@ Use the instructions in this article to deploy a highly-available Active Directo
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-You can run the template with the Azure Preview Portal, Azure PowerShell, or the Azure CLI.
+You can run the template with the Azure portal, Azure PowerShell, or the Azure CLI.
 
-## Azure Preview portal
+## Azure portal
 
-To deploy this workload using a Resource Manager template and the Azure Preview Portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+To deploy this workload using a Resource Manager template and the Azure portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 

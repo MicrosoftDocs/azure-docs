@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox
@@ -37,8 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 - The HDInsight Emulator requires a 64-bit version of Windows. One of the following requirements must be satisfied:
 
-	- Windows 7 Service Pack 1
-	- Windows Server 2008 R2 Service Pack 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 

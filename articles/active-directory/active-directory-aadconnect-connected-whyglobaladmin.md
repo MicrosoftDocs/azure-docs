@@ -3,7 +3,7 @@
 	description="Custom settings description of why we require a global admin account."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="andkjell"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/13/2015"
-	ms.author="billmath"/>
+	ms.author="billmath;andkjell"/>
 
 # Why we require an Azure AD global administrator account for setting up Azure AD Connect
 

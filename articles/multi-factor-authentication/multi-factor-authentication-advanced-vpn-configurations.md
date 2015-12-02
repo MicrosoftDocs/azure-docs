@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Advanced Scenarios with Azure Multi-Factor Authentication and 3rd Party VPN
