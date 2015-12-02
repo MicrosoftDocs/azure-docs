@@ -95,7 +95,7 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
+- Click [Using Data Factory Editor](data-factory-get-started-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
 - Click [Using PowerShell](data-factory-monitor-manage-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-get-started-using-vs.md) link at the top to perform the tutorial by using Visual Studio 2013.
  
