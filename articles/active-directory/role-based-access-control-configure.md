@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/2/2015"
 	ms.author="inhenk"/>
 
 # Azure Active Directory Role-based Access Control
 
 ## Role-based Access Control
-Azure Roles-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your devops team and grant only the amount of access to users that they need to perform their jobs.
+Azure Roles-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
 ### Basics of access management in Azure
 Each Azure subscription is homed to an Azure Active Directory. Only users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription, using Azure Management Portal, Azure Command-Line tools and Azure Management APIs.
@@ -122,3 +122,73 @@ The following example lists all access changes in the subscription for the past 
 It is convenient to export access changes into a spreadsheet for review.
 
 ![](./media/role-based-access-control-configure/change-history-spreadsheet.png)
+
+## Custom Roles in Azure RBAC
+Create a custom role in Azure RBAC if none of the built-in roles meets your specific access need. Custom roles can be created using RBAC command-line tools in Azure PowerShell, and Azure Command-Line Interface. Just like built-in roles, custom roles can be assigned to users, groups, and applications at subscription, resource group, and resource scope.
+
+Following is an example custom role definition that allows monitoring and restarting virtual machines:
+
+`{
+  "Name": "Virtual Machine Operator",
+  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
+    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
+  ]
+}
+`
+### Actions
+The actions property of a custom role specifies the Azure operations to which the role grants access. It is a collection of operation strings that identify securable operations of Azure resource providers. Operation strings that contain wildcards (\*) grant access go all operations that match the operation string. For instance:
+
+-	`*/read` grants access to read operations for all resource types of all Azure resource providers.
+-	`Microsoft.Network/*/read` grants access to read operations for all resource types in the Microsoft.Network resource provider of Azure.
+-	`Microsoft.Compute/virtualMachines/*` grants access to all operations of virtual machines and its child resource types.
+-	`Microsoft.Web/sites/restart/Action` grants access to restart websites.
+
+Use `Get-AzureRmProviderOperation` or `azure provider operations show` commands to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
+
+![](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+
+![](./media/role-based-access-control-configure/1-azure-provider-operations-show.png)
+
+### Not Actions
+If the set of operations that you wish to allow is easily expressed by excluding specific operations rather than including all operations operations except than the ones you wish to exclude, then use the **NotActions** property of a custom role. The effective access granted by a custom role is computed by excluding the **NotActions** operations from the Actions operations.
+
+Note that if a user is assigned a role that excludes an operation in **NotActions** and is assigned a second role that grants access to the same operation – the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
+
+### AssignableScopes
+The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, or resource groups, or resources) within which the custom role is available for assignment to users, groups, and applications. Using **AssignableScopes** you can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups. **AssignableScopes** of a custom role also control who is allowed to view, update, and delete the role. Following are some valid assignable scopes:
+
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: makes the role available for assignment in two subscriptions.
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: makes the role available for assignment in a single subscription.
+-	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network”: makes the role available for assignment only in the Network resource group.
+
+### Custom Roles Access Control
+The **AssignableScopes** property of the custom role dictates who can view, modify, and delete the role.
+
+**Who can create a custom role?**
+Custom role creation succeeds only if the user creating the role is allowed to create a custom role for all of the specified **AssignableScopes**. Custom role creation succeeds only if the user creating the role can perform `Microsoft.Authorization/roleDefinition/write operation` on all the **AssignableScopes** of the role. So, Owners (and User Access Administrators) of subscriptions, resource groups, and resources can create custom roles for use in those scopes.
+
+**Who can modify a custom role?**
+Users who are allowed to update custom roles for all **AssignableScopes** of a role can modify that custom role. Users that can perform `Microsoft.Authorization/roleDefinition/write` operation on all the **AssignableScopes** of a custom role can modify that custom role. For instance, if a custom role is assignable in two Azure subscriptions (i.e. It has two subscriptions in its **AssignableScopes** property) - a user must be Owner (or User Access Administrators) of both subscriptions, to be able to modify the custom role.
+
+**Who can view custom roles that are available for assignment at a scope?**
+Users who can perform the `Microsoft.Authorization/roleDefinition/read` operation at a scope can view the RBAC roles that are available for assignment at that scope. All built-in roles in Azure RBAC allow viewing of roles that are available for assignment. 
