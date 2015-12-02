@@ -131,7 +131,7 @@ For ssl, replace `1300N` with `1500N`.
 
 ## Can I configure clustering for a previously created cache?
 
-During the preview period you can only enable and configure clustering when you create a cache.
+At this time you can only enable and configure clustering when you create a cache.
 
 ## Can I configure clustering for a basic or standard cache?
 
