@@ -18,6 +18,8 @@
 
 # Add Mobile Services to an existing Android app (JavaScript backend)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## Summary
 
 <div class="dev-onpage-video-clear clearfix">

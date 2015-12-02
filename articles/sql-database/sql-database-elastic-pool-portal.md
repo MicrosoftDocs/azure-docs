@@ -11,21 +11,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/06/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a scalable elastic database pool for SQL databases in Azure preview portal
+# Create a scalable elastic database pool for SQL databases in Azure portal
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal. A SQL Database configuration with elastic database pools simplifies administration and resource sharing across multiple databases.
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure portal. A SQL Database configuration with elastic database pools simplifies administration and resource sharing across multiple databases.
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
 
@@ -38,7 +38,7 @@ Before you start, you need a database on a SQL Database V12 server. If you don't
 Create an elastic database pool by adding a new pool to a server. You can add multiple pools to a server, but only one (1) server can be associated with each pool. Additionally, all or some of the databases on a server can be added to a pool.
 
 
-In the [Azure preview portal](https://ms.portal.azure.com/) click **SQL servers**, click server that hosts the databases you want to add to the pool, and then click **Add pool**.
+In the [Azure portal](https://portal.azure.com/) click **SQL servers**, click server that hosts the databases you want to add to the pool, and then click **Add pool**.
 
 ![Add pool to a server](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 

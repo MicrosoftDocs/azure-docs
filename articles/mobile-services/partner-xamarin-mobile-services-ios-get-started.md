@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
@@ -99,18 +104,18 @@ The final stage of this tutorial is to build and run your new app.
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* [Get started with offline data sync]  
+* [Get started with offline data sync]
   Learn how the quickstart uses offline data sync to make the app responsive and robust.
 
-* [Get started with authentication]  
+* [Get started with authentication]
   Learn how to authenticate users of your app with an identity provider.
 
-* [Get started with push notifications]  
+* [Get started with push notifications]
   Learn how to send a very basic push notification to your app.
 
-* [How to use the Xamarin Component client for Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md)  
-   Learn how to query the mobile service, work with data, and access custom APIs.   
-  
+* [How to use the Xamarin Component client for Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md)
+   Learn how to query the mobile service, work with data, and access custom APIs.
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 

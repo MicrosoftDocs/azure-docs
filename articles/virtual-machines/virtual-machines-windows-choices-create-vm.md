@@ -27,9 +27,9 @@ Azure Resource Manager templates were recently introduced as a way to create and
 
 ## Tool choices
 
-### GUI: Azure preview portal
+### GUI: Azure portal
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use the Azure preview portal to create the virtual machine:
+The graphical user interface of the Azure classic portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use the Azure portal to create the virtual machine:
 
 [Create a virtual machine running Windows][]
 

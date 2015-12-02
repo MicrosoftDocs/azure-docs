@@ -218,5 +218,5 @@ linkedServiceName | refers to the HDInsight linked service you had created earli
 [adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Azure Classic Portal]: http://portal.azure.com
  

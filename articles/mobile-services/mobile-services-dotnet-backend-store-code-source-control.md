@@ -10,13 +10,18 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="09/15/2015"
-	ms.author="glenga"/> 
+	ms.author="glenga"/>
 
 # Store your mobile service project code in source control
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -60,7 +65,7 @@ Now that you have created your local repository, you can publish your .NET backe
 
 ##<a name="deploy-scripts"></a>Publish your project by using Git
 
-1. Create a new .NET backend mobile service project in Visual Studio 2013, or move an existing project into your new local repository.  
+1. Create a new .NET backend mobile service project in Visual Studio 2013, or move an existing project into your new local repository.
 
 	For a quick test, download and save the Mobile Services quickstart project to this folder.
 
