@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/02/2015"
 	ms.author="jeedes"/>
 
 
@@ -104,10 +104,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_04.png) <br>
 
-    > [AZURE.NOTE] This will be your Condeco site URL.
 
-
-    a. Click **Next**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Condeco application using the following pattern: **“https://companyname.condecosoftware.com”**.
+   
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Condeco** page, perform the following steps:
@@ -118,7 +118,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. Contact Condeco team and provide the downloaded metadata file to them so that they can Configure SSO on your account.
+5. To get SSO configured for your application, contact your Condesco support team via supportna@condecosoftware.com and attach the downloaded metadata file to your email.
 
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -166,6 +166,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. In the **Display Name** textbox, type **Britta Simon**.
 
     d. In the **Role** list, select **User**.
+
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
