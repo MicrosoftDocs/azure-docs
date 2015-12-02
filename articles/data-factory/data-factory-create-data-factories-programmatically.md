@@ -261,7 +261,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 	
 
-12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure portal. 
+12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Classic Portal. 
  
 		public static string GetAuthorizationHeader()
         {
