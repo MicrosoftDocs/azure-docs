@@ -33,7 +33,7 @@ Azure Security Center is enabled with your Microsoft Azure subscription and acce
 ## Billing
 
 ### How does billing work for Azure Security Center?
-See [Azure Security Center Pricing](https://azure.microsoft.com/pricing/) for information.
+See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for information.
 
 ## Data collection
 
