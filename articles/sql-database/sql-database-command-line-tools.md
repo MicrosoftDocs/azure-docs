@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -115,7 +115,7 @@ You can also delete a server with the [Remove-AzureRMSqlServer](https://msdn.mic
 If you will be creating these Azure SQL resources again or a similar ones, you can: 
 
 - Save this as a PowerShell script file (*.ps1)
-- Save this as an Azure automation runbook in the Automation section of the Azure Management Portal 
+- Save this as an Azure automation runbook in the Automation section of the Azure portal 
 
 ## Next Steps
 

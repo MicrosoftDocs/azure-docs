@@ -33,6 +33,14 @@ Backing up and restoring business critical data is complicated by the fact that 
 
 >[AZURE.NOTE] For Linux virtual machines, only file-consistent back up is possible, since Linux does not have an equivalent platform to VSS.
 
+Azure Backup takes VSS Full backup on Windows VMs. Read More about [VSS Full backup](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx). To enable VSS Copy Backups the below registry key needs to be set on the VM.
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+"USEVSSCOPYBACKUP"="TRUE"
+```
+
+
 This table explains the types of consistency and the conditions they occur under during Azure VM backup and restore procedures.
 
 | Consistency | VSS-based | Explanation and details |

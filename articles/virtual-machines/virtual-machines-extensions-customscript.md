@@ -73,9 +73,9 @@ This scenario shows how to use a non-default storage either within the same subs
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Add Custom Script extension from the Azure preview portal
+### Add Custom Script extension from the Azure portal
 
-Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure preview portal </a> and add the extension by specifying the script file to run.
+Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure portal </a> and add the extension by specifying the script file to run.
 
   ![][5]
 

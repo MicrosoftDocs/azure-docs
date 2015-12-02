@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect accounts and permissions | Microsoft Azure"
+   pageTitle="Azure AD Connect: Accounts and permissions | Microsoft Azure"
    description="This topic describes the accounts used and created and permissions required."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="11/02/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell;billmath"/>
 
 

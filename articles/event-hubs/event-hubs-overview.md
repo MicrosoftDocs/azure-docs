@@ -132,7 +132,7 @@ The throughput capacity of Event Hubs is controlled by throughput units. Through
 
 - Egress: Up to 2MB per second.
 
-Ingress is throttled to the amount of capacity provided by the number of throughput units purchased. Sending data above this amount results in a "quota exceeded" exception. This amount is either 1 MB per second or 1000 events per second, whichever comes first. Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit. If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created. To obtain more throughput units, you can adjust the setting on the **Namespaces** page on the **Scale** tab in the Azure portal. You can also change this setting using the Azure APIs.
+Ingress is throttled to the amount of capacity provided by the number of throughput units purchased. Sending data above this amount results in a "quota exceeded" exception. This amount is either 1 MB per second or 1000 events per second, whichever comes first. Egress does not produce throttling exceptions, but is limited to the amount of data transfer provided for by the purchased throughput units: 2 MB per second per throughput unit. If you receive publishing rate exceptions or are expecting to see higher egress be sure to check how many throughput units you have purchased for the namespace in which the Event Hub was created. To obtain more throughput units, you can adjust the setting on the **Namespaces** page on the **Scale** tab in the [Azure classic portal][]. You can also change this setting using the Azure APIs.
 
 While partitions are a data organization concept, throughput units are purely a capacity concept. Throughput units are billed per hour and are pre-purchased. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for a Service Bus namespace, and there is an Azure account limit of 20 throughput units. These throughput units are shared across all Event Hubs in a given namespace.
 
@@ -162,6 +162,7 @@ Now that you've learned about Event Hubs concepts, you can move on to the follow
 - A complete [sample application that uses Event Hubs].
 - A [queued messaging solution] using Service Bus queues.
 
+[Azure classic portal]: http://manage.windowsazure.com
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md

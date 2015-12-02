@@ -5,6 +5,7 @@
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json.Linq;
 
 6. Add the following permission requests between the **using** statements and the **namespace** declaration:
 
@@ -26,7 +27,7 @@
 	        Categories = new string[] { "@PACKAGE_NAME@" })]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
 	        // Set the Google app ID.
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
@@ -49,36 +50,46 @@
 
 	>[AZURE.NOTE]The **GcmServiceBase** class implements the **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** and **OnError()** methods. You must override these methods in the **PushHandlerService** class.
 
-5. Add the following code to the **ToDoBroadcastReceiver** class that overrides the **OnRegistered** event handler. 
+5. Add the following code to the **PushHandlerService** class that overrides the **OnRegistered** event handler. 
 
         protected override void OnRegistered(Context context, string registrationId)
         {
             System.Diagnostics.Debug.WriteLine("The device has been registered with GCM.", "Success!");
-            
+
             // Get the MobileServiceClient from the current activity instance.
-            MobileServiceClient client = ToDoActivity.CurrentActivity.CurrentClient;           
+            MobileServiceClient client = ToDoActivity.CurrentActivity.CurrentClient;
             var push = client.GetPush();
 
-            List<string> tags = null;
+            // Define a message body for GCM.
+            const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
 
-            //// (Optional) Uncomment to add tags to the registration.
-            //var tags = new List<string>() { "myTag" }; // create tags if you want
+            // Define the template registration as JSON.
+            JObject templates = new JObject();
+            templates["genericMessage"] = new JObject
+            {
+              {"body", templateBodyGCM }
+            };
 
             try
             {
                 // Make sure we run the registration on the same thread as the activity, 
                 // to avoid threading errors.
                 ToDoActivity.CurrentActivity.RunOnUiThread(
-                    async () => await push.RegisterNativeAsync(registrationId, tags));
+
+                    // Register the template with Notification Hubs.
+                    async () => await push.RegisterAsync(registrationId, templates));
+                
+                System.Diagnostics.Debug.WriteLine(
+                    string.Format("Push Installation Id", push.InstallationId.ToString()));
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(
-                    string.Format("Error with Azure push registration: {0}", ex.Message));                
+                    string.Format("Error with Azure push registration: {0}", ex.Message));
             }
         }
 
-	This method uses the returned GCM registration ID to register with Azure for push notifications.
+	This method uses the returned GCM registration ID to register with Azure for push notifications. Tags can only be added to the registration after it is created. For more information, see [How to: Add tags to a device installation to enable push-to-tags](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 10. Override the **OnMessage** method in **PushHandlerService** with the following code:
 
@@ -116,7 +127,7 @@
             }
         }
 
-12. Add the following method overrides for **OnUnRegistered()** and **OnError()**, which are required for the project to compile.
+12. Override the **OnUnRegistered()** and **OnError()** methods with the following code.
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {

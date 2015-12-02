@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -34,9 +34,7 @@ To complete this tutorial, you need:
   + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
   
   + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
-- Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+- Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 This tutorial is designed for PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -84,7 +82,7 @@ To get full help for a cmdlet, type a command with the format:
 
 Before working on your solution, you must login to your account.
 
-To login to your Azure account, use the **Login-AzureRmAccount** cmdlet. In versions of Azure PowerShell prior to 1.0 Preview, use the **Add-AzureAccount** command.
+To login to your Azure account, use the **Login-AzureRmAccount** cmdlet.
 
     PS C:\> Login-AzureRmAccount
 
@@ -406,9 +404,9 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
 		
 		...
 
-- To get the resources in the resource group, use the **Get-AzureRmResource** cmdlet and its ResourceGroupName parameter. Without parameters, Get-AzureRmResource gets all resources in your Azure subscription.
+- To get the resources in the resource group, use the **Find-AzureRmResource** cmdlet and its **ResourceGroupNameContains** parameter. Without parameters, Find-AzureRmResource gets all resources in your Azure subscription.
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
