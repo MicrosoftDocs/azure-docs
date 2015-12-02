@@ -89,7 +89,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ## Can I scale to, from, or within a Premium cache
 
-During the preview period, scaling is not available for **Premium** caches.
+During the preview period, scaling is not available for **Premium** caches, but you can change the pricing tier within a premium cache.
 
 ## After scaling, do I have to change my cache name or access keys
 
