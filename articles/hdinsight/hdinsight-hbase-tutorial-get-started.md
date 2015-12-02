@@ -19,7 +19,7 @@
 
 
 
-# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight
+# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Windows)
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 

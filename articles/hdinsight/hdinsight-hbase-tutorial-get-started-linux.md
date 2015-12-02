@@ -19,13 +19,16 @@
 
 
 
-# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight
+# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Linux)
 
-Learn how to provision an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
+[AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, see [Get started using Apache HBase with Hadoop in HDInsight (Windows).
 
-##Prerequisites
+Learn how to create an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
+
+> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, see [Get started using Apache HBase with Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+
+###Prerequisites
 
 Before you begin this HBase tutorial, you must have the following:
 
@@ -33,11 +36,11 @@ Before you begin this HBase tutorial, you must have the following:
 - PuTTY and PuTTYGen for Windows-based clients. These utilities are available from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 
-## Provision an HBase cluster
+## Create an HBase cluster
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**To provision an HBase cluster by using the Azure preview portal**
+**To create an HBase cluster by using the Azure preview portal**
 
 
 1. Sign in to the [Azure Preview portal][azure-portal].
@@ -86,7 +89,7 @@ It will make more sense after you finish the next procedure.
 
 >[AZURE.NOTE] The steps provided here are from a Windows computer.  For the instructions for connecting to a Linux-based HDInsight cluster from Linux, Unix or OS X, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X (preview)](hdinsight-hadoop-linux-use-ssh-unix.md)
 1. Open **PuTTY**.  See the Prerequisites listed at the beginning of the article.
-2. If you provided an SSH key when you created your user account during the provision process, you must perform the following step to select the private key to use when authenticating to the cluster:
+2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -231,7 +234,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 **To establish an SSH tunneling session**
 
 1. Open **PuTTY**.  
-2. If you provided an SSH key when you created your user account during the provision process, you must perform the following step to select the private key to use when authenticating to the cluster:
+2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -278,7 +281,7 @@ In a high availability cluster, you will find a link to the current active HBase
 
 
 ## What's next?
-In this HBase tutorial for HDInsight, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
+In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:
 
