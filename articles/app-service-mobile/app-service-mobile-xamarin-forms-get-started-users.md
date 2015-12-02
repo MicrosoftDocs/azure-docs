@@ -16,7 +16,7 @@
 	ms.date="11/30/2015" 
 	ms.author="wesmc"/>
 
-# Add push notifications to your Xamarin.Forms app
+# Add authentication to your Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 &nbsp;  
@@ -42,14 +42,18 @@ You must first complete the [Xamarin.Forms quickstart tutorial](app-service-mobi
 
 Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache data. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support can implement this interface in the platform specific project. You will add code to authenticate before making any calls against the restricted table from the portable class library.
 
-1. In Visual Studio or Xamarin Studio, open App.cs from the **portable** project. Add the following `IAuthenticate` interface definition immediately before the `App` class definition.
+1. In Visual Studio or Xamarin Studio, open App.cs from the **portable** project. Add the following `using` statement to the file.
+
+		using System.Threading.Tasks;
+
+2. In App.cs, add the following `IAuthenticate` interface definition immediately before the `App` class definition.
 
 	    public interface IAuthenticate
 	    {
 	        Task<bool> Authenticate();
 	    };
 
-2. In App.cs, add the following static members to initialize the interface with a platform specific implementation.
+3. In App.cs, add the following static members to initialize the interface with a platform specific implementation.
 
 		public class App : Application
 		{
@@ -63,7 +67,7 @@ Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in o
 	
 			...
 
-3. Open TodoList.xaml.cs from the **portable** project and update the `OnAppearing` method to authenticate before trying to refresh the items from the table.
+4. Open TodoList.xaml.cs from the **portable** project and update the `OnAppearing` method to authenticate before trying to refresh the items from the table.
 
 
         protected override async void OnAppearing()
@@ -78,7 +82,7 @@ Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in o
         }
 
 
-4. Save your changes and build the portal project verifying no errors.
+5. Save your changes and build the portal project verifying no errors.
 
 
 ##Add authentication to the Android app

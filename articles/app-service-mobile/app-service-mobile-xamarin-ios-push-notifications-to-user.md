@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
@@ -22,7 +22,7 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration. Send then hits every platform with these placeholders, enabling cross-platform notifications.
+This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduces [templates], which give client applications the freedom of specifying payload formats and variable placeholders at registration. When a template notification is sent the notification hub directs it every platform with these placeholders, enabling cross-platform notifications.
 
 > [AZURE.NOTE] To get push working with cross-platform clients, you will need to complete this tutorial for each platform you would like to enable. You will only need to do the [mobile backend update](#backend) once for clients that share the same mobile backend.
  
@@ -112,4 +112,4 @@ Re-publish your mobile backend project and run any of the client apps you have s
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-xamarin-ios-get-started-users.md
 [Get started with push notifications]: app-service-mobile-xamarin-ios-get-started-push.md
-[templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx 
+[templates]: ../notification-hubs/notification-hubs-templates.md 
