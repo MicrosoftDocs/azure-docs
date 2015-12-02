@@ -67,7 +67,7 @@ To associate your custom domain with a web app in App Service, you must add a ne
 5. Click **Add Another**.
 6. Select **CNAME** as the record type, then specify a **Host** value of **awverify** and a **Points to** value of **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE] This CNAME record is used by Azure to validate that you own the domain described by the A record or the first CNAME record. Once the domain has been mapped to the web app in the Azurepreview  portal, the **awverify** entry can be removed.
+	> [AZURE.NOTE] This CNAME record is used by Azure to validate that you own the domain described by the A record or the first CNAME record. Once the domain has been mapped to the web app in the Azure Portal, the **awverify** entry can be removed.
 
 5. When you have finished adding or modifying records, click **Finish** to save changes.
 
@@ -80,4 +80,3 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

@@ -30,7 +30,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) applicat
 
 You'll learn:
 
-* How to create a web app in Azure App Service by using the Azure preview portal.
+* How to create a web app in Azure App Service by using the Azure Portal.
 * How to deploy a Node.js application to the web app by pushing to the web app's Git repository.
 
 The completed application writes a short "hello world" string to the browser.
@@ -50,9 +50,9 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 [Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps.  
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. Click the **+ NEW** icon on the top left of the portal.
+2. Click the **+ NEW** icon on the top left of the Azure Portal.
 
 3. Click **Web + Mobile**, and then click **Web app**.
 
@@ -66,7 +66,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 6. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
 
 7. Select an **App Service plan/Location** or create a new one.
 
@@ -211,7 +211,7 @@ Node.js provides a rich ecosystem of modules that can be used by your applicatio
 
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-This article uses the Azure portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
+This article uses the Azure Portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
 
 For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 

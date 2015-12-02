@@ -628,7 +628,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/library/syst
 
 4. Right-click the web app and select **Stop**. 
 
-	Alternatively, from the [Azure preview portal](https://portal.azure.com/), you can go to the web app's blade, then click the **Stop** icon at the top of the blade.
+	Alternatively, from the [Azure Portal](https://portal.azure.com/), you can go to the web app's blade, then click the **Stop** icon at the top of the blade.
 
 	![stop web app portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 
@@ -715,7 +715,7 @@ If you run into problems, here are some suggestions for what to try.
 * Errors provisioning SQL Database - Make sure you have the current SDK installed. Versions before 2.7.1 have a bug that in some scenarios causes errors when VS tries to create the database server or the database.
 * Error message "operation is not supported for your subscription offer type" when creating Azure resources - Same as above.
 * Errors when deploying - Consider going through the [basic ASP.NET deployment](web-sites-dotnet-get-started.md) article. That deployment scenario is simpler and if you have the same problem there it may be easier to isolate. For example, in some enterprise environments a corporate firewall may prevent Web Deploy from making the kinds of connections to Azure that it requires.
-* No option to select connection string in the Publish Web wizard when you deploy - If you used a different method to create your Azure resources (for example, you are trying to deploy to  a web app and a SQL database created in the portal), the SQL database may not be associated with the web app. The easiest solution is to create a new web app and database by using VS as shown in the tutorial. You don't have to start the tutorial over -- in the Publish Web wizard you can opt to create a new web app and you get the same Azure resource creation dialog that you get when you create the project.
+* No option to select connection string in the Publish Web wizard when you deploy - If you used a different method to create your Azure resources (for example, you are trying to deploy to  a web app and a SQL database created in the Portal), the SQL database may not be associated with the web app. The easiest solution is to create a new web app and database by using VS as shown in the tutorial. You don't have to start the tutorial over -- in the Publish Web wizard you can opt to create a new web app and you get the same Azure resource creation dialog that you get when you create the project.
 * Directions for Google or Facebook developer portal are out of date - See the featured Disqus comment at the end of this tutorial.
 
 ## Next steps
@@ -737,7 +737,6 @@ This tutorial was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 
 ## What's changed
 
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
