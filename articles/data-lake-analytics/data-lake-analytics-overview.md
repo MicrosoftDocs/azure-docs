@@ -52,7 +52,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 ## See also
 
 - Get started
-    - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+    - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
     - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
     - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -64,9 +64,9 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
     - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - Management
-    - [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-manage-use-portal.md)
+    - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - End-to-end tutorial
     - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)

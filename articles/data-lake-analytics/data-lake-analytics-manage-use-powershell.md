@@ -381,9 +381,9 @@ The ARM group however can be located in a different data center.
 ##See also 
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Apendix A - Data Lake Analytics ARM template
 

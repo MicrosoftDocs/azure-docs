@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Learn Data Lake Analytics and U-SQL using the Azure Preview portal Interactive tutorials | Azure" 
+   pageTitle="Learn Data Lake Analytics and U-SQL using the Azure Portal Interactive tutorials | Azure" 
    description="Quick start with learning Data Lake Analytics and U-SQL. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -19,7 +19,7 @@
 
 # Use Azure Data Lake Analytics interactive tutorials
 
-The Azure preview portal provides an interactive tutorial for you to get started with Data Lake Analytics. This articles shows you how to go through the tutorial for analyzing website logs.
+The Azure Portal provides an interactive tutorial for you to get started with Data Lake Analytics. This articles shows you how to go through the tutorial for analyzing website logs.
 
 
 >[AZURE.NOTE] If you want to go through the same tutorial using Visual Studio, see [Analyze website logs using Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
@@ -28,7 +28,7 @@ The Azure preview portal provides an interactive tutorial for you to get started
 
 For other tutorials, see:
 
-- [Get started with Data Lake Analytics using Azure Preview portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
@@ -37,7 +37,7 @@ For other tutorials, see:
 
 Before you begin this tutorial, you must have the following:
 
-- **A Data Lake Analytics account**.  See [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md).
+- **A Data Lake Analytics account**.  See [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
 
 ##Create Data Lake Analytics account 
 
@@ -50,7 +50,7 @@ account
 
 **To create a Data  Lake Analytics account**
 
-1. Sign on to the [Azure Preview portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Sign on to the [Azure Portal](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Click **Microsoft Azure** in the upper left corner to open the StartBoard.
 3. Click the **Marketplace** tile.  
 3. Type **Azure Data Lake Analytics** in the search box on the **Everything** blade, and the press **ENTER**. You shall see **Azure Data Lake Analytics** in the list.
@@ -74,7 +74,7 @@ account
 
 **To open the Website Log Analytics interactive tutorial**
 
-1. From the preview portal, click **Microsoft Azure** from the left menu to open the StartBoard.
+1. From the Portal, click **Microsoft Azure** from the left menu to open the StartBoard.
 2. Click the tile that is linked to your Data Lake Analytics account.
 3. Click **Explore interactive tutorials** from the **Essentials** bar.
 
@@ -87,7 +87,7 @@ account
 ##See also
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
