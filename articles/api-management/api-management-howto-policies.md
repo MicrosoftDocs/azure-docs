@@ -77,7 +77,7 @@ When complete configuring the statements for the policy, click **Save** and the 
 
 ##<a name="sections"> </a>Understanding policy configuration
 
-A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, outbound, and on-error sections as shown in the following configuration.
+A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
 	<policies>
 	  <inbound>
