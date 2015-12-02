@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 
@@ -32,33 +32,11 @@ The process of mapping your custom domain to your blob endpoint can, however, re
 
 The following table shows sample URLs for accessing blob data in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td style="width: 100px;"><strong>Resource Type</strong></td>
-			<td><strong>URL Formats</strong></td>
-		</tr>
-		<tr>
-			<td>Storage account</td>
-			<td><strong>Default URL:</strong> http://mystorageaccount.blob.core.windows.net<br />
-			<strong>Custom domain URL:</strong> http://www.contoso.com</td>
-		</tr>
-		<tr>
-			<td>Blob</td>
-			<td><strong>Default URL:</strong> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<br /><strong>Custom domain URL:</strong>
-			http://www.contoso.com/mycontainer/myblob</td>
-		</tr>
-		<tr>
-			<td>Root container</td>
-			<td><strong>Default URL:</strong> http://mystorageaccount.blob.core.windows.net/myblob 
-			<br/>or<br />
-			http://mystorageaccount.blob.core.windows.net/$root/myblob<br />
-			<strong>Custom domain URL:</strong> http://www.contoso.com/myblob
-			<br/>or<br />
-			http://www.contoso.com/$root/myblob</td>
-		</tr>
-	</tbody>
-</table>
+Resource Type|URL Formats
+---|---
+Storage account|**Default URL:** http://mystorageaccount.blob.core.windows.net<p>**Custom domain URL:** http://www.contoso.com</td>
+Blob|**Default URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**Custom domain URL:** http://www.contoso.com/mycontainer/myblob
+Root container|**Default URL:** http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**Custom domain URL:** http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob
 
 ## Register a custom domain for your storage account
 

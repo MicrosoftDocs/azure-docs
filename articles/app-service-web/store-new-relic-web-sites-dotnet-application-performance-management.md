@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -57,7 +57,7 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 1. Create a New Relic account
 
-1. Log in to the [Azure preview portal](https://portal.azure.com) and click **New** in the lower-left corner.
+1. Log in to the [Azure Portal](https://portal.azure.com) and click **New** in the corner.
 3. Click **Developer services** > **New Relic APM**.
 4. Configure your New Relic account by specifying the following, then click **Create**.
 	- **Name**
@@ -73,8 +73,12 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 2: Configure New Relic integration for your web app
 
-2. Open your web app's blade in the [Azure preview portal](https://portal.azure.com).
-3. Click **Application monitoring** > **New Relic**. Select the account that you created in the previous step, then click **OK**. 
+1. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
+2. Click the "..." menu at the top of the blade and select **Add tiles**.
+3. On the **Monitoring** tab select **Application summary** and drag it to where you want the tile to appear on your web app's blade.
+4. Click Done to finish adding tiles.
+5. Click the **Application monitoring** tile and select **New Relic**.
+6. Select the account that you created in the previous step, then click **OK**. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
@@ -84,13 +88,13 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 3: Publish the ASP.NET web app
 
-Using Visual Studio or WebMatrix, publish your web app. If you have previously published your web app, publish it again so that the Web Apps instance would add the required New Relic NuGet package to enable New Relic monitoring.
+Using Visual Studio, publish your web app. If you have previously published your web app, publish it again so that the Web Apps instance would add the required New Relic NuGet package to enable New Relic monitoring.
 
 ## Step 4. Check out your application's performance in New Relic.
 
 To view your New Relic dashboard:
 
-2. Open your web app's blade in the [Azure preview portal](https://portal.azure.com).
+2. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
 3. Click **Application monitoring** > **application name** > **View at New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -173,10 +177,8 @@ browsers to load your webpages, where they come from, and what browsers they use
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png

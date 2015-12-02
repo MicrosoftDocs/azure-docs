@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="StorSimple monitoring indicators"
-    description="Describes the LEDs and alarms used to monitor the status of the StorSimple device."
+    pageTitle="StorSimple monitoring indicators | Microsoft Azure" 
+    description="Describes the light-emitting diodes (LEDs) and audible alarms used to monitor the status of the StorSimple device."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/11/2015"
+    ms.date="08/31/2015"
     ms.author="v-sharos" />
 
-# StorSimple monitoring indicators   
+# Use StorSimple monitoring indicators to manage your device   
 
 ## Overview
 
@@ -33,7 +33,7 @@ The remainder of this article describes the various monitoring indicator LEDs, t
 
 The front panel, also known as the *operations panel* or *ops panel*, displays the aggregate status of all the modules in the system. The front panel is identical on the StorSimple device and the EBOD enclosure, and is illustrated below.  
 
-   ![][1]
+   ![Device front panel][1]
  
 The front panel contains the following indicators:  
 
@@ -43,7 +43,7 @@ The front panel contains the following indicators:
 4. Logical fault indicator LED (ON red-amber/OFF
 5. Unit ID display  
 
-The major difference between the front panel LEDs for the device and those for the EBOD enclosure is the **System Unit Identification Number** shown on the LED display. The default unit ID displayed on the device is **00**, whereas the default unit ID displayed on the EBOD enclosure is **01**. This allows you to quickly differentiate between the device and the EBOD enclosure when the device is turned on. If your device is turned off, use the information provided in  [Turning on a new device](https://msdn.microsoft.com/library/azure/dn772378.aspx) to differentiate the device from the EBOD enclosure.  
+The major difference between the front panel LEDs for the device and those for the EBOD enclosure is the **System Unit Identification Number** shown on the LED display. The default unit ID displayed on the device is **00**, whereas the default unit ID displayed on the EBOD enclosure is **01**. This allows you to quickly differentiate between the device and the EBOD enclosure when the device is turned on. If your device is turned off, use the information provided in  [Turn on a new device](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) to differentiate the device from the EBOD enclosure.  
 
 ## Front panel LED status  
 
@@ -67,11 +67,12 @@ Power cooling module (PCM) indicator LEDs can be found on the back of the primar
 - PCM LEDs for the EBOD enclosure
 
 ## PCM LEDs for the primary enclosure  
+
 The StorSimple device has a 764W PCM module with an additional battery. The following illustration shows the LED panel for the device.  
 
-   ![][2]
- 
-**LED legend**   
+   ![PCM LEDs on the primary enclosure][2]
+
+LED legend:
 
 1. AC power failure
 2. Fan failure
@@ -109,7 +110,7 @@ The status of the PCM is indicated on the LED panel. The device PCM LED panel ha
 
 The EBOD enclosure has a 580W PCM and no additional battery. The PCM panel for the EBOD enclosure has indicator LEDs only for the power supplies and the fan. The following illustration shows these LEDs.
 
-   ![][3] 
+   ![PCM LEDs on the EBOD enclosure][3] 
  
 You can use the following table to determine the status of the PCM.  
 
@@ -131,7 +132,7 @@ The StorSimple device contains LEDs for the primary controller and the EBOD cont
 ### Monitoring LEDs for the primary controller
 The following illustration helps you identify the LEDs on the primary controller. (All of the components are listed to aid in orientation.)  
 
-   ![][4]
+   ![Monitoring LEDs - primary controller][4]
  
 Use the following table to determine whether the controller module is operating correctly.  
 
@@ -139,7 +140,7 @@ Use the following table to determine whether the controller module is operating 
 
 | LED | Description                                                                            
 |---- | ----------- |
-| ID LED (blue) | Indicates that the module is being identified. If the blue LED is blinking on a running controller, then the controller is the active controller and the other one is the standby controller. For more information, see [Identify an active controller on your device](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
+| ID LED (blue) | Indicates that the module is being identified. If the blue LED is blinking on a running controller, then the controller is the active controller and the other one is the standby controller. For more information, see [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | Fault LED (amber) | Indicates a fault in the controller.        
 | OK LED (green) | Steady green indicates that the controller is OK. Flashing green indicates a controller VPD configuration error. |
 | SAS activity LEDs (green) | Steady green indicates a connection with no current activity. Flashing green indicates the connection has ongoing activity. |
@@ -150,15 +151,15 @@ Use the following table to determine whether the controller module is operating 
 If the fault LED is lit, there is a problem with the controller module that might be resolved by restarting the controller. Please contact Microsoft Support if restarting the controller does not resolve this issue.  
 
 
-###Monitoring LEDs for the EBOD (EBOD enclosure)  
+### Monitoring LEDs for the EBOD (EBOD enclosure)  
 
 Each of the 6 Gb/s SAS EBOD controllers has LEDs that indicate its status as shown in the following illustration.  
 
-  ![][5]
- 
+  ![Monitoring LEDs - EBOD enclosure][5]
+
 Use the following table to determine whether the EBOD controller module is operating normally.  
 
-###EBOD controller module indicator LEDs  
+### EBOD controller module indicator LEDs  
 
 |Status | I/O module OK (green) | I/O module fault (amber) | Host port activity (green) |
 |-------|----------------------|-------------------------------|----------------------------|
@@ -175,7 +176,7 @@ The StorSimple device has disk drives located in both the primary enclosure and 
 
 For the disk drives, the drive status is indicated by a green LED and a red-amber LED mounted on the front of each drive carrier module. The following illustration shows these LEDs.
 
-  ![][6]
+  ![Disk drive LEDs][6]
  
 Use the following table to determine the state of each disk drive, which in turn affects the overall front panel LED status.  
 
@@ -247,6 +248,10 @@ The following table describes the various alarm conditions.
 | Drive power control fault | Fault – critical; loss of drive power | S1 | Module fault |
 | Drive removed | Warning | None | Module fault |
 | Insufficient power available | Warning | none | Module fault |
+
+## Next steps
+
+Learn more about [StorSimple hardware components and status](storsimple-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

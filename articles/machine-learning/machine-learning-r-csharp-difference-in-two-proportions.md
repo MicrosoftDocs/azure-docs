@@ -3,7 +3,7 @@
 	description="Difference in Proportions Test" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="aniedea" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="jaymathe"/> 
+	ms.date="12/01/2015" 
+	ms.author="aniedea"/> 
 
 
 #Difference in Proportions Test

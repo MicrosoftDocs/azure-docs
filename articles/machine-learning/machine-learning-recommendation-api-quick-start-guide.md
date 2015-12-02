@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Quick Start Guide" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="11/12/2015" 
 	ms.author="luisca"/>
 
 # Quick start guide for the Machine Learning Recommendations API
@@ -27,7 +27,7 @@ This document describes how to onboard your service or application to use Micros
 To use Azure Machine Learning Recommendations, you need to take the following steps:
 
 * Create a model - A model is a container of your usage data, catalog data and the recommendation model.
-* Import catalog data - This is an optional step. A catalog contains metadata information on the items. If you do not upload catalog data, the recommendation's services will learn about your catalog implicitly from the usage data.
+* Import catalog data - A catalog contains metadata information on the items. 
 * Import usage data - Usage data can be uploaded in one of 2 ways (or both):
 	* By uploading a file that contains the usage data.
 	* By sending data acquisition events.

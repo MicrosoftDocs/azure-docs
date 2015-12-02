@@ -1,33 +1,35 @@
 <properties
-	pageTitle="Deploy a complex application predictably in Azure"
-	description="Learn how to deploy a complex application in Azure as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting."
-	services="app-service\web"
+	pageTitle="Provision and deploy microservices predictably in Azure"
+	description="Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting."
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
-# Deploy a complex application predictably in Azure #
+# Provision and deploy microservices predictably in Azure #
 
-This tutorial shows how to deploy a complex application in Azure as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
+This tutorial shows how to provision and deploy an application composed of [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](/services/app-service/) as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
 
-In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale complex application. [Azure App Service](/services/app-service/) enables you to create complex applications that includes web app, mobile, API, and logic apps. [Azure Resource Manager](../resource-group-overview.md) enables you to manage all the components of such an application as a unit. Now, you can also deploy such complex application using JSON templates and simple PowerShell scripting. 
+When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success. [Azure App Service](/services/app-service/) enables you to create microservices that include web apps, mobile apps, API apps, and logic apps. [Azure Resource Manager](../resource-group-overview.md) enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings. Now, you can also deploy such an application using JSON templates and simple PowerShell scripting. 
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## What you will do ##
 
 In the tutorial, you will deploy an application that includes:
 
--	Two web apps
+-	Two web apps (i.e. two microservices)
 -	A backend SQL Database
 -	App settings, connection strings, and source control
 -	Application insights, alerts, autoscaling settings
@@ -56,7 +58,7 @@ For more information, see [Using Azure PowerShell with Azure Resource Manager](.
 
 ### Azure Resource Explorer ###
 
-This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure preview portal](https://portal.azure.com), then inspect its JSON definitions in the explorer tool to help you templatize the resource group.
+This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure Portal](https://portal.azure.com), then inspect its JSON definitions in the explorer tool to help you templatize the resource group.
 
 ### Deploy to Azure button ###
 
@@ -80,7 +82,7 @@ So now let’s get right to it.
 
 	The UI would be a little slow when you first browse to it because the apps are just starting up, but convince yourself that it’s a fully-functional application.
 
-5.	Back in the Deploy page, click the **Manage** link to see the new application in the Azure preview portal.
+5.	Back in the Deploy page, click the **Manage** link to see the new application in the Azure Portal.
 
 6.	In the **Essentials** dropdown, click the resource group link. Note also that the web app is already connected to the GitHub repository under **External Project**. 
 
@@ -90,7 +92,7 @@ So now let’s get right to it.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Everything that you just saw in a few short minutes is a fully deployed complex application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
+Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
 
 -	The Deploy to Azure button
 -	azuredeploy.json in the repo root
@@ -187,11 +189,11 @@ The source control settings are also defined as a nested resource. Azure Resourc
 
 Note in the `dependsOn` element that, in addition to the web app resource itself, `sourcecontrols/web` also depends on `config/appsettings` and `config/connectionstrings`. This is because once `sourcecontrols/web` is configured, the Azure deployment process will automatically attempt to deploy, build, and start the application code. Therefore, inserting this dependency helps you make sure that the application has access to the required app settings and connection strings before the application code is run. [TODO: need to verify if this is true.]
 
->[AZURE.NOTE] Note also that `IsManualIntegration` is set to `true`. This property is necessary in this tutorial because you do not actually own the GitHub repository, and thus cannot actually grant permission to Azure to configure continuous publishing from [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (i.e. push automatic repository updates to Azure). You can use the default value `false` for the specified repository only if you have configured the owner’s GitHub credentials in the [Azure preview portal](https://portal.azure.com) before. In other words, if you have set up source control to GitHub or BitBucket for any app in the [Azure preview portal](https://portal.azure.com) previously, using your user credentials, then Azure will remember the credentials and use them whenever you deploy any app from GitHub or BitBucket in the future. However, if you haven’t done this already, deployment of the JSON template will fail when Azure Resource Manager tries to configure the web app’s source control settings because it cannot log into GitHub or BitBucket with the repository owner’s credentials.
+>[AZURE.NOTE] Note also that `IsManualIntegration` is set to `true`. This property is necessary in this tutorial because you do not actually own the GitHub repository, and thus cannot actually grant permission to Azure to configure continuous publishing from [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (i.e. push automatic repository updates to Azure). You can use the default value `false` for the specified repository only if you have configured the owner’s GitHub credentials in the [Azure preview portal](https://portal.azure.com) before. In other words, if you have set up source control to GitHub or BitBucket for any app in the [Azure Portal](https://portal.azure.com) previously, using your user credentials, then Azure will remember the credentials and use them whenever you deploy any app from GitHub or BitBucket in the future. However, if you haven’t done this already, deployment of the JSON template will fail when Azure Resource Manager tries to configure the web app’s source control settings because it cannot log into GitHub or BitBucket with the repository owner’s credentials.
 
 ## Compare the JSON template with deployed resource group ##
 
-Here, you can go through all the web app’s blades in the [preview portal](https://portal.azure.com), but there’s another tool that’s just as useful, if not more. Go to the [Azure Resource Explorer](https://resources.azure.com) preview tool, which gives you a JSON representation of all the resource groups in your subscriptions, as they actually exist in the Azure backend. You can also see how the resource group’s JSON hierarchy in Azure corresponds with the hierarchy in the template file that’s used to create it.
+Here, you can go through all the web app’s blades in the [Azure Portal](https://portal.azure.com), but there’s another tool that’s just as useful, if not more. Go to the [Azure Resource Explorer](https://resources.azure.com) preview tool, which gives you a JSON representation of all the resource groups in your subscriptions, as they actually exist in the Azure backend. You can also see how the resource group’s JSON hierarchy in Azure corresponds with the hierarchy in the template file that’s used to create it.
 
 For example, when I go to the [Azure Resource Explorer](https://resources.azure.com) tool and expand the nodes in the explorer, I can see the resource group and the root-level resources that are collected under their respective resource types.
 
@@ -267,7 +269,7 @@ The **Deploy to Azure** button is great, but it allows you to deploy the resourc
 	
 16.	Click **Deploy**. If you selected **Save passwords**, the password will be saved in the parameter file **in plain text**. Otherwise, you’ll be asked to input the database password during the deployment process.
 
-That’s it! Now you just need to go to the [preview portal](https://portal.azure.com) and the [Azure Resource Explorer](https://resources.azure.com) tool to see the new alerts and autoscale settings added to your JSON deployed application.
+That’s it! Now you just need to go to the [Azure Portal](https://portal.azure.com) and the [Azure Resource Explorer](https://resources.azure.com) tool to see the new alerts and autoscale settings added to your JSON deployed application.
 
 Your steps in this section mainly accomplished the following:
 
@@ -283,15 +285,18 @@ The last cmdlet, `New-AzureResourceGroup`, is the one that actually performs the
 
 ## Summary ##
 
-In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale complex application. In this tutorial, you have deployed an application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your complex application in Azure into a template and can deploy it predictably in Azure. 
+In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices. In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably. 
+
+## Next Steps ##
+
+Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md) and advanced deployment techniques like [flighting deployment](app-service-web-test-in-production-controlled-test-flight.md) easily.
 
 <a name="resources"></a>
 ## More resources ##
 
--	[Azure Resource Manager Template Language](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Azure Resource Manager Template Language](../resource-group-authoring-templates.md)
 -	[Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
 -	[Azure Resource Manager Template Functions](../resource-group-template-functions.md)
--	[Advanced Template Operations](../resource-group-advanced-template.md)
 -	[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
 -	[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 -	[Troubleshooting Resource Group Deployments in Azure](../resource-group-deploy-debug.md)

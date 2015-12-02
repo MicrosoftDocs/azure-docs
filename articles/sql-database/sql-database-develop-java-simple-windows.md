@@ -14,11 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="09/28/2015" 
 	ms.author="lbosq"/>
 
 
-# Connect to your SQL Database by using Java with JDBC on Windows
+# Connect to SQL Database by using Java with JDBC on Windows
+
+
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 This topic presents a Java code sample that you can use to connect to Azure SQL Database. The Java sample relies on the Java Development Kit (JDK) version 1.8. The sample connects to an Azure SQL Database by using the JDBC driver.
@@ -58,6 +61,10 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure preview portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
+> [AZURE.NOTE] JTDS JDBC driver
+> If you are using the JTDS JDBC driver, then you will need to add "ssl=require" to the URL of the connection string and you need to set the following option for the JVM "-Djsse.enableCBCProtection=false". This JVM option disables a fix for a security vulnerability, so make sure you understand what risk is involved before setting this option. 
+
+
 ## Java code sample
 
 
@@ -82,7 +89,7 @@ Here next is the bulk of the Java code sample. The sample includes the `main` fu
 				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
-				+ "password={your_password};"
+				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
@@ -220,4 +227,7 @@ Copy-and-paste this short Java segment into the primary code sample where you se
 			+ resultSet.getString(3));
 	}
 
- 
+## Next steps
+
+For more information, see the [Java Developer Center](/develop/java/).
+

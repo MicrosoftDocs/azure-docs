@@ -6,7 +6,7 @@
 
 3. Type _completeall_ in **API name**, and then click the check button to create the new API.
 
-	> [AZURE.NOTE] With default permissions, anyone with the app key may call the custom API. However, the application key is not considered a secure credential because it may not be distributed or stored securely. Consider restricting access to only authenticated users for additional security.
+	> [AZURE.TIP] With default permissions, anyone with the app key may call the custom API. However, the application key is not considered a secure credential because it may not be distributed or stored securely. Consider restricting access to only authenticated users for additional security.
 
 4. Click on **completeall** in the API table.
 
@@ -26,9 +26,7 @@
 		};
 
 
-
-> [AZURE.NOTE]
-> The <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> and <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> object supplied to custom API functions are implemented by the <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js library</a>. For more information, see <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">Custom API</a>.
+> [AZURE.NOTE] The [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx) and [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) object supplied to custom API functions are implemented by the [Express.js library](http://go.microsoft.com/fwlink/p/?LinkId=309046). 
 
 <!-- Anchors. -->
 

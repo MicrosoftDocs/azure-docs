@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Create a new Application Insights resource" 
-	description="Set up for a new application and get a new instrumentation key. Application Insights monitors the performance and usage of live applications." 
+	description="Set up Application Insights monitoring for a new live application. Web-based approach." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Create a new Application Insights resource
@@ -55,20 +55,20 @@ When your app has been created, a new blade opens. This is where you'll see perf
 To get back to it next time you login to Azure, look for your app's quick-start tile on the start board (home screen). Or click Browse to find it.
 
 
-## Copy  the Instrumentation Key.
+## Copy the instrumentation key
 
+The instrumentation key identifies the resource that you created. You'll need it to give to the SDK.
 
-You'll need this shortly, to direct the data from the SDK in your app to the resource you just created.
+![Click Essentials, click the Instrumentation Key, CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-create-new-resource/02-props.png)
+## Install the SDK in your app
 
-## Configure your SDK
+Install the Application Insights SDK in your app. This step depends heavily on the type of your application. 
 
 Use the instrumentation key to configure [the SDK that you install in your application][start].
 
-This step depends heavily on the type of application you are working with. 
+The SDK includes standard modules that send telemetry without you having to write any code. To track user actions or diagnose issues in more detail, [use the API][api] to send your own telemetry.
 
-In some cases, you install standard modules that send telemetry without you having to write any code. In all cases, you can [use the API][api] to send your own telemetry.
 
 ## <a name="monitor"></a>See telemetry data
 
@@ -83,11 +83,13 @@ Click Refresh after a few seconds if you're expecting more data.
 You can write a [PowerShell script](app-insights-powershell-script-create-resource.md) to create a resource automatically.
 
 
+
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  

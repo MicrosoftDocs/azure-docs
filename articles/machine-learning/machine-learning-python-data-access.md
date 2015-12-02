@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/14/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -80,7 +80,10 @@ If your role is not set as **Owner**, you can either request to be re-invited as
 
 To obtain the authorization token, you can do one of the following:
 
-1. Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click on **AUTHORIZATION TOKENS** to see the primary and secondary tokens. ![](http://i.imgur.com/h33GoZX.jpg) Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
+1. Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click on **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
+
+    ![](http://i.imgur.com/h33GoZX.jpg)
+
 2. Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
 
 Once developers have obtained the workspace id and authorization token, they will be able to access the workspace using the code  snippet regardless of their role.

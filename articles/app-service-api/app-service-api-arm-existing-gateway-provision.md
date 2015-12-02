@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Deploy an API app with an existing gateway" 
 	description="Use an Azure Resource Manager template to deploy an API app that uses an existing gateway and App Service plan." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tomfitz"/>
 
 # Provision an API app with an existing gateway
@@ -23,11 +23,17 @@ how to define parameters that are specified when the deployment is executed. You
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
 
-For the complete template, see [API App with existing gateway  template](https://github.com/tfitzmac/AppServiceTemplates/blob/master/existing-gateway-existing-plan-new-apiapp.json).
+For more information about deploying apps, see [Deploy a complex application predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+For the complete template, see [API App with existing gateway  template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-existing/azuredeploy.json).
 
 ## What you will deploy
 
 In this template, you will deploy an API app that is associated with an existing App Service hosting plan and an existing gateway.
+
+To run the deployment automatically, click the following button:
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-existing%2Fazuredeploy.json)
 
 ## Parameters
 
@@ -35,7 +41,7 @@ In this template, you will deploy an API app that is associated with an existing
 
 ### hostingPlanId
 
-The identifier of the existing hosting plan.
+The identifier of the existing App Service hosting plan.
 
     "hostingPlanId": {
       "type": "string"
@@ -60,7 +66,7 @@ This template defines a variable which is used when deploying the resources.
       "packageId": "Microsoft.ApiApp"
     }
     
-The value is used below as **variables('packageId')**.
+The value is used below as **variables('packageId')**. It contains the NuGet package Id for API apps.
 
 ## Resources to deploy
 
@@ -68,8 +74,8 @@ The value is used below as **variables('packageId')**.
 
 Creates a web app that hosts the API app. 
 
-Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting a gateway. The portal will hide the web app from the browse web app blade. The app includes an extension 
-to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app.
+Notice that **kind** is set to **apiApp** which notifies the Azure portal that this web app is hosting an API app. The portal will hide the web app from the browse web apps blade. The app includes an extension 
+to install the default empty API app package. A link is defined between the API app and the hosting web app. The app settings section includes necessary values for hosting the API app. The **serverFarmId** property is set to the value you provided in the **hostingPlanId** parameter.
 
     {
       "type": "Microsoft.Web/sites",
@@ -178,11 +184,11 @@ Notice that the names of the hosting web app and gateway are defined as properti
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 
  

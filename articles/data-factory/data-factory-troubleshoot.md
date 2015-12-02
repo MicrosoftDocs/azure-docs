@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -31,7 +31,7 @@ You are probably not using the right Azure account or subscription with the Azur
 
 1. Add-AzureAccount - Use the right user ID and password
 2. Get-AzureSubscription - View all the subscriptions for the account. 
-3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Portal.
 
 ## Problem: Fail to launch Data Gateway Express Setup from Azure Portal
 The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If you fails to start the Express Setup, you can
@@ -52,44 +52,42 @@ Verify that the SQL Server is reachable from the machine where the gateway is in
 
 ## Problem: Input slices are in PendingExecution or PendingValidation state for ever
 
-The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **waitOnExternal** property is not specified in the **availability** section of the first table/dataset in the pipeline. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **waitOnExternal** property under **availability** section. This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
 
-See the following example for the usage of the **waitOnExternal** property. You can specify **waitOnExternal{}** without setting values for properties in the section so that the default values are used. 
+See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
 
 See Tables topic in [JSON Scripting Reference][json-scripting-reference] for more details about this property.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- To resolve the error, add the **waitOnExternal** section to the JSON definition of the input table and recreate the table. 
+ To resolve the error, add the **external** property and the optional **externalData** section to the JSON definition of the input table and recreate the table. 
 
 ## Problem: Hybrid copy operation fails
 To learn more details:
@@ -187,9 +185,9 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
 	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
 
-### Use Azure Preview Portal to troubleshoot the error
+### Use Azure Portal to troubleshoot the error
 
-1.	Login to [Azure Preview Portal][azure-preview-portal]. 
+1.	Login to [Azure Portal][azure-portal]. 
 2.	Click **ADFTutorialDataFactory** from the **Startboard**. If you don’t see the data factory link on the **Startboard**, click **BROWSE** hub and click **Everything**. Click **Data factories…** in the **Browse** blade, and click **ADFTutorialDataFactory**.
 3.	Notice that you see **With errors** on the **Datasets** tile. Click **With errors**. You should see **Datasets with errors** blade.
 
@@ -272,7 +270,7 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
  
 
 ## <a name="pighivewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
-This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell. 
+This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Portal and Azure PowerShell. 
 
 
 ### Walkthrough: Use Azure Portal to troubleshoot an error with Pig/Hive processing
@@ -356,8 +354,6 @@ In this scenario, data set is in an error state due to a failure in Hive process
 
 
 [adfgetstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -366,7 +362,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 

@@ -27,6 +27,8 @@
 
 - [Retire or rename an article](./retire-or-rename-an-article.md)
 
+- [How to undo almost anything with Git (GitHub blog)](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
+
 
 ##Authoring articles: markdown
 
@@ -37,6 +39,8 @@
 - [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 
 - [Create tables in markdown](./create-tables-markdown.md)
+
+- [Create images in markdown](./create-images-markdown.md)
 
 - [Custom markdown extensions used in our technical articles](./custom-markdown-extensions.md)
 

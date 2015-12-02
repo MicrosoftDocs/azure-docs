@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Release notes for Application Insights" 
-	description="The latest updates." 
+	pageTitle="Release notes for Application Insights for Windows" 
+	description="The latest updates for Windows Store SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store
@@ -32,6 +32,50 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 * Compare the old and new versions of ApplicationInsights.config. Merge back any customizations you made to the old version.
 * Rebuild your solution.
 
+## Version 1.2
+
+### Windows App SDK
+
+- Fix a FileNotFound exception that was preventing persisted telemetries from being sent after the app is re-opened.
+
+### Core SDK
+
+- First version of Application Insights SDK shipped from [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Version 1.1
+
+### Core SDK
+
+- SDK now introduces new telemetry type ```DependencyTelemetry``` which contains information about dependency call from application
+- New method ```TelemetryClient.TrackDependency``` allows to send information about dependency calls from application
+
+## Version 1.0.0
+
+### Windows App SDK
+
+- New initialization for Windows Apps. New `WindowsAppInitializer` class with `InitializeAsync()` method allows for bootstrapping initialization of SDK collection. This change allow more precise control and significant app initialization performance improvements over previous ApplicationInsights.config technique.
+- DeveloperMode is no longer automatically set. To change DeveloperMode behavior you must specify in code.
+- NuGet package no longer injects ApplicationInsights.config. Recommend to use the new WindowsAppInitializer when manually adding NuGet package.
+- ApplicationInsights.config only reads `<InstrumentationKey>`, all other settings are ignored in preference for WindowsAppInitializer settings.
+- Store Market will be auto collected by SDK.
+- Lots of bug fixes, stability improvements, and performance enhancements.
+
+### Core SDK
+
+- ApplicationInsights.config file is no longer requiered. And not added by the NuGet package. Configuration can be fully specified in code.
+- NuGet package will no longer add a targets file to your solution. This removes the automatic setting of DeveloperMode during a debug build. DeveloperMode should be manually set in code.
+
+## Version 0.17
+
+### Windows App SDK
+
+- Windows App SDK now supports Universal Windows Apps created against Windows 10 technical preview and with VS 2015 RC.
+
+### Core SDK
+
+- TelemetryClient defaults to initialize with the InMemoryChannel.
+- New API added, `TelemetryClient.Flush()`. This Flush method will trigger an immediate blocking upload of all telemetry logged to that client. This enables manual triggering of upload before process shutdown.
+- NuGet package added a .Net 4.5 target. This target has no external dependencies (removed BCL and EventSource dependencies).
 
 ## Version 0.16 
 

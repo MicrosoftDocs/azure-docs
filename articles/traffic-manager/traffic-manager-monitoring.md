@@ -1,10 +1,10 @@
-<properties 
+﻿<properties 
    pageTitle="Traffic Manager Monitoring"
    description="This article will help undertstand and configure Traffic Manager monitoring"
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="12/01/2015"
+   ms.author="joaoma" />
 
 # About Traffic Manager Monitoring
 
-Azure Traffic Manager monitors your endpoints, including cloud services and websites, to ensure they are available. In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your Traffic Manager profile. After you configure monitoring, Traffic Manager will display the status for your endpoints and profile in the Management Portal. You can configure monitoring settings in the Management Portal on the Configure page for your Traffic Manager profile. You can specify the following settings:
+Azure Traffic Manager monitors your endpoints, including cloud services and websites, to ensure they are available. In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your Traffic Manager profile. After you configure monitoring, Traffic Manager will display the status for your endpoints and profile in the Azure portal. You can configure monitoring settings in the Azure portal on the Configure page for your Traffic Manager profile. You can specify the following settings:
 
 - **Protocol** – Choose HTTP or HTTPS. It’s important to note that HTTPS monitoring does not verify whether your SSL certificate is valid, it only checks that certificate is present.
 
@@ -27,7 +27,7 @@ Azure Traffic Manager monitors your endpoints, including cloud services and webs
 
 ## About monitoring health status
 
-Azure Traffic Manager displays profile and endpoint service health in the Management Portal. The status column for both the profile and the endpoint displays the most recent monitor status. You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings. When your profile is healthy, DNS queries will be distributed to your services based on the load balancing settings for the profile (Round Robin, Performance, or Failover). Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Management Portal. It can take up to five minutes for the state change to refresh.
+Azure Traffic Manager displays profile and endpoint service health in the Azure portal. The status column for both the profile and the endpoint displays the most recent monitor status. You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings. When your profile is healthy, DNS queries will be distributed to your services based on the traffic routing settings for the profile (Round Robin, Performance, or Failover). Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Azure portal. It can take up to five minutes for the state change to refresh.
 
 ### Endpoint Monitor status
 
@@ -89,7 +89,7 @@ An example timeline illustrating the monitoring process with a single cloud serv
 
 ## Child and parent endpoint status for nested profiles
 
-The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see [Traffic Manager Overview](traffic-manager-overview.md).
+The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting. For more information, see [What is Traffic Manager?](traffic-manager-overview.md).
 
 |Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
@@ -103,18 +103,14 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 
 1. Create a file with the same name on each endpoint you plan to include in your profile.
 2. For each endpoint, use a web browser to test access to the file. The URL consists of the domain name of the specific endpoint (the cloud service or website), the path to the file, and the file name. 
-3. In the Management Portal, under **Monitoring Settings**, in the **Relative Path and File Name** field, specify the path and file name.
+3. In the Azure portal, under **Monitoring Settings**, in the **Relative Path and File Name** field, specify the path and file name.
 4. When you are finished making your configuration changes, click **Save** at the bottom of the page.
 
 ## See Also
 
-[Traffic Manager Overview](traffic-manager-overview.md)
+[Create a profile](traffic-manager-manage-profiles.md)
 
-[About Traffic Manager Load Balancing Methods](traffic-manager-load-balancing-methods.md)
-
-[Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Add an endpoint](traffic-manager-endpoints.md)
 
 [Troubleshooting degraded status on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
  

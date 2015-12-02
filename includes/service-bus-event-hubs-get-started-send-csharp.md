@@ -1,4 +1,5 @@
 ## Send messages to Event Hubs
+
 In this section, you'll write a Windows console app that sends events to your Event Hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.

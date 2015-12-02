@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" 
+	pageTitle="Django and MySQL on Azure with Python Tools 2.2 for Visual Studio" 
 	description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a MySQL database instance and deploy it to Azure App Service Web Apps." 
 	services="app-service\web" 
 	documentationCenter="python" 
@@ -12,14 +12,19 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
-	ms.author="huguesv"/>
+	ms.topic="get-started-article" 
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
+# Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
 
-
-
-# Django and MySQL on Azure with Python Tools 2.1 for Visual Studio 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
@@ -29,10 +34,10 @@ See the [Python Developer Center] for more articles that cover development of Az
 
 ## Prerequisites
 
- - Visual Studio 2012 or 2013
- - [Python Tools 2.1 for Visual Studio]
- - [Python Tools 2.1 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2012]
+ - Visual Studio 2013 or 2015
+ - [Python Tools 2.2 for Visual Studio]
+ - [Python Tools 2.2 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2015]
  - [Python 2.7 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -93,14 +98,13 @@ As an alternative, you can create your own Virtual Machine running in Azure, the
 
 You can create a database with a free plan by following these steps.
 
-1.  Log into the [Azure Portal].
+1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-1.  At the bottom of the navigation pane, click **NEW**. Then, click **Data + Storage** > **Azure Marketplace**. 
+1.  At the Top of the navigation pane, click **NEW**. Then, click **Data + Storage** > **MySQL Database**. 
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
-1.  Type "**mysql**" in the search box, then click **MySQL Database**, and then click **Create**.
-
+1.  Type "**mysql**" in the search box, then click **MySQL Database**, and then click **Create**.  -->
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Configure the new MySQL database by creating a new resource group and select the appropriate location for it.
@@ -186,9 +190,10 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 - [Django Documentation]
 - [MySQL]
 
+For more information, see the [Python Developer Center](/develop/python/).
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -198,15 +203,15 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
-[Remote Debugging on Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Web Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Remote Debugging on Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django Documentation]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
  

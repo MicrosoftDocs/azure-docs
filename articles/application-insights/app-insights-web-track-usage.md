@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Usage analysis for web applications with Application Insights" 
-	description="Overview of usage analytics with Application Insights" 
+	description="Overview of usage analytics for web apps with Application Insights" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights
@@ -21,34 +21,14 @@ Knowing how people use your application lets you focus your development work on 
 
 Visual Studio Application Insights provides two levels of usage tracking:
 
-* **User and session data** - provided out of the box.  
+* **User, session and page view data** - provided out of the box.  
 * **Custom telemetry** - You [write code][api] to trace your users through your app's user experience. 
 
 ## Setting up
 
-Usage data from a web application comes from the client browser.
+Open an Application Insights resource in the [Azure Portal](https://portal.azure.com), click the empty Browser page loads chart, and follow the setup instructions.
 
-#### Set up an Application Insights resource 
-
-An Application Insights resource is a place in Microsoft Azure where telemetry data from your app is analyzed and displayed. You might already have set up one to display data from your app's server side in [ASP.NET][greenbrown] or [J2EE][java]. If not, you might want to do that now.
-
-It's usually best to display the usage data from the web client in the same resource as the data from the server. That way, you can easily correlate diagnostics and metrics from the two ends. So, if you already have a resource, skip to the next step.
-
-But if you want to use a separate resource for usage data, just sign in to the [Azure portal][portal] and create it:
-
-![](./media/app-insights-web-track-usage/01-create.png)
-
-#### Insert code in your web pages
-
-In your resource in the [Azure portal][portal] , open Quick Start get the code snippet to monitor web pages. 
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-Put the code in a master page such as (in .NET) _Layout.cshtml, or in an include file, to make sure it is included in all your pages.
-
-The code snippet includes the instrumentation key (iKey) that identifies your resource. To send data to a different resource - for example during testing - you only have to replace the iKey.
-
-Publish your web pages or use them in debug mode, to generate some telemetry data.
+[Learn more](app-insights-javascript.md) 
 
 
 ## How popular is my web application?
@@ -57,50 +37,18 @@ Sign in to the [Azure portal][portal], browse to your application resource, and 
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Users:** The count of distinct users over the time range of the chart. (Cookies are used to identify returning users.)
-* **Sessions:** A session is counted when a user has not made any requests for 30 minutes.
+* **Users:** The count of distinct active users over the time range of the chart. 
+* **Sessions:** The count of active sessions
 * **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
 Click any of the charts to see more detail. Notice that you can change the time range of the charts.
-
-
-### Which pages are read most?
-
-Click the page views chart to see more detail.
-
-![](./media/app-insights-web-track-usage/appinsights-49usage.png)
-
-
-Click a chart to see other metrics that you can display, or add a new chart and select the metrics it displays.
-
-![](./media/app-insights-web-track-usage/appinsights-63usermetrics.png)
-
-> [AZURE.NOTE] Metrics can only be displayed in some combinations. When you select a metric, the incompatible ones are disabled.
-
-
 
 ### Where do my users live?
 
 From the usage blade, click the Users chart to see more detail:
 
-![On the overview blade, click the Sessions chart](./media/app-insights-web-track-usage/02-sessions.png)
+![On the Usage blade, click the Users chart](./media/app-insights-web-track-usage/02-sessions.png)
  
-(This example is from a website, but the charts look similar for apps that run on devices.)
-
-### Is this the same as last week?
-
-Compare with the previous week to see if things are changing:
-
-![Select a chart that shows a single metric, switch on Prior Week](./media/app-insights-web-track-usage/021-prior.png)
-
-
-### What proportion of my users are new?
-
-Compare two metrics, for example users and new users:
-
-![Select a chart, search for and check or uncheck metrics.](./media/app-insights-web-track-usage/031-dual.png)
-
-
 ### What browsers or operating systems do they use?
 
 Group (segment) data by a property such as Browser, Operating System, or City:
@@ -145,13 +93,34 @@ However, when you explore shorter time ranges such as hourly grain, a long sessi
 
 ## Users and user counts
 
+
 Each user session is associated with a unique user id. 
 
-By default, the user is identified by placing a cookie. In this case, a user who uses multiple browsers or devices will be counted more than once.
+By default, the user is identified by placing a cookie. A user who uses multiple browsers or devices will be counted more than once. (But see [authenticated users](#authenticated-users)
+
 
 The **user count** metric in a certain interval is defined as the number of unique users with recorded activity during this interval. As a result, users with long sessions may be accounted multiple times, when you set a time range so that the grain is less than an hour or so.
 
 **New Users** counts the users whose first sessions with the app occurred during this interval. If the default method of counting by users by cookies is used, then this will also include users who have cleared their cookies, or who are using a new device or browser to access your app for the first time.
+![From the usage blade, click on Users chart to examine New Users.](./media/app-insights-web-track-usage/031-dual.png)
+
+### Authenticated users
+
+If your web app lets users sign in, you can get a more accurate count by providing Application Insights with a unique user identifier. It doesn't have to be their name, or the same id that you use in your app. As soon as your app has identified the user, use this code:
+
+
+*JavaScript at client*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+If your app groups users into accounts, you can also pass an identifier for the account. 
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+The user and account ids must not contain spaces or the characters `,;=|`
+
+
+In [metrics explorer](app-insights-metrics-explorer.md), you can create a chart of **Authenticated Users** and **Accounts**. 
 
 ## Synthetic traffic
 
@@ -180,22 +149,22 @@ Let's suppose that instead of implementing each game in a separate web page, you
 
 But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## Custom events
 
 Use custom events to . You can send them from device apps, web pages or a web server:
 
-(JavaScript)
+*JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
-(C#)
+*C#*
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-(VB)
+*VB*
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -245,7 +214,9 @@ And now we can see that this user logged in simply to check the latest scores. M
 You can attach arbitrary tags and numeric values to events.
  
 
-JavaScript at client
+*JavaScript at client*
+
+```JavaScript
 
     appInsights.trackEvent("WinGame",
         // String properties:
@@ -253,8 +224,11 @@ JavaScript at client
         // Numeric measurements:
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
+```
 
-C# at server
+*C# at server*
+
+```C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -264,8 +238,11 @@ C# at server
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements);
+```
 
-VB at server
+*VB at server*
+
+```VB
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -278,14 +255,19 @@ VB at server
 
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
+```
 
 Attach properties to page views in the same way:
 
-JavaScript at client
+*JavaScript at client*
+
+```JS
 
     appInsights.trackPageView("Win", 
+        url,
         {Game: currentGame.Name}, 
         {Score: currentGame.Score});
+```
 
 In Diagnostic Search, view the properties by clicking through an individual occurrence of an event.
 
@@ -306,7 +288,9 @@ For this technique, you attach distinct tags to all the telemetry that is sent b
 
 In the Application Insights portal, you'll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.
 
-C# at server
+*C# at server*
+
+```C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -315,18 +299,24 @@ C# at server
     var telemetry = new TelemetryClient(context);
     // Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame");
+```
 
-VB at server
+*VB at server*
+
+```VB
 
     Dim context = New TelemetryContext
     context.Properties("Game") = currentGame.Name
     Dim telemetry = New TelemetryClient(context)
     ' Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame")
+```
 
 Individual telemetry can override the default values.
 
 You can set up a universal initializer so that all new TelemetryClients automatically use your context.
+
+```C#
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -336,8 +326,11 @@ You can set up a universal initializer so that all new TelemetryClients automati
             context.Properties["AppVersion"] = "v2.1";
         }
     }
+```
 
 In the app initializer such as Global.asax.cs:
+
+```C#
 
     protected void Application_Start()
     {
@@ -345,6 +338,7 @@ In the app initializer such as Global.asax.cs:
         TelemetryConfiguration.Active.ContextInitializers
         .Add(new MyTelemetryInitializer());
     }
+```
 
 
 ## Build - Measure - Learn
@@ -359,9 +353,14 @@ And of course, when the feature is live, make sure you look at the analytics and
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 
 
+## References
+
+* [Using the API - overview][api]
+* [JavaScript API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## Video
 
-> [Azure.VIDEO usage-monitoring-application-insights]
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
@@ -370,7 +369,7 @@ And of course, when the feature is live, make sure you look at the analytics and
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/

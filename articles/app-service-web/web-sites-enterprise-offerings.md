@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="apwestgarth"/>
+	ms.date="09/03/2015" 
+	ms.author="anwestg"/>
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper #
 
@@ -33,7 +32,7 @@ App Service Web Apps is an ideal platform on which to host both external and int
 
 ## Problem Definition ##
 
-The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The imminent end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
+The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
 
 Business needs change monthly, weekly, daily. Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally. Users have higher expectations, with many making use of services in their own private lives such as Office365. They expect to have access to similar, up to date, feature rich services in their work life. To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.
 
@@ -65,7 +64,7 @@ App Service Web Apps is built on a Platform as a Service model which provides a 
 
 The PaaS Model underpinning Web Apps enables practitioners of the DevOps methodology to fulfill their goals. As a business this means full management and integration throughout the application entire life cycle, including development, testing, release, monitoring and management, and support. 
 
-For development teams, continuous integration and deployment workflows can be configured from Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket, enabling automated build, test and deployment enabling faster release cycles whilst reducing the friction involved in releasing in existing infrastructure. Web Apps also supports the creation of multiple testing and staging environments for your release workflow, no longer do you need to reserve or allocate hardware for these purposes, you can create as many environments as you wish and define your own promotion to release workflow. As a business you could decide to release to a test slot from source control, perform a series of tests and upon successful completion promote to a stage slot and finally swap to production with no downtime, with the added benefit that web applications hosted on Web Apps are preloaded and hot to provide the best possible customer experience.
+For development teams, continuous integration and deployment workflows can be configured from Visual Studio Team Services, GitHub, TeamCity, Hudson or BitBucket, enabling automated build, test and deployment enabling faster release cycles whilst reducing the friction involved in releasing in existing infrastructure. Web Apps also supports the creation of multiple testing and staging environments for your release workflow, no longer do you need to reserve or allocate hardware for these purposes, you can create as many environments as you wish and define your own promotion to release workflow. As a business you could decide to release to a test slot from source control, perform a series of tests and upon successful completion promote to a stage slot and finally swap to production with no downtime, with the added benefit that web applications hosted on Web Apps are preloaded and hot to provide the best possible customer experience.
 
 Operations teams can feel confident that they are in the best possible position to react to any issues with any of their web applications hosted on Web Apps with the built in monitoring and alerts features. Should Operations Teams have already invested in analytics and monitoring solutions such from Microsoft Visual Studio Application Insights, New Relic and AppDynamics. These are also fully supported on Web Apps enabling continuity and a familiar environments from which to monitor your web applications.
 

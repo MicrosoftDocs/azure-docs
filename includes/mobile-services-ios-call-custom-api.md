@@ -1,5 +1,5 @@
 
-## <a name="update-app"></a>Call custom API from iOS app
+### Call custom API from iOS app
 
 To call this custom API from an iOS client, use the `MSClient invokeAPI` method. There are two versions of this method, one for JSON-formatted requests, and one for any data type:
 

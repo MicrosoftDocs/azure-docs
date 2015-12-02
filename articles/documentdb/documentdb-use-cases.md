@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Common DocumentDB use cases | Azure" 
+    pageTitle="Common DocumentDB use cases | Microsoft Azure" 
     description="Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT)." 
     services="documentdb" 
     authors="h0n" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/08/2015" 
+    ms.date="10/30/2015" 
     ms.author="hawong"/>
 
 # Common DocumentDB use cases
@@ -68,7 +68,7 @@ For more information on Azure offerings for IoT, see [Create the Internet of You
 
 ## Next steps
  
-To get started with DocumentDB, you can create an [account](http://azure.microsoft.com/pricing/free-trial/) and then follow our [learning guide](documentdb-learning-map.md) to learn about DocumentDB and find the information you need. 
+To get started with DocumentDB, you can create an [account](http://azure.microsoft.com/pricing/free-trial/) and then follow our [learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to learn about DocumentDB and find the information you need. 
 
 Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
 

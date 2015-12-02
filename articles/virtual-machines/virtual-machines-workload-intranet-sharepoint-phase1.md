@@ -1,39 +1,42 @@
-<properties 
-	pageTitle="SharePoint Intranet Farm Workload Phase 1: Configure Azure" 
-	description="In this first phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create the Azure virtual network and other Azure infrastructure elements." 
+<properties
+	pageTitle="SharePoint Server 2013 farm Phase 1 | Microsoft Azure"
+	description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the SharePoint Server 2013 farm in Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="Windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 1: Configure Azure
 
-In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the Azure networking and storage infrastructure. You must complete this phase before moving on to [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
+
+In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the Azure networking and storage infrastructure in Azure Service Management. You must complete this phase before moving on to [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
 Azure must be provisioned with these basic network components:
 
-- A cross-premises virtual network with one subnet
-- Three Azure cloud services
-- One Azure storage account to store VHD disk images and extra data disks
+- A cross-premises virtual network with one subnet.
+- Three Azure cloud services.
+- One Azure storage account to store VHD disk images and extra data disks.
 
 ## Before you begin
 
 Before you begin configuring Azure components, fill in the following tables. To assist you in the procedures for configuring Azure, print this section and write down the needed information or copy this section to a document and fill it in.
 
-For the settings of the virtual network (VNet), fill in Table V. 
+For the settings of the virtual network (VNet), fill in Table V.
 
-Item | Configuration element | Description | Value 
---- | --- | --- | --- 
+Item | Configuration element | Description | Value
+--- | --- | --- | ---
 1. | VNet name | A name to assign to the Azure Virtual Network (example SPFarmNet). | __________________
 2. | VNet location | The Azure datacenter that will contain the virtual network. | __________________
 3. | Local network name | A name to assign to your organization network. | __________________
@@ -46,20 +49,20 @@ Item | Configuration element | Description | Value
 
 Fill in Table S for the subnet of this solution. Give the subnet a friendly name, a single IP address space based on the Virtual Network address space, and a descriptive purpose. The address space should be in Classless Interdomain Routing (CIDR) format, also known as network prefix format. An example is 10.24.64.0/20. Work with your IT department to determine this address space from the virtual network address space.
 
-Item | Subnet name | Subnet address space | Purpose 
---- | --- | --- | --- 
+Item | Subnet name | Subnet address space | Purpose
+--- | --- | --- | ---
 1. | _______________ | _____________________________ | _________________________
 
 **Table S: Subnets in the virtual network**
 
-> [AZURE.NOTE] This pre-defined architecture uses a single subnet for simplicity. If you want to overlay a set of traffic filters to emulate subnet isolation, you can use Azure [Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+> [AZURE.NOTE] This pre-defined architecture uses a single subnet for simplicity. If you want to overlay a set of traffic filters to emulate subnet isolation, you can use Azure [Network Security Groups](virtual-networks-nsg.md).
 
-For the two on-premises DNS servers that you want to use when initially setting up the domain controllers in your virtual network, fill in Table D. Give each DNS server a friendly name and a single IP address. This friendly name does not need to match the host name or computer name of the DNS server. Note that two blank entries are listed, but you can add more. Work with your IT department to determine this list. 
+For the two on-premises DNS servers that you want to use when initially setting up the domain controllers in your virtual network, fill in Table D. Give each DNS server a friendly name and a single IP address. This friendly name does not need to match the host name or computer name of the DNS server. Note that two blank entries are listed, but you can add more. Work with your IT department to determine this list.
 
-Item | DNS server friendly name | DNS server IP address 
+Item | DNS server friendly name | DNS server IP address
 --- | --- | ---
 1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+2. | ___________________________ | ___________________________
 
 **Table D: On-premises DNS servers**
 
@@ -67,7 +70,7 @@ To route packets from the cross-premises network to your organization network ac
 
 For the set of local network address spaces, fill in Table L. Note that three blank entries are listed but you will typically need more. Work with your IT department to determine this list of address spaces.
 
-Item | Local network address space 
+Item | Local network address space
 --- | ---
 1. | ___________________________________
 2. | ___________________________________
@@ -75,20 +78,20 @@ Item | Local network address space
 
 **Table L: Address prefixes for the local network**
 
-To create the virtual network with the settings from Tables V, S, D, and L, use the instructions in [Create a Cross-Premises Virtual Network Using Configuration Tables](virtual-machines-workload-deploy-vnet-config-tables.md). 
+To create the virtual network with the settings from Tables V, S, D, and L, use the instructions in [Create a Cross-Premises Virtual Network Using Configuration Tables](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using ExpressRoute for your site-to-site connection, see [ExpressRoute Technical Overview](http://msdn.microsoft.com/en-us/library/dn606309.aspx).
+> [AZURE.NOTE] This procedure steps you through creating a virtual network that uses a site-to-site VPN connection. For information about using ExpressRoute for your site-to-site connection, see [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
-After creating the Azure virtual network, the Azure Management Portal will determine the following:
+After creating the Azure virtual network, the Azure classic portal will determine the following:
 
-- The public IPv4 address of the Azure VPN gateway for your virtual network
-- The Internet Protocol security (IPsec) pre-shared key for the site-to-site VPN connection
+- The public IPv4 address of the Azure VPN gateway for your virtual network.
+- The Internet Protocol security (IPsec) pre-shared key for the site-to-site VPN connection.
 
-To see these in the Azure Management Portal after you create the virtual network, click **Networks**, click the name of the virtual network, and then click the **Dashboard** menu option.
+To see these in the Azure classic portal after you create the virtual network, click **Networks**, click the name of the virtual network, and then click the **Dashboard** menu option.
 
-Next, you’ll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure the Virtual Network Gateway in the Management Portal](http://msdn.microsoft.com/library/jj156210.aspx) for the instructions. 
+Next, you’ll configure the virtual network gateway to create a secure site-to-site VPN connection. See [Configure the Virtual Network Gateway in the Azure classic portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
-Next, create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For the details, see [Configure a Virtual Network Gateway in the Management Portal](http://msdn.microsoft.com/library/jj156210.aspx) for the instructions.
+Next, create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For the details, see [Configure a Virtual Network Gateway in the Azure classic portal](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) for the instructions.
 
 Next, ensure that the address space of the virtual network is reachable from your on-premises network. This is usually done by adding a route corresponding to the virtual network address space to your VPN device and then advertising that route to the rest of the routing infrastructure of your organization network. Work with your IT department to determine how to do this.
 
@@ -101,9 +104,9 @@ First, select the correct Azure subscription with these commands. Replace everyt
 
 You can get the subscription name from the **SubscriptionName** property of the output of the **Get-AzureSubscription** command.
 
-Next, create the three cloud services needed for this SharePoint farm. Fill out Table C. 
+Next, create the three cloud services needed for this SharePoint farm. Fill out Table C.
 
-Item | Purpose | Cloud service name 
+Item | Purpose | Cloud service name
 --- | --- | ---
 1. | Domain controllers | ___________________________
 2. | SQL servers | ___________________________
@@ -111,7 +114,7 @@ Item | Purpose | Cloud service name
 
 **Table C: Cloud service names**
 
-You must pick a unique name for each cloud service. *The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.* 
+You must pick a unique name for each cloud service. *The cloud service name can contain only letters, numbers, and hyphens. The first and last character in the field must be a letter or number.*
 
 For example, you could name the first cloud service DCs-*UniqueSequence*, in which *UniqueSequence* is an abbreviation of your organization. For example, if your organization is named Tailspin Toys, you could name the cloud service DCs-Tailspin.
 
@@ -135,10 +138,10 @@ If this command returns "False", your proposed name is unique. Then, create the 
 	New-AzureStorageAccount -StorageAccountName $staccount -Location "<Table V – Item 2 – Value column>"
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Next, define the names of four availability sets. Fill out Table A. 
+Next, define the names of four availability sets. Fill out Table A.
 
-Item | Purpose | Availability set name 
---- | --- | --- 
+Item | Purpose | Availability set name
+--- | --- | ---
 1. | Domain controllers | ___________________________
 2. | SQL servers | ___________________________
 3. | SharePoint application servers | ___________________________
@@ -152,11 +155,11 @@ This is the configuration resulting from the successful completion of this phase
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase1/workload-spsqlao_01.png)
 
-## Next Step
+## Next step
 
 To continue with the configuration of this workload, go to [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
-## Additional Resources
+## Additional resources
 
 [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
 
@@ -166,5 +169,6 @@ To continue with the configuration of this workload, go to [Phase 2: Configure D
 
 [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Azure Infrastructure Services Implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
+[Azure Infrastructure Services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+[Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)

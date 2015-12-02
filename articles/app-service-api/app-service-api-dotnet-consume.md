@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Consume an API app in Azure App Service from a .NET client 
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 
@@ -37,7 +39,7 @@ The project and code samples in this article are based on the API app project th
 
 - [Create an API app](app-service-dotnet-create-api-app.md)
 - [Deploy an API app](app-service-dotnet-deploy-api-app.md)
-- [Protect an API app](../app-service-dotnet-add-authentication.md)
+- [Protect an API app](../app-service-api-dotnet-add-authentication.md)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
@@ -51,7 +53,7 @@ In this section you create a console application project and add code to it that
 
 1. If you haven't already done so, follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) to deploy the ContactsList sample project to an API app in your Azure subscription.
 
-	That tutorial directs you to set the access level in the Visual Studio publish dialog to **Available to anyone**, which is the same as **Public (anonymous)** in the portal. However, if you did the [Protect an API app](../app-service-dotnet-add-authentication.md) tutorial after that, the access level has been set to **Public (authenticated)**, and in that case you need to change it as directed in the following step.
+	That tutorial directs you to set the access level in the Visual Studio publish dialog to **Available to anyone**, which is the same as **Public (anonymous)** in the portal. However, if you did the [Protect an API app](../app-service-api-dotnet-add-authentication.md) tutorial after that, the access level has been set to **Public (authenticated)**, and in that case you need to change it as directed in the following step.
 
 2. In the [Azure preview portal](https://portal.azure.com/), in the **API app** blade for the API app that you want to call, go to **Settings > Application Settings** and set **Access level** to **Public (anonymous)**.
 
@@ -59,27 +61,9 @@ In this section you create a console application project and add code to it that
  
 2. In Visual Studio, create a console application project.
  
-### Add App Service SDK generated client code
+### <a id="addclient"></a>Add App Service SDK generated client code
 
-3. In **Solution Explorer**, right-click the project (not the solution) and select **Add > Azure API App Client**. 
-
-	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
-	
-3. In the **Add Azure API App Client** dialog, click **Download from Azure API App**. 
-
-5. From the drop-down list, select the API app that you want to call. 
-
-7. Click **OK**. 
-
-	![Generation Screen](./media/app-service-api-dotnet-consume/04-select-the-api-v3.png)
-
-	The wizard downloads the API metadata file and generates a typed interface for calling the API app.
-
-	![Generation Happening](./media/app-service-api-dotnet-consume/05-metadata-downloading-v3.png)
-
-	Once code generation is complete, you see a new folder in **Solution Explorer**, with the name of the API app. This folder contains the code that implements the client classes and data models. 
-
-	![Generation Complete](./media/app-service-api-dotnet-consume/06-code-gen-output-v3.png)
+[AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 
 ### Add code to call the API app
 
@@ -116,13 +100,11 @@ To call the API app, all you have to do is create a client object and call metho
 
 ## Authenticated call from a Windows desktop application
 
-In this section you create a Windows desktop application project and add code to it that calls an API app that requires authentication. This code implements the Oauth 2 *server authentication flow*, which means that the API app gateway, rather than the client application, procures the token from the authentication provider. 
-
-Azure API apps also support the client authentication flow.  A client flow authentication scenario will be added to this tutorial in the future.
+In this section you create a Windows desktop application project and add code to it that calls an API app that requires authentication. 
 
 ### Set up the API app and create the project
 
-1. Follow the [Protect an API app](../app-service-dotnet-add-authentication.md) tutorial to set up an API app with **Public (authenticated)** access level.
+1. Follow the [Protect an API app](../app-service-api-dotnet-add-authentication.md) tutorial to set up an API app with **Public (authenticated)** access level.
 
 1. In Visual Studio, create a Windows Forms desktop project.
 
@@ -198,9 +180,29 @@ Azure API apps also support the client authentication flow.  A client flow authe
 
 	![](./media/app-service-api-dotnet-consume/formaftercall.png)
 
+### <a id="client-flow"></a>Server flow vs. client flow
+
+The sample application illustrates [server flow](../app-service/app-service-authentication-overview.md#server-flow), which means the gateway gets the identity provider's access token. For [client flow](../app-service/app-service-authentication-overview.md#client-flow), in which your client application gets the access token directly from the identity provider and sends it to the gateway, you call `LoginAsync` rather than `SetCurrentUser`. 
+
+The following code example assumes that you have the identity provider's access token in a string variable named `providerAccessToken` and the identity provider indicator ("aad", "microsoftaccount", "google", "twitter", or "facebook") in a string variable named `idProvider`:
+
+		var appServiceClient = new AppServiceClient(GATEWAY_URL);
+		var providerAccessTokenJSON = new JObject();
+		providerAccessTokenJSON["access_token"] = providerAccessToken;
+		var appServiceUser = await appServiceClient.LoginAsync(idProvider, providerAccessTokenJSON);
+
+		var contactsListClient = appServiceClient.CreateContactsList();
+		var contacts = contactsListClient.Contacts.Get();
+		foreach (Contact contact in contacts)
+		{
+		    textBox1.Text += contact.Name + " " + contact.EmailAddress + System.Environment.NewLine;
+		}
+
 ## Next steps
 
 This article has shown how to consume an API app from a .NET client, for API apps set to **Public (authenticated)** and **Public (anonymous)** access levels. 
 
 For additional examples of code that calls an API app from .NET clients, download the [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) sample application.
+
+For information about how to use authentication in API apps, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
  

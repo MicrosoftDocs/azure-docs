@@ -1,29 +1,30 @@
 <properties 
 	pageTitle="Restore a web app in Azure App Service" 
 	description="Learn how to restore your web app from a backup." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Restore a web app in Azure App Service
 
 This article shows you how to restore a web app that you have previously backed up by using the [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) Backup feature. For more information, see [App Service Web Apps Backups](web-sites-backup.md). 
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 The Web Apps Restore feature lets you restore your web app on-demand to a previous state, or create a new web app based on one of your original web app's backups. Creating a new web app that runs in parallel to the latest version can be useful for A/B testing.
 
-The Web Apps Restore feature, available on the **Backups** blade in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), is available only in Standard and Premium modes. For information about scaling your app use  Standard or Premium mode, see [Scale a web app in Azure App Service](web-sites-scale.md). 
+The Web Apps Restore feature, available on the **Backups** blade in the [Azure preview portal](http://portal.azure.com), is available only in Standard and Premium modes. For information about scaling your app using Standard or Premium mode, see [Scale a web app in Azure App Service](web-sites-scale.md). 
 Note that the Premium mode allows a greater number of daily backups to be performed over the Standard mode.
 
 <a name="PreviousBackup"></a>
