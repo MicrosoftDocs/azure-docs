@@ -34,8 +34,7 @@ This guide is intended to help IT professionals understand and use the various S
 [Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
 [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md)
 [Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md)
-[Managing owners for a group](active-directory-accessmanagement-managing-group-
-owners.md)
+[Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md)
 [Setting up Azure Active Directory for self service application access management](active-directory-accessmanagement-self-service-group-management.md)
 [Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-simplerulegroup.md)
 [Troubleshooting dynamic memberships to groups](active-directory-accessmanagement-troubleshooting.md)
