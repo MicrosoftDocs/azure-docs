@@ -1099,7 +1099,7 @@ For information for individual blobs:
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### Step 23: Test Failover
 

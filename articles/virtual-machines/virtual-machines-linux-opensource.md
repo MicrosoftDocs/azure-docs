@@ -77,7 +77,7 @@ Debian is an important distribution for the Linux and open-source world based on
 The CentOS Linux distribution is a stable, predictable, manageable and reproduceable platform derived from the sources of Red Hat Enterprise Linux (RHEL).
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [Image Gallery](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [Image Gallery](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [How to: Prepare a Custom CentOS-Based VM for Azure](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [Blog: How to Deploy a CentOS VM Image from OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -96,7 +96,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduce
 
 CoreOS is a small, optimized distro for pure compute scale with a high degree of control for customization.
 
-10. [Image Gallery](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [Image Gallery](http://azure.microsoft.com/marketplace/partners/coreos/)  
 11. [How to: Use CoreOS on Azure](virtual-machines-linux-coreos-how-to.md)
 12. [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Blog: TechEd Europe -- Windows Docker Client and Linux Containers](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)

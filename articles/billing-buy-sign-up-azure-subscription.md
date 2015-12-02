@@ -67,6 +67,6 @@ When you upgrade from a free trial subscription to a pay-as-you-go subscription,
 
 If you bought Azure in Open credits from a reseller, follow these steps to activate your subscription:
 
-1. Open the [Azure in Open License key](http://azure.microsoft.com/en-us/offers/ms-azr-0111p/) page, and then select Activate a new subscription or existing subscription.
+1. Open the [Azure in Open License key](http://azure.microsoft.com/offers/ms-azr-0111p/) page, and then select Activate a new subscription or existing subscription.
 2. Enter the product key, and then check the agreement option.</br>![OSA KEY](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Select **Activate**.
