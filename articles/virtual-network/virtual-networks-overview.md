@@ -63,7 +63,7 @@ These IP addresses are dynamic, meaning that they can change at any time. You ma
 
 ## Azure load balancers
 
-Virtual machines and cloud services in a Virtual network can be exposed to Internet using Azure Load balancers. Line of Business applications that are internal facing only cna be load balanced using Internal load balancer. 
+Virtual machines and cloud services in a Virtual network can be exposed to Internet using Azure Load balancers. Line of Business applications that are internal facing only can be load balanced using Internal load balancer. 
 
 - **External load balancer**. You can use an external load balancer to provide high availability for IaaS VMs and PaaS role instances accessed from the public Internet.
 
