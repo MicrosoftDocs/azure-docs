@@ -80,6 +80,7 @@ The following list contains answers to commonly asked questions about the Azure 
 
 The following list contains some common configuration errors that can prevent Azure Redis Cache from working properly.
 
+-	Lack of access to DNS. Azure Redis Cache instances in a VNET require access to DNS for parts of the monitoring and runtime system of the cache. If the cache instance does not have access to DNS, monitoring won't work and the cache may not function correctly.
 -	Blocked TCP ports that clients use to connect to redis, i.e. 6379 or 6380.
 -	Blocked or intercepted outgoing HTTPS traffic from the virtual network. Azure Redis Cache uses outgoing HTTPS traffic to Azure services, especially Storage.
 -	Blocked redis role instance VMs from communicating with each other inside the subnet. Redis role instances should be allowed to talk to each other using TCP on any of the ports used, which may be subject to change, but at a minimum can be assumed to be all the ports used in the redis CSDEF file.
