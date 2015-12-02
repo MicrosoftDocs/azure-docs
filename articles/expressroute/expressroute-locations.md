@@ -43,8 +43,8 @@ The table below provides information on regions and geopolitical boundaries for 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
-|**US Government cloud**|US Government|Iowa, Virginia|Ashburn, Chicago|
-|**China cloud**|China|Beijing, Shanghai|
+|**US Government cloud**|US Gov Iowa, US Gov Virginia|Iowa, Virginia|Chicago, Washington DC|
+|**China cloud**|China North, China East|Beijing, Shanghai|
 
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
