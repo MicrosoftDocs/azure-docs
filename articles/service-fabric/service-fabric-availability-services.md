@@ -17,7 +17,7 @@
    ms.author="aprameyr"/>
 
 # Availability of Service Fabric services
-Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of a failure.
+Azure Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of a failure.
 
 ## Availability of Service Fabric stateless services
 A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
