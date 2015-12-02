@@ -83,7 +83,7 @@ Resources created in the classic deployment model share the following characteri
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -101,7 +101,7 @@ Resources created in the classic deployment model share the following characteri
 
     ![classic type](./media/resource-manager-deployment-model/classic-type.png)
 
-You can still use the preview portal to manage resources that were created through classic deployment.
+You can still use the portal to manage resources that were created through classic deployment.
 
 ## Benefits of using Resource Manager and resource groups
 
