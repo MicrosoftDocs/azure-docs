@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/02/2015" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
 
->[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. During the preview period, you cannot scale to, from, or within a premium tier cache.
+>[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. During the preview period, you cannot scale to or from a premium tier cache, but you can change the pricing tier within a premium cache.
 
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure preview portal](https://portal.azure.com).
 
@@ -121,7 +121,7 @@ Note that while Standard and Premium caches have a 99.9% SLA for availability, t
 
 ## Operations that are not supported
 
-You can't scale to, from, or within a **Premium** cache.
+You can't scale to or from a **Premium** cache.
 
 You can't change from a **Standard** to a **Basic** cache.
 
