@@ -125,7 +125,7 @@ The server has lots of configuration settings, but has a variety of default valu
 
 You can configure your server configuration via environment variables which you can set via App Settings in your Mobile App backend.
 
-You can further customize the Mobile Apps SDK by passing a [configuration object](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) to the initializer or [creating a file named azureMobile.js](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) in the root of the project.
+You can further customize the Mobile Apps SDK by passing a [configuration object](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) to the initializer or [creating a file named azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) in the root of the project.
 
 ### Working with Data & Tables
 
@@ -212,7 +212,7 @@ For some providers, such as AAD, Facebook, and Google, you should be able to lev
 
 To limit access to your table, you can set it at the table level with `table.access = 'authenticated';`. You can see a full example on [GitHub](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/authentication/tables/TodoItem.js).
 
-You can get access to the user identity information via the `user.getIdentity` method described [here](http://azure.github.io/azure-mobile-apps-node/module-azure-mobile-apps_auth_user.html#~getIdentity). 
+You can get access to the user identity information via the `user.getIdentity` method described [here](http://azure.github.io/azure-mobile-apps-node/module-azure-mobile-apps_auth_user.html#~getIdentity).
 
 ## <a name="updating-clients"></a>Updating clients
 Once you have an operational Mobile App backend, you can work on a new version of your client application which consumes it. Mobile Apps also includes a new version of the client SDKs, and similar to the server upgrade above, you will need to remove all references to the Mobile Services SDKs before installing the Mobile Apps versions.
