@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an Azure Search service in the portal | Microsoft Azure | Hosted cloud search service"
-	description="Add free or standard Azure Search to an existing subscription using the Azure portal. Azure Search is cloud hosted search service for custom apps."
+	description="Add free or standard Azure Search to an existing subscription using the Azure Classic Portal. Azure Search is cloud hosted search service for custom apps."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,15 +17,15 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Create an Azure Search service in the Azure portal
+# Create an Azure Search service in the Azure Classic Portal
 
-Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](search-what-is-azure-search.md).
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Classic Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](seach-what-is-search.md).
 
 ## Add Azure Search to your subscription for free
 
 As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service, or at the standard rate when opting in for dedicated resources.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + storage** > **Search**.
 
@@ -78,7 +78,7 @@ You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792)
 <a id="sub-2"></a>
 ## Find the service name and api-keys of your Azure Search service
 
-After the service is created, you can return to the Azure portal to get the URL or `api-key`. Connections to your Azure Search service requires that you have both the URL and an `api-key` to authenticate the call.
+After the service is created, you can return to the Azure Classic Portal to get the URL or `api-key`. Connections to your Azure Search service requires that you have both the URL and an `api-key` to authenticate the call.
 
 1. In the Jumpbar, click **Home** and then click the Azure Search service to open the service dashboard.
 

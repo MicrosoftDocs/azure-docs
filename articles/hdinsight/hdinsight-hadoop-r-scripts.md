@@ -67,7 +67,7 @@ You can also use the script to install R on HDInsight by using Azure PowerShell 
 ## Run R scripts
 This section describes how to run an R script on the Hadoop cluster with HDInsight.
 
-1. **Establish a Remote Desktop connection to the cluster**: From the Portal, enable Remote Desktop for the cluster you created with R installed, and then connect to the cluster. For instructions, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. **Establish a Remote Desktop connection to the cluster**: From the Portal, enable Remote Desktop for the cluster you created with R installed, and then connect to the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. **Open the R console**: The R installation puts a link to the R console on the desktop of the head node. Click on it to open the R console.
 

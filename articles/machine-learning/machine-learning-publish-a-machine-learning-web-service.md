@@ -31,7 +31,7 @@ From a high-level point-of-view, this is done in three steps:
 Once you've deployed the web service, you can:
 
 - **[Access]** it through the web service API
-- **[Manage]** it through the Azure management portal, and
+- **[Manage]** it through the Azure Classic Portal, and
 - **[Update]** it if your model changes
 
 [Create a training experiment]: #create-a-training-experiment
@@ -77,7 +77,7 @@ To test the web service, click the **Test** link in the web service dashboard. A
 
 ![Test the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Azure Management Portal where you manage your web services.
+On the **CONFIGURATION** tab you can change the display name of the service and give it a description. The name and description is displayed in the Azure Classic Portal where you manage your web services.
 You can provide a description for your input data, output data, and web service parameters by entering a string for each column under **INPUT SCHEMA**, **OUTPUT SCHEMA**, and **WEB SERVICE PARAMETER**. These descriptions are used in the sample code documentation provided for the web service.
 You can also enable logging to diagnose any failures that you're seeing when your web service is accessed.
 
@@ -95,9 +95,9 @@ The dashboard provides all the information you need to access your web service. 
 For more information about accessing a Machine Learning web service, see [How to consume a deployed Azure Machine Learning web service](machine-learning-consume-web-services.md).
 
 
-## Manage the web service in the Azure Management Portal
+## Manage the web service in the Azure Classic Portal
 
-In the Azure Management Portal, you can manage your web services by clicking the **Machine Learning** service, opening your Machine Learning workspace, and then opening the web service from the **WEB SERVICES** tab. From this page you can monitor the web service, update it, and delete it. You can also add a second endpoint for your web service in addition to the default endpoint that is created when you deploy it.
+In the Azure Classic Portal, you can manage your web services by clicking the **Machine Learning** service, opening your Machine Learning workspace, and then opening the web service from the **WEB SERVICES** tab. From this page you can monitor the web service, update it, and delete it. You can also add a second endpoint for your web service in addition to the default endpoint that is created when you deploy it.
 
 For more information, see [Manage an Azure Machine Learning workspace](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
