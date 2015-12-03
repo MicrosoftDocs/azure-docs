@@ -95,8 +95,8 @@ Fixes in Update 03-Dec-15 includes:
 - **Unified agent** —Fixes an issue in Update 1 for the Master Target, that resulted in the update not being installed on the master target server when it’s upgraded from version 8.0 to 8.0.1.
 
 >[Azure.Note]
-	-	All ASR updates are cumulative.
-	-	The CS and RX updates can’t be rolled back once it is applied on the system.
+	>-	All ASR updates are cumulative.
+	>-	The CS and RX updates can’t be rolled back once it is applied on the system.
 
 
 ### ASR Scout 8.0.1 Update 1
