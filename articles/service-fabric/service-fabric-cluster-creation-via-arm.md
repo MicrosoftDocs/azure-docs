@@ -27,7 +27,7 @@ This page helps you with setting up of a Service Fabric Cluster using an ARM tem
 
 ## Acquiring a sample ARM template
 
-1. Sample ARM templates are available at [Azure quick start template Gallery on github ](https://github.com/Azure/azure-quickstart-templates). All the service fabric templates start with the name "service-fabric-cluster-.." . you can either search the repository for "fabric" or just scroll down to the set of sample templates.
+1. Sample ARM templates are available at [Azure quick start template Gallery on github ](https://github.com/Azure/azure-quickstart-templates). All the service fabric templates start with the name "service-fabric.." . you can either search the repository for "fabric" or just scroll down to the set of sample templates.
 2. In order to help quickly find what you may be looking for, the templates have been named as follows
 	1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) to indicate a 5 node single node unsecure cluster template. 
 	3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) to indicate a 5 node single node secure cluster template that is WAD enabled. 
