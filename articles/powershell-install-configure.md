@@ -37,7 +37,7 @@ Download and install [PowerShell 1.0.1](https://github.com/Azure/azure-powershel
 The module installs a customized console for Azure PowerShell. You can run the cmdlets from the standard Windows PowerShell console, or from the Azure PowerShell console.
 
 ## Step 3: Connect
-The cmdlets need your subscription so they can manage your services. You can purchase an Azure subscription if you don't already have one. For instructions, see [Get Started with Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
+The cmdlets need your subscription so they can manage your services. You can purchase an Azure subscription if you don't already have one. For instructions, see [How to buy Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
 1. Type Add-AzureAccount
 
