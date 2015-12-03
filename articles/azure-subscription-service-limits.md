@@ -178,7 +178,7 @@ The following table shows the limits for Azure Biztalk Services.
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
-### Azure Search Limits
+### Search Limits
 
 The pricing tier determines the capacity and limits of your search service.
 
