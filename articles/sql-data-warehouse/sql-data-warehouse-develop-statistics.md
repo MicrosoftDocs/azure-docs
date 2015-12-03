@@ -438,12 +438,11 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][].
+For more development tips, see [SQL Data Warehouse development overview][./sql-data-warehouse-overview-develop/].
 
 <!--Image references-->
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
 [temporary tables]: ./sql-data-warehouse-develop-temporary-tables/
 
 <!-- External Links -->
