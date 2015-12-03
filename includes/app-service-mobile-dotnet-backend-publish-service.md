@@ -8,5 +8,5 @@
 
 + **Node.js backend (via Node.js code)** :  
 
- Follow the [instructions for deploying a Node.js script to a Web App](../articles/app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+ Follow the [instructions for deploying Node.js to a Web App](../articles/app-service-web/web-sites-nodejs-develop-deploy-mac.md)
  
