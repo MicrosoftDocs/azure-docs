@@ -67,7 +67,7 @@ Now that you've got somewhere to display the telemetry, you can set up the conta
 
 Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
 
-### Update your app
+## Update your app
 
 If your application is instrumented with the [Application Insights SDK for Java](app-insights-java-get-started.md), add the following line into the ApplicationInsights.xml file in your project, under the `<TelemetryInitializers>` element:
 
