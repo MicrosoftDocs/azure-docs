@@ -74,9 +74,9 @@ Great! Now that you've finished setting up, let's start writing some code.
 
 Open *config.js* in your favorite text editor. 
 
-Then, create an empty object titled *config* and set properties *config.endpoint* and *config.authKey* to your DocumentDB endpoint and authorization key. Both these configurations can be found in the [Azure Preview Portal](https://portal.azure.com).
+Then, create an empty object titled *config* and set properties *config.endpoint* and *config.authKey* to your DocumentDB endpoint and authorization key. Both these configurations can be found in the [Azure Portal](https://portal.azure.com).
 
-![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure Portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
     var config = {}
 

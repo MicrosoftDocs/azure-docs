@@ -125,7 +125,7 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 ## Remove security groups for an Azure Data Lake Store account
 
-When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure preview portal and Azure Resource Manager APIs.
+When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
 
 1. In your Data Lake Store account blade, click the user icon.
 

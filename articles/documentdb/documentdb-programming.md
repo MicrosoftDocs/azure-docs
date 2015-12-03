@@ -909,7 +909,7 @@ Want to share your awesome stored procedure? Please, send us a pull-request!
 
 ## Next steps
 
-Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Preview portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
+Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
 
 You may also find the following references and resources useful in your path to learn more about DocumentDB server-side programming:
 
