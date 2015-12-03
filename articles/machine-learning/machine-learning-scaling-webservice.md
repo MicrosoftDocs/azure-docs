@@ -21,9 +21,9 @@
 
 ## Increase concurrency
 
-By default, each published web service is configured to support 20 concurrent requests. You can increase this concurrency to 200 concurrent requests through [Azure Management Portal](https://manage.windowsazure.com/) as shown in the figure below.
+By default, each published web service is configured to support 20 concurrent requests. You can increase this concurrency to 200 concurrent requests through [Azure Classic Portal](https://manage.windowsazure.com/) as shown in the figure below.
 
-Go to [Azure Management Portal](https://manage.windowsazure.com/), click the Machine Learning icon on the left, select the work space used for publishing web service, click the desired web service, select the endpoint that needs the increase in concurrency, and then click **CONFIGURE**. Use the slider to increase the concurrency, and then click **SAVE** on the bottom panel.
+Go to [Azure Classic Portal](https://manage.windowsazure.com/), click the Machine Learning icon on the left, select the work space used for publishing web service, click the desired web service, select the endpoint that needs the increase in concurrency, and then click **CONFIGURE**. Use the slider to increase the concurrency, and then click **SAVE** on the bottom panel.
 
 To increase the concurrency, see [Scaling API Endpoints](machine-learning-scaling-endpoints.md).
 
@@ -31,9 +31,9 @@ To increase the concurrency, see [Scaling API Endpoints](machine-learning-scalin
 
 ## Add new endpoints for same web service
 
-The scaling of web service is a common task either to support more than 200 concurrent request, increase availability through multiple endpoints or to provide separate endpoint for different consumer of web service. The user can increase the scale by adding additional endpoints for the same web service. The user can add additional endpoints through [Azure Management Portal](https://manage.windowsazure.com/) as shown in the figure below:
+The scaling of web service is a common task either to support more than 200 concurrent request, increase availability through multiple endpoints or to provide separate endpoint for different consumer of web service. The user can increase the scale by adding additional endpoints for the same web service. The user can add additional endpoints through [Azure Classic Portal](https://manage.windowsazure.com/) as shown in the figure below:
 
-Go to [Azure Management Portal](https://manage.windowsazure.com/), click the Machine Learning icon on the left, select the work space used for publishing the web service, click the desired web service, click **ADD ENDPOINT** on the bottom panel, and then provide a name, description, and desired concurrency for the new endpoint.
+Go to [Azure Classic Portal](https://manage.windowsazure.com/), click the Machine Learning icon on the left, select the work space used for publishing the web service, click the desired web service, click **ADD ENDPOINT** on the bottom panel, and then provide a name, description, and desired concurrency for the new endpoint.
 
 To add new endpoints, see [Creating Endpoints](machine-learning-create-endpoint.md).
 

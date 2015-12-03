@@ -58,7 +58,7 @@ In this section, you will perform the following tasks:
 
 ###Create an Active Directory Service
 
-1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
 
 2. Scroll down the left navigation pane and click **Active Directory**.
 

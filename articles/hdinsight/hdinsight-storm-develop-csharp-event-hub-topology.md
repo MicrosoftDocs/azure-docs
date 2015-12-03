@@ -70,7 +70,7 @@ The most recent version of the **eventhubs-storm-spout-0.9-jar-with-dependencies
 
 Event Hubs is the data source for this example. Use the following steps to create a new Event Hub.
 
-1. From the [Azure portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
 
@@ -102,7 +102,7 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 Table storage will be used to hold the values that are read from Event Hubs because you can easily view Table storage from inside Visual Studio through **Server Explorer**. Use the following steps to create new Table storage:
 
-1. From the [Azure portal](https://manage.windowsazure.com), select **NEW** > **Data Services** > **Storage** > **Quick Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW** > **Data Services** > **Storage** > **Quick Create**.
 
 	![quick create storage](./media/hdinsight-storm-develop-csharp-event-hub-topology/storagecreate.png)
 
