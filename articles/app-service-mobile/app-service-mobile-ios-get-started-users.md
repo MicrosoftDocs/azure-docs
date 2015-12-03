@@ -43,5 +43,5 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 [iOS quick start]: app-service-mobile-ios-get-started.md
 
-[Azure Management Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
  

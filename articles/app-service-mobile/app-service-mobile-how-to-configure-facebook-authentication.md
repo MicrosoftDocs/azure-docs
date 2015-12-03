@@ -33,7 +33,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 ## <a name="register"> </a>Register your application with Facebook
 
-1. Log on to the [Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
  
 2. In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 
@@ -70,7 +70,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
 
 
-13. Back in the [Azure Management Portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
+13. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
 
 15. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
 
@@ -96,4 +96,4 @@ You are now ready to use Facebook for authentication in your app.
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Management Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
