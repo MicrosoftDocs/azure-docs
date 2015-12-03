@@ -7,4 +7,4 @@
 
 + **Node.js backend (via Node.js code)** :  
 
-Follow the [instructions for deploying a Node.js script to a Web App](https://azure.microsoft.com/documentation/articles/web-sites-nodejs-develop-deploy-mac/)
+Follow the [instructions for deploying a Node.js script to a Web App](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
