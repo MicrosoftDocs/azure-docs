@@ -66,7 +66,7 @@ To access queues in ASP.NET 5 projects, you need to include the following items 
 3. Get a **CloudQueueClient** object to reference the queue objects in your storage account.  
 
 	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Get a **CloudQueue** object to reference a specific queue.
 
