@@ -81,10 +81,12 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 The following example creates a new HPC Pack cluster using the
 configuration file MyConfigFile.xml, and specifies administrative
 credentials for installing the cluster.
+
 ```
 New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 <username> –AdminPassword <password>
 ```
+
 ### Additional considerations
 
 * The script uses the HPC Pack VM image in the Azure Marketplace to create the cluster head node. The current image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
