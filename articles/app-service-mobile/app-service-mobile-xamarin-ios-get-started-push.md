@@ -50,7 +50,7 @@ If you don't have an account yet, sign up for an Azure trial and get up to 10 fr
 
 To configure your app to send notifications, create a new hub and configure it for the platform notification services that you will use.  
 
-1. In the Azure portal, click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Mobile** > **Push** > **Notification Hub** > **+ Notification Hub**, and provide a name and namespace for a new notification hub, and then click the **OK** button.
+1. In the [Azure portal](https://portal.azure.com/), click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Mobile** > **Push** > **Notification Hub** > **+ Notification Hub**, and provide a name and namespace for a new notification hub, and then click the **OK** button.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
@@ -173,8 +173,6 @@ You have successfully completed this tutorial.
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 
  

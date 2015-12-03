@@ -63,8 +63,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 [Mobile Services Quick Start tutorial]: mobile-services-dotnet-backend-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md

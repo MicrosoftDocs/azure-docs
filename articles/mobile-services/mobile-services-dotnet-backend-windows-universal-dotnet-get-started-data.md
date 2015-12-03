@@ -121,8 +121,6 @@ This tutorial demonstrated the basics of enabling a universal Windows app projec
 
 [Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md

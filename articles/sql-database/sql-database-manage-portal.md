@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage Azure SQL Databases using the Azure portal" 
-	description="Learn how to use the Azure portal to manage a relational database in the cloud." 
+	pageTitle="Manage Azure SQL Databases using the Azure Classic Portal" 
+	description="Learn how to use the Azure Classic Portal to manage a relational database in the cloud using the Azure Classic Portal." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,24 +17,24 @@
 	ms.author="sstein"/>
 
 
-# Managing Azure SQL Databases using the Azure portal
+# Managing Azure SQL Databases using the Azure Classic Portal
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-The [Azure portal][Management Portal] allows you to create, monitor and manage Azure SQL databases and servers. This article will highlight the database operations that can be accomplished using the portal.
+The [Azure Classic Portal][Classic Portal] allows you to create, monitor and manage Azure SQL databases and servers. This article will highlight the database operations that can be accomplished using the Classic Portal.
 
->[AZURE.NOTE] If you are unfamiliar with the Azure portal, this [video tour provides a quick overview][Azure Portal Tour] of its general features and concepts.
+>[AZURE.NOTE] If you are unfamiliar with the Azure Classic Portal, this [video tour provides a quick overview][Azure Classic Portal Tour] of its general features and concepts.
 
 ![Database Overview](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1. Database management actions
 ![Db management actions](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-The Azure portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account. 
+The Azure Classic Portal provides a set of common database actions accessible at the top of a database blade. You can restore a database to a previous point in time, open a database in Visual Studio, copy a database to a new server, and export the database to an Azure storage account. 
 
 - [Restoring a SQL database](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [Open a SQL database in Visual Studio](sql-database-connect-query.md)
@@ -45,7 +45,7 @@ The Azure portal provides a set of common database actions accessible at the top
 
 Azure SQL databases by default feature monitoring charts for Database Throughput Unit (DTU), database size, and connection health. These monitoring charts can be customized and extended to additionally chart CPU percentage, Data IO percentage, Deadlocks, Log IO percentage or even the percentage of requests blocked by firewall. More information on how to customize monitoring charts can be found [here][Azure part monitoring].
 
-Additionally, alert rules can be setup to monitor a specified metric and alert a designated administrator and co-administrator when pre-set thresholds are reached. More information on how to setup alert rules in the Azure portal can be found [here][Azure part monitoring].
+Additionally, alert rules can be setup to monitor a specified metric and alert a designated administrator and co-administrator when pre-set thresholds are reached. More information on how to setup alert rules in the Azure Classic Portal can be found [here][Azure part monitoring].
 
 ## 3. Database security & auditing
 ![Database security](./media/sql-database-manage-portal/sqldatabase_security.png)
@@ -62,7 +62,7 @@ Azure SQL databases can also be configured to mask sensitive data to non-privile
 ## 4. Geo-replication
 ![Geo-replication](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the portal allows you to select the Azure region you would like the secondary database to reside in. 
+Azure SQL databases can be configured to asynchronously replicate committed transactions to a secondary database. The geo-replication part on the Classic Portal allows you to select the Azure region you would like the secondary database to reside in. 
 
 - [Geo-Replication](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -75,8 +75,8 @@ Azure SQL databases can be configured to asynchronously replicate committed tran
 * [Monitoring SQL Database using Dynamic Management Views][]   
 * [Transact-SQL Reference (SQL Database)][]
   
-  [Azure Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
-  [Management Portal]: https://portal.azure.com
+  [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
+  [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
   [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
   [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database

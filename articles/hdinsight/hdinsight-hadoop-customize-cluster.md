@@ -31,7 +31,7 @@ HDInsight clusters can be customized in a variety of other ways as well, such as
 additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml, 
 hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common locations 
 in the cluster. These customizations can be done through Azure PowerShell, the Azure 
-HDInsight .NET SDK, or the Azure Preview portal. For more information, see 
+HDInsight .NET SDK, or the Azure Portal. For more information, see 
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
 
 ## Script Action in the cluster creation process
@@ -73,9 +73,9 @@ Name | Script
 
 
 
-## Call scripts using the Azure Preview Portal
+## Call scripts using the Azure Portal
 
-**From the Azure Preview portal**
+**From the Azure Portal**
 
 1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal).
 2. Under Optional Configuration, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:

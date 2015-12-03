@@ -40,9 +40,9 @@ You should use your Marketplace account as the username and the primary account 
 
 One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Management Portal?** 
+**4. Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Classic Portal?** 
 
-This is a known issue with the Azure Management Portal Marketplace. The team is working to resolve this issue. 
+This is a known issue with the Azure Classic Portal Marketplace. The team is working to resolve this issue. 
 
 
 ##Questions about publishing from Azure Machine Learning on Marketplace
