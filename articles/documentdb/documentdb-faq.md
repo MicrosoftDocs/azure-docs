@@ -43,7 +43,7 @@ Yes, DocumentDB supports cross-document transactions expressed as JavaScript sto
 DocumentDB is a good choice for new web and mobile applications where scale, performance, and the ability to query over schema-free data is important. DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are [common use cases for DocumentDB](documentdb-use-cases.md).  
 
 ### Is DocumentDB HIPAA compliant?
-DocumentDB is not currently HIPAA compliant; however, becoming a HIPAA compliant Azure service is on the roadmap. For more information about Microsoft and HIPAA see [HIPAA and the HITECH Act](https://www.microsoft.com/TrustCenter/Compliance/HIPAA).
+DocumentDB is not currently HIPAA compliant; however, becoming a HIPAA compliant Azure service is on the roadmap. For more information about Microsoft and HIPAA see [HIPAA and the HITECH Act](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
 ### What are the scale limits of DocumentDB?
 DocumentDB accounts can be scaled in terms of storage and throughput by adding collections. Please see [DocumentDB limits](documentdb-limits.md) for the service quotas for the number of collections. If you require additional collections, please [contact support](documentdb-increase-limits.md) to have your account quota increased. 
