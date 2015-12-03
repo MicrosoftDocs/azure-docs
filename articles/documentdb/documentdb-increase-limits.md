@@ -47,7 +47,7 @@ The following table describes the DocumentDB quotas that can be adjusted by cont
 ##<a id="RequestQuotaIncrease"></a> Request a quota adjustment
 The following steps show how to request a quota adjustment.
 
-1. In the [Azure Preview portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
+1. In the [Azure Portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
 
 	![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 

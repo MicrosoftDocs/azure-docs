@@ -96,7 +96,7 @@ Follow these steps to create a Data Lake Store.
 
 ## Set up authentication for role-based access to Data Lake Store
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure Classic Portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
 To set up Active Directory authentication for Azure Data Lake, you must perform the following tasks.
 
@@ -265,7 +265,7 @@ The job output resembles the following:
 
 Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
 2. Click **Browse**, click **HDInsight clusters**, and then click the HDInsight cluster that you created.
 
