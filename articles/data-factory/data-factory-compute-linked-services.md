@@ -33,7 +33,7 @@ The on-demand HDInsight cluster is automatically created by the Azure Data Facto
 Note the following **important** points about on-demand HDInsight linked service:
 
 - You will not see the on-demand HDInsight cluster created in your Azure subscription; the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.
-- The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure Portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) article for details.
+- The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. You can access these logs from the Azure Classic Portal in the **Activity Run Details** blade. See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) article for details.
 - You will be charged only for the time when the HDInsight cluster is up and running jobs.
 
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
@@ -47,7 +47,7 @@ Note the following **important** points about on-demand HDInsight linked service
 	    "typeProperties": {
 	      "clusterSize": 4,
 	      "timeToLive": "00:05:00",
-	      "version": "3.1",
+	      "version": "3.2",
 		  "osType": "linux",
 	      "linkedServiceName": "MyBlobStore"
 	      "additionalLinkedServiceNames": [
@@ -65,17 +65,17 @@ Property | Description | Required
 type | The type property should be set to **HDInsightOnDemand**. | Yes
 clusterSize | The size of the on-demand cluster. Specify how many nodes you want to be in this on-demand cluster. | Yes
 timetolive | <p>The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.</p><p>For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.</p><p>Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.</p><p>If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.</p><p>Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set</p> | Yes
-version | Version of the HDInsight cluster | No
+version | Version of the HDInsight cluster. The default value is 3.1 for Windows cluster and 3.2 for Linux cluster. | No
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
-osType | Type of operating system. Allowed values are: windows (default) and linux | No
+osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
 
 ### Advanced Properties
 
 You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.
 
 Property | Description | Required
--------- | ----------- | --------
+:-------- | :----------- | :--------
 coreConfiguration | Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created. | No
 hBaseConfiguration | Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster. | No
 hdfsConfiguration | Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster. | No
@@ -94,7 +94,7 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.1",
+	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -119,6 +119,27 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	    }
 	  }
 	}
+
+### Node sizes
+You can specify the sizes of head, data, and zookeeper nodes using the following properties. 
+
+Property | Description | Required
+:-------- | :----------- | :--------
+headNodeSize | Specifies the size of the head node. The default value is: Large. See the **Specifying node sizes** section below for details. | No
+dataNodeSize | Specifies the size of the data node. The default value is: Large | No
+zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Small | No
+ 
+#### Specifying node sizes
+Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-size-specs.md#size-tables) article for string values you need to specify for the above properties. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7 GB memory, which may not be good enough for your scenario. 
+
+If you want to create D4 sized head nodes and worker nodes, you need to specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
+
+	"headNodeSize": "Standard_D4",	
+	"dataNodeSize": "Standard_D4",
+
+If you specify a wrong value for these properties, you may receive the following **error:**	Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
+
+
 
 ## Bring your own compute environment
 
@@ -169,7 +190,7 @@ See following topics if you are new to Azure Batch service:
 
 
 - [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
-- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Management Portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure Management Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
+- [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet to create an Azure Batch account (or) [Azure Classic Portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure Classic Portal. See [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) topic for detailed instructions on using the cmdlet.
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet to create an Azure Batch pool.
 
 ### Example

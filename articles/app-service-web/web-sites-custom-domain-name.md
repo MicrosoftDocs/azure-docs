@@ -35,13 +35,13 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Overview
 
-If you haven't already registered for an external domain name (i.e. not *.azurewebsites.net) already, the easiest way to set up a custom domain is to buy one directly in the [Azure preview portal](https://portal.azure.com). The process enables you to manage your web app's domain name directly in the portal instead of going to a third-party site like GoDaddy to manage it. Likewise, configuring the domain name in your web app is greatly simplified, whether your web app uses [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md) or not. For more information, see [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md).
+If you haven't already registered for an external domain name (i.e. not *.azurewebsites.net) already, the easiest way to set up a custom domain is to buy one directly in the [Azure Portal](https://portal.azure.com). The process enables you to manage your web app's domain name directly in the Portal instead of going to a third-party site like GoDaddy to manage it. Likewise, configuring the domain name in your web app is greatly simplified, whether your web app uses [Azure Traffic Manager](web-sites-traffic-manager-custom-domain-name.md) or not. For more information, see [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md).
 
 If you have a domain name already, or you want reserve domain from other domain registrars, here are the general steps to bring a custom domain name for web app (see [specific instructions for GoDaddy.com](web-sites-godaddy-custom-domain-name.md)):
 
 1. Reserve your domain name. This article does not cover that process. There are many domain registrars to choose from. When you sign up, their site will walk you through the process.
 1. Create DNS records that map the domain to your Azure web app.
-1. Add the domain name inside the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
+1. Add the domain name inside the [Azure Portal](https://portal.azure.com).
 
 Within this basic outline, there are specific cases to consider:
 
@@ -144,7 +144,6 @@ For more information please see: [Get started with Azure DNS](../dns/dns-getstar
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- Anchors. -->
 [Overview]: #overview

@@ -18,6 +18,10 @@
 
 # Recover your mobile service in the event of a disaster
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 When you use Azure Mobile Services to deploy an app, you can use its built-in features to ensure business continuity in the event of availability problems, such as server failures, network disruptions, data loss, and widespread facilities loss. By deploying your app using Azure Mobile Services you are taking advantage of many fault tolerance and infrastructure capabilities that you would have to design, implement, and manage if you were to deploy a traditional on-premise solution. Azure mitigates a large fraction of potential failures at a fraction of the cost.
 
 ## <a name="prepare"></a> Prepare for possible disasters
@@ -109,4 +113,3 @@ Now you should be in a state where your mobile service has been recovered to a n
 [Azure portal]: http://manage.windowsazure.com/
 [Azure Service Dashboard]: http://www.windowsazure.com/support/service-dashboard/
 [Automate mobile services with the Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
- 

@@ -22,7 +22,6 @@ This article describes the **SEGMENTS** tab of the **Mobile Engagement** portal.
 
 The Segments section of the UI allows you to work on segmenting your users based on the different behavior and analytics that you can get from the application and can also access through the Segments API. Segments are first computed 24 hours after they are created, and they are recomputed every 24 hours based on the latest analytics information. Once a segment is calculated, it displays a "Day to day history" chart each day.
 
-For more information, see: [API Documentation - Segments API][Link 4], [Troubleshooting Guide - Analytics][Link 21]
 
 >[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
@@ -103,6 +102,12 @@ Name your criterion in order to retrieve it in the complete funnel, and click Fi
 When you have finished setting up your criterion, it will appear in the segment funnel.
 Because a segment is based on analytics data, segments are computed once per day.
 In this example, 47,7% of the total end-users matched the criterion. They should be the users who have had a good experience and will be likely to provide a higher rating if you push them a notification asking them to rate the app in the store.
+
+
+## See also
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

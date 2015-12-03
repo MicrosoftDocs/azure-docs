@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Topologies for Azure AD Connect | Microsoft Azure"
+   pageTitle="Azure AD Connect: Supported topologies | Microsoft Azure"
    description="This topic details supported and unsupported topologies for Azure AD Connect"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Topologies for Azure AD Connect
