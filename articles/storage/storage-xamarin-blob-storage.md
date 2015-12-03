@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # How to use Blob Storage from Xamarin (Preview)
