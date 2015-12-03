@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
@@ -52,7 +52,7 @@ Sign into your work or school account:
 
 > [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 
-> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com#), and click on **Active Directory**.
+> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
 
 > 2. If no directory exists, select **Create your directory** and provide the requested information.
 
