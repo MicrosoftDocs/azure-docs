@@ -30,7 +30,7 @@ applications on Microsoft Azure.
 
 <br />
 ![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
-<br />
+<br /><br />
 
 ACS leverages Docker to ensure that your application containers are
 fully portable. It also supports your choice of Marathon, Chronos and
@@ -171,10 +171,10 @@ trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935)
 
 Videos
 ------
-Azure Con Announcement
+AzureCon Announcement:
 
 > [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
 
-Getting Started with ACS  
+Getting Started with ACS:  
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
