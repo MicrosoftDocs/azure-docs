@@ -1,15 +1,14 @@
 
 + **.NET backend (C#)**:  
 
-        1. In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
+	In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
 
 
                 using Microsoft.Azure.Mobile.Server.Config;
                 using Microsoft.Azure.NotificationHubs;
 
 
-
-        2. Replace the `PostTodoItem` method with the following code:  
+	Replace the `PostTodoItem` method with the following code:  
 
       
                 public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
