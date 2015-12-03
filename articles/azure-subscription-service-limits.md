@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -178,11 +178,19 @@ The following table shows the limits for Azure Biztalk Services.
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
-### Search Limits
+### Azure Search Limits
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+The pricing tier determines the capacity and limits of your search service.
 
-For additional information about maximum limits for the shared service, or a break down of limits on keys, requests and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+**Standard Tier**
+
+[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits-standard.md)]
+
+**Shared Tier (free multi-tenant service)**
+
+[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits-free.md)]
+
+To learn more about limits on keys, replica-partition combinations, requests, responses, and how to achieve high availability for different workloads, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services Limits
 
