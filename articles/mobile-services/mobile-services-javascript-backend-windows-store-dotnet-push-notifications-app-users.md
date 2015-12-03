@@ -93,7 +93,4 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 <!-- URLs. -->
 [Add authentication to your app]: ../mobile-services-windows-store-dotnet-get-started-users.md
-[Add push notifications to your app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
- 
+[Add push notifications to your app]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md 

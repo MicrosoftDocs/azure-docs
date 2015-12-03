@@ -104,9 +104,6 @@ Learn how to perform additional important tasks in Mobile Services:
 [Add authentication to an existing app]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Add push notifications to an existing app]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Troubleshoot Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
-
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: mobile-services-ios-get-started.md

@@ -28,7 +28,7 @@
 
 ##Overview
 
-This topic shows you how to use Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
+This topic shows you how to use Azure Mobile Services to leverage data in a Windows Phone 8 app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the [Azure classic portal] to view changes to data made when running the app.
 
 You can also see Nick Harris demonstrate this in the following video:
 >[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
@@ -59,7 +59,7 @@ This tutorial is built on the [GetStartedWithData app][Developer Code Samples si
 
    	Notice that the saved text is displayed in the list below.
 
-##<a name="create-service"></a>Create a new mobile service in the Management Portal
+##<a name="create-service"></a>Create a new mobile service in the Azure classic portal
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -79,7 +79,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   	This adds the Mobile Services client library to the project.
 
-3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+3. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service you just created.
 
 4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
@@ -154,7 +154,7 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
    	This sends a new item as an insert to the mobile service.
 
-3. In the [Management Portal], click **Mobile Services**, and then click your mobile service.
+3. In the [Azure classic portal], click **Mobile Services**, and then click your mobile service.
 
 4. Click the **Data** tab, then click **Browse**.
 
@@ -193,8 +193,7 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 
 <!-- URLs. -->
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146

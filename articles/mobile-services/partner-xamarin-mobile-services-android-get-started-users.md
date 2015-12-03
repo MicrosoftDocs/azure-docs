@@ -139,5 +139,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 <!-- URLs. -->
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328

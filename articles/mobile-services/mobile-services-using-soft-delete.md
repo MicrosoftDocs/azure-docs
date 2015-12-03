@@ -71,7 +71,7 @@ If you are creating a new table for your mobile service, you can enable soft del
 
 To enable soft delete on an existing table in the JavaScript backend:
 
-1. In the [Management Portal], click your mobile service. Then click the Data tab.
+1. In the [Azure classic portal], click your mobile service. Then click the Data tab.
 2. On the data page, click to select the desired table. Then click the **Enable Soft Delete** button in the command bar. If the table already has soft delete enabled, this button will not appear but you will be able to see the *\__deleted* column when clicking the **Browse** or **Columns** tab for the table.
 
     ![][0]
@@ -164,6 +164,6 @@ To learn more about scheduled jobs with JavaScript backend Mobile Services, see:
 <!-- URLs. -->
 [SQL bit type]: http://msdn.microsoft.com/library/ms177603.aspx
 [Offline data Sync for Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 
 

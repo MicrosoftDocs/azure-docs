@@ -30,7 +30,7 @@
 
 ##Overview
 
-This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application. You will create a simple *To Do List* app using Sencha Touch that utilizes a mobile service you define through the Management Portal. This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework.
+This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application. You will create a simple *To Do List* app using Sencha Touch that utilizes a mobile service you define through the Azure classic portal. This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework.
 
 If you prefer to watch a video, this clip follows the same steps as this tutorial. In the video, Arthur Kay  explains how to build a Sencha Touch application using an Azure Mobile Services backend.
 
@@ -56,10 +56,10 @@ A screenshot from the completed app is shown below:
 
 ##Create a TodoItems Table
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to create
+Once you have created your mobile service, you can follow an easy quickstart in the Azure classic portal to create
 a new database table for use in your mobile service.
 
-1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 2. In the quickstart tab, click **HTML** under **Choose platform** and expand **Create a new HTML app**.
 
@@ -71,10 +71,10 @@ a new database table for use in your mobile service.
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
-	> [AZURE.NOTE] Do NOT download the HTML app from the management portal. Instead, we will manually create a Sencha Touch application in the section below.
+	> [AZURE.NOTE] Do NOT download the HTML app from the Azure classic portal. Instead, we will manually create a Sencha Touch application in the section below.
 
 
-1. Take note of the **appKey** and **appUrl** in the Management Portal. You will use them in other sections of this tutorial.
+1. Take note of the **appKey** and **appUrl** in the Azure classic portal. You will use them in other sections of this tutorial.
 
     ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
@@ -686,7 +686,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
     This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table.
 
-  5. Back in the Management Portal, click the **Data** tab and then click the TodoItems table.
+  5. Back in the [Azure classic portal], click the **Data** tab and then click the TodoItems table.
 
     ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -724,3 +724,5 @@ For more information about getting started with Sencha Touch please visit the fu
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
+
+[Azure classic portal]: https://manage.windowsazure.com/

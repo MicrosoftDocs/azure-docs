@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Mobile Services Concepts"
-	description="Links to Mobile Services concepts topics found in the Help Drawer in the Azure portal."
+	description="Links to Mobile Services concepts topics found in the Help Drawer in the Azure classic portal."
 	services="mobile-services"
 	documentationCenter="na"
 	authors="ggailey777"
@@ -22,11 +22,11 @@
 
 &nbsp;
 
-The topics linked below provide information about specific behaviors of Microsoft Azure Mobile Services. These same topics are available as help in the Microsoft Azure Management Portal.
+The topics linked below provide information about specific behaviors of Microsoft Azure Mobile Services. These same topics are available as help in the Azure classic portal.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-The [overview topic](https://msdn.microsoft.com/library/azure/jj193167.aspx) describes the benefits of using Mobile Services and what tasks can be performed in the Management Portal. For more general information about Mobile Services and examples of how to use Mobile Services in your apps, see [Mobile Services Tutorials and Resources](https://azure.microsoft.com/documentation/services/mobile-services/).
+The [overview topic](https://msdn.microsoft.com/library/azure/jj193167.aspx) describes the benefits of using Mobile Services and what tasks can be performed in the Azure classic portal. For more general information about Mobile Services and examples of how to use Mobile Services in your apps, see [Mobile Services Tutorials and Resources](https://azure.microsoft.com/documentation/services/mobile-services/).
 
 ##Configuration
 The following topics provide information about creating, deleting and configuring Mobile Services:

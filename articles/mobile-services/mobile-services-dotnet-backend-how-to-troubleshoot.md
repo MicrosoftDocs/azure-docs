@@ -42,7 +42,7 @@ You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http:/
 2. Hit **F5**, which will build and run the project. On the start page, select **try it out**.
 
     >[AZURE.NOTE]
-    > If the service is hosted locally, clicking the link will direct you to the next page. However, if hosting in the cloud, you will be prompted for a set of credentials. This is to ensure that unauthenticated users don't have access to information about your API and payloads. In order to see the page, you need to log in with a **blank username** and your **application key** as the password. Your application key is available in the **Azure Management Portal** by navigating to the **Dashboard** tab for your mobile service and selecting **Manage keys**.
+    > If the service is hosted locally, clicking the link will direct you to the next page. However, if hosting in the cloud, you will be prompted for a set of credentials. This is to ensure that unauthenticated users don't have access to information about your API and payloads. In order to see the page, you need to log in with a **blank username** and your **application key** as the password. Your application key is available in the Azure classic portal by navigating to the **Dashboard** tab for your mobile service and selecting **Manage keys**.
     >
     > ![Authentication prompt to access help page][HelpPageAuth]
 
@@ -113,9 +113,9 @@ After you publish your service to Azure, the logs for the service instance runni
 
 ![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
-The same logs are also available in the **Azure Management Portal** on the **Logs** tab for your mobile service.
+The same logs are also available in the Azure classic portal on the **Logs** tab for your mobile service.
 
-![Logs in Azure Management Portal][LogsPortal]
+![Logs in Azure classic portal][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Debugging Cloud Assembly Resolution

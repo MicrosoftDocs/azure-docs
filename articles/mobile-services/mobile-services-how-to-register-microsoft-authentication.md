@@ -77,7 +77,7 @@ The first step in this section applies only to Windows Phone 8, Windows Phone 8.
 
     > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app. Only Windows Store app registrations will see a Package SID field.
 
-4. In the [Azure Management Portal], click the **Identity** tab for the mobile service, enter the client ID, client secret and package SID obtained from your identity provider, then click **Save**.
+4. In the [Azure classic portal], click the **Identity** tab for the mobile service, enter the client ID, client secret and package SID obtained from your identity provider, then click **Save**.
 
 	>[AZURE.NOTE]You do not need to supply a Package SID value for a Windows Phone 8, Windows Phone Store 8.1 Silverlight, or a non-Windows app.
 
@@ -92,4 +92,4 @@ Both your mobile service and your app are now configured to work with Microsoft 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/

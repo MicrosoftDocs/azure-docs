@@ -72,7 +72,7 @@ Now that you have created the mobile service, download your personalized mobile 
 
 In this section you will create a new Android app that is connected to your mobile service.
 
-1. In the [Management Portal], click **Mobile Services**, and then click the mobile service that you just created.
+1. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 2. In the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.
 
@@ -132,4 +132,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/

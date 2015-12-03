@@ -51,7 +51,7 @@ To get started, you must first download and import your publish settings. Then y
 
 	azure account download
 
-This opens your default browser and prompts you to sign in to the Management Portal. After signing in, your `.publishsettings` file is downloaded. Note the location of this saved file.
+This opens your default browser and prompts you to sign in to the Azure classic portal. After signing in, your `.publishsettings` file is downloaded. Note the location of this saved file.
 
 Next, import the `.publishsettings` file by running the following command, replacing `<path-to-settings-file>` with the path to your `.publishsettings` file:
 
@@ -109,9 +109,9 @@ The following command creates a new table with public `read` permission but with
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-The following table shows the script permission value compared to the permission value in the [Azure Management Portal].
+The following table shows the script permission value compared to the permission value in the [Azure classic portal].
 
-|Script value|Management Portal value|
+|Script value|Portal value|
 |========|========|
 |`public`|Everyone|
 |`application`(default)|Anybody with the application key|
@@ -183,7 +183,7 @@ For more information about registering scripts, see [Mobile Services server scri
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 

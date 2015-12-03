@@ -27,7 +27,7 @@
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+This topic shows you how to use the job scheduler functionality in the Azure classic portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 
 + Archiving old or duplicate data records.
 + Requesting and storing external data, such as tweets, RSS entries, and location information.
@@ -105,7 +105,7 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 
 1. Expand the ScheduledJobs folder and open the SampleJob.cs project file.
 
-	This class, which inherits from **ScheduledJob**, represents a job that can be scheduled, in the Azure Management Portal, to run on a fixed schedule or on demand.
+	This class, which inherits from **ScheduledJob**, represents a job that can be scheduled, in the Azure classic portal, to run on a fixed schedule or on demand.
 
 2. Replace the contents of SampleJob.cs with the following code:
 
@@ -250,7 +250,7 @@ The job must be registered in the **Scheduler** tab so that Mobile Services can 
 
 3. Republish the mobile service project to Azure.
 
-4. In the [Azure Management Portal], click Mobile Services, and then click your app.
+4. In the [Azure classic portal], click Mobile Services, and then click your app.
 
 2. Click the **Scheduler** tab, then click **+Create**.
 
@@ -268,11 +268,11 @@ The job must be registered in the **Scheduler** tab so that Mobile Services can 
 
 	>[AZURE.NOTE]A POST request can still be used to start the scheduled job. However, the authorization defaults to user, which means that the request must include the application key in the header.
 
-4. (Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.
+4. (Optional) In the [Azure classic portal], click manage for the database associated with your mobile service.
 
     ![][6]
 
-5. In the Management portal execute a query to view the changes made by the app. Your query will be similar to the following query but use your mobile service name as schema name instead of `todolist`.
+5. In the Azure classic portal, execute a query to view the changes made by the app. Your query will be similar to the following query but use your mobile service name as schema name instead of `todolist`.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -299,7 +299,7 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

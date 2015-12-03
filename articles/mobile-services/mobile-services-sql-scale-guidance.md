@@ -37,7 +37,7 @@ This topic walks you through these basic sections:
 <a name="Diagnosing"></a>
 ## Diagnosing Problems
 
-If you suspect your mobile service is experiencing problems under load, the first place to check is the **Dashboard** tab for your service in the [Azure Management Portal][]. Some of the things to verify here:
+If you suspect your mobile service is experiencing problems under load, the first place to check is the **Dashboard** tab for your service in the [Azure classic portal]. Some of the things to verify here:
 
 - Your usage meters including **API Calls** and **Active Devices** meters are not over quota
 - **Endpoint Monitoring** status indicates service is up (only available if service is using the Standard tier and Endpoint Monitoring is enabled)
@@ -55,7 +55,7 @@ While the Web and Business Editions are fully supported, they will be retired on
 
 To convert a mobile service using the Web and Business Edition to the Basic, Standard, and Premium service tiers, follow these steps.
 
-1. Launch the [Azure Management Portal][].
+1. Launch the [Azure classic portal].
 2. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
 3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, or Premium service tier.
 4. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
@@ -73,7 +73,7 @@ For more information on when to use each tier, see [Reasons to Use the New Servi
 
 Once you are familiar with the different database tiers, we can explore database performance metrics to help us reason about scaling within and among the tiers.
 
-1. Launch the [Azure Management Portal][].
+1. Launch the [Azure classic portal].
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
 4. Select the **SQL Database** name in the **Database Settings** section. This will navigate to the Azure SQL Database tab in the portal.
@@ -85,12 +85,12 @@ Once you are familiar with the different database tiers, we can explore database
     - *Storage*
 7. Inspect the metrics over the time window when your service was experiencing issues.
 
-    ![Azure Management Portal - SQL Database Metrics][PortalSqlMetrics]
+    ![Azure classic portal - SQL Database Metrics][PortalSqlMetrics]
 
 If any metric exceeds 80% utilization for an extended period of time, this could indicate a performance problem. For more detailed information on understanding database utilization, see [Understanding Resource Use](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource).
 
 If the metrics indicate your database is incurring high utilization, consider **scaling up the database to a higher service tier** as a first mitigation step. To immediately resolve issues, consider using the **Scale** tab for your database to scale up your database. This will result in an increase in your bill.
-![Azure Management Portal - SQL Database Scale][PortalSqlScale]
+![Azure classic portal - SQL Database Scale][PortalSqlScale]
 
 As soon as possible, consider these additional mitigation steps:
 
@@ -109,11 +109,11 @@ It is frequently useful to configure alerts for key database metrics as a proact
 1. Navigate to the **Monitoring** tab for the database you want to set up alerts for
 2. Ensure the relevant metrics are displayed as described in the previous section
 3. Select the metric you want to set an alert for and select **Add Rule**
-    ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
+    ![Azure classic portal - SQL Alert][PortalSqlAddAlert]
 4. Provide a name and description for the alert
-    ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+    ![Azure classic portal - SQL Alert Name and Description][PortalSqlAddAlert2]
 5. Specify the value to use as the alert threshold. Consider using **80%** to allow for some reaction time. Also be sure to specify an email address that you actively monitor.
-    ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
+    ![Azure classic portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
 For more information on diagnosing SQL issues, see [Advanced Diagnostics](#AdvancedDiagnosing) at the bottom of this document.
 
@@ -154,7 +154,7 @@ Indexing small tables may not be optimal because it can take the query optimizer
 
 To set the index for a column in the JavaScript backend, do the following:
 
-1. Open your mobile service in the [Azure Management Portal][].
+1. Open your mobile service in the [Azure classic portal].
 2. Click the **Data** tab.
 3. Select the table you want to modify.
 4. Click the **Columns** tab.
@@ -214,16 +214,16 @@ Imagine a scenario where you are about to send a push notification to all your c
 This section covers some more advanced diagnostic tasks, which may be useful if the steps so far have not addressed the issue fully.
 
 ### Prerequisites
-To perform some of the diagnostic tasks in this section, you need access to a management tool for SQL databases such as **SQL Server Management Studio** or the management functionality built into the **Azure Management Portal**.
+To perform some of the diagnostic tasks in this section, you need access to a management tool for SQL databases such as **SQL Server Management Studio** or the management functionality built into the **Azure classic portal**.
 
 SQL Server Management Studio is a free Windows application, which offers the most advanced capabilities. If you do not have access to a Windows machine (for example if you are using a Mac), consider provisioning a Virtual Machine in Azure as shown in [Create a Virtual Machine Running Windows Server](../virtual-machines-windows-tutorial.md) and then connecting remotely to it. If you intend to use the VM primarily for the purpose of running SQL Server Management Studio, a **Basic A0** (formerly "Extra Small") instance should be sufficient.
 
-The Azure Management Portal offers a built-in management experience, which is more limited, but is available without a local install.
+The Azure classic portal offers a built-in management experience, which is more limited, but is available without a local install.
 
 The following steps walk you through obtaining the connection information for the SQL database backing your mobile service and then using either of the two tools to connect to it. You may pick whichever tool you prefer.
 
 #### Obtain SQL connection information
-1. Launch the [Azure Management Portal][].
+1. Launch the [Azure classic portal].
 2. On the Mobile Services tab, select the service you want to work with.
 3. Select the **Configure** tab.
 4. Select the **SQL Database** name in the **Database Settings** section. This will navigate to the Azure SQL Database tab in the portal.
@@ -253,12 +253,12 @@ The following steps walk you through obtaining the connection information for th
     - Password: *password you picked when creating server*
 3. You should now be connected.
 
-    ![Azure Management Portal - SQL Database][PortalSqlManagement]
+    ![Azure classic portal - SQL Database][PortalSqlManagement]
 
 <a name="AdvancedDiagnosing" />
 ### Advanced Diagnostics
 
-A lot of diagnostic tasks can be completed easily right in the **Azure Management Portal**, however some advanced diagnostic tasks are only possible via **SQL Server Management Studio** or the **SQL Database Management Portal**.  We will take advantage of dynamic management views, a set of views populated automatically with diagnostic information about your database. This section provides a set of queries we can run against these views to examine various metrics. For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
+A lot of diagnostic tasks can be completed easily right in the **Azure classic portal**, however some advanced diagnostic tasks are only possible via **SQL Server Management Studio** or the **SQL Database Management Portal**.  We will take advantage of dynamic management views, a set of views populated automatically with diagnostic information about your database. This section provides a set of queries we can run against these views to examine various metrics. For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
 
 After completing the steps in the previous section to connect to your database in SQL Server Management Studio, select your database in **Object Explorer**. Expanding **Views** and then **System Views** reveals a list of the management views. To execute the queries below, select **New Query**, while you have selected your database in **Object Explorer**, then paste the query and select **Execute**.
 
@@ -274,7 +274,7 @@ To execute any of the queries below, past it into the window and select **Run**.
 
 #### Advanced Metrics
 
-The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
+The Azure classic portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
 
     SELECT TOP 10 *
     FROM sys.resource_stats
@@ -458,7 +458,7 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 
 <!-- LINKS -->
 
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 [Azure SQL Database Documentation]: http://azure.microsoft.com/documentation/services/sql-database/
 [Managing SQL Database using SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
