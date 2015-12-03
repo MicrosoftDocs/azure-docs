@@ -49,8 +49,8 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 <br>
 
 | Feature Type| Features| Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
-| ---- | ---- | :--: | :--: | :--: | :--: |
-| **Common features**| Directory objects| Up to 500,000 objects| No object limit| No object limit|  |
+| --- | --- | --- | --- | --- | --- |
+| **Common features**| Directory objects| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | SSO to SaaS apps, custom apps, Application Proxy apps| 10 apps per user| 10 apps per user| no limit| 10 apps per user|
 |  | Self-service password change for cloud users| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
@@ -73,6 +73,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | **Preview**: Privileged Identity Management|  |  | ![Check][12]|  |
 | **Azure Active Directory Join – Windows 10 only related features**| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
+
 
 
 
