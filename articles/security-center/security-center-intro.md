@@ -42,7 +42,7 @@ Azure Security Center delivers easy and effective threat prevention, detection, 
 | | Suggests ways to stop the current attack and help prevent future attacks |
 
 ## Introductory walkthrough
-Azure Security Center is accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). To access, [sign in to the portal](https://ms.portal.azure.com/), select **Browse**, and scroll to the **Security Center** option or select the **Security Center** tile you previously pinned to the portal dashboard.
+Azure Security Center is accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). To access, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to the **Security Center** option or select the **Security Center** tile you previously pinned to the portal dashboard.
 
 ![][1]
 
