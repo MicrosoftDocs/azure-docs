@@ -268,7 +268,7 @@ You can detect and resolve write conflicts in server scripts. This is a good ide
 
 The following steps walk you through adding the server update script and testing it.
 
-1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Azure classic portal], click **Mobile Services**, and then click your app.
 
    	![][7]
 
@@ -383,8 +383,7 @@ This tutorial demonstrated how to enable a Windows Store app to handle write con
 [Add authentication to your app]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [Add push notifications to your app]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146

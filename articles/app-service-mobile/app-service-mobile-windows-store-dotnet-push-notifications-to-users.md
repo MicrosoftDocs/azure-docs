@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="12/02/2015"
 	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
@@ -79,7 +79,8 @@ Your app is now set up to register user device with the user login information.
             string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
             // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+            NotificationHubClient Hub = NotificationHubClient
+            	.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
             // get the current user id and create tag to identify user
             ServiceUser authenticatedUser = this.User as ServiceUser;

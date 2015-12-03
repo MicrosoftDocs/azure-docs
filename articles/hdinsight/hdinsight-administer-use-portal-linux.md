@@ -17,14 +17,14 @@
 	ms.date="11/19/2015"
 	ms.author="larryfr"/>
 
-# Manage Hadoop clusters in HDInsight by using the Azure preview portal
+# Manage Hadoop clusters in HDInsight by using the Azure Portal
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 
-Using the [Azure preview portal][preview-portal], you can provision and manage Linux-based Hadoop clusters in Azure HDInsight.
+Using the [Azure Portal][preview-portal], you can provision and manage Linux-based Hadoop clusters in Azure HDInsight.
 
-> [AZURE.NOTE] The steps in this document are specific to working with Linux-based Hadoop clusters. For information on working with Windows-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-management-portal.md)
+> [AZURE.NOTE] The steps in this document are specific to working with Linux-based Hadoop clusters. For information on working with Windows-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-management-portal.md)
 
 
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
@@ -47,11 +47,11 @@ Before you begin this article, you must have the following:
 
 You can provision HDInsight clusters from the Azure portal by using the following steps:
 
-1. Sign in to the [Azure Preview Portal][preview-portal].
+1. Sign in to the [Azure Portal][preview-portal].
 
 2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__
 
-	![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![Creating a new cluster in the Azure Portal](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. Enter a __Cluster Name__, then select the __Cluster Type__ you wish to create. A green check will appear beside the __Cluster Name__ if it is available.
 
@@ -115,7 +115,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 		>
 		> Currently (8/25/2015) there is a limitation that only one Linux-based HDInsight cluster can be present on an Azure Virtual Network. 
         >
-        > You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
+        > You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure Portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
         >
         > If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
 
@@ -137,7 +137,7 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 ## Manage a cluster
 
-Selecting a cluster from the Azure preview portal will display essential information about the cluster, such as the name, resource group, operating system, and the URL for the cluster dashboard (used to access Ambari Web for Linux clusters.)
+Selecting a cluster from the Azure Portal will display essential information about the cluster, such as the name, resource group, operating system, and the URL for the cluster dashboard (used to access Ambari Web for Linux clusters.)
 
 ![Cluster details](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
@@ -157,7 +157,7 @@ Use the following to understand the icons at the top of this blade, and in the _
 
 * __Users (![users icon](./media/hdinsight-administer-use-portal-linux/users.png))__: Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
 
-	> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure preview portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+	> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure Portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
 
 * __Tags (![tag icon](./media/hdinsight-administer-use-portal-linux/tags.png))__: Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 

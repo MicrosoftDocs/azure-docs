@@ -93,10 +93,10 @@ When you press that button, a new background task starts, and first pushes all t
 
 2. Add some *ToDo* items, or mark some items as complete. Quit the device or simulator (or forcibly close the app) and restart. Verify that your changes have been persisted on the device because they are held in the local SQLite store.
 
-3. View the contents of the Azure *TodoItem* table. Verify that the new items have _not_ been synced to the server:
+3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have _not_ been synced to the server
 
-   	+ For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
-   	+ For the .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
+   	+ For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
+   	+ For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
 
 4. Turn on WiFi in the device or simulator. Next, press the **Refresh** button.
 

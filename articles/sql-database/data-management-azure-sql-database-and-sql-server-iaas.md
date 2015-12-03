@@ -61,7 +61,7 @@ In the following sections, we will learn about the SQL Server in the public clou
 
 **Microsoft Azure SQL Database (Azure SQL Database)** is a relational database-as-a-service hosted in the Azure cloud that falls into the industry categories of *software-as-a-service (SaaS)* and *platform-as-a-service (PaaS)*. Azure SQL Database is built on standardized hardware and software that is owned, hosted, and maintained by Microsoft. With SQL Database, you can develop directly on the service using built-in features and functionality. When using SQL Database, you pay-as-you-go with options to scale up or out for greater power.
 
-**SQL Server in Azure Virtual Machine (VM)** falls into the industry category *infrastructure-as-a-service (IaaS)* and allows you to run SQL Server inside a virtual machine in the cloud. Similar to Azure SQL Database, it is built on standardized hardware that is owned, hosted, and maintained by Microsoft. When using SQL Server in a VM, you can either bring your own SQL Server license to Azure or use one of the preconfigured SQL Server images in the Azure portal.
+**SQL Server in Azure Virtual Machine (VM)** falls into the industry category *infrastructure-as-a-service (IaaS)* and allows you to run SQL Server inside a virtual machine in the cloud. Similar to Azure SQL Database, it is built on standardized hardware that is owned, hosted, and maintained by Microsoft. When using SQL Server in a VM, you can either bring your own SQL Server license to Azure or use one of the preconfigured SQL Server images in the Azure Classic Portal.
 
 In general, these two SQL options are optimized for different purposes:
 

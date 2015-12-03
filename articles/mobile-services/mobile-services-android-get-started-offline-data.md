@@ -28,7 +28,7 @@
 
 Mobile apps can lose network connectivity when moving to an area without service, or due to network issues. For example, a construction industry app used at a remote construction site might need to enter scheduling data that is synced up to Azure later. With Azure Mobile Services offline sync, you can keep working when network connectivity is lost, which is essential to many mobile apps. With offline sync, you work with a local copy of your Azure SQL Server table, and periodically re-sync the two.
 
-In this tutorial, you'll update the app from the [Mobile Services Quick Start tutorial] to enable offline sync, and then test the app by adding data offline,  syncing those items to the online database, and verifying the changes in the Azure Management Portal.
+In this tutorial, you'll update the app from the [Mobile Services Quick Start tutorial] to enable offline sync, and then test the app by adding data offline,  syncing those items to the online database, and verifying the changes in the Azure classic portal.
 
 Whether you are offline or connected, conflicts can arise any time multiple changes are made to data.  A future tutorial will explore handling sync conflicts, where you choose which version of the changes to accept. In this tutorial, we assume no sync conflicts and any changes you make to existing data will be applied directly to the Azure SQL Server.
 
@@ -183,12 +183,12 @@ One thing which is important to point out: if there are pending changes in the l
 
 3. View the contents of the Azure *TodoItem* table. Verify that the new items have _not_ been synced to the server:
 
-   - For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
+   - For the JavaScript backend, go to the Azure classic portal, and click the Data tab to view the contents of the `TodoItem` table.
    - For the .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
 
 4. Turn on WiFi in the device or simulator. Next, press the **Refresh** button.
 
-5. View the TodoItem data again in the Azure portal. The new and changed TodoItems should now appear.
+5. View the TodoItem data again in the Azure classic portal. The new and changed TodoItems should now appear.
 
 
 ## Next Steps
