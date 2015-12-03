@@ -114,7 +114,7 @@ To create a report of who granted/revoked what kind of access to/from whom on wh
 
 > [AZURE.NOTE] Access changes can be queried for the past 90 days (in 15 day batches).
 
-The follow example lists all access changes in the subscription for the past 7 days.
+The following example lists all access changes in the subscription for the past 7 days.
 
 ![](./media/role-based-access-control-configure/access-change-history.png)
 
