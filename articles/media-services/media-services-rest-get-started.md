@@ -47,7 +47,7 @@ The following tasks are shown in this quickstart.
 
 ## <a id="create_ams"></a>Create a Media Services account using Portal
 
-1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the [Azure Classic Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
 	![Media Services Quick Create](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
@@ -1209,7 +1209,7 @@ If this topic didn't contain what you were expecting, is missing something, or i
 
 
 <!-- URLs. -->
-  [Management Portal]: http://manage.windowsazure.com/
+  [Azure Classic Portal]: http://manage.windowsazure.com/
 
 
- 
+

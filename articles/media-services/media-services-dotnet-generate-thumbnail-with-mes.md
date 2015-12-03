@@ -369,7 +369,7 @@ The following considerations apply:
 	NOTE: (Step and Range are ignored when Start is set to {Best})
 	
 	- Defaults: Start:{Best}
-- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, AMS will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
+- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
 
 ##Media Services learning paths

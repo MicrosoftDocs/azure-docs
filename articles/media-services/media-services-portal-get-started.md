@@ -1,6 +1,6 @@
 <properties
-	pageTitle=" Get started with delivering content on demand using the Azure portal | Microsoft Azure"
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure portal."
+	pageTitle=" Get started with delivering content on demand using the Azure Classic Portal | Microsoft Azure"
+	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure Classic Portal."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -17,13 +17,13 @@
 	ms.author="juliako"/>
 
 
-# Get started with delivering content on demand using the Azure portal
+# Get started with delivering content on demand using the Azure Classic Portal
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure portal.
+This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery application using the Azure Classic Portal.
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
 
@@ -39,7 +39,7 @@ This tutorial includes the following tasks:
 
 ## Create an Azure Media Services account
 
-1. In the [Azure portal](https://manage.windowsazure.com/), click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **New**, click **Media Service**, and then click **Quick Create**.
 
 	![Media Services Quick Create](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -79,7 +79,7 @@ With dynamic packaging you only need to store and pay for the files in single st
 
 To change the number of streaming reserved units, do the following:
 
-1. In the [Azure portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
 2. Select the STREAMING ENDPOINTS page. Then, click the streaming endpoint that you want to modify.
 
@@ -98,7 +98,7 @@ To change the number of streaming reserved units, do the following:
 ## Upload content
 
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click the Media Services account name.
+1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click the Media Services account name.
 2. Select the CONTENT page.
 3. Click the **Upload** button on the page or at the bottom of the portal.
 4. In the **Upload content** dialog box, browse to the desired asset file. Click the file and then click **Open** or press Enter.
@@ -137,7 +137,7 @@ Note that in addition to being able to use the dynamic packaging capabilities, O
 
 ### Encode
 
-This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure portal.
+This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure Classic Portal.
 
 1.  Select the file that you would like to encode.
 	If encoding is supported for this file type, the **PROCESS** button will be enabled on the bottom of the CONTENT page.
@@ -173,7 +173,7 @@ This section describes the steps you can take to encode your content with Azure 
 
 To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
 
-When you use the Azure portal to publish your assets, the locators are created for you and you are provided with an OnDemand-based URL (if your asset contains an .ism file) or a SAS URL.
+When you use the Azure Classic Portal to publish your assets, the locators are created for you and you are provided with an OnDemand-based URL (if your asset contains an .ism file) or a SAS URL.
 
 A SAS URL has the following format.
 
@@ -210,7 +210,7 @@ To use the portal to publish an asset, do the following:
 
 ## Play content from the portal
 
-The Azure portal provides a content player that you can use to test your video.
+The Azure Classic Portal provides a content player that you can use to test your video.
 
 Click the desired video and then click the **Play** button at the bottom of the portal.
 
@@ -245,7 +245,7 @@ If this topic didn't contain what you were expecting, is missing something, or i
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->

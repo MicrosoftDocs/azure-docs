@@ -39,27 +39,27 @@ The following steps describe tasks involved in creating common live streaming ap
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-	This step could also be performed after you create your Channel. 
+This step could also be performed after you create your Channel.
 
 1. Create and start a Channel.
 
 1. Retrieve the Channel ingest URL.
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+The ingest URL is used by the live encoder to send the stream to the Channel.
 
 1. Retrieve the Channel preview URL.
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+Use this URL to verify that your channel is properly receiving the live stream.
 
 2. Create an asset.
 3. If you want for the asset to be dynamically encrypted during playback, do the following:
-	1. Create a content key.
-	1. Configure the content key's authorization policy.
-	1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
+1. Create a content key.
+1. Configure the content key's authorization policy.
+1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
 3. Create a program and specify to use the asset that you created.
 1. Publish the asset associated with the program by creating an OnDemand locator.
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
@@ -109,12 +109,12 @@ For details, see [Azure Free Trial](azure.microsoft.com).
 ##Connect to Media Services
 As a best practice, you should use an app.config file to store the Media Services name and account key.
 
->[AZURE.NOTE]To find the Name and Key values, go to the Azure Portal, select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Clicking on the icon next to each text box copies the value to the system clipboard.
+>[AZURE.NOTE]To find the Name and Key values, go to the Azure Classic Portal, select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Clicking on the icon next to each text box copies the value to the system clipboard.
 
 Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.
 
 
-	<?xml version="1.0"?>
+<?xml version="1.0"?>
 	<configuration>
 	  <appSettings>
 	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to Scale Media Processing using the Azure Portal"
+	pageTitle="How to Scale Media Processing using the Azure Classic Portal"
 	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with."
 	services="media-services"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# How to Scale Media Processing using the Azure Portal
+# How to Scale Media Processing using the Azure Classic Portal
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -35,7 +35,7 @@ In addition to specifying the reserved unit type, you can specify to provision y
 
 To change the reserved unit type and the number of encoding reserved units, do the following:
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
 2. Select the **ENCODING** page.
 

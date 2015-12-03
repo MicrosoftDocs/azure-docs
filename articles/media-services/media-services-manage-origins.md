@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to Manage Streaming Endpoints in a Media Services Account" 
-	description="This topic shows how to manage Streaming Endpoints using the Azure Management Portal." 
+	description="This topic shows how to manage Streaming Endpoints using the Azure Classic Portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -24,28 +24,28 @@
 - [Portal](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.  
+In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.
 
 In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which functionality which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration.
 
-Note that you are only billed when your StreamingEndpoint is in running state. 
+Note that you are only billed when your StreamingEndpoint is in running state.
 
-This topic gives an overview of the main functionalities that are provided by Streaming Endpoints. The topic also shows how to use the Azure Management Portal to manage streaming endpoints.
+This topic gives an overview of the main functionalities that are provided by Streaming Endpoints. The topic also shows how to use the Azure Classic Portal to manage streaming endpoints.
 
 
-##Adding and Deleting Streaming Endpoints 
+##Adding and Deleting Streaming Endpoints
 
-You can add or remove streaming endpoints using .NET SDK, REST API, or Azure Management Portal.
+You can add or remove streaming endpoints using .NET SDK, REST API, or Azure Classic Portal.
 
-To add\delete streaming endpoint using the Portal, do the following:
+To add\delete streaming endpoint using the Azure Classic Portal, do the following:
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
-2. Select the **STREAMING ENDPOINTS** page. 
-3. Click the ADD or DELETE button at the bottom of the page. Note that the default streaming endpoint cannot be deleted. 
-4. Click the START button to start the streaming endpoint. 
-5. Click on the name of the streaming endpoint to configure it.   
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+2. Select the **STREAMING ENDPOINTS** page.
+3. Click the ADD or DELETE button at the bottom of the page. Note that the default streaming endpoint cannot be deleted.
+4. Click the START button to start the streaming endpoint.
+5. Click on the name of the streaming endpoint to configure it.
 
-	![Streaming Endpoint page][streaming-endpoint]
+![Streaming Endpoint page][streaming-endpoint]
 
 
 By default you can have up to two streaming endpoints. If you need to request more, see [Quotas and limitations](media-services-quotas-and-limitations.md).
@@ -54,7 +54,7 @@ By default you can have up to two streaming endpoints. If you need to request mo
 
 Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and  additional functionality which currently includes [dynamic packaging capabilities](media-services-dynamic-packaging-overview.md). By default, streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve a streaming throughput, it is recommended to purchase Streaming Units. 
 
-You can scale using .NET SDK, REST API, or Azure Management Portal.
+You can scale using .NET SDK, REST API, or Azure Classic Portal.
 
 To change the number of streaming units using the Portal, do the following:
 
@@ -82,7 +82,7 @@ Streaming Endpoint enables you to configure the following properties when you ha
 
 For detailed information about these properties, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-You can configure these properties using .NET SDK, REST API, or Azure Management Portal.
+You can configure these properties using .NET SDK, REST API, or Azure Classic Portal.
 
 To change the number of streaming units using the Portal, do the following:
 
