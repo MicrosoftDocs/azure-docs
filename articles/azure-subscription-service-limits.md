@@ -184,11 +184,11 @@ The pricing tier determines the capacity and limits of your search service.
 
 **Standard Tier**
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits-standard.md)]
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
 
 **Shared Tier (free multi-tenant service)**
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits-free.md)]
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
 
 To learn more about limits on keys, replica-partition combinations, requests, responses, and how to achieve high availability for different workloads, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
