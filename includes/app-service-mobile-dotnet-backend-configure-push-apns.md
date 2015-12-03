@@ -95,5 +95,4 @@
                 
                 module.exports = table;
 
-	For more details, refer to [How to use the Azure Mobile Apps Node.js SDK](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
