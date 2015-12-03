@@ -31,7 +31,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup | None |
-| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS <li>Multi NIC <li>Load balancer (internal and internet-facing)</ol> |
+| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configuration: <ul><li>Premium LRS </ul> |
 | Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
 | Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
 | Register | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
