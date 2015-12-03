@@ -160,7 +160,7 @@ utilities. For example, you can use HPC Pack GUI tools or command-line commands 
     
     >[AZURE.TIP] Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, you’ll see an error similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store".
 
-3. When prompted, type the user name (in the form &lt;DomainName&gt;\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you have configured. You can choose to store the credentials locally for more job operations.
+3. When prompted, type the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you have configured. You can choose to store the credentials locally for more job operations.
 
     A list of jobs appears.
 
@@ -173,7 +173,7 @@ utilities. For example, you can use HPC Pack GUI tools or command-line commands 
 
     b. Click **Windows Credentials**, and then click **Add a generic credential**.
 
-    c. Specify the Internet address https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler, and provide the user name (in the form &lt;DomainName&gt;\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured.
+    c. Specify the Internet address https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler, and provide the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured.
 
 2. On the client computer, start HPC Job Manager.
 
@@ -184,6 +184,7 @@ utilities. For example, you can use HPC Pack GUI tools or command-line commands 
 **To use the web portal running on the head node**
 
 1. Start a web browser on the client computer, and type the following address:
+
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
     ```
