@@ -29,7 +29,7 @@ This customization makes many popular Python modules that are included in Anacon
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 
-To create a customized HDInsight Hadoop cluster, users need to log on to [**Management Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 
+To create a customized HDInsight Hadoop cluster, users need to log on to [**Classic Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 
 
 ![Create workspace][1]
 
@@ -68,7 +68,7 @@ Finally, click on the check mark to start the creation of the customized HDInsig
 
 Users must enable remote access to the Hadoop cluster in Azure before they can access the head node of the Hadoop cluster through RDP. 
 
-1. Log in to the [**Management Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, select your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
+1. Log in to the [**Classic Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, select your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
 	
 	![Create workspace][7]
 

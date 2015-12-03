@@ -111,7 +111,7 @@ This is how we built the prototype.
 
 **Configure Azure Search Service**
 
-1. Login to Azure portal and added the Search service to our subscription. We used the shared version (free with our subscription).
+1. Login to Azure Classic Portal and added the Search service to our subscription. We used the shared version (free with our subscription).
 2. Create an index. For the prototype, we used the portal UI to define the search fields and create the scoring profiles. Our scoring profile is based on location data: country | city |address (see: Add scoring profiles).
 3. Copy the service URL and admin api-key to our configuration files. This key is on the Search service page in the portal, and it’s used to authenticate to the service.
 	
