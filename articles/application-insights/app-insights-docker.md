@@ -60,15 +60,17 @@ Now that you've got somewhere to display the telemetry, you can set up the conta
 1.	Connect to your Docker host. 
 2.	Edit your instrumentation key into this command, and then run it:
  
-```
+    ```
 
     docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
-```
+    ```
 
-3. If your application is instrumented with the Application Insights SDK for Java, add the following line into the ApplicationInsights.xml file in your project, under the <TelemetryInitializers> element:
+3. If your application is instrumented with the Application Insights SDK for Java, add the following line into the ApplicationInsights.xml file in your project, under the `<TelemetryInitializers>` element:
+
+    ```xml
 
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
-
+    ```
 
 Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
 
