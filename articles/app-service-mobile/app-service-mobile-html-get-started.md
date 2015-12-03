@@ -23,7 +23,7 @@
 &nbsp;  
 <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT] This topic is not currently supported by Mobile Apps because the quickstart for HTML/JavaScript apps has been temporarily removed from the Azure portal. We plan to bring it back in the very near future. Thanks you for your patience as we complete the Mobile Apps preview.
+>[AZURE.IMPORTANT] This topic is not currently supported by Mobile Apps because the quickstart for HTML/JavaScript apps has been temporarily removed from the Azure portal. We plan to bring it back in the very near future. Thanks you for your patience.
 
 ##Overview
 

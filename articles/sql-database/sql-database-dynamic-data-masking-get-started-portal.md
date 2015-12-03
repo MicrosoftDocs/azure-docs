@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure portal)"
-   description="How to get started with SQL Database Dynamic Data Masking in the Azure portal"
+   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)"
+   description="How to get started with SQL Database Dynamic Data Masking in the Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -16,10 +16,10 @@
    ms.date="10/20/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
-# Get started with SQL Database Dynamic Data Masking (Azure portal)
+# Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure portal](sql-database-dynamic-data-masking-get-started.md)
+- [Dynamic Data Masking - Azure Portal](sql-database-dynamic-data-masking-get-started.md)
 
 ## Overview
 
@@ -31,10 +31,10 @@ For example, a service representative at a call center may identify callers by s
 
 ## SQL Database Dynamic Data Masking basics
 
-You set up dynamic data masking policy in the Azure portal under the Auditing & Security tab for your database.
+You set up dynamic data masking policy in the Azure Classic Portal under the Auditing & Security tab for your database.
 
 
-> [AZURE.NOTE] To set up dynamic data masking in the Azure portal, see [Get started with SQL Database Dynamic Data Masking (Azure portal)](sql-database-dynamic-data-masking-get-started.md).
+> [AZURE.NOTE] To set up dynamic data masking in the Azure Portal, see [Get started with SQL Database Dynamic Data Masking (Azure Portal)](sql-database-dynamic-data-masking-get-started.md).
 
 
 ### Dynamic data masking permissions
@@ -61,9 +61,9 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
 <a name="Anchor1"></a>
 
-## Set up dynamic data masking for your database using the Azure classic portal
+## Set up dynamic data masking for your database using the Azure Classic Portal
 
-1. Launch the classic portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
+1. Launch the Azure Classic Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).
 
 2. Click the database you want to mask, and then click the **AUDITING & SECURITY** tab.
 

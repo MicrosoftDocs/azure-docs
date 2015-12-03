@@ -52,7 +52,4 @@ For more information on Azure App Service platform, see [Azure App Service].
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Get Started]: app-service-mobile-ios-get-started.md
 
-[Management Portal]: https://manage.windowsazure.com/
-[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[JavaScript backend version]: ../mobile-services-ios-get-started.md
  

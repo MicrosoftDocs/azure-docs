@@ -21,7 +21,7 @@ Lifecycle events and performance counters from [Docker](https://www.docker.com/)
 
 With Docker you distribute your apps in lightweight containers complete with all dependencies. They'll run on any host machine that runs a Docker Engine.
 
-When you run the Application Insights image on your Docker host, you'll get these benefits:
+When you run the [Application Insights image](https://hub.docker.com/r/microsoft/applicationinsights/) on your Docker host, you'll get these benefits:
 
 * Lifecycle telemetry about all the containers running on the host - start, stop, and so on.
 * Performance counters for all the containers. CPU, memory, network usage, and more.
@@ -60,12 +60,23 @@ Now that you've got somewhere to display the telemetry, you can set up the conta
 1.	Connect to your Docker host. 
 2.	Edit your instrumentation key into this command, and then run it:
  
-```
+    ```
 
-    docker run -v /var/run/docker.sock:/docker.sock -d https://hub.docker.com/r/microsoft/applicationinsights/ ikey=000000-1111-2222-3333-444444444
-```
+    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
+    ```
 
 Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
+
+## Update your app
+
+If your application is instrumented with the [Application Insights SDK for Java](app-insights-java-get-started.md), add the following line into the ApplicationInsights.xml file in your project, under the `<TelemetryInitializers>` element:
+
+```xml
+
+    <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
+```
+
+This adds Docker information such as container and host id to every telemetry item sent from your app.
 
 ## View your telemetry
 
@@ -96,7 +107,7 @@ To customize the view, click any chart, the grid heading, or use Add Chart.
 
 [Learn more about metrics explorer](app-insights-metrics-explorer.md).
 
-### Individual events
+### Docker container events
 
 
 ![example](./media/app-insights-docker/13.png)
@@ -109,15 +120,18 @@ to find the events you want. Click any event to get more detail.
 
 ![example](./media/app-insights-docker/14.png)
 
-### Processor time and available memory performance counters, enriched and grouped by Docker container name
+### Docker context added to app telemetry
+
+Request telemetry sent from the application instrumented with AI SDK, enriched with Docker context:
+
+![example](./media/app-insights-docker/16.png)
+
+Processor time and available memory performance counters, enriched and grouped by Docker container name:
 
 
 ![example](./media/app-insights-docker/15.png)
 
-### Request telemetry sent from application instrumented with AI SDK, enriched with Docker context
 
-
-![example](./media/app-insights-docker/16.png)
 
 
 

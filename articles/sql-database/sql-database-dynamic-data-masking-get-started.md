@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure portal)"
-   description="How to get started with SQL Database Dynamic Data Masking in the Azure portal"
+   pageTitle="Get started with SQL Database Dynamic Data Masking (Azure Portal)"
+   description="How to get started with SQL Database Dynamic Data Masking in the Azure Portal"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -17,10 +17,10 @@
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
-# Get started with SQL Database Dynamic Data Masking (Azure portal)
+# Get started with SQL Database Dynamic Data Masking (Azure Portal)
 
 > [AZURE.SELECTOR]
-- [Dynamic Data Masking - Azure classic portal](sql-database-dynamic-data-masking-get-started-portal.md)
+- [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
 
 ## Overview
 
@@ -32,7 +32,7 @@ For example, a service representative at a call center may identify callers by s
 
 ## SQL Database Dynamic Data Masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the Dynamic Data Masking operation in your SQL Database configuration blade or settings blade.
+You set up a dynamic data masking policy in the Azure Portal by selecting the Dynamic Data Masking operation in your SQL Database configuration blade or settings blade.
 
 
 ### Dynamic data masking permissions
@@ -62,9 +62,9 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
 The DDM recommendations engine flags certain fields from your database as potentially sensitive fields, which may be good candidates for masking. In the Dynamic Data Masking blade in the portal, you will see the recommended columns for your database. All you need to do is click **Add Mask** for one or more columns and then **Save** in order to apply a mask for these fields.
 
-## Set up dynamic data masking for your database using the Azure portal
+## Set up dynamic data masking for your database using the Azure Portal
 
-1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Launch the Azure Portal at [https://portal.azure.com](https://portal.azure.com).
 
 2. Navigate to the settings blade of the database that includes the sensitive data you want to mask.
 

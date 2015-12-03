@@ -46,7 +46,7 @@ Mobile Services provides two data model initializer base classes in a .NET backe
 
 Both initializers delete from the database all tables, views, functions, and procedures in the schema used by the mobile service.
 
-+ **ClearDatabaseSchemaIfModelChanges** <br/> Schema objects are deleted only when Code First detects a change in the data model. The default initializer in a .NET backend project downloaded from the [Azure Management Portal] inherits from this base class.
++ **ClearDatabaseSchemaIfModelChanges** <br/> Schema objects are deleted only when Code First detects a change in the data model. The default initializer in a .NET backend project downloaded from the [Azure classic portal] inherits from this base class.
 
 + **ClearDatabaseSchemaAlways**: <br/> Schema objects are deleted every time that the data model is accessed. Use this base class to reset the database without having to make a data model change.
 
@@ -114,7 +114,7 @@ The following steps turn on Migrations and apply data model changes in the proje
 
 10. Republish the mobile service to Azure, then run the client app to access the data and verify that data loads and no error occur.
 
-13. (Optional) In the [Azure Management Portal], select your mobile service, click **Configure** > **SQL Database**. This navigates to the SQL Database page for your mobile service's database.
+13. (Optional) In the [Azure classic portal], select your mobile service, click **Configure** > **SQL Database**. This navigates to the SQL Database page for your mobile service's database.
 
 14. (Optional) Click **Manage**, log in to your SQL Database server, then click **Design** and verify that the schema changes have been made in Azure.
 
@@ -174,7 +174,7 @@ This code calls the [AddOrUpdate] helper extension method to add seed data to th
 <!-- URLs -->
 [DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
 [Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
 [AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
 [TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx

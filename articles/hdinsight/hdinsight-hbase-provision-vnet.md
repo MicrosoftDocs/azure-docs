@@ -60,7 +60,7 @@ Azure Resource Manager enables you to work with the resources in your applicatio
 
 **To create a resource group**
 
-1. Sign in to the [Azure Preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, click **Management**, and then click **Resource group**.
 3. Type or select the following values:
 
@@ -74,7 +74,7 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 
 **To create a virtual network by using the Azure portal**
 
-1. Sign in to the [preview portal](https://portal.azure.com).
+1. Sign in to the [Portal](https://portal.azure.com).
 2. Click **NEW**, click **Networking**, and then click **Virtual network**.
 3. In **Select a deployment model**, select **Classic** if you will be using a Windows-based HDInsight cluster; select **Resource Manager** if you will be using a Linux-based HDInsight cluster. Finally, click **Create**.
 
@@ -115,10 +115,10 @@ A DNS server is optional, but necessary in some cases.  The procedure has been d
 
 **To create an HDInsight cluster**
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure preview portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. Type or select the following values:
 

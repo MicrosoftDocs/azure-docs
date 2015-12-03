@@ -130,8 +130,8 @@ service remain connected, and you can go back-and-forth between them:
 | ------------------- | --------------- | ---------------------- |
 |experiment canvas in Studio|**Go to web service**|web service configuration in Studio|
 |web service configuration in Studio|**View latest**|experiment canvas in Studio|
-|web service configuration in Studio|**Manage endpoints…**|endpoint management in Azure portal|
-|endpoint management in Azure portal|**Edit in Studio**|experiment canvas in Studio|
+|web service configuration in Studio|**Manage endpoints…**|endpoint management in Azure Classic Portal|
+|endpoint management in Azure Classic Portal|**Edit in Studio**|experiment canvas in Studio|
 
 ![](media\machine-learning-model-progression-experiment-to-web-service\connections-between-experiment-and-web-service.png)
 

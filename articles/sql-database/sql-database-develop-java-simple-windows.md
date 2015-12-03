@@ -58,7 +58,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 ## Connection string for your SQL Database
 
 
-The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure preview portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](sql-database-get-started.md).
+The code sample creates a `Connection` object by using a connection string. You can find the connection string by using the [Azure Portal](http://portal.azure.com/). For details about finding the connection string, see [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
 > [AZURE.NOTE] JTDS JDBC driver
