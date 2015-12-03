@@ -182,11 +182,11 @@ The following table shows the limits for Azure Biztalk Services.
 
 The pricing tier determines the capacity and limits of your search service.
 
-**Standard Tier**
+####Standard Tier
 
 [AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
 
-**Shared Tier (free multi-tenant service)**
+####Shared Tier (part of a multi-tenant service, free to Azure subscribers)
 
 [AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
 
