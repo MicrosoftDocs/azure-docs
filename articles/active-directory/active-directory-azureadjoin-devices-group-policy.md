@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Connect domain-joined devices to Azure AD for Windows 10 experiences | Microsoft Azure" 
 	description="Explains how administrators can configure group policies to enable devices to be domain-joined to the enterprise network." 
 	services="active-directory" 
@@ -60,7 +60,7 @@ To enable conditional access, you can create policy that allow access to ‘doma
 
 Azure AD Connect will enable computers on-premises to be provisioned as device objects in the cloud. To deploy Azure AD Connect please refer to Enabling your directory for hybrid management with Azure AD Connect.
 
- - If you followed a [custom installation for Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-get-started-custom/) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in on-premise Active Directory**, described below.
+ - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in on-premise Active Directory**, described below.
  - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before) you will have to follow the **Configure AD FS claim rules** procedure below.
 
 ### Create a service connection point (SCP) in on-premises Active Directory

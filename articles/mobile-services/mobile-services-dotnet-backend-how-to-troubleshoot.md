@@ -18,6 +18,11 @@
 
 # Troubleshoot the Mobile Services .NET Backend
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 Developing with Mobile Services is usually easy and painless, but even then things can sometimes go wrong. This tutorial covers some techniques that let you troubleshoot common problems that can arise with the Mobile Services .NET backend.
 
 1. [HTTP Debugging](#HttpDebugging)
@@ -29,7 +34,7 @@ Developing with Mobile Services is usually easy and painless, but even then thin
 <a name="HttpDebugging"></a>
 ## HTTP Debugging
 
-When developing apps with Mobile Services, you usually take advantage of the Mobile Services client SDK for the platform you are using (Windows Store, iOS, Android, etc). However some times it is helpful to drop down to the HTTP level and observe the raw calls as they happen on the network. This approach is particularly useful when debugging connectivity and serialization issues. With the Mobile Services .NET backend you can use this approach in combination with Visual Studio local and remote debugging (more on that in the next section) to get a complete idea of the the path a HTTP call makes before it invokes your service code.  
+When developing apps with Mobile Services, you usually take advantage of the Mobile Services client SDK for the platform you are using (Windows Store, iOS, Android, etc). However some times it is helpful to drop down to the HTTP level and observe the raw calls as they happen on the network. This approach is particularly useful when debugging connectivity and serialization issues. With the Mobile Services .NET backend you can use this approach in combination with Visual Studio local and remote debugging (more on that in the next section) to get a complete idea of the the path a HTTP call makes before it invokes your service code.
 
 You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http://www.telerik.com/fiddler) is a popular tool commonly used by developers for this purpose. To make developers' lives easier, Mobile Services bundles a web-based HTTP debugger (also referred to as the "test client) right with your mobile service, reducing the need for external tooling. When hosting your mobile service locally, it will be available at a URI similar to [http://localhost:59233](http://localhost:59233) and when hosting in the cloud, the URI will be of the form [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). The following steps work the same way regardless of where the service is hosted:
 
@@ -37,7 +42,7 @@ You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http:/
 2. Hit **F5**, which will build and run the project. On the start page, select **try it out**.
 
     >[AZURE.NOTE]
-    > If the service is hosted locally, clicking the link will direct you to the next page. However, if hosting in the cloud, you will be prompted for a set of credentials. This is to ensure that unauthenticated users don't have access to information about your API and payloads. In order to see the page, you need to log in with a **blank username** and your **application key** as the password. Your application key is available in the **Azure Management Portal** by navigating to the **Dashboard** tab for your mobile service and selecting **Manage keys**.
+    > If the service is hosted locally, clicking the link will direct you to the next page. However, if hosting in the cloud, you will be prompted for a set of credentials. This is to ensure that unauthenticated users don't have access to information about your API and payloads. In order to see the page, you need to log in with a **blank username** and your **application key** as the password. Your application key is available in the Azure classic portal by navigating to the **Dashboard** tab for your mobile service and selecting **Manage keys**.
     >
     > ![Authentication prompt to access help page][HelpPageAuth]
 
@@ -108,9 +113,9 @@ After you publish your service to Azure, the logs for the service instance runni
 
 ![Logs in Visual Studio Server Explorer][LogsServerExplorer]
 
-The same logs are also available in the **Azure Management Portal** on the **Logs** tab for your mobile service.
+The same logs are also available in the Azure classic portal on the **Logs** tab for your mobile service.
 
-![Logs in Azure Management Portal][LogsPortal]
+![Logs in Azure classic portal][LogsPortal]
 
 <a name="AssemblyResolution"></a>
 ## Debugging Cloud Assembly Resolution

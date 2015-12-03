@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # My credit card doesn’t go through when I try to sign up for Azure
 This article discusses common causes of sign-up issues using a credit or debit card.

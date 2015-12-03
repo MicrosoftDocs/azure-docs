@@ -1,4 +1,4 @@
-<properties
+﻿<properties
  pageTitle="Submit jobs to an HPC Pack cluster in Azure | Microsoft Azure"
  description="Learn how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure"
  services="virtual-machines"
@@ -32,7 +32,7 @@ run job submission tools.
 ## Prerequisites
 
 * **HPC Pack head node deployed in an Azure VM** - You can use
-automated tools such as an [Azure quickstart template](https://azure.microsoft.com/en-us/documentation/templates/) or an [Azure PowerShell script](virtual-machines-hpcpack-cluster-powershell-script.md)
+automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](virtual-machines-hpcpack-cluster-powershell-script.md)
 to deploy the head node and cluster, or you can deploy the cluster
 manually in Azure as you would for an on-premises cluster. You will need the DNS
 name of the head node and the credentials of a cluster administrator to

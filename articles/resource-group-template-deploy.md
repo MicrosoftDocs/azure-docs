@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
 
-This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Microsoft Azure preview portal.
+This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Azure portal.
 
 For an introduction to Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
@@ -32,17 +32,7 @@ When deploying an application with a template, you can provide parameter values 
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
-    Earlier than Azure PowerShell 1.0 Preview:
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Azure PowerShell 1.0 Preview:
+    Azure PowerShell 1.0:
 
          PS C:\> Login-AzureRmAccount
 
@@ -219,14 +209,14 @@ With Visual Studio, you can create a resource group project and deploy it to Azu
 
 For an introduction to using Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-## Deploy with the preview portal
+## Deploy with the portal
 
-Guess what?  Every application that you create through the [preview portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
+Guess what?  Every application that you create through the [portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
 Simply, select the **New** icon and you will be on your way toward deploying an application through Azure Resource Manager.
 
 ![New](./media/resource-group-template-deploy/new.png)
 
-For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
+For more information about using the portal with Azure Resource Manager, see [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
 
 
 ## Parameter file

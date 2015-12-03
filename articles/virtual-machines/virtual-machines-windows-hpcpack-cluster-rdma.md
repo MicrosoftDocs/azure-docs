@@ -79,7 +79,7 @@ in an Azure VM.
 
 6. **Create a new cloud service and a storage account**
 
-    Use the Azure portal to create a cloud service and a storage account for the deployment in a region where the compute intensive instances are available. (Don’t associate the cloud service and storage account with an existing affinity group used for other deployments.)
+    Use the Azure classic portal to create a cloud service and a storage account for the deployment in a region where the compute intensive instances are available. (Don’t associate the cloud service and storage account with an existing affinity group used for other deployments.)
 
 7. **Create an Azure node template**
 

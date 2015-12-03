@@ -57,7 +57,7 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 
 
-### Manual deployment with the Azure portal
+### Manual deployment with the Azure classic portal
 
 
 
