@@ -438,7 +438,7 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview][./sql-data-warehouse-overview-develop/].
+For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
 
