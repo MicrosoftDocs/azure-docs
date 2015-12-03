@@ -76,13 +76,13 @@ Select access settings in the essentials section of the resource group blade. Th
 ## Manage access using Azure PowerShell
 Access can be managed used Azure RBAC commands in the Azure PowerShell tools.
 
--	Use `Get-AzureRoleDefinition` to list RBAC roles available for assignment and to inspect the operations to which they grant access.
+-	Use `Get-AzureRmRoleDefinition` to list RBAC roles available for assignment and to inspect the operations to which they grant access.
 
--	Use `Get-AzureRoleAssignment` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `ExpandPrincipalGroups` parameter to list access assignments to the specified user as well as to the groups of which the user is member. Use the `IncludeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
+-	Use `Get-AzureRmRoleAssignment` to list RBAC access assignments effective at the specified subscription or resource group or resource. Use the `ExpandPrincipalGroups` parameter to list access assignments to the specified user as well as to the groups of which the user is member. Use the `IncludeClassicAdministrators` parameter to also list classic Subscription Administrator and Co-Administrators.
 
--	Use `New-AzureRoleAssignment` to grant access to users, groups and applications.
+-	Use `New-AzureRmRoleAssignment` to grant access to users, groups and applications.
 
--	Use `Remove-AzureRoleAssignment` to remove access.
+-	Use `Remove-AzureRmRoleAssignment` to remove access.
 
 See [Manage access using Azure PowerShell](role-based-access-control-manage-access-powershell.md) for more detailed examples of managing access using Azure PowerShell.
 
@@ -105,12 +105,12 @@ All access changes happening in your Azure subscriptions get logged in Azure eve
 ### Create a report with Azure PowerShell
 To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the following PowerShell command:
 
-    Get-AzureAuthorizationChangeLog
+    `Get-AzureAuthorizationChangeLog`
 
 ### Create a report with Azure CLI
 To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the Azure command line interface (CLI) command:
 
-    azure authorization changelog
+    `azure authorization changelog`
 
 > [AZURE.NOTE] Access changes can be queried for the past 90 days (in 15 day batches).
 
@@ -128,7 +128,8 @@ Create a custom role in Azure RBAC if none of the built-in roles meets your spec
 
 Following is an example custom role definition that allows monitoring and restarting virtual machines:
 
-`{
+```
+{
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
   "IsCustom": true,
@@ -154,7 +155,7 @@ Following is an example custom role definition that allows monitoring and restar
     "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
   ]
 }
-`
+```
 ### Actions
 The actions property of a custom role specifies the Azure operations to which the role grants access. It is a collection of operation strings that identify securable operations of Azure resource providers. Operation strings that contain wildcards (\*) grant access go all operations that match the operation string. For instance:
 
