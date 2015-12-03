@@ -23,7 +23,7 @@
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Microsoft Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
-[AZURE.INCLUDE [preview portal](../../includes/hdinsight-azure-preview-portal.md)]
+[AZURE.INCLUDE [Portal](../../includes/hdinsight-azure-preview-portal.md)]
 
 * [Apache Storm Tutorial: Get started with the Storm Starter samples for big data analytics on HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
 
@@ -41,11 +41,11 @@ You must have the following to successfully complete this Apache Storm tutorial:
 
 Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure storage account for use with your cluster:
 
-1. Sign in to the [Azure preview portal][preview-portal].
+1. Sign in to the [Azure Portal][preview-portal].
 
 2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__.
 
-	![Create a new cluster in the Azure preview portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![Create a new cluster in the Azure Portal](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
 3. Enter a __Cluster Name__, and then select __Storm__ for the __Cluster Type__. A green check appears beside the __Cluster Name__ if it is available.
 

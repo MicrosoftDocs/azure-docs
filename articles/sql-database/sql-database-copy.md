@@ -22,11 +22,11 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-copy.md)
+- [Azure Portal](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [SQL](sql-database-copy-transact-sql.md)
 
-The following steps show you how to copy a SQL database with the [Azure portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
+The following steps show you how to copy a SQL database with the [Azure Portal](https://portal.azure.com). The database copy operation creates a new SQL database. The copy is a snapshot backup of your database that you create on either the same server or a different server.
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [Business Continuity Overview](sql-database-business-continuity.md).
 
@@ -47,7 +47,7 @@ To copy a SQL database you need the following:
 
 Open the SQL database blade for the database you want to copy:
 
-1.	Go to the [Azure portal](https://portal.azure.com).
+1.	Go to the [Azure Portal](https://portal.azure.com).
 2.	Go to the database you want to copy: Browse > SQL databases
 3.	In the SQL database blade click **Copy** to open the **Copy** blade:
 

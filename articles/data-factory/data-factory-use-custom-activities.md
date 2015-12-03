@@ -233,7 +233,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 
 #### To use an on-demand HDInsight cluster
 
-1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
+1. In the **Azure Classic Portal**, click **Author and Deploy** in the Data Factory home page.
 2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
 2. Do the following in the JSON script:
 	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
@@ -374,7 +374,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 
 	(blob location), (name of the blob), (number of lines in the blob), (node on which the activity ran), (date time stamp)
 
-10.	Use the [Azure Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
+10.	Use the [Azure Classic Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
 
 	![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
 

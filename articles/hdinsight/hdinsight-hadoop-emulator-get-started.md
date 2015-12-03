@@ -437,7 +437,7 @@ Before you start with the instructions below, you must have created a storage ac
 
 **To create a container**
 
-1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
 2. Click **NEW** on the left, click **Data + Storage**, and then click **Storage**.
 3. In the Storage Account blade, configure the properties as shown in the screen capture below.
 	

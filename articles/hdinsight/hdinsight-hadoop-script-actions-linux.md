@@ -26,7 +26,7 @@ Script Actions are a way to customize Azure HDInsight clusters by specifying clu
 
 Script actions are Bash scripts that run on the cluster nodes during provisioning. A script action is executed as root, and provides full access rights to the cluster nodes.
 
-Script Action can be used when provisioning a cluster using the __Azure preview portal__, __Azure PowerShell__, or the __HDInsight .NET SDK__.
+Script Action can be used when provisioning a cluster using the __Azure Portal__, __Azure PowerShell__, or the __HDInsight .NET SDK__.
 
 For an walkthrough of customizing a cluster using Script Actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
 

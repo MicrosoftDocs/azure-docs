@@ -103,7 +103,7 @@ The end-to-end workflow is depicted below:
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Step 6: Monitor pipelines and data slices](#MainStep6). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Portal.
+6. [Step 6: Monitor pipelines and data slices](#MainStep6). In this step, you will monitor the pipelines, tables, and data slices by using the Azure Classic Portal.
 
 ## <a name="MainStep1"></a> Step 1: Upload sample data and scripts
 In this step, you upload all the sample data (including all the logs and reference data) and Hive/Pig scripts that are invoked by the workflows. The scripts you execute also create an Azure SQL database called **MarketingCampaigns**, tables, user-defined types, and stored procedures. 
@@ -199,7 +199,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
  
 ## <a name="MainStep3"></a> Step 3: Create linked services
 
-> [AZURE.NOTE] This articles uses the Azure PowerShell to create linked services, tables, and pipelines. See [Tutorial using Data Factory Editor][adftutorial-using-editor] if you want to perform this tutorial using Azure Portal, specifically Data Factory Editor. 
+> [AZURE.NOTE] This articles uses the Azure PowerShell to create linked services, tables, and pipelines. See [Tutorial using Data Factory Editor][adftutorial-using-editor] if you want to perform this tutorial using Azure Classic Portal, specifically Data Factory Editor. 
 
 In this step, you will create the following linked services: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService, and HDInsightLinkedService.
 
@@ -298,7 +298,7 @@ In this step, you will create the following tables:
  
 The picture above displays pipelines in the middle row and tables in the top and bottom rows. 
 
-The Azure Portal does not support creating data sets/tables yet, so you will need to use Azure PowerShell to create tables in this release.
+The Azure Classic Portal does not support creating data sets/tables yet, so you will need to use Azure PowerShell to create tables in this release.
 
 ### To create the tables
 

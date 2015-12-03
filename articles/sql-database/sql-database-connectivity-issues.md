@@ -150,7 +150,7 @@ To make this practical, your program could recognize a run time parameter that c
 ## Connection: Connection string
 
 
-The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure preview portal](http://portal.azure.com/).
+The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure Portal](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
@@ -204,7 +204,7 @@ Suppose your application has robust custom retry logic. It might retry the conne
 ## Connection: IP address
 
 
-You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure preview portal](http://portal.azure.com/).
+You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure Portal](http://portal.azure.com/).
 
 
 If you forget to configure the IP address, your program will fail with a handy error message that states the necessary IP address.

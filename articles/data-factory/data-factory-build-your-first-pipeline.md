@@ -168,7 +168,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
+- Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
 - Click [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) link at the top to perform the tutorial by using Visual Studio. 
 
