@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -442,7 +442,6 @@ follow these links to learn how to do more complex caching tasks.
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
