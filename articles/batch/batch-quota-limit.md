@@ -43,7 +43,7 @@ Tasks per compute node|4 x number of node cores
 
 View your Batch account quotas in the [Azure portal](https://portal.azure.com).
 
-1. In the preview portal, click **Batch accounts** and then the name of your Batch account.
+1. In the portal, click **Batch accounts** and then the name of your Batch account.
 
 2. On the account blade, click **Settings** > **Properties**.
 
