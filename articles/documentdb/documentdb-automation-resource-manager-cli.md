@@ -109,14 +109,12 @@ To create a new resource group, run the following command, specify the name of t
 
 	azure group create <resourcegroupname> <resourcegrouplocation>
 
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
+ - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
 For example:
 
 	azure group create new_res_group westus
-
-Requirements for the parameters are:
-
- - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
- - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 Which produces the following output:
 
@@ -142,15 +140,13 @@ Create a DocumentDB account in the new or existing resource group by entering th
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{\"databaseAccountOfferType\":\"Standard\"}" 
 
-For example: 
-
-    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{\"databaseAccountOfferType\":\"Standard\"}"
-
-Requirements for the parameters are:
-
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
  - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
  - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
+For example: 
+
+    azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{\"databaseAccountOfferType\":\"Standard\"}"
 
 Which produces the following output as your new account is provisioned:
 
@@ -241,14 +237,12 @@ To create a new resource group, run the following command, specify the name of t
 
 	azure group create <resourcegroupname> <databaseaccountlocation>
 
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
+ - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
 For example:
 
 	azure group create new_res_group westus
-
-Requirements for the parameters are:
-
- - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
- - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 Which produces the following output:
 
@@ -274,16 +268,14 @@ To use a parameter file:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
+ - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1.
+- `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1.
+ - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
+ - `<deploymentname>` is the optional name of the deployment.
+
 For example: 
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
-
-Requirements for the parameters are:
-
- - `<PathToTemplate>` The path to the azuredeploy.json file created in step 1.
-- `<PathToParameterFile>` The path to the azuredeploy.parameters.json file created in step 1.
- - `<resourcegroupname>` The name of the existing resource group in which to add a DocumentDB database account. 
- - `<deploymentname>` The optional name of the deployment.
 
 OR to specify the database account name parameter without a parameter file, and instead get prompted for the value, run the following command:
 
