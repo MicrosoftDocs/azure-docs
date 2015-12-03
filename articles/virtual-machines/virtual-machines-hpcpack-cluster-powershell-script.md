@@ -83,8 +83,7 @@ configuration file MyConfigFile.xml, and specifies administrative
 credentials for installing the cluster.
 
 ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
 ### Additional considerations
