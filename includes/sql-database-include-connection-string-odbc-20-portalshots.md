@@ -44,7 +44,7 @@ For more information, see:<br/>[Connection Strings and Configuration Files](http
 
 <!-- Image references. -->
 
-[1-select-sql]: ./media/sql-database-include-connection-string-20-portalshots/connection-string-select-sql.PNG
+[1-select-sql]: ./media/sql-database-include-connection-string-20-portalshots/connection-string-select-sql.png
 
 [2-select-database]: ./media/sql-database-include-connection-string-20-portalshots/connection-string-select-database.PNG
 
