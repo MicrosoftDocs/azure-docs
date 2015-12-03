@@ -116,7 +116,7 @@ You can Ambari Views from the Azure Portal, select your HDInsight cluster and th
 
 ![quick links section](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
-You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser, and then select the set of squares from the page menu (next to the __Admin__ link and button on the left of the page,) to list available views. Select the __Hive view__.
+You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser (where __CLUSTERNAME__ is the name of your HDInsight cluster,) and then select the set of squares from the page menu (next to the __Admin__ link and button on the left of the page,) to list available views. Select the __Hive view__.
 
 ![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 

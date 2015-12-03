@@ -49,6 +49,8 @@ You should see a page similar to the following:
 
 In the __Database Explorer__ section of the page, select the __default__ entry on the __Databases__ tab. This will display a list of tables in the default database. For a new HDInsight cluster, only one table should exist; __hivesampletable__.
 
+![database explorer with the default database expanded](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
+
 As new tables are added through the steps in this document, you can use the refresh icon in the upper right corner of the Database Explorer to refresh the list of available tables.
 
 ##<a name="hivequery"></a>Query editor
