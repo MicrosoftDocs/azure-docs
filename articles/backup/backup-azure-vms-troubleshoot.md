@@ -49,8 +49,6 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
 | Backup | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from Control Panel. | Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
 | Backup | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
-| Backup | Backup of a virtual machine with a load balancer configuration is not supported. | None <br><br>This applies to internal load balancers and internet-facing load balancers.|
-| Backup | Backup of a virtual machine with more than one NIC is not supported. | None |
 | Backup | Azure Virtual Machine Not Found. | This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so that backup jobs will not be created </ol> |
 | Backup | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 
