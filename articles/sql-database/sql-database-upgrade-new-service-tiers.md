@@ -31,9 +31,9 @@ The recommended pricing tier for each database is provided during the process of
 
 Depending on your specific environment the service may recommend upgrading some or all of your databases into an [elastic database pool](sql-database-elastic-pool.md).
 
-To see the recommended service tiers for your retired databases, you can use the [Azure preview portal](https://portal.azure.com) or PowerShell. For step-by-step directions see:
+To see the recommended service tiers for your retired databases, you can use the [Azure Portal](https://portal.azure.com) or PowerShell. For step-by-step directions see:
 
-- [Upgrade to SQL Database V12 (Azure Preview Portal)](sql-database-v12-upgrade.md)
+- [Upgrade to SQL Database V12 (Azure Portal)](sql-database-v12-upgrade.md)
 - [Upgrade to SQL Database V12 (PowerShell)](sql-database-upgrade-server.md)
 
 
@@ -89,7 +89,7 @@ The new service tier's features and performance levels are summarized and compar
 
 | Article | Description |
 |:--|:--|
-|[Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)| Overview, metrics, and capabilities for each service tier (and how to monitor database utilization in the management portal and by using DMVs). |
+|[Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)| Overview, metrics, and capabilities for each service tier (and how to monitor database utilization in the Classic Portal and by using DMVs). |
 |[Azure SQL Database Business Continuity](sql-database-business-continuity.md)|Details of the business continuity and disaster recovery features (point-in-time restore, geo-restore, geo-replication) available for the different service tiers.|
 |[SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/)|Detailed pricing information for the different service tiers and performance levels.|
 
@@ -101,21 +101,21 @@ After selecting an appropriate service tier that satisfies the requirements for 
 
 ## 2. Determine an acceptable performance level based on historical resource usage
 
-The Azure SQL Database service exposes information in the management portal, and in System Views, to provide you the suggested comparable new service tier and performance level for your existing Web or Business database.
+The Azure SQL Database service exposes information in the Classic Portal, and in System Views, to provide you the suggested comparable new service tier and performance level for your existing Web or Business database.
 
 Since Web and Business databases do not have any guaranteed DTUs/resource limits associated with them, we normalize the percentage values in terms of the amount of resources available to an S2 performance level database. The average DTU percentage consumption of a database at any specific interval can be calculated as the highest percentage value among CPU, IO and Log usage at that interval.
 
 
-Use the Azure preview portal for a high-level overview of DTU percentage usage, and then drill into the details using system views. 
+Use the Azure Portal for a high-level overview of DTU percentage usage, and then drill into the details using system views. 
 
-You can also use the Azure preview portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12.
+You can also use the Azure Portal to view the recommended service tier for your Web or Business database when you upgrade a server to Azure SQL Database V12.
 
-### How to view the recommended service tier in the Azure Preview Portal
+### How to view the recommended service tier in the Azure Portal
 The Azure portal recommends the appropriate service tier for your Web or Business database during the process of upgrading a server to SQL Database V12. The recommendation is based on a historical analysis of the resource consumption of the database.
 
 **New Management Portal**
 
-1. Log on to the [Azure preview portal](https://portal.azure.com) and browse to a server containing a Web or Business database.
+1. Log on to the [Azure Portal](https://portal.azure.com) and browse to a server containing a Web or Business database.
 2. Click the **Latest Update** part in the server blade.
 3. Click **Upgrade this server**.
 
@@ -128,9 +128,9 @@ The management portal provides insight into the DTU consumption for an existing 
 DTU information is available in the current Azure Portal.
 
 
-**Management Portal**
+**Classic Portal**
 
-1. Log on to the [management portal](https://manage.windowsazure.com) and navigate to an existing Web or Business database.
+1. Log on to the [Classic Portal](https://manage.windowsazure.com) and navigate to an existing Web or Business database.
 2. Click the **MONITOR** tab.
 3. Click **ADD METRICS**.
 4. Select **DTU percentage** and click the checkmark at bottom to confirm.
@@ -256,7 +256,7 @@ After you determine the appropriate service tier and performance level for your 
 
 | Management Tool | To change the service tier and performance level of a database|
 | :---| :---|
-| [Azure Management Portal](https://manage.windowsazure.com) | click the **SCALE** tab on your database's dashboard page. |
+| [Azure Classic Portal](https://manage.windowsazure.com) | click the **SCALE** tab on your database's dashboard page. |
 | [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | use the [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. |
 | [REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) | use the [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) command.|
 | [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | use the [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx) statement. |
@@ -275,7 +275,7 @@ Azure SQL Database provides progress information on management operations (like 
     and o.major_resource_id = '<database_name>'
     ORDER BY o.last_modify_time DESC;
 
-If you used the management portal for the upgrade, a notification is also available from within the portal for the operation.
+If you used the Classic Portal for the upgrade, a notification is also available from within the portal for the operation.
 
 ## 7.	Monitor the database after the upgrade
 After upgrade of the Web/Business database into the new tier, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. The following additional steps are recommended for monitoring the database.
@@ -296,7 +296,7 @@ After upgrade of the Web/Business database into the new tier, it is recommended 
 Additional [documentation](http://msdn.microsoft.com/library/dn800981.aspx) contains details of how to use this DMV.  [Azure SQL Database Performance Guidance](http://msdn.microsoft.com/library/azure/dn369873.aspx) covers how to monitor and tune your application.
 
 
-- **Alerts:** Set up 'Alerts' in the Azure Management Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Management Portal for various performance metrics like DTU, CPU, IO, and Log. 
+- **Alerts:** Set up 'Alerts' in the Azure Classic Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Classic Portal for various performance metrics like DTU, CPU, IO, and Log. 
 
 	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
 

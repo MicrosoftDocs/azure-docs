@@ -59,7 +59,7 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a>.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 2. navigate to the configuration blade of the SQL Data Warehouse database / SQL Server you want to audit. Click the **Settings** button on top and then, in the Setting blade, and select **Auditing**.
 
@@ -102,7 +102,7 @@ For more detailed instructions on working with the report template, read the <a 
 
 
 ##<a id="subheading-4">Practices for usage in production</a>
-The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> may be used.
+The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Classic Portal</a> may be used.
  
 
 ##<a id="subheading-5"></a>Storage Key Regeneration

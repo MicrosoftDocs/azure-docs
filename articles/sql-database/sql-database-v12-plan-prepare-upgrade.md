@@ -24,7 +24,7 @@
 This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12.
 
 
-A new [Azure preview portal](http://portal.azure.com/) is available to support your upgrade to V12.
+A new [Azure Portal](http://portal.azure.com/) is available to support your upgrade to V12.
 
 
 The following table lists other Help topics for V12.
@@ -91,7 +91,7 @@ The Web and Business service pricing tier is not supported on V12.
 If your V11 Azure SQL database is a Web or Business database, the upgrade process offers to switch your database to a supported tier. The upgrade recommends a tier that fits the workload history of your database. However, you can choose any supported tier you like.
 
 
-You can reduce the steps necessary during upgrade by switching your V11 database away from the Web-and-Business tier before you start the upgrade. You can do this by using the new [Azure preview portal](http://portal.azure.com/).
+You can reduce the steps necessary during upgrade by switching your V11 database away from the Web-and-Business tier before you start the upgrade. You can do this by using the new [Azure Portal](http://portal.azure.com/).
 
 
 If you are unsure which service tier to switch to, the S2 level of the Standard tier might be a sensible initial choice. Any lesser tier will have fewer resources than the Web and Business tier had.
@@ -127,18 +127,18 @@ Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details 
 There are three portals for Azure, and each has different abilities regarding SQL Database V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>This Azure preview portal is new and is still at preview status. This portal is not quite yet at full General Availability (GA). This portal:
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>This Azure Portal is new and is still at preview status. This portal is not quite yet at full General Availability (GA). This portal:
  - Can manage your V12 server and database.
  - Can upgrade your V11 database to V12.
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure portal might eventually be phased out. This portal:
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure Classic Portal might eventually be phased out. This portal:
  - Can manage your V12 server and database.
  - Can *not* upgrade your V11 database to V12.
 
 
 - (http://*yourservername*.database.windows.net)<br/>
-Azure SQL Database Management portal:
+Azure SQL Database Classic Portal:
  - Can*not* manage V12 servers.
 
 
@@ -153,7 +153,7 @@ We encourage you to connect to your Azure SQL databases with Visual Studio 2013 
 You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
 
 
-In the older Azure portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
+In the older Azure Classic Portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
 
 
 For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
@@ -185,7 +185,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 ### Export and import *after* upgrade to V12
 
 
-You can export or import a V12 database by using the [Azure preview portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
+You can export or import a V12 database by using the [Azure Portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
 
 
 - SQL Server Management Studio (SSMS)

@@ -18,7 +18,7 @@
 
 
 #Getting Started with Azure SQL Data Sync (Preview)
-In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Management portal.
+In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure Classic Portal.
 
 This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
@@ -26,7 +26,7 @@ This tutorial assumes minimal prior experience with SQL Server and Azure SQL Dat
 
 ## Step 1: Connect to the Azure SQL Database
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com).
+1. Sign in to the [Classic Portal](http://manage.windowsazure.com).
 
 2. Click **SQL DATABASES** in the left pane.
 
@@ -92,7 +92,7 @@ To register a database with the agent, follow the instructions at [Register a SQ
 <a id="StartNewSGWizard"></a>
 ### Step 4a: Start the New Sync Group wizard
 
-1.	Return to the [Management Portal](http://manage.windowsazure.com).
+1.	Return to the [Classic Portal](http://manage.windowsazure.com).
 2.	Click **SQL DATABASES**.
 3.	Click **ADD SYNC** at the bottom of the page then select New Sync Group from the drawer.
 
@@ -157,7 +157,7 @@ Repeat this step for each additional database you want to add to the sync group.
 
 Azure SQL Data Sync allows you to select tables and columns to synchronize. If you also want to filter a column so that only rows with specific values (such as, Age>=65) are synchronized, use the SQL Data Sync portal at Azure and the documentation at Select the Tables, Columns, and Rows to Synchronize to define the data to sync.
 
-1.	Return to the [Management Portal](http://manage.windowsazure.com).
+1.	Return to the [Classic Portal](http://manage.windowsazure.com).
 2.	Click **SQL DATABASES**.
 3.	Click the **SYNC** tab.
 4.	Click the name of this sync group.
@@ -179,7 +179,7 @@ Azure SQL Data Sync allows you to select tables and columns to synchronize. If y
 You can always synchronize a sync group by clicking SYNC at the bottom of the Data Sync landing page.
 If you want a sync group to synchronize on a schedule, you configure the sync group.
 
-1.	Return to the [Management Portal](http://manage.windowsazure.com).
+1.	Return to the [Classic Portal](http://manage.windowsazure.com).
 2.	Click **SQL DATABASES**.
 3.	Click the **SYNC** tab.
 4.	Click the name of this sync group.

@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@ It's recommended that you use the latest version of SSMS whenever you work with 
 
 Connecting to SQL Database requires that you know the server name on Azure. You might need to sign in to the portal to get this information.
 
-1.  Sign in to the [Azure Management Portal](http://manage.windowsazure.com).
+1.  Sign in to the [Azure Classic Portal](http://manage.windowsazure.com).
 
 2.  In the left pane, click **SQL Databases**.
 
