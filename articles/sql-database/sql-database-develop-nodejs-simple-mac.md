@@ -47,7 +47,7 @@ After your machine is configured with **node** and **npm**, navigate to a direct
 
 **npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.
 
-### A SQL Database
+### A SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 

@@ -50,7 +50,7 @@ Once you satisfy the requirements, make sure you are on Node.js version 0.8.9. Y
 Next navigate to node_modules\msnodesql folder and run the **msnodesql-0.2.1-v0.8-ia32** executible. Follow the steps from the installation wizard and hit finish when you are done. At this point you should have the Node.js SQL Server driver installed. Follow the next steps to get your connection string and then you should be able to connect to Azure SQL DB from your Node.js application.
 
 
-### A SQL Database
+### A SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 

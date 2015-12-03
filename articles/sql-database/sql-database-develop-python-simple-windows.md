@@ -50,7 +50,7 @@ Now install the pymssql driver using pip from command line. cd into C:/Python27 
 Instructions to enable the use pip can be found [here](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
 
 
-### A SQL Database
+### A SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 

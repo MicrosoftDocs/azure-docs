@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP on Windows to SQL DB | Microsoft Azure"
+	pageTitle="PHP retry logic to connect to SQL Database | Microsoft Azure"
 	description="Presents a sample PHP program that connects to Azure SQL Database from a Windows client with transient fault handling, and provides links to the necessary software components needed by the client."
 	services="sql-database"
 	documentationCenter=""
@@ -29,7 +29,7 @@ This topic illustrates how you can connect to Azure SQL Database from a client a
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### A SQL Database
+### A SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 

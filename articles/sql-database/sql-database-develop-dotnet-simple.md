@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use SQL Database from .NET (C#)"
+	pageTitle="Connect to SQL Database by using .NET (C#)"
 	description="Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
@@ -30,7 +30,7 @@
 
 .NET Framework is pre-installed with Windows. For Linux and Mac OS X you can download .NET Framework from the [Mono Project](http://www.mono-project.com/).
 
-### A SQL Database
+### A SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.  
 

@@ -44,7 +44,7 @@ Open your terminal and navigate to a directory where you plan on creating your p
 	sudo pip install pymssql
 
 
-### A SQL Database
+### A SQL database
 
 See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.
 
@@ -53,7 +53,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## Step 1:  Connect
+## Step 2:  Connect
 
 !!!!!sql-database-include-connection-string-details-20-portalshots.md
 
@@ -63,7 +63,7 @@ The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
-## Step 2: Execute a query
+## Step 3: Execute a query
 
 The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set which can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
@@ -78,7 +78,7 @@ The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Curso
 	    row = cursor.fetchone()
 
 
-## Step 3:  Insert a row
+## Step 4:  Insert a row
 
 In this example you will see how to execute an [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement safely, pass parameters which protect your application from [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) vulnerability, and retrieve the auto-generated [Primary Key](https://msdn.microsoft.com/library/ms179610.aspx) value.  
 
@@ -93,7 +93,7 @@ In this example you will see how to execute an [INSERT](https://msdn.microsoft.c
 	    row = cursor.fetchone()
 
 
-## Step 4:  Rollback a transaction
+## Step 5:  Rollback a transaction
 
 
 This code example demonstrates the use of transactions in which you:
