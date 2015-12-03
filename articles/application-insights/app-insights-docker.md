@@ -21,7 +21,7 @@ Lifecycle events and performance counters from [Docker](https://www.docker.com/)
 
 With Docker you distribute your apps in lightweight containers complete with all dependencies. They'll run on any host machine that runs a Docker Engine.
 
-When you run the Application Insights image on your Docker host, you'll get these benefits:
+When you run the [Application Insights image](https://hub.docker.com/r/microsoft/applicationinsights/) on your Docker host, you'll get these benefits:
 
 * Lifecycle telemetry about all the containers running on the host - start, stop, and so on.
 * Performance counters for all the containers. CPU, memory, network usage, and more.
@@ -62,8 +62,13 @@ Now that you've got somewhere to display the telemetry, you can set up the conta
  
 ```
 
-    docker run -v /var/run/docker.sock:/docker.sock -d https://hub.docker.com/r/microsoft/applicationinsights/ ikey=000000-1111-2222-3333-444444444
+    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
 ```
+
+3. If your application is instrumented with the Application Insights SDK for Java, add the following line into the ApplicationInsights.xml file in your project, under the <TelemetryInitializers> element:
+
+    <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
+
 
 Only one Application Insights image is required per Docker host. If your application is deployed on multiple Docker hosts, then repeat the command on every host.
 
