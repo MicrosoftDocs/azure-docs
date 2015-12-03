@@ -20,7 +20,7 @@
 
 ## Introduction
 
-The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point when failure is likely to occur. You can leverage this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, including an [Machine Learning][lnk_machine_learning] (ML) workspace complete with experiments for predicting the Remaining Useful Life (RUL) of an aircraft engine based on a public sample data set. The solution provides a full implementation of the business scenario as a starting point for you to plan and implement this type of IoT solution to meet your own specific business requirements.
+The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point when failure is likely to occur. You can leverage this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, including an [Azure Machine Learning][lnk_machine_learning] workspace complete with experiments for predicting the Remaining Useful Life (RUL) of an aircraft engine based on a public sample data set. The solution provides a full implementation of the business scenario as a starting point for you to plan and implement this type of IoT solution to meet your own specific business requirements.
 
 ## Logical architecture
 
@@ -38,11 +38,11 @@ The gray items represent components that implement *device administration* capab
 
 ## Simulated devices
 
-In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with 2 engines that map to a single aircraft. Each engine emits 4 types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 that provide the data necessary for the ML model to calculate the Remaining Useful Life (RUL) for that engine. Each simulated device sends the following telemetry messages to IoT Hub:
+In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with 2 engines that map to a single aircraft. Each engine emits 4 types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 that provide the data necessary for the Machine Learning model to calculate the Remaining Useful Life (RUL) for that engine. Each simulated device sends the following telemetry messages to IoT Hub:
 
 *Cycle count*. A cycle represents a completed flight of variable length between 2-10 hours in which telemetry data is captured every half hour for the duration of the flight.
 
-*Telemetry*. There are 4 sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to get useful results from the ML model for RUL. This model is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Analytics Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+*Telemetry*. There are 4 sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to get useful results from the Machine Learning model for RUL. This model is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Analytics Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
 The simulated devices can handle the following commands sent from an IoT hub:
 
@@ -59,7 +59,7 @@ IoT Hub provides device command acknowledgment.
 
 ## Event processor
 
-The **event processor** takes the average sensor values for a completed cycle and passes those values to an API that exposes the Azure Machine Learning trained model to calculate the RUL for an engine.
+The **event processor** takes the average sensor values for a completed cycle and passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
 
 ## Azure Machine Learning
 
@@ -82,7 +82,7 @@ You can view your provisioned resources by browsing to the Azure portal and th
 
 ![][img-resource-group]
 
-When you provision the preconfigured solution, you receive an email with a link to the ML workspace. You can also navigate to this ML workspace from the[azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
+When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to this Machine Learning workspace from the[azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
 
 ![][img-machine-learning]
 
