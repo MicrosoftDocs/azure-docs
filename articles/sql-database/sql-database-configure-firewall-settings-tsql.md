@@ -22,7 +22,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -35,7 +35,7 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 
 ## Manage server-level firewall rules through Transact-SQL
 
-1. Launch a query window through the Management Portal or through SQL Server Management Studio.
+1. Launch a query window through the Classic Portal or through SQL Server Management Studio.
 2. Verify you are connected to the master database.
 3. Server-level firewall rules can be selected, created, updated, or deleted from within the query window.
 4. To create or update server-level firewall rules, execute the sp_set_firewall rule stored procedure. The following example enables a range of IP addresses on the server Contoso.<br/>Start by seeing what rules already exist.
@@ -54,7 +54,7 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
  
 ## Database-level firewall rules
 
-1. After creating a server-level firewall for your IP address, launch a query window through the Management Portal or through SQL Server Management Studio.
+1. After creating a server-level firewall for your IP address, launch a query window through the Classic Portal or through SQL Server Management Studio.
 2. Connect to the database for which you want to create a database-level firewall rule.
 
 	To create a new or update an existing database-level firewall rule, execute the sp_set_database_firewall_rule stored procedure. The following example creates a new firewall rule named ContosoFirewallRule.

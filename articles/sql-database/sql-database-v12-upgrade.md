@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Upgrade to Azure SQL Database V12 using the Azure preview portal | Microsoft Azure" 
-	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure preview portal." 
+	pageTitle="Upgrade to Azure SQL Database V12 using the Azure Portal | Microsoft Azure" 
+	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure Portal." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,11 +17,11 @@
 	ms.author="sstein"/>
 
 
-# Upgrade to Azure SQL Database V12 using the Azure preview portal
+# Upgrade to Azure SQL Database V12 using the Azure Portal
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -55,7 +55,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Start the upgrade
 
-1. In the [Azure Preview Portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
+1. In the [Azure Portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
 2. Select **Latest SQL database update**, then select **Upgrade this server**.
 
       ![upgrade server][1]
@@ -100,7 +100,7 @@ After all databases on the server are eligible you are ready to start the upgrad
 
 ## Move your databases into an elastic database pool
 
-In the [Azure preview portal](https://ms.portal.azure.com/) browse to the V12 server and click **Add pool**.
+In the [Azure Portal](https://ms.portal.azure.com/) browse to the V12 server and click **Add pool**.
 
 -or-
 
