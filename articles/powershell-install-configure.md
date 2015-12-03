@@ -39,7 +39,7 @@ The module installs a customized console for Azure PowerShell. You can run the c
 ## Step 3: Connect
 The cmdlets need your subscription so they can manage your services. You can purchase an Azure subscription if you don't already have one. For instructions, see [How to buy Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-1. Type Add-AzureAccount
+1. Type **Add-AzureAccount**
 
 2. Type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 
