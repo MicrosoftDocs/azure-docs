@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/29/2015"
+   	ms.date="12/03/2015"
    	ms.author="nitinme"/>
 
 # Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux
@@ -174,11 +174,11 @@ Use the following steps from the Hive view to run a Hive query against data incl
     
 4. To the right of the Query Editor is a row of icons. Select the one that looks like a chain.
 
-    ![icons](./media/hdinsight-hadoop-linux-get-started/icons.png)
+    ![icons](./media/hdinsight-hadoop-linux-tutorial-get-started/icons.png)
     
     This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
     
-    ![visual explain image](./media/hdinsight-hadoop-linux-get-started/visualexplain.png)
+    ![visual explain image](./media/hdinsight-hadoop-linux-tutorial-get-started/visualexplain.png)
 
 5. Select the __SQL__ icon to switch back to the Query Editor, then create a new worksheet and enter the following query:
 
