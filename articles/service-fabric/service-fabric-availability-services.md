@@ -22,7 +22,7 @@ Azure Service Fabric services can be either stateful or stateless. This article 
 ## Availability of Service Fabric stateless services
 A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
 
-Creating a stateless service requires defining an instance count, which is the number of instances of the stateless service that should be running in the cluster. This is the number of copies of the application logic that will be instantiated in the cluster. Increasing the number of instances is the recommended way of scaling out a stateless service.
+Creating a stateless service requires defining an instance count, which is the number of instances of the stateless service that should be running in the cluster. This is the number of copies of the application logic that will be instantiated in the cluster. Increasing the number of instances is the recommended way of scaling up a stateless service.
 
 When a fault is detected on any instance of a stateless service, a new instance is created on some other eligible node in the cluster.
 
