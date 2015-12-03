@@ -16,7 +16,7 @@
      ms.date="11/23/2015"
      ms.author="dobett"/>
 
-# Tutorial: Create an IoT Hub using a C# program
+# Tutorial: Create an IoT hub using a C# program
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
