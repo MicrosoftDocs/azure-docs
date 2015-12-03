@@ -269,7 +269,7 @@ To use a parameter file:
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
  - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1.
-- `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1.
+ - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1.
  - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
