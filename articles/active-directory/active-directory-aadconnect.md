@@ -78,7 +78,7 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
-| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnt-user-signin.md) |
+| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md) |
 
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.
