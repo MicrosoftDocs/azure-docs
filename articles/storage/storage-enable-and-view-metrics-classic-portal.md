@@ -207,6 +207,6 @@ The capacity used by the metrics tables is also billable: you can use the follow
 
 - The capacity table for blobs has two rows added each day (provided user has opted in for logs): this implies that every day the size of this table increases by up to approximately 300 bytes.
 
-## Next-steps:
-[Enabling Storage logging and accessing log data](https://msdn.microsoft.com/library/dn782840.aspx)
+## Next steps:
+[Enabling Storage Analytics logging and accessing log data](https://msdn.microsoft.com/library/dn782840.aspx)
  

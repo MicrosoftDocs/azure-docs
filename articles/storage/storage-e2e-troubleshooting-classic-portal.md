@@ -147,7 +147,7 @@ You can use Message Analyzer to collect an HTTP/HTTPS network trace while your c
 2. Select **Tools | Fiddler Options**.
 3. In the Options dialog, ensure that **Capture HTTPS CONNECTs** and **Decrypt HTTPS Traffic** are both selected, as shown below.
 
-![Configure Fiddler Options](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
+![Configure Fiddler Options](./media/storage-e2e-troubleshooting-classic-portal/fiddler-options-1.png)
 
 For the tutorial, collect and save a network trace first in Message Analyzer, then create an analysis session to analyze the trace and the logs. To collect a network trace in Message Analyzer:
 
@@ -176,11 +176,11 @@ Once your application has been running for a period of time, you can review the 
 2. Click **Add Metrics** to display the **Choose Metrics** dialog.
 3. Scroll down to find the **Success Percentage** group, expand it, then select **Aggregate**, as shown in the picture below. This metric aggregates success percentage data from all Blob operations.
 
-![Choose Metrics](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
+![Choose Metrics](./media/storage-e2e-troubleshooting-classic-portal/choose-metrics-portal-1.png)
 
 In the Azure Classic Portal, you'll now see **Success Percentage** in the monitoring chart, along with any other metrics you may have added (up to six can be displayed on the chart at once). In the picture below, you can see that the percent success rate is somewhat below 100%, which is the scenario we'll investigate next by analyzing the logs in Message Analyzer:
 
-![Metrics chart in portal](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
+![Metrics chart in portal](./media/storage-e2e-troubleshooting-classic-portal/portal-metrics-chart-1.png)
 
 For more details on adding metrics to the Monitoring page, see [How to: Add metrics to the metrics table](storage-monitor-storage-account.md#addmonitoringmetrics).
 
@@ -217,7 +217,7 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 	- **Azure Storage View Layouts:** Azure Storage view layouts are predefined column layouts and groupings in the Analysis Grid.
 4. Restart Message Analyzer after you've installed the assets.
 
-![Message Analyzer Start Page](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
+![Message Analyzer Start Page](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
 > [AZURE.NOTE] Install all of the Azure Storage assets shown for the purposes of this tutorial.
 
@@ -233,7 +233,7 @@ You can import all of your saved log files (server-side, client-side, and networ
 
 The picture below shows an example session configured with server, client, and network trace log files.
 
-![Configure Message Analyzer Session](./media/storage-e2e-troubleshooting/configure-mma-session-1.png)
+![Configure Message Analyzer Session](./media/storage-e2e-troubleshooting-classic-portal/configure-mma-session-1.png)
 
 Note that Message Analyzer loads log files into memory. If you have a large set of log data, you will want to filter it in order to get the best performance from Message Analyzer.
 
@@ -255,13 +255,13 @@ The Storage Assets for Message Analyzer include Azure Storage View Layouts, whic
 
 The picture below shows the **View Layout** menu, available by selecting **View Layout** from the toolbar ribbon. The view layouts for Azure Storage are grouped under the **Azure Storage** node in the menu. You can search for `Azure Storage` in the search box to filter on Azure Storage view layouts only. You can also select the star next to a view layout to make it a favorite and display it at the top of the menu.
 
-![View Layout menu](./media/storage-e2e-troubleshooting/view-layout-menu.png)
+![View Layout menu](./media/storage-e2e-troubleshooting-classic-portal/view-layout-menu.png)
 
 To begin with, select **Grouped by ClientRequestID and Module**. This view layout groups log data from all three logs first by client request ID, then by source log file (or **Module** in Message Analyzer). With this view, you can drill down into a particular client request ID, and see data from all three log files for that client request ID.
 
 The picture below shows this layout view applied to the sample log data, with a subset of columns displayed. You can see that for a particular client request ID, the Analysis Grid displays data from the client log, server log, and network trace.
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/view-layout-client-request-id-module.png)
+![Azure Storage View Layout](./media/storage-e2e-troubleshooting-classic-portal/view-layout-client-request-id-module.png)
 
 >[AZURE.NOTE] Different log files have different columns, so when data from multiple log files is displayed in the Analysis Grid, some columns may not contain any data for a given row. For example, in the picture above, the 
 client log rows do not show any data for the **Timestamp**, **TimeElapsed**, **Source**, and **Destination** columns, because these columns do not exist in the client log, but do exist in the network trace. Similarly, the **Timestamp** column displays timestamp data from the server log, but no data is displayed for the **TimeElapsed**, **Source**, and **Destination** columns, which are not part of the server log. 
@@ -274,7 +274,7 @@ The Storage Assets also include color rules, which offer a visual means to ident
 
 To apply color rules, select **Color Rules** from the toolbar ribbon. You'll see the Azure Storage color rules in the menu. For the tutorial, select **Client Errors (StatusCode between 400 and 499)**, as shown in the picture below.
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/color-rules-menu.png)
+![Azure Storage View Layout](./media/storage-e2e-troubleshooting-classic-portal/color-rules-menu.png)
 
 In addition to using the Azure Storage color rules, you can also define and save your own color rules.
 
@@ -291,7 +291,7 @@ Next, we'll group and filter the log data to find all errors in the 400 range.
 
 The picture below shows the results of this grouping and filter. Expanding the **ClientRequestID** field beneath the grouping for status code 409, for example, shows an operation that resulted in that status code.
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/400-range-errors1.png)
+![Azure Storage View Layout](./media/storage-e2e-troubleshooting-classic-portal/400-range-errors1.png)
 
 After applying this filter, you'll see that rows from the client log are excluded, as the client log does not include a **StatusCode** column. To begin with, we'll review the server and network trace logs to locate 404 errors, and then we'll return to the client log to examine the client operations that led to them.
 
@@ -314,7 +314,7 @@ The Storage Assets include predefined filters that you can use to narrow log dat
 		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
 		(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
 
-![Azure Storage View Layout](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
+![Azure Storage View Layout](./media/storage-e2e-troubleshooting-classic-portal/404-filtered-errors1.png)
 
 ### Analyze your log data
 
@@ -322,7 +322,7 @@ Now that you have grouped and filtered your data, you can examine the details of
 
 The picture below shows a specific request where a Get Blob operation yielded a 404 because the blob did not exist. Note that some columns have been removed from the standard view in order to display the relevant data.
 
-![Filtered Server and Network Trace Logs](./media/storage-e2e-troubleshooting/server-filtered-404-error.png)
+![Filtered Server and Network Trace Logs](./media/storage-e2e-troubleshooting-classic-portal/server-filtered-404-error.png)
 
 Next, we'll correlate this client request ID with the client log data to see what actions the client was taking when the error happened. You can display a new Analysis Grid view for this session to view the client log data, which opens in a second tab:
 
@@ -335,7 +335,7 @@ Next, we'll correlate this client request ID with the client log data to see wha
 
 Message Analyzer locates and selects the first log entry where the search criteria matches the client request ID. In the client log, there are several entries for each client request ID, so you may want to group them on the **ClientRequestId** field to make it easier to see them all together. The picture below shows all of the messages in the client log for the specified client request ID. 
 
-![Client log showing 404 errors](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
+![Client log showing 404 errors](./media/storage-e2e-troubleshooting-classic-portal/client-log-analysis-grid1.png)
 
 Using the data shown in the view layouts in these two tabs, you can analyze the request data to determine what may have caused the error. You can also look at requests that preceded this one to see if a previous event may have led to the 404 error. For example, you can review the client log entries preceding this client request ID to determine whether the blob may have been deleted, or if the error was due to the client application calling a CreateIfNotExists API on a container or blob. In the client log, you can find the blob's address in the **Description** field; in the server and network trace logs, this information appears in the **Summary** field.
 

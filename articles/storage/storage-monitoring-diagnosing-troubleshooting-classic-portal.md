@@ -909,13 +909,13 @@ At the time of writing Application Insights is in preview. You can find more inf
 [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]: #appendix-5
 
 <!--Image references-->
-[1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
-[2]: ./media/storage-monitoring-diagnosing-troubleshooting/portal-screenshot.png
-[3]: ./media/storage-monitoring-diagnosing-troubleshooting/hour-minute-metrics.png
-[4]: ./media/storage-monitoring-diagnosing-troubleshooting/high-e2e-latency.png
-[5]: ./media/storage-monitoring-diagnosing-troubleshooting/fiddler-screenshot.png
-[6]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-1.png
-[7]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-2.png
-[8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
-[9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
-[10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
+[1]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/overview.png
+[2]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/portal-screenshot.png
+[3]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/hour-minute-metrics.png
+[4]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/high-e2e-latency.png
+[5]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/fiddler-screenshot.png
+[6]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-1.png
+[7]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-2.png
+[8]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-3.png
+[9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
+[10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
