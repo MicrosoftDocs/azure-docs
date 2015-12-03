@@ -1,6 +1,6 @@
 <properties
    pageTitle="Availability of Service Fabric services | Microsoft Azure"
-   description="Describes fault detection, failover, recovery for services"
+   description="Describes fault detection, failover, and recovery for services"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -17,7 +17,7 @@
    ms.author="aprameyr"/>
 
 # Availability of Service Fabric services
-Azure Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of a failure.
+Azure Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.
 
 ## Availability of Service Fabric stateless services
 A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
@@ -33,7 +33,7 @@ There can be only one primary replica servicing read and write requests, but the
 
 In the event of a fault (when the primary replica goes down), Service Fabric makes one of the active secondary replicas the new primary replica. This active secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.
 
-This concept—of a replica being either a primary or active secondary—is known as the replica role.
+This concept--of a replica being either a primary or active secondary--is known as the replica role.
 
 ### Replica roles
 The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is primary services read requests. It also services write requests by updating its state and replicating the changes to the active secondaries in its replica set. The role of an active secondary is to receive state changes that the primary replica has replicated and update its view of the state.
