@@ -29,7 +29,7 @@ The following list should simply help to avoid some potential pitfalls and make 
 
 
 
-## SUSE Images on Microsoft Azure for testing SAP 
+## SUSE images on Microsoft Azure for testing SAP 
 
 For SAP testing on Azure only SLES 11SP4 and SLES 12 should be used. A special SUSE image can
 be found in the Azure image gallery : "SLES 11 SP3 for SAP CAL"
@@ -37,7 +37,7 @@ But this is not intended for general usage. It's reserved for the SAP Cloud Appl
 solution called SAP "CAL" ( <https://cal.sap.com/> ).There was no option
 to hide this image from the public. So just don't use it.
 
-All new tests on Azure should be done with Azure Resource Manager. To look for SUSE SLES imaghttps://github.com/MSSedusch/azure-content-pr/edit/master/articles/virtual-machines/virtual-machines-sap-on-linux-suse-quickstart.md#es 
+All new tests on Azure should be done with Azure Resource Manager. To look for SUSE SLES images 
 and versions using Azure Powershell or CLI use the following commands. The output can then be used
 e.g. to define the OS image in a json template for deploying a new SUSE Linux VM :
 
@@ -117,7 +117,7 @@ The current SAP kernel versions for Linux do NOT include this code change. There
 that in certain situations ( e.g. Azure VM resize ) the SAP hardware key changes and the SAP license
 is no longer valid
 
-## NFS Share in distributed SAP installations
+## NFS share in distributed SAP installations
 
 In case of a distributed installation where one wants to install e.g. the database and the SAP
 application servers in separate VMs one might share the /sapmnt directory via NFS. If there
@@ -125,7 +125,7 @@ should be problems with the installation steps after creating the NFS share for 
 if "no_root_squash" is set for the share. This was the solution in an internal test case
 
 
-## Logical Volumes
+## Logical volumes
 
 LVM isn't fully validated on Azure. If one needs a big logical volume across multiple Azure 
 data disks ( e.g. for the SAP database ) mdadm should be used. Here is a nice blog which
@@ -134,20 +134,22 @@ describes how to set up Linux RAID on Azure using mdadm :
 <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/>
 
 
-## SUSE Azure Repository
+## SUSE Azure repository
 
-In case there should be an issue with the standard Azure SUSE repository there is a simple
-command to reset it :
+In case there should be an issue with access to the standard Azure SUSE repository there is 
+a simple command to reset it. This could happen when creating a private OS image in an Azure
+region and then copying the image to a different region where one wants to deploy new VMs
+based on this private OS image. Just run the following command inside the VM :
 
    ```
    service guestregister restart
    ```
 
-## Gnome Desktop
+## Gnome desktop
 
 If someone would like to use the Gnome desktop for installing a complete SAP demo system inside
-one single VM including SAP GUI, Browser, SAP management console and so on a little hint for
-installing it on the Azure SLES images :
+one single VM including SAP GUI, browser, SAP management console and so on here is a little hint 
+for installing it on the Azure SLES images :
 
    SLES 11
 
@@ -161,7 +163,7 @@ installing it on the Azure SLES images :
    zypper in -t pattern gnome-basic
    ```
 
-## SAP-Oracle Support on Linux in the Cloud
+## SAP-Oracle support on Linux in the Cloud
  
 This isn't in fact an Azure specific topic but a general one. Nevertheless it's important to
 understand. There is a support restriction from Oracle on Linux in virtualized environments.
