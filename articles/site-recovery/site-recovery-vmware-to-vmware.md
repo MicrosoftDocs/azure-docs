@@ -94,9 +94,10 @@ Fixes in Update 03-Dec-15 includes:
 - **Configuration server** —Fixes an issue that prevented the 31-day free metering feature from working as expected when the configuration server was registered in Site Recovery.
 - **Unified agent** —Fixes an issue in Update 1 for the Master Target, that resulted in the update not being installed on the master target server when it’s upgraded from version 8.0 to 8.0.1.
 
->[Azure.Note]
-	>-	All ASR updates are cumulative.
-	>-	The CS and RX updates can’t be rolled back once it is applied on the system.
+>[AZURE.NOTE]
+>
+	-	All ASR updates are cumulative.
+	-	The CS and RX updates can’t be rolled back once it is applied on the system.
 
 
 ### ASR Scout 8.0.1 Update 1
