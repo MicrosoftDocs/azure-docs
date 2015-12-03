@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="12/02/2015"
- ms.author="stevearaguilahob"/>
+ ms.author="araguila"/>
 
 # Predictive maintenance preconfigured solution walkthrough
 
