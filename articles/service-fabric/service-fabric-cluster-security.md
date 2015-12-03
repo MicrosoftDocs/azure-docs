@@ -65,6 +65,7 @@ This is an involved process, so we have a powershell Module uploaded to a Git Re
 **Step 2.1**: Copy this folder down to your machine from this [Git repo](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
 **Step 2.2**: Make sure  Azure SDK 1.0+ installed on your machine.
+
 **Step 2.3**: Open a Powershell window and import the ServiceFabricRPHelpers.psm
 
 ```
@@ -75,9 +76,9 @@ Copy the following and change the path to the .psm1 to be that of your machine. 
 ```
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
+  
 
-
-**Step 2.4: If you are using a cert that you already have acquired **, then follow these steps, Else skip to Step 2.5.
+**Step 2.4**: If you are using a cert that you already have acquired, then follow these steps, Else skip to Step 2.5.
 
 
 Log in to your Azure Account
@@ -99,13 +100,13 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 On successful completion of the script,you will now get an output like the one below, you need these for step #3.
 
 1. **Certificate Thumbprint** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
-2. **SourceVault **/Resource ID of the KeyVault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **CertificateURL **/URL to the Certificate location in the key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea 
+2. **SourceVault** /Resource ID of the KeyVault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+3. **Certificate URL** /URL to the Certificate location in the key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea 
 
 you are have the information you need to set up a secure cluster. Go to Step3.
 
 
-**Step 2.5: If want to create a new Self Signed Cert and upload it to the Key Vault **. 
+**Step 2.5**: If want to create a new Self Signed Cert and upload it to the Key Vault. 
 
 Log in to your Azure Account
 
@@ -141,8 +142,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 On successful completion of the script,you will now get an output like the one below, you need these for step #3.
 
 1. **Certificate Thumbprint** : 64881409F4D86498C88EEC3697310C15F8F1540F
-2. **SourceVault **/Resource ID of the KeyVault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **CertificateURL **/URL to the Certificate location in the key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea 
+2. **SourceVault** /Resource ID of the KeyVault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+3. **Certificate URL** /URL to the Certificate location in the key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea 
 
 ##Step 3: Setting up a secure cluster 
 

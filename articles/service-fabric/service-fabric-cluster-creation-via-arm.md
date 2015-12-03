@@ -41,6 +41,7 @@ This page helps you with setting up of a Service Fabric Cluster using an ARM tem
 	2. Log into the azure portal and use the service fabric portal pages to generate the template for you to customize. The process to do so is described below.
 3. Log on to the Azure Portal [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
 2. Go through the process of creating the cluster as described in [Creating Service Fabric Cluster via portal](service-fabric-cluster-creation-via-portal.md) , but do not click on ***create**, instead go to Summary and download the template.
+
  ![DownloadTemplate][DownloadTemplate]
 
 ## Deploying the ARM template to Azure using Azure PS
