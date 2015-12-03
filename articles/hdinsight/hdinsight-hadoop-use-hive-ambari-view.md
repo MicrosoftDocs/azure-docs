@@ -51,7 +51,7 @@ In the __Database Explorer__ section of the page, select the __default__ entry o
 
 As new tables are added through the steps in this document, you can use the refresh icon in the upper right corner of the Database Explorer to refresh the list of available tables.
 
-##<a name="hivequery"></a>Run a Hive query
+##<a name="hivequery"></a>Query editor
 
 Use the following steps from the Hive view to run a Hive query against data included with the cluster.
 
@@ -100,22 +100,44 @@ Use the following steps from the Hive view to run a Hive query against data incl
 	- **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
     
     Use the __Execute__ button to run this query. The __Results__ tab will not contain any information as no rows are returned by this query, but the status should show as __SUCCEEDED__.
-    
-4. To the right of the Query Editor is a row of icons. Select the one that looks like a chain.
 
-    ![icons](./media/hdinsight-hadoop-use-hive-ambari-view/icons.png)
-    
-    This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
-    
-    ![visual explain image](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
-    
-    The other icons are as follows:
-    
-        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
-        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
-        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
+###Hive settings
 
-5. Select the __SQL__ icon to switch back to the Query Editor, then create a new worksheet and enter the following query:
+Select the __Settings__ icon to the right of the editor.
+
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/settings.png)
+
+Settings can be used to change various Hive settings, such as changing the execution engine for Hive from Tez (the default,) to MapReduce.
+
+###Visual explain
+
+Select the __Visual Explain__ icon to the right of the editor.
+
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplainicon.png)
+    
+This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
+
+![visual explain image](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
+
+###Tez
+
+Select the __Visual Explain__ icon to the right of the editor.
+
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/tez.png)
+
+This will display the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
+
+###Notifications
+
+Select the __Visual Explain__ icon to the right of the editor.
+
+![icons](./media/hdinsight-hadoop-use-hive-ambari-view/notifications.png)
+
+Notifications are messages that are generated when running queries. For example, you will receive a notification when a query is submitted, or when an error occurs.
+
+##Saved queries
+
+1. From the Query Editor, create a new worksheet and enter the following query:
 
         SELECT * from errorLogs;
     
@@ -126,11 +148,13 @@ Use the following steps from the Hive view to run a Hive query against data incl
         2012-02-03 	18:55:54 	SampleClass1 	[ERROR] 	incorrect 	id 	
         2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
 
-6. Use the __Save as__ button at the bottom of the editor. Name this query __Errorlogs__ and select __OK__. Note that the name of the worksheet changes to __Errorlogs__.
+2. Use the __Save as__ button at the bottom of the editor. Name this query __Errorlogs__ and select __OK__. Note that the name of the worksheet changes to __Errorlogs__.
     
-    Saved queries also appear in the __Saved Queries__ tab at the top of the page. Select this and you should see __Errorlogs__ listed. Selecting the name will open the query in the Query Editor.
+3. Select the __Saved Queries__ tab at the top of the Hive View page. Note that __Errorlogs__ is now listed as a saved query. It will remain in this list until you remove it. Selecting the name will open the query in the Query Editor.
 
-7. The __History__ button at the top of the Hive View allows you to view queries you have ran previously. Use it now and select some of the queries you have ran to see how this works.
+##Query history
+
+The __History__ button at the top of the Hive View allows you to view queries you have ran previously. Use it now and select some of the queries you have ran previously. When you select a query, it opens it in the Query Editor.
 
 ##User Defined Functions (UDF)
 
