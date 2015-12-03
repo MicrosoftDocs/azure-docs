@@ -64,7 +64,7 @@ Once the deployment is completed, you should see the below diagram with all of t
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/1-deployed-components.png)
 
-Now, you are ready to configure the PowerBI dashboard with rich visualizations to gain real-time and predictive insights on vehicle health and driving habits.
+Now, you are ready to configure the PowerBI dashboard with rich visualizations to gain real-time and predictive insights on vehicle health and driving habits. It takes about 45 minutes to an hour to create all the reports and configure the dashboard. 
 
 
 ### Setup Power BI Real-Time Dashboard
@@ -294,7 +294,7 @@ Click on the blank area to add new visualization.
 
 Change the chart **Title** to **“Averages of Fuel, Engine Temperature by Model”**
 
-![Connected Cars - Change Chart Title](./media/cortana-analytics-playbook-vehicle-telemetry/connected-cars-3.4ii.png)
+![Connected Cars - Change Chart Title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 
 The final report will look like as shown below.
 

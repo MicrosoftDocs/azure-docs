@@ -373,7 +373,7 @@ To learn more about all the ‘Windowing’ capabilities in Azure Stream Analyti
 
 An application is included as part of the solution to operationalize the machine learning model in real-time. This application called “RealTimeDashboardApp” is created and configured as part of the solution deployment. The application performs the following:
 
-1.	Listens to an Event Hub instance where Stream Analytics is publishing the events in a continuously pattern. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing-data-to-event-hub.png)*Figure 16 – Stream analytics query for publishing the data to an output Event Hub instance* 
+1.	Listens to an Event Hub instance where Stream Analytics is publishing the events in a continuously pattern. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figure 16 – Stream analytics query for publishing the data to an output Event Hub instance* 
 
 2.	For every event that this application receives: 
 
