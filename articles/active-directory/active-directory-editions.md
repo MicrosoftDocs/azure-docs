@@ -52,7 +52,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 | --- | --- | --- | --- | --- | --- |
 | **Common features**| Directory objects [1]| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
-|  | SSO to SaaS apps, custom apps, Application Proxy apps| 10 apps per user [2]| 10 apps per user [2]| no limit| 10 apps per user [2]|
+|  | [SSO to SaaS apps, custom apps, Application Proxy apps](active-directory-enable-sso-scenario.md)| 10 apps per user [2]| 10 apps per user [2]| no limit| 10 apps per user [2]|
 |  | Self-service password change for cloud users| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Connect - For syncing between on-premises directories and Azure Active Directory](active-directory-aadconnect.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | **Preview**:[ B2B collaboration](active-directory-b2b-collaboration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
@@ -71,8 +71,9 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | Automatic password rollover for group accounts|  |  | ![Check][12]|  |
 |  | **Preview**: Conditional Access|  |  | ![Check][12]|  |
 |  | **Preview**: Privileged Identity Management|  |  | ![Check][12]|  |
-| **Windows 10 and Azure AD Join related features **| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| **Windows 10 and Azure AD Join related features**| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
+
 
 
 [1] The Default usage quota is 150,000 objects. An object is an entry in the directory service, represented by its unique distinguished name. An example of an object is a user entry used for authentication purposes. If you need to exceed this default quota, please contact support. The 500,000 object limit does not apply for Office 365, Microsoft Intune or any other Microsoft paid online service that relies on Azure Active Directory for directory services.
