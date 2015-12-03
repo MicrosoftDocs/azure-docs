@@ -18,6 +18,8 @@
 
 # Manage API apps in Azure App Service
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 This article shows how use the [Azure preview portal](https://portal.azure.com/) to perform API app management and monitoring tasks. Here are some of the tasks you can do:
 
 - Configure authentication 

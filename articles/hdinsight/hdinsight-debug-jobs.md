@@ -21,15 +21,15 @@
 
 The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error.
 
-Some of these error messages could also be seen in the Azure preview portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 33 or less.
+Some of these error messages could also be seen in the Azure Portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on parameters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 33 or less.
 
-![HDInsight preview portal error message][image-hdi-debugging-error-messages-portal]
+![HDInsight Portal error message][image-hdi-debugging-error-messages-portal]
 
-In situations where the error is specific to Azure HDInsight, it might be a good idea to understand what the error is about. Refer to [HDInsight error codes](#hdi-error-codes) to understand the different error codes, and how to fix those. In some situations, you might want to access the Hadoop logs itself. You can do so directly from the Azure preview portal.
+In situations where the error is specific to Azure HDInsight, it might be a good idea to understand what the error is about. Refer to [HDInsight error codes](#hdi-error-codes) to understand the different error codes, and how to fix those. In some situations, you might want to access the Hadoop logs itself. You can do so directly from the Azure Portal.
 
 ## View cluster health and job logs
 
-* **Access the Hadoop UI**. From the Azure preview portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
+* **Access the Hadoop UI**. From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**.
 
 	![Launch cluster dashboard](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
   
@@ -37,7 +37,7 @@ In situations where the error is specific to Azure HDInsight, it might be a good
 
 	![Start Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-* **Access the Yarn UI**. From the Azure preview portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
+* **Access the Yarn UI**. From the Azure Portal, click an HDInsight cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **YARN UI**.
 
 	You can use the YARN UI to do the following:
 
@@ -49,11 +49,11 @@ In situations where the error is specific to Azure HDInsight, it might be a good
 
 	* **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
 
-* **Access the HBase UI**. From the Azure preview portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**
+* **Access the HBase UI**. From the Azure Portal, click an HDInsight HBase cluster name to open the cluster blade. From the cluster blade, click **Dashboard**. When prompted, enter the cluster administrator credentials. In the Query Console that opens, click **HBase UI**
 
 ## <a id="hdi-error-codes"></a>HDInsight error codes
 
-The errors a user can encounter in Azure PowerShell or in the preview portal are listed alphabetically by name below. The errors are in turn linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following information for the error:
+The errors a user can encounter in Azure PowerShell or in the Portal are listed alphabetically by name below. The errors are in turn linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following information for the error:
 
 - **Description**: the error message users see
 - **Mitigation**: what steps can be taken to recover from the error.
@@ -129,7 +129,7 @@ The errors a user can encounter in Azure PowerShell or in the preview portal are
 
 ### <a id="ClusterNameUnavailable"></a>ClusterNameUnavailable
 - **Description**: Cluster name *yourClusterName* is unavailable. Please pick another name.  
-- **Mitigation**: The user should specify a clustername that is unique and does not exist and retry. If the user is using the preview portal, the UI will notify them if a cluster name is already being used during the create steps.
+- **Mitigation**: The user should specify a clustername that is unique and does not exist and retry. If the user is using the Portal, the UI will notify them if a cluster name is already being used during the create steps.
 
 
 ### <a id="ClusterPasswordInvalid"></a>ClusterPasswordInvalid
@@ -258,7 +258,7 @@ The errors a user can encounter in Azure PowerShell or in the preview portal are
 
 ### <a id="StorageAccountNotColocated"></a>StorageAccountNotColocated
 - **Description**: Storage account *yourStorageAccountName* is in region *currentRegionName*. It should be same as the cluster region *yourClusterRegionName*.  
-- **Mitigation**: Either specify a storage account in the same region that your cluster is in or if your data is already in the storage account, create a new cluster in the same region as the existing storage account. If you are using the preview portal, the UI will notify them of this issue in advance.
+- **Mitigation**: Either specify a storage account in the same region that your cluster is in or if your data is already in the storage account, create a new cluster in the same region as the existing storage account. If you are using the Portal, the UI will notify them of this issue in advance.
 
 ### <a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive
 - **Description**: Given Subscription ID *yourSubscriptionId* is not active.  

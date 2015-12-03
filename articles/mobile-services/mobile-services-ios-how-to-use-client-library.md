@@ -18,6 +18,11 @@
 
 # How to Use iOS Client Library for Azure Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
 This guide teaches you to perform common scenarios using the Azure Mobile Services [iOS SDK]. If you are new to Mobile Services, first complete [Mobile Services Quick Start] to configure your account, create a table, and create a mobile service.

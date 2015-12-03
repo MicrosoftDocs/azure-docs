@@ -26,7 +26,7 @@ You can provision an [Azure HDInsight](https://azure.microsoft.com/documentation
 
 For instructions on how to provision an HDInsight cluster with Data Lake Store, see:
 
-* [Provision an HDInsight cluster with Data Lake Store using Azure preview portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Provision an HDInsight cluster with Data Lake Store using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Provision an HDInsight cluster with Data Lake Store using Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 

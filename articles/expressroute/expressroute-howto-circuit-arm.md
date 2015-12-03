@@ -357,4 +357,4 @@ If the service provider has deprovisioned the circuit (the service provider prov
 ## Next steps
 
 - [Configure routing](expressroute-howto-routing-arm.md)
-- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md) 
+

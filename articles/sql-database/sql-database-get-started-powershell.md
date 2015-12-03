@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/20/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Create a new SQL database and perform common database setup tasks with PowerShell cmdlets 
@@ -22,7 +22,7 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 

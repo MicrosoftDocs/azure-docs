@@ -29,7 +29,7 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 > 
 > Script Action is available as part of the standard Azure HDInsight subscriptions at no extra charge.
 
-HDInsight clusters can be customized in a variety of other ways as well, such as including additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml, hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common locations in the cluster. These customizations can be done through Azure PowerShell, the Azure HDInsight .NET SDK, or the Azure portal. For more information, see [Provision Hadoop clusters in HDInsight using custom options][hdinsight-provision-cluster].
+HDInsight clusters can be customized in a variety of other ways as well, such as including additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml, hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common locations in the cluster. These customizations can be done through Azure PowerShell, the Azure HDInsight .NET SDK, or the Azure Classic Portal. For more information, see [Provision Hadoop clusters in HDInsight using custom options][hdinsight-provision-cluster].
 
 ## Script Action in the cluster provision process
 
@@ -48,7 +48,7 @@ Each cluster can accept multiple script actions that are invoked in the order in
 
 ## Call Script Action scripts
 
-Script Action scripts can be used from the Azure portal, Azure PowerShell, or the HDInsight .NET SDK.
+Script Action scripts can be used from the Azure Classic Portal, Azure PowerShell, or the HDInsight .NET SDK.
 
 HDInsight provides several scripts to install the following components on HDInsight clusters:
 
@@ -61,7 +61,7 @@ Name | Script
 
 
 
-**From the Azure portal**
+**From the Azure Classic Portal**
 
 1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](hdinsight-provision-clusters.md#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:

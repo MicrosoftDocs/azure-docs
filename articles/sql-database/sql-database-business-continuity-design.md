@@ -55,13 +55,13 @@ Standard tier databases do not have the option of using Active Geo-Replication s
 
 ##How to enable Geo-Replication
 
-You can enable Geo-Replication using Azure Portal or by calling REST API or PowerShell command.
+You can enable Geo-Replication using Azure Classic Portal or by calling REST API or PowerShell command.
 
-###Azure Portal
+###Azure Classic Portal
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Log in to the [Azure Portal](https://portal.Azure.com)
+1. Log in to the [Azure Classic Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
 3. Navigate to your database blade, select the **Geo Replication map** and click **Configure Geo-Replication**.
 4. Navigate to Geo-Replication blade. Select the target region. 

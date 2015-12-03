@@ -18,6 +18,10 @@
 
 # Add authentication to your Mobile Services Android app (JavaScript backend)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 ## Summary

@@ -20,7 +20,7 @@
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@ To complete the steps in this article you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
-- A V12 logical SQL server. You will need a V12 SQL server to create SQL Data Warehouse.  If you don't have a V12 logical SQL server, [Azure preview portal tutorial][] shows you how to create one.
+- A V12 logical SQL server. You will need a V12 SQL server to create SQL Data Warehouse.  If you don't have a V12 logical SQL server, [Azure Portal tutorial][] shows you how to create one.
 
 ## Create a database with Visual Studio
 
@@ -53,7 +53,7 @@ SERVICE_OBJECTIVE will indicate the number of DWUs that your instance will start
 ## Next steps
 After your SQL Data Warehouse has finished provisioning you can [load sample data][] or check out how to [develop][], [load][], or [migrate][].
 
-[Azure preview portal tutorial]: ./sql-data-warehouse-get-started-provision.md
+[Azure Portal tutorial]: ./sql-data-warehouse-get-started-provision.md
 [connect and query]: ./sql-data-warehouse-get-started-connect.md
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md

@@ -39,10 +39,10 @@ When you provision an HDInsight cluster in HDInsight, you specify an Azure Stora
 
 **To create an Azure Storage account**
 
-1. Sign in to the [Azure Portal][azure-management-portal].
+1. Sign in to the [Azure Classic Portal][azure-management-portal].
 2. Click **NEW** in the lower-left corner and then enter the values as shown in the image.
 
-	![Azure portal where you can use Quick Create to set up a new storage account](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Azure portal where you can use Quick Create to set up a new storage account")
+	![Azure Classic Portal where you can use Quick Create to set up a new storage account](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Azure Classic Portal where you can use Quick Create to set up a new storage account")
 
 >[AZURE.NOTE]  Make sure you create the storage account in a location that is supported for the cluster.
 
@@ -57,7 +57,7 @@ In this section, you provision an HDInsight version 3.2 cluster, which is based 
 
 **To provision a Spark cluster** 
 
-1. Sign in to the [Azure Portal][azure-management-portal]. 
+1. Sign in to the [Azure Classic Portal][azure-management-portal]. 
 
 2. Click **NEW** in the lower-left corner and then enter the values as shown in the image.
 
@@ -70,7 +70,7 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 >[AZURE.NOTE] The notebook you create following the instructions below is also available by default on the cluster. After you have launched Zeppelin, you will find this notebook by the name **Zeppelin HVAC tutorial**.
 
-1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -156,7 +156,7 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 >[AZURE.NOTE] The notebook you create following the instructions below is also available by default on the cluster. After you have launched Jupyter, you will find this notebook by the name **HVACTutorial.ipynb**.
 
-1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 

@@ -51,10 +51,10 @@ When you provision a cluster, you create the Azure compute resources that contai
 
 Use the following steps to create a new cluster:
 
-1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
 
@@ -230,7 +230,7 @@ Once you are connected to the cluster via SSH, use the following commands to run
 
 ## <a name="nextsteps"></a>Next steps
 
-In this document, you have learned how to create a Linux-based HDInsight cluster using the Azure preview portal, connect to the cluster using SSH, and how to perform basic Hive queries.
+In this document, you have learned how to create a Linux-based HDInsight cluster using the Azure Portal, connect to the cluster using SSH, and how to perform basic Hive queries.
 
 To learn more about analyzing data with HDinsight, see the following:
 

@@ -29,7 +29,7 @@ Auditing tools enable and facilitate adherence to compliance standards but don't
 
 ##<a id="subheading-1"></a>Azure SQL Database Auditing basics
 
-The following section describes the configuration of auditing using the Azure Preview Portal. You may also [set up auditing for your database using the Classic Azure Portal].
+The following section describes the configuration of auditing using the Azure Portal. You may also [set up auditing for your database using the Classic Azure Classic Portal].
 
 SQL Database Auditing allows you to:
 
@@ -62,7 +62,7 @@ Before setting up auditing check if you are using a ["Downlevel Client"](sql-dat
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. Launch the [Azure Preview Portal](https://portal.azure.com) at https://portal.azure.com. Alternatively, you can also launch the [Classic Azure Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/. Refer to details below.
+1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com. Alternatively, you can also launch the [Classic Azure Classic Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/. Refer to details below.
 
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade select **Auditing & Threat detection**.
 
@@ -99,9 +99,9 @@ You can import your audit logs into the Excel template directly from your Azure 
 ![Navigation Pane][4]
 
 
-##<a id="subheading-4"></a>Set up auditing for your database using the Classic Azure Portal
+##<a id="subheading-4"></a>Set up auditing for your database using the Classic Azure Classic Portal
 
-1. Launch the [Classic Azure Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/.
+1. Launch the [Classic Azure Classic Portal](https://manage.windowsazure.com/) at https://manage.windowsazure.com/.
 
 2. Click the SQL Database / SQL Server you want to audit, and then click the **AUDITING & SECURITY** tab.
 
@@ -123,7 +123,7 @@ You can import your audit logs into the Excel template directly from your Azure 
 
 
 ##<a id="subheading-5">Practices for usage in production</a>
-The description in this section refers to screen captures above. Either [Azure Preview Portal](https://portal.azure.com) or [Classic Azure Portal](https://manage.windowsazure.com/) may be used.
+The description in this section refers to screen captures above. Either [Azure Portal](https://portal.azure.com) or [Classic Azure Classic Portal](https://manage.windowsazure.com/) may be used.
 
 
 ##<a id="subheading-6"></a>Storage Key Regeneration
@@ -159,7 +159,7 @@ There are several PowerShell cmdlets you can use to configure auditing in Azure 
 [Azure SQL Database Auditing basics]: #subheading-1
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
-[Set up auditing for your database using the Classic Azure Portal]: #subheading-4
+[Set up auditing for your database using the Classic Azure Classic Portal]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7

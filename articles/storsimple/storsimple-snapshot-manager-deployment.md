@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Snapshot Manager MMC snap-in
@@ -129,7 +129,7 @@ Use the following steps to connect StorSimple Snapshot Manager to a StorSimple d
 
     ![Configure a device](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
 
-3. In the **Device** list box, select the IP address of the Microsoft Azure StorSimple device or virtual device. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure portal. Click **OK**.
+3. In the **Device** list box, select the IP address of the Microsoft Azure StorSimple device or virtual device. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure classic portal. Click **OK**.
 
 4. StorSimple Snapshot Manager searches for the device that you identified. If the device is available, StorSimple Snapshot Manager adds a connection. You can [verify the connection to the device](#to-verify-the-connection) to confirm that the connection was added successfully.
 

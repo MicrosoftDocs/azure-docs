@@ -106,7 +106,7 @@ The only thing I did beyond what Brent outlined was to create a View in my Azure
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Once this is done, you can then use the [Azure Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
+Once this is done, you can then use the [Azure Classic Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

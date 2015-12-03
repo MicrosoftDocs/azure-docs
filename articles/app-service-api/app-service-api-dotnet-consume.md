@@ -18,6 +18,8 @@
 
 # Consume an API app in Azure App Service from a .NET client 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Overview
 
 This tutorial shows how to use the App Service SDK to write code that calls an [API app](app-service-api-apps-why-best-platform.md) that has been configured for **Public (anonymous)** or **Public (authenticated)** access level. The article covers the following example scenarios:
