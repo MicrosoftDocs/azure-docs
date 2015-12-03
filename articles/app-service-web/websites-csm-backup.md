@@ -17,9 +17,9 @@
 	ms.author="nicking"/>
 
 # Use REST to back up and restore Azure Web Apps
-[Azure Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/) can be backed up as blobs in Azure storage. The backup can also contain the app’s databases. If the app is ever accidentally deleted, or if the app needs to be reverted to a previous version, it can be restored from any previous backup. Backups can be done at any time on demand, or backups can be scheduled at suitable intervals.
+[Azure Web Apps](https://azure.microsoft.com/services/app-service/web/) can be backed up as blobs in Azure storage. The backup can also contain the app’s databases. If the app is ever accidentally deleted, or if the app needs to be reverted to a previous version, it can be restored from any previous backup. Backups can be done at any time on demand, or backups can be scheduled at suitable intervals.
 
-This article will explain how to backup and restore an Azure Web App with RESTful API requests. If you would like to create and manage web app backups graphically through the Azure portal, see [Back up a web app in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-backup/)
+This article will explain how to backup and restore an Azure Web App with RESTful API requests. If you would like to create and manage web app backups graphically through the Azure portal, see [Back up a web app in Azure App Service](web-sites-backup.md)
 
 <a name="gettingstarted"></a>
 ## Getting Started
@@ -44,7 +44,7 @@ To back up a web app immediately, send a **POST** request to `https://management
 
 Here is what the URL looks like using our example website. `https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/`
 
-You must supply a JSON object in the body of your request to specify which storage account to use to store the backup. The JSON object must have a property named **storageAccountUrl**, which holds a [SAS URL](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/) granting write access to the Azure Storage container that will hold the backup blob. If you want to back up your databases, you must also supply a list containing the names, types, and connection strings of the databases to be backed up.
+You must supply a JSON object in the body of your request to specify which storage account to use to store the backup. The JSON object must have a property named **storageAccountUrl**, which holds a [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md) granting write access to the Azure Storage container that will hold the backup blob. If you want to back up your databases, you must also supply a list containing the names, types, and connection strings of the databases to be backed up.
 
 ```
 {
