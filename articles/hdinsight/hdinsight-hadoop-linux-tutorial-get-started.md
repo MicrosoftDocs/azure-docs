@@ -106,21 +106,21 @@ While provisioning|Provisioning complete
 
 Once the provisioning is completed, click the tile for the cluster from the Startboard to launch the cluster blade.
 
-##Connect to Ambari Views
+##Connect to the Hive View
+
+Ambari Views provide several utilities through a web page. In the following sections, you'll use the Hive view to run Hive queries on your HDInsight cluster.
 
 > [AZURE.NOTE] Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-To connect to Ambari Views from the Azure Portal, select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section.
+You can Ambari Views from the Azure Portal, select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section.
 
 ![quick links section](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
-> [AZURE.NOTE] You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser.
+You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser, and then select the set of squares from the page menu (next to the __Admin__ link and button on the left of the page,) to list available views. Select the __Hive view__.
 
-Either way, you will be prompted to authenticate to the site. Enter the admin (default `admin`,) account name and password you used when creating the cluster.
+![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 
-If you navigated to the main Ambari Web UI, you can switch to views by selecting the set of squares from the page menu (next to the __Admin__ link and button on the left of the page.) Select the __Hive view__.
-
-![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png)
+> [AZURE.NOTE] When accessing Ambari, you will be prompted to authenticate to the site. Enter the admin (default `admin`,) account name and password you used when creating the cluster.
 
 You should see a page similar to the following:
 
