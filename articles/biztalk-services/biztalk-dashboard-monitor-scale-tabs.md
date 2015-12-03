@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
-	description="Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
+	description="Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,7 +23,7 @@
 
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
-When you open the Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
+When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
@@ -72,7 +72,7 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the Access Control Management Portal. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Management Portal.</td>
+You can also open the Access Control Portal. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 
 <tr>
@@ -83,9 +83,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -170,7 +170,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
-<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure Management Portal.</td>
+<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure classic portal.</td>
 </tr>
 <tr>
 <td><strong>Subscription ID</strong></td>
@@ -178,7 +178,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 </table>
 
-[BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
+[BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
 
 
 ##### Manage, Connection Information, Sync Keys, and Delete in the task bar:
@@ -197,9 +197,9 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>Displays the Access Control Namespace, Default Issuer, and Default Key values; which can be copied.
 <br/><br/>
-You can also open the Access Control Management Portal. This Access Control Management Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Portal. This Access Control Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 <tr>
 <td><strong>Sync Keys</strong> in the Storage Account</td>
@@ -209,9 +209,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -335,7 +335,7 @@ Sets the Backup Status to None or Automatic. When set to None, no backups are au
 
 
 ## <a name="HybridConnections"></a>Hybrid Connections
-Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure Management Portal.
+Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure classic portal.
 
 To create Hybrid Connections in Azure Websites, see [Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
@@ -355,7 +355,7 @@ Now that you're familiar with the different tabs, you can learn more about the A
 ## See Also
 - [Hybrid Connections](integration-hybrid-connection-overview.md)  
 - [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
-- [BizTalk Services: Provisioning Using Azure Management Portal](biztalk-provision-services.md)  
+- [BizTalk Services: Provisioning Using Azure classic portal](biztalk-provision-services.md)  
 - [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

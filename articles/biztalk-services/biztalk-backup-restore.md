@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
 # BizTalk Services: Backup and Restore
 
-Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure Management Portal.
+Azure BizTalk Services includes Backup and Restore capabilities. This topic describes how to backup and restore BizTalk Services using the Azure classic portal.
 
 You can also back up BizTalk Services using the [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
@@ -29,7 +29,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 
 	**Note**  Hybrid Connections are NOT backed up, regardless of the Edition.
 
-- Using the Azure Management Portal, you can create an On Demand backup or create a scheduled backup. 
+- Using the Azure classic portal, you can create an On Demand backup or create a scheduled backup. 
 
 - Backup content can be restored to the same BizTalk Service or to a new BizTalk Service. To restore the BizTalk Service using the same name, the existing BizTalk Service must be deleted and the name must be available. After you delete a BizTalk Service, it can take longer time than wanted for the same name to be available. If you cannot wait for the same name to be available, then restore to a new BizTalk Service.
 
@@ -48,7 +48,7 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 
 ## Create a backup
 
-A backup can be taken at any time and is completely controlled by you. This section lists the steps to create backups using the Azure Management Portal, including:
+A backup can be taken at any time and is completely controlled by you. This section lists the steps to create backups using the Azure classic portal, including:
 
 [On Demand backup](#backupnow)
 
