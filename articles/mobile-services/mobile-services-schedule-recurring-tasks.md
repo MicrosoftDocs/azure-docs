@@ -27,7 +27,7 @@
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+This topic shows you how to use the job scheduler functionality in the Azure classic portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 
 + Archiving old or duplicate data records.
 + Requesting and storing external data, such as tweets, RSS entries, and location information.
@@ -43,7 +43,7 @@ This tutorial shows you how to use the job scheduler to create a scheduled job t
 
 Next, you need to create a new table in which to store tweets.
 
-2. In the Management Portal, click the **Data** tab for your mobile service, then click **+Create**.
+2. In the [Azure classic portal], click the **Data** tab for your mobile service, then click **+Create**.
 
 3. In **Table name** type _Updates_, then click the check button.
 
@@ -167,7 +167,7 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

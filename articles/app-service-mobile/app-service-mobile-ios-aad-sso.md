@@ -98,7 +98,7 @@ You will now be able to reference the Active Directory Authentication Library in
             }];
         }
 
-4. In the code for the `loginAndGetData` method above, replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure Management Portal].
+4. In the code for the `loginAndGetData` method above, replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
 
 5. In the code for the `loginAndGetData` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your Mobile App. If you followed the [How to configure your Mobile App with Azure Active Directory] topic your App ID URI should be similar to https://contosogateway.azurewebsites.net/login/aad.
 
@@ -118,7 +118,7 @@ You will now be able to reference the Active Directory Authentication Library in
 
 <!-- URLs. -->
 [How to configure your Mobile App with Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [Get started with Mobile Apps]: app-service-mobile-ios-get-started.md
 [Add authentication to your app]: app-service-mobile-ios-get-started-users.md

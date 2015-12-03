@@ -33,11 +33,11 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
 >[AZURE.NOTE] The steps outlined in this topic are intended to be used with [Add Authentication to your Mobile Services app](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) tutorial when you want to use [Service-directed login operations](http://msdn.microsoft.com/library/azure/dn283952.aspx) with your app. Alternatively, if your app has a requirement for [client-directed login operations](http://msdn.microsoft.com/library/azure/jj710106.aspx) for Azure Active Directory and a .NET backend mobile service you should start with the [Authenticate your app with Active Directory Authentication Library Single Sign-On](mobile-services-windows-store-dotnet-adal-sso-authentication.md) tutorial.
 
-1. Log on to the [Azure Management Portal], navigate to your mobile service, click the **Identity** tab, then scroll down to the **Azure active directory** identity provider section and copy the **App URL** shown there.
+1. Log on to the [Azure classic portal], navigate to your mobile service, click the **Identity** tab, then scroll down to the **Azure active directory** identity provider section and copy the **App URL** shown there.
 
     ![Mobile service app URL for AAD](./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png)
 
-2. Navigate to **Active Directory** in the management portal, click your directory then **Domains** and make a note of your directory's default domain.
+2. Navigate to **Active Directory** in the [Azure classic portal], click your directory then **Domains** and make a note of your directory's default domain.
 
 3. Click **Applications** > **Add** > **Add an application my organization is developing**.
 
@@ -67,6 +67,6 @@ You are now ready to use an Azure Active Directory for authentication in your ap
 
 
 <!-- URLs. -->
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 
 
