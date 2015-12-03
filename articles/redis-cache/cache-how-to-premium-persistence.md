@@ -13,28 +13,27 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sdanie"/>
 
 # How to configure data persistence for a Premium Azure Redis Cache
 
-Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier, currently in preview.
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier.
 
 The Azure Redis Cache premium tier includes clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Redis Cache instance.
 
 For information on other premium cache features, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md) and [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
->[AZURE.NOTE] The Azure Redis Cache Premium tier is currently in preview. During the preview period, persistence cannot be used in conjunction with clustering or virtual networks.
-
 ## What is data persistence?
-Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down.
+Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
 
-Azure Redis Cache offers Redis persistence where the data is stored in a Azure storage account. For the public preview we support the [RDB model](http://redis.io/topics/persistence) and will support [AOF](http://redis.io/topics/persistence) soon.
+Azure Redis Cache offers Redis persistence using the [RDB model](http://redis.io/topics/persistence), where the data is stored in an Azure storage account. When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
 
-## Data persistence
-When persistence is configured, Azure Redis Cache persists a snapshot of the Redis cache in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot.
+Persistence can be configured from the **New Redis Cache** blade during cache creation and on the **Settings** blade for existing premium caches.
 
-Persistence is configured on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure preview portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
+## Create a premium cache
+
+To create a cache and configure persistence, sign-in to the [Azure preview portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
 
 ![Create a Redis Cache][redis-cache-new-cache-menu]
 
@@ -46,19 +45,29 @@ Once a premium pricing tier is selected, click **Redis persistence**.
 
 ![Redis persistence][redis-cache-persistence]
 
-Click **Enabled** to enable RDB (Redis database) backup.
+The steps in the following section describe how to configure Redis persistence on your new premium cache. Once Redis persistence is configured, click **Create** to create your new premium cache with Redis persistence.
 
-Select a **Backup Frequency** from the drop-down list. Choices include **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
+## Configure Redis persistence
 
-Click **Storage Account** to select the storage account to use. The **Storage Key** is automatically populated, but if the key is regenerated for the storage account you can update it here. A **Premium Storage** account is recommended because premium storage has higher throughput.
+Redis persistence is configured on the **Redis data persistence** blade. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Settings** blade for your cache.
 
->[AZURE.NOTE] AOF is not available during the premium tier preview period, but the Cache team is working on adding this feature. For more information about RDB and AOF and the advantages of each, see [Redis Persistence](http://redis.io/topics/persistence).
+![Redis settings][redis-cache-settings]
+
+To enable Redis persistence, click **Enabled** to enable RDB (Redis database) backup. To disable Redis persistence on a previously enabled premium cache, click **Disabled**.
+
+To configure the backup interval, select a **Backup Frequency** from the drop-down list. Choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated.
+
+Click **Storage Account** to select the storage account to use, and choose either the **Primary key** or **Secondary key** to use from the **Storage Key** drop-down. You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. 
+
+>[AZURE.IMPORTANT] If the storage key for your persistence account is regenerated, you must re-choose the desired key from the **Storage Key** drop-down.
 
 ![Redis persistence][redis-cache-persistence-selected]
 
 Click **OK** to save the persistence configuration.
 
-After the cache is created, the first backup is initiated once the backup frequency interval elapses.
+The next backup (or first backup for new caches) is initiated once the backup frequency interval elapses.
+
+
 
 ## Persistence FAQ
 
@@ -66,11 +75,11 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ## Can I enable persistence on a previously created cache?
 
-During the preview period you can only enable and configure persistence during the creation process of a premium cache. During the public preview scaling from Basic/Standard to Premium is not supported, but it is coming soon.
+Yes, Redis persistence can be configured both at cache creation and on existing premium caches.
 
 ## Can I change the backup frequency after I create the cache?
 
-During the preview period you can only configure persistence during the cache creation process. To change the persistence configuration, delete the cache and create a new cache with the desired persistence configuration. This is a limitation of the preview and support for this is coming soon.
+Yes, you can change the backup frequency on the **Redis data persistence** blade. For instructions, see [Configure Redis persistence](#configure-redis-persistence).
 
 ## Why if I have a backup frequency of 60 minutes there is more than 60 minutes between backups?
 
@@ -95,3 +104,5 @@ Learn how to use more premium cache features.
 [redis-cache-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-persistence.png
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
+
+[redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png

@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -134,5 +139,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 <!-- URLs. -->
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328

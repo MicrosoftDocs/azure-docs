@@ -139,7 +139,7 @@ The following PowerShell script shows you how to get the default Data Lake Store
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE] The Azure Preview portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] The Azure Portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
 
@@ -218,6 +218,6 @@ After the job is completed, you can use the following cmdlets to list the file, 
 - To see a more complexed query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 

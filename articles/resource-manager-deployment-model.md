@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/02/2015"
    ms.author="tomfitz"/>
 
 # Understanding Resource Manager deployment and classic deployment
@@ -48,19 +48,19 @@ Resources created through Resource Manager share the following characteristics:
 
 - Created through one of the following methods:
 
-  - The [preview portal](https://portal.azure.com/).
+  - The [Azure portal](https://portal.azure.com/).
 
-        ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
+        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
         For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - For Azure PowerShell versions earlier than 1.0 Preview, commands run in the **AzureResourceManager** mode.
+  - For Azure PowerShell versions earlier than 1.0, commands run in the **AzureResourceManager** mode.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - For Azure PowerShell 1.0 Preview, use the Resource Manager version of commands. These commands have the format *verb-AzureRm*, as shown below.
+  - For Azure PowerShell 1.0, use the Resource Manager version of commands. These commands have the format *verb-AzureRm*, as shown below.
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -79,19 +79,19 @@ Resources created in the classic deployment model share the following characteri
 
 - Created through one of the following methods:
 
-  - [Azure portal](https://manage.windowsazure.com)
+  - [Classic portal](https://manage.windowsazure.com)
 
-        ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
+        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - For versions of Azure PowerShell earlier than 1.0 Preview, commands run in the **AzureServiceManagement** mode (which is the default mode, so if do not you specifically switch to AzureResourceManager, you are running in AzureServiceManagement mode).
+  - For versions of Azure PowerShell earlier than 1.0, commands run in the **AzureServiceManagement** mode (which is the default mode, so if do not you specifically switch to AzureResourceManager, you are running in AzureServiceManagement mode).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - For Azure PowerShell 1.0 Preview, use the Service Management version of commands. These command names **do not** have the format *verb-AzureRm*, as shown below.
+  - For Azure PowerShell 1.0, use the Service Management version of commands. These command names **do not** have the format *verb-AzureRm*, as shown below.
 
             PS C:\> Get-AzureDeployment
 
@@ -101,7 +101,7 @@ Resources created in the classic deployment model share the following characteri
 
     ![classic type](./media/resource-manager-deployment-model/classic-type.png)
 
-You can still use the preview portal to manage resources that were created through classic deployment.
+You can still use the portal to manage resources that were created through classic deployment.
 
 ## Benefits of using Resource Manager and resource groups
 

@@ -40,7 +40,7 @@ This tutorial has the following prerequisites:
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
 > + You can [open an Azure account for free](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web App.
-> + You can [activate MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+> + You can [activate Visual Studio subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 
 ## Deploy an Azure web app with an integrated CDN endpoint ##
 
@@ -73,14 +73,14 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	You will see your published web app in the browser when publishing is complete. 
 
-1. To create a CDN endpoint, log into your [Azure management portal](http://manage.windowsazure.com/). 
+1. To create a CDN endpoint, log into your [Azure classic portal](http://manage.windowsazure.com/). 
 2. Click **New** > **App Services** > **CDN** > **Quick Create**. Select **http://*&lt;sitename>*.azurewebsites.net/** and click **Create**.
 
 	![](media/app-service-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	> [AZURE.NOTE] Once your CDN endpoint is created, the classic portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
-3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
+3. Back in the classic portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
 	![](media/app-service-with-cdn/8-select-cdn.png)
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Getting Started with Azure AD Connect using express settings | Microsoft Azure"
+	pageTitle="Azure AD Connect: Getting Started using express settings | Microsoft Azure"
 	description="Learn how to download, install and run the setup wizard for Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
