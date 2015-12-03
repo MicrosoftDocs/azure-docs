@@ -32,7 +32,7 @@ In this tutorial, you will learn how to modify a .NET backend mobile service to 
 
 This tutorial requires you to have the following:
 
-- **An existing .NET backend mobile service** <br/>Follow the tutorial [Get started with Mobile Services] to create and download a new .NET backend mobile service from the [Azure Management Portal].
+- **An existing .NET backend mobile service** <br/>Follow the tutorial [Get started with Mobile Services] to create and download a new .NET backend mobile service from the [Azure classic portal].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -96,7 +96,7 @@ Before publishing to Azure and using the hybrid connection, it's a good idea to 
 
 Now that you have verified the database connection, you need to add an app setting for this new connection string so that it can be used from Azure and publish the mobile service to Azure.
 
-1. In the [Azure Management Portal], browse to your mobile service.
+1. In the [Azure classic portal], browse to your mobile service.
 
 1. Click the **Configure** tab, and locate **Connection Strings** section.
 
@@ -136,5 +136,5 @@ Now that you have verified the database connection, you need to add an app setti
 
 
 <!-- Links -->
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md

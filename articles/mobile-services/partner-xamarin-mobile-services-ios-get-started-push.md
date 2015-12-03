@@ -160,7 +160,7 @@ After you have registered your app with APNS and configured your project, you mu
 
     Make a note of the file name and location of the exported certificate.
 
-2. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
+2. Log on to the [Azure classic portal], click **Mobile Services**, and then click your app.
 
     ![][18]
 
@@ -280,9 +280,9 @@ Your mobile service is now configured to work with APNS.
 
 Your app is now updated to support push notifications.
 
-## <a name="update-scripts"></a>Update the registered insert script in the Management Portal
+## <a name="update-scripts"></a>Update the registered insert script in the Azure classic portal
 
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
+1. In the [Azure classic portal], click the **Data** tab and then click the **TodoItem** table.
 
     ![][21]
 
@@ -397,7 +397,7 @@ You have successfully completed this tutorial.
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303

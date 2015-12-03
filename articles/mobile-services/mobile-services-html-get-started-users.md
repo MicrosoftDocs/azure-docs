@@ -134,7 +134,5 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-html-get-started.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  

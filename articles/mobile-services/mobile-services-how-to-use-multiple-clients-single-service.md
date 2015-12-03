@@ -150,7 +150,6 @@ Cross-platform tools are available that provide a richer native experience on a 
 
 
 <!-- URLs -->
-[Azure Management portal]: https://manage.windowsazure.com
 [Azure Notification Hubs]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/

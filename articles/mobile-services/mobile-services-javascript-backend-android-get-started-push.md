@@ -59,7 +59,7 @@ If you will be testing with an older device, then consult [Set Up Google Play Se
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-## Update the registered insert script in the Management Portal
+## Update the registered insert script in the Azure classic portal
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -151,7 +151,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [How to use the Android client library for Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645

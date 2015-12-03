@@ -89,7 +89,7 @@ Every server script has a main function, and may have optional helper functions.
 
 You can define server scripts that are registered to a table operation in one of the following ways:
 
-+ In the [Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
++ In the [Azure classic portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
 	![1][1]
 	
@@ -336,7 +336,7 @@ The global state is maintained between executions.
 
 You can define server scripts that are registered to HTTP methods in a custom API endpoint in one of the following ways:
 
-+ In the [Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
++ In the [Azure classic portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
 	![2][2]
 	
@@ -443,17 +443,17 @@ The two routes in the above custom API example can be invoked by HTTP GET reques
 
 ##<a name="scheduler-scripts"></a>Job Scheduler
 
-Mobile Services enables you to define server scripts that are executed either as jobs on a fixed schedule or on-demand from the Management Portal. Scheduled jobs are useful for performing periodic tasks such as cleaning-up table data and batch processing. For more information, see [Schedule jobs].
+Mobile Services enables you to define server scripts that are executed either as jobs on a fixed schedule or on-demand from the Azure classic portal. Scheduled jobs are useful for performing periodic tasks such as cleaning-up table data and batch processing. For more information, see [Schedule jobs].
 
 Scripts that are registered to scheduled jobs have a main function with the same name as the scheduled job. Because a scheduled script is not invoked by an HTTP request, there is no context that can be passed by the server runtime and the function takes no parameters. Like other kinds of scripts, you can have subroutine functions and require shared modules. For more information, see [Source control, shared code, and helper functions].
 
 ###<a name="scheduler-scripts"></a>How to: Define scheduled job scripts
 
-A server script can be assigned to a job that's defined in the Mobile Services Scheduler. These scripts belong to the job and are executed according to the job schedule. (You can also use the [Management Portal] to run jobs on demand.) A script that defines a scheduled job has no parameters because Mobile Services doesn't pass it any data; it's executed as a regular JavaScript function and doesn't interact with Mobile Services directly. 
+A server script can be assigned to a job that's defined in the Mobile Services Scheduler. These scripts belong to the job and are executed according to the job schedule. (You can also use the [Azure classic portal] to run jobs on demand.) A script that defines a scheduled job has no parameters because Mobile Services doesn't pass it any data; it's executed as a regular JavaScript function and doesn't interact with Mobile Services directly. 
 
 You define scheduled jobs in one of the following ways: 
 
-+ In the [Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
++ In the [Azure classic portal] in the **Script** tab in the scheduler:
 
 	![3][3]
 
@@ -924,7 +924,7 @@ The primary way to debug and troubleshoot your server scripts is by writing to t
 
 To write to the logs, use the global [console object]. Use the **log** or **info** function to log information-level warnings. The **warning** and **error** functions log their respective levels, which are called-out in the logs. 
 
-> [AZURE.NOTE] To view the logs for your mobile service, log on to the [Management Portal](https://manage.windowsazure.com/), select your mobile service, and then choose the **Logs** tab.
+> [AZURE.NOTE] To view the logs for your mobile service, log on to the [Azure classic portal](https://manage.windowsazure.com/), select your mobile service, and then choose the **Logs** tab.
 
 You can also use the logging functions of the [console object] to format your messages using parameters. The following example supplies a JSON object as a parameter to the message string:
 
@@ -1011,7 +1011,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Validate data]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [Modify the request]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [Modify the response]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Schedule jobs]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commands to manage Azure Mobile Services]: ../virtual-machines-command-line-tools.md#Mobile_Scripts

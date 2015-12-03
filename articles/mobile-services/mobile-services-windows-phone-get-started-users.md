@@ -81,5 +81,3 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Add Mobile Services to an existing app]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
-

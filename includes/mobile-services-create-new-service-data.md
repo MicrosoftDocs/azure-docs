@@ -2,7 +2,7 @@
 
 Next, you will create a new mobile service to replace the in-memory list for data storage. Follow these steps to create a new mobile service.
 
-1. Log into the [Azure Management Portal](https://manage.windowsazure.com/). 
+1. Log into the [Azure classic portal](https://manage.windowsazure.com/). 
 2.	At the bottom of the navigation pane, click **+NEW**.
 
 	![plus-new](./media/mobile-services-create-new-service-data/plus-new.png)

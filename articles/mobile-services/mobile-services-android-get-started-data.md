@@ -25,7 +25,7 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>This topic shows you how to use Azure Mobile Services to add persistent data to an Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the app with the mobile service so that it stores and updates data in Azure Mobile Services instead of locally, and then use the Azure Management Portal to view changes to data that were made by running the app.</p>
+<p>This topic shows you how to use Azure Mobile Services to add persistent data to an Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the app with the mobile service so that it stores and updates data in Azure Mobile Services instead of locally, and then use the Azure classic portal to view changes to data that were made by running the app.</p>
 
 </div>
 
@@ -61,7 +61,7 @@ To see the completed source code, go <a href="https://github.com/Azure/mobile-se
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## Create a new mobile service in the Management Portal
+## Create a new mobile service in the Azure classic portal
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -86,7 +86,7 @@ Now that the app has been updated to use Mobile Services for back end storage, y
 
    	This sends a new item as an insert to the mobile service.
 
-3. In the [Management Portal], click **Mobile Services**, and then click your mobile service.
+3. In the [Azure classic portal], click **Mobile Services**, and then click your mobile service.
 
 4. Click the **Data** tab, then click **Browse**.
 
@@ -149,8 +149,7 @@ Once you have completed the data series, try these other Android tutorials:
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Azure Mobile Services Android SDK]: http://aka.ms/Iajk6q
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
