@@ -50,9 +50,9 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 | Feature Type| Features| Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
 | --- | --- | --- | --- | --- | --- |
-| **Common features**| Directory objects| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
+| **Common features**| Directory objects [1]| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
-|  | SSO to SaaS apps, custom apps, Application Proxy apps| 10 apps per user| 10 apps per user| no limit| 10 apps per user|
+|  | SSO to SaaS apps, custom apps, Application Proxy apps| 10 apps per user [2]| 10 apps per user [2]| no limit| 10 apps per user [2]|
 |  | Self-service password change for cloud users| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Connect - For syncing between on-premises directories and Azure Active Directory](active-directory-aadconnect.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | **Preview**:[ B2B collaboration](active-directory-b2b-collaboration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
@@ -65,7 +65,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 | **Premium only features**| Self-service group management / self-service application addition / dynamic group membership|  |  | ![Check][12]|  |
 |  | [Self-service password reset, change, unlock with on-premises write-back](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![Check][12]|  |
 |  | [Multi-Factor Authentication (cloud and on-premises)](multi-factor-authentication.md)|  |  | ![Check][12]| Limited to cloud only for Office 365 Apps|
-|  | [Microsoft Identity Manager (MIM) user licenses and MIM server](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![Check][12]|  |
+|  | [Microsoft Identity Manager (MIM) user licenses and MIM server [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![Check][12]|  |
 |  | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)|  |  | ![Check][12]|  |
 |  | [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)|  |  | ![Check][12]|  |
 |  | Automatic password rollover for group accounts|  |  | ![Check][12]|  |
@@ -73,6 +73,15 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | **Preview**: Privileged Identity Management|  |  | ![Check][12]|  |
 | **Windows 10 and Azure AD Join related features **| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
+
+
+[1] The Default usage quota is 150,000 objects. An object is an entry in the directory service, represented by its unique distinguished name. An example of an object is a user entry used for authentication purposes. If you need to exceed this default quota, please contact support. The 500,000 object limit does not apply for Office 365, Microsoft Intune or any other Microsoft paid online service that relies on Azure Active Directory for directory services.
+
+[2] With Azure AD Free and Azure AD Basic, end users who have been assigned access to SaaS apps, can see up to 10 apps in their Access panel and get SSO access to them. Admins can configure SSO and assign user access to as many SaaS apps as they want with Free and Basic however, end users will only see 10 apps in their Access panel at a time.
+
+[3] Microsoft Identity Manager Server software rights are granted with Windows Server licenses (any edition). Since Microsoft Identity Manager runs on Windows Server OS, as long as the server is running a valid, licensed copy of Windows Server, then Microsoft Identity Manager can be installed and used on that server. No other separate license is required for Microsoft Identity Manager Server.
+
+
 
 ## What's next
 
