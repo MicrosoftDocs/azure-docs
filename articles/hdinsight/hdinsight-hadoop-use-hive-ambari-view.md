@@ -160,9 +160,26 @@ The __History__ button at the top of the Hive View allows you to view queries yo
 
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. 
 
-While you can add a UDF as part of the HiveQL statements in your query, the UDF tab at the top of the Hive View allows you to declare and save a set of UDFs that will be used with queries from queries ran through the Hive View.
+While you can add a UDF as part of the HiveQL statements in your query, the UDF tab at the top of the Hive View allows you to declare and save a set of UDFs that can be used with the __Query Editor__.
 
-For example UDFs that can be used with Hive, see the following:
+Once you have added a UDF to the Hive View, an __Insert udfs__ button will appear at the bottom of the __Query Editor__. Selecting this will display a drop-down list of the UDFs defined in the Hive View. Selecting a UDF will add HiveQL statements to your query to enable the UDF.
+
+For example, if you have defined a UDF with the following properties:
+
+* Resource name: myudfs
+* Resource path: wasb:///myudfs.jar
+* UDF name: myawesomeudf
+* UDF class name: com.myudfs.Awesome
+    
+Using the __Insert udfs__ button will display an entry named __myudfs__, with another drop-down for each UDF defined for that resource. In this case, __myawesomeudf__. Selecting this entry will add the following to the beginning of the query:
+
+    add jar wasb:///myudfs.jar;
+
+    create temporary function myawesomeudf as 'com.myudfs.Awesome';
+
+You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) FROM people;`.
+
+For more information on using UDFs with Hive on HDInsight, see the following:
 
 * [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
 
