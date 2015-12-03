@@ -28,7 +28,9 @@ ACS enables you to use your existing skills or draw upon a large and
 growing body of community expertise to deploy and manage container-based
 applications on Microsoft Azure.
 
+<br />
 ![ACS provides a means to manage containerize applications on multiple hosts on Azure.](./media/acs-intro/acs-cluster.png)
+<br />
 
 ACS leverages Docker to ensure that your application containers are
 fully portable. It also supports your choice of Marathon, Chronos and
