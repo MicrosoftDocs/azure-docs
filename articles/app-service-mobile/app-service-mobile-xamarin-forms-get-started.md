@@ -84,7 +84,7 @@ With all of this in mind, let's proceed.
 
 	![][8]
 
-###(Optional) Run the iOS project
+##(Optional) Run the iOS project
 
 This section is for running the Xamarin iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
 
@@ -108,7 +108,7 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 > [AZURE.NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
-###(Optional) Run the Android project
+##(Optional) Run the Android project
 
 This section is for running the Xamarin droid project for Android. You can skip this section if you are not working with Android devices.
 
@@ -133,7 +133,7 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
 
-###(Optional) Run the Windows project
+##(Optional) Run the Windows project
 
 
 This section is for running the Xamarin WinApp project for Windows devices. You can skip this section if you are not working with Windows devices.
