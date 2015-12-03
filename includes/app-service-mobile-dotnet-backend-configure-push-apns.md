@@ -61,8 +61,8 @@
                 
                 var table = azureMobileApps.table();
                 
-                // When adding record, send a push notification via WNS
-                // For this to work, you must have a WNS Hub already configured
+                // When adding record, send a push notification via APNS
+                // For this to work, you must have an APNS Hub already configured
                 table.insert(function (context) {
                     // For details of the Notification Hubs JavaScript SDK, 
                     // see https://azure.microsoft.com/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
