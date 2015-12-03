@@ -30,7 +30,7 @@ Depending on your **View** selections, the **Results** pane shows the following 
 
 | Results column  |Description          |
 |:----------------|:--------------------| 
-| Name            | The name of the device as configured in the Azure class portal|
+| Name            | The name of the device as configured in the Azure classic portal|
 | Model           | The model number of the device|
 | Version         | The version of the software installed on the device |
 | Status          | Whether the device is available |
