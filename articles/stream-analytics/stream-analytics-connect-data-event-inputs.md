@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create Stream Analytics Inputs | Microsoft Azure" 
+	pageTitle="Connect Stream Analytics Inputs | Microsoft Azure" 
 	description="Learn how to connect to and configure the input sources for Stream Analytics solutions."
 	documentationCenter=""
 	services="stream-analytics"
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Create Stream Analytics inputs
+# Connect Stream Analytics input sources
 
 ## Understanding Stream Analytics inputs
 ---

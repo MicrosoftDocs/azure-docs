@@ -96,25 +96,27 @@ A Web API can receive access_tokens from all types of apps, including web server
 
 ![Web App Web API Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-To learn more about authorization_codes, refresh_tokens, and the detailed steps of getting access_tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+To learn more about authorization_codes, refresh_tokens, and the detailed steps of getting access_tokens, read about the [OAuth 2.0 protocol](active-directory-v2-protocols-oauth-code.md).
 
 To learn how to secure a Web API with the v2.0 app model and OAuth 2.0 access_tokens, check out the Web API code samples in our [Getting Started section](active-directory-appmodel-v2-overview.md#getting-started).
 
 
 ## Mobile and Native Apps
-Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.  These apps can add sign-in and authorization to backend services using the v2.0 model and the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow).  
+Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.  These apps can add sign-in and authorization to backend services using the v2.0 model and the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols-oauth-code.md).  
 
 In this flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign-in, which represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an OAuth 2.0 access_token and a refresh_token.  The app can use the access_token to authenticate to Web APIs in HTTP requests, and can use the refresh_token to get new access_tokens when older ones expire.
 
 ![Native App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## Single Page Apps (Javascript)
+Many modern apps have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  Azure AD app model v2.0 supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md).
+
+In this flow, the app receives tokens from the v2.0 authorize endpoint directly, without performing any backend server to server exchanges.  This allows all authentication logic and session handling to take place entirely in the javascript client, without performing extra page redirects.
+
+To see this scenario in action, try out one of the single page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
+
 ## Current Preview Limitations
 These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.  Additional limitations and restrictions for the v2.0 app model public preview are described in the [v2.0 preview limitations article](active-directory-v2-limitations.md).
-
-### Single Page Apps (Javascript)
-Many modern apps have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols.md#oauth2-implicit-flow) - however, this flow is not yet available in the v2.0 app model.  It will be in short order.
-
-If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the [web server app flow](#web-apps) described above.  But this is not the recommended approach, and documentation for this scenario will be limited.  If you'd like to get a feel for the SPA scenario, you can check out the [generally available Azure AD SPA code sample](active-directory-devquickstarts-angular.md).
 
 ### Daemons/Server Side Apps
 Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).  

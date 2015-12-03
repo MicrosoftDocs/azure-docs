@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Run a Job | Microsoft Azure" 
-	description="Run a Job learning path segment."
+	description="Run a Stream Analytics Job | learning path segment."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Run a job
+# How to run a Stream Analytics job
 
 When a job input, query and output have all been specified you can start the Stream Analytics job.
 

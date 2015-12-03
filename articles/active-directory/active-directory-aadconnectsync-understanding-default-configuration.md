@@ -36,7 +36,7 @@ Our goal with the default configuration is:
 
 ## Synchronization Rule Editor
 
-The configuration and be viewed and changed with the tool Synchronization Rules Editor (SRE) and a shortcut to it can be found in the start menu.
+The configuration can be viewed and changed with the tool Synchronization Rules Editor (SRE) and a shortcut to it can be found in the start menu.
 
 ![Synchronization Rules Editor](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
 

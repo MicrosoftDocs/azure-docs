@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Azure SQL Database security guidelines and limitations
@@ -108,3 +108,5 @@ Consider the following points to make your Azure SQL Database applications less 
 [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
+
+[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)

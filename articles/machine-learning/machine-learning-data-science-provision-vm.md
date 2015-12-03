@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev" />
 
 
@@ -21,7 +21,7 @@
 
 ## Introduction
 
-The Data Science Virtual Machine is an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
+The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
 - Revolution R Open
 - Anaconda Python distribution
@@ -31,29 +31,29 @@ The Data Science Virtual Machine is an Azure virtual machine (VM) image pre-inst
 - Azure SDK
 
 
-Doing Data Science involves iterating on a sequence of tasks: finding, loading, and pre-processing data, building and testing models, and deploying the models for consumption in intelligent applications. It is not uncommon for data scientists to use a variety of tools to to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then download and install them. The Data Science VM can ease this burden. 
+Doing data science involves iterating on a sequence of tasks: finding, loading, and pre-processing data, building and testing models, and deploying the models for consumption in intelligent applications. It is not uncommon for data scientists to use a variety of tools to to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then download and install them. The Microsoft Data Science Virtual Machine can ease this burden. 
 
-The Data Science VM jump starts your analytics project. It enables you to work on tasks in a variety of languages including R, Python, SQL, and C#. Visual Studio provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications using various services on Microsoft’s cloud platform. 
+The Microsoft Data Science Virtual Machine jump starts your analytics project. It enables you to work on tasks in a variety of languages including R, Python, SQL, and C#. Visual Studio provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications using various services on Microsoft’s cloud platform. 
 
 
 ## Prerequisites
 
-Before you can create an Azure VM, you must have the following:
+Before you can create a Microsoft Data Science Virtual Machine, you must have the following:
 
 - **An Azure subscription**: To obtain one, see [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-*   **An Azure storage account**: To create one, see [Create an Azure storage account](storage-whatis-account.md) Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
+*   **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
 
 
-## Create your data science VM
+## Create your Microsoft Data Science Virtual Machine
 
-Here are the steps to create an instance of the data science VM:
+Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
 1.	Login to the [Azure portal](https://ms.portal.azure.com/).
 2.	Navigate to **New** -> **Compute** -> **Marketplace** and search for *Data Science Virtual Machine*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-3.	Select the one VM titled “**Data Science Virtual Machine**” published by Microsoft to see a panel describing the Data Science Virtual Machine. 	
+3.	Select the one VM titled “**Microsoft Data Science Virtual Machine**” to see a panel describing the Data Science Virtual Machine. 	
 4.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-5.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Data Science VM. Here are the inputs needed to configure each of these steps:
+5.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
  **1. Basics**: 
 
@@ -85,13 +85,13 @@ Here are the steps to create an instance of the data science VM:
 
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Portal.
 
-## How to access the Data Science VM
+## How to access the Microsoft Data Science Virtual Machine
 
 Once the VM is created you can login to it using remote desktop with the Admin account credentials you created in the Basics section of step 4. 
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are desktop icons and start menu tiles for many of the tools. 
 
-## Tools installed on the Data Science VM
+## Tools installed on the Microsoft Data Science Virtual Machine
 
 ### R
 If you wish to use R for your analytics, the VM has Revolution R Open (RRO) installed. This is an Open source distribution of R and it is completely compatible with CRAN-R. It contains the latest open source R engine along with the Intel Math Kernel Library. An IDE called “RRO RGui” is also packaged in the VM. You are free to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
@@ -124,7 +124,7 @@ To help you build dashboards and great visualizations, the **Power BI Desktop** 
 Note: You will need an Office 365 account to access Power BI. 
 
 ## Additional Microsoft development tools
-The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the VM desktop.  
+The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
 
 
 

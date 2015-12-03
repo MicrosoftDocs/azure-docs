@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor jobs on Stream Analytics programmatically | Microsoft Azure" 
+	pageTitle="programmatically Monitor jobs on Stream Analytics | Microsoft Azure" 
 	description="Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 

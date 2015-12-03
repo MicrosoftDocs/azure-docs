@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="11/24/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Operational tasks and consideration
@@ -45,6 +45,7 @@ To apply this method, follow these steps:
 **Prepare**
 
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This will allow us to run the sync engine manually.
+![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Logoff/logon and from the start menu select **Synchronization Service**.
 
 **Import and Synchronize**
@@ -77,7 +78,8 @@ If the attribute value is multi-valued then not every change is displayed. Only 
 **Switch active server**
 
 1. On the currently active server either turn off the server (DirSync/FIM/Azure AD Sync) so it is not exporting to Azure AD or set it in staging mode (Azure AD Connect).
-2. Run the installation wizard on the server in “staging mode” and disable “staging mode”.
+2. Run the installation wizard on the server in **staging mode** and disable **staging mode**.
+![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Disaster recovery
 Part of the implementation design is to plan for what to do in case of a disaster where you lose the sync server. There are different models to use and which one to use will depend on several factors including:

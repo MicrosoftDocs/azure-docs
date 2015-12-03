@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # How to configure an Azure SQL database firewall
@@ -132,6 +132,8 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 ## See also
 
 [How to: Configure Database Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
+
+[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png

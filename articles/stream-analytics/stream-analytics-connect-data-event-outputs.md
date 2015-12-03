@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create Stream Analytics Outputs | Microsoft Azure" 
+	pageTitle="Connect Stream Analytics Outputs | Microsoft Azure" 
 	description="Learn how to connect to and configure the output targets for Stream Analytics solutions." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,7 +16,7 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# Create Stream Analytics outputs
+# Connect Stream Analytics output targets
 
 ## Understanding Stream Analytics outputs ##
 ---

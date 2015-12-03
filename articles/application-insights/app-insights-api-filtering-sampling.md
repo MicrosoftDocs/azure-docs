@@ -24,6 +24,8 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 Currently these features are available for the ASP.NET SDK.
 
 * [Sampling](#sampling) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+ * Fixed-rate sampling lets you determine the percentage of events that are transmitted.
+ * Adaptive sampling (the default from 2.0.0-beta3 SDK) automatically adjusts the sampling rate according to the volume of your telemetry. You can set a target volume.
 * [Filtering](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. This is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it will affect your statistics - for example, if you filter out all successful requests.
 * [Add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.

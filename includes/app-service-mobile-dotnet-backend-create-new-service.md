@@ -1,7 +1,3 @@
-
-
-Follow these steps to create a new Mobile App backend.
-
 1. Log into the [Azure Portal].
 
 2. In the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
@@ -30,7 +26,6 @@ Follow these steps to create a new Mobile App backend.
 
 	Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  You cannot continue until the database has been deployed sucessfully.
 
-You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
