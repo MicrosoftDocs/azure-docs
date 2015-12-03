@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
@@ -30,8 +30,6 @@ This article organizes the proven practices into the following groups. Proven pr
 -	Blobs
 -	Tables
 -	Queues  
-
-The Azure Files service is currently in Preview, and we will add proven practices here in the future.  
 
 |Done|	Area|	Category|	Question
 |----|------|-----------|-----------

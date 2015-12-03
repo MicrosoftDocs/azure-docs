@@ -760,7 +760,7 @@ JavaScript stored procedures and triggers are sandboxed so that the effects of o
 Stored procedures, triggers and UDFs are implicitly precompiled to the byte code format in order to avoid compilation cost at the time of each script invocation. This ensures invocations of stored procedures are fast and have a low footprint.
 
 ## Client SDK support
-In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) client, DocumentDB supports [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/), and [Python SDKs](http://dl.windowsazure.com/documentDB/pythondocs/). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
+In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) client, DocumentDB supports [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/), and [Python SDKs](http://dl.windowsazure.com/documentDB/pythondocs/). Stored procedures, triggers and UDFs can be created and executed using any of these SDKs as well. The following example shows how to create and execute a stored procedure using the .NET client. Note how the .NET types are passed into the stored procedure as JSON and read back.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -793,7 +793,7 @@ In addition to the [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) cl
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx) to create a pre-trigger and create a document with the trigger enabled. 
+This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx) to create a pre-trigger and create a document with the trigger enabled. 
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -909,7 +909,7 @@ Want to share your awesome stored procedure? Please, send us a pull-request!
 
 ## Next steps
 
-Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Preview portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
+Once you have one or more stored procedures, triggers, and user-defined functions created, you can load them and view them in the Azure Portal using Script Explorer. For more information, see [View stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer](documentdb-view-scripts.md).
 
 You may also find the following references and resources useful in your path to learn more about DocumentDB server-side programming:
 

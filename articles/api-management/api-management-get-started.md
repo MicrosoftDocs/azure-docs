@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -116,7 +116,7 @@ Once the API is imported, the summary page for the API is displayed in the publi
 
 ![API summary][api-management-imported-api-summary]
 
-The API section has several tabs. The **Summary** tab displays basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure proxy authentication for the backend server by using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization by using OAuth 2.0](api-management-howto-oauth2.md).  The **Issues** tab is used to view issues reported by the developers who are using your APIs. The **Products** tab is used to configure the products that contain this API.
+The API section has several tabs. The **Summary** tab displays basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure gateway authentication for the backend server by using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization by using OAuth 2.0](api-management-howto-oauth2.md).  The **Issues** tab is used to view issues reported by the developers who are using your APIs. The **Products** tab is used to configure the products that contain this API.
 
 By default, each API Management instance comes with two sample products:
 

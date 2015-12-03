@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sstein; vinsonyu"/>
+	ms.date="12/01/2015" 
+	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -36,7 +36,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 ## Configure your credentials
 
-To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
+To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure Classic Portal.
 
 	Add-AzureAccount
 
@@ -115,7 +115,7 @@ You can also delete a server with the [Remove-AzureRMSqlServer](https://msdn.mic
 If you will be creating these Azure SQL resources again or a similar ones, you can: 
 
 - Save this as a PowerShell script file (*.ps1)
-- Save this as an Azure automation runbook in the Automation section of the Azure Management Portal 
+- Save this as an Azure automation runbook in the Automation section of the Azure Classic Portal 
 
 ## Next Steps
 

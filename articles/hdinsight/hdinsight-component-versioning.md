@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
 
 ##HDInsight versions and Hadoop components
-Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.1, and, as of 11/7/2014, based on HDP 2.1.7.
+Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.2, and, as of 11/19/2015, based on HDP 2.2.
 
 
 Component|HDInsight Version 3.2|HDInsight Version 3.1 (Default)|HDInsight Version 3.0|HDInsight Version 2.1
@@ -52,7 +52,7 @@ See [HDInsight release notes](hdinsight-release-notes.md) for additional release
 
 ### Select a version when creating an HDInsight cluster
 
-When creating a cluster through the HDInsight Windows PowerShell cmdlets or the HDInsight .NET SDK, you can choose the version for the HDInsight Hadoop cluster by using the **HDInsight Version** drop-down on the **Optional Configuration** blade in the Azure preview portal.
+When creating a cluster through the HDInsight Windows PowerShell cmdlets or the HDInsight .NET SDK, you can choose the version for the HDInsight Hadoop cluster by using the **HDInsight Version** drop-down on the **Optional Configuration** blade in the Azure Portal.
 
 ##Feature highlights
 Some of the salient features of the HDInsight platform include:
@@ -66,7 +66,7 @@ Some of the salient features of the HDInsight platform include:
 
 - **Storm** - Storm on Azure HDInsight is now generally available, giving a fast and easy way to deploy real-time analytics in just a few clicks and within minutes. Apache Storm on Azure HDInsight is an open-source project in the Apache Hadoop ecosystem that provides access to an analytics platform capable of reliably processing millions of events. Now Hadoop users can gain insights as events happen, along with insights from past events. Microsoft is also providing built-in integration with Visual Studio, making developer interaction with Storm easy. You can now develop, deploy, and debug Storm topologies from within Visual Studio.
 
-- **HDInsight on Linux** - Azure HDInsight provides the option of creating Hadoop clusters that run on Linux (Ubuntu) virtual machines (VMs). You can use this option if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. You can create an HDInsight cluster on Linux from a client computer running Windows or Linux by using the Azure preview portal, the Azure CLI, or the HDInsight .NET SDK (Windows only).
+- **HDInsight on Linux** - Azure HDInsight provides the option of creating Hadoop clusters that run on Linux (Ubuntu) virtual machines (VMs). You can use this option if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. You can create an HDInsight cluster on Linux from a client computer running Windows or Linux by using the Azure Portal, the Azure CLI, or the HDInsight .NET SDK (Windows only).
 
 - **Additional VM sizes** - HDInsight clusters are now available on more VM types and sizes. HDInsight clusters can now utilize A2 to A7 sizes built for general purposes; D-Series nodes that feature solid-state drives (SSDs) and 60-percent faster processors; and A8 and A9 sizes that have InfiniBand support for fast networking. Apache HBase on Azure HDInsight customers can benefit from the larger memory configurations of the D-Series to increase performance. Apache Storm on Azure HDInsight customers can also benefit from additional memory for loading larger reference data sets, as well as faster CPUs for higher throughput.
 
@@ -101,9 +101,9 @@ Some of the salient features of the HDInsight platform include:
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Please note the following:
 
 * Highly available clusters with two head nodes are deployed by default for HDInsight 2.1 and above. They are not available for HDInsight 1.6 clusters.
-* Once the support has expired for a particular version, it may not be available through the Azure preview portal. The following table indicates which versions are available on the Azure portal. Cluster versions will continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
+* Once the support has expired for a particular version, it may not be available through the Azure Portal. The following table indicates which versions are available on the Azure Classic Portal. Cluster versions will continue to be available using the `Version` parameter in the Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) command and the .NET SDK until its deprecation date.
 
-HDInsight Version|HDP Version|High Availability|Release Date|Available on Azure Portal|Support Expiration Date|Deprecation Date
+HDInsight Version|HDP Version|High Availability|Release Date|Available on Azure Classic Portal|Support Expiration Date|Deprecation Date
 ---|---|---|---|---|---|---
 HDI 3.2|HDP 2.2|Yes|2/18/2015|Yes||
 HDI 3.1|HDP 2.1|Yes|6/24/2014|Yes||
@@ -118,7 +118,7 @@ HDI 1.6|HDP 1.1|No|10/28/2013|No|04/26/2014|05/31/2015
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. An HDInsight cluster is outside the Support Window if its version has a **Support Expiration Date** past the current date. A list of supported HDInsight cluster versions can be found in the table above. The support expiration date for a given HDInsight version X (once a newer X+1 version is available) is calculated as the later of:  
 
 - Formula 1: Add 180 days to the date HDInsight cluster version X was released.
-- Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the preview portal.
+- Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Portal.
 
 The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight.
 

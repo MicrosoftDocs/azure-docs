@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/16/2015"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
 
-API Management's VPN support allows you to connect your API Management proxy to an Azure Virtual Network. This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
+API Management's VPN support allows you to connect your API Management gateway to an Azure Virtual Network. This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
@@ -36,9 +36,9 @@ Select a VPN and subnet for every region. The list of VPNs is populated based on
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure management portal while it is updating. The service proxy will remain available and runtime calls should not be affected.
+Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure management portal while it is updating. The service gateway will remain available and runtime calls should not be affected.
 
-Note that the VIP address of the proxy will change each time VPN is enabled or disabled.
+Note that the VIP address of the gateway will change each time VPN is enabled or disabled.
 
 ## <a name="connect-vpn"> </a>Connect to a web service behind VPN
 

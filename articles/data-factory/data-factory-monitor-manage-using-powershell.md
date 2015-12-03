@@ -24,12 +24,12 @@
 - [Using Visual Studio](data-factory-get-started-using-vs.md)
 
 
-The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Preview Portal][azure-preview-portal]. 
+The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Portal][azure-portal]. 
 In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial copies data from an Azure blob to an Azure SQL database.       
 
 > [AZURE.NOTE] This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
 >  
->  If you are using Azure PowerShell 1.0 Preview, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
+>  If you are using Azure PowerShell 1.0, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
 
 
 
@@ -51,9 +51,9 @@ Step | Description
 In this step, you use the Azure PowerShell to create an Azure data factory named **ADFTutorialDataFactoryPSH**.
 
 1. Launch **Azure PowerShell** and execute the following commands. Keep the Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
-	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign-in to the Azure Preview Portal.  
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign-in to the Azure Portal.  
 	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure Preview Portal. 
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure Portal. 
 2. Switch to **AzureResourceManager** mode as the Azure Data Factory cmdlets are available in this mode.
 
 		Switch-AzureMode AzureResourceManager 
@@ -171,7 +171,7 @@ You need to perform the following steps to prepare the Azure blob storage and Az
 
 	If you have SQL Server 2014 installed on your computer: follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script.
 
-	If you have Visual Studio 2013 installed on your computer: in the Azure Preview Portal ([http://portal.azure.com](http://portal.sazure.com)), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
+	If you have Visual Studio 2013 installed on your computer: in the Azure Portal ([http://portal.azure.com](http://portal.sazure.com)), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
 		
 ### Create input table 
 A table is a rectangular dataset and has a schema. In this step, you will create a table named **EmpBlobTable** that points to a blob container in the Azure Storage represented by the **StorageLinkedService** linked service. This blob container (**adftutorial**) contains the input data in the file: **emp.txt**. 
@@ -427,7 +427,7 @@ See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive document
 [data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [download-azure-powershell]: ../powershell-install-configure.md
 [data-factory-introduction]: data-factory-introduction.md
 

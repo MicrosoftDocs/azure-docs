@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/17/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -34,9 +34,12 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
 		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
-		# Create an Azure resource group	
+		# Set the appropriate Azure mode to access Stream Analytics cmdlets
+		Switch-AzureMode AzureResourceManager
+
+		# Optional - Create an Azure resource group	
 			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>

@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Quick Start Guide" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

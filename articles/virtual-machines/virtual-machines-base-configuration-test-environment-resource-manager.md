@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md).
 
-This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager. 
+This article provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using virtual machines created in Resource Manager.
 
 You can use the resulting test environment:
 
@@ -108,7 +108,7 @@ First, fill in the name of your resource group, Azure location, and storage acco
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-ADDSDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -118,7 +118,7 @@ First, fill in the name of your resource group, Azure location, and storage acco
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure Preview portal, click **Browse All** in the left pane, click **Virtual machines** in the **Browse** list, and then click the **DC1** virtual machine.  
+1.	In the Azure portal, click **Browse All** in the left pane, click **Virtual machines** in the **Browse** list, and then click the **DC1** virtual machine.  
 2.	In the **DC1** pane,, click **Connect**.
 3.	When prompted, open the DC1.rdp downloaded file.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -147,7 +147,7 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	In the Azure Preview portal, click Browse All in the left pane, click Virtual machines in the Browse list, and then click the DC1 virtual machine.
+1.	In the Azure portal, click Browse All in the left pane, click Virtual machines in the Browse list, and then click the DC1 virtual machine.
 2.	In the DC1 pane, click Connect.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -187,7 +187,7 @@ First, fill in the name of your resource group, Azure location, and storage acco
 	$nic = New-AzureRMNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$vm=New-AzureRMVMConfig -VMName APP1 -VMSize Standard_A1
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
 	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
@@ -236,10 +236,10 @@ First, fill in the name of your resource group, Azure location, and storage acco
 	$nic = New-AzureRMNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$vm=New-AzureRMVMConfig -VMName CLIENT1 -VMSize Standard_A1
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1."
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id	
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/CLIENT1-TestLab-OSDisk.vhd"
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm

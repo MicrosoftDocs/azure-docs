@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Introduction to Azure Backup | Microsoft Azure"
-	description="This article provides an overview of the Azure Backup service which enables customers to backup data to Azure and in Azure"
+	pageTitle="What is Azure Backup? | Microsoft Azure"
+	description="With Azure Backup and recovery services you can backup and restore data and applications from Windows servers, Windows client machines, SCDPM servers or Azure virtual machines."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor="tysonn"/>
+	editor="tysonn"
+	keywords="backup and restore; recovery services"/>
 
 <tags
 	ms.service="backup"
@@ -13,14 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="11/17/2015"
 	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-# Introduction to Azure Backup
-This article provides a high level overview of Microsoft's cloud integrated backup solution that enables customers to back up their data present either on-premises or in Azure.
-
-## What is Azure Backup?
-Azure Backup is a multi-tenanted Azure service that enables you to back up your data present anywhere: on-premises or in Azure. It replaces your existing on-premises or offsite backup solution with a reliable, secure and cost competitive cloud based offering. It also provides the flexibility of protecting assets running in the cloud. Azure Backup is built on top of a world class infrastructure that is scalable, durable and highly available. Using this solution, you can back up data and applications from their System Center Data Protection Manager (SCDPM) servers, Windows servers, Windows client machines or Azure IaaS virtual machines. Azure Backup and SCDPM are the fundamental technologies which make up Microsoft's cloud-integrated backup solution.
+# What is Azure Backup?
+Azure Backup is a multi-tenanted Azure service that enables you to back up and restore your data on-premises or in Azure. It replaces your existing on-premises or offsite backup solution with a reliable, secure and cost competitive cloud backup solution. It also provides the flexibility of protecting your assets running in the cloud. Azure Backup is built on top of a world class infrastructure that is scalable, durable and highly available. Using this solution, you can back up data and applications from their System Center Data Protection Manager (SCDPM) servers, Windows servers, Windows client machines or Azure IaaS virtual machines. Azure Backup and SCDPM are the fundamental technologies which make up Microsoft's cloud-integrated backup solution.
 
 > [AZURE.VIDEO what-is-azure-backup]
 

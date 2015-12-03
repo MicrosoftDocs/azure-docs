@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="SQL Queries on a DocumentDB Database – Query SQL | Microsoft Azure" 
-	description="Learn how DocumentDB supports SQL queries over hierarchical JSON documents for automatic indexing. Discover a SQL query database environment that’s truly schema-free." 
-	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
+	pageTitle="SQL query on a DocumentDB, a NoSQL database | Microsoft Azure" 
+	description="Learn how to use SQL query statements to query DocumentDB, a NoSQL database. As a JSON query language, SQL queries can be used for big data analytics." 
+	keywords="sql query, sql queries, sql syntax, json query language, database concepts and sql queries"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="11/18/2015" 
 	ms.author="arramac"/>
 
-# SQL query within DocumentDB
-Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) over hierarchical JSON documents. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
+# SQL query in DocumentDB
+Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) as a JSON query language. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 
 While designing the query language for DocumentDB we had two goals in mind:
 
@@ -31,9 +31,9 @@ We recommend getting started by watching the following video, where Aravind Rama
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Then, return to this article, where we'll start by walking through some simple JSON documents and SQL commands.
+Then, return to this article, where we'll start with a SQL query tutorial that walks you through some simple JSON documents and SQL commands.
 
-## Getting started with Structured Query Language (SQL) commands in DocumentDB
+## Getting started with SQL commands in DocumentDB
 To see DocumentDB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 
 Here we have a simple JSON document for the Andersen family, the parents, children (and their pets), address and registration information. The document has strings, numbers, booleans, arrays and nested properties. 
 
@@ -165,7 +165,7 @@ We would like to draw attention to a few noteworthy aspects of the DocumentDB qu
 
 ## DocumentDB indexing
 
-Before we get into the DocumentDB SQL grammar, it is worth exploring the indexing design in DocumentDB. 
+Before we get into the DocumentDB SQL syntax, it is worth exploring the indexing design in DocumentDB. 
 
 The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU and input/output) while providing good throughput and low latency. Often, the choice of the right index for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn’t conform to a strict schema and evolves rapidly. 
 
@@ -181,7 +181,7 @@ Therefore, when we designed the DocumentDB indexing subsystem, we set the follow
 
 -	Storage efficiency: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because DocumentDB allows the developer to make cost based tradeoffs between index overhead in relation to the query performance.  
 
-Refer to the [DocumentDB samples](https://github.com/Azure/azure-documentdb-net) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the DocumentDB SQL grammar.
+Refer to the [DocumentDB samples](https://github.com/Azure/azure-documentdb-net) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the DocumentDB SQL syntax.
 
 
 ## Basics of a DocumentDB SQL query
@@ -942,7 +942,7 @@ And here's a query that retrieves families in order of creation date, which is s
 	  }
 	]
 	
-## Advanced SQL query database concepts
+## Advanced database concepts and SQL queries
 ### Iteration
 A new construct was added via the **IN** keyword in DocumentDB SQL to provide support for iterating over JSON arrays. The FROM source provides support for iteration. Let's start with the following example:
 
@@ -1180,7 +1180,7 @@ DocumentDB provides a programming model for executing JavaScript based applicati
 ###User Defined Functions (UDFs)
 Along with the types already defined in this article, DocumentDB SQL provides support for User Defined Functions (UDF). In particular, scalar UDFs are supported where the developers can pass in zero or many arguments and return a single argument result back. Each of these arguments are checked for being legal JSON values.  
 
-The DocumentDB SQL grammar is extended to support custom application logic using these User Defined Functions. UDFs can be registered with DocumentDB and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
+The DocumentDB SQL syntax is extended to support custom application logic using these User Defined Functions. UDFs can be registered with DocumentDB and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
 
 Below is an example of how a UDF can be registered at the DocumentDB database, specifically under a document collection.
 
@@ -1625,8 +1625,6 @@ Here's another example that uses ARRAY_LENGTH to get the number of children per 
       "numberOfChildren": 1
     }]
 
-That wraps up built-in functions, and the SQL grammar for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the grammar we've seen so far.
-
 ### Spatial functions
 
 DocumentDB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. For more details on geospatial support in DocumentDB, please see [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md). 
@@ -1720,7 +1718,7 @@ These functions can also be used to validate polygons. For example, here we use 
       	}
     }]
     
-That wraps up built-in functions, and the SQL grammar for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the grammar we've seen so far.
+That wraps up spatial functions, and the SQL syntax for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the syntax we've seen so far.
 
 ## LINQ to DocumentDB SQL
 LINQ is a .NET programming model that expresses computation as queries on streams of objects. DocumentDB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to DocumentDB queries. 

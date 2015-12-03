@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copy output data to an on-premises SQL Server database (Azure Portal)" 
-	description="This walkthrough extends the tutorial using Data Factory Editor in the Azure Portal such that the pipeline copies output data to a SQL Server database."
+	pageTitle="Copy output data to an on-premises SQL Server database (Azure Classic Portal)" 
+	description="This walkthrough extends the tutorial using Data Factory Editor in the Azure Classic Portal such that the pipeline copies output data to a SQL Server database."
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -51,7 +51,7 @@ You must have at least one gateway installed in your corporate environment as we
 
 If you have an existing data gateway that you can use, skip this step.
 
-1.	Create a logical data gateway. In the **Azure Preview Portal**, click **Linked Services** on the **DATA FACTORY** blade for your data factory.
+1.	Create a logical data gateway. In the **Azure Portal**, click **Linked Services** on the **DATA FACTORY** blade for your data factory.
 2.	Click **Add (+) Data Gateway** on the command bar.  
 3.	In the **New data gateway** blade, click **CREATE**.
 4.	In the **Create** blade, enter **MyGateway** for the Data gateway **name**.
@@ -97,7 +97,7 @@ To start with, you need to create the SQL Server database, table, user defined t
 
 ### Create the linked service
 
-1.	In the **Azure Preview Portal**, click **Author & Deploy** tile on the **DATA FACTORY** blade for **LogProcessingFactory**.
+1.	In the **Azure Portal**, click **Author & Deploy** tile on the **DATA FACTORY** blade for **LogProcessingFactory**.
 2.	In the **Data Factory Editor**, click **New data store** on the toolbar, and select **On-premises SQL Server database**.
 3.	In the JSON script, do the following: 
 	1.	Replace **<servername>** with the name of the server that hosts your SQL Server database.
@@ -156,7 +156,7 @@ Congratulations! You have successfully gone through the walkthrough to use your 
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/

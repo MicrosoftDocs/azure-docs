@@ -14,18 +14,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="11/18/2015"
+	ms.author="davidmu;marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see the [Azure Batch technical overview](batch-technical-overview.md).
+Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see [Azure Batch basics](batch-technical-overview.md).
 
 Automatic scaling occurs when it is enabled on a pool and a formula is associated with the pool. The formula is used to determine the number of compute nodes that are needed to process the application. Acting on samples that are collected periodically, the number of available compute nodes in the pool are adjusted every 15 minutes based on the associated formula.
 
 Automatic scaling can be set when a pool is created, or enabled later on an existing pool. The formula can also be updated on a pool where automatic scaling was previously enabled. It’s always good practice to evaluate a formula before assigning it to a pool, and it’s important to monitor the status of the automatic scaling runs; we discuss each of these topics below.
 
-> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit and therefore may not reach the target numbers specified by a formula.
+> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit, and therefore may not reach the target numbers specified by a formula.
 
 ## Scale compute resources automatically
 
@@ -336,15 +336,15 @@ These predefined **functions** are available for defining an automatic scaling f
 
 Some of the functions described in the table above can accept a list as an argument. The comma separated list is any combination of *double* and *doubleVec*. For example:
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-The *doubleVecList* value is converted to a single *doubleVec* prior to evaluation. For example, if v = [1,2,3], then calling avg(v) is equivalent to calling avg(1,2,3) and calling avg(v, 7) is equivalent to calling avg(1,2,3,7).
+The *doubleVecList* value is converted to a single *doubleVec* prior to evaluation. For example, if `v = [1,2,3]`, then calling `avg(v)` is equivalent to calling `avg(1,2,3)` and calling `avg(v, 7)` is equivalent to calling `avg(1,2,3,7)`.
 
 ### Obtain sample data
 
 The system-defined variables described above are objects that provide methods to access the associated data. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 These methods can be used to get sample data.
 
@@ -359,15 +359,17 @@ These methods can be used to get sample data.
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>Returns a vector of data samples. For example:</p>
+    <td><p>Returns a vector of data samples.
+	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds, but as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b> - Specifies the number of samples that are required from the most recent samples.</p>
-				  <p>A sample is 5 seconds worth of metrics data. GetSample(1) returns the last available sample, but for metrics like $CPUPercent you shouldn’t use this because it isn’t possible to know when the sample was collected. It might be recent, or because of system issues, it might be much older. It is better to use a time interval as shown below.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Specifies a time frame for gathering sample data and optionally specifies the percentage of samples that must be in the requested range.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute\*10), should return 200 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history is still not present, only 180 samples are returned.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) succeeds, and $CPUPercent.GetSample(TimeInterval_Minute\*10,95) fails.</p></li>
+          <li><p><b>doubleVec GetSample(double count)</b> - Specifies the number of samples to obtain from the most recent samples collected.</p>
+				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected - it might be recent, or, because of system issues, it may be much older. It is better in such cases to use a time interval as shown below.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Specifies a time frame for gathering sample data, and optionally specifies the percentage of samples that must be available in the requested time frame.</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned, in which case:<br/>
+		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90% of the samples are available, and<br/>
+		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – Specifies a time frame for gathering data with both a start time and an end time.</p></li></ul>
-		  <p>Note that there is a delay between when a sample is collected and when it is available to a formula; this must be considered when using the GetSample method; see GetSamplePercent below.</td>
+		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when using the <em>GetSample</em> method - see <em>GetSamplePercent</em> below.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -598,6 +600,32 @@ Another example that adjusts the pool size based on the number of tasks, this fo
 		$TargetDedicated = max(0,min($TargetVMs,3));
 		// Keep the nodes active until the tasks finish
 		$NodeDeallocationOption = taskcompletion;
+
+### Example 4
+
+This example shows an autoscale formula that sets the pool size to a certain number of nodes for an initial time period, then adjusts the pool size based on the number of running and active tasks after the initial time period has elapsed.
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+The formula in the above code snippet has the following characteristics:
+
+- Sets the initial pool size to 4 nodes
+- Does not adjust the pool size within the first 10 minutes of the pool's lifecycle
+- After 10 minutes, obtains the max value of the number of running and active tasks within the past 60 minutes
+  - If both values are 0 (indicating no tasks were running or active in the last 60 minutes) the pool size is set to 0
+  - If either value is greater than zero, no change is made
 
 ## Next Steps
 

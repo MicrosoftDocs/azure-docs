@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
@@ -85,7 +85,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL database to which Sqoop will export data. </td></tr>
 	</table>
 
-	> [AZURE.NOTE] By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure preview portal. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configure].
+	> [AZURE.NOTE] By default an Azure SQL database allows connections from Azure Services, such as Azure HDInsight. If this firewall setting is disabled, you must enable it from the Azure Portal. For instruction about creating a SQL Database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE] Fill-in the values in the tables. It will be helpful for going through this tutorial.

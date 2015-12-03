@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/16/2015"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer using Azure CLI
@@ -23,10 +23,12 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. If you are looking for Azure classic deployment model, go to [Get started creating Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+
+This will cover the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal.
 
 
 ## What is required to create an internet facing load balancer?
@@ -35,13 +37,13 @@ You need to create and configure the following objects to deploy a load balancer
 
 - Front end IP configuration - contains public IP addresses for incoming network traffic. 
 
-- Back end address pool - contains network interfaces (NICs) to receive traffic from the load balancer. 
+- Back end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer. 
 
-- Load balancing rules - contains rules mapping a public port on the load balancer to ports on the NICs in the back end address pool.
+- Load balancing rules - contains rules mapping a public port on the load balancer to port in the back end address pool.
 
-- Inbound NAT rules - contains rules mapping a public port on the load balncer to a port in an individual NIC in the back end address pool.
+- Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back end address pool.
 
-- Probes - contains health probes used to check availability of VMs linked to the NICs in the back end address pool.
+- Probes - contains health probes used to check availability of virtual machines instances in the back end address pool.
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
@@ -71,7 +73,7 @@ Create a subnet named *NRPVnetSubnet* with a CIDR block of 10.0.0.0/24 in *NRPVn
 
 ### Step 2
 
-Create a public IP address named *NRPPublicIP* to be used by a frontend IP pool with DNS name *loadbalancernrp.eastus.cloudapp.azure.com*. The command below uses the static allocation type and idle timeout of 4 minutes.
+Create a public IP address named *NRPPublicIP* to be used by a front end IP pool with DNS name *loadbalancernrp.eastus.cloudapp.azure.com*. The command below uses the static allocation type and idle timeout of 4 minutes.
 
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
@@ -132,13 +134,22 @@ Parameters:
 
 Create a load balancer rule.
 
-	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
-
+	azure network lb rule create nrprg nrplb lbrule -p tcp -f 80 -b 80 -t NRPfrontendpool -o NRPbackendpool
 ### Step 3
 
 Create a health probe.
 
-	azure network lb rule create -g nrprg -l nrplb -n HTTP -p tcp -f 80 -b 80
+	azure network lb probe create -g nrprg -l nrplb -n healthprobe -p "http" -o 80 -f healthprobe.aspx -i 15 -c 4
+
+	
+	
+
+**-g** - resource group 
+**-l** - name of the load balancer set
+**-n** - name of the health probe
+**-p** - protocol used by health probe
+**-i** - probe interval in seconds
+**-c** - number of checks 
 
 ### Step 4
 
@@ -286,7 +297,7 @@ The output will be the following:
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE] The informational message **This is a NIC without publicIP configured** is expected since the NIC created for the load balancer will connect to Internet through the load balancer public IP address. 
+>[AZURE.NOTE] The informational message **This is a NIC without publicIP configured** is expected since the NIC created for the load balancer connecting to Internet using the load balancer public IP address. 
 
 Since the *lb-nic1-be* NIC is associated with the *rdp1* NAT rule, you can connect to *web1* using RDP through port 3441 on the load balancer.
 

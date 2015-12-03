@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Get started with Data Lake Store | Azure" 
    description="Use Azure PowerShell to create a Data Lake Store account and perform basic operations" 
    services="data-lake-store" 
@@ -30,7 +30,7 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Store account and
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
 

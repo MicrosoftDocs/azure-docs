@@ -14,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/>
 
 # Understanding Stream Analytics outputs
 
 When authoring a Stream Analytics job, one consideration is how the output of the job will be consumed. How are the consumers of the data transformation viewing the results of the Stream Analytics job? What tools will they be using to analyze the output? Is data retention or warehousing a requirement?
 
-In order to enable a variety of application patterns, Azure Stream Analytics provides seven different methods for storing and viewing job outputs. SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage are all supported outputs. This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.
+In order to enable a variety of application patterns, Azure Stream Analytics provides different methods for storing and viewing job outputs. This provides ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job, must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 
 ## SQL Database ##
@@ -118,11 +118,11 @@ There are a few parameters that are needed to configure Event Hub data streams a
 
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users. This capability can be utilized for operational dashboards, report generation and metric driven reporting.
 
-> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
+> [AZURE.NOTE] At this time, creation and configuration of Power BI outputs is not supported in the Azure Portal.
 
 ### Authorize a Power BI account
 
-1.	When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
+1.	When Power BI is selected as an output in the Azure Classic Portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
 
     ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 

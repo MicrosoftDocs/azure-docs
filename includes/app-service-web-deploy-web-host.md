@@ -4,14 +4,14 @@ Creates the service plan for hosting the web app. You provide the name of the pl
 same location used for the web app. The pricing tier and worker size are specified in the **sku** and **workerSize** parameters
 
     {
-       "apiVersion":"2015-04-01",
-       "name":"[parameters('hostingPlanName')]",
-       "type":"Microsoft.Web/serverfarms",
-       "location":"[parameters('siteLocation')]",
-       "properties":{
-         "name":"[parameters('hostingPlanName')]",
-         "sku":"[parameters('sku')]",
-         "workerSize":"[parameters('workerSize')]",
-         "numberOfWorkers":1
-       }
-    }
+      "apiVersion": "2014-06-01",
+      "name": "[parameters('hostingPlanName')]",
+      "type": "Microsoft.Web/serverfarms",
+      "location": "[parameters('siteLocation')]",
+      "properties": {
+        "name": "[parameters('hostingPlanName')]",
+        "sku": "[parameters('sku')]",
+        "workerSize": "[parameters('workerSize')]",
+        "numberOfWorkers": 1
+      }
+    },

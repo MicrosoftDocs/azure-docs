@@ -261,7 +261,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 	
 
-12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure portal. 
+12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Classic Portal. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,7 +371,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		Jane, Doe
 	 
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
-18. Use the Azure Preview Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
+18. Use the Azure Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 

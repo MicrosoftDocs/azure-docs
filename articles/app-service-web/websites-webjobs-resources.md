@@ -54,7 +54,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ##<a name="deploy"></a>Deploying WebJobs
 
 * [How to Deploy Azure WebJobs using Visual Studio](websites-dotnet-deploy-webjobs.md)
-* [How to deploy WebJobs using the Azure Management Portal](web-sites-create-web-jobs.md)
+* [How to deploy WebJobs using the Azure Portal](web-sites-create-web-jobs.md)
 * [Enabling Command-line or Continuous Delivery of Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -66,7 +66,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 ##<a name="schedule"></a>Scheduling WebJobs
 
 * [The Add Azure WebJob Dialog](websites-dotnet-deploy-webjobs.md#configure)
-* [Create a Scheduled WebJob in the Azure Management Portal](web-sites-create-web-jobs.md#CreateScheduled)
+* [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduled)
 * [Hooking up a scheduler job to a WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
