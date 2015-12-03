@@ -138,9 +138,9 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 The size of the head node can only be selected during cluster creation. The default size for head nodes is **A3**, which provides 4 cores, 7GB memory, and 285GB of local storage. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure preview portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
+When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
-* **Azure preview portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of both the head and data (worker) nodes for the cluster:
+* **Azure Portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of both the head and data (worker) nodes for the cluster:
 
 	![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 

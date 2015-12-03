@@ -24,7 +24,7 @@ You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on A
 
 **Related articles**
 
-- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): install Giraph using the Azure Preview Portal
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): install Giraph using the Azure Portal
 - [Install Giraph on HDInsight Hadoop clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
@@ -173,7 +173,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 
 ## See also
 
-- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): install Giraph using the Azure Preview Portal
+- [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md): install Giraph using the Azure Portal
 - [Install Giraph on HDInsight Hadoop clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.

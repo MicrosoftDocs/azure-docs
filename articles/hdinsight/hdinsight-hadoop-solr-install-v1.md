@@ -29,7 +29,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 
 **Related articles**
 
-- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Preview Portal
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Portal
 - [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action
@@ -182,7 +182,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 
 ## See also
 
-- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Preview Portal
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Portal
 - [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action

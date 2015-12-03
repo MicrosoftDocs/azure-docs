@@ -120,9 +120,9 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-You can also find the storage information using the Azure preview portal:
+You can also find the storage information using the Azure Portal:
 
-1. In the [Azure Preview Portal](https://portal.azure.com/), select your HDInsight cluster.
+1. In the [Azure Portal](https://portal.azure.com/), select your HDInsight cluster.
 
 2. From the __Essentials__ section, select __All settings__.
 
@@ -207,7 +207,7 @@ The different cluster types are affected by scaling as follows:
 
 For specific information on scaling your HDInsight cluster, see:
 
-* [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-portal-linux.md#scaling)
+* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Manage Hadoop clusters in HDinsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 

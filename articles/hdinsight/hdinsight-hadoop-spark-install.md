@@ -42,7 +42,7 @@ Spark can also be used to perform conventional disk-based data processing. Spark
 
 This topic provides instructions on how to customize an HDInsight cluster to install Spark.
 
-## Install Spark using the Azure Preview portal
+## Install Spark using the Azure Portal
 
 A sample script to install Spark on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). This script can install Spark 1.2.0 or Spark 1.0.2 depending on the version of the HDInsight cluster you create.
 

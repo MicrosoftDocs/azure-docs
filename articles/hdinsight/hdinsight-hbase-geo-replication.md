@@ -68,7 +68,7 @@ Before you begin this tutorial, you must have the following:
 
 In [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center. The two virtual network are connected via VPN. In this session, you will provision an HBase cluster in each of the virtual networks. Later in this tutorial, you will make one of the HBase clusters to replicate the other HBase cluster.
 
-The Azure portal doesn't support provisioning HDInsight clusters with custom configuration options. For example, set *hbase.replication* to *true*. If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged. For more information see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.
+The Azure Classic Portal doesn't support provisioning HDInsight clusters with custom configuration options. For example, set *hbase.replication* to *true*. If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged. For more information see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.
 
 
 **To provision an HBase Cluster in Contoso-VNet-EU** 
@@ -157,7 +157,7 @@ To configure conditional forwarder, you need to know the domain suffixes of the 
 
 **To find the domain suffixes of the two HBase clusters**
 
-1. RDP into **Contoso-HBase-EU**.  For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal]. It is actually headnode0 of the cluster.
+1. RDP into **Contoso-HBase-EU**.  For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Classic Portal][hdinsight-manage-portal]. It is actually headnode0 of the cluster.
 2. Open a Windows PowerShell console, or a command prompt.
 3. Run **ipconfig**, and write down **Connection-specific DNS suffix**.
 4. Please don't close the RDP session.  You will need it later to test domain name resolution.

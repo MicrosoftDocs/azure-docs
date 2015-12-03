@@ -49,7 +49,7 @@ For instructions on how to do this, see [Create a self-signed certificate](http:
 
 Each Azure subscription is identified by a GUID value, known as the subscription ID. Use the following steps to find this value.
 
-1. Visit the [Azure preview portal][preview-portal].
+1. Visit the [Azure Portal][preview-portal].
 
 2. From the bar on the left of the portal, select __BROWSE ALL__, then select __Subscriptions__ from the __Browse__ blade.
 
