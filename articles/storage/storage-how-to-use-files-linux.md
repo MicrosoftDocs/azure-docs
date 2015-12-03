@@ -22,7 +22,7 @@
 
 Azure File Storage offers file shares in the cloud using the standard SMB protocol. File storage is now generally available and supports both SMB 3.0 and SMB 2.1.
 
-You can create Azure file shares using the Azure preview portal, the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard and familiar file system APIs.
+You can create Azure file shares using the [Azure Portal](portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard and familiar file system APIs.
 
 Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.
 
@@ -91,7 +91,7 @@ If you use Open SUSE 13.2, you can mount the file as below:
 
 ## Manage the file share ##
 
-The [Azure preview portal](https://portal.azure.com/) now provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
+The [Azure Portal](portal.azure.com) provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
 
 - Upload and download files to and from your file share.
 - Monitor the actual usage of each file share.

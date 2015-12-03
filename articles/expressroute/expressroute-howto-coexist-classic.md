@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet
@@ -29,6 +29,7 @@ ExpressRoute circuits must be pre-configured before you follow the instructions 
 
 - **Transit routing is not supported:** You cannot route (via Azure) between your local network connected via site-to-site VPN and your local network connected via ExpressRoute.
 - **Point-to-site is not supported:** You can't enable point-to-site VPN connections to the same VNet that is connected to ExpressRoute. Point-to-site VPN and ExpressRoute cannot coexist for the same VNet.
+- **Forced tunneling cannot be enabled on the site-to-site VPN gateway:** You can only "force" all Internet-bound traffic back to your on-premises network via ExpressRoute. 
 - **Only standard or high performance gateways:** You must use a standard or high performance gateway for both the ExpressRoute gateway and the site-to-site VPN gateway. See [Gateway SKUs](../vpn-gateway/vpn-gateway-about-vpngateways.md) for information about gateway SKUs.
 - **Static route requirement:** If your local network is connected to both ExpressRoute and a site-to-site VPN, you must have a static route configured in your local network to route the site-to-site VPN connection to the public Internet.
 - **ExpressRoute gateway must be configured first:** You must create the ExpressRoute gateway first before you add the site-to-site VPN gateway.
