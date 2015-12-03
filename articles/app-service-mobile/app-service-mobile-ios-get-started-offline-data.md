@@ -192,8 +192,8 @@ In this section, you will connect to an invalid URL to simulate an offline scena
 
 3. View the contents of the remote TodoItem table:
 
-    - For the JavaScript backend, go to the Management Portal, and click the Easy Data blade to view the contents of the `TodoItem` table.
-    - For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
+    + For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
+   	+ For a .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
     Verify that the new items have *not* been synced to the server:
 

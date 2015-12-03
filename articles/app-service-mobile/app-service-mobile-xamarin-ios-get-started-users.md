@@ -110,6 +110,4 @@ In this section, you will modify the app to display a login screen before displa
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
-
-[Azure Management Portal]: https://portal.azure.com
  
