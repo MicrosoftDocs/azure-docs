@@ -74,14 +74,6 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 | **Windows 10 and Azure AD Join related features **| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
 
-
-
-
-
-
-
-
-
 ## What's next
 
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
