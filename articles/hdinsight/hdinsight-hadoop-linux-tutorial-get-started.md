@@ -179,6 +179,12 @@ Use the following steps from the Hive view to run a Hive query against data incl
     This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
     
     ![visual explain image](./media/hdinsight-hadoop-linux-tutorial-get-started/visualexplain.png)
+    
+    The other icons are as follows:
+    
+        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
+        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
+        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
 
 5. Select the __SQL__ icon to switch back to the Query Editor, then create a new worksheet and enter the following query:
 
