@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/29/2015"
+   ms.date="12/03/2015"
    ms.author="kgremban"/>
 
 # Document library for managing applications
@@ -62,8 +62,7 @@ This page contains helpful links for the major features of single sign-on with A
 |   |   |
 | ------ | ------ |
 | Overview | [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](active-directory-saas-app-provisioning.md) |
-| How-to | [Tutorial: Azure Active Directory integration with Concur](active-directory-saas-concur-tutorial.md) <br><br> [Tutorial: Azure Active Directory integration with DocuSign](active-directory-saas-docussign-tutorial.md) <br><br> [Tutorial: Azure Active Directory integration with Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md) <br><br>
-[Tutorial: How to integrate Google Apps with Azure Active Directory](active-directory-saas-google-apps-tutorial.md) <br><br> [Tutorial: How to integrate Salesforce with Azure Active Directory](active-directory-saas-salesforce-tutorial.md) <br><br> [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) <br><br> [Tutorial: Configuring Workday for inbound synchronization](active-directory-saas-workday-inbound-tutorial.md) |
+| How-to | [Tutorial: Azure Active Directory integration with Concur](active-directory-saas-concur-tutorial.md) <br><br> [Tutorial: Azure Active Directory integration with DocuSign](active-directory-saas-docussign-tutorial.md) <br><br> [Tutorial: Azure Active Directory integration with Dropbox for Business](active-directory-saas-dropboxforbusiness-tutorial.md) <br><br> [Tutorial: How to integrate Google Apps with Azure Active Directory](active-directory-saas-google-apps-tutorial.md) <br><br> [Tutorial: How to integrate Salesforce with Azure Active Directory](active-directory-saas-salesforce-tutorial.md) <br><br> [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) <br><br> [Tutorial: Configuring Workday for inbound synchronization](active-directory-saas-workday-inbound-tutorial.md) |
 
 ## Azure AD App Gallery
 
