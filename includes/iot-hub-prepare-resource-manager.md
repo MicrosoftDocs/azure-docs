@@ -23,7 +23,7 @@ The following steps show how to set up password authentication for an AD applica
 
 2. Make a note of your **TenantId** and **SubscriptionId**. You will need them later.
 
-3. Create a new Azure active directory application using the following command, replacing the place holders:
+3. Create a new Azure Active Directory application using the following command, replacing the place holders:
 
     - **{Display name}:** a display name for your application such as **MySampleApp**
     - **{Home page URL}:** the URL of the home page of your app such as **http://mysampleapp/home**. This URL does not need to point to a real application.
