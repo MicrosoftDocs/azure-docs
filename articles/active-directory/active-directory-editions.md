@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/17/2015"
+	ms.date="12/03/2015"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions
@@ -54,15 +54,15 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | SSO to SaaS apps, custom apps, Application Proxy apps| 10 apps per user| 10 apps per user| no limit| 10 apps per user|
 |  | Self-service password change for cloud users| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
-|  | [Azure AD Connect - For syncing between on-premises directories and Azure Active Directory](active-directory-aadconnect.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+|  | [Connect - For syncing between on-premises directories and Azure Active Directory](active-directory-aadconnect.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | **Preview**:[ B2B collaboration](active-directory-b2b-collaboration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
-|  | [Security / usage reports](active-directory-view-access-usage-reports.md)| Basic reports| Advanced reports| Basic reports| Basic reports|
+|  | [Security / usage reports](active-directory-view-access-usage-reports.md)| Basic reports| Basic reports| Advanced reports| Basic reports|
 | **Premium and Basic features**| [Group-based application access management and provisioning](active-directory-accessmanagement-group-saasapps.md)|  | ![Check][12]| ![Check][12]|  |
 |  | [Self-service password reset for cloud users](active-directory-passwords.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Company branding (Log-on pages and Access Panel customization)](active-directory-add-company-branding.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Application Proxy](active-directory-application-proxy-get-started.md)|  | ![Check][12]| ![Check][12]|  |
 |  | [High availability SLA uptime (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![Check][12]| ![Check][12]| ![Check][12]|
-| **Premium only features**| [Self-service group management / self-service application addition / dynamic group membership](Self-service group management for users in Azure AD.md)|  |  | ![Check][12]|  |
+| **Premium only features**| Self-service group management / self-service application addition / dynamic group membership|  |  | ![Check][12]|  |
 |  | [Self-service password reset, change, unlock with on-premises write-back](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![Check][12]|  |
 |  | [Multi-Factor Authentication (cloud and on-premises)](multi-factor-authentication.md)|  |  | ![Check][12]| Limited to cloud only for Office 365 Apps|
 |  | [Microsoft Identity Manager (MIM) user licenses and MIM server](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![Check][12]|  |
@@ -71,8 +71,10 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | Automatic password rollover for group accounts|  |  | ![Check][12]|  |
 |  | **Preview**: Conditional Access|  |  | ![Check][12]|  |
 |  | **Preview**: Privileged Identity Management|  |  | ![Check][12]|  |
-| **Azure Active Directory Join – Windows 10 only related features**| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| **Windows 10 and Azure AD Join related features **| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
+
+
 
 
 
