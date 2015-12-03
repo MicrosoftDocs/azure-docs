@@ -5,7 +5,8 @@
 
 2. Select your service from **Existing Web Apps** and click **OK**, then verify the publish information and click **Publish**.  When your Mobile App backend has published successfully, you will see a landing page indicating success.
 
+
 + **Node.js backend (via Node.js code)** :  
 
-* Follow the [instructions for deploying a Node.js script to a Web App](../articles/app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+1. Follow the [instructions for deploying a Node.js script to a Web App](../articles/app-service-web/web-sites-nodejs-develop-deploy-mac.md)
  
