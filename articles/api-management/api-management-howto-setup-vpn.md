@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12.03/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
