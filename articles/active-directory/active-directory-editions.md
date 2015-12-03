@@ -58,10 +58,10 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | **Preview**:[ B2B collaboration](active-directory-b2b-collaboration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Security / usage reports](active-directory-view-access-usage-reports.md)| Basic reports| Advanced reports| Basic reports| Basic reports|
 | **Premium and Basic features**| [Group-based application access management and provisioning](active-directory-accessmanagement-group-saasapps.md)|  | ![Check][12]| ![Check][12]|  |
-|  | [Self-service password reset for cloud users](active-directory-passwords.md)|  | ![Check][12]| ![Check][12]|  |
-|  | [Company branding (Log-on pages, Access Panel customization)](active-directory-add-company-branding.md)|  | ![Check][12]| ![Check][12]|  |
+|  | [Self-service password reset for cloud users](active-directory-passwords.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
+|  | [Company branding (Log-on pages and Access Panel customization)](active-directory-add-company-branding.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Application Proxy](active-directory-application-proxy-get-started.md)|  | ![Check][12]| ![Check][12]|  |
-|  | [High availability SLA uptime (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![Check][12]| ![Check][12]|  |
+|  | [High availability SLA uptime (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 | **Premium only features**| [Self-service group management / self-service application addition / dynamic group membership](Self-service group management for users in Azure AD.md)|  |  | ![Check][12]|  |
 |  | [Self-service password reset, change, unlock with on-premises write-back](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![Check][12]|  |
 |  | [Multi-Factor Authentication (cloud and on-premises)](multi-factor-authentication.md)|  |  | ![Check][12]| Limited to cloud only for Office 365 Apps|
@@ -73,6 +73,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | **Preview**: Privileged Identity Management|  |  | ![Check][12]|  |
 | **Azure Active Directory Join – Windows 10 only related features**| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
+
 
 
 
