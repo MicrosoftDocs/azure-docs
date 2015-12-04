@@ -28,14 +28,16 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight	(Windows)	 	3.0.6.763.1931434 (HDP 2.0.13.0-2117 - unchanged)
 * HDInsight	(Windows)	 	3.1.4.763.1931434  (HDP 2.1.15.0-2374 - unchanged)
 * HDInsight	(Windows)		3.2.7.763.1931434  (HDP 2.2.7.1-34 - unchanged)
+* HDInsight (Windows)		3.3				   (HDP 2.3.3.1-5)
 * HDInsight	(Linux)			3.2.1000.0.6392801 (HDP	2.2.7.1-34 - unchanged)
+* HDInsight (Linux)			3.3				   (HDP 2.3.3.1-5)
 * SDK			1.5.8
 
 This release contains the following updates.
 
 | Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| Updated HDInsight versions for all HDInsight clusters (Windows) | With this release, HDInsight and HDP versions have been updated | Service    | All| N/A
+| Updated HDInsight versions for all HDInsight clusters | With this release, HDInsight and HDP versions have been updated | Service    | All| N/A
 
 ## Notes for 11/30/2015 release of HDInsight
 
