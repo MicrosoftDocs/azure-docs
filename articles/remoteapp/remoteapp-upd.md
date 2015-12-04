@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/02/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -29,7 +29,7 @@ Each UPD has 50GB of persistent storage and contains both user data and applicat
 
 Read on for specifics on user profile data.
 
->[AZURE.NOTE] Need to disable the UPD? You can do that now - just scroll down to the "How do I disable the UPD" question below for details.
+>[AZURE.NOTE] Need to disable the UPD? You can do that now - check out Pavithra's blog post, [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), for details.
 
 
 ## How can an admin get to the data?
@@ -89,23 +89,7 @@ You might want to disable UPDs in any of the following situations:
 - You have 3rd-party user profile management solutions on-premises and want to continue using them in your domain-joined Azure RemoteApp deployment. This would require the profile agent to be loaded into the gold image. 
 - You don’t need any local data storage or you have all data in the cloud (such as OneDrive for Business) or file share and would like to control saving of data locally using Azure RemoteApp.
 
-
-## How do I disable UPDs?
-
-Ok, so you want to disable the UPDs - contact Azure RemoteApp support to request this change to your collection. Send mail to remoteappforum@microsoft.com.
-
-Freek Berson, one of the Azure RemoteApp MVPs, wrote [a great blog post outlining all the steps and considerations for disabling the UPD](http://microsoftplatform.blogspot.nl/2015/11/azure-remoteapp-without-user-profile.html). Make sure to check it out.
-
-The main takeaway: if you disable UPDs, local/cached user profiles will be created on the VM. If you don't clean these up when the user logs off, the disk will eventually get filled and the VM will become unresponsive. If you are using a 3rd-party management solution, configure the software to clean up the local user profile. If you are not using a 3rd-party solution, set the following registry keys in the template image to perform the cleanup:
-
-
-- [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
-	"DeleteRoamingCache"=dword:00000001
-
-
-- [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
-	"LocalProfile"=dword:00000000
-
+See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) for more information.
 
 ## Can I restrict users from saving data to the system drive?
 
