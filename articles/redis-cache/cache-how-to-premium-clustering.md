@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to configure Redis clustering for a Premium Azure Redis Cache
@@ -36,7 +36,7 @@ Please see the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-an
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Redis Cache service. 
 
 ## Clustering
-Clustering is configured on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure preview portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
+Clustering is configured on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure Portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
 
 ![Create a Redis Cache][redis-cache-new-cache-menu]
 

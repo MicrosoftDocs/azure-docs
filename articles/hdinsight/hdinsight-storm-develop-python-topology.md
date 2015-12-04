@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/08/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Develop Apache Storm topologies using Python on HDInsight
