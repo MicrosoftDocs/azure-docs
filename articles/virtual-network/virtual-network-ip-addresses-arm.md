@@ -1,10 +1,27 @@
+<properties 
+   pageTitle="Public and Private IP addresses in Azure Network Resource Provider | Microsoft Azure"
+   description="Learn about IP addresses, public and private for  Network Resource Provider in Azure Resource Manager"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="carmonm"
+   editor="tysonn" />
+<tags 
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="12/03/2015"
+   ms.author="joaoma" />
+
 # IP Addresses in Azure Virtual Network
 This article covers IP addressing for Virtual machines, Load balancers, VPN gateways and APP gateways.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-classic.md).
 
 ## Public IP Addresses
-Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs). A public IP address is an independent resource and can be associated to different types of Azure resources like [Virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-about/) (VM), [Load balancers](load-balancer-overview.md) (LB).
+Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs). A public IP address is an independent resource and can be associated to different types of Azure resources like [Virtual machines](virtual-machines-about.md (VM), [Load balancers](load-balancer-overview.md) (LB).
 
 ### Public IP Address Allocation Method
 Public IP Addresses are allocated from a pool of IP addresses available in a given location. The complete list of IP address ranges used by Microsoft Azure Datacenters is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
