@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="12/04/2015" 
 	ms.author="riande"/>
 
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
 
-This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. 
+This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 Community Edition. 
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
@@ -44,7 +44,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 1. Start Visual Studio 2013.
 1. From the **File** menu click **New Project**.
-3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET MVC 5 Web Application**. Name the application **ContactManager** and click **OK**.
+3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET Web Application**. Name the application **ContactManager** and click **OK**.
 
 	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
 
@@ -58,7 +58,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 	The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
 
-1. In the **New ASP.NET Project** dialog box, click **OK**.
+1. In the **New ASP.NET Project** dialog box, make sure the **Host in the Cloud** is checked and click **OK**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
@@ -189,7 +189,7 @@ You begin by creating a simple data model in code.
     		}
 		}
 
-The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
+The **Contact** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -215,7 +215,7 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 
 	A dialog box will prompt you: "A file with the name HomeController already exits. Do you want to replace it?". Click **Yes**. We are overwriting the Home Controller that was created with the new project. We will use the new Home Controller for our contact list.
 
-	Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
+	Visual Studio creates controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
@@ -503,7 +503,8 @@ To:
 
 1. In the Package Manager Console, run the following command to install Knockout.
 
-	Install-Package knockoutjs
+		Install-Package knockoutjs
+
 ## Add a controller for the Web API Restful interface
 
 1. In **Solution Explorer**, right-click Controllers and click **Add** and then **Controller....** 
@@ -627,13 +628,13 @@ For more information, see the [Open Web Application Security Project](https://ww
 
 1. Add the following *using* statement to the contracts controller so you have access to the **[ValidateHttpAntiForgeryToken]** attribute.
 
-	using ContactManager.Filters;
+		using ContactManager.Filters;
 
 1. Add the **[ValidateHttpAntiForgeryToken]** attribute to the Post methods of the **ContactsController** to protect it from XSRF threats. You will add it to the "PutContact",  "PostContact" and **DeleteContact** action methods.
 
-	[ValidateHttpAntiForgeryToken]
-        public IHttpActionResult PutContact(int id, Contact contact)
-        {
+		[ValidateHttpAntiForgeryToken]
+	        public IHttpActionResult PutContact(int id, Contact contact)
+	        {
 
 1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
 
@@ -688,6 +689,7 @@ For more information, see the [Open Web Application Security Project](https://ww
                }
                ko.applyBindings(new ContactsViewModel());
             </script>
+		 }
 
 
 ## Publish the application update to Azure and SQL Database
