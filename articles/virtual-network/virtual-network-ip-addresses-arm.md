@@ -21,7 +21,7 @@ This article covers IP addressing for Virtual machines, Load balancers, VPN gate
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-classic.md).
 
 ## Public IP Addresses
-Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs). A public IP address is an independent resource and can be associated to different types of Azure resources like [Virtual machines](virtual-machines-about.md (VM), [Load balancers](load-balancer-overview.md) (LB).
+Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs). A public IP address is an independent resource and can be associated to different types of Azure resources like [Virtual machines](virtual-machines-about.md) (VM), [Load balancers](load-balancer-overview.md) (LB).
 
 ### Public IP Address Allocation Method
 Public IP Addresses are allocated from a pool of IP addresses available in a given location. The complete list of IP address ranges used by Microsoft Azure Datacenters is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
