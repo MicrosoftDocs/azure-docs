@@ -147,10 +147,13 @@ Then select your other phone number.  In this case, you would select **Call me a
 
 The second is by contacting your administrator or the person who setup mfa for you.  You only need to do this if you have not configured a secondary authentication phone number.  Otherwise you will have to contact your administrator or the person who setup mfa and have them clear you settings so the next time you sign-in, you will be prompted to [setup multi-factor authentication](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again) again.
 
-##I am not receiving a code on my phone
+##I am not receiving a code or a call on my phone
 
 First, you need to ensure the following:
 
+
+
+- If you have selected to receive a phone call to your mobile phone, ensure that you have an adequate cell signal.  Your delivery speed and availability may vary by location and service provider.
 - If you selected to receive verification codes by text message to your mobile phone, make sure your service plan and device supports text message delivery. Your delivery speed and availability may vary by location and service provider. Also make sure that you have an adequate cell signal when trying to receive these codes.
 - If you chose to receive a verification via the mobile app, ensure that you have a significant cell signal.  Also remember that delivery speed and availability may vary by location and service provider. 
 
