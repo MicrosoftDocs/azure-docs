@@ -90,4 +90,4 @@ For more information about authentication and authorization services in Azure Ap
 
 ## Next steps
 
-This article has explained authentication and authorization features of App Service API apps. If you are following the API Apps getting started series for ASP.NET, continue to the [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md) tutorial.
+This article has explained authentication and authorization features of App Service API apps. To try out these features, continue to the next tutorial in the API Apps getting started series, [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md). 
