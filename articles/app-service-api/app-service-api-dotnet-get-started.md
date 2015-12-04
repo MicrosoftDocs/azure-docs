@@ -436,5 +436,4 @@ Before deploying to Azure, change the API endpoint in the MVC project so that wh
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, and consume them from .NET clients. The next tutorial in the getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
-
+In this tutorial, you've seen how to create API apps, deploy code to them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
