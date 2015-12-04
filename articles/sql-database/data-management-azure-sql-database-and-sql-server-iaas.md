@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffreyg"/>
 
 # Selecting a SQL Server option in Azure: Azure SQL Database (PaaS) or SQL Server on Azure VMs (IaaS)
