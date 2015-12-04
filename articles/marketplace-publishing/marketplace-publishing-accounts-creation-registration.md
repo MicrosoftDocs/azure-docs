@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio"/>
 
 # Create a Microsoft seller account
 This article walks you through the necessary account creation and registration process to become an approved Microsoft seller for the Azure Marketplace.
 
 ## 1. Create a Microsoft account
-> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the publishing portal and the Seller Dashboard. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
+> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@example.com). Payment, tax information, and reporting will be routed through this account.
 
   > [AZURE.WARNING] Words like "Azure" and "Microsoft" are not supported for Microsoft account registration. Avoid using these words to complete the account creation and registration process.
+
+### Instructions
 
 1. Create a distribution list (DL) or security group (SG) within your company's domain.
   - Add your onboarding team to the DL.
@@ -36,20 +38,14 @@ The address that forms the user name should be on your domain and controlled by 
  - You can register for a Microsoft account at [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
  - Use marketplace@example.com as the email address.
  - Your Microsoft account ID is now marketplace@example.com.
-
-    <!--[drawing][img-msalive]-->
-
 4. When registering, use a valid phone number. The system will send a verification code as a text message or an automated call if identity verification is required.
 5. Verify the email address sent to the DL.
+6. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
 
-    <!--[drawing][img-email]-->
+> [AZURE.TIP] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
 
-6. You’re now ready to use the new Microsoft account in the Seller Dashboard.
-
-> [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
-
-## 2. Create your Seller Dashboard account
-The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, and the same account must be used in the Azure publishing portal. You should check to make sure your company does not already have a Seller Dashboard account before you attempt to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
+## 2. Create your Microsoft Developer Center account
+The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
 
 > [AZURE.IMPORTANT] You must complete the following seller profile components in order to progress through the various phases of offer creation and deployment.
 
@@ -67,7 +63,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 ### Register your company account
 1. Open a new  Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you’re not signed in to a personal account.
 
-2. Go to [http://sellerdashboard.microsoft.com](http://sellerdashboard.microsoft.com).
+2. Go to [http://dev.windows.com](http://dev.windows.com).
 
     ![drawing][img-sd-url]
 
