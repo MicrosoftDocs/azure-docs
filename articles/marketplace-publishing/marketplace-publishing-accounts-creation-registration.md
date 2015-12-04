@@ -96,14 +96,13 @@ The Microsoft Developer Center is used to register the company information once.
 11. Click **Finish** to confirm your purchase. We'll send a confirmation message to your developer email address.
 
 
-
-If you are planning to publish only free offers, then you can skip to section 3, "Register your account in the publishing portal".
+If you are planning to publish only free offers, then you can skip to section 3, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal).
 
 If you are planning to publish commercial offers, you must complete tax and banking information in your Seller Dashboard account.
 
 > [AZURE.IMPORTANT] You will not be able to properly test your offers in staging and will not be able to push your offers to production without completing the tax and bank account information.
 
-If you prefer to update your tax and bank information later, you can go to section 3, "Register your account in the publishing portal", and come back later by using links in the publishing portal.
+If you prefer to update your tax and bank information later, you can go to section 3, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal), and come back later by using links in the publishing portal.
 
 ### Add tax and banking information
  If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
