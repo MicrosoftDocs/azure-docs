@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/03/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Run MapReduce jobs with Hadoop on HDInsight using Curl
@@ -32,9 +33,9 @@ To complete the steps in this article, you will need the following:
 
 * A Hadoop on HDInsight cluster (Linux or Windows-based)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Run MapReduce jobs using Curl
 
@@ -42,7 +43,7 @@ To complete the steps in this article, you will need the following:
 >
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
 >
-> The REST API is secured by using <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">basic access authentication</a>. You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
+> The REST API is secured by using [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
 1. From a command-line, use the following command to verify that you can connect to your HDInsight cluster:
 
@@ -86,7 +87,7 @@ To complete the steps in this article, you will need the following:
 
 4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasb:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
 
-You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](../xplat-cli.md). For example, to list files in the **example/curl**, use the following command:
+You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md). For example, to list files in the **example/curl**, use the following command:
 
 	azure storage blob list <container-name> example/curl
 
@@ -113,4 +114,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
- 

@@ -3,7 +3,7 @@
     pageTitle="Troubleshoot creating RemoteApp hybrid collections"
     description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -26,8 +26,11 @@ Haven't created your collection yet? See [Create a hybrid collection](remoteapp-
 
 If you are having trouble creating your collection, or if the collection isn't working the way you think it should, check out the following information.
 
+## Your image is invalid ##
+If you see a message like, "GoldImageInvalid" when you are waiting for Azure to provision your collection, it means that your template image doesn't meet the [defined image requirements](remoteapp-imagereqs.md). So, go read those [requirements](remoteapp-imagereqs.md), fix your image, and try to create your collection again.
+
 ## Does your VNET use forced tunneling? ##
-RemoteApp does not currently support using VNETs that have forced tunneling enabled. If you need this function, contact the RemoteApp team to request support.
+RemoteApp does not currently support using VNETs that have forced tunneling enabled. If you need this function, contact the [RemoteApp team](mailto:remoteappforum@microsoft.com) to request support.
 
 After your request is approved, make sure the following ports are opened on the subnet you chose for Azure RemoteApp and the VMs in the subnet. The VMs in your subnets should also be able to access the URLs mentioned in the section about network security groups.
 
@@ -71,8 +74,6 @@ For example:
 
 ![Define your DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-For more information, see [Name resolution using your own DNS server](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
-
 ## Are you using an Active Directory domain controller in your collection? ##
 Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. 
 
@@ -83,3 +84,4 @@ Make sure the domain details provided are valid and the domain controller is rea
 ## What domain name did you specify when you created your collection? ##
 
 The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local). For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.
+

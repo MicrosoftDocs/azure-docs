@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Azure Mobile Services"
+	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Microsoft Azure"
 	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="05/20/2015"
+	ms.date="08/25/2015"
 	ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
@@ -28,7 +28,7 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 ## <a name="register-scripts"></a>Register scripts
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click on your mobile service. Click the **Data** tab, then click the **TodoItem** table.
+1. Log on to the [Azure classic portal], click **Mobile Services**, and then click on your mobile service. Click the **Data** tab, then click the **TodoItem** table.
 
 2. Click **Script**, select the **Insert** operation, replace the existing script with the following function, and then click **Save**. 
 
@@ -67,5 +67,5 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Add Authentication to Existing Mobile Services App]: /develop/mobile/tutorials/get-started-with-users-ios
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
  

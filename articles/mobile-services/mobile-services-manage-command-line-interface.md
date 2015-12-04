@@ -1,34 +1,35 @@
-<properties 
-	pageTitle="Administering a Mobile Service at the command line - Azure tutorial" 
-	description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Administering a Mobile Service from the command line | Microsoft Azure"
+	description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools."
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/07/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# Automate mobile services with command-line tools 
+# Automate mobile services with command-line tools
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Overview
 
 This topic shows you how to use the Azure command-line tools to automate the creation and management of Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform key Mobile Services.
- 
-When combined into a single script or batch file, these individual commands automate the creation, verification, and deletion process of a mobile service. 
+
+When combined into a single script or batch file, these individual commands automate the creation, verification, and deletion process of a mobile service.
 
 This topic covers a selection of common administration tasks supported by the Azure command-line tools. For more information, see [Azure command-line tools documentation][reference-docs].
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Install the Azure Command-Line Tools
 
@@ -50,7 +51,7 @@ To get started, you must first download and import your publish settings. Then y
 
 	azure account download
 
-This opens your default browser and prompts you to sign in to the Management Portal. After signing in, your `.publishsettings` file is downloaded. Note the location of this saved file.
+This opens your default browser and prompts you to sign in to the Azure classic portal. After signing in, your `.publishsettings` file is downloaded. Note the location of this saved file.
 
 Next, import the `.publishsettings` file by running the following command, replacing `<path-to-settings-file>` with the path to your `.publishsettings` file:
 
@@ -64,11 +65,11 @@ To see a list of options for `account` commands, use the `-help` option:
 
 	azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Azure Mobile Services from the command line or in batch files.  
+After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Azure Mobile Services from the command line or in batch files.
 
 ##How to create a mobile service
 
-You can use the command-line tools to create a new mobile service instance. While creating the mobile service, you also create a SQL Database instance in a new server. 
+You can use the command-line tools to create a new mobile service instance. While creating the mobile service, you also create a SQL Database instance in a new server.
 
 The following command creates a new mobile service instance in your subscription, where `<service-name>` is the name of the new mobile service, `<server-admin>` is the login name of the new server, and `<server-password>` is the password for the new login:
 
@@ -78,7 +79,7 @@ The `mobile create` command fails when the specified mobile service exists. In y
 
 ##How to list existing mobile services in a subscription
 
-> [AZURE.NOTE] Commands in the CLI related to "list" and "script" only work with the JavaScript backend. 
+> [AZURE.NOTE] Commands in the CLI related to "list" and "script" only work with the JavaScript backend.
 
 The following command returns a list of all the mobile services in an Azure subscription:
 
@@ -102,19 +103,20 @@ The following command creates a table in the specified mobile service, where `<s
 
 	azure mobile table create <service-name> <table-name>
 
-This creates a new table with the default permissions, `application`, for the table operations: `insert`, `read`, `update`, and `delete`. 
+This creates a new table with the default permissions, `application`, for the table operations: `insert`, `read`, `update`, and `delete`.
 
 The following command creates a new table with public `read` permission but with `delete` permission granted only to administrators:
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-The following table shows the script permission value compared to the permission value in the [Azure Management Portal].
+The following table shows the script permission value compared to the permission value in the [Azure classic portal].
 
-<table border="1" width="100%"><tr><th>Script value</th><th>Management Portal value</th></tr>
-<tr><td><code>public</code></td><td>Everyone</td></tr>
-<tr><td><code>application</code> (default)</td><td>Anybody with the application key</td></tr>
-<tr><td><code>user</code></td><td>Only authenticated users</td></tr>
-<tr><td><code>admin	</code></td><td>Only scripts and admins</td></tr></table>
+|Script value|Portal value|
+|========|========|
+|`public`|Everyone|
+|`application`(default)|Anybody with the application key|
+|`user`|Only authenticated users|
+|`admin`|Only scripts and admins|
 
 The `mobile table create` command fails when the specified table already exists. In your automation scripts, you should attempt to delete a table before attempting to recreate it.
 
@@ -148,7 +150,7 @@ The function declaration in the script file must also match the registered table
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 For more information about registering scripts, see [Mobile Services server script reference].
 
@@ -181,7 +183,7 @@ For more information about registering scripts, see [Mobile Services server scri
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -190,4 +192,3 @@ For more information about registering scripts, see [Mobile Services server scri
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [How to install the Azure Command-Line Tools for Mac and Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 

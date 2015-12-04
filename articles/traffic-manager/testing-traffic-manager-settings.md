@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Testing your Traffic Manager settings"
    description="This article will help you test your Traffic Manager settings."
    services="traffic-manager"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="12/01/2015"
+   ms.author="joaoma" />
 
 # Testing Traffic Manager Settings
 
@@ -68,9 +68,8 @@ To effectively test a performance load balancing method, you must have clients l
 
 There are free web-based DNS lookup and dig services available. Some of these give you the ability to check DNS name resolution from various locations. Do a search on “DNS lookup” for examples. Another option is to use a third-party solution like Gomez or Keynote to confirm that your profiles are distributing traffic as expected.
 
-## See Also
+## Next Steps
 
-[About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods.md)
-[Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[About Traffic Manager traffic routing methods](../about-traffic-manager-balancing-methods.md)
 [Traffic Manager](../traffic-manager.md)
  

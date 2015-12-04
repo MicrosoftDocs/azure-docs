@@ -13,33 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 # How to monitor real time data about your application
-The Monitor section of the UI provides real-time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the "Analytics" section of the UI. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring, such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
-### See also
--  [Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 21]
+This article describes the **MONITOR** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+
+
+The Monitor section of the UI provides real-time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the [ANALYTICS](mobile-engagement-user-interface-analytics.md) section of the UI. See the **Glossary** section in the [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) topic for definitions of terms and abbreviations in Analytics and Monitoring (such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info).
+
+>[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
 ## Monitor - Sessions, Jobs, Events, Errors, and Crashes
+
 You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification. 
  
 ![Monitor1][14]  
 
 ## Troubleshooting with Monitor - Events - Details
+
 Generating an event in your application from your test device and finding it in Monitor - Events - Details is one of the easiest ways to find your Device ID for your test device and to confirm that Azure Mobile Engagement integration of Analytics, Monitoring, and Segments is working from your application. Once you have the Device ID of your test device, you can add it to your test devices in “My Account - Devices”. If you can't generate an event, make sure that Azure Mobile Engagement is correctly integrated in your Android/iOS/Web/Windows/Windows Phone app with the SDK.
 
-### See also
--  [SDK Documentation][Link 5]
+For more information, see:  [SDK Documentation][Link 5]
 
 ![Monitor2][15]  
 
 ## Troubleshooting with Monitor - Crashes - Details
+
 You can review crash information about your app from Monitor - Crashes - Details to help determine why your app is crashing. You should also look up known issues with each version of the SDK in the release notes for each version of the SDK for Android/iOS/Web/Windows/Windows Phone. 
 
-### See also
--  [SDK Documentation - Release notes][Link 5]
+For more information, see:  [SDK Documentation - Release notes][Link 5]
 
 ![Monitor3][16] 
 
@@ -47,6 +51,12 @@ You can review crash information about your app from Monitor - Crashes - Details
 You can also specify conditions for Alerts that will be automatically sent to you via e-mail or instant message. (Any XMPP-compliant services like Google's GTalk or Apple's iChat are supported.) Alerts are based on a pre-defined detection threshold greater than (>) or less than (<) a specific number of Sessions, Jobs, Events, Errors, or Crashes per second, minute, or hour. Alerts can monitor all activities of a given type, or just monitor a specific Job, Event, or Error activity. You can also specify a Minimum Detection Rate, which is the minimum amount of time that will separate two notifications for the same alert to make sure that when your alert is triggered, you will never receive more than 1 notification every X minutes.
  
 ![Monitor4][17]
+
+
+## See also
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

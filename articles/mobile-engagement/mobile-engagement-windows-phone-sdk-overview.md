@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Overview for Azure Mobile Engagement
@@ -32,11 +32,11 @@ Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 
 ##Release notes
 
-###3.0.0 (04/03/2015)
+###3.1.0 (11/20/2015)
+Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.2.0**
 
--   Default notification icon updated.
--   Send back system notification action feedback when a notification is clicked.
--   Fixed a race condition on system notification.
+-   Fixed crash while requesting the device id just after the initialization.
+-   Console logs improvements.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-phone-release-notes.md)
 

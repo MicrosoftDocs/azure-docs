@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/05/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Use Apache Phoenix and SQuirreL with HBase clusters in HDinsight  
@@ -29,7 +29,7 @@ Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and 
 Before you can use SQLLine, you must have the following:
 
 - **A HBase cluster in HDInsight**. For information on provision HBase cluster, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
-- **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal].
+- **Connect to the HBase cluster via the remote desktop protocol**. For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure Classic Portal][hdinsight-manage-portal].
 
 **To find out the host name**
 
@@ -108,7 +108,7 @@ There are 3 steps involved configuring a point-to-site VPN connection:
 2. [Create your certificates](#Create-your-certificates)
 3. [Configure your VPN client](#Configure-your-VPN-client)
 
-See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](https://msdn.microsoft.com/library/azure/dn133792.aspx) for more information.
+See [Configure a Point-to-Site VPN connection to an Azure Virtual Network](../vpn-gateway/vpn-gateway-point-to-site-create.md) for more information.
 
 #### Configure a virtual network and a dynamic routing gateway
 
@@ -116,7 +116,7 @@ Assure you have provisioned an HBase cluster in an Azure virtual network (see th
 
 **To configure the point-to-site connectivity**
 
-1. Sign in to the [Azure portal][azure-portal].
+1. Sign in to the [Azure Classic Portal][azure-portal].
 2. On the left, click **NETWORKS**.
 3. Click the virtual network you have created (see [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]).
 4. Click **CONFIGURE** from the top.
@@ -129,7 +129,7 @@ Assure you have provisioned an HBase cluster in an Azure virtual network (see th
 
 **To create a dynamic routing gateway**
 
-1. From the Azure portal, click **DASHBOARD** from the top of the page.
+1. From the Azure Classic Portal, click **DASHBOARD** from the top of the page.
 2. Click **CREATE GATEWAY** from the bottom of the page.
 3. Click **YES** to confirm. Wait until the gateway is created.
 4. Click **DASHBOARD** from the top.  You will see a visual diagram of the virtual network:
@@ -147,7 +147,7 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
 1. From your workstation, open a command prompt window.
 2. Navigate to the Visual Studio tools folder. 
-3. The following command in the example below will create and install a root certificate in the Personal certificate store on your workstation and also create a corresponding .cer file that you’ll later upload to the Azure portal. 
+3. The following command in the example below will create and install a root certificate in the Personal certificate store on your workstation and also create a corresponding .cer file that you’ll later upload to the Azure Classic Portal. 
 
 		makecert -sky exchange -r -n "CN=HBaseVnetVPNRootCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\JohnDole\Desktop\HBaseVNetVPNRootCertificate.cer"
 
@@ -171,9 +171,9 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 
 	A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc. 
 
-**To upload the root certificate to the Azure portal**
+**To upload the root certificate to the Azure Classic Portal**
 
-1. From the Azure portal, click **NETWORK** on the left.
+1. From the Azure Classic Portal, click **NETWORK** on the left.
 2. Click the virtual network where your HBase cluster is deployed to.
 3. Click **CERTIFICATES** from the top.
 4. Click **UPLOAD** from the bottom, and specify the root certificate file you have created in the procedure before last. Wait until the certificate got imported.
@@ -288,7 +288,7 @@ With virtual network integration, HBase clusters can be deployed to the same vir
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]:
 Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in a Hadoop cluster in HDInsight.
 
-[azure-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md

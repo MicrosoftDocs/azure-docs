@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Troubleshoot Application Insights in a Java web project" 
-	description="Troubleshooting guide and question and answer." 
+	description="Troubleshooting guide - monitoring live Java apps with Application Insights." 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Troubleshooting and Q and A for Application Insights for Java
@@ -24,13 +24,13 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 
 *In Eclipse, when adding the Application Insights SDK via Maven or Gradle, I get build or checksum validation errors.*
 
-* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[0.9,)</version>` or (Gradle) `version:'0.9.+'`), try specifying a specific version instead like `0.9.3`.
+* If the dependency <version> element is using a pattern with wildcard characters (e.g. (Maven) `<version>[1.0,)</version>` or (Gradle) `version:'1.0.+'`), try specifying a specific version instead like `1.0.2`. See the [release notes](app-insights-release-notes-java.md) for the latest version.
 
 ## No data 
 
 *I added Application Insights successfully and ran my app, but I've never seen data in the portal.*
 
-* Wait a minute and click Refresh. Currently, refresh isn't automatic.
+* Wait a minute and click Refresh. The charts refresh themselves periodically, but you can also refresh manually. The refresh interval depends on the time range of the chart.
 * Check that you have an instrumentation key defined in the ApplicationInsights.xml file (in the resources folder in your project)
 * Verify that there is no `<DisableTelemetry>true</DisableTelemetry>` node in the xml file.
 * In your firewall, you might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
@@ -133,7 +133,7 @@ See [Data retention and privacy][data].
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [platforms]: app-insights-platforms.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  

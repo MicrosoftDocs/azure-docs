@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure SQL Database Index Advisor" 
-   description="Index recommendations are provided that can easily create indexes that are best suited for running an existing Azure SQL Database’s workload." 
+   description="The Azure SQL Database Index Advisor recommends new indexes for your existing SQL Databases that can improve current query performance." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # SQL Database Index Advisor
@@ -22,19 +22,19 @@ The Azure SQL Database Index Advisor recommends new indexes for your existing SQ
 
 The SQL Database service assesses index performance by analyzing historical resource usage for a SQL Database and the indexes that are best suited for running the database’s typical workload are recommended.
 
-Index advisor makes index management easier by providing recommendations on which indexes to create. For V12 servers, Index advisor can also create and validate indexes with just a few clicks in the [Azure Portal](https://portal.azure.com/). After the index is created, the SQL Database service analyzes performance of the database workload and provides details of the impact of the new index. If the analysis determines that a recommended index has a negative impact on performance, then the index is reverted automatically.
+Index advisor makes index management easier by providing recommendations on which indexes to create. For V12 servers, Index advisor can also create and validate indexes with just a few clicks in the [Azure portal](https://portal.azure.com/). After the index is created, the SQL Database service analyzes performance of the database workload and provides details of the impact of the new index. If the analysis determines that a recommended index has a negative impact on performance, then the index is reverted automatically.
 
 Index advisor allows you to spend less time tuning your database performance.
 
 
-> [AZURE.NOTE] Index Advisor is currently in preview and is only available in the [Azure Portal](https://portal.azure.com/).
+> [AZURE.NOTE] Index Advisor is currently in preview and is only available in the [Azure portal](https://portal.azure.com/).
 
 
 ## Preview considerations
 
 The index advisor is currently in preview and has the following limitations:
 
-- Index recommendations can be automatically created and validated for V12 servers only (recommendations and index creation scripts are provided for V2 servers).
+- Index recommendations can be automatically created and validated for V12 servers only (recommendations and index creation scripts are provided for V12 servers).
 - Recommendations and management are available for non-clustered indexes only.
 
 ## Prerequisites
@@ -57,11 +57,11 @@ Index Advisor is easy to use. To simplify index management for your database fol
 
 ## Review Recommended Indexes
 
-Index advisor provides a list of index recommendations on the database blade in the [Azure Portal](https://portal.azure.com/). The top selected recommendations are shown for each table in the selected database where creating a new index may provide performance gains.
+Index advisor provides a list of index recommendations on the database blade in the [Azure portal](https://portal.azure.com/). The top selected recommendations are shown for each table in the selected database where creating a new index may provide performance gains.
 
 ### To review currently available index recommendations:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **BROWSE** in the left menu.
 3. Click **SQL databases** in the **Browse** blade.
 4. On the **SQL databases** blade, click the database that you want to review recommended indexes for.
@@ -108,7 +108,7 @@ For both automatic and manual index creation simply select a recommended index f
 
 ### Automatic index creation (V12 servers only)
 
-If the database is on a V12 server then you can easily create a recommended index by selecting the desired index on the  and then clicking **Create Index**. 
+If the database is on a V12 server then you can easily create a recommended index by selecting the desired index on the portal and then clicking **Create Index**. 
 
 The database remains online during index creation, using Index Advisor to create an index does not take the database offline.
 

@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #How to: Check Job Progress
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 ##Use Portal to check the job status
 
@@ -28,6 +31,16 @@ This article is part of the [Media Services Video on Demand workflow](media-serv
 	On the page you can see the status of  all your jobs. You can aslo filter by status, time, or job id.
 
 	![CheckStatus][checkstatus]
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##Next Step
 

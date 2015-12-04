@@ -1,25 +1,29 @@
-<properties 
-	pageTitle="Application Insights for Windows Phone and Store apps" 
-	description="Analyze usage and performance of your Windows device app with Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Analytics for Windows Phone and Store apps | Microsoft Azure"
+	description="Analyze usage and performance of your Windows device app."
+	services="application-insights"
     documentationCenter="windows"
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="11/21/2015"
 	ms.author="awills"/>
 
-# Application Insights for Windows Phone and Store apps
+# Analytics for Windows Phone and Store apps
 
-*Application Insights is in preview.*
+Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for devOps workflow and crash analysis; and [Application Insights](app-insights-overview.md) for usage and crash analytics.
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. You can learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb) and keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/).
+
+If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). Send the telemetry to the same Application Insights resource to be able to correlate events in the two sides.
+
+There's also an [Application Insights SDK for C++ Universal apps](https://github.com/Microsoft/ApplicationInsights-CPP) which sends telemetry to the Application Insights portal.
 
 Visual Studio Application Insights lets you monitor your published application for:
 
@@ -66,21 +70,31 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 3. Pick **Application Insights for Windows Applications**
 
-4. Add the following initilization code. It is recommended to add this code to the `App()` constructor. If this initialization is not done in the app constructor, you may miss intiial auto collection of pageviews.  
+4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below. 
+
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
+		</ApplicationInsights>
+	```
+
+    Set the properties of the ApplicationInsights.config file: **Build Action** == **Content** and **Copy to Output Directory** == **Copy always**.
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
+
+5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
 
 ```C#
-
-    public App()
-    {
-       // Initialize Application Insights - substitute your own iKey:
-       WindowsAppInitializer.InitializeAsync("00000000-0000-0000-0000-000000000000");
-            
-       this.InitializeComponent();
-       this.Suspending += OnSuspending;
-    }
-
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
 ```
-  
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
@@ -218,5 +232,3 @@ When a [new SDK version is released](app-insights-release-notes-windows.md):
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
-
- 

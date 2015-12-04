@@ -12,16 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="10/16/2015"
    ms.author="joaoma" />
 
 
-# Load Balancer Overview 
+# What is Azure load balancer?
+ 
 Azure load balancer delivers high availability and network performance to your applications. It is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set.
  
 It can be configured to:
 
-- Load balance incoming Internet traffic to virtual machines. We refer it as [Internet facing load balancing](load-balancer-overview.md).
+- Load balance incoming Internet traffic to virtual machines. We refer it as [Internet facing load balancing](load-balancer-internet-overview.md).
 - Load balance traffic between virtual machines in a Virtual Network, between virtual machines in cloud services or between on-premises computers and virtual machines in a cross-premises virtual network. We refer it as [internal load balancing (ILB)](load-balancer-internal-overview.md).
 - 	Forward external traffic to a specific Virtual Machine instance
 
@@ -77,13 +78,17 @@ Azure Load balancer configuration supports full cone NAT for UDP. Full cone NAT 
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-Note that for each new outbound connection initiated by a VM, an outbound port is also allocated by Azure Load Balancer. The external host will see traffic coming as VIP: allocated port.  If your scenarios require large number of outbound connections, it is recommended that the VMs uses Instance-Level public IPs so that it has dedicated outbound IP for Source Network Address Translation (SNAT). This will reduce the risk of port exhaustion.
+
+>[AZURE.NOTE]Note that for each new outbound connection initiated by a VM, an outbound port is also allocated by Azure Load Balancer. The external host will see traffic coming as VIP: allocated port.  If your scenarios require large number of outbound connections, it is recommended that the VMs uses Instance-Level public IPs so that it has dedicated outbound IP for Source Network Address Translation (SNAT). This will reduce the risk of port exhaustion. 
+>
+>The maximum number of ports that can be used by VIP or ILPIP is 64k. This is a TCP standard limitation.
+
 
 **Support for multiple load balanced IP for Virtual machines**
 
 You can get more than one load balanced public IP address assigned to a set of Virtual machines. With this ability you can host multiple SSL websites and/or multiple SQL Always on Availability group listeners on the same set of Virtual machines. See more at [multiple VIP's per cloud service](load-balancer-multivip.md)
 
-**Template-based deployments using Azure Resource Manager (public preview)** 
+**Template-based deployments using Azure Resource Manager ** 
 Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Iaas just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
 
 

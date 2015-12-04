@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -99,6 +99,15 @@ Finally, set the size of the video element using CSS. In an adaptive streaming e
 ##Playing a Video
 
 To play a video, point your browser at the basicPlayback.html file and click play on the video player displayed.
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See Also
 

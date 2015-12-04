@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure" 
-	description="Learn how to build an information portal and meta search engine using Search service on Microsoft Azure" 
+	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
+	description="Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers." 
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="04/13/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Azure Search Developer Case Study
@@ -111,7 +111,7 @@ This is how we built the prototype.
 
 **Configure Azure Search Service**
 
-1. Login to Azure portal and added the Search service to our subscription. We used the shared version (free with our subscription).
+1. Login to Azure Classic Portal and added the Search service to our subscription. We used the shared version (free with our subscription).
 2. Create an index. For the prototype, we used the portal UI to define the search fields and create the scoring profiles. Our scoring profile is based on location data: country | city |address (see: Add scoring profiles).
 3. Copy the service URL and admin api-key to our configuration files. This key is on the Search service page in the portal, and it’s used to authenticate to the service.
 	

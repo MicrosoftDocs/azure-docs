@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Custom Test Scenarios"
-   description="How to harden your services against Graceful/Ungraceful failures"
+   pageTitle="Custom test scenarios | Microsoft Azure"
+   description="How to harden your services against graceful and ungraceful failures."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="anmola"/>
 
 # Simulate failures during service workloads

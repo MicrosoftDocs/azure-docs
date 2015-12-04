@@ -1,88 +1,65 @@
 <properties
-	pageTitle="Deploy a web app in Azure App Service"
-	description="Learn what methods are available for deploying content to Web Apps."
-	services="app-service\web"
+	pageTitle="Azure App Service deployment documentation"
+	description="Find documentation that explains how to deploy your app to Azure App Service."
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="11/06/2015"
 	ms.author="tdykstra"/>
 
-#Deploy a web app in Azure App Service
+# Azure App Service deployment documentation
 
 ## Overview
 
-You have many options for deploying your own content to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). This topic provides a brief overview of each option and links to more information.
-
-
-###<a name="cloud"></a>Deploy from a cloud-hosted source control system
+This article lists the methods available for deploying your own content to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), including links to articles and blogs that contain how-to information. As additional articles are published, they will be added to this list. 
 
 The best way to deploy a web app is to set up a [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable.
 
-If you don't have source control set up yet, the easiest way to get started is to use a cloud-hosted source control system.
+##### Deploy from cloud-hosted source control systems
 
-* [Visual Studio Online](#vso)
+* [Continuous delivery using Visual Studio Team Services](#vsts)
 * [Repository websites using Git](#git)
 * [Repository websites using Mercurial](#mercurial)
-* [Dropbox](#dropbox)
+* [Automate deployment from Dropbox](#dropbox)
 
-###<a name="ide"></a>Deploying from an IDE
+##### Deploy from on-premises source control systems
 
-[Visual Studio](http://www.visualstudio.com/) and [WebMatrix](http://www.microsoft.com/web/webmatrix/) are Microsoft IDEs (integrated development environments) that you can use for web development. Both provide built-in features that make it easy to deploy a web app.  Both can use [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) to automate additional deployment-related tasks such as database deployment and connection string changes. Both can also deploy by using [FTP or FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)).
-
-WebMatrix is quick to install and easy to learn, but Visual Studio offers many more features for working with Web Apps. From within the Visual Studio IDE you can create, stop, start, and delete web apps, you can view logs as they are created in real-time, you can debug remotely, and much more. Visual Studio also integrates with source control systems such as [Visual Studio Online](#vso), [Team Foundation Server](#tfs), and [Git repositories](#git).
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>Deploy using an FTP utility
-
-Regardless of what IDE you use, you can also deploy content to your App by using [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) to copy files. It's easy to create FTP credentials for a web app, and you can use them in any application that works with FTP, including browsers such as Internet Explorer and full-featured free utilities such as [FileZilla](https://filezilla-project.org/).  Web Apps also supports the more secure FTPS protocol.
-
-Although it's easy to copy your web app's files to Azure using FTP utilities, they don't automatically take care of or coordinate related deployment tasks such as deploying a database or changing connection strings. Also, many FTP tools don't compare source and destination files in order to skip copying files that haven't changed. For large Apps, always copying all files can result in long deployment times even for minor updates since all files are always copied.
-
-###<a name="onpremises"></a>Deploying from an on-premises source control system
-
-If you are using TFS, Git, or Mercurial in an on-premises (not cloud-hosted) repository, you can deploy directly from your repository to a web app.
-
-* [Team Foundation Server (TFS)](#tfs)
+* [Continuous delivery with Team Foundation Server (TFS)](#tfs)
 * [On-premises Git or Mercurial repositories](#onpremises)
 
-###<a name="commandline"></a>Deploy using command-line tools and the Azure REST management API
+##### Automate deployment by using command-line tools
 
-It's always best to automate your development workflow, but if you can't do that directly in your source control system, you can set it up manually by using command-line tools. This generally involves the use of more than one tool or framework, as deployment often involves performing site management functions as well as copying content.
-
-Azure simplifies site management tasks that you might have to do for deployment by providing a REST management API and several frameworks that make it easier to work with the API.
-
-* [FTP](#ftp)
-* [MSBuild](#msbuild)
-* [FTP scripts](#ftp2)
-* [Windows PowerShell](#powershell)
-* [.NET management API](#api)
-* [Azure Command-Line Interface (Azure CLI)](#cli)
-* [Web Deploy command line](#webdeploy)
+* [Automate deployment with MSBuild](#msbuild)
+* [Copy files with FTP tools and scripts](#ftp)
+* [Automate deployment with Windows PowerShell(#powershell)
+* [Automate deployment with .NET management API](#api)
+* [Deploy from Azure Command-Line Interface (Azure CLI)](#cli)
+* [Deploy from Web Deploy command line](#webdeploy)
  
-###<a name="octopus"></a>Octopus Deploy
+##### Deploy from your Integrated Development Environment (IDE)
 
-[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) can be used with App Service Web Apps. For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+* [Deploy from Visual Studio directly](#vs)
+* [Deploy from WebMatrix directly](#webmatrix)
 
+Another deployment option is to use a cloud-based service such as [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Visual Studio Online
+##<a name="vso"></a>Continuous delivery using Visual Studio Team Services
 
-[Visual Studio Online](http://www.visualstudio.com/) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can do continuous delivery to a web app in App Services, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Team Services](http://www.visualstudio.com/) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can do continuous delivery to a web app in App Services, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 For more information, see the following resources:
 
-* [Continuous delivery to Azure using Visual Studio Online and TFVC](../cloud-services-continuous-delivery-use-vso.md). Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Online to a web app, using TFVC. TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.
-* [Continuous delivery to Azure using Visual Studio Online and Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar to the previous tutorial but uses Git instead of TFVC.
+* [Continuous delivery to Azure using Visual Studio Team Services and TFVC](../cloud-services-continuous-delivery-use-vso.md). Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Team Services to a web app, using TFVC. TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.
+* [Continuous delivery to Azure using Visual Studio Team Services and Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar to the previous tutorial but uses Git instead of TFVC.
 
 ##<a name="git"></a>Repository websites using Git
 
@@ -104,7 +81,7 @@ For information about how to deploy using Mercurial, see the following resources
 * [Publishing from Source Control to Web Apps with Git](web-sites-publish-source-control.md). Although this tutorial shows how to publish a Git repository, the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="dropbox"></a>Dropbox
+##<a name="dropbox"></a>Automate deployment from Dropbox
 
 [Dropbox](https://www.dropbox.com/) is not a source control system, but if you store your source code in Dropbox you can automate deployment from your Dropbox account.
 
@@ -112,7 +89,7 @@ For information about how to deploy using Mercurial, see the following resources
 * [Dropbox Deployment to Web Apps](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to a web app and shows how quickly you can get a web app up and running or maintain it using simple drag-and-drop deployment.
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
-##<a name="vs"></a>Visual Studio
+##<a name="vs"></a>Deploy from Visual Studio directly
 
 For information about how to deploy to Web Apps from Visual Studio, see the following resources:
 
@@ -123,11 +100,10 @@ For information about how to deploy to Web Apps from Visual Studio, see the foll
 * [ASP.NET Web Deployment using Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list. Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing.
 * [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository. Starting in Visual Studio 2013, Git support is built-in an doesn't require installation of a plug-in.
 
-##<a name="webmatrix"></a>WebMatrix
+##<a name="webmatrix"></a>Deploy from WebMatrix directly
 
 For information about how to deploy to Web Apps from WebMatrix, see the following resources:
 
-* [Develop and deploy a web app with Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). How to create a simple ASP.NET web app by using a WebMatrix template and deploy it to Web Apps by using WebMatrix and Web Deploy.
 * [Build and deploy a Node.js web site to Azure using WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Create and deploy a PHP-MySQL web app using WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). How to use WebMatrix to deploy from a Git source control repository.
@@ -135,9 +111,8 @@ For information about how to deploy to Web Apps from WebMatrix, see the followin
 For more information, see the following resources:
 
 * [Create a PHP-MySQL web app and deploy using FTP](web-sites-php-mysql-deploy-use-ftp.md).
-* [How to manage Web Apps](web-sites-manage.md#ftp-credentials). Includes additional information not included in the PHP tutorial about how to set FTP credentials.
 
-##<a name="tfs"></a>Team Foundation Server (TFS)
+##<a name="tfs"></a>Continuous delivery with Team Foundation Server (TFS)
 
 Team Foundation Server is Microsoft's on-premises solution for source control and team collaboration. You can set up TFS to do continuous delivery to a web app.
 
@@ -156,8 +131,7 @@ For more information, see the following resources:
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * [Deploying TWO websites to Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
-
-##<a name="msbuild"></a>MSBuild
+##<a name="msbuild"></a>Automate deployment with MSBuild
 
 If you use the [Visual Studio IDE](#vs) for development, you can use [MSBuild](http://msbuildbook.com/) to automate anything you can do in your IDE. You can configure MSBuild to use either [Web Deploy](#webdeploy) or [FTP/FTPS](#ftp) to copy files. Web Deploy can also automate many other deployment-related tasks, such as deploying databases.
 
@@ -166,24 +140,29 @@ For more information about command-line deployment using MSBuild, see the follow
 * [ASP.NET Web Deployment using Visual Studio: Command Line Deployment](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). Tenth in a series of tutorials about deployment to Azure using Visual Studio. Shows how to use the command line to deploy after setting up publish profiles in Visual Studio.
 * [Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build](http://msbuildbook.com/). Hard-copy book that includes chapters on how to use MSBuild for deployment.
 
-##<a name="ftp2"></a>FTP scripts
+##<a name="ftp"></a>Copy files with FTP tools and scripts
 
-It's easy to create [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) credentials for a web app, and you can then use those credentials with FTP batch scripts.
+You can deploy content to your App by using [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) to copy files. It's easy to create FTP credentials for a web app, and you can use them in scripts or in applications that work with FTP, including browsers such as Internet Explorer and full-featured free utilities such as [FileZilla](https://filezilla-project.org/). Web Apps also supports the more secure FTPS protocol.
+
+Although it's easy to copy your web app's files to Azure using FTP utilities, they don't automatically take care of or coordinate related deployment tasks such as deploying a database or changing connection strings. Also, many FTP tools don't compare source and destination files in order to skip copying files that haven't changed. For large Apps, always copying all files can result in long deployment times even for minor updates since all files are always copied.
 
 For more information, see the following resource:
 
 * [Using FTP Batch Scripts](http://support.microsoft.com/kb/96269).
 
-##<a name="powershell"></a>Windows PowerShell
+##<a name="powershell"></a>Automate deployment with Windows PowerShell
 
 You can perform MSBuild or FTP deployment functions from [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.
 
-For more information, see the following resource:
+For more information, see the following resources:
 
+* [Deploy a web app linked to a GitHub repository](app-service-web-arm-from-github-provision.md)
+* [Provision a web app with a SQL Database](app-service-web-arm-with-sql-database-provision.md)
+* [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
 * [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 
-##<a name="api"></a>.NET management API
+##<a name="api"></a>Automate deployment with .NET management API
 
 You can write C# code to perform MSBuild or FTP functions for deployment. If you do that, you can access the Azure management REST API to perform site management functions.
 
@@ -191,7 +170,7 @@ For more information, see the following resource:
 
 * [Automating everything with the Azure Management Libraries and .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introduction to the .NET management API and links to more documentation.
 
-##<a name="cli"></a>Azure Command-Line Interface (Azure CLI)
+##<a name="cli"></a>Deploy from Azure Command-Line Interface (Azure CLI)
 
 You can use the command line in Windows, Mac or Linux machines to deploy by using FTP. If you do that, you can also access the Azure REST management API using the Azure CLI.
 
@@ -199,9 +178,9 @@ For more information, see the following resource:
 
 * [Azure Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
 
-##<a name="webdeploy"></a>Web Deploy command line
+##<a name="webdeploy"></a>Deploy from Web Deploy command line
 
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft WebMatrix, Visual Studio, Visual Studio Online, and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.
+[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft WebMatrix, Visual Studio, Visual Studio Team Services, and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.
 
 For more information, see the following resource:
 
@@ -223,5 +202,4 @@ For information about other deployment topics, see the Deploy section in [Web Ap
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

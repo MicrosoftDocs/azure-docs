@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 # Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
 
 Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub, and visualize it by using D3.js. This document also describes how to use an Azure virtual network to connect Storm on HDInsight with HBase on HDInsight, and store data from the topology into HBase.
+
+> [AZURE.NOTE] The information in this document is based on using a Windows-based Storm on HDInsight cluster. For information on working with Azure Event Hub from Linux-based Storm on HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ## Prerequisites
 
@@ -91,7 +93,7 @@ Before you use this example, you must create an Azure Event Hub, which the Storm
 
 Event Hub is the data source for this example. Use the following steps to create a new Event Hub.
 
-1. From the [Azure portal](https://manage.windowsazure.com), select **NEW | Service Bus | Event Hub | Custom Create**.
+1. From the [Azure Classic Portal](https://manage.windowsazure.com), select **NEW | Service Bus | Event Hub | Custom Create**.
 
 2. In the **Add a new Event Hub** dialog box, enter an **Event Hub Name**, select the **Region** to create the hub in, and then create a new namespace or select an existing one. Finally, click the arrow to continue.
 
@@ -113,7 +115,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 ### Create the Storm on HDInsight cluster
 
-1. Sign in to the [Azure portal](https://manage.windowsazure.com/).
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com/).
 
 2. Click **HDInsight** in the left pane, and then click **+NEW** in the lower-left corner of the page.
 
@@ -258,7 +260,7 @@ In your development environment, use the following steps to run the Temperature 
 
 1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](../web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
-2. When the website is created, go to the site in the Azure portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
+2. When the website is created, go to the site in the Azure Classic Portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 
 2. Open **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** and change the following line to point to the URL of the published dashboard:
 
@@ -288,7 +290,7 @@ To use Storm and HBase together, you must create an Azure virtual network and th
 
 If you plan to use HBase with this example, you must create an Azure virtual network that will contain a Storm on HDInsight cluster and an HBase on HDInsight cluster.
 
-1. Sign in to the [Azure portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
 
 2. On the bottom of the page, click **+NEW** > **Network Services** > **Virtual Network** > **Quick Create**.
 
@@ -302,7 +304,7 @@ If you plan to use HBase with this example, you must create an Azure virtual net
 
 	- **Location**: The location must be the same as the HBase cluster that you will create.
 
-	- **DNS server**: This article uses the internal DNS server provided by Azure; therefore, you can choose **None**. More advanced networking configurations with custom DNS servers are also supported. For the detailed guidance, see [Name Resolution (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **DNS server**: This article uses the internal DNS server provided by Azure; therefore, you can choose **None**. More advanced networking configurations with custom DNS servers are also supported. For the detailed guidance, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 4. Click **Create a Virtual Network**. The new virtual network name will appear in the list. Wait until the Status column shows **Created**.
 
@@ -324,7 +326,7 @@ If you plan to use HBase with this example, you must create an Azure virtual net
 
 ### Create a Storm and HBase cluster on the virtual network
 
-1. Sign in to the [Azure Portal](https://manage.windowsazure.com/).
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com/).
 
 2. Click **HDInsight** in the left pane, and then click **+NEW** in the lower-left corner of the page.
 
@@ -422,4 +424,3 @@ You have now learned how to use Storm to read data from Event Hub and display in
 * For information about creating topologies in .NET, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
- 

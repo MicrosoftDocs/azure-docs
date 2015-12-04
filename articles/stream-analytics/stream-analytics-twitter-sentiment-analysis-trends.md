@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/01/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@ A news media website is interested in getting an edge over its competitors by fe
 
 ## Prerequisites
 1.	A Twitter account is required for this tutorial.  
-2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
+2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) and follow the steps below to set up your solution.
 
 ## Create an Event Hub input and a Consumer Group
 
@@ -55,7 +55,7 @@ We have provided a client application that will tap into Twitter data via [Twitt
 
 Follow these steps to set up the application:
 
-1.	[Download the TwitterClient solution](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
+1.	[Download the TwitterClient solution](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 2.	Open App.config and replace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret with Twitter tokens with your values.  
 
 	[Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  

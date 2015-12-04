@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement Overview
@@ -44,6 +44,8 @@ By providing open APIs and ease of integration you can leverage existing data fr
 Microsoft has a longstanding commitment to privacy, which is an integral part of our product and service lifecycle. We work to be transparent in our privacy practices, offering customers meaningful privacy choices, and manage responsibly of the data we store. As with all Azure services, Mobile Engagement does not share or sell information derived from customers’ property. Azure Mobile Engagement is a globally deployable solution, allowing for regional or country specific data privacy laws to be upheld.
 
 ###Next Steps:
+
+[Best practices and process to create your Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
 [Getting Started (Marketers)](mobile-engagement-define-your-mobile-engagement-strategy.md) 
 

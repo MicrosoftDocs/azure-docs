@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Azure" 
+   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure" 
    description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/19/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
-# Azure Guest OS Supportability and Retirement Policy
+# Azure Guest OS supportability and retirement policy
 The information on this page relates to the Azure Guest operating system ([Guest OS](https://msdn.microsoft.com/library/azure/ff729422.aspx)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
 
 Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
@@ -57,7 +57,7 @@ If customers set their Guest OS to automatically update, they never have to worr
 
 Guest OS Versions are released every month. Because of the rate of regular releases, each version has a fixed lifespan.
 
-At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure Management Portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
+At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure classic portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
 
 At a later time, the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary. 
 
@@ -67,7 +67,7 @@ These periods may be made longer at Microsoft's discretion to ease customer tran
 
 ### Notifications during retirement 
 
-* **Family retirement** <br>Microsoft will use blog posts and management portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
+* **Family retirement** <br>Microsoft will use blog posts and Azure classic portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
 
 
 * **Version Retirement** <br>All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. 
@@ -87,3 +87,5 @@ You should use latest Guest OS family for designing your Cloud Services.
 
 If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "[Startup Tasks](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
  
+## Next steps
+Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

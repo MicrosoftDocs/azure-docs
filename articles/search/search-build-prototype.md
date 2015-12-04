@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Build a prototype application for Azure Search" 
-	description="Create your first application prototype to get started with Azure Search." 
+	pageTitle="Build a prototype application for Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Create your first application prototype to get started with Azure Search, a hosted cloud search service." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="06/16/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Build a prototype application for Azure Search
 
-Developers who evaluate Azure Search almost always start with a preliminary test application that demonstrates the value of adding Azure Search to a custom application.
+Developers who evaluate Azure Search for hosted cloud search almost always start with a preliminary test application that demonstrates the value of adding Azure Search to a custom application.
 In this article, we give you a few building blocks to speed up the prototyping process.
  
 - A visual studio C# project that includes data.json and schema.json files. Having sample data lets you immediately build and run the solution, confirming the solution works on your system before you write one line of code. 
@@ -45,13 +45,13 @@ To upload data and schema files using the code in the prototype sample applicati
 
 ## Test the prototype solution on your system
 
-1. [Create an Azure Search service in the Azure portal](search-create-service-portal.md).
+1. [Create an Azure Search service in the Azure Classic Portal](search-create-service-portal.md).
 
     You can add a shared (free) version of the service to any existing Azure subscription. The shared service is often used for prototypes. Keep in mind that the shared service provides 50 MB of data or 10,000 documents total, whichever comes first. Additionally, data and documents can be spread across a maximum of 3 indexes. 
 
     Running the prototype sample application, with the built-in sample data files, will create in one index named "musicstoreindex", containing 246 documents, at 278 KB on your Azure Search service. Later in this walkthrough, you'll replace this index with a new one using Adventure Works data that will consume up to ## documents and ## MB.
 
-2. [Download the prototype builder solution]( http://go.microsoft.com/fwlink/p/?LinkId=536479). This is a Visual Studio 2013 solution in C# that builds a console application used to create, load, and query an index. If you don't have Visual Studio, you can get the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) version.
+2. [Download the prototype builder solution](http://go.microsoft.com/fwlink/p/?LinkId=536479). This is a Visual Studio 2013 solution in C# that builds a console application used to create, load, and query an index. If you don't have Visual Studio, you can get the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) version.
 
 3. Edit app.config to add configuration settings that target your Search service and api-key. 
 
@@ -81,7 +81,7 @@ By default, these files are located in the solution folder:
 
 If you can get your data into JSON files, you can overwrite the existing files with your data, and then run the application to create and load an index. Distributing data across multiple files helps demonstrate a batch upload operation. 
 
-Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](https://msdn.microsoft.com/library/azure/dn818681.aspx) on MSDN.
+Other approaches for loading data include using an indexer (requires either an Azure DocumentDB data source or an Azure SQL Database data source). Sample code that demonstrates additional ways of loading data can be found at [Azure Search Video and Tutorials List](search-video-demo-tutorial-list.md) on MSDN.
 
 ### Edit the query
 

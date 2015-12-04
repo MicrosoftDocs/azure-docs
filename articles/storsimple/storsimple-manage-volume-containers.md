@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Manage your StorSimple volume containers"
+   pageTitle="Manage your StorSimple volume containers | Microsoft Azure"
    description="Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/13/2015"
+   ms.date="09/16/2015"
    ms.author="v-sharos" />
 
-# Manage your StorSimple volume containers
+# Use the StorSimple Manager service to manage StorSimple volume containers
 
 ## Overview
 
@@ -63,5 +63,5 @@ A volume container has volumes within it. It can be deleted only if all the volu
 
 ## Next steps
 
-Read more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
- 
+- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

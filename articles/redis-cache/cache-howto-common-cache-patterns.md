@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd" 
-   ms.date="05/21/2015"
+   ms.date="11/24/2015"
    ms.author="riande"/>
 
 # Common cache patterns with Azure Redis Cache
@@ -25,7 +25,7 @@ This page lists the most common benefits to using a cache.
 Using a cache can dramatically speed up data access over fetching from a data store. A cache provides high throughput and low-latency. By fetching hot data from the cache, you not only speed up your app but you can reduce the data access load and increase its responsiveness for other queries. Storing information in a cache helps save resources and increases scalability as the demands on the application increase. Your app will be much more responsive to bursty loads when it can efficiently fetch data from a cache. 
 
 ## Distributed session state
-While it’s considered a best practice is to avoid using session state, some applications can actually have a performance/reduced-complexity benefit from using session data, while other apps outright require session state.  The default in memory provider for session state does not allow scale out (running multiple instances of the web site). The ASP.NET SQL Server session state provider will allow multiple web sites to use session state, but it incurs a high latency cost compared to an in memory provider. The Redis session state cache provider is a low latency alternative that is very easy to configure and set up. If your app uses only a limited amount of session state, you can use most of the cache for caching data and a small amount for session state.
+While it’s considered a best practice to avoid using session state, some applications can actually have a performance/reduced-complexity benefit from using session data, while other apps outright require session state.  The default in memory provider for session state does not allow scale out (running multiple instances of the web site). The ASP.NET SQL Server session state provider will allow multiple web sites to use session state, but it incurs a high latency cost compared to an in memory provider. The Redis session state cache provider is a low latency alternative that is very easy to configure and set up. If your app uses only a limited amount of session state, you can use most of the cache for caching data and a small amount for session state.
 
 ## Surviving service downtime (cache fallback)
  By storing data in a cache, the application may be able to survive system failures such as network latency, Web service problems, and hardware failures. It's often better to serve cached data until your web service or database recovers, than for your app to completely fail.

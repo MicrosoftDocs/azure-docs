@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
 # Connecting to Media Services Account using Media Services REST API
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series. 
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-connect_programmatically.md)
+- [REST](media-services-rest-connect_programmatically.md)
 
 This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services REST API.
 
@@ -164,8 +166,10 @@ The following example demonstrates HTTP request to the Media Services root URI (
 >[AZURE.NOTE] Once you get the new URI, that is the URI that should be used to communicate with Media Services. 
 
 
-<!-- Anchors. -->
+##Media Services learning paths
 
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!-- URLs. -->
- 
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

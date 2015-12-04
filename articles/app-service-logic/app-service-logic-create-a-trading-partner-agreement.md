@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
 # Creating a Trading Partner Agreement   
 
-Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an *Agreement*. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific. The various B2B protocols and transports supported  Azure App Service include:
+Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an *Agreement*. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific. The various B2B protocols and transports supported by Azure App Service include:
 
 - AS2 (Applicability Statement 2)
 - EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
@@ -30,7 +30,7 @@ The following API Apps enable these capabilities using a rich and intuitive expe
 
 
 ## BizTalk Trading Partner Management (TPM)
-- Create and management of Partners, Profiles & Identities
+- Creation and management of Partners, Profiles & Identities
 - Storage and management of EDI Schemas
 - Storage and management of certificates (used in AS2 protocol)
 - Creation and management of AS2 Agreements
@@ -63,10 +63,10 @@ As previously stated, the AS2, X12, and EDIFACT API Apps require a TPM API App t
 To create trading partner agreements:
 
 1. Create an instance of the **BizTalk Trading Partner Management** connector. This requires a blank SQL Database to function. Before starting be sure to have a blank database available and ready for use.
-2. Upload schemas and certificates as required by the agreements. This is to be done by browsing the TPM instance created and stepping into the ‘Schemas’ and/or ‘Certificates’ part
+2. Upload schemas and certificates as required by the agreements. Do this by browsing the TPM instance created and stepping into the ‘Schemas’ and/or ‘Certificates’ part
 3. Browse to the TPM instance created and step into the **Partners** part
 4. Create partners as desired. Also edit the profile(s) as appropriate and add the required identities
-5. Now use the **Agreements** part to create agreements. During agreement creation one of the initial steps is to choose the protocol. Based on the protocol chosen the rest of the agreement configuration takes place.
+5. Now use the **Agreements** part to create agreements. When you create an Agreement, you must select the protocol that will be used. The remaining configuration options are based on the protocol that you selected.
 
 ![][2]
 

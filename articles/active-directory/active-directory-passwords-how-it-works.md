@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # How Password Management works
@@ -38,7 +38,8 @@ You can configure Password Management policies for a specific directory using th
  - Security Questions (knowledge-based authentication)
 - Setting the number of questions a user must register in order to use the security questions authentication method (only visible if security questions are enabled)
 - Setting the number of questions a user must supply during reset to use the security questions authentication method (only visible if security questions are enabled)
-- Defining the custom security questions that a user may choose to register for to use the security questions authentication method (only visible if security questions are enabled)
+- Using pre-canned, localized, security questions that a user may choose to use when registering for password reset (only visible if security questions are enabled)
+- Defining the custom security questions that a user may choose to use when registering for password reset (only visible if security questions are enabled)
 - Requiring users to register for password reset when they go to the application Access Panel at [http://myapps.microsoft.com](http://myapps.microsoft.com).
 - Requiring users to re-confirm their previously registered data after a configurable number of days have passed (only visible if enforced registration is enabled)
 - Providing a custom helpdesk email or URL that will be shown to users in case they have a problem resetting their passwords
@@ -100,18 +101,17 @@ For more information about Azure AD Connect, see [Get Started: Azure AD Connect]
 <br/>
 <br/>
 
-**Additional Resources**
+## Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages: 
 
-
-* [What is Password Management](active-directory-passwords.md)
-* [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
-* [Customize Password Management](active-directory-passwords-customize.md)
-* [Password Management Best Practices](active-directory-passwords-best-practices.md)
-* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
-* [Password Management FAQ](active-directory-passwords-faq.md)
-* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
-* [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reset your own password**](active-directory-passwords-update-your-own-password.md) - learn about how to reset or change your own password as a user of the system
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 
@@ -122,4 +122,3 @@ For more information about Azure AD Connect, see [Get Started: Azure AD Connect]
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 

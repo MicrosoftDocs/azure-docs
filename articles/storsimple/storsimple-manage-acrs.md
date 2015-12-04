@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Manage access control records in StorSimple"
+   pageTitle="Manage access control records in StorSimple | Microsoft Azure"
    description="Describes how to use access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
-# Manage access control records in StorSimple
+# Use the StorSimple Manager service to manage access control records
 
 ## Overview
 
@@ -34,7 +34,7 @@ This tutorial explains the following common ACR-related tasks:
 
 ## Add an access control record
 
-You use the **Configure** page in the Management Portal to add ACRs. Typically, you will associate one ACR with one volume.
+You use the StorSimple Manager service **Configure** page to add ACRs. Typically, you will associate one ACR with one volume.
 
 Perform the following steps to add an ACR.
 
@@ -90,6 +90,6 @@ Perform the following steps to delete an access control record.
 
 ## Next steps
 
-Read more about [managing StorSimple volumes](storsimple-manage-volumes.md).
-
+- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Connecting DocumentDB with Azure Search using indexers | Azure" 
+    pageTitle="Connecting DocumentDB with Azure Search using indexers | Microsoft Azure" 
     description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
     services="documentdb" 
     documentationCenter="" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="mimig"/>
 
@@ -13,8 +13,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
-    ms.author="andrl"/>
+    ms.date="10/28/2015" 
+    ms.author="anhoh"/>
 
 #Connecting DocumentDB with Azure Search using indexers
 
@@ -121,7 +121,7 @@ You will receive an HTTP 201 Created response if the data source was successfull
 
 ##<a id="CreateIndex"></a>Step 2: Create an index
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](../search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Classic Portal UI](../search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -132,50 +132,16 @@ Ensure that the schema of your target index is compatible with the schema of the
 
 ###Figure A: Mapping between JSON Data Types and Azure Search Data Types
 
-<table style="font-size:12">
-    <tr>
-        <th>JSON Data Type</th>
-        <th>Compatible Target Index Field Types</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Numbers that look like integers</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Numbers that look like floating-points</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>String</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Arrays of primitive types<br/>
-            e.g. [ "a", "b", "c" ]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Strings that look like dates</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            GeoJSON objects<br/>
-            e.g. { "type": "Point", "coordinates": [ long, lat ] }
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Other JSON objects</td>
-        <td>N/A</td>
-    </tr>
-</table>
+| JSON DATA TYPE|	COMPATIBLE TARGET INDEX FIELD TYPES|
+|---|---|
+|Bool|Edm.Boolean, Edm.String|
+|Numbers that look like integers|Edm.Int32, Edm.Int64, Edm.String|
+|Numbers that look like floating-points|Edm.Double, Edm.String|
+|String|Edm.String|
+|Arrays of primitive types e.g. "a", "b", "c" |Collection(Edm.String)|
+|Strings that look like dates| Edm.DateTimeOffset, Edm.String|
+|GeoJSON objects e.g. { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|Other JSON objects|N/A|
 
 ###<a id="CreateIndexExample"></a>Request body example
 

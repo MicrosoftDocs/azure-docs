@@ -3,7 +3,7 @@
 	description="Survival Analysis event occurrence probability" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="zhangya" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
-	ms.author="jaymathe"/> 
+	ms.date="12/01/2015" 
+	ms.author="zhangya"/> 
 
 
 #Survival Analysis 
@@ -101,6 +101,9 @@ From within Azure Machine Learning, a new blank experiment was created and two [
     time_of_interest="500"
     index_time="1"
     index_event="2"
+    
+    # 0 - continuous; 1 -  factor
+    variable_types="0;0;1;1"
 
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 

@@ -13,14 +13,22 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Release Notes
 
+##3.2.0 (11/20/2015)
+
+-   Added support for Windows 10 Universal Windows Platform applications.
+-   Added push channel sharing feature to fix channel conflicts (now compatible with Azure Notification Hubs).
+-   Fixed crash while requesting the device id just after the initialization.
+-   Console logs improvements.
+-   Fixed crash while parsing some unhandled exceptions.
+
 ##3.1.0 (05/21/2015)
 
--   The Mobile Engagement device id is now based on a GUID generated at installation time
+-   The Mobile Engagement device id is now based on a GUID generated at installation time.
 
 ##3.0.1 (04/29/2015)
 

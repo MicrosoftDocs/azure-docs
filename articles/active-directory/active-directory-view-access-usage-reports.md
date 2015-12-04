@@ -1,22 +1,34 @@
 <properties
-	pageTitle="View your access and usage reports"
-	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
+	pageTitle="View your access and usage reports | Microsoft Azure"
+	description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="11/30/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
+
 
 # View your access and usage reports
+
+## Reporting Documentation Articles
+
+ - [Reporting API](active-directory-reporting-api-getting-started.md)
+ - [Audit Events](active-directory-reporting-audit-events.md)
+ - [Retention](active-directory-reporting-retention.md)
+ - [Previews](active-directory-reporting-previews.md)
+ - [Search](active-directory-reporting-search.md)
+ - [Backfill](active-directory-reporting-backfill.md)
+ - [Latencies](active-directory-reporting-latencies.md)
+ - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
@@ -33,26 +45,30 @@ In the Azure Management Portal, reports are categorized in the following ways:
 - Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Report descriptions
+## Reports
 
 |	Report												|	Description																					|
 |	------												|	-----																						|
-|	Sign ins from unknown sources						|	May indicate an attempt to sign in without being traced.									|
-|	Sign ins after multiple failures					|	May indicate a successful brute force attack.												|
-|	Sign ins from multiple geographies					|	May indicate that multiple users are signing in with the same account.						|
-|	Sign ins from IP addresses with suspicious activity	|	May indicate a successful sign in after a sustained intrusion attempt.						|
-|	Sign ins from possibly infected devices				|	May indicate an attempt to sign in from possibly infected devices.							|
-|	Irregular sign in activity							|	May indicate events anomalous to users’ sign in patterns.									|
-|	Users with anomalous sign in activity				|	Indicates users whose accounts may have been compromised.									|
+|	**Anomalous activity reports**
+|	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
+|	[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
+|	[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
+|	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
+|	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
+|	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
+|	[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)				|	Indicates users whose accounts may have been compromised.									|
 |	Users with leaked credentials						|	Users with leaked credentials																|
+|	**Activity logs**
 |	Audit report										|	Audited events in your directory															|
 |	Password reset activity								|	Provides a detailed view of password resets that occur in your organization.				|
 |	Password reset registration activity				|	Provides a detailed view of password reset registrations that occur in your organization.	|
 |	Self service groups activity						|	Provides an activity log to all group self service activity in your directory				|
+|	**Integrated applications**
 |	Application usage									|	Provides a usage summary for all SaaS applications integrated with your directory.			|
 |	Account provisioning activity						|	Provides a history of attempts to provision accounts to external applications.				|
 |	Password rollover status							|	Provides a detailed overview of automatic password rollover status of SaaS applications.	|
 |	Account provisioning errors							|	Indicates an impact to users’ access to external applications.								|
+|	**Rights management**
 |	RMS usage											|	Provides a summary for Rights Management usage												|
 |	Most active RMS users								|	Lists top 1000 active users who accessed RMS-protected files								|
 |	RMS device usage									|	Lists devices used for accessing RMS-protected files										|
@@ -62,6 +78,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 
 |	Report												|	Free	|	Basic	|	Premium		|
 |	------												|	----	|	-----	|	--------	|
+|	**Anomalous activity reports**
 |	Sign ins from unknown sources						|	✓		|	✓	|	✓			|
 |	Sign ins after multiple failures					|	✓		|	✓	|	✓			|
 |	Sign ins from multiple geographies					|	✓		|	✓	|	✓			|
@@ -70,83 +87,91 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Irregular sign in activity							|			|		|	✓			|
 |	Users with anomalous sign in activity				|			|		|	✓			|
 |	Users with leaked credentials						|			|		|	✓			|
-|	Audit report										|			|		|	✓			|
+|	**Activity logs**
+|	Audit report										|	✓		|	✓	|	✓			|
 |	Password reset activity								|			|		|	✓			|
 |	Password reset registration activity				|			|		|	✓			|
 |	Self service groups activity						|			|		|	✓			|
+|	**Integrated applications**
 |	Application usage									|			|		|	✓			|
 |	Account provisioning activity						|	✓		|	✓	|	✓			|
 |	Password rollover status							|			|		|	✓			|
 |	Account provisioning errors							|	✓		|	✓	|	✓			|
+|	**Rights managment**
 |	RMS usage											|			|		|	RMS Only	|
 |	Most active RMS users								|			|		|	RMS Only	|
 |	RMS device usage									|			|		|	RMS Only	|
 |	RMS enabled application usage						|			|		|	RMS Only	|
 
-## Report details
-
-### Sign ins from unknown sources
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>This report indicates users who have successfully signed in to your directory while assigned a client IP address that has been recognized by Microsoft as an anonymous proxy IP address. These proxies are often used by users that want to hide their computer’s IP address, and may be used for malicious intent – sometimes hackers use these proxies. </p><p> Results from this report will show the number of times a user successfully signed in to your directory from that address and the proxy’s IP address.</p> | Directory > Reports tab |
-
-![Sign ins from unknown sources](./media/active-directory-view-access-usage-reports/signInsFromUnknownSources.PNG)]
-
-### Sign ins after multiple failures
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include: <ul><li>User had forgotten their password</li><li>User is the victim of a successful password guessing brute force attack</li></ul><p>Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.</p><p><b>Report Settings</b>: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins. | Directory > Reports tab |
-
-![Sign ins after multiple failures](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
 
 
-### Sign ins from multiple geographies
+## Anomalous activity reports
+<p>The anomalous sign in activity reports flag suspicious sign in activity to Office365, Azure Management Portal, Azure AD Access Panel, Sharepoint Online, Dynamics CRM Online, and other Microsoft online services.</p>
+<p>All of these reports, except the "Sign ins after multiple failures" report, also flag suspicious <i>federated</i> sign ins to the aforementioned services, regardless of the federation provider. </p>
+<p>The following reports are available: </p><ul>
+<li>[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md).</li>
+<li>[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md).</li>
+<li>[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li>
+<li>[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li>
+<li>[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md).</li>
+<li>[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li>
+<li>[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li>
+<li>Users with leaked credentials</li></ul>
 
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>This report includes successful sign in activities from a user where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions. Possible causes include:</p><ul><li>User is sharing their password</li><li>User is using a remote desktop to launch a web browser for sign in</li><li>A hacker has signed in to the account of a user from a different country.</li></ul><p>Results from this report will show you the successful sign in events, together with the time between the sign ins, the regions where the sign ins appeared to originate from and the estimated travel time between those regions.</p><p>The travel time shown is only an estimate and may be different from the actual travel time between the locations. Also, no events are generated for sign ins between neighboring regions.</p> | Directory > Reports tab |
-
-![Sign ins from multiple geographies](./media/active-directory-view-access-usage-reports/signInsFromMultipleGeographies.PNG)]
 
 
-### Sign ins from IP addresses with suspicious activity
+
+
+
+
+
+
+
+## Activity logs
+
+### Audit report
 
 | Description        | Report location |
 | :-------------     | :-------        |
-| <p>This report includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted. Suspicious activity includes many failed sign in attempts from the same IP address over a short period of time, and other activity that was deemed suspicious. This may indicate that a hacker has been trying to sign in from this IP address.</p><p>Results from this report will show you sign in attempts that were originated from an IP address where suspicious activity was noted, together with the timestamp associated with the sign in.</p> | Directory > Reports tab |
+| Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. <br /> For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) | Directory > Reports tab |
 
-![Sign ins from IP addresses with suspicious activity](./media/active-directory-view-access-usage-reports/signInsFromIPAddressesWithSuspiciousActivity.PNG)]
+![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)
 
-
-### Anomalous sign in activity
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| <p>This report includes sign ins that have been identified as “anomalous” by our machine learning algorithms. Reasons for marking a sign in attempt as irregular include unexpected sign in locations, time of day and locations or a combination of these. This may indicate that a hacker has been trying to sign in using this account. The machine learning algorithm classifies events as “anomalous” or “suspicious”, where “suspicious” indicates a higher likelihood of a security breach.</p><p>Results from this report will show you these sign ins, together with the classification, location and a timestamp associated with each sign in.</p><p>We will send an email notification to the global admins if we encounter 10 or more anomalous sign in events within a span of 30 days or less. Please be sure to include aad-alerts-noreply@mail.windowsazure.com in your safe senders list.</p> | Directory > Reports tab |
-
-
-
-### Sign ins from possibly infected devices
+### Password reset activity
 
 | Description        | Report location |
 | :-------------     | :-------        |
-| <p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Directory > Reports tab |
+| Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
 
-![Sign ins from possibly infected devices](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)]
+![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
 
-
-### Users with anomalous sign in activity
+### Password reset registration activity
 
 | Description        | Report location |
 | :-------------     | :-------        |
-| <p>Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.</p> | Directory > Reports tab |
+| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
 
-![Users with anomalous sign in activity](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)]
+![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
+
+### Self service groups activity
+
+| Description        | Report location |
+| :-------------     | :-------        |
+| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
+
+![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
 
-## Integrated Application reports
+
+
+
+
+
+
+
+
+
+## Integrated applications reports
 
 ### Application usage: summary
 
@@ -154,7 +179,11 @@ In the Azure Management Portal, reports are categorized in the following ways:
 | :-------------     | :-------        |
 | Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
-![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)]
+This report includes sign ins to _all_ applications that your directory has access to, including pre-integrated Microsoft applications.
+
+Pre-integrated Microsoft applications include Office 365, Sharepoint, the Azure Management Portal, and others.
+
+![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
 ### Application usage: detailed
@@ -177,7 +206,14 @@ In the Azure Management Portal, reports are categorized in the following ways:
 | :-------------     | :-------        |
 | Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory. | Directory > Reports tab |
 
-![Account provisioning errors](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)]
+![Account provisioning errors](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
+
+
+
+
+
+
+
 
 
 ## User-specific reports
@@ -210,44 +246,15 @@ Only certain types of sign in events will appear in the User Activity report.
 | Sign ins to a custom business app that has been added to the directory		| No (Coming soon)	|
 | Sign ins to an Azure AD Application Proxy app that has been added to the directory	| No (Coming soon)	|
 
-> Note: To reduce the amount of noise in this report, sign ins to the [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) native app and by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
-
-## Activity logs
-
-### Audit report
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. <br /> For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) | Directory > Reports tab |
-
-![Audit report](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
+> Note: To reduce the amount of noise in this report, sign ins by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
 
 
-### Groups activity report
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all activity for the self-service managed groups in your directory. | Directory > Users > <i>User</i> > Devices tab |
-
-![Self service groups activity](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)]
 
 
-### Password reset registration activity report
-
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all password reset registrations that have occurred in your organization | Directory > Reports tab |
-
-![Password reset registration activity](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
 
 
-### Password reset activity
 
-| Description        | Report location |
-| :-------------     | :-------        |
-| Shows all password reset attempts that have occurred in your organization. | Directory > Reports tab |
 
-![Password reset activity](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)]
 
 
 ## Things to consider if you suspect security breach
@@ -256,7 +263,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 - Contact the user to verify the activity
 - Reset the user's password
-- [Enable multi-factor authentication](http://go.microsoft.com/fwlink/?linkid=335774) for additional security
+- [Enable multi-factor authentication](multi-factor-authentication-get-started.md) for additional security
 
 ## View or download a report
 
@@ -273,6 +280,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 	- Up to 1000 events will be shown in the Azure Management Portal.
 5. If applicable, click **Download** to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.
 	- Up to 75,000 events will be included in the downloaded file.
+	- For more data, check out the [Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
 ## Ignore an event
 

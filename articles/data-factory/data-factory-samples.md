@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="10/13/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Samples
 
-## Samples in Azure Portal
-You can quickly deploy, review, and test an Azure Data Factory sample using the **Sample pipelines** blade in the Azure Portal. 
+## Samples in Azure Classic Portal
+You can quickly deploy, review, and test an Azure Data Factory sample using the **Sample pipelines** blade in the Azure Classic Portal. 
 
 1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory][data-factory-get-started] for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
@@ -52,6 +52,7 @@ Sample name | description
 Gaming customer profiling | Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc... to improve business and provide better experience to customers. This sample collects sample logs, processes and enriches them with reference data, and transforms the data to evaluate the effectiveness of a marketing campaign that Contoso has recently launched.
  
 ## Samples on GitHub
-The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.   
+The [GitHub Azure-DataFactory repository](https://github.com/azure/azure-datafactory) contains several samples that help you quickly ramp up with Azure Data Factory service (or) modify the scripts and use it in own application. The Samples\JSON folder contains JSON snippets for common scenarios.
+
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory 

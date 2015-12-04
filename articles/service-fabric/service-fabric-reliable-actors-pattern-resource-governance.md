@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Resource Governance design pattern"
-   description="Design pattern on how Service Fabric Actors can be used to model application what needs to scale but use constrained resources"
+   pageTitle="Resource governance design pattern | Microsoft Azure"
+   description="Design pattern on how Service Fabric Reliable Actors can be used to model application needs to scale up but use constrained resources."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
-   ms.author="claudioc"/>
+   ms.date="11/13/2015"
+   ms.author="vturecek"/>
 
-# Azure Service Fabric Actors design pattern: resource governance
+# Reliable Actors design pattern: resource governance
+
 This pattern and related scenarios are easily recognizable by developers—enterprise or otherwise—who have constrained resources on-premises or in the cloud, which they cannot immediately scale or that wish to ship large scale applications and data to the cloud.
 
 In the enterprise these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows this is a common situation on-premises. Even at cloud scale, we have seen this situation occur when a cloud service has attempted to exceed the 64K TCP limit of connections between an address/port tuple, or when attempting to connect to a cloud-based database that limits the number of concurrent connections.
@@ -30,6 +31,7 @@ The diagram below illustrates this scenario:
 ![][1]
 
 ## Modeling cache scenarios with actors
+
 Essentially we model access to resources as an actor or multiple actors that act as proxies (say connection, for example) to a resource or a group of resources. You can then either directly manage the resource through individual actors or use a coordination actor that manages the resource actors.
 To make this more concrete, we will address the common need of having to work against a partitioned (aka sharded) storage tier for performance and scalability reasons.
 Our first option is pretty basic: we can use a static function to map and resolve our actors to downstream resources. Such a function can return, for example, a connection string with given input. It is entirely up to us how to implement that function. Of course, this approach comes with its own drawbacks such as static affinity that makes repartitioning resources or remapping an actor to resources very difficult.
@@ -84,7 +86,7 @@ public class UserState
 }
 
 
-public class User : Actor<UserState>, IUser
+public class User : StatefulActor<UserState>, IUser
 {
     public override async Task ActivateAsync()
     {
@@ -117,7 +119,7 @@ public class ResolverState
     ...
 }
 
-public class Resolver : Actor<ResolverState>, IResolver
+public class Resolver : StatefulActor<ResolverState>, IResolver
 {
     ...
 
@@ -146,6 +148,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## Accessing resources with finite capability
+
 Now let’s look at another example; exclusive access to precious resources such as DB, storage accounts, and file systems with finite throughput capability.
 Our scenario is as follows: we would like to process events using an actor called EventProcessor, which is responsible for processing and persisting the event, in this case to a .CSV file for simplicity. While we can follow the partitioning approach discussed above to scale-out our resources, we will still have to deal with the concurrency issues. That is why we chose a file-based example to illustrate this particular point—writing to a single file from multiple actors will raise concurrency issues. To address the problem we introduce another actor called EventWriter that has exclusive ownership of the constrained resources. The scenario is illustrated below:
 
@@ -162,7 +165,7 @@ public interface IEventProcessor : IActor
     Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
 }
 
-public class EventProcessor : Actor, IEventProcessor
+public class EventProcessor : StatelessActor, IEventProcessor
 {
     public Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload)
     {
@@ -198,11 +201,11 @@ public class EventWriterState
     public string _filename;
 }
 
-public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 {
     private StreamWriter _writer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._filename = string.Format(@"C:\{0}.csv", this.Id);
         _writer = new StreamWriter(_filename);
@@ -210,7 +213,7 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         _writer.Close();
         return base.OnDeactivateAsync();
@@ -238,12 +241,12 @@ public class EventWriterState
     public Queue<CustomEvent> _buffer;
 }
 
-public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 {
     private StreamWriter _writer;
     private IActorTimer _timer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._filename = string.Format(@"C:\{0}.csv", this.Id);
         _writer = new StreamWriter(_filename);
@@ -334,9 +337,9 @@ In the EventWriter class, we need to do three things: mark the actor class as Re
 ## Resource Governance code sample – Buffering with async batching
 
 ```csharp
-public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 {
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._filename = string.Format(@"C:\{0}.csv", this.GetPrimaryKeyLong());
         _writer = new StreamWriter(_filename);
@@ -407,6 +410,7 @@ This pattern is very common in scenarios where developers either have constraine
 
 
 ## Next Steps
+
 [Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -425,4 +429,3 @@ This pattern is very common in scenarios where developers either have constraine
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 

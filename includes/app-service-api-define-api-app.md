@@ -65,9 +65,9 @@ In the following steps you add code for a simple HTTP Get method that returns a 
 
 ## Enable Swagger UI
 
-By default, API App projects are enabled with automatic [Swagger](http://swagger.io/ "Official Swagger information") metadata generation, and if you used the **Add API App SDK** menu entry to convert a Web API project, an API test page is also enabled by default.  
+By default, API App projects are enabled with automatic [Swagger](http://swagger.io/ "Official Swagger information") metadata generation, and when you use the **Add API App SDK** menu entry to convert a Web API project, an API test page is also enabled by default.  
 
-However, the Azure API App new-project template disables the API test page. If you created your API app project by using the API App project template, you need to do the following steps to enable the test page.
+However, the Azure API App new-project template disables the API test page. When you create your API app project by using the API app project template, do the following steps to enable the test page.
 
 **Note:** If you deploy the API app as *public anonymous* and with the Swagger UI enabled, anyone will be able to use the Swagger UI to discover and call your APIs. 
 
@@ -89,10 +89,16 @@ However, the Azure API App new-project template disables the API test page. If y
 
 To view the API test page, perform the following steps.
 
-1. Run the app locally (CTRL-F5) and navigate to `/swagger`. 
+1. Run the app locally (CTRL+F5).
 
-	![](./media/app-service-api-define-api-app/14-swagger-ui.png)
+	The browser opens and displays an HTTP 403 error because the base URL is not a valid web page or API method URL for this project.
+ 
+3.  Navigate to the Swagger page by adding `/swagger` to the end of the base URL. 
 
-2. Click the **Try it out** button, and you see that the API is functioning and returns the expected result. 
+	![](./media/app-service-api-define-api-app/swaggerhome.png)
 
-	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
+2. Click **Contacts > Get > Try it out**, and you see that the API is functioning and returns the expected result. 
+
+	![](./media/app-service-api-define-api-app/swaggertry.png)
+
+3. In Visual Studio click **Debug > Stop Debugging**.

@@ -1,20 +1,4 @@
-<properties 
-   pageTitle="Delete a StorSimple volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to delete a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
-
+<!--author=SharS last changed: 9/16/15-->
 
 #### To delete a volume container
 

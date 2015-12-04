@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Working with Azure Media Services Jobs
@@ -59,3 +59,11 @@ Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**
 
 [Quotas and Limitations](media-services-quotas-and-limitations.md) – Describes quotas used and limitations of the Media Services Encoder
  
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Notification Hubs Localized Breaking News Tutorial" 
-	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Notification Hubs Localized Breaking News Tutorial"
+	description="Learn how to use Azure Notification Hubs to send localized breaking news notifications."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="wesmc"/>
 
 # Use Notification Hubs to send localized breaking news
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
+- [iOS](notification-hubs-ios-send-localized-breaking-news.md)
 
 ##Overview
 
@@ -29,7 +29,7 @@ This topic shows you how to use the **template** feature of Azure Notification H
 
 There are two parts to this scenario:
 
-- the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories; 
+- the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories;
 
 - the back-end broadcasts the notifications, using the **tag** and **template** feautres of Azure Notification Hubs.
 
@@ -37,7 +37,7 @@ There are two parts to this scenario:
 
 ##Prerequisites
 
-You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available, because this tutorial builds directly upon that code. 
+You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available, because this tutorial builds directly upon that code.
 
 You also need Visual Studio 2012.
 
@@ -148,7 +148,7 @@ Change your MainPage.xaml to include a locale combobox:
 3. In your MainPage.xaml.cs, update your button click handler by retrieving the current value of the Locale combobox and providing it to the call to the Notifications class, as shown:
 
 		 var locale = (string)Locale.SelectedItem;
-            
+
          var categories = new HashSet<string>();
          if (WorldToggle.IsOn) categories.Add("World");
          if (PoliticsToggle.IsOn) categories.Add("Politics");
@@ -163,7 +163,7 @@ Change your MainPage.xaml to include a locale combobox:
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. Finally, in your App.xaml.cs file, make sure to update your call to the 
+4. Finally, in your App.xaml.cs file, make sure to update your call to the
 Notifications singleton in the *OnLaunched* method:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
@@ -214,7 +214,7 @@ For more information on using templates, see [Notify users with Notification Hub
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet 
+[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -232,4 +232,3 @@ For more information on using templates, see [Notify users with Notification Hub
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
- 

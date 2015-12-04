@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="09/23/2015" 
     ms.author="tamram"/>
 
 # How to use Blob Storage from C++  
@@ -47,7 +47,7 @@ Add the following include statements to the top of the C++ file where you want t
 	#include "was/blob.h"
 
 ## Setup an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
@@ -165,6 +165,8 @@ To list the blobs in a container, first get a container reference. You can then 
 		}
 	}
 
+For more details on listing operations, see [List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md).
+
 ## How to: Download blobs
 To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.  
 
@@ -232,8 +234,8 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 
 -	[How to use Queue Storage from C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[How to use Table Storage from C++](storage-c-plus-plus-how-to-use-tables.md)
--	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Azure Storage MSDN Reference](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
+-	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 
 

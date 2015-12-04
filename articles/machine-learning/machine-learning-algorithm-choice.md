@@ -1,309 +1,472 @@
-<properties 
-	title="" 
-	pageTitle="How to choose machine learning algorithms | Microsoft Azure" 
-	description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments." 
-	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
+<properties
+	pageTitle="How to choose machine learning algorithms | Microsoft Azure"
+	description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
-	editor="cgronlun"/>
-
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
-	ms.author="bradsev;garye" />
-
-
-# How to choose Azure Machine Learning algorithms for clustering, classification, or regression
-
-This topic explains some basic aspects of the machine learning approach. In particular, you'll learn how to choose appropriate machine learning algorithms to analyze given types of data, to answer questions posed, to accomplish specified tasks, or to provide criteria for making decisions. 
-
-> [AZURE.TIP] The [Microsoft Azure Machine Learning Algorithm Cheat Sheet](machine-learning-algorithm-cheat-sheet.md) is a handy reference to accompany this article.
-
-When using machine learning to do analytics, we are usually faced with two questions: 
-
-* What kind of analysis do we need to accomplish our objectives with the data available? 
-* What is the most appropriate algorithm or model to use to do this analysis?
-
-Three types of machine learning analysis are discussed and their use cases are compared: 
-
-* **Clustering**
-* **Classification** 
-* **Regression** 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-<a name="anchor-1"></a>
-## Machine Learning algorithms learn from data
-
-Machine Learning is a discipline that studies a class of algorithms that are designed to learn from the data and do not impose a specific, predetermined model to test against the data. The idea is to acquire knowledge more inductively by examining the patterns in a dataset rather than by using the *hypothetical-deductive* method where you try to guess the appropriate model for the entire dataset first and then test it empirically. 
-
-Types of machine learning - also thought of as learning from data - come in two flavors: *supervised learning* and *unsupervised learning*. 
-
-<a name="anchor-2"></a>
-## Supervised Learning  
-
-Supervised learning requires that the target variable be well-defined and that a sufficient number of its values are given. 
-
-Supervised learning is the type of machine learning that takes place when the correct output results (or target variables) for the training instances to be input are known. The objective of training a machine learning algorithm is to find the model (that is, a rule or function) that maps the inputs into the known output values. This is similar to having a supervisor who can tell the algorithmic agent whether or not it's mapping the inputs to the outputs correctly. Once the learning process is complete and we have a workable model, it can be applied to new input data to predict the expected output where, unlike the training dataset, the target value are not known in advance.
-
-The type of model is determined by the nature of the target variable.
-
-![Diagram of supervised learning: Model from labeled data and use it to predict outcomes from new data.](./media/machine-learning-algorithm-choice/supervised-learning-using-known-data-to-model-solution.png)
-
-There are two broad categories of analysis that employ supervised learning: *classification* and *regression*. Supervised learning is fairly common in classification problems because the goal is often to get the computer to learn a classification system that we have created. The responses usually are just a few known values(labels), such as 'true' or 'false', or 'high', 'medium', or 'low'. Classification algorithms apply to nominal values, not ordinal response values. Digit recognition is a common example of classification learning. More generally, classification learning is appropriate for any problem where it's both useful and easy to determine the classification.
-
-In supervised learning the variables under investigation can be split into two groups: explanatory variables (also called predictors) and dependent variables (also called response variables). The objective of the analysis is to define a relationship between the explanatory variables and the dependent variables as it's done in *regression analysis*. The values of the dependent variable must be known for a sufficiently large part of the dataset. In regression the responses or output variable take continuous values, such as miles per gallon for a particular car, a person's age etc.
-
-Supervised learning is also the most common technique for training neural networks and decision trees: 
-
-> Both of these techniques are highly dependent on the information given by the pre-determined classifications. In the case of neural networks, the classification is used to determine the error of the network and then adjust the network to minimize it, and in decision trees, the classifications are used to determine what attributes provide the most information that can be used to solve the classification puzzle. ... both of these examples thrive on having some "supervision" in the form of pre-determined classifications. 
-
->  Speech recognition using hidden Markov models and Bayesian networks relies on some elements of supervision as well in order to adjust parameters to, as usual, minimize the error on the given inputs. [[Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/)]
-
-
-<a name="anchor-3"></a>
-##Unsupervised Learning
-
-In machine learning, the problem of unsupervised learning is to determine if there are patterns or a hidden structure in unlabeled data. The model is not provided with the "correct results" for a dataset on which to train. Since unlabeled examples are given to the learner, there is no feedback - neither error nor reward - to evaluate a potential solution. The goal is to have the computer learn how to do something even though we don't explicitly tell it how to accomplish that task. In unsupervised learning situations, all variables are treated in the same way. There is no distinction between explanatory variables and dependent variables. However, there is still some objective to achieve, which might be a general objective, such as data reduction, or a more specific goal like finding clusters. 
-
-In Azure Machine Learning we can perform both unsupervised and supervised learning via **Clustering**, **Classification**, and **Regression**.
-
-   ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help2.png)
-
-<a name="anchor-4"></a>
-##Clustering
-Clustering is an example of unsupervised learning. In this type of learning, the goal is to find similarities in the training data and to partition the dataset into subsets that are demarcated by these similarities. 
-The expectation that the most significant clusters discovered by these data-driven procedures are consistent with our intuitive classification is often, but not always, satisfied. 
-
-Although the clustering algorithm won't assign appropriate names to these clusters, it can produce them and then use them to anticipate similarities expected in new examples by classifying them into the most appropriate cluster. This data-driven approach can work well when sufficient data is available. For instance, social information filtering algorithms, such as those used by Amazon.com to recommend books, are based on finding similar groups of people and then assigning new users to these groups for the purpose of making recommendations.
-
-The clustering algorithm available in Azure Machine Learning is [K-Means Clustering][k-means-clustering].
-
-![K-Means clustering algorithm exeperiment: Screenshot](./media/machine-learning-algorithm-choice/k-means-clustering-algorithm-menu.png)
-
-K-means is one of the simplest unsupervised clustering algorithms that solve well known clustering problems. 
-The KMeans algorithm clusters data by trying to separate samples into N groups of equal variance, minimizing 
-the "inertia" or "within-cluster sum-of-squares" criterion.
-This algorithm requires the number of clusters to be specified. K-means can scale to a large number of samples and has been used in a wide range of application areas across many different fields.
-
-The [K-Means Clustering][k-means-clustering] algorithm module returns an untrained K-means clustering model that can be passed to the [Train Clustering Model][train-clustering-model] module for training.
-
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
-
-This figure shows that there are options to be configured when using K-Means Clustering. The K-means method finds a specified number of clusters for a set of D-dimensional data points. Starting with an *initial set of K centroids*, the method uses Lloyd's algorithm to iteratively refine the locations of the centroids. The algorithm terminates when the centroids stabilize or when a *specified number of iterations* are completed.
-The module initializes a K-by-D array with the final centroids that define the K clusters found in the N data points. The algorithm also uses a vector of length N with the assignment of each data point to one of the K clusters.
-If given a specific number of clusters (K) to find, the module assigns the first K data points in order to the K clusters.
-
-
-This module also accepts or generates initial points to define its initial cluster configuration.
-*Metric* defines the method used to measure the distance between a data point and the centroid.
-Each data point is assigned to the cluster that has the closest centroid to the data point. By default, the method uses the *Euclidean metric*. You can specify the *cosine metric* as an alternate metric for the method.
-Note that the K-means method might only find a locally optimum cluster configuration for a dataset. The method could find a different, perhaps superior, configuration given a different initial configuration.
-
-<a name="anchor-5"></a>
-##Classification 
-In classification analysis we divide the samples into classes and use a trained set of previously-labeled data. The technique is used to predict group membership for data instances. 
-In Azure Machine Learning the following classification algorithms are available.
-
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help3.png)
-
-The *Two-Class algorithms* are used for binary response variables (yes or no, 0 or 1, true or false etc) whereas *Multiclass algorithms* are used for any nominal response variable that classifies instances into more than two classes
-
-### Guidelines for selecting a classification algorithm
-This long list of algorithms gives rise to a series of questions: 
-
-* How do you know which of these many classifiers is the best one to use on a particular dataset? 
-* Are there cases where one classifier is a "natural" choice? 
-* What are the principles for making the choice?
-
-One approach that is recommended is to test several different classifiers, as well as different parameter sets within each algorithm, and then select the best one by using cross-validation. 
-
-> [AZURE.TIP] [Azure Machine Learning Studio](https://studio.azureml.net/) allows you to try multiple algorithms side-by-side against the same data and compare the results. Here's an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net/): [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92). 
-
-Here are some general guidelines that can provide a place to start this deliberation. Consider the following issues when choosing which algorithm to use: [outline suggested by [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
-
-**How large is your training data?**
-If your training set is small, and you're going to train a supervised classifier, then machine learning theory says you should stick to a classifier with high bias/low variance, such as Naive Bayes. These have an advantage over low bias/high variance classifiers such as kNN since the latter tends to overfit. But low bias/high variance classifiers are more appropriate if you have a larger training set because they have a smaller asymptotic error - in these cases a high bias classifier isn't powerful enough to provide an accurate model. There are theoretical and empirical results that indicate that Naive Bayes does well in such circumstances. But note that having better data and good features usually can give you a greater advantage than having a better algorithm. Also, if you have a very large dataset classification performance may not be affected as much by the algorithm you use, so in that case it's better to choose your algorithm based on such things as its scalability, speed, or ease of use.
-
-**Do you need to train incrementally or in a batched mode?** 
-If you have a lot of data, or your data is updated frequently, you probably want to use Bayesian algorithms that update well. Both neural nets and SVMs need to work on the training data in batch mode.
-
-**Is your data exclusively categorical or exclusively numeric or a mixture of both kinds?** 
-Bayesian works best with categorical/binomial data. Decision trees can't predict numerical values.
-
-**Do you or your audience need to understand how the classifier works?**  Bayesian or decision trees are more easily explained. It's much harder to see or explain how neural networks and SVMs classify data.
-
-**How fast does your classification need to be generated?** 
-Decision trees can be slow when the tree is complex.
-SVMs, on the other hand, classify more quickly since they only need to determine which side of the "line" your data is on. 
-
-**How much complexity does the problem present or require?** Neural nets and SVMs can handle complex non-linear classification.
-
-### Advantages and disadvantages of classification algorithms
-Each of these classification algorithms has some advantages and  some disadvantages:
-
-<a name="anchor-5a"></a>
-**Advantages and Disadvantages of Logistic Regression:**   
-"Logistic regression analysis is based on calculating the odds of the outcome as the ratio of the probability of having the outcome divided by the probability of not having it." [[Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, et al (International Journal of Pediatrics, 2009) Article ID 952042]
- 
-The logistic model is parametric and so has the advantage that it provides insight into the impact of each predictor variable on the response variable. 
-
-
-With natural probabilistic interpretations available (unlike decision trees or SVMs), you can easily update your model to incorporate new data. There are many ways to regularize your model, and, unlike Naive Bayes, you don’t have to worry as much about your features being correlated. Logistic regression is useful if you want:
-
-* a probabilistic framework for adjusting classification thresholds
-* to quickly incorporate additional training data  
-
-Logistic regression works better than decision trees for high dimension data. For example, in text classification you might have over 100 thousand documents with 500 thousand distinct words (features). A simple rule like learning of a linear hyperplane is better, since decision trees have far too many degrees of freedom and are prone to overfitting. You could do feature selection to use a decision tree on text data, but a lot of valuable information will be lost for text classification if you pick a much reduced subset of the features. When learning models are used with high dimensional data, it's very easy for variance-based errors to grow. In that case it's better to use simple models with higher bias. 
-
-One disadvantage of logistic regression is that it's unstable when one predictor could almost explain the response variable, because the coefficient of this variable will become extremely large.
-
-<a name="anchor-5b"></a>
-**Advantages and Disadvantages of Decision Trees:**   
-[Decision trees](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf) are easy to interpret and explain.
-
-> [Decision trees] easily handle feature interactions and they’re non-parametric, so you don’t have to worry about outliers or whether the data is linearly separable (e.g., decision trees easily take care of cases where you have class A at the low end of some feature x, class B in the mid-range of feature x, and A again at the high end). One disadvantage is that they don’t support online learning, so you have to rebuild your tree when new examples come on. Another disadvantage is that they easily overfit, but that’s where ensemble methods like random forests (or boosted trees) come in. Plus, random forests are often the winner for lots of problems in classification (usually slightly ahead of SVMs, I believe), they’re fast and scalable, and you don’t have to worry about tuning a bunch of parameters like you do with SVMs. [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
-
-Decision trees will generate the output as rules along with metrics such as *support*, *confidence* and *lift*. 
-
-
-<a name="anchor-5c"></a>
-**Advantages and Disadvantages of SVMs:**   
-Support Vector Machines (SVMs) are effective in high dimensional spaces. Even in cases where the number of dimensions is greater than the number of samples it's still effective. 
-However, the method is likely to perform poorly if the number of features is much greater than the number of samples. It's also memory efficient as it uses a subset of training points in the decision function (known as support vectors). It's very versatile: different Kernel functions, both common and custom, can be specified for the decision function. Kernel functions are used to transform low dimensional training samples to higher dimensions, which is useful for linear separability problems. 
-
-SVMs however do not directly provide probability estimates. These are calculated using an expensive five-fold cross-validation. 
-
->[With] high accuracy, nice theoretical guarantees regarding overfitting, and with an appropriate kernel they can work well even if your data isn’t linearly separable in the base feature space. [SVMs are] especially popular in text classification problems where very high-dimensional spaces are the norm. [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
-
-Unlike forests, SVMs originated as two-class classifiers, although recently they have been adapted to work with multiple classes. We can use something like "one-vs-rest" training to make a multi-class classifier which may be less optimal. 
-Since SVMs can only handle two-class outputs (i.e., a categorical output variable with variety 2), with N classes, it learns N SVM’s (SVM 1 learns “Output==1” vs “Output != 1”, SVM 2 learns  “Output==2” vs “Output != 2”, ..., SVM N learns “Output==N” vs “Output != N”). Then to predict the output for a new input, it just predicts with each SVM and then discovers which one puts the prediction the furthest into the positive region. [[Support Vector Machines](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore (Carnegie Mellon University 2001)]
-
-<a name="anchor-5d"></a>
-**Advantages and Disadvantages of Naive Bayes:**   
-[Naive Bayes (NB)](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) classifiers are a popular choice for classification problems. They assume the features are independent - this is what makes the technique 'naive'. 
-
-> If the NB conditional independence assumption actually holds, a Naive Bayes classifier will converge quicker than discriminative models like logistic regression, so you need less training data. And even if the NB assumption doesn’t hold, a NB classifier still often does a great job in practice. ... Its main disadvantage is that it can’t learn interactions between features (e.g., it can’t learn that although you love movies with Brad Pitt and Tom Cruise, you hate movies where they’re together). [[Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen]
-
-
-<a name="anchor-5e"></a>
-**One-vs-all:**  
-One-vs-all is a strategy for reducing the problem of multi-class classification to a set of multiple binary classification problems. 
-This strategy involves training a single classifier per class, with the samples of that class as positive samples and all other samples as negatives.
-This strategy requires the base classifiers to produce a real-valued confidence score for its decision, rather than just a class label; discrete class labels alone can lead to ambiguities, where multiple classes are predicted for a single sample. [[Multiclass classification](http://en.wikipedia.org/wiki/Multiclass_classification) (Wikipedia 2006)]
-
-
-<a name="anchor-6"></a>
-##Regression
- 
-In regression analysis we predict new values based on the past inference. The new values for a dependent variable are computed based on the value of one or more measured attributes. The various regression algorithms available in Azure Machine Learning are:
-
-![screenshot_of_experiment](./media/machine-learning-algorithm-choice/help4.png)
-
-Depending upon the use case and the data at hand we choose one algorithm over another. Below we will describe some regression algorithms and their principal use cases.
-
-<a name="anchor-6b"></a>
-**[Bayesian Linear Regression][bayesian-linear-regression]**                      
-Bayesian Linear Regression is an approach to linear regression in which the statistical analysis is undertaken within the context of Bayesian inference. Explicit results are available for the posterior probability distributions of the model's parameters when the regression model has normal distributed errors and a particular form of prior distribution can be assumed. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
-
-<a name="anchor-6f"></a>
-**[Boosted Decision Tree Regression][boosted-decision-tree-regression]**  
-Boosted Decision Tree Regression calculates a relationship between predictor and response variables. Regression tree structure is similar to a classification tree. Terminal nodes are predicted function (model) values. Predicted values are limited to the values in the terminal nodes. Some of the advantages of using decision trees are: 
-
-* it's easy to interpret the decision rules 
-* they are nonparametric so it's easy to use a range of numerical or categorical data layers, and unimodal training data is not required
-* they are robust with regard to outliers in training data 
-* classification can be done quickly once the rules are developed 
-
-However, there are some drawbacks to using decision trees:
-
-* they tend to overfit training data, yielding poor results when applied to the full data set
-* it's not possible to predict beyond the minimum and maximum limits of the response variable in the training data
-
-
-<a name="anchor-6g"></a>
-**[Decision Forest Regression][decision-forest-regression]**  
-Decision Forests can be used for classification (categorical variables) or regression (continuous variables) applications. 
-Regression forests may be used for the non-linear regression of dependent variables given independent input, and both inputs and outputs may be multi-dimensional. Regression forests aren't used as much as their classification counterparts. The main difference is that the output labels of the decision forests associated with input data (and the training labels) must be continuous. This means that the objective function has to be adapted appropriately. Regression forests share many of the advantages of classification forests, such as efficiency and flexibility.
-
-<a name="anchor-6a"></a>
-**[Linear Regression][linear-regression]**  
-Linear regression is widely used for modeling the relationship between a scalar dependent variable Y and one or more explanatory variables denoted X. It can be, and typically is, applied for prediction, forecasting, or reduction. It can be used to fit a predictive model to an observed dataset of Y and X values. Linear regression assumes that the underlying structure of Y is a linear combination of the X variables. If an additional value of X is then given without its accompanying y value, the fitted linear regression model can be used to predict that Y value. Linear regression models are typically fitted using the least squares approach, but other options also exist to measure which fit is best. [[Linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression) ([Wikipedia](http://en.wikipedia.org))]
-
-<a name="anchor-6c"></a>
-**[Neural Network Regression][neural-network-regression]**  
-Neural networks are a useful statistical tool for nonparametric regression. Nonparametric regression addresses the problem of trying to fit a model for a variable Y on a set of possible explanatory variables X1; : : : ;Xp, and where the relationship between X and Y may be more complicated than a simple linear relationship. [[A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University)]
-
-<a name="anchor-6d"></a>
-**[Ordinal Regression][ordinal-regression]**   
-Ordinal regression is a type of regression analysis used for modeling or predicting an ordinal dependent variable. For ordinal dependent variables, you can rank the values, but the real distance between categories is unknown. Only the relative ordering between different values is significant. Since the labels or target values have a natural ordering or ranking, any numeric column can be used as an ordinal target. The natural ordering of numbers is used for ranking them. For example, diseases are graded on a scale from least severe to most severe; survey respondents choose answers from 'strongly agree' to 'strongly disagree'; students are graded on a scale from A to F. Essentially, though, ordinal regression is an extension of logistic regression and is based on the *proportional odds* model.
-
-
-<a name="anchor-6e"></a>
-**[Poisson Regression][poisson-regression]**  
-Poisson regression is often used for modeling count data. Poisson regression assumes that the response variable has a Poisson distribution. Poisson distributed data is intrinsically integer-valued (discrete and positive), which makes sense for count data. Given a training dataset, Poisson regression tries to find the optimal values by maximizing the log likelihood of the parameters given the inputs. The likelihood of the parameters is the probability that the training data was sampled from a distribution with these parameters. For example, Poisson regression would be useful for: 
-
-* Modeling the number of colds associated with airplane flights 
-* Estimating the number of calls related to an event or promotion 
-* Creating contingency tables
-
-## References
-
-For a complete list with the types of machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/) in [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx).
-
-You can find more detailed information about all types of machine learning algorithms in the following references, many of which were used in creating this article.
-
-* [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
-
-* [Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf), A. Criminisi1, J. Shotton2 and E. Konukoglu (Microsoft Research, 2011) technical report TR-2011-114.
-
-* [A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University).
-
-* Handbook of Computational Statistics: Concepts and Methods edited by James E. Gentle, Wolfgang Karl Härdle, Yuichi Mori (Springer-Verlag Berlin Heidelberg New York, 2004). 
-
-* [Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis, and Anastasia Tzonou (International Journal of Pediatrics, 2009) Article ID 952042.
-
-* [The Optimality of Naive Bayes](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) (University of New Brunswick 2004) Harry Zhang.
-
-* [Support Vector Machines](http://www.astro.caltech.edu/~george/aybi199/AMooreTutorials/svm.ppt), Andrew W. Moore (Carnegie Mellon University 2001).
-
-* [Machine Learning, Part II: Supervised and Unsupervised Learning](http://www.aihorizon.com/essays/generalai/supervised_unsupervised_machine_learning.htm), [AI Horizon](http://www.aihorizon.com/).
-
-* [What are the advantages of logistic regression over decision trees?](http://www.quora.com/What-are-the-advantages-of-logistic-regression-over-decision-trees) ([Quora](http://www.quora.com/)).
-
-* [What is the difference between supervised learning and unsupervised learning?](http://stackoverflow.com/questions/1832076/what-is-the-difference-between-supervised-learning-and-unsupervised-learning) ([Stackoverflow](http://stackoverflow.com/)).
-
-* [When to choose which machine learning classifier?](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier) ([Stackoverflow](http://stackoverflow.com/)).
-
-* [Wikipedia](http://en.wikipedia.org):
-	* [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression)
-	* [Linear regression](http://en.wikipedia.org/wiki/Linear_regression)
-	* [Multiclass classification](http://en.wikipedia.org/wiki/Multiclass_classification)
-	* [Unsupervised learning](http://en.wikipedia.org/wiki/Unsupervised_learning)
-
-Also:
-
-* [Microsoft Azure Machine Learning Algorithm Cheat Sheet](machine-learning-algorithm-cheat-sheet.md) (Microsoft).
-
-* [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/) ([scikit-learn](http://scikit-learn.org/stable/index.html)).
-
-
-<!-- Module References -->
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/
-[boosted-decision-tree-regression]: https://msdn.microsoft.com/library/azure/0207d252-6c41-4c77-84c3-73bdf1ac5960/
-[decision-forest-regression]: https://msdn.microsoft.com/library/azure/562988b2-e740-4e3a-8131-358391bad755/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[neural-network-regression]: https://msdn.microsoft.com/library/azure/d7ee222c-669f-4200-a576-a761a9c1a928/
-[ordinal-regression]: https://msdn.microsoft.com/library/azure/ffb557f8-dc7f-44bd-8fd0-b25666dd23f1/
-[poisson-regression]: https://msdn.microsoft.com/library/azure/80e21b9d-3827-40d8-b733-b53148becbc2/
-
- 
+	documentationCenter=""
+	authors="brohrer"
+	manager="paulettm"
+	editor="cgronlun"
+    tags=""/>
+
+<tags
+	ms.service="machine-learning"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="10/13/2015"
+	ms.author="brohrer;garye" />
+
+# How to choose algorithms for Microsoft Azure Machine Learning
+
+The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
+
+## The Machine Learning Algorithm Cheat Sheet
+
+The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Microsoft Azure Machine Learning library of algorithms.
+This article walks you through how to use it.
+
+> [AZURE.NOTE] To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
+
+This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio. That means that it makes some generalizations and oversimplifications, but it will point you in a safe direction. It also means that there are lots of algorithms not listed here. As Azure Machine Learning grows to encompass a more complete set of available methods, we'll add them.
+
+These recommendations are compiled feedback and tips from a lot of data scientists and machine learning experts. We didn't agree on everything, but I've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
+
+### How to use the cheat sheet
+
+Read the path and algorithm labels on the chart as "For *&lt;path
+label&gt;* use *&lt;algorithm&gt;*." For example, "For *speed* use *two
+class logistic regression*." Sometimes more than one branch will apply.
+Sometimes none of them will be a perfect fit. They're intended to be
+rule-of-thumb recommendations, so don't worry about it being exact.
+Several data scientists I talked with said that the only sure way to
+find the very best algorithm is to try all of them.
+
+Here's an example from the [Cortana Analytics Gallery](http://gallery.azureml.net/) of an experiment that tries
+several algorithms against the same data and compares the results:
+[Compare Multi-class Classifiers: Letter
+recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+
+>[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+
+## Flavors of machine learning
+
+### Supervised
+
+Supervised learning algorithms make predictions based on a set of
+examples. For instance, historical stock prices can be used to hazard
+guesses at future prices. Each example used for training is labeled with
+the value of interest—in this case the stock price. A supervised
+learning algorithm looks for patterns in those value labels. It can use
+any information that might be relevant—the day of the week, the season,
+the company's financial data, the type of industry, the presence of
+disruptive geopolicitical events—and each algorithm looks for different
+types of patterns. After the algorithm has found the best pattern it
+can, it uses that pattern to make predictions for unlabeled testing
+data—tomorrow's prices.
+
+This is a popular and useful type of machine learning. With one
+exception, all of the modules in Azure Machine Learning are supervised learning
+algorithms. There are several specific types of supervised learning that
+are represented within Azure Machine Learning: classification, regression, and anomaly
+detection.
+
+* **Classification**. When the data are being used to predict a
+category, supervised learning is also called classification. This is
+the case when assigning an image as a picture of either a 'cat' or a
+'dog'. When there are only two choices, this is called **two-class**
+or **binomial classification**. When there are more categories, as
+when predicting the winner of the NCAA March Madness tournament, this
+problem is known as **multi-class classification**.
+
+* **Regression**. When a value is being predicted, as with stock prices,
+supervised learning is called regression.
+
+* **Anomaly detection**. Sometimes the goal is to identify data points
+that are simply unusual. In fraud detection, for example, any highly
+unusual credit card spending patterns are suspect. The possible
+variations are so numerous and the training examples so few, that it's
+not feasible to learn what fraudulent activity looks like. The
+approach that anomaly detection takes is to simply learn what normal
+activity looks like (using a history non-fraudulent transactions) and
+identify anything that is significantly different.
+
+### Unsupervised
+
+In unsupervised learning, data points have no labels associated with
+them. Instead, the goal of an unsupervised learning algorithm is to
+organize the data in some way or to describe its structure. This can
+mean grouping it into clusters or finding different ways of looking at
+complex data so that it appears simpler or more organized.
+
+### Reinforcement learning
+
+In reinforcement learning, the algorithm gets to choose an action in
+response to each data point. The learning algorithm also receives a
+reward signal a short time later, indicating how good the decision was.
+Based on this, the algorithm modifies its strategy in order to achieve
+the highest reward. Currently there are no reinforcement learning
+algorithm modules in Azure Machine Learning. Reinforcement learning is common in
+robotics, where the set of sensor readings at one point in time is a
+data point, and the algorithm must choose the robot's next action. It is
+also a natural fit for Internet of Things applications.
+
+## Considerations when choosing an algorithm
+
+### Accuracy
+
+Getting the most accurate answer possible isn't always necessary.
+Sometimes an approximation is adequate, depending on what you want to
+use it for. If that's the case, you may be able to cut your processing
+time dramatically by sticking with more approximate methods. Another
+advantage of more approximate methods is that they naturally tend to
+avoid [overfitting](https://youtu.be/DQWI1kvmwRg).
+
+### Training time
+
+The number of minutes or hours necessary to train a model varies a great
+deal between algorithms. Training time is often closely tied to
+accuracy—one typically accompanies the other. In addition, some
+algorithms are more sensitive to the number of data points than others.
+When time is limited it can drive the choice of algorithm, especially
+when the data set is large.
+
+### Linearity
+
+Lots of machine learning algorithms make use of linearity. Linear
+classification algorithms assume that classes can be separated by a
+straight line (or its higher-dimensional analog). These include logistic
+regression and support vector machines (as implemented in Azure Machine Learning).
+Linear regression algorithms assume that data trends follow a straight
+line. These assumptions aren't bad for some problems, but on others they
+bring accuracy down.
+
+![Non-linear class bounday][1]
+
+***Non-linear class boundary*** *- relying on a linear classification
+algorithm would result in low accuracy*
+
+![Data with a nonlinear trend][2]
+
+***Data with a nonlinear trend*** *- using a linear regression method would
+generate much larger errors than necessary*
+
+Despite their dangers, linear algorithms are very popular as a first
+line of attack. They tend to be algorithmically simple and fast to
+train.
+
+### Number of parameters
+
+Parameters are the knobs a data scientist gets to turn when setting up
+an algorithm. They are numbers that affect the algorithm's behavior,
+such as error tolerance or number of iterations, or options between
+variants of how the algorithm behaves. The training time and accuracy of
+the algorithm can sometimes be quite sensitive to getting just the right
+settings. Typically, algorithms with large numbers parameters require
+the most trial and error to find a good combination.
+
+Alternatively, there is a [parameter
+sweeping](machine-learning-algorithm-parameters-optimize.md)
+module block in Azure Machine Learning that automatically tries all parameter
+combinations at whatever granularity you choose. While this is a great
+way to make sure you've spanned the parameter space, the time required
+to train a model increases exponentially with the number of parameters.
+
+The upside is that having many parameters typically indicates that an
+algorithm has greater flexibility. It can often achieve very good
+accuracy. Provided you can find the right combination of parameter
+settings.
+
+### Number of features
+
+For certain types of data, the number of features can be very large
+compared to the number of data points. This is often the case with
+genetics or textual data. The large number of features can bog down some
+learning algorithms, making training time unfeasibly long. Support
+Vector Machines are particularly well suited to this case (see below).
+
+### Special cases
+
+Some learning algorithms make particular assumptions about the structure
+of the data or the desired results. If you can find one that fits your
+needs, it can give you more useful results, more accurate predictions,
+or faster training times.
+
+|**Algorithm**|**Accuracy**|**Training time**|**Linearity**|**Parameters**|**Notes**|
+|---|:---:|:---:|:---:|:---:|---|
+|**Two-class classification**| | | | | |
+|[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
+|[decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Low memory footprint|
+|[boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Large memory footprint|
+|[neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
+|[support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Good for large feature sets|
+|[locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Good for large feature sets|
+|[Bayes’ point machine](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
+|**Multi-class classification**| | | | | |
+|[logistic regression](https://msdn.microsoft.com/en-us/library/azure/dn905853.aspx)| |●|●|5| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
+|[decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Low memory footprint|
+|[neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|See properties of the two-class method selected|
+|**Regression**| | | | | |
+|[linear ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
+|[Bayesian linear](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
+|[decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
+|[boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Large memory footprint|
+|[fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Distributions rather than point predictions|
+|[neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
+|[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|Technically log-linear. For predicting counts|
+|[ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0|For predicting rank-ordering|
+|**Anomaly detection**| | | | | |
+|[support vector machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2|Especially good for large feature sets|
+|[PCA-based anomaly detection ](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
+|[K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4|A clustering algorithm|
+
+
+**Algorithm properties:**
+
+**●** - shows excellent accuracy, fast training times, and the use of linearity
+
+**○** - shows good accuracy and moderate training times
+
+## Algorithm notes
+
+### Linear regression
+
+As mentioned previously, [linear regression](https://msdn.microsoft.com/library/azure/dn905978.aspx)
+fits a line (or plane, or hyperplane) to the data set. It's a workhorse,
+simple and fast, but it may be overly simplistic for some problems.
+Check here for a [linear regression
+tutorial](machine-learning-linear-regression-in-azure.md).
+
+![Data with a linear trend][3]
+
+***Data with a linear trend***
+
+### Logistic regression
+
+Although it confusingly includes 'regression' in the name, logistic
+regression is actually a powerful tool for
+[two-class](https://msdn.microsoft.com/library/azure/dn905994.aspx)
+and
+[multiclass](https://msdn.microsoft.com/library/azure/dn905853.aspx)
+classification. It's fast and simple. The fact that it uses an
+'S'-shaped curve instead of a straight line makes it a natural fit for
+dividing data into groups. Logistic regression gives linear class
+boundaries, so when you use it, make sure a linear approximation is
+something you can live with.
+
+![Logistic regression to two-class data with just one feature][4]
+
+***A logistic regression to two-class data with just one feature*** *- the
+class boundary is the point at which the logistic curve is just as close to both classes*
+
+### Trees, forests, and jungles
+
+Decision forests
+([regression](https://msdn.microsoft.com/library/azure/dn905862.aspx),
+[two-class](https://msdn.microsoft.com/library/azure/dn906008.aspx),
+and
+[multiclass](https://msdn.microsoft.com/library/azure/dn906015.aspx)),
+decision jungles
+([two-class](https://msdn.microsoft.com/library/azure/dn905976.aspx)
+and
+[multiclass](https://msdn.microsoft.com/library/azure/dn905963.aspx)),
+and boosted decision trees
+([regression](https://msdn.microsoft.com/library/azure/dn905801.aspx)
+and
+[two-class](https://msdn.microsoft.com/library/azure/dn906025.aspx))
+are all based on decision trees, a foundational machine learning
+concept. There are many variants of decision trees, but they all do the
+same thing—subdivide the feature space into regions with mostly the same
+label. These can be regions of consistent category or of constant value,
+depending on whether you are doing classification or regression.
+
+![Decision tree subdivides a feature space][5]
+
+***A decision tree subdivides a feature space into regions of roughly
+uniform values***
+
+Because a feature space can be subdivided into arbitrarily small
+regions, it's easy to imagine dividing it finely enough to have one data
+point per region—an extreme example of overfitting. In order to avoid
+this, a large set of trees are constructed with special mathematical
+care taken that the trees are not correlated. The average of this
+"decision forest" is a tree that avoids overfitting. Decision forests
+can use a lot of memory. Decision jungles are a variant that consumes
+less memory at the expense of a slightly longer training time.
+
+Boosted decision trees avoid overfitting by limiting how many times they
+can subdivide and how few data points are allowed in each region. The
+algorithm constructs a sequence of trees, each of which learns to
+compensate for the error left by the tree before. The result is a very
+accurate learner that tends to use a lot of memory. For the full
+technical description, check out [Friedman's original
+paper](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+
+[Fast forest quantile
+regression](https://msdn.microsoft.com/library/azure/dn913093.aspx)
+is a variation of decision trees for the special case where you want to
+know not only the typical (median) value of the data within a region,
+but also its distribution in the form of quantiles.
+
+### Neural networks and perceptrons
+
+Neural networks are brain-inspired learning algorithms covering
+[multiclass](https://msdn.microsoft.com/library/azure/dn906030.aspx),
+[two-class](https://msdn.microsoft.com/library/azure/dn905947.aspx),
+and
+[regression](https://msdn.microsoft.com/library/azure/dn905924.aspx)
+problems. They come in an infinite variety, but the neural networks
+within Azure Machine Learning are all of the form of directed acyclic graphs. That
+means that input features are passed forward (never backward) through a
+sequence of layers before being turned into outputs. In each layer,
+inputs are weighted in various combinations, summed, and passed on to
+the next layer. This combination of simple calculations results in the
+ability to learn sophisticated class boundaries and data trends,
+seemingly by magic. Many-layered networks of this sort perform the "deep
+learning" that fuels so much tech reporting and science fiction.
+
+This high performance doesn't come for free, though. Neural networks can
+take a long time to train, particularly for large data sets with lots of
+features. They also have more parameters than most algorithms, which
+means that parameter sweeping expands the training time a great deal.
+And for those overachievers who wish to [specify their own network
+structure](http://go.microsoft.com/fwlink/?LinkId=402867), the
+possibilities are inexhaustible.
+
+![Boundaries learned by neural networks][6]
+---------------------------
+
+***The boundaries learned by neural networks can be complex and
+irregular***
+
+The [two-class averaged
+perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)
+is neural networks' answer to skyrocketing training times. It uses a
+network structure that gives linear class boundaries. It is almost
+primitive by today's standards, but it has a long history of working
+robustly and is small enough to learn quickly.
+
+### SVMs
+
+Support vector machines (SVMs) find the boundary that separates classes
+by as wide a margin as possible. When the two classes can't be clearly
+separated, the algorithms find the best boundary they can. As written in
+Azure Machine Learning, the [two-class
+SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx) does
+this with a straight line only. (In SVM-speak, it uses a linear kernel.)
+Because it makes this linear approximation, it is able to run fairly
+quickly. Where it really shines is with feature-intense data, like text
+or genomic. In these cases SVMs are able to separate classes more
+quickly and with less overfitting than most other algorithms, in
+addition to requiring only a modest amount of memory.
+
+![Support vector machine class boundary][7]
+
+***A typical support vector machine class boundary maximizes the margin
+separating two classes***
+
+Another product of Microsoft Research, the [two-class locally deep
+SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is a
+non-linear variant of SVM that retains most of the speed and memory
+efficiency of the linear version. It is ideal for cases where the linear
+approach doesn't give accurate enough answers. The developers kept it
+fast by breaking the problem down into a bunch of small linear SVM
+problems. Read the [full
+description](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf)
+for the details on how they pulled off this trick.
+
+Using a clever extension of nonlinear SVMs, the [one-class
+SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) draws
+a boundary that tightly outlines the entire data set. It is useful for
+anomaly detection. Any new data points that fall far outside that
+boundary are unusual enough to be noteworthy.
+
+### Bayesian methods
+
+Bayesian methods have a highly desirable quality: they avoid
+overfitting. They do this by making some assumptions beforehand about
+the likely distribution of the answer. Another byproduct of this
+approach is that they have very few parameters. Azure Machine Learning has both
+Bayesian algorithms for both classification ([Two-class Bayes' point
+machine](https://msdn.microsoft.com/library/azure/dn905930.aspx))
+and regression ([Bayesian linear
+regression](https://msdn.microsoft.com/library/azure/dn906022.aspx)).
+Note that these assume that the data can be split or fit with a straight
+line.
+
+On an historical note, Bayes' point machines were developed at Microsoft
+Research. They have some exceptionally beautiful theoretical work behind
+them. The interested student is directed to the [original article in
+JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) and an
+[insightful blog by Chris
+Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+
+### Specialized algorithms
+
+If you have a very specific goal you may be in luck. Within the Azure Machine Learning
+collection there are algorithms that specialize in rank prediction
+([ordinal
+regression](https://msdn.microsoft.com/library/azure/dn906029.aspx)),
+count prediction ([Poisson
+regression](https://msdn.microsoft.com/library/azure/dn905988.aspx)),
+and anomaly detection (one based on [principal components
+analysis](https://msdn.microsoft.com/library/azure/dn913102.aspx)
+and one based on [support vector
+machine](https://msdn.microsoft.com/library/azure/dn913103.aspx)s).
+And there is a lone clustering algorithm as well
+([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+
+![PCA-based anomaly detection][8]
+
+***PCA-based anomaly detection*** *- the vast majority of the data falls
+into a stereotypical distribution; points deviating dramatically from
+that distribution are suspect*
+
+![Data set grouped using K-means][9]
+
+***A data set is grouped into 5 clusters using K-means***
+
+There is also an ensemble [one-v-all multiclass
+classifier](https://msdn.microsoft.com/library/azure/dn905887.aspx),
+which breaks the N-class classification problem into N-1 two-class
+classification problems. The accuracy, training time, and linearity
+properties are determined by the two-class classifiers used.
+
+![Two-class classifiers combined to form a three-class classifier][10]
+
+***A pair of two-class classifiers combine to form a three-class
+classifier***
+
+Azure Machine Learning also includes access to a powerful machine learning framework
+under the title of [Vowpal
+Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
+VW defies categorization here, since it can learn both classification
+and regression problems and can even learn from partially unlabeled
+data. You can configure it to use any one of a number of learning
+algorithms, loss functions, and optimization algorithms. It was designed
+from the ground up to be efficient, parallel, and extremely fast. It
+handles ridiculously large feature sets with little apparent effort.
+Started and led by Microsoft Research's own John Langford, VW is a
+Formula One entry in a field of stock car algorithms. Not every problem
+fits VW, but if yours does, it may be worth your while to climb the
+learning curve on its interface. It's also available as [stand-alone
+open source code](https://github.com/JohnLangford/vowpal_wabbit) in
+several languages.
+
+
+<!-- Media -->
+
+[1]: ./media/machine-learning-algorithm-choice/image1.png
+[2]: ./media/machine-learning-algorithm-choice/image2.png
+[3]: ./media/machine-learning-algorithm-choice/image3.png
+[4]: ./media/machine-learning-algorithm-choice/image4.png
+[5]: ./media/machine-learning-algorithm-choice/image5.png
+[6]: ./media/machine-learning-algorithm-choice/image6.png
+[7]: ./media/machine-learning-algorithm-choice/image7.png
+[8]: ./media/machine-learning-algorithm-choice/image8.png
+[9]: ./media/machine-learning-algorithm-choice/image9.png
+[10]: ./media/machine-learning-algorithm-choice/image10.png

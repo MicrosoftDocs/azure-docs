@@ -3,7 +3,7 @@
    description="Describes steps that you must perform to configure Azure Automation for initial use."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
-   ms.author="bwren" />
+   ms.date="11/10/2015"
+   ms.author="bwren;sngun" />
 
 # Configuring Azure Automation
 
@@ -21,7 +21,7 @@ This article describes the actions you must perform to initially start using Azu
 
 ## Automation accounts
 
-When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets) from the Automation resources contained in other Automation accounts. You can use Automation accounts to separate Automation resources into separate logical environments. For example, you might use one account for development and another for production.
+When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the Automation resources contained in other Automation accounts. You can use Automation accounts to separate Automation resources into separate logical environments. For example, you might use one account for development and another for production.
 
 The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage Azure services in any region. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
 
@@ -52,6 +52,33 @@ When you access Azure resources using the [Azure cmdlets](http://msdn.microsoft.
 10. Log out of Azure and then log back in with the account you just created. You will be prompted to change the user’s password.
 11. Create a new [Azure Automation Credential asset](http://msdn.microsoft.com/library/dn940015.aspx) for the user account that you created. The **Credential Type** should be **Windows PowerShell Credential**.
 
+## Create an automation account
+
+An automation account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. If you've already created an automation account, you can skip this step.
+
+1. Log in to the [Azure preview portal](https://portal.azure.com/).
+
+2. In the Azure preview portal, click **New** > **Management** > **Automation Account**
+
+3. In the **Add Automation Account** blade, configure your Automation Account details. 
+
+>[AZURE.NOTE] When an Automation account is created using the Azure preview portal, the account and all the resources associated with it are not brought back to the classic management portal. 
+
+Below is the list of parameters to configure:
+
+|Parameter            |Description |
+|:---|:---|
+| Name | Name of your Automation Account; it must be a unique value. |
+| Resource Group | Resource groups make it simple to see and manage related Azure resources. In the Azure preview portal, you can choose an existing resource group or create a new one for your Automation Account, whereas in the Azure management portal, all the Automation Accounts would be placed in a default resource group. |
+| Subscription | Choose a subscription from the list of available subscriptions. |
+| Region | The region specifies where the Automation resources in the account will be stored. You can choose any region from the list, this will not affect the functionality of your account, but your runbooks may execute faster if your account region is near where your other Azure resources are stored. |
+| Account Options | This option allows you to choose what resources will be created in your new Automation Account; selecting **Yes** will create a tutorial runbook. |
+
+![Create Account](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE] When an Automation Account created using the classic management portal is [moved to a different resource group](../resource-group-move-resources.md) using the Azure preview portal, the Automation Account will no longer be available in Azure classic portal, as Azure resource manager accounts are not supported in the classic management portal.
+
+
 
 ## Use the credential in a runbook
 
@@ -61,7 +88,7 @@ You can retrieve the credential in a runbook using the [Get-AutomationPSCredenti
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-You should repeat these lines after any [checkpoints](automation-runbook-execution/#checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
+You should repeat these lines after any [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
 ## Related articles
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
