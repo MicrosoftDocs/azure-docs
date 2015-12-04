@@ -26,11 +26,11 @@ Five. You can create a support ticket to raise this limit, but by default, you c
 
 Two. You can create only two Free Bing Maps APIs in a subscription. The remote monitoring solution is provisioned by default with a Free Bing Maps API. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
 
-### What's the difference between deleting a resource group in the Azure preview portal and clicking delete on a preconfigured solution in azureiotsuite.com?
+### What's the difference between deleting a resource group in the Azure portal and clicking delete on a preconfigured solution in azureiotsuite.com?
 
 - If you delete the preconfigured solution in [azureiotsuite.com][lnk-azureiotsuite], you delete all the resources that were provisioned when you created the preconfigured solution; if you added additional resources to the resource group, these are also deleted. 
 
-- If you delete the resource group in the [Azure preview portal][lnk-azure-portal], you only delete the resources in that resource group; you will also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure management portal][lnk-classic-portal].
+- If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group; you will also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal][lnk-classic-portal].
 
 ### How do I delete an AAD tenant?
 

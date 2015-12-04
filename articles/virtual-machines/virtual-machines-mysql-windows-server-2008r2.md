@@ -23,13 +23,13 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
+[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure classic portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
 
 For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-install-mysql.md).
 
 This tutorial shows you how to:
 
-- Use the Azure portal to create a virtual machine running Windows Server 2012 R2.
+- Use the Azure classic portal to create a virtual machine running Windows Server 2012 R2.
 
 - Install and run the community version of MySQL 5.6.23 as a MySQL Server on the virtual machine.
 
@@ -101,7 +101,7 @@ If you want the MySQL Server service to be available to MySQL client computers o
 
 To configure an endpoint for the MySQL Server service:
 
-1.	In the Azure portal, click **Virtual Machines**, click the name of your MySQL virtual machine, and then click **Endpoints**.
+1.	In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL virtual machine, and then click **Endpoints**.
 2.	In the command bar, click **Add**.
 3.	On the **Add an endpoint to a virtual machine** page, click the right arrow.
 4.	If you are using the default MySQL TCP port of 3306, click **MySQL** in **Name**, and then click the check mark.
@@ -120,7 +120,7 @@ To add a Windows Firewall rule that allows MySQL traffic from the Internet, run 
 
 To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.
 
-1.	In the Azure portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
+1.	In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
 2.	From the virtual machine dashboard, note the **DNS Name** value under the **Quick Glance** section. Here is an example:
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)

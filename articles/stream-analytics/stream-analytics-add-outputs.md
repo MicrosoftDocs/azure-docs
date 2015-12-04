@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/01/2015" 
 	ms.author="jeffstok"/> 
 
 # How to **add outputs** to Stream Analytics jobs
@@ -24,11 +24,11 @@ Stream Analytics outputs can be used to source real time dashboards or alerts, t
 
 To add an output to your Stream Analytics job:
 
-1. In the Azure portal, click **Outputs** and then click **Add Output** in your Stream Analytics job.
+1. In the Azure Classic Portal, click **Outputs** and then click **Add Output** in your Stream Analytics job.
 
     ![Add Outputs](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)  
 
-    In the Azure preview portal click the **Outputs** tile in your Stream Analytics job.
+    In the Azure Portal click the **Outputs** tile in your Stream Analytics job.
 
     ![Azure Porta Add Outputs](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
@@ -36,7 +36,7 @@ To add an output to your Stream Analytics job:
 
     ![Choose Data Type](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)  
 
-    ![Azure preview portal choose data type](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
+    ![Azure Portal choose data type](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. Provide a friendly name for this output in the **Output Alias** box. This name can be used in your job's query later on to refer to the output.  
     
@@ -50,7 +50,9 @@ To add an output to your Stream Analytics job:
 
     ![Add event hub](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)  
 
-    ![Azure preview portal Add event hub](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)  
+    ![Azure Portal Add event hub](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)  
+
+> [Azure.Note] Any output element added to the job, must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

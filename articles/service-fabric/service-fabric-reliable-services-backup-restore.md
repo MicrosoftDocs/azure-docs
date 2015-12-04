@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2015"
+   ms.date="12/01/2015"
    ms.author="mcoskun"/>
 
 # Backup and Restore Reliable Services
 
-Service Fabric is a high availability platform, and replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases, it is desirable for the service to backup data (to an external store). 
+Service Fabric is a high availability platform, and replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases, it is desirable for the service to backup data (to an external store).
 
 For example, a service may want to backup data in the following scenarios:
 
@@ -30,7 +30,7 @@ For example, a service may want to backup data in the following scenarios:
 
 * Off-line data processing. It might be convenient to have off-line processing of data for business intelligence happening separately from the service generating the data.
 
-The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allows backups of a partition’s state to be taken without blocking read or write operations. The restore APIs allow a partition’s state to be restored from a chosen backup. 
+The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allows backups of a partition’s state to be taken without blocking read or write operations. The restore APIs allow a partition’s state to be restored from a chosen backup.
 
 
 ## How to Backup
@@ -41,31 +41,37 @@ To start a backup, the service needs to invoke **IReliableStateManager.BackupAsy
 
 As shown below, the simplest overload of **BackupAsync** takes in Func<< BackupInfo, bool >> called **backupCallback**.
 
-        await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```C#
+await this.StateManager.BackupAsync(this.BackupCallbackAsync);
+```
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (BackupInfo.Directory). The callback function expects to move the BackupInfo.Directory to an external Store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
 
 The following code demonstrates how the backupCallback can be used to upload the backup to Azure Storage:
 
 ```C#
-        private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
-        {
-            var backupId = Guid.NewGuid();
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
+{
+    var backupId = Guid.NewGuid();
 
-            await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, CancellationToken.None);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 In the above example, **ExternalBackupStore** is the sample class that is used to interface with Azure Blob Storage and **UploadBackupFolderAsync** is the method compresses the folder and places it in Azure Blob Store.
 
->[AZURE.NOTE] There can only be one **BackupAsync** per replica inflight at any given point of time. More than one **BackupAsync** call at a time will throw **FabricBackupInProgressException** to limit inflight backups to one.
->[AZURE.NOTE] If a replica fails over while a backup is in progress, the backup may not have been completed. Thus, once the failover completes, it is the service's responsibility to restart the backup by invoking **BackupAsync** as necessary.
+Please note that:
+
+- There can only be one **BackupAsync** per replica inflight at any given point of time. More than one **BackupAsync** call at a time will throw **FabricBackupInProgressException** to limit inflight backups to one.
+
+- If a replica fails over while a backup is in progress, the backup may not have been completed. Thus, once the failover completes, it is the service's responsibility to restart the backup by invoking **BackupAsync** as necessary.
 
 ## How to Restore data
 
-One can classify the restoration scenarios where the running service has to restore data from the backup store into the following:
+In general, the cases when you might need to perform a restore operation fall into one of these categories:
+
 
 1. The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted/wiped. The new primary may need to restore data from a backup.
 
@@ -90,27 +96,27 @@ The service author needs to perform the following to recover:
 Following is an example implementation of **OnDataLossAsync** method along with the **IReliableStateManager** override.
 
 ```C#
-        protected override IReliableStateManager CreateReliableStateManager()
-        {
-            return new ReliableStateManager(new ReliableStateManagerConfiguration(
-                    onDataLossEvent: this.OnDataLossAsync));
-        }
+protected override IReliableStateManager CreateReliableStateManager()
+{
+    return new ReliableStateManager(new ReliableStateManagerConfiguration(
+            onDataLossEvent: this.OnDataLossAsync));
+}
 
-        protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
-        {
-            var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
+protected override async Task<bool> OnDataLossAsync(CancellationToken cancellationToken)
+{
+    var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
 
-            await this.StateManager.RestoreAsync(backupFolder);
+    await this.StateManager.RestoreAsync(backupFolder);
 
-            return true;
-        }
+    return true;
+}
 ```
 
 >[AZURE.NOTE] The RestorePolicy is set to Safe by default.  This means that the RestoreAsync API will fail with ArgumentException if it detects that the backup folder contains state that is older than or equal to the state contained in this replica.  RestorePolicy.Force can be used to skip this safety check.
 
 ## Deleted or Lost Service
 
-If a service is removed, one must first recreate the service before the data can be restored.  It is important to create the service with the same configuration, e.g. partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (**OnDataLossAsync** above) has to be invoked on every partition of this service.  One way of achieving this is using **FabricClient.ServiceManager.InvokeDataLossAsync** on every partition.  
+If a service is removed, you must first recreate the service before the data can be restored.  It is important to create the service with the same configuration, e.g. partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (**OnDataLossAsync** above) has to be invoked on every partition of this service.  One way of achieving this is using **FabricClient.ServiceManager.InvokeDataLossAsync** on every partition.  
 
 From this point, implementation is same as the above scenario.  Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically). Thus, the service needs to store and the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
@@ -121,14 +127,15 @@ If the newly deployed application upgrade has a bug, that may cause corruption o
 
 The first thing to do after detecting such an egregious bug that causes data corruption is to freeze the service at application level and if possible upgrade to the version of the application code that does not have the bug.  However, even after the service code is fixed, the data may still be corrupt and thus data may need to be restored.  In such cases, it may not be sufficient to restore the latest backup, since the latest backups may also be corrupt.  Thus, one has to find the last backup that was taken before the data got corrupted.
 
-If you are one unsure on which backups are corrupt versus not, you could deploy a new Service Fabric cluster and restore the backups of affected partitions just like the above "Deleted Service" scenario.  For each partition, start restoring the backups from the most recent to the least. Once you find a backup that does not have the corruption, move/delete all backups of this partition that were more recent (than that backup). Repeat this process for each partition. Now, when **OnDataLossAsync** is called on the partition in the production cluster, the last backup found in the external store will be the one picked by the above process.
+If you are not sure which backups are corrupt, you could deploy a new Service Fabric cluster and restore the backups of affected partitions just like the above "Deleted Service" scenario.  For each partition, start restoring the backups from the most recent to the least. Once you find a backup that does not have the corruption, move/delete all backups of this partition that were more recent (than that backup). Repeat this process for each partition. Now, when **OnDataLossAsync** is called on the partition in the production cluster, the last backup found in the external store will be the one picked by the above process.
 
 Now steps in "Deleted Service" can be used to restore the state of the service backup to the state before the buggy code corrupted the state.
 
+Note that:
 
->[AZURE.NOTE] Every time we restore, there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this Restore should only be used as a last resort to recover as much data as possible.
+- When you restore there is a chance that the backup being restored is older than the state of the partition before the data was lost. Because of this Restore should only be used as a last resort to recover as much data as possible.
 
->[AZURE.NOTE] The string that represents the backup folder path as well as the paths of files inside the backup folder can be greater than 255 characters depending on the FabricDataRoot path and Application Type name's length. This can cause some .Net methods like **Directory.Move** to throw the **PathTooLongException**. As one work around option, one may call directly kernel32 APIs like **CopyFile**.
+- The string that represents the backup folder path and the paths of files inside the backup folder can be greater than 255 characters depending on the FabricDataRoot path and Application Type name's length. This can cause some .Net methods like **Directory.Move** to throw the **PathTooLongException**. One workaround is to directly call kernel32 APIs like **CopyFile**.
 
 
 ## Under the hood: More details on Backup and Restore
@@ -144,4 +151,3 @@ Reliable State Manager provides ability to restore from a backup by using the IR
 
 
 RestoreAsync first drops all existing state in the Primary replica that it was called on.  After, the Reliable State Manager creates all the Reliable Objects that exists in the backup folder.  Next, the Reliable Objects are instructed to restore from their checkpoints in the backup folder.  Finally, Reliable State Manager recovers its own state from the log records in the backup folder and performs recovery.  As part of the recovery process, operations starting from the "starting point" that have commit log records in the backup folder are replayed to the Reliable Objects.  This step ensures that the recovered state is consistent.
-

@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Custom installation of Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect: Custom installation | Microsoft Azure"
 	description="This document details the custom installation options for Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -247,7 +247,7 @@ In addition, perform the following verification steps:
 
 
 ## Next steps
-After the installation has completed, Logoff and Login again before you use Synchronization Service Manager or Synchronization Rule Editor.
+After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager or Synchronization Rule Editor.
 
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
