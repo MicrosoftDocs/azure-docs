@@ -99,7 +99,7 @@ The Microsoft Developer Center is used to register the company information once.
 
 12. Click **Finish** to confirm your registration. We'll send a confirmation message to your developer email address.
 
-13. If you are planning to publish only free offers, click **Go to Azure Marketplace Publishing Portal** and can skip to section 3, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal).
+13. If you are planning to publish only free offers, click **Go to Azure Marketplace Publishing Portal** and you can skip to section 3 of this document, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal).
 
 14. If you are planning to publish commercial offers, click **Update your account information** where you must complete tax and banking information in your Developer Center account.
 
