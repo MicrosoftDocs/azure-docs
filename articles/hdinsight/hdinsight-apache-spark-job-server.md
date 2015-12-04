@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Spark Job Server on Azure HDInsight clusters
+# Spark Job Server on Azure HDInsight clusters (Windows)
 
 Apache Spark cluster on Azure HDInight packages the Spark Job Server as part of the cluster deployment. Spark Job Server provides REST APIs to create Spark context, submit Spark application to context, check job status, kill context, etc. This article provides some examples on how to use Curl to perform some common tasks on a Spark cluster using a Job Server.
 
@@ -64,10 +64,10 @@ Example:
 
 ##<a name="seealso"></a>See also
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
 * [Provision a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
-* [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
-* [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
