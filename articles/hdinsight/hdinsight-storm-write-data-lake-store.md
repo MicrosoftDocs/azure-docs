@@ -104,7 +104,7 @@ Create a new Storm on HDInsight cluster using the steps in the [Use HDInsight wi
 
 1. Download the example project from [tbd] to your development environment.
 
-2. Open the `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.jar` file in an editor and find the line that contains `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`. Change __MYDATALAKE__ to the name of the Azure Data Lake Store you used when creating your HDInsight server.
+2. Open the `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` file in an editor and find the line that contains `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`. Change __MYDATALAKE__ to the name of the Azure Data Lake Store you used when creating your HDInsight server.
 
 3. From a command prompt, terminal, or shell session, change directories to the root of the downloaded project, and run the following commands to build and package the topology.
 
@@ -166,7 +166,7 @@ There are several ways to view the data. In this section we use the Azure Portal
 
 * __From the [Azure Portal](https://portal.azure.com)__: In the portal, select the Azure Data Lake Store that you used with HDInsight.
 
-    > [AZURE.NOTE] If you did not pin the Data Lake Store to the [TBD], you can find it by selecting __Browse__ at the bottom of the list on the left, then __Data Lake Store__, and finally selecting the store.
+    > [AZURE.NOTE] If you did not pin the Data Lake Store to the Azure portal dashboard, you can find it by selecting __Browse__ at the bottom of the list on the left, then __Data Lake Store__, and finally selecting the store.
     
     From the icons at the top of the Data Lake Store, select __Data Explorer__.
     
@@ -219,6 +219,4 @@ __For Windows-based HDInsight__:
 
 ##Next steps
 
-Now that you have learned how to use Storm to write to Azure Data Lake Store, discover other ways that you can use Data Lake Store with HDInsight.
-
-* [tbd]
+Now that you have learned how to use Storm to write to Azure Data Lake Store, discover other [Storm examples for HDInsight](hdinsight-storm-example-topology.md).
