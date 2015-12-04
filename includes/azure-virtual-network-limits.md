@@ -22,7 +22,7 @@ Endpoint Access Control Lists (ACLs) | 50 | 50
 
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
 
-Resource| Default limit | Max Limit
+Resource| Default limit | Maximum Limit
 --- | --- | ---
 Virtual networks per subscription | 50 | 500
 DNS Servers per virtual network | 9 | 25
