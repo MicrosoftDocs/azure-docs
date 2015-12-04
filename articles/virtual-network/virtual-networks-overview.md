@@ -61,6 +61,8 @@ There are two types of IP addresses assigned to components in Azure: public and 
 
 These IP addresses are dynamic, meaning that they can change at any time. You may want to ensure the IP address for certain services remain the same, at all times. To do so, you can reserve an IP address, making it static.
 
+To learn more about IP addresses in Azure, visit [IP addresses in virtual network](virtual-network-ip-addresses-arm.md)
+
 ## Azure load balancers
 
 You can use two types of load balancers in Azure:
