@@ -2,7 +2,7 @@
 <tr>
    <th align="left" valign="middle">Resource</th>
    <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Max Limit </th>
+   <th align="left" valign="middle">Maximum Limit </th>
 </tr>
 <tr>
    <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">Virtual networks</a><sup>1</sup> per subscription</p></td>
