@@ -22,9 +22,9 @@ API Management's VPN support allows you to connect your API Management gateway t
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
->VPN connectivity is only available in the **Premium** tier. To switch to it, open your API Management service in the [Management Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
+>VPN connectivity is only available in the **Premium** tier. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
 
-To enable VPN connectivity, open your API Management service in the [Management Portal][] and switch to the **Configure** tab. 
+To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab. 
 
 Under the VPN section, switch **VPN connection** to **On**.
 
@@ -61,7 +61,7 @@ After your API Management service is connected to the VPN, accessing web service
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
