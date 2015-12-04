@@ -49,7 +49,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 <br>
 
 | Feature Type| Features| Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | :---: | :---: | :---: | :---: |
 | **Common features**| Directory objects [1]| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [SSO to SaaS apps, custom apps, Application Proxy apps](active-directory-enable-sso-scenario.md)| 10 apps per user [2]| 10 apps per user [2]| no limit| 10 apps per user [2]|
