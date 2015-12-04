@@ -24,7 +24,7 @@ API Management's VPN support allows you to connect your API Management gateway t
 
 >VPN connectivity is only available in the **Premium** tier. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
 
-To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab.
+To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab. 
 
 Under the VPN section, switch **VPN connection** to **On**.
 
