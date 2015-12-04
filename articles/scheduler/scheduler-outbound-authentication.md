@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
 # Scheduler Outbound Authentication
@@ -337,7 +337,7 @@ Once this request is sent, the response is as follows:
  
  [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
  
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Get Started Using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
  
  [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
  
