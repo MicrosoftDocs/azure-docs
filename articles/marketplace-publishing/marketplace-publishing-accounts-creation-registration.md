@@ -73,11 +73,20 @@ The Microsoft Developer Center is used to register the company information once.
 
     ![drawing][img-verify]
 
-5. On the "Registration-Account Info", select your **Account country/region** from the dropdown menu.
-6.
+5. On the "Registration-Account Info" select, select your **Account country/region** from the dropdown menu.
+
+    <!-- Insert screenshot -->
+
+6. Select your "Account Type", **Individual** or **Company**.
+
+    <!-- Insert screenshot -->
+
+    > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/en-us/library/windows/apps/jj863494.aspx)
+
+7. 
+
 5. Go to **Account Details**. On this screen, you will enter your personal information, which is used only for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
 
-    ![drawing][img-sd-top]
 
 6. Register on behalf of your company by designating your account type as **Company**, not **Individual**. Click **Next**.
 
