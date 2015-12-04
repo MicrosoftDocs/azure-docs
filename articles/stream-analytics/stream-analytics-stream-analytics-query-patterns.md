@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Query examples in Stream Analytics | Microsoft Azure"
+	pageTitle="Query examples for common usage patterns in Stream Analytics | Microsoft Azure"
 	description="Common Azure Stream Analytics Query Patterns "
 	keywords="query examples"
 	services="stream-analytics"

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Real-time event processing with Stream Analytics event processing | Microsoft Azure" 
 	description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." 
-    keyboards="real-time processing, event processing, reference architecture"
+    keywords="real-time processing, event processing, reference architecture"
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
