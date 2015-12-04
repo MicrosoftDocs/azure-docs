@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Manage Azure Traffic Manager profiles | Microsoft Azure"
    description="This article will help you create, disable, enable, delete, and view the history of a Azure Traffic Manager profile."
    services="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Manage an Azure Traffic Manager profile

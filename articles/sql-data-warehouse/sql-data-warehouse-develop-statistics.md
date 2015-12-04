@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/26/2015"
+   ms.date="12/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Manage statistics in SQL Data Warehouse
@@ -443,8 +443,8 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--Image references-->
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop/
-[temporary tables]:     ./sql-data-warehouse-develop-temporary-tables/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[temporary tables]: ./sql-data-warehouse-develop-temporary-tables.md
 
 <!-- External Links -->
 [Cardinality Estimation]:https://msdn.microsoft.com/library/dn600374.aspx

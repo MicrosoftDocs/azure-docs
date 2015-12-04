@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using cURL and the Azure REST API | Microsoft Azure"
    	description="Learn how to create Linux-based HDInsight clusters using cURL, Azure Resource Manager templates, and the Azure REST API. You can specify the cluster type (Hadoop, HBase, or Storm,) or use scripts to install custom components."
    	services="hdinsight"
@@ -274,7 +274,7 @@ Follow the steps documented in [Connect to an Azure subscription from the Azure 
 > * Application ID - returned when creating the service principal
 > * Password for the service principal - used when creating the service principal
 
-Follow the steps in the _Authenticate service principal with a password - Azure CLI_ section of the [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) document. This will create a new service principal that can be used to authenticate the cluster creation request.
+Follow the steps in the _Authenticate service principal with a password - Azure CLI_ section of the [Authenticating a service principal with Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/#authenticate-service-principal-with-password---azure-cli) document. This will create a new service principal that can be used to authenticate the cluster creation request.
 
 ##Get an authentication token
 

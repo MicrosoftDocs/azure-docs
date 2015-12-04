@@ -61,7 +61,7 @@ for information required to connect to your Azure storage account. If these envi
 
 To obtain these values:
 
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
+1. Log in to the [Azure Portal](portal.azure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
@@ -145,6 +145,5 @@ Finally, to delete a blob, use the **delete\_blob()** method. The following code
 
 To learn about more complex storage tasks, follow these links:
 
-- MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

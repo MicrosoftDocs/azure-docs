@@ -14,11 +14,65 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
+
+## Notes for 12/02/2015 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.763.1931434 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.763.1931434 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.763.1931434  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.763.1931434  (HDP 2.2.7.1-34 - unchanged)
+* HDInsight	(Linux)			3.2.1000.0.6392801 (HDP	2.2.7.1-34 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters (Windows) | With this release, HDInsight and HDP versions have been updated | Service    | All| N/A
+
+## Notes for 11/30/2015 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.757.1923908 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.757.1923908  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.757.1923908  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.757.1923908  (HDP 2.2.7.1-34)
+* HDInsight	(Linux)			3.2.1000.0.6392801 (HDP	2.2.7.1-34)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters and HDP versions for HDInsight 3.2 clusters (Windows and Linux) | With this release, HDInsight and HDP versions have been updated | Service    | All| N/A
+
+
+## Notes for 10/27/2015 release of HDInsight
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight	(Windows)	 	2.1.10.726.1866228 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight	(Windows)	 	3.0.6.726.1866228  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight	(Windows)	 	3.1.4.726.1866228  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight	(Windows)		3.2.7.726.1866228  (HDP 2.2.7.1-33)
+* HDInsight	(Linux)			3.2.1000.0.6035701 (HDP	2.2.7.1-33)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+| Title                                           | Description                                          | Impacted Area (for example, Service, component, or SDK) | Cluster Type (for example, Hadoop, HBase, or Storm) | JIRA (if applicable) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Updated HDInsight versions for all HDInsight clusters (Windows and Linux) | With this release, HDInsight and HDP versions have been updated | Service    | All| N/A
+| Fixed Jupyter for Windows Spark clusters with capital letters clusters | Clusters that had DNS names specified in capital letters had issues with Jupyter notebooks due to an origin request check. The fix was to change the DNS name for Jupyter's configuration to lower case. | Service    | HDInsight Spark (Windows)| N/A
+
 
 ## Notes for 10/20/2015 release of HDInsight
 

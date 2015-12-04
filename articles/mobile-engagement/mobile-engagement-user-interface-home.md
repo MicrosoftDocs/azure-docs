@@ -67,13 +67,11 @@ Click on a project to view all the applications that are part of this project. T
 
 ![Home2][3]
 
-## Troubleshooting Guide
 
-[Troubleshooting Guide - Service][Link 24]
-  
 ## See also
 
-[UI Documentation - Settings][Link 20]
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [0]: ./media/mobile-engagement-user-interface-home/home0.png

@@ -25,7 +25,7 @@
 
 ##Overview 
 
-This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDK for the .NET backend, see [Work with .NET backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 ## Reference documentation
 
@@ -51,14 +51,15 @@ The corresponding typed client-side type in C# is the following:
 
 Note that the [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) is used to define the *PropertyName* mapping between the client type and the table.
 
+To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal](https://portal.azure.com).
+
 ##<a name="create-client"></a>How to: Create the Mobile App client
 
 The following code creates the `MobileServiceClient` object that is used to access your Mobile App backend.
 
-
 	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
-In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in your Mobile App blade in the Azure preview portal.
+In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the blade for your Mobile App backend in the [Azure portal](https://portal.azure.com).
 
 ##<a name="instantiating"></a>How to: Create a table reference
 
@@ -311,13 +312,9 @@ The Mobile Apps client enables you to register for push notifications with Azure
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Note that in this example, two tags are included with the registration. For more information on Windows apps, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md). 
+Note that in this example, two tags are included with the registration. For more information on Windows apps, including how to register for template registrations, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md). 
 
-<!--- Remove until Xamarin.Android push is supported.
-Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
-
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
->-->
+Xamarin apps require some additional code to be able to register an app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 ## How to: Register push templates to send cross-platform notifications
 

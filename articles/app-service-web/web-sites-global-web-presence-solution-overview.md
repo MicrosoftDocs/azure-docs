@@ -66,7 +66,7 @@ Deliver your static content lightning fast to users globally by [integrating you
 
 Optimize your .COM site by scaling automatically with Autoscale, caching with Azure Redis Cache, running background tasks with WebJobs, and maintaining high availability with Azure Traffic Manager.
 
-The ability of App Service Web Apps to [scale up and out] meets the need of your .COM site, regardless of the size of your workload. Scale out your website manually through the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715), programmatically through the [Service Management API] or [PowerShell scripting], or automatically through the Autoscale feature. In **Standard** hosting plan, Autoscale enables you to scale out a website automatically based on CPU utilization. For best practices, see [Troy Hunt]'s [10 things I learned about rapidly scaling web apps with Azure].
+The ability of App Service Web Apps to [scale up and out] meets the need of your .COM site, regardless of the size of your workload. Scale out your website manually through the [Azure Portal](https://portal.azure.com), programmatically through the [Service Management API] or [PowerShell scripting], or automatically through the Autoscale feature. In **Standard** hosting plan, Autoscale enables you to scale out a website automatically based on CPU utilization. For best practices, see [Troy Hunt]'s [10 things I learned about rapidly scaling web apps with Azure].
 
 Make your website more responsive with the [Azure Redis Cache]. Use it to cache data from backend databases and other things such as the [ASP.NET session state] and [output cache].
 
@@ -76,7 +76,7 @@ Maintain high availability of your website using [Azure Traffic Manager]. Using 
 
 Stay up-to-date on your website's performance with Azure or third-party tools. Receive alerts on critical website events. Gain user insight easily with Application Insight or with web log analytics from HDInsight. 
 
-Get a [quick glance] of the website's current performance metrics and resource quotas in the web app's blade in the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). For a 360° view of your application across availability, performance and usage, use [Azure Application Insights] to give you fast & powerful troubleshooting, diagnostics and usage insights. Or, use a third-party tool like [New Relic] to provide advanced monitoring data for your websites.
+Get a [quick glance] of the website's current performance metrics and resource quotas in the web app's blade in the [Azure Portal](https://portal.azure.com). For a 360° view of your application across availability, performance and usage, use [Azure Application Insights] to give you fast & powerful troubleshooting, diagnostics and usage insights. Or, use a third-party tool like [New Relic] to provide advanced monitoring data for your websites.
 
 In the **Standard** hosting plan, monitor site responsiveness receive email notifications whenever your site becomes unresponsive. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure].
 

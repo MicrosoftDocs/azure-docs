@@ -13,15 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/02/2015"
 	ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
 
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+&nbsp;
+
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
-> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples
-in this document use v2.0.0-beta1 of [azure-mobile-apps].
+> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta1 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -231,41 +235,40 @@ require 64 Bit support, the 32 Bit version will consume less memory when running
 
 2. Run the SQL Server 2014 Configuration Manager.
 
-  a. Expand the **SQL Server Network Configuration** node in the left hand tree menu.
-  b. Click on **Protocols for SQLEXPRESS**.
-  c. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.
-  d. Right-click on **TCP/IP** and select **Properties**.
-  e. Click on the **IP Addresses** tab.
-  f. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
-
-  ![Configure SQL Express for TCP/IP][3]
-
-  g. Click on **OK**.  Click on **OK** in the pop-up dialog.
-  h. Click on **SQL Server Services** in the left hand tree menu.
-  i. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
-  j. Close the SQL Server 2014 Configuration Manager.
+  1. Expand the **SQL Server Network Configuration** node in the left hand tree menu.
+  2. Click on **Protocols for SQLEXPRESS**.
+  3. Right-click on **TCP/IP** and select **Enable**.  Click on **OK** in the pop-up dialog.
+  4. Right-click on **TCP/IP** and select **Properties**.
+  5. Click on the **IP Addresses** tab.
+  6. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
+  
+	 	 ![Configure SQL Express for TCP/IP][3]
+  7. Click on **OK**.  Click on **OK** in the pop-up dialog.
+  8. Click on **SQL Server Services** in the left hand tree menu.
+  9. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
+  10. Close the SQL Server 2014 Configuration Manager.
 
 3. Create a Run the SQL Server 2014 Management Studio and connect to your local SQL Express instance
 
-  a. Right-click on your instance in the Object Explorer and select **Properties**
-  b. Select the **Security** page.
-  c. Ensure the **SQL Server and Windows Authentication mode** is selected
-  d. Click on **OK**
+  1. Right-click on your instance in the Object Explorer and select **Properties**
+  2. Select the **Security** page.
+  3. Ensure the **SQL Server and Windows Authentication mode** is selected
+  4. Click on **OK**
 
-  ![Configure SQL Express Authentication][4]
+  		![Configure SQL Express Authentication][4]
 
-  e. Expand **Security** > **Logins** in the Object Explorer
-  f. Right-click on **Logins** and select **New Login...**
-  g. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
-  h. Click on **OK**
+  5. Expand **Security** > **Logins** in the Object Explorer
+  6. Right-click on **Logins** and select **New Login...**
+  7. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
+  8. Click on **OK**
 
-  ![Add a new user to SQL Express][5]
+  		![Add a new user to SQL Express][5]
 
-  i. Right-click on your new login and select **Properties**
-  j. Select the **Server Roles** page
-  k. Check the box next to the **dbcreator** server role
-  l. Click on **OK**
-  m. Close the SQL Server 2015 Management Studio
+  9. Right-click on your new login and select **Properties**
+  10. Select the **Server Roles** page
+  11. Check the box next to the **dbcreator** server role
+  12. Click on **OK**
+  13. Close the SQL Server 2015 Management Studio
 
 Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
 
@@ -306,7 +309,7 @@ being stored in the cloud.  Always configure production settings in App Settings
 
 ### <a name="howto-use-sqlazure"></a>Use SQL Azure as your Production Datastore
 
-<!-- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
+<!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 Using SQL Azure as a data store is identical across all Azure App Service application types. If you have not done so already, follow these steps to create a new Mobile App backend.
 
@@ -338,7 +341,7 @@ Once the Mobile App backend is created, you can choose to either connect an exis
 
 11. Back on the **Add data connection** blade again, click on **OK** to create the database.
 
-<!-- END OF ALTERNATE INCLUDE -->
+<!--- END OF ALTERNATE INCLUDE -->
 
 Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  Do not progress until the database has been deployed sucessfully.  Once successfully deployed, a Connection String will be created for the SQL Azure database instance in your Mobile backend App Settings.  You can see this app setting in the **Settings** > **Application settings** > **Connection strings**.
 

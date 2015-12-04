@@ -45,7 +45,7 @@ This release contains the following updates.
 Title | Description
 ---|---
 Azure IoT Suite Public Preview | Stream Analytics is included in the Public Preview of the Azure IoT Suite.
-Azure Preview portal integration | In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Preview portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Preview portal is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
+Azure Portal integration | In addition to continued presence in the Azure Classic Portal, Stream Analytics is now integrated in the [Azure Portal](http://azure.microsoft.com/overview/preview-portal/). Note that Stream Analytics functionality in the Portal is currently a subset of the functionality offered in the Azure Classic Portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to.
 Support for DocumentDB output | Stream Analytics jobs can now output to [DocumentDB](http://azure.microsoft.com/services/documentdb/).
 Support for IoT Hub input | Stream Analytics jobs can now ingest data from IoT Hubs.
 TIMESTAMP BY for heterogeneous events | When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) with expressions to specify different timestamp fields for each case.
