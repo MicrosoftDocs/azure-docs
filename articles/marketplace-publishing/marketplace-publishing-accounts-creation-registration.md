@@ -20,7 +20,7 @@
 This article walks you through the necessary account creation and registration process to become an approved Microsoft seller for the Azure Marketplace.
 
 ## 1. Create a Microsoft account
-> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
+> [AZURE.WARNING] To start the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@example.com). Payment, tax information, and reporting will be routed through this account.
 
@@ -45,7 +45,7 @@ The address that forms the user name should be on your domain and controlled by 
 > [AZURE.TIP] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
 
 ## 2. Create your Microsoft Developer Center account
-The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, and the same account must be used in the Azure Publishing Portal. You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
+The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Azure Publishing Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
 
 > [AZURE.IMPORTANT] You must complete the following seller profile components in order to progress through the various phases of offer creation and deployment.
 
@@ -63,9 +63,7 @@ The Microsoft Developer Center is used to register the company information once.
 ### Register your company account
 1. Open a new  Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you’re not signed in to a personal account.
 
-2. Go to [http://dev.windows.com](http://dev.windows.com).
-
-    ![drawing][img-sd-url]
+2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 
 3. Sign in with your company registration Microsoft account (e.g., marketplace@example.com).
 
@@ -75,11 +73,11 @@ The Microsoft Developer Center is used to register the company information once.
 
     ![drawing][img-verify]
 
+5. On the "Registration-Account Info", select your **Account country/region** from the dropdown menu.
+6.
 5. Go to **Account Details**. On this screen, you will enter your personal information, which is used only for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
 
     ![drawing][img-sd-top]
-
-    <!--[drawing][img-sd-info]-->
 
 6. Register on behalf of your company by designating your account type as **Company**, not **Individual**. Click **Next**.
 
@@ -90,8 +88,6 @@ The Microsoft Developer Center is used to register the company information once.
     ![drawing][img-sd-mktg1]
 
 8. The company name is used by the publishing portal, so it should be accurate.
-
-    <!--[drawing][img-sd-mktg2]-->
 
 9. Use the address of your company headquarters.
 
