@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/04/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
  
@@ -61,24 +61,26 @@ Note that the same retry policy applies to both the original action and the alte
 To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
 ## See Also
- 
+
  [What is Scheduler?](scheduler-intro.md)
  
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
- 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
- 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
- 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
- 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
- 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
- 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
  
  
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
