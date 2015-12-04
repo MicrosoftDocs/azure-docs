@@ -18,7 +18,7 @@
 
 # Having trouble with Azure Multi-Factor Authentication
 >[AZURE.IMPORTANT]
->Help us make this page better.  If you do not find an answer to your issue on this page, please provide detailed feedback so that we can get this added.  Thanks!
+>Help us make this page better.  If you do not find an answer to your issue on this page, please provide detailed feedback so that we can get this added.
 
 The following information is provided to help you with some of the common issues that you may experience.
 
@@ -159,7 +159,6 @@ If you have a smartphone, we recommend you use the [Azure Authenticator app](mul
 You can switch between receiving your verification codes via text messages through the mobile app by choosing **Use a different verification option** when you sign-in. 
 
 ![Different Verification](./media/multi-factor-authentication-end-user-manage/differentverification.png) 
-
 
 Sometimes delivery of one of these services is more reliable than the other.
 
