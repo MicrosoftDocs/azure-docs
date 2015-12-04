@@ -48,7 +48,7 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal), but do not complete creation.
+1. Start creating a cluster by using the steps in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md), but do not complete creation.
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
@@ -232,8 +232,6 @@ In this section, you will create a Scala application that counts the number of l
 
 
 
-[hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[powershell-install-configure]: ../install-configure-powershell.md
  

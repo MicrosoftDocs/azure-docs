@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 - __Python__ and [pip](https://pypi.python.org/pypi/pip)
 

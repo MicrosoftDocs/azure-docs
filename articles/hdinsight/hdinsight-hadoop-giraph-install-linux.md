@@ -59,7 +59,7 @@ A sample script to install Giraph on an HDInsight cluster is available from a re
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-4. Continue creating the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-provision-linux-clusters.md#portal).
+4. Continue creating the cluster as described in [Create Linux-based HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="usegiraph"></a>How do I use Giraph in HDInsight?
 

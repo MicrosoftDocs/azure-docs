@@ -23,7 +23,7 @@ Hadoop provides a streaming API for MapReduce that enables you to write map and 
 
 > [AZURE.NOTE] While the Python code in this document can be used with a Windows-based HDInsight cluster, the steps in this document are specific to Linux-based clusters.
 
-This article is based on information and examples published by Michael Noll at [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Writing an Hadoop MapReduce Program in Python).
+This article is based on information and examples published by Michael Noll at [Writing an Hadoop MapReduce Program in Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
 ##Prerequisites
 

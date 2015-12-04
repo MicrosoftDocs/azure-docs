@@ -31,7 +31,7 @@ Before you begin this tutorial, you must have the following:
 
 - [Apache Maven](http://maven.apache.org/)
 
-- **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **An Azure subscription**
 
 - **Azure CLI**: For more information, see [Install and configure Azure CLI](../xplat-cli-install.md)
 
@@ -270,7 +270,7 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 - [Use Pig with HDInsight][hdinsight-use-pig]
 - [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-For more information, see also the [Java Developer Center](/develop/java/).
+For more information, see also the [Java Developer Center](http://azure.microsoft.com/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -282,20 +282,13 @@ For more information, see also the [Java Developer Center](/develop/java/).
 
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-emulator]: ../hdinsight-get-started-emulator.md
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator.md#blobstorage
+
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
-
-
-[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
