@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/28/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -28,6 +28,9 @@ User profile disks are completely transparent to the user — users save documen
 Each UPD has 50GB of persistent storage and contains both user data and application settings. 
 
 Read on for specifics on user profile data.
+
+>[AZURE.NOTE] Need to disable the UPD? You can do that now - check out Pavithra's blog post, [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), for details.
+
 
 ## How can an admin get to the data?
 
@@ -47,6 +50,8 @@ Each user will have their own directory on the server that maps to their UPD: c:
 Azure RemoteApp saves the Outlook state (mailboxes, PSTs) between sessions. To enable this, we need the PST to be stored in the user profile data (c:\users\<username>). This is the default location for the data, so as long as you do not change the location, the data will persist between sessions.
 
 We also recommend that you use "cached" mode in Outlook and use "server/online" mode for searching.
+
+Check out [this article](remoteapp-outlook.md) for more information on using Outlook and Azure RemoteApp.
 
 ## Can we use shared data solutions?
 Yes, Azure RemoteApp supports using shared data solutions - particularly OneDrive for Business and Dropbox. Note, however, that OneDrive Consumer (the personal version) and Box are not supported.
@@ -77,6 +82,14 @@ Yes, anything written to HKEY_Current_User is part of the UPD.
 ## Can I disable UPDs for a collection?
 
 Yes, you can ask Azure RemoteApp to disable UPDs for a subscription, but you cannot do that yourself. This means that UPDs will be disabled for all collections in the subscription.
+
+You might want to disable UPDs in any of the following situations: 
+
+- You need complete access and control of user data (for audit and review purposes such as financial institutions).
+- You have 3rd-party user profile management solutions on-premises and want to continue using them in your domain-joined Azure RemoteApp deployment. This would require the profile agent to be loaded into the gold image. 
+- You don’t need any local data storage or you have all data in the cloud (such as OneDrive for Business) or file share and would like to control saving of data locally using Azure RemoteApp.
+
+See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) for more information.
 
 ## Can I restrict users from saving data to the system drive?
 
