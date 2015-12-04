@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/03/2015" 
+	ms.author="robinsh"/>
 
 
 # Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage
