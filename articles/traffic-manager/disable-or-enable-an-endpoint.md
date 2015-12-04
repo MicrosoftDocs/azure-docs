@@ -12,11 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-<<<<<<< HEAD
    ms.date="12/02/2015"
-=======
-   ms.date="12/01/2015"
->>>>>>> ea50999556e35f3b35d3ef4a866635706b0f9319
    ms.author="joaoma" />
 
 # Disable or Enable a Traffic Manager Endpoint
