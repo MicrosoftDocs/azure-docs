@@ -31,7 +31,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 
 ## Set up threat detection for your database
 
-1. Launch the Azure Preview portal at [https://portal.azure.com](https://portal.azure.com).
+1. Launch the Azure Portal at [https://portal.azure.com](https://portal.azure.com).
 
 2. Navigate to the configuration blade of the SQL Data Warehouse you want to monitor. In the Settings blade, select **Auditing & Threat Detection**.
 
@@ -57,7 +57,7 @@ The email will provide information on the suspicious security event including th
 
 	![Navigation pane][4]
 
-2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure portal and show the relevant Auditing records around the time of the suspicious event.
+2. In the email, click on the **Azure SQL Auditing Log** link, which will launch the Azure Classic Portal and show the relevant Auditing records around the time of the suspicious event.
 
 	![Navigation pane][5]
 

@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
-#Get started creating an Internet facing load balancer (classic) in the preview portal
+# Get started creating an Internet facing load balancer (classic) in the preview portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -30,7 +30,7 @@
 
 
 
-## Create a load balancer endpoint using Preview portal	
+## Get started creating a load balancer endpoint using Preview portal	
 
 To create an Internet facing load balancer (classic) deployment model from the preview portal, follow the steps below.
 

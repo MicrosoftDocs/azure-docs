@@ -118,7 +118,7 @@ First, fill in the name of your resource group, Azure location, and storage acco
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure preview portal, click **Browse All** in the left pane, click **Virtual machines** in the **Browse** list, and then click the **DC1** virtual machine.  
+1.	In the Azure portal, click **Browse All** in the left pane, click **Virtual machines** in the **Browse** list, and then click the **DC1** virtual machine.  
 2.	In the **DC1** pane,, click **Connect**.
 3.	When prompted, open the DC1.rdp downloaded file.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -147,7 +147,7 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	In the Azure preview portal, click Browse All in the left pane, click Virtual machines in the Browse list, and then click the DC1 virtual machine.
+1.	In the Azure portal, click Browse All in the left pane, click Virtual machines in the Browse list, and then click the DC1 virtual machine.
 2.	In the DC1 pane, click Connect.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.

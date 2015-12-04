@@ -95,7 +95,7 @@ The values of the _self and the  _rid properties are both alternate and canonica
 ## Database accounts
 You can provision one or more DocumentDB database accounts using your Azure subscription. Each Standard tier database account will be given a minimum capacity of one S1 collection.
 
-You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
+You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure Classic Portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
 
 ### Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  
@@ -107,7 +107,7 @@ Primary Key and Secondary Key|These are the primary and secondary keys that prov
 MaxMediaStorageUsageInMB (READ)|Maximum amount of media storage available for the database account.
 MediaStorageUsageInMB (READ)|Current usage of media storage for the database account.
 
-Note that in addition to provisioning, configuring and managing your database account from the Azure portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
+Note that in addition to provisioning, configuring and managing your database account from the Azure Classic Portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
 
 ## Databases
 A DocumentDB database is a logical container of one or more collections and users, as shown in the following diagram. You can create any number of databases under a DocumentDB database account subject to offer limits.  
@@ -144,7 +144,7 @@ The indexing policy of each collection allows you to make performance and storag
 -	Choose whether to include or exclude specific paths or patterns in your documents from the index. You can achieve this by setting includedPaths and excludedPaths on the indexingPolicy of a collection respectively. You can also configure the storage and performance trade-offs for range and hash queries for specific path patterns. 
 -	Choose between synchronous (consistent) and asynchronous (lazy) index updates. By default, the index is updated synchronously on each insert, replace or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing boosts the write performance further and is ideal for bulk ingestion scenarios for primarily read-heavy collections.
 
-The indexing policy can be changed by executing a PUT on the collection. This can be achieved either through the [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), the [Azure Portal](https://portal.azure.com) or the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+The indexing policy can be changed by executing a PUT on the collection. This can be achieved either through the [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), the [Azure Classic Portal](https://portal.azure.com) or the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ### Querying a collection
 The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [DocumentDB SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical and relational operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB’s automatic indexing techniques as well as DocumentDB's SQL dialect. The DocumentDB query language consists of three main aspects:   

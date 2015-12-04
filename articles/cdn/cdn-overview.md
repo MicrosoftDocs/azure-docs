@@ -20,7 +20,7 @@
 
 The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users. 
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Management Portal](https://portal.azure.com). 
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com). 
 
 
 The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).

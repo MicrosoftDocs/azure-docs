@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to create and deploy a cloud service (preview portal) | Microsoft Azure"
-	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure preview portal."
+	pageTitle="How to create and deploy a cloud service  | Microsoft Azure"
+	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure portal."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -22,8 +22,8 @@
 # How to create and deploy a cloud service
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-create-deploy.md)
-- [Azure preview portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
 The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
@@ -64,12 +64,12 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 - If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can upload the certificates to Azure as you create and deploy the cloud service. For information about certificates, see [Manage Certificates](http://msdn.microsoft.com/library/gg981929.aspx).
 
-- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Management Portal](http://msdn.microsoft.com/library/jj156209.aspx).
+- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Azure portal](http://msdn.microsoft.com/library/jj156209.aspx).
 
 
 ## Step 3: Create a cloud service and upload the deployment package
 
-1. Log in to the [Azure preview portal][].
+1. Log in to the [Azure portal][].
 2. Click **New > Compute**, and then scroll down to and click **Cloud Service**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)

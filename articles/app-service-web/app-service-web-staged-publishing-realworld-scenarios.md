@@ -237,7 +237,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Setup a Staging Environment
-Assuming you already have a WordPress web app running on Azure Web, login to [Azure Management Preview portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery).
+Assuming you already have a WordPress web app running on Azure Web, login to [Azure Portal](http://portal.azure.com) and go to your WordPress web app. Apps If not you can create one from the marketplace. To learn more, click [here](web-sites-php-web-site-gallery).
 Click on Settings -> Deployment slots -> Add to create a deployment slot with the name stage .A deployment slot is another web application sharing the same resources as the primary web app created above.
 
 ![Create stage deployment slot](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
@@ -282,7 +282,7 @@ Browse and test your staging web app. Considering a scenario where theme of the 
 ![Swap preview changes for wordpress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
  > [AZURE.NOTE]
- >If you have a scenario where you need to only push files (no database updates), then **Check** the **Slot Setting** for all the database  related *app settings* and *connection strings settings* in web app setting blade within the Azure preview portal before doing the SWAP. In this case DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, default connection string setting should not show up in preview changes when doing a **Swap**. At this time, when you complete the **Swap** operation the WordPress web app will have the updates files **ONLY**.
+ >If you have a scenario where you need to only push files (no database updates), then **Check** the **Slot Setting** for all the database  related *app settings* and *connection strings settings* in web app setting blade within the Azure Portal before doing the SWAP. In this case DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, default connection string setting should not show up in preview changes when doing a **Swap**. At this time, when you complete the **Swap** operation the WordPress web app will have the updates files **ONLY**.
 
 Before doing a SWAP, here is the production WordPress web app
 ![Production web app before swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)

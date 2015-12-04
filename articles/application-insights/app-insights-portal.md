@@ -164,7 +164,7 @@ Search displays individual events such as page views, requests, exceptions, log 
 
 Open diagnostic search:
 
-![Open diagnostic search](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
+![Open diagnostic search](./media/app-insights-portal/01-open-Diagnostic.png)
 
 Open the Filter blade and choose the event types you want to see. (If, later, you want to restore the filters with which you opened the blade, click Reset.)
 

@@ -68,6 +68,58 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     The value assigned when the app has just started. Don't reduce this while you're debugging. 
 
+### Alternative: configure adaptive sampling in code
+
+Instead of adjusting sampling in the .config file, you can use code. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
+
+Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
+
+
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
+
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
+
+    // Optional: here you can adjust the settings from their defaults.
+
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
+
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
+
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
+
+```
+
+([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
+
+
 <a name="other-web-pages"></a>
 ## Sampling for web pages with JavaScript
 
@@ -133,7 +185,7 @@ If you also enable fixed-rate sampling at the server, the clients and server wil
 
 
 
-### Alternative: set sampling in server code
+### Alternative: enable fixed-rate sampling in server code
 
 
 Instead of setting the sampling parameter in the .config file, you can use code. 
@@ -156,7 +208,7 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 
 ```
 
-([Learn about telemetry processors](app-insights-api-filtering-sampling/#filtering).)
+([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 ## When  to use sampling?
 
@@ -222,11 +274,13 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *Can I find out the sampling rate that adaptive sampling is using?*
 
- * Not in the current version.
+ * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate.
 
 *If I use fixed-rate sampling, how do I know which sampling percentage will work the best for my app?*
 
-* Today you have to guess. Analyze your current telemetry usage in AI, observe the drops of data related to throttling, and estimate the volume of the collected telemetry. These three inputs, together with the selected pricing tier, will suggest how much you might want to reduce the volume of the collected telemetry. However, a shift in the pattern of the telemetry volume may invalidate optimally configured sampling percentage (for example an increase in the number of your users).
+* One way is to start with adaptive sampling, find out what rate it settles on (see the above question), and then switch to fixed-rate sampling using that rate. 
+
+    Otherwise, you have to guess. Analyze your current telemetry usage in AI, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, will suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
 
 *What happens if I configure sampling percentage too low?*
 
@@ -242,4 +296,4 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
- * Create a separate instance of TelemetryClient with a separate TelemetryConfiguration. Use that to send your rare events.
+ * Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.

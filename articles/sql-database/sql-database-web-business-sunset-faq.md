@@ -23,15 +23,15 @@ To assist you with upgrading Web and Business databases, the SQL Database servic
 
 **To get pricing tier recommendations:**
 
-- [Upgrade to SQL Database V12 using the Azure Portal](sql-database-v12-upgrade.md)
-- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server.md)
+- [Upgrade to SQL Database V12 using the Azure portal](sql-database-upgrade-server-portal.md)
+- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
 - [Change the pricing tier of a Web or Business database](sql-database-service-tier-advisor.md)
  
 
 
-## Why does the Azure Management Portal show my Web and Business edition databases as Retired?
+## Why does the Azure portal show my Web and Business edition databases as Retired?
 
-Because Web and Business edition databases will not be available after September 2015, the management portal labels Web and Business databases as Retired. Web and Business databases can still be provisioned and managed as usual, but the Retired label is a reminder that it is best to use the Basic, Standard, or Premium service tiers for new databases. The retired label also provides a reminder that any Web and Business databases should be upgraded to Standard, Basic, or Premium. For detailed information on upgrading existing Web or Business databases to the new service tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md).
+Because Web and Business edition databases will not be available after September 2015, the portal labels Web and Business databases as Retired. Web and Business databases can still be provisioned and managed as usual, but the Retired label is a reminder that it is best to use the Basic, Standard, or Premium service tiers for new databases. The retired label also provides a reminder that any Web and Business databases should be upgraded to Standard, Basic, or Premium. For detailed information on upgrading existing Web or Business databases to the new service tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md).
 
 ## Which new service tier is the best choice to upgrade my existing Web or Business database to?
 

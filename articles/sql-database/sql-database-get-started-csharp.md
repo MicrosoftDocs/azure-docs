@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/01/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET 
@@ -22,7 +22,7 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -63,7 +63,7 @@ You must first enable your client application to access the REST API by setting 
 
 The [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx) use Azure Active Directory for authentication. 
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure Portal](https://manage.windowsazure.com/). 
+To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure Classic Portal](https://manage.windowsazure.com/). 
 
 To create a new application and register it in the correct active directory do the following:
 
@@ -113,7 +113,7 @@ To create a new application and register it in the correct active directory do t
 
 The domain name is required for your code. An easy way to identify the proper domain name is to:
 
-1. Go to the [Azure preview portal](https://portal.azure.com).
+1. Go to the [Azure Portal](https://portal.azure.com).
 2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
 
     ![Identify the domain name.][3]
