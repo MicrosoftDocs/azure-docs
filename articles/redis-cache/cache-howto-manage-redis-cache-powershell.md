@@ -74,8 +74,8 @@ The following table contains properties and descriptions for commonly used param
 | SKU                | Specifies the SKU of the cache. Valid values are: Basic, Standard, Premium                                                                                                                                         | Standard |
 | RedisConfiguration | Specifies Redis configuration settings for maxmemory-delta, maxmemory-policy, and notify-keyspace-events. Note that maxmemory-delta and notify-keyspace-events are available for Standard and Premium caches only. |          |
 | EnableNonSslPort   | Indicates whether the non-SSL port is enabled.                                                                                                                                                                     | False    |
-| MaxMemoryPolicy    | Those parameter has been deprecated - use RedisConfiguration instead.                                                                                                                                              |          |
-| StaticIp           | When hosting your cache in a VNET, provides a unique IP address in the subnet for the cache.                                                                                                                       |          |
+| MaxMemoryPolicy    | This parameter has been deprecated - use RedisConfiguration instead.                                                                                                                                              |          |
+| StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache.                                                                                                                       |          |
 | Subnet             | When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache.                                                                                                                  |          |
 | VirtualNetwork     | When hosting your cache in a VNET, specifies the resource ID of the VNET in which to deploy the cache.                                                                                                             |          |
 |                    |                                                                                                                                                                                                                    |          |
@@ -112,7 +112,7 @@ To create a cache with default parameters, run the following command.
 
 `ResourceGroupName`, `Name`, and `Location` are required parameters, but the rest are optional and have default values. Running the previous command creates a Standard SKU Azure Redis Cache instance in with the specified name, location, and resource group, that is 1 GB in size with the non-SSL port disabled.
 
-To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB), or P4 (53 GB - 530 GB). To enable clustering, specify a shard count using the ShardCount parameter. The following example creates a P1 premium cache with 3 shards (so the size is 18 GB - 3 x 6 GB).
+To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB), or P4 (53 GB - 530 GB). To enable clustering, specify a shard count using the ShardCount parameter. The following example creates a P1 premium cache with 3 shards. A P1 premium cache is 6 GB in size, and since we specified three shards the total size is 18 GB (3 x 6 GB).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku=Premium -Size P1 -ShardCount 3
 
@@ -196,7 +196,7 @@ After this command is issued, the status of the cache is returned (equivalent to
 	TenantSettings     : {}
 	ShardCount         :
 
-When the scaling operation is complete, the `ProvisionState` will change to `Running`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete, so else you willr eceive an error similar to the following.
+When the scaling operation is complete, the `ProvisioningState` will change to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete, so else you willr eceive an error similar to the following.
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
