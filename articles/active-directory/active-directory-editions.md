@@ -53,7 +53,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 | **Common features**| Directory objects [1]| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [SSO to SaaS apps, custom apps, Application Proxy apps](active-directory-enable-sso-scenario.md)| 10 apps per user [2]| 10 apps per user [2]| no limit| 10 apps per user [2]|
-|  | Self-service password change for cloud users| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+|  | [Self-service password change for cloud users](active-directory-passwords.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Connect - For syncing between on-premises directories and Azure Active Directory](active-directory-aadconnect.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | **Preview**:[ B2B collaboration](active-directory-b2b-collaboration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Security / usage reports](active-directory-view-access-usage-reports.md)| Basic reports| Basic reports| Advanced reports| Basic reports|
@@ -73,6 +73,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | **Preview**: Privileged Identity Management|  |  | ![Check][12]|  |
 | **Windows 10 and Azure AD Join related features**| Join a Windows 10 device to Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator Bitlocker recovery| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | MDM auto-enrolment,  Self-Service Bitlocker recovery, Additional  local administrators to Windows 10 devices via Azure AD Join|  |  | ![Check][12]|  |
+
 
 
 
