@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Send push notifications to a specific user with Xamarin iOS client" 
 	description="Learn how to send push notifications to all devices of a user" 
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ysxu" 
 	manager="dwrede" 

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Send cross-platform notifications to a specific user in iOS" 
 	description="Learn how to send push notifications to all devices of a specific user."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 

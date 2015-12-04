@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Send x-plat notifications to a specific user with Windows Store client"
 	description="Learn how to send push notifications to all devices of a specific user."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -66,7 +66,7 @@ You must authenticate the user before registering for push notifications to make
             await App.MobileService.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-    Note that this registration uses a template. To learn more about template registrations, see XXXXX
+    Note that this registration uses a template. To learn more about template registrations, see [Templates](../notification-hubs/notification-hubs-templates.md) in the Notification Hubs documentation.
 
 2. Re-add the call to **InitNotificationsAsync** in the **ButtonLogin_Click** method as shown here:
 
