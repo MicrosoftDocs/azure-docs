@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
@@ -36,7 +36,7 @@ Select a VPN and subnet for every region. The list of VPNs is populated based on
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure management portal while it is updating. The service gateway will remain available and runtime calls should not be affected.
+Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure Classic Portal while it is updating. The service gateway will remain available and runtime calls should not be affected.
 
 Note that the VIP address of the gateway will change each time VPN is enabled or disabled.
 
@@ -50,8 +50,8 @@ After your API Management service is connected to the VPN, accessing web service
 ## <a name="related-content"> </a>Related content
 
 
- * [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
- * [How to use the API Inspector to trace calls in Azure API Management][]
+* [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
+* [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -65,4 +65,3 @@ After your API Management service is connected to the VPN, accessing web service
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
- 
