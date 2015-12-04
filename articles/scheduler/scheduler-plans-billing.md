@@ -68,21 +68,23 @@ For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/p
 
 ## See Also
  
+
  [What is Scheduler?](scheduler-intro.md)
  
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get Started Using Scheduler in the Azure Portal](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
  
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+  
 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
-
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
   
