@@ -89,6 +89,14 @@ The Microsoft Developer Center is used to register the company information once.
 
 8. Enter the contact info for the account. For a company account, you'll also need to provide contact info for the person who can verify that you are authorized to create the account on behalf of your organization. When you are finished, click **Next** to move on to the **"Payment section"**.
 
+9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the Review screen
+
+10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
+
+11. Click **Finish** to confirm your purchase. We'll send a confirmation message to your developer email address.
+
+
+
 If you are planning to publish only free offers, then you can skip to section 3, "Register your account in the publishing portal".
 
 If you are planning to publish commercial offers, you must complete tax and banking information in your Seller Dashboard account.
