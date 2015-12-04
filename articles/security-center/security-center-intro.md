@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -42,7 +42,7 @@ Azure Security Center delivers easy and effective threat prevention, detection, 
 | | Suggests ways to stop the current attack and help prevent future attacks |
 
 ## Introductory walkthrough
-Azure Security Center is accessed from the [Microsoft Azure preview portal](http://azure.microsoft.com/features/azure-portal/). To access, [sign in to the Azure preview portal](https://ms.portal.azure.com/), select **Browse**, and scroll to the **Security Center** option or select the **Security Center** tile you previously pinned to the Azure preview portal dashboard.
+Azure Security Center is accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). To access, [sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to the **Security Center** option or select the **Security Center** tile you previously pinned to the portal dashboard.
 
 ![][1]
 
@@ -106,7 +106,7 @@ Selecting an alert shows more information about the attack and suggestions on ho
 ## Get started
 To get started with Azure Security Center you must have a subscription to Microsoft Azure. Azure Security Center is enabled with your Azure subscription. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 
-Azure Security Center is accessed from the [Microsoft Azure preview portal](http://azure.microsoft.com/features/azure-portal/). See [Azure preview portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/) to learn more.
+Azure Security Center is accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). See [portal documentation](https://azure.microsoft.com/documentation/services/azure-portal/) to learn more.
 
 [Getting started with Azure Security Center](security-center-get-started.md) quickly guides you through the security monitoring and policy management components of Azure Security Center.
 

@@ -147,7 +147,7 @@ Get configuration info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/confi
 
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
-- [Manage HDInsight clusters using the Azure preview portal][hdinsight-admin-portal]
+- [Manage HDInsight clusters using the Azure Portal][hdinsight-admin-portal]
 - [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
 - [Manage HDInsight clusters using command-line interface][hdinsight-admin-cli]
 - [HDInsight documentation][hdinsight-documentation]

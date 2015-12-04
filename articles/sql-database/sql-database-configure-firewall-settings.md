@@ -18,11 +18,11 @@
 	ms.author="rickbyh"/>
 
 
-# How to: Configure firewall settings on SQL Database using the Azure Portal
+# How to: Configure firewall settings on SQL Database using the Azure Classic Portal
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)
@@ -33,15 +33,15 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 > [AZURE.IMPORTANT] To allow applications from Azure to connect to your database server, Azure connections must be enabled. For more information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](sql-database-firewall-configure.md). You may have to open some additional TCP ports if you are making connections inside the Azure cloud boundary. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
-### Manage server-level firewall rules through the New Azure Portal
+### Manage server-level firewall rules through the New Azure Classic Portal
 
 
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-## Manage server-level firewall rules through Management Portal 
+## Manage server-level firewall rules through Classic Portal 
 
-1. From the Management Portal, click **SQL Databases**. All databases and their corresponding servers are listed here.
+1. From the Classic Portal, click **SQL Databases**. All databases and their corresponding servers are listed here.
 2. Click **Servers** at the top of the page.
 3. Click the arrow beside the server for which you want to manage firewall rules.
 4. Click **Configure** at the top of the page.

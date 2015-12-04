@@ -691,7 +691,7 @@ Now you are ready to connect the leaderboard app to the live service. You need t
 - The URL of the service
 - The application key
 
-You can get both from the Azure Management Portal. In the Management Portal, click **Mobile Services**, and then click the mobile service. The service URL is listed on the dashboard tab. To get the application key, click **Manage Keys**.
+You can get both from the Azure classic portal. In the portal, click **Mobile Services**, and then click the mobile service. The service URL is listed on the dashboard tab. To get the application key, click **Manage Keys**.
 
 ![][16]
 

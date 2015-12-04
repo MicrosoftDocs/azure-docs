@@ -65,5 +65,3 @@ You are now ready to use a Twitter login for authentication in your app by provi
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
-
-[Azure Management Portal]: https://manage.windowsazure.com/
