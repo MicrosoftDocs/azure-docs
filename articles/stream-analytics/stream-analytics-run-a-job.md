@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Run streaming jobs in Stream Analytics | Microsoft Azure" 
-	description="Run a Stream Analytics Job | learning path segment."
-    keybowrds="streaming jobs"
+	pageTitle="How to start streaming jobs in Stream Analytics | Microsoft Azure" 
+	description="How run a streaming job in Azure Stream Analytics | learning path segment."
+    keywords="streaming jobs"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to add data inputs of streamed data to your Stream Analytics jobs | Microsoft Azure" 
+	pageTitle="How to add data inputs to your Stream Analytics jobs | Microsoft Azure" 
 	description="Adding Inputs to Stream Analytics jobs | learning path segment."
 	keywords="data input, streaming data"
 	documentationCenter=""
