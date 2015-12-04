@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio"/>
 
 # Create a Microsoft seller account
@@ -81,7 +81,7 @@ The Microsoft Developer Center is used to register the company information once.
 
     <!-- Insert screenshot -->
 
-    > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/en-us/library/windows/apps/jj863494.aspx)
+    > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
 7. Enter the **Publisher display name**, typically the name of your company.
 
@@ -150,7 +150,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
   > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
   > If you have issues with Developer Center registration, please log a support ticket as below:
-  1. Contact [Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
+  1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
   2. Choose **Seller Dashboard**.
   3. Choose **Profile**.
   4. Choose a contact method.
@@ -187,7 +187,7 @@ Now that your account is created and registered, click the type of artifact (vir
 [img-sd-legal]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
 [img-sd-submit]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
 
-[link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
+[link-msdndoc]: https://msdn.microsoft.com/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
 [link-single-vm]:marketplace-publishing-vm-image-creation.md

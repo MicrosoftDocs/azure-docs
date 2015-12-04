@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/03/2015"
+  ms.date="12/04/2015"
   ms.author="hascipio; v-divte"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -32,7 +32,7 @@ For detailed instructions on registering a seller account with Microsoft, go to 
 > The company registration must be completed to get started. However, while your company works on the tax and bank information in the Microsoft Developer account, the developers can start working on creating the virtual machine image in the [publishing portal](https://publish.windowsazure.com), getting it certified, and testing it in the Azure staging environment. You will need the complete seller account approval only for the final step of publishing your offer to the Azure Marketplace.
 
 > If you have issues with completing the seller registration, log a support ticket as below:
-> 1. Contact [Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
+> 1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
 > 2. Choose **Seller Dashboard**.
 > 3. Choose **Publisher Profile**.
 > 4. Choose the contact method.
