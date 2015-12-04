@@ -75,7 +75,7 @@ The Microsoft Developer Center is used to register the company information once.
 
 5. On the "Registration-Account Info" select, select your **Account country/region** from the dropdown menu.
 
-    <!-- Insert screenshot -->
+    > [AZURE.WARNING] In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 6. Select your "Account Type", **Individual** or **Company**.
 
@@ -148,10 +148,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
   3. Choose **Registering for a developer account**.
   4. Choose a contact method.
 
-### "Sell-from" countries
 
-> [AZURE.WARNING]
-In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 
