@@ -1,6 +1,6 @@
 The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
-Resource| Default limit | Max limit
+Resource| Default limit | Maximum limit
 --- | --- | --- 
 Virtual networks per subscription | 50 | 100
 Local network sites per virtual network | 20 | contact support
