@@ -201,7 +201,12 @@ Create a local template file with the following content. Name the file azuredepl
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "name": "[parameters('databaseAccountName')]",
-                    "databaseAccountOfferType": "Standard"
+                    "databaseAccountOfferType": "Standard",
+                    "consistencyPolicy": {
+                        "defaultConsistencyLevel": "BoundedStaleness",
+                        "maxStalenessPrefix": 10,
+                        "maxIntervalInSeconds": 10
+                    }
                 }
             }
         ]
@@ -286,7 +291,7 @@ For example (which shows the prompt and entry for a database account named new\_
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    databaseAccountName: newarmacct
+    databaseAccountName: samplearmacct
 
 As the account is provisioned, you will receive the following information: 
 
@@ -302,7 +307,7 @@ As the account is provisioned, you will receive the following information:
     data:    Mode               : Incremental
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
-    data:    databaseAccountName  String  newarmacct
+    data:    databaseAccountName  String  samplearmacct
     data:    location             String  West US
     info:    group deployment create command OK
 
@@ -312,21 +317,25 @@ After the command returns, the account will be in the **Creating** state for a f
 
 ## Troubleshooting
 
-If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, use the following command to view the log for the resource group.
+If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, you have a few troubleshooting options. 
 
-    azure group log show <resourcegroupname> --last-deployment
+> [AZURE.NOTE] Providing incorrect characters in the database account name or providing a location in which DocumentDB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-For example:
+- If your output contains the following `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, then review the error info in the azure.err file.
 
-    azure group log show new_res_group --last-deployment
+- You may find useful info in the log file for the resource group. To view the log file, run the following command:
 
-Then see [Troubleshooting resource group deployments in Azure](../resource-group-deploy-debug.md) for additional  information.
+    	azure group log show <resourcegroupname> --last-deployment
 
-Remember that database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. 
+    For example:
 
-Error information is also available in the Azure Portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
+    	azure group log show new_res_group --last-deployment
 
-![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
+    Then see [Troubleshooting resource group deployments in Azure](../resource-group-deploy-debug.md) for additional  information.
+
+- Error information is also available in the Azure Portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
+
+    ![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png) 
 
 ## Next steps
 
