@@ -20,8 +20,8 @@
 # Create a Virtual Machine Running Linux using the Azure portal
 
 > [AZURE.SELECTOR]
-- [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Classic](virtual-machines-create-custom.md)
 
 <br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
