@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Classic portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>
 

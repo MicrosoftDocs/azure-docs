@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [CLI](virtual-machines-linux-tutorial.md)
-- [Portal - Classic](virtual-machines-create-custom.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
 
 <br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.

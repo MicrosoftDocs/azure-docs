@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
 - [Portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Classic](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 
 <br>
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
