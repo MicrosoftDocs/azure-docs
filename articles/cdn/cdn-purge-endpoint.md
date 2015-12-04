@@ -47,8 +47,8 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 4. Select what assets you wish to purge from the edge nodes.  If you wish to clear all assets, click the **Purge all** checkbox.  Otherwise, type the full path of each asset you wish to purge (e.g., */pictures/kitten.png*) in the **Path** textbox.
 
 	> [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
-	
-	Paths must be a relative URL.  Asterisk (*) may be used as a wildcard.  
+	>
+	> Paths must be a relative URL.  Asterisk (*) may be used as a wildcard.  
 	
 5. Click the **Purge** button.
 
