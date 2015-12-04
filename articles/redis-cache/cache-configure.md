@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/01/2015"
+   ms.date="12/03/2015"
    ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -23,7 +23,7 @@ This topic describes how to review and update the configuration for your Azure R
 
 ## Configure Redis cache settings
 
-Caches can be accessed in the [Azure preview portal](https://portal.azure.com) using the **Browse** blade.
+Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
 
 ![Azure Redis Cache Browse Blade](./media/cache-configure/IC796920.png)
 
@@ -122,7 +122,7 @@ Click **OK** to save the persistence configuration.
 
 ![Redis Cache Users and Tags](./media/cache-configure/IC808320.png)
 
-The **Users** section provides support for role-based access control (RBAC) in the preview portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=512803).
+The **Users** section provides support for role-based access control (RBAC) in the Azure Portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure Portal](http://go.microsoft.com/fwlink/?LinkId=512803).
 
 The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
@@ -134,13 +134,13 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Any values that are configurable, such as **max-memory-policy**, are configurable through the preview portal.
+>Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal.
 
 |Setting|Default value|Description|
 |---|---|---|
 |databases|16|The default database is DB 0, you can select a different one on a per-connection basis using connection.GetDataBase(dbid) where dbid is a number between 0 and 15.|
 |maxclients|Depends on the pricing tier<sup>1</sup>|This is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis will close all the new connections sending an error 'max number of clients reached'.|
-|maxmemory-policy|volatile-lru|Maxmemory policy is the setting for how Redis will select what to remove when maxmemory (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is volatile-lru, which removes the keys with an expire set using an LRU algorithm. This setting can be configured in the preview portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxmemory-policy|volatile-lru|Maxmemory policy is the setting for how Redis will select what to remove when maxmemory (the size of the cache offering you selected when you created the cache) is reached. With Azure Redis Cache the default setting is volatile-lru, which removes the keys with an expire set using an LRU algorithm. This setting can be configured in the Azure portal. For more information, see [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|LRU and minimal TTL algorithms are not precise algorithms but approximated algorithms (in order to save memory), so you can select as well the sample size to check. For instance for default Redis will check three keys and pick the one that was used less recently.|
 |lua-time-limit|5,000|Max execution time of a Lua script in milliseconds. If the maximum execution time is reached Redis will log that a script is still in execution after the maximum allowed time and will start to reply to queries with an error.|
 |lua-event-limit|500|This is the max size of script event queue.|
@@ -164,7 +164,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 ## Redis commands not supported in Azure Redis Cache
 
->[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the preview portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure Portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
