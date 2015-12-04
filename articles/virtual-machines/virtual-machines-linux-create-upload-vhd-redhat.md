@@ -18,7 +18,7 @@
 
 
 # Prepare a Red Hat-based Virtual Machine for Azure
-In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7 and 7.1 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access). 
+In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7 and 7.1 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673). 
 
 
 
@@ -843,3 +843,7 @@ This issue is intermittent, however, it occurs more freqently during frequent di
 [AZURE.NOTE] This known issue has already been addressed by Red Hat. To install the associated fixes, run the following command:
 
     # sudo yum update
+
+
+##Reference:
+You could get more information from Red Hat on this topic, see [here](https://access.redhat.com/certified-hypervisors).
