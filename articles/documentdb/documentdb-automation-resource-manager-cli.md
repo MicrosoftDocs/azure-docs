@@ -201,12 +201,7 @@ Create a local template file with the following content. Name the file azuredepl
                 "location": "[resourceGroup().location]",
                 "properties": {
                     "name": "[parameters('databaseAccountName')]",
-                    "databaseAccountOfferType": "Standard",
-                    "consistencyPolicy": {
-                        "defaultConsistencyLevel": "BoundedStaleness",
-                        "maxStalenessPrefix": 10,
-                        "maxIntervalInSeconds": 10
-                    }
+                    "databaseAccountOfferType": "Standard"
                 }
             }
         ]
