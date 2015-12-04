@@ -45,11 +45,11 @@ You can download the XML schemas for connectors such as SQL, SAP and SharePoint 
 ## Create and Add the Map
 Transforms or Maps are created in Visual Studio using the [Microsoft Azure BizTalk Services SDK](http://www.microsoft.com/download/details.aspx?id=39087), which is a free download. 
 
-For help creating a Map, see [Create a Map in Visual Studio](http://aka.ms/createamapinvs). After the map is created and ready for production, you can add the Map (.trfm file) to the BizTalk Transform API App you created in the Azure Management Portal. 
+For help creating a Map, see [Create a Map in Visual Studio](http://aka.ms/createamapinvs). After the map is created and ready for production, you can add the Map (.trfm file) to the BizTalk Transform API App you created in the Azure portal. 
 
 If the map changes or is modified after it is uploaded, you can upload the updated map and it replaces the existing map in the Transform API App.
 
-1.	Select **Browse** on Azure Management Portal (left of the screen) and select **API Apps**. If **API Apps** isn't displayed, select **Everything**, and select **API Apps** from the available list:
+1.	Select **Browse** on Azure portal (left of the screen) and select **API Apps**. If **API Apps** isn't displayed, select **Everything**, and select **API Apps** from the available list:
 
 	![][7]
 
