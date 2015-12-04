@@ -20,6 +20,8 @@
 
 # Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight (Windows)
 
+> [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to run a streaming application on HDInsight Spark Linux clusters, see [Spark Streaming: Process events from Azure Event Hubs with Apache Spark on HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
+
 Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
 
 In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using a Zeppelin notebook configured for Apache Spark in HDInsight.

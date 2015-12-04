@@ -20,6 +20,8 @@
 
 # Use BI tools with Apache Spark on Azure HDInsight (Windows)
 
+> [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to use BI tools with Spark cluster on HDInsight Linux, see [Use BI tools with Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-use-bi-tools.md).
+
 Learn how to use Apache Spark in Azure HDInsight to do the following:
 
 * Take raw sample data and save it as a Hive table

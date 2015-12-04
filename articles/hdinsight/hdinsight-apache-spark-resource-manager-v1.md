@@ -20,6 +20,8 @@
 
 # Manage resources for the Apache Spark cluster in Azure HDInsight (Windows)
 
+> [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to manage resources for a Spark cluster on HDInsight Linux, see [Manage resources for the Apache Spark cluster in Azure HDInsight (Linux)](hdinsight-apache-spark-resource-manager.md).
+
 Resource manager is a component of the Spark cluster dashboard that enables you to manage resources such as cores and RAM used by each application running on the cluster.
 
 ## <a name="launchrm"></a>How do I launch the Resource Manager?

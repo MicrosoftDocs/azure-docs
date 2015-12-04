@@ -19,6 +19,8 @@
 
 # Provision Apache Spark clusters in HDInsight using custom options (Windows)
 
+> [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to custom-provision a Spark cluster on HDInsight Linux, see [Create Linux-based clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+
 For most scenarios, you can provision a Spark cluster using the quick create method as described in [Get Started with Apache Spark on HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md). In certain scenarios, you might want to provision a customized cluster. For example, you might want to attach an external metadata store to keep your Hive metadata persistent beyond the lifetime of a cluster, or you might want to use additional storage with the cluster.
 
 For such and other scenarios, this article provides instructions on how to use the Azure portal, Azure PowerShell, or the HDInsight .NET SDK to provision a customized Spark cluster on HDInsight.  

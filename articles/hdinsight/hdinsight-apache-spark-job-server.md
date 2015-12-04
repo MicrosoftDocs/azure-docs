@@ -20,6 +20,8 @@
 
 # Spark Job Server on Azure HDInsight clusters (Windows)
 
+> [AZURE.NOTE] HDInsight now provides Spark clusters on Linux, which uses Livy to submit jobs remotely to a Spark cluster. For information on how to use Livy with HDInsight Spark clusters on Linux, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
+
 Apache Spark cluster on Azure HDInight packages the Spark Job Server as part of the cluster deployment. Spark Job Server provides REST APIs to create Spark context, submit Spark application to context, check job status, kill context, etc. This article provides some examples on how to use Curl to perform some common tasks on a Spark cluster using a Job Server.
 
 >[AZURE.NOTE] For complete documentation for the Spark Job Server, see [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver). 
