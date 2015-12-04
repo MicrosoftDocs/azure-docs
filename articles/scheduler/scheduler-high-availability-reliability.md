@@ -76,7 +76,6 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
