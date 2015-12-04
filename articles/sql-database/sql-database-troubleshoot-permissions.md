@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="" 
-	description="" 
+	pageTitle="Troubleshoot Azure SQL database permissions and access" 
+	description="Quick steps to troubleshoot common permissions, access, user, and login issues" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="jeffgoll" 
@@ -16,14 +16,23 @@
 	ms.date="12/03/2015" 
 	ms.author="jeffreyg"/>
  
-##Steps to grant and remove database access
-1.	To change the administrative password for a logical server, click SQL Servers, select the server from the list, and then click Reset Password.
-2.	See How to: Configure firewall settings on SQL Database to make sure only authorized IP addresses are allowed to access the server and database.
-3.	Create contained database users in the user database using the CREATE USER statement. See Contained Database Users - Making Your Database Portable.
-4.	To authenticate contained database users by using your Azure Active Directory, see Connecting to SQL Database By Using Azure Active Directory Authentication.
-5.	Create additional logins for high-privileged users in the virtual master database using the CREATE LOGIN statement. See the Managing Logins section of Managing databases and logins in Azure SQL Database.
+#Troubleshoot common Azure SQL database permissions and access issues
+Use this topic for quick steps to grant and remove access to an Azure SQL database. For more comprehensive information, see:
 
-Additional resources 
-Azure SQL Database security guidelines and limitations
-Managing Azure SQL Database using SQL Server Management Studio
+- [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
+- [Securing your SQL database](sql-database-security)
+- [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
+##To change the administrative password for a logical server
+- In the [Azure Portal](https://portal.azure.com) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
+##To help make sure only authorized IP addresses are allowed to access the server
+- See [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md).
+
+##To create contained database users in the user database
+- Use the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement and see Contained Database [Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
+
+## To authenticate contained database users by using your Azure Active Directory
+- See Connecting to [SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
+
+## To create additional logins for high-privileged users in the virtual master database
+-Use the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement, and see the Managing Logins section of [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md) for more detail.
