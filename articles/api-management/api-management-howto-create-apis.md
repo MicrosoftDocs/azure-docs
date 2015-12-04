@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to create APIs in Azure API Management
@@ -40,7 +40,7 @@ Use the **Add new API** window to configure the new API.
 
 The following fields are used to configure the new API.
 
--	**Web API name** provides a unique and descriptive name for the API. It is displayed in the developer and management portals.
+-	**Web API name** provides a unique and descriptive name for the API. It is displayed in the developer and publisher portals.
 -	**Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
 -	**Web API URL suffix** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.
 -	**Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.

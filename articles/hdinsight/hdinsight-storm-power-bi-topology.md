@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from an Apache Storm topology
@@ -55,9 +55,9 @@ The following files in this project implement the Power BI specific functionalit
 
 ## Register a Power BI application
 
-1. Follow the steps in the [Power BI quickstart](https://msdn.microsoft.com/en-US/library/dn931989.aspx) to sign up for Power BI.
+1. Follow the steps in the [Power BI quickstart](https://msdn.microsoft.com/library/dn931989.aspx) to sign up for Power BI.
 
-2. Follow the steps in [Register an app](https://msdn.microsoft.com/en-US/library/dn877542.aspx) to create an application registration. This will be used when accessing the Power BI REST API.
+2. Follow the steps in [Register an app](https://msdn.microsoft.com/library/dn877542.aspx) to create an application registration. This will be used when accessing the Power BI REST API.
 
     > [AZURE.IMPORTANT] Save the **Client ID** for the application registration.
 
