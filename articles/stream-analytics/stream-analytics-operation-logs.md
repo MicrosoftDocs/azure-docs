@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operation Logs | Microsoft Azure" 
-	description="Stream Analytics Operation Logs" 
+	pageTitle="Utilize operation and service logs in Stream Analytics | Microsoft Azure" 
+	description="How-to use Stream Analytics operation logs" 
 	keywords="service logs"
 	services="stream-analytics" 
 	documentationCenter="" 
