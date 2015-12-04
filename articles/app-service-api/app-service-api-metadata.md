@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Service API Apps metadata for API disovery and code generation | Microsoft Azure"
+	pageTitle="App Service API Apps metadata for API discovery and code generation | Microsoft Azure"
 	description="Learn how API Apps in Azure App Service use Swagger metadata to facilitate API discovery and code generation."
 	services="app-service\api"
 	documentationCenter=".net"
@@ -13,10 +13,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/10/2015"
+	ms.date="11/25/2015"
 	ms.author="tdykstra"/>
 
 # App Service API Apps metadata for API discovery and code generation 
 
-This page is a placeholder for an article that will be published on Monday, November 30, 2015. The article will explain how the API Apps feature of Azure App Service uses Swagger metadata to make it easier to discover and consume APIs.
+Support for [Swagger 2.0](http://swagger.io/) API metadata is built into App Service API Apps. You don't have to use Swagger, but if you do use it, you can take advantage of API Apps features that make discovery and consumption easier.   
 
+## Swagger endpoint
+
+You can specify an endpoint that provides Swagger 2.0 JSON metadata for an API app in a property of the API app. The endpoint can be relative to the base URL of the API app or an absolute URL. Absolute URLs can point outside the API app. 
+
+The URL must be publicly accessible (not protected by user or service authentication).
+
+In the [Azure portal](https://portal.azure.com/) the endpoint URL can be seen and changed on the **API Definition** blade.
+
+![](./media/app-service-api-metadata/apidefblade.png)
+
+When you use Visual Studio to create an API app, the API definition endpoint is automatically set to the base URL of the API app plus `/swagger/docs/v1`. This is the default URL that the [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package uses to serve dynamically generated Swagger metadata for an ASP.NET Web API project. 
+
+## Code generation
+
+One of the benefits of integrating Swagger into Azure API apps is automatic code generation. Generated client classes make it easier to write code that calls an API app.
+
+You can generate client code for an API app by using Visual Studio or from the command line. For information about how to generate client classes in Visual Studio for an ASP.NET Web API project, see [Get started with API Apps and ASP.NET](app-service-api-dotnet-get-started.md#codegen). For information about how to do it from the command line for all supported languages, see the readme file of the [Azure/autorest](https://github.com/azure/autorest) repository on GitHub.com.
+ 
+## Next steps
+
+For a step-by-step tutorial that guides you through creating, deploying, and consuming an API app, see [Get started with API Apps in Azure App Service](app-service-api-dotnet-get-started.md).

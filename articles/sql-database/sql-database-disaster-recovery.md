@@ -32,17 +32,17 @@ To learn about preparing for disaster and when to recover your database, visit o
 The recovery operation impacts the application. It requires changing the SQL connection string and could result in permanent data loss. Therefore it should be done only when the outage is likely to last longer than your application's RTO. When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:
 
 1. Permanent connectivity failure from the application tier to the database.
-2. Your Azure Portal shows an alert about an incident in the region with broad impact.
+2. Your Azure Classic Portal shows an alert about an incident in the region with broad impact.
 
 > [AZURE.NOTE] After your database is recovered you can configure it to be used by following the [Configure your database after recovery](#postrecovery) guide.
 
 ## Failover to geo-replicated secondary database
 > [AZURE.NOTE] You must configure to have a secondary database to use for failover. Geo-Replication is only available for Standard and Premium databases. Learn [how to configure Geo-Replication](sql-database-business-continuity-design.md)
 
-###Azure Portal
-Use the Azure Portal to terminate the continuous copy relationship with the Geo-Replicated secondary database.
+###Azure Classic Portal
+Use the Azure Classic Portal to terminate the continuous copy relationship with the Geo-Replicated secondary database.
 
-1. Log in to the [Azure Portal](https://portal.Azure.com)
+1. Log in to the [Azure Classic Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
 3. Navigate to your database and select it. 
 4. At the bottom of your database blade select the **Geo Replication map**.
@@ -66,10 +66,10 @@ In the event of an outage of a database, you can recover your database from its 
 
 > [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
-###Azure Portal
-To restore a SQL Database using Geo-Restore in the Azure Portal, use the following steps.
+###Azure Classic Portal
+To restore a SQL Database using Geo-Restore in the Azure Classic Portal, use the following steps.
 
-1. Log in to the [Azure Portal](https://portal.Azure.com)
+1. Log in to the [Azure Classic Portal](https://portal.Azure.com)
 2. On the left side of the screen select **NEW**, then select **Data and Storage**, and then select **SQL Database**
 2. Select **BACKUP** as the source  and then select the geo redundant backup you want to recover from.
 3. Specify the rest of the database properties and then click **Create**.

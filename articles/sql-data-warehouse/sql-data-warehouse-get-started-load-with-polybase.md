@@ -72,7 +72,7 @@ To prepare a sample text file:
 
 To find your blob service endpoint:
 
-1. From the Azure portal select **Browse** > **Storage Accounts**.
+1. From the Azure Classic Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
 

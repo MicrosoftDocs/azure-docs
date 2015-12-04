@@ -45,7 +45,7 @@ To upload data and schema files using the code in the prototype sample applicati
 
 ## Test the prototype solution on your system
 
-1. [Create an Azure Search service in the Azure portal](search-create-service-portal.md).
+1. [Create an Azure Search service in the Azure Classic Portal](search-create-service-portal.md).
 
     You can add a shared (free) version of the service to any existing Azure subscription. The shared service is often used for prototypes. Keep in mind that the shared service provides 50 MB of data or 10,000 documents total, whichever comes first. Additionally, data and documents can be spread across a maximum of 3 indexes. 
 

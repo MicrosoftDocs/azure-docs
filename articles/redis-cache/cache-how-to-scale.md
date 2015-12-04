@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="11/30/2015" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
@@ -111,7 +111,7 @@ When a **Basic** cache is scaled to a **Standard** cache, the data in the cache 
 
 When a **Standard** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
 
-Note that while Standard caches have a 99.9% SLA for availability, there is no SLA for data loss.
+Note that while Standard and Premium caches have a 99.9% SLA for availability, there is no SLA for data loss.
 
 ## Will my cache be available during scaling
 

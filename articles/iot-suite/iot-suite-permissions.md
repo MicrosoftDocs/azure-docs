@@ -36,7 +36,7 @@ The AAD roles control the ability provision preconfigured solutions and manage u
 
 You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin], but this article focuses primarily on the **Global Administrator** and the **Domain User/Member** roles as used by the preconfigured solutions.
 
-**Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **ADMINISTRATOR** role for the application inside of their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **IMPLICIT READ ONLY**. Global administrators can assign roles for applications using the [Azure management portal][lnk-classic-portal].
+**Global Administrator:** There can be many global administrators per AAD tenant. When you create an AAD tenant, you are by default the global administrator of that tenant. The global administrator can provision a preconfigured solution and is assigned an **ADMINISTRATOR** role for the application inside of their AAD tenant. However, if another user in the same AAD tenant creates an application, the default role the global administrator is granted is **IMPLICIT READ ONLY**. Global administrators can assign roles for applications using the [Azure classic portal][lnk-classic-portal].
 
 **Domain User/Member:** There can be many domain users/members per AAD tenant. A domain user can provision a preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site. The default role they are granted  for the application they provision is **ADMINISTRATOR**. They can create an application using the build.cmd script in the [azure-iot-solution][lnk-github-repo] repository, but the default role they are granted is **IMPLICIT READONLY**, as they do not have permission to assign roles. If another user in the AAD tenant creates an application, they are assigned the **IMPLICIT READONLY** role by default for that application. They do not have the ability to assign roles for applications; therefore cannot add users or roles for users for an application even if they provisioned it.
 
@@ -69,7 +69,7 @@ There are two defined and one implicit role defined in the application that is c
 
 You must be an AAD global administrator to change roles for a user:
 
-1. Go to the [Azure Management portal][lnk-classic-portal]
+1. Go to the [Azure classic portal][lnk-classic-portal]
 
 2. Select **Active Directory**
 
@@ -91,7 +91,7 @@ You must be an AAD global administrator to change roles for a user:
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I do this?
 
-1. Go to the [Azure Management portal][lnk-classic-portal], click **Settings** in the list of services on the left-hand side.
+1. Go to the [Azure classic portal][lnk-classic-portal], click **Settings** in the list of services on the left-hand side.
 
 2. Select the subscription you'd like to change the directory mapping to.
 
