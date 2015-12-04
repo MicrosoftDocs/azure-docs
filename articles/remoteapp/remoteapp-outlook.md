@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Using Outlook in Azure RemoteApp" 
-    description="Learn how to configure and use Outlook in Azure RemoteApp" 
+    description="Learn how to configure and use Outlook in Azure RemoteApp | Microsoft Azure" 
     services="remoteapp" 
     documentationCenter="" 
     authors="pavithir" 

@@ -21,7 +21,7 @@ We are always working to improve Azure RemoteApp based on your feedback. Here ar
 
 |Feature|Jan-March 2016|April-March 2016|
 |-----------|-------|-------|
-|Azure RemoteApp available in the new [Azure preview portal](http://azure.microsoft.com/en-us/overview/preview-portal/)|X | |
+|Azure Remote App available in both the [Azure classic portal](http://manage.windowsazure.com) and [Azure portal](http://portal.azure.com) |X | |
 |Windows 10 Universal Application for Azure RemoteApp Preview|X| |
 |Ability to publish individual applications to specific users - **Public Preview** ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
 |Windows client redistributable MSI package ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| X| |
