@@ -108,11 +108,11 @@ The Microsoft Developer Center is used to register the company information once.
 If you prefer to update your tax and bank information later, you can go to section 3, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal), and come back later by using links in the Azure Publishing Portal.
 
 ### Add tax and banking information
- If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
+ If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
 
-1. Sign in to the [Seller Dashboard](http://sellerdashboard.microsoft.com) with your Microsoft account.
+1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registraion?accountprogram=azure) with your Microsoft account.
 
-2. Click the **ACCOUNT** tab, and then click **payout & tax**.
+2. Click the **Payout account** in the left menu, select **payment method**, insert the payment info, and click **Save** when you are satisfied.
 
 3. Click **ADD PAYOUT AND TAX INFO**.
 
