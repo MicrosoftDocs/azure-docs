@@ -73,7 +73,7 @@ The Microsoft Developer Center is used to register the company information once.
 
     ![drawing][img-verify]
 
-5. On the "Registration-Account Info" select, select your **Account country/region** from the dropdown menu.
+5. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
 
     > [AZURE.WARNING] **"Sell-from" Countries:** In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries above. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For more information, see the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
@@ -112,7 +112,7 @@ If you prefer to update your tax and bank information later, you can go to secti
 
 **Bank Information**
 
-1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registraion?accountprogram=azure) with your Microsoft account.
+1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
 
 2. Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**.
 
@@ -126,7 +126,7 @@ If you prefer to update your tax and bank information later, you can go to secti
 
 **Tax Information**
 
-1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registraion?accountprogram=azure) with your Microsoft account (if needed).
+1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account (if needed).
 
 2. Click **Tax profile** in the left menu.
 
