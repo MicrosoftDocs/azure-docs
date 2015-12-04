@@ -210,43 +210,45 @@ You can create a new Logic app from within the Azure Marketplace, and then use t
 **Note:** Logic app designer truncates table names. For example the operation **Conditional delete from NEWORDERS** is truncated to **Conditional delete from N**.
 
 
-> [AZURE.TIP] You can create the sample NEWORDERS table using the following Informix SQL DDL statements:
-> 
->    create table neworders (
-> 		ordid serial(10000) unique , 
-> 		custid int not null , 
-> 		empid int not null default 10000 , 
-> 		orddate date not null default today , 
-> 		reqdate date default today , 
-> 		shipdate date , 
-> 		shipid int not null default 10000 , 
-> 		freight decimal (9,2) not null default 0.00 , 
-> 		shipname char (40) not null , 
-> 		shipaddr char (60) not null , 
-> 		shipcity char (20) not null , 
-> 		shipreg char (15) not null , 
-> 		shipzip char (10) not null , 
-> 		shipctry char (15) not null default ''USA''
-> 		)
+> [AZURE.TIP] Use the following SQL statements to create the sample table and stored procedures. 
+
+You can create the sample NEWORDERS table using the following Informix SQL DDL statements:
+ 
+    create table neworders (  
+ 		ordid serial(10000) unique ,  
+ 		custid int not null ,  
+ 		empid int not null default 10000 ,  
+ 		orddate date not null default today ,  
+ 		reqdate date default today ,  
+ 		shipdate date ,  
+ 		shipid int not null default 10000 ,  
+ 		freight decimal (9,2) not null default 0.00 ,  
+ 		shipname char (40) not null ,  
+ 		shipaddr char (60) not null ,  
+ 		shipcity char (20) not null ,  
+ 		shipreg char (15) not null ,  
+ 		shipzip char (10) not null ,  
+ 		shipctry char (15) not null default ''USA'' 
+ 		)
 
 
-> [AZURE.TIP] You can create the sample SPORDERID stored procedure using the following Informix DDL statement:
-> 
->    create procedure sporderid ( ord_id int) 
-> 		returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)
-> 		define xordid, xcustid, xempid, xshipid int;
-> 		define xorddate, xreqdate, xshipdate date;
-> 		define xfreight decimal (9,2);
-> 		define xshipname char (40);
-> 		define xshipaddr char (60);
-> 		define xshipcity char (20);
-> 		define xshipreg, xshipctry char (15);
-> 		define xshipzip char (10);
-> 		select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry 
-> 			into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry
-> 			from neworders where ordid = ord_id;
-> 		return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;
->    end procedure;
+You can create the sample SPORDERID stored procedure using the following Informix DDL statement:
+ 
+    create procedure sporderid ( ord_id int)  
+ 		returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
+ 		define xordid, xcustid, xempid, xshipid int;  
+ 		define xorddate, xreqdate, xshipdate date;  
+ 		define xfreight decimal (9,2);  
+ 		define xshipname char (40);  
+ 		define xshipaddr char (60);  
+ 		define xshipcity char (20);  
+ 		define xshipreg, xshipctry char (15);  
+ 		define xshipzip char (10);  
+ 		select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
+ 			into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
+ 			from neworders where ordid = ord_id;  
+ 		return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
+    end procedure; 
 
 
 ## Hybrid Configuration (Optional)
