@@ -144,14 +144,13 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 2.	Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
 3.	 Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
-4.	Read and accept the terms of the publisher agreement (first time signing in to the publishing portal), and you are done here.
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > If you have issues with Seller Registration completion, please log a support ticket as below:
-  1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975).
-  2. Choose **Seller Dashboard registration and your account**.
-  3. Choose **Registering for a developer account**.
+  > If you have issues with Developer Center registration, please log a support ticket as below:
+  1. Contact [Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
+  2. Choose **Seller Dashboard**.
+  3. Choose **Profile**.
   4. Choose a contact method.
 
 
