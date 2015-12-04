@@ -33,7 +33,7 @@ This article will help answer following common questions about optimizing applic
 
 We have provided these guidelines specifically for Premium Storage because workloads running on Premium Storage are highly performance sensitive. We have provided examples where appropriate. You can also apply some of these guidelines to applications running on IaaS VMs with Standard Storage disks.
 
-Before you begin, if you are new to Premium Storage, first read the [Introduction to Premium Storage](storage-premium-storage-preview-portal.md) article and the [Azure Premium Storage Scalability and Performance Targets](storage-scalability-targets.md/#scalability-targets-for-premium-storage-accounts).
+Before you begin, if you are new to Premium Storage, first read the [Introduction to Premium Storage](storage-premium-storage-preview-portal.md) article and the [Azure Premium Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 
 ## Application Performance Indicators  
 We assess whether an application is performing well or not using performance indicators like, how fast an application is processing a user request, how much data an application is processing per request, how many requests is an application processing in a specific period of time, how long a user has to wait to get a response after submitting their request. The technical terms for these performance indicators are, IOPS, Throughput or Bandwidth, and Latency.
