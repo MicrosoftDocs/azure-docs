@@ -83,35 +83,11 @@ The Microsoft Developer Center is used to register the company information once.
 
     > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/en-us/library/windows/apps/jj863494.aspx)
 
-7. Insert your **Publisher display name**, typically the name of your company.
+7. Enter the **Publisher display name**, typically the name of your company.
 
     > [AZURE.TIP] Currently, the Azure Publishing Portal does not use Publisher display name.
 
-5. Go to **Account Details**. On this screen, you will enter your personal information, which is used only for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
-
-
-6. Register on behalf of your company by designating your account type as **Company**, not **Individual**. Click **Next**.
-
-    ![drawing][img-sd-type]
-
-7. Fill in the company details. This needs to be accurate information--headquarters and reference will be checked by a team at Microsoft.
-
-    ![drawing][img-sd-mktg1]
-
-8. The company name is used by the publishing portal, so it should be accurate.
-
-9. Use the address of your company headquarters.
-
-    ![drawing][img-sd-addr]
-
-10. Use a reference that will be accessible and recognizable as a company representative.
-
-    ![drawing][img-sd-legal]
-
-11. Click **Submit for Approval** and you are done.
-
-    ![drawing][img-sd-submit]
-
+8. Enter the contact info for the account. For a company account, you'll also need to provide contact info for the person who can verify that you are authorized to create the account on behalf of your organization. When you are finished, click **Next** to move on to the **"Payment section"**.
 
 If you are planning to publish only free offers, then you can skip to section 3, "Register your account in the publishing portal".
 
