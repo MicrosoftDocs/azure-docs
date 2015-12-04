@@ -41,9 +41,12 @@ Zeppelin notebooks are included, by default, on Spark Linux clusters that are pr
 
 ### Using HDInsight .NET SDK
 
-For instructions on how to use HDInsight .NET SDK to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#use-a-script-action-from-the-hdinsight-net-sdk). You must make a couple of changes to the instructions in that article. 
-* You must use the script for installing Zeppelin. The script to use is https://**hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+For instructions on how to use HDInsight .NET SDK to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-hdinsight-net-sdk). You must make a couple of changes to the instructions in that article.
+
+* You must use the script for installing Zeppelin. The script to use is **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
 * The script does not need any parameters. 
+
 * Set the cluster type you are creating to Spark.
 
 ### Using Azure PowerShell
