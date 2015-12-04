@@ -16,7 +16,7 @@
    ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Debugging your Service Fabric application by using Visual Studio
+# Debug your Service Fabric application by using Visual Studio
 
 You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
