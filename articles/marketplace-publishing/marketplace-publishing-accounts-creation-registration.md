@@ -85,15 +85,19 @@ The Microsoft Developer Center is used to register the company information once.
 
 7. Enter the **Publisher display name**, typically the name of your company.
 
-    > [AZURE.TIP] Currently, the Azure Publishing Portal does not use Publisher display name.
+    > [AZURE.TIP] Currently, the Azure Publishing Portal does not use Publisher display name. But this must be filled to complete the registration process.
 
-8. Enter the contact info for the account. For a company account, you'll also need to provide contact info for the person who can verify that you are authorized to create the account on behalf of your organization. When you are finished, click **Next** to move on to the **"Payment section"**.
+8. Enter the contact info for the account.
 
-9. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the Review screen
+    > [AZURE.IMPORTANT] You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
 
-10. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
+9. For a company account, you'll also need to provide contact info for the **Company Approver**, the person who can verify that you are authorized to create the account on behalf of your organization. When you are finished, click **Next** to move on to the **"Payment section"**.
 
-11. Click **Finish** to confirm your purchase. We'll send a confirmation message to your developer email address.
+10. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the Review screen
+
+11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
+
+12. Click **Finish** to confirm your purchase. We'll send a confirmation message to your developer email address.
 
 
 If you are planning to publish only free offers, then you can skip to section 3, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal).
