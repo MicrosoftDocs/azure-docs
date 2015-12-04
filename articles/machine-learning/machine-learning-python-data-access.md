@@ -82,7 +82,7 @@ To obtain the authorization token, you can do one of the following:
 
 1. Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click on **AUTHORIZATION TOKENS** to see the primary and secondary tokens.  Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
-    ![](http://i.imgur.com/h33GoZX.jpg)
+![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 2. Ask to be promoted to role of owner.  To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
 
