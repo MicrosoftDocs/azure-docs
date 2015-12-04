@@ -110,25 +110,35 @@ If you prefer to update your tax and bank information later, you can go to secti
 ### Add tax and banking information
  If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
 
+**Bank Information**
+
 1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registraion?accountprogram=azure) with your Microsoft account.
 
-2. Click the **Payout account** in the left menu, select **payment method**, insert the payment info, and click **Save** when you are satisfied.
+2. Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**
 
-3. Click **ADD PAYOUT AND TAX INFO**.
+    > [AZURE.IMPORTANT] If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
 
-4. On the **Choose a payment method** page, under **New payment method**, click **Bank account** or **PayPal**.
+3. enter the payment info, and click **Save** when you are satisfied.
 
-> [AZURE.IMPORTANT] If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
+    > [AZURE.IMPORTANT] If you need to update or change your payout account, follow the same steps above, replacing the current info with the new info. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.
 
-5. Enter details for a bank account or a PayPal account.
+4. Enter details for a bank account or a PayPal account.
 
-6. Click **NEXT**.
+5. Click **NEXT**.
 
-7. On the **Tax Information** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **NEXT**.
+**Tax Information**
 
-8. Enter your tax details, and then click **NEXT**.
+1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registraion?accountprogram=azure) with your Microsoft account.
 
-9. Click **Submit**.
+2. Click **Tax profile** in the left menu,  .
+
+3. On the **Choose a payment method** page, under **New payment method**, click **Bank account** or **PayPal**.
+
+4. On the **Tax Information** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **NEXT**.
+
+5. Enter your tax details, and then click **NEXT**.
+
+6. Click **Submit**.
   If you are not ready to submit your tax information for validation yet, you can click **Save** or **Save and Exit**. It takes some time to validate the tax information, so we recommend that you submit it for validation as soon as possible.
 
 > [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
