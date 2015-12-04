@@ -34,7 +34,7 @@ Shared Access Signatures (SAS) are a feature of Azure storage accounts that allo
 
 * A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a new cluster and add a Shared Access Signature during cluster creation.
 
-* The example files from [TBD]. This repository has the following:
+* The example files from [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas). This repository has the following:
 
     * A Visual Studio project that can create a storage container, stored policy, and SAS for use with HDInsight
     
@@ -68,7 +68,7 @@ For more information on Shared Access Signatures, see [Understanding the SAS mod
 
 ##Create a stored policy and generate a SAS
 
-Currently you must create a stored policy programmatically. You can find both the C# and Python example of creating a stored policy and SAS at [TBD].
+Currently you must create a stored policy programmatically. You can find both the C# and Python example of creating a stored policy and SAS at [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas).
 
 ###Create a stored policy and SAS using C\#
 
