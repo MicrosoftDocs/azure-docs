@@ -39,10 +39,10 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 Background information that needs to be understood before continuing
 
-## Common reasons of the issue and quick troubleshooting steps
+## General troubleshooting steps
 - Compared to the detailed troubleshooting steps, this section gives an instant answer for recovery
 
-## Troubleshoot (description of the issue)
+## Detailed troubleshoot steps
 - For example, the heading can be Troubleshoot common RDP errors
 - Add a list of the troubleshooting steps/scenarios as bookmark links serving as a mini TOC if there are more than two steps/scenarios
 
