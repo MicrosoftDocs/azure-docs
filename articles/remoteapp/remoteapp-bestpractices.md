@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015" 
+    ms.date="12/05/2015" 
     ms.author="elizapo" />
 
 # Best practices for configuring and using Azure RemoteApp
@@ -42,4 +42,3 @@ The following information can help you configure and use Azure RemoteApp product
 	- Store shared data in storage locations external to the service, such as on-premises file shares or OneDrive.
 	- Configure any system-wide settings in the template image rather than on individual virtual machines in a service.
 	- Disable automatic software updates for published applications - instead apply them manually to the template image and test them before you deploy  from the template.
- 

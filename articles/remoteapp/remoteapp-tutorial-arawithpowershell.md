@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -22,9 +22,9 @@
 =====================================
 
 
-## Get the cmdlets 
+## Get the cmdlets
 -------------
-First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it. 
+First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it.
 
 Check out the Azure RemoteApp cmdlet help [here](https://msdn.microsoft.com/library/mt428031.aspx).
 
@@ -54,7 +54,7 @@ And you're done! That user should be able to connect to the application using th
 ## Available cmdlets
 There are lots of other commands that we have, the documentation for them will be coming shortly:
 
-Basic RemoteApp Collection  cmdlets: 
+Basic RemoteApp Collection  cmdlets:
 
 - New-AzureRemoteAppCollection
 - Get-AzureRemoteAppCollection
@@ -99,4 +99,3 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
- 
