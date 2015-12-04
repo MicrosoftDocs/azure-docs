@@ -83,7 +83,9 @@ The Microsoft Developer Center is used to register the company information once.
 
     > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/en-us/library/windows/apps/jj863494.aspx)
 
-7. 
+7. Insert your **Publisher display name**, typically the name of your company.
+
+    > [AZURE.TIP] Currently, the Azure Publishing Portal does not use Publisher display name.
 
 5. Go to **Account Details**. On this screen, you will enter your personal information, which is used only for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
 
