@@ -175,7 +175,7 @@ For an example of a table controller that uses Entity Framework to access data f
 
 ## How to: Define a custom API controller
 
-The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the attribute `MobileAppControllerAttribute`. This attribute registers the route and also sets up the Mobile Apps JSON serializer. 
+The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route and also sets up the Mobile Apps JSON serializer. 
 
 1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
@@ -185,7 +185,7 @@ The custom API controller provides the most basic functionality to your Mobile A
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Apply the **MobileAppControllerAttribute** to the API controller class definition, as in the following example:
+4. Apply the **[MobileAppController]** attribute to the API controller class definition, as in the following example:
 
 		[MobileAppController] 
 		public class CustomController : ApiController
