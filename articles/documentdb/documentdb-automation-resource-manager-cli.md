@@ -112,7 +112,7 @@ To create a new resource group, run the following command, specify the name of t
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
  - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-For example:
+Example input:
 
 	azure group create new_res_group westus
 
@@ -144,7 +144,7 @@ Create a DocumentDB account in the new or existing resource group by entering th
  - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
  - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-For example: 
+Example input: 
 
     azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{\"databaseAccountOfferType\":\"Standard\"}"
 
@@ -240,7 +240,7 @@ To create a new resource group, run the following command, specify the name of t
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
  - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-For example:
+Example input:
 
 	azure group create new_res_group westus
 
@@ -273,7 +273,7 @@ To use a parameter file:
  - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
  - `<deploymentname>` is the optional name of the deployment.
 
-For example: 
+Example input: 
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
@@ -281,7 +281,7 @@ OR to specify the database account name parameter without a parameter file, and 
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-For example (which shows the prompt and entry for a database account named new\_db_acct):
+Example input which shows the prompt and entry for a database account named new\_db_acct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
@@ -322,7 +322,7 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 
     	azure group log show <resourcegroupname> --last-deployment
 
-    For example:
+    Example input:
 
     	azure group log show new_res_group --last-deployment
 
