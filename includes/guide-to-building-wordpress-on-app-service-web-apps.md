@@ -7,7 +7,7 @@
 - [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](https://azure.microsoft.com/en-us/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
 - [Deploy a WordPress web app backed with MySQL replication cluster](https://azure.microsoft.com/en-us/documentation/templates/wordpress-mysql-replication/)
 - [Build your own Master-Master MySQL Cluster using Percona Cluster](https://azure.microsoft.com/en-us/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
-- [Deploy a Master-Slave cluster using MySQL replication to back your WordPress web app](https://azure.microsoft.com/en-us/documentation/templates/mysql-replication/)
+- [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](https://azure.microsoft.com/en-us/documentation/templates/mysql-replication/)
 - [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](https://azure.microsoft.com/en-us/marketplace/partners/projectnami/projectnami/)
 
    
