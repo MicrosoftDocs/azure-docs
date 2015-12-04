@@ -28,7 +28,7 @@ It can be configured to:
 
 ## Understanding Azure load balancer in Azure classic and Azure Resource Manager (ARM)
 
-All resources in the cloud need a public IP address to be reachable from Internet. The cloud infrastructure in Microsoft Azure will use non-routable IP addresses and will use network address translation(NAT) and a public IP addresses to communicate to Internet.
+All resources in the cloud need a public IP address to be reachable from Internet. The cloud infrastructure in Microsoft Azure will use non-routable IP addresseswithin its resources and will use network address translation(NAT) with public IP addresses to communicate to Internet.
 
 There are 2 deployment models in Microsoft Azure and their load balancer implementations:
 
