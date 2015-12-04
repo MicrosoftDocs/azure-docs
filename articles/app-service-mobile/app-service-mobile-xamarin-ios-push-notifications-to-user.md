@@ -36,7 +36,7 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. Move the APNs registration snippets from **FinishedLaunching** in **AppDelegate.cs** to the **RefreshAsync** Task definition in **QSTodoListViewController.cs**. The registrations should happen after authentication completes.
++ Move the APNS registration snippets from **FinishedLaunching** in **AppDelegate.cs** to the **RefreshAsync** Task definition in **QSTodoListViewController.cs**. 
 
         ...
         if (todoService.User == null) {
@@ -58,42 +58,11 @@ Before you start this tutorial, you must have already completed these App Servic
         }
         ...
 
-
+	This makes sure that the user is authenticated before registering for push notifications. When an authenticated user registers for push notifications, a tag with the user ID is automatically added.
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
-1. In Visual Studio, update the `PostTodoItem` method definition with the following code:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create given user tag
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            // Sending the message so that all template registrations that contain "messageParam"
-            // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
-            Dictionary<string,string> templateParams = new Dictionary<string,string>();
-            templateParams["messageParam"] = item.Text + " was added to the list.";
-
-            try
-            {
-                await Hub.SendTemplateNotificationAsync(templateParams, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>Test the app
 

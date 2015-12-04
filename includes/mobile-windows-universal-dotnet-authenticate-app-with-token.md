@@ -42,6 +42,7 @@
                 // expired, as shown in this post: http://aka.ms/jww5vp.
 
                 success = true;
+			    message = string.Format("Cached credentials for user - {0}", user.UserId);
             }
             else
             {
