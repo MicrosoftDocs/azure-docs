@@ -3,8 +3,8 @@
 	description="A checklist of proven practices for use with Azure Storage in developing performant applications."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015" 
+	ms.date="12/04/2015" 
 	ms.author="robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist

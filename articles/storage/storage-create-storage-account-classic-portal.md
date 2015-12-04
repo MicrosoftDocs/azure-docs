@@ -3,8 +3,8 @@
 	description="Learn how to create, manage, or delete a storage account in the Azure Classic Portal."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/03/2015" 
+	ms.date="12/04/2015" 
 	ms.author="robinsh"/>
 
 

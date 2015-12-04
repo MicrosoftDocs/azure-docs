@@ -3,8 +3,8 @@
 	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="12/03/2015"
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 # How to use Queue storage from .NET

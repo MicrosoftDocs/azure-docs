@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" 
 	description="Learn how to create import and export jobs in the Azure Portal to transfer data to blob storage." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/04/2015" 
 	ms.author="robinsh"/>
 
 
