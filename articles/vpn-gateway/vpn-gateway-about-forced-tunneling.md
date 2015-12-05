@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
-- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
 This article applies to VNets and VPN Gateways created using the classic deployment model (also known as Service Management). If you want to configure forced tunneling for VNets and VPN Gateways created using the Resource Manager deployment model, see [Configure forced tunneling using PowerShell and Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md). 
 
