@@ -151,7 +151,22 @@ You could create a new web app to deploy the AngularJS project to, but for this 
 
 	![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
 
-> **Note:** For ASP.NET Web API projects, it's also easy to configure CORS in code, as you'll see in the following section. However, if you use both App Service CORS and Web API CORS together, App Service CORS will take precedence and Web API CORS will have no effect. For example, if you enable one origin domain in App Service, and enable all origin domains in your Web API code, your Azure API app will only accept calls from the domain you specified in Azure.
+### CORS in Azure Resource Manager tooling
+
+You can also configure CORS for an API app by using Azure Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). 
+
+Set the `cors` property on the Microsoft.Web/sites/config resource type for your <site name>/web resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the cors property:
+
+		"cors": {
+		    "allowedOrigins": [
+		        "contactslistmvc.azurewebsites.net"
+		    ]
+		}
+
+### App Service CORS versus Web API CORS
+
+For ASP.NET Web API projects, it's also easy to configure CORS in code, as you'll see in the following section. However, if you use both App Service CORS and Web API CORS together, App Service CORS will take precedence and Web API CORS will have no effect. For example, if you enable one origin domain in App Service, and enable all origin domains in your Web API code, your Azure API app will only accept calls from the domain you specified in Azure.
+
 
 ## How to configure CORS in Web API Code
 
