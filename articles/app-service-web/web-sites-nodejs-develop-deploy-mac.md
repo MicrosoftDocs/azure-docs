@@ -48,7 +48,7 @@ For tutorials and sample code with more complex Node.js applications, or for oth
 
 Follow these steps to create a web app in Azure App Service and enable Git publishing. 
 
-[Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps.  
+[Git](http://git-scm.com/) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps.  
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
