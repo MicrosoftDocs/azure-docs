@@ -48,12 +48,12 @@ The Standard CDN tier includes these features:
 - [HTTPS support](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Load balancing
 - DDOS protection
-- Fast purge
+- [Fast purge](cdn-purge-endpoint.md)
 
  
 ## Premium features
 
-The Premium CDN tier includes all of the features of the Standard tier, plus adds these additional features:
+The Premium CDN tier includes all of the features of the Standard tier, plus these additional features:
 
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)
