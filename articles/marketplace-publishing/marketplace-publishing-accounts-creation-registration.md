@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/04/2015"
+   ms.date="12/06/2015"
    ms.author="hascipio"/>
 
 # Create a Microsoft seller account
@@ -134,12 +134,12 @@ If you prefer to update your tax and bank information later, you can go to secti
 
 4. Enter your tax details, and then click **Next**.
 
-> [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
+> [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
 
 ## 3. Register your account in the publishing portal
 The Azure publishing portal is used to publish and manage your offer(s). You will find some useful information in the publishing portal that will guide you through your offer creation process.
 
-> [AZURE.WARNING] The same company Microsoft account that was used in the Seller Dashboard registration must be used here. Additional users can be added to assist once the master publisher account has been created.
+> [AZURE.WARNING] The same company Microsoft account that was used in the Microsoft Developer Center registration must be used here. Additional users can be added to assist once the master publisher account has been created.
 
 1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 
@@ -151,7 +151,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
   > If you have issues with Developer Center registration, please log a support ticket as below:
   1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
-  2. Choose **Seller Dashboard**.
+  2. Choose **Developer Center**.
   3. Choose **Profile**.
   4. Choose a contact method.
 

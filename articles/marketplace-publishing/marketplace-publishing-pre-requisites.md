@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="12/04/2015"
+  ms.date="12/06/2015"
   ms.author="hascipio; v-divte"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -33,7 +33,7 @@ For detailed instructions on registering a seller account with Microsoft, go to 
 
 > If you have issues with completing the seller registration, log a support ticket as below:
 > 1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
-> 2. Choose **Seller Dashboard**.
+> 2. Choose **Developer Center**.
 > 3. Choose **Publisher Profile**.
 > 4. Choose the contact method.
 

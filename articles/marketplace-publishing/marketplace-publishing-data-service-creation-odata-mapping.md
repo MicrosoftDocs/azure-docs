@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="12/06/2015"
       ms.author="hascipio; avikova" />
 
 # Mapping an existing web service to OData through CSDL
@@ -136,7 +136,7 @@ An example of the CSDL follows:  (Copy and paste the below example CSDL into an 
 **Terms:**
 Relating the CSDL terms to the [Publishing Portal](https://publish.windowsazure.com) UI (PPUI) terms.
 - Offer “Title” in the PPUI relates to MyWebOffer
-- MyCompany in the PPUI relates to Company Name the [Seller Dashboard](https://sellerdashboard.microsoft.com) UI
+- MyCompany in the PPUI relates to **Publisher Display Name** in the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) UI
 - Your API relates to a Web or Data Service (a Plan in the PPUI)
 
 **Hierarchy:**
