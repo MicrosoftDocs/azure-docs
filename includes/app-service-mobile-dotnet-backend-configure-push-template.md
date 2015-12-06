@@ -1,6 +1,6 @@
-Use the procedure that matches your backend project type&mdash;either .NET backend or Node.js backend.
+Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
 
-### .NET backend project
+### <a name="dotnet"></a>.NET backend project
 
 1. In Visual Studio **Solution Explorer**, expand the **Controllers** folder in the mobile backend project. Open **TodoItemController.cs**. At the top of the file, add the following `using` statements:
 
@@ -33,7 +33,7 @@ Use the procedure that matches your backend project type&mdash;either .NET backe
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-### Node.js backend project
+### <a name="nodejs"></a>Node.js backend project
 
 1. Replace the existing code in the todoitem.js file with the following:
 

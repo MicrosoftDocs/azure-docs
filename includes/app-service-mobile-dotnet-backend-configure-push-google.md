@@ -1,6 +1,6 @@
-Use the procedure that matches your backend project type&mdash;either .NET backend or Node.js backend.
+Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
 
-### .NET backend project
+### <a name="dotnet"></a>.NET backend project
 
 1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs client library.
 
@@ -50,7 +50,7 @@ Use the procedure that matches your backend project type&mdash;either .NET backe
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-### Node.js backend project
+### <a name="nodejs"></a>Node.js backend project
 
 1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
  
