@@ -61,7 +61,7 @@ Monitor job progress using **Azure Classic Portal**, **.NET** or **REST API**.
 - [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
 - [REST](media-services-rest-manage-entities.md/#querying-entities)
 
-#Deleting jobs
+##Deleting jobs
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
