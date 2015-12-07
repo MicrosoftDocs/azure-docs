@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introduction to Stream Analytics | Microsoft Azure" 
-	description="Learn about Azure Stream Analytics, a fully managed cloud service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	description="Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
+	keywords="analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# What is Azure Stream Analytics?
+# What is Stream Analytics?
 
 Azure Stream Analytics (ASA) is a fully managed, cost effective real-time event processing engine that helps to unlock deep insights from data. Stream Analytics makes it easy to set up real-time analytic computations on data streaming from devices, sensors, web sites, social media, applications, infrastructure systems, and more.
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Actions to fix transient connection loss | Microsoft Azure"
-	description="Actions to prevent, diagnose, and fix connection errors and other transient faults when interacting with Azure SQL Database."
+	description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
-# Actions to fix connection errors and transient faults in SQL Database
+# Troubleshoot transient faults and connection errors to SQL Database
 
 
-This topic describes how to prevent, diagnose, and mitigate connection errors and transient faults that your client program encounters when it interacts with Azure SQL Database.
+This topic describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient faults that your client program encounters when it interacts with Azure SQL Database.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -31,8 +31,8 @@ This topic describes how to prevent, diagnose, and mitigate connection errors an
 A transient fault is an error for which the underlying cause will soon resolve itself. An occasional cause of transient faults is when the Azure system quickly shifts hardware resources to better load-balance various workloads. During this reconfiguration time span, connections to Azure SQL database might be lost.
 
 
-If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic: 
-[Error messages for SQL Database client programs](sql-database-develop-error-messages).
+If your client program is using ADO.NET, your program is told about the transient fault by the throw of an **SqlException**. The **Number** property can be compared against the list of transient faults near the top of the topic:
+[Error messages for SQL Database client programs](sql-database-develop-error-messages.md).
 
 
 ### Connection versus command
@@ -95,7 +95,7 @@ You might also want to set a maximum number of retries before the program self-t
 
 Code samples with retry logic, in a variety of programming languages, are available at:
 
-- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md) 
+- [Quick start code samples](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -150,18 +150,53 @@ To make this practical, your program could recognize a run time parameter that c
 ## Connection: Connection string
 
 
-The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure preview portal](http://portal.azure.com/).
+The connection string necessary for connecting to Azure SQL Database is slightly different from the string for connecting to Microsoft SQL Server. You can copy the connection string for your database from the [Azure Portal](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 30 seconds for connection timeout
+### .NET SqlConnection parameters for connection retry
 
 
-Connecting over the Internet is less robust than over a private network. Therefore in we recommend that in your connection string you:
-- Set the **Connection Timeout** parameter to **30** seconds (instead of 15 seconds).
+If you client program connects to to Azure SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, you should use .NET 4.5.1 or later so you can leverage its connection retry feature. Details of the feature are [here](http://go.microsoft.com/fwlink/?linkid=393996).
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+When you build the [connection string](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) for your **SqlConnection** object, you should coordinate the values among the following parameters:
+
+- ConnectRetryCount &nbsp;&nbsp;*(Default is 0. Range is 0 through 255.)*
+- ConnectRetryInterval &nbsp;&nbsp;*(Default is 1 second. Range is 1 through 60.)*
+- Connection Timeout &nbsp;&nbsp;*(Default is 15 seconds. Range is 0 through 2147483647)*
+
+
+Specifically, your chosen values should make the following equality true:
+
+- Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
+
+For example, if the count = 3, and interval = 10 seconds, a timeout of only 29 seconds would not quite give the system enough time for its 3rd and final retry at connecting: 29 < 3 * 10.
+
+
+#### Connection versus command
+
+
+The **ConnectRetryCount** and **ConnectRetryInterval** parameters let your **SqlConnection** object retry the connect operation without telling or bothering your program, such as returning control to your program. The retries can occur in the following situations:
+
+- mySqlConnection.Open method call
+- mySqlConnection.Execute method call
+
+There is a subtlety. If a transient fault occurs while your *query* is being executed, your **SqlConnection** object does not retry the connect operation, and it certainly does not retry your query. However, **SqlConnection** very quickly checks the connection before sending your query for execution. If the quick check detects a connection problem, **SqlConnection** retries the connect operation. If the retry succeeds, you query is sent for execution.
+
+
+#### Should ConnectRetryCount be combined with application retry logic?
+
+Suppose your application has robust custom retry logic. It might retry the connect operation 4 times. If you add **ConnectRetryInterval** and **ConnectRetryCount** =3 to your connection string, you will increase the retry count to 4 * 3 = 12 retries. You might not intend such a high number of retries.
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -169,7 +204,7 @@ Connecting over the Internet is less robust than over a private network. Therefo
 ## Connection: IP address
 
 
-You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure preview portal](http://portal.azure.com/).
+You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. You do this by editing the firewall settings through the [Azure Portal](http://portal.azure.com/).
 
 
 If you forget to configure the IP address, your program will fail with a handy error message that states the necessary IP address.
@@ -178,7 +213,7 @@ If you forget to configure the IP address, your program will fail with a handy e
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-For more information, see: 
+For more information, see:
 [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
 
 
@@ -205,7 +240,7 @@ For example, when your client program is hosted on a Windows computer, the Windo
 If your client program is hosted on an Azure virtual machine (VM), you should read:<br/>[Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-For background information about cofiguration of ports and IP address, see: 
+For background information about cofiguration of ports and IP address, see:
 [Azure SQL Database firewall](sql-database-firewall-configure.md)
 
 
@@ -423,7 +458,7 @@ Here are links to information about EntLib60:
 - The Logging block abstracts the logging functionality from the log destination so that the application code is consistent, irrespective of the location and type of the target logging store.
 
 
-For details see: 
+For details see:
 [5 - As Easy As Falling Off a Log: Using the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 

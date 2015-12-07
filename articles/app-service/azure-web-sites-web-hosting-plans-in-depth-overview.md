@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure App Service plans in-depth overview" 
 	description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience." 
+	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
 	services="app-service" 
 	documentationCenter="" 
 	authors="btardif" 
@@ -56,6 +57,8 @@ To do this in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715),
 You can then select or create the App Service plan for the new app.
   
  ![][createASP]
+
+To create a new App Service Plan, click **+ Create New**, type the **App Service plan** name and select an appropriate **Location**.  Click **Pricing tier** and select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**.  After you have selected the pricing tier, click the **Select** button. 
  
 ## Move an app to a different App Service plan
 
@@ -88,7 +91,6 @@ App Service plans represent a set of features and capacity that you can share ac
 ## What's changed
 
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
  
  

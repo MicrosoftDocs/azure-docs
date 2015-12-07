@@ -55,10 +55,10 @@ There are a few tools available to you.
 - To see whether you need to dial a single database up or down, see [performance guidance for single databases](sql-database-performance-guidance.md).
 
 ## How often can I change the service tier or performance level of a single database? 
-You can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) a total of four times in a 24-hour period.
+With V12 databases you can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
 
 ##How often can I adjust the eDTUs per pool? 
-Once per day.
+As often as you want.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic database pool? 
 Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. This can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases see [Change the service tier of a database](sql-database-scale-up.md). For elastic databases, see [Elastic pool reference](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations) 
@@ -72,5 +72,5 @@ Azure's intelligent engine will recommend a pool for databases if it sees a usag
 Backup storage is the storage associated with your automated database backups that are used for Point-In-Time-Restore and Geo-Restore. Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you will be provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
-Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-faq.md)
+Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
 

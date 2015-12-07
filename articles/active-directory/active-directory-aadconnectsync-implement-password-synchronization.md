@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect sync - Implement password synchronization | Microsoft Azure"
+	pageTitle="Azure AD Connect sync: Implement password synchronization | Microsoft Azure"
 	description="Provides you with the information you need to understand how password synchronization works and how to enable it in your environment."
 	services="active-directory"
 	documentationCenter=""
@@ -130,10 +130,12 @@ The status column can have the following values which also indicates the issue a
 
 | Status | Description |
 | ---- | ----- |
-| Success | Password has been successfully synchronized       |
-| SourceConnectorNotPresent | No object found in the on-prem Active Directory connector space |
-| NoTargetConnection | No object in the metaverse or in the Azure AD connector space |
-| TargetNotExportedToDirectory | The object in the Azure AD connector space has not yet been exported |
+| Success | Password has been successfully synchronized. |
+| FilteredByTarget | Password is set to **User must change password at next logon**. Password has not been synchronized. |
+| NoTargetConnection | No object in the metaverse or in the Azure AD connector space. |
+| SourceConnectorNotPresent | No object found in the on-premises Active Directory connector space. |
+| TargetNotExportedToDirectory | The object in the Azure AD connector space has not yet been exported. |
+| MigratedCheckDetailsForMoreInfo | Log entry was created before build 1.0.9125.0 and is shown in its legacy state. |
 
 
 ### Trigger a full sync of all passwords

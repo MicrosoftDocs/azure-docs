@@ -120,6 +120,9 @@ All of this type of data can be augmented with parameters (*extra-information* i
 
 ### Next steps
 - Visit [Mobile Engagement Concepts] to learn more about basic Mobile Engagement concepts.
+- Visit [Best practices](mobile-engagement-getting-started-best-practices.md) to go into details
+- Visit [Gaming App scenario](mobile-engagement-gaming-scenario.md) to learn about implementing Mobile Engagement with a sample gaming app. 
+- Visit [Media App scenario](mobile-engagement-media-scenario.md) to learn about implementing Mobile Engagement with a sample media app. 
 - Visit [Tutorials] to learn more about the implementation.
 
 <!-- Images. -->
@@ -129,3 +132,4 @@ All of this type of data can be augmented with parameters (*extra-information* i
 <!-- URLs. -->
 [Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutorials]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+

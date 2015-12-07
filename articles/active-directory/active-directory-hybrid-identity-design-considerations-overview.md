@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations overview | Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - overview | Microsoft Azure"
 	description="Overview and content map of Hybrid Identity design considerations guide"
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/10/2015"
+	ms.date="12/07/2015"
 	ms.author="yuridio"/>
 
 # Azure Active Directory Hybrid Identity Design Considerations
@@ -50,5 +50,9 @@ You will arrive at the design that best meets your requirements only after itera
 | Determine identity requirements                                   | [Determine business needs](active-directory-hybrid-identity-design-considerations-business-needs.md)<br> [Determine directory synchronization requirements](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Define a hybrid identity adoption strategy](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)                       |
 | Plan for enhancing data security through strong identity solution | [Determine data protection requirements](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Determine content management requirements](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Determine access control requirements](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Determine incident response requirements](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Define data protection strategy](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)  |
 | Plan for hybrid identity lifecycle                                | [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [Synchronization Management](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [Determine hybrid identity management adoption strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |     
+
+
+##Download this guide
+You can download a pdf version of the Hybrid Identity Design Considerations guide from the [Technet gallery](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
 
                                                              

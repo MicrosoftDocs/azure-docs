@@ -14,45 +14,75 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="jodebrui"/>
 
 
 # Get started with In-Memory (Preview) in SQL Database
 
-Regular SQL tables are stored only on a hard drive. By using the In-Memory features you can enhance a table so that it resides in active memory while the server is running.
+
+In-Memory features greatly improve the performance of transactional and analytics workloads in the right situations.
+
+This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In-Memory Analytics. Each demo comes complete with the steps and code you would need to run the demo. You can either:
+
+- Use the code to test variations to see differences in performance results; or
+- Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
 
-In-Memory technologies greatly improve the performance of transactional and analytics workloads:
+#### In-Memory OLTP
 
-- With In-Memory OLTP (online transaction processing) you can achieve up to 30 times gain in transaction throughput, depending on the specifics of the workload.
- - Memory-optimized tables.
- - Natively compiled stored procedures.
+The features of In-Memory [OLTP](#install_oltp_manuallink) (online transaction processing) are:
 
-- With In-Memory Analytics you can achieve up to 100 times improvement in query performance.
- - Columnstore indexes.
+- Memory-optimized tables.
+- Natively compiled stored procedures.
 
 
-For [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx) you combine these technologies to get:
+A memory-optimized table has one representation of itself in active memory, in addition to the standard representation on a hard drive. Business transactions against the table run faster because they directly interact with only the representation that is in active memory.
+
+With In-Memory OLTP you can achieve up to 30 times gain in transaction throughput, depending on the specifics of the workload.
+
+
+Natively compiled stored procedures require fewer machine instructions during run time than they would if they were created as traditional interpreted stored procedures. We have seen native compilation result in durations that are 1/100th of the interpreted duration.
+
+
+#### In-Memory Analytics 
+
+The feature of In-Memory [Analytics](#install_analytics_manuallink) is:
+
+- Columnstore indexes
+
+
+A columnstore index improves the performance of query workloads by exotic compression of data.
+
+In other services the columnstore indexes are necessarily memory optimized. However, in Azure SQL Database a columnstore index can exist on the hard drive along with the traditional table that it indexes.
+
+
+#### Real-Time Analytics
+
+For [Real-Time Analytics](http://msdn.microsoft.com/library/dn817827.aspx) you combine In-Memory OLTP and Analytics to get:
 
 - Real-time business insight based on operational data.
-- Very fast OLTP.
 
 
 #### Availability
 
 
-- *GA:* In-Memory Analytics is at General Availability (GA).
-- *Preview:* In-Memory OLTP, and Real-Time Operational Analytics, are both in Preview.
- - These two are available only for [Premium](sql-database-service-tiers.md) Azure SQL databases.
+GA, General Availability:
+
+- [Columnstore indexes](http://msdn.microsoft.com/library/dn817827.aspx) that are *on-disk*.
 
 
-#### OLTP and Analytics
+Preview:
 
-The two major sections in this topic are:
+- In-Memory OLTP
+- In-Memory Analytics with memory-optimized columnstore indexes
+- Real-Time Operational Analytics
 
-- A. In-Memory [OLTP](#install_oltp_manuallink), which involves read and write.
-- B. In-Memory [Analytics](#install_analytics_manuallink), which involves read.
+
+Considerations while the In-Memory features are in Preview are described [later in this topic](#preview_considerations_for_in_memory).
+
+
+> [AZURE.NOTE] These in-Preview features are available only for [*Premium*](sql-database-service-tiers.md) Azure SQL databases, not for databases on the Standard or Basic service tier.
 
 
 
@@ -62,7 +92,7 @@ The two major sections in this topic are:
 
 ## A. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure preview portal](http://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
+You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure Portal](http://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
 
 - In-Memory tables.
 - A natively compiled stored procedure.
@@ -70,7 +100,7 @@ You can create the AdventureWorksLT [V12] sample database by a few clicks in the
 
 #### Installation steps
 
-1. In the [Azure preview portal](http://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
+1. In the [Azure Portal](http://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
  - For detailed instructions you can see [Create your first Azure SQL database](sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -101,7 +131,10 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-A result of **0** means In-Memory is not supported, and 1 means it is supported.
+A result of **0** means In-Memory is not supported, and 1 means it is supported. To diagnose the problem:
+
+- Ensure the database was created after the In-Memory OLTP features became active for Preview.
+- Ensure the database is at the Premium service tier.
 
 
 #### About the created memory-optimized items
@@ -189,8 +222,11 @@ INSERT INTO @od
 	FROM Demo.DemoSalesOrderDetailSeed
 	WHERE OrderID= cast((rand()*60) as int);
 	
-EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-	@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+WHILE (@i < 20)
+begin;
+	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+end
 ```
 
 
@@ -205,14 +241,20 @@ Ideally you would plan to run ostress.exe on an Azure VM. You would create an [A
 
 On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities which include ostress.exe.
 
-- See the ostress.exe discussion in [Extensions to AdventureWorks to Demonstrate In-Memory OLTP](http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx).
+- See the ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
  - Or see [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
  - Or see [Blog for installing ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
 <!--
-dn511655.aspx is for SQL 2014, whereas mt465764.aspx is for SQL 2016.
+dn511655.aspx is for SQL 2014,
+[Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
+(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+
+whereas for SQL 2016+
+[Sample Database for In-Memory OLTP]
+(http://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -220,49 +262,36 @@ dn511655.aspx is for SQL 2014, whereas mt465764.aspx is for SQL 2016.
 ### Run the _inmem stress workload first
 
 
-You can use an *RML Cmd Prompt* window to run our ostress.exe command line.
+You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command line parameters direct ostress to:
 
-When run from the RML Cmd Prompt, the following ostress.exe command:
-
-- Inserts one million sales orders, with five line items each, into memory-optimized tables.
-- Uses 100 concurrent connections (-n100).
+- Run 100 connections concurrently (-n100).
+- Have each connection run the T-SQL script 50 times (-r50).
 
 
 ```
-ostress.exe -n100 -r500 -S<servername>.database.windows.net
-	 -U<login> -P<password> -d<database>
-	 -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem,
-	 @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() *
-	 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()*
-	 10000;
-	 INSERT INTO @od SELECT OrderQty, ProductID FROM
-	 Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int);
-	 WHILE (@i < 20) begin;
-	 EXECUTE SalesLT.usp_InsertSalesOrder_inmem
-	 @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID,
-	 @ShipToAddressID, @od; set @i += 1; end"
+ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password> -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem, @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() * 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()* 10000; INSERT INTO @od SELECT OrderQty, ProductID FROM Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); WHILE (@i < 20) begin; EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1; end"
 ```
 
 
 To run the preceding ostress.exe command line:
 
 
-1. Reset the database by running the following command in SSMS, to delete all the data that was inserted by any previous runs:
+1. Reset the database data content by running the following command in SSMS, to delete all the data that was inserted by any previous runs:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
 
-2. Copy the text to your clipboard.
+2. Copy the text of the preceding ostress.exe command line to your clipboard.
 
-3. Replace all end-of-line characters (\r\n), and all tabs (\t), with spaces.
+3. Replace the <placeholders> for the parameters -S -U -P -d with the correct real values.
 
-4. Replace the <placeholders> for the parameters -S -U -P -d with the correct real values.
+4. Run your edited command line in an RML Cmd window.
 
 
 #### Result is a duration
 
 
-When ostress.exe completes it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
+When ostress.exe completes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
@@ -270,7 +299,7 @@ When ostress.exe completes it writes the run duration as its final line of outpu
 #### Reset, edit for _ondisk, then rerun
 
 
-After you have the result from the _inmem run, perform the following steps for the _indisk run:
+After you have the result from the _inmem run, perform the following steps for the _ondisk run:
 
 
 1. Reset the database by running the following command in SSMS, to delete all the data that was inserted by the previous run:
@@ -280,15 +309,15 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Edit the ostress.exe command line to replace all *_inmem* with *_ondisk*.
 
-3. Rerun ostress.exe, and capture the duration result.
+3. Rerun ostress.exe for the second time, and capture the duration result.
 
-4. Again reset the database, for responsible clean up.
- - A single test run inserting one million sales orders results in 500 MB or more of data in the tables.
+4. Again reset the database, for responsible deletion of what can be a large amount of test data.
 
 
 #### Expected comparison results
 
-Tests have shown around a **9 times** performance improvement for memory-optimized tables compared with disk-based tables for this workload, with ostress running in a VM in the same Azure region as the database.
+Out In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
+
 
 The performance improvement can be higher when conversion to natively compiled stored procedures is added.
 
@@ -322,6 +351,7 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
  - Crucial is the **COLUMNSTORE** keyword on a **CREATE INDEX** statement, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
+ - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than does 120.
 
 
 #### Crucial tables and columnstore indexes
@@ -414,22 +444,25 @@ GO
 ```
 
 
-## Preview considerations for In-Memory
+
+<a id="preview_considerations_for_in_memory" name="preview_considerations_for_in_memory"></a>
 
 
-The In-Memory features in Azure SQL Database became [active for preview on October 28, 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
+## Preview considerations for In-Memory OLTP
+
+
+The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
 During the Preview phase before General Availability (GA), In-Memory OLTP is supported only for:
 
 - Databases that are at a *Premium* service tier.
 
-- Databases that were created after the In-Memory features became active.
- - A new database restored from a backup taken before the In-Memory activation date cannot support In-Memory.
- - Suppose you backup a database that supports In-Memory. Then you restore the backup into an old Premium database. The old database now supports In-Memory.
+- Databases that were created after the In-Memory OLTP features became active.
+ - A new database cannot support In-Memory OLTP if it is restored from a database that was created before the In-Memory OLTP features became active.
 
 
-When in doubt, you can always run the following T-SQL SELECT to ascertain whether whether your database supports In-Memory OLTP. A result of **1** means the database does support In-Memory:
+When in doubt, you can always run the following T-SQL SELECT to ascertain whether whether your database supports In-Memory OLTP. A result of **1** means the database does support In-Memory OLTP:
 
 ```
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');

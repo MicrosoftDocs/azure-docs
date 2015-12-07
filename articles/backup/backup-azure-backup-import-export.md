@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="08/28/2015"
+   ms.date="11/25/2015"
    ms.author="aashishr"; "jimpark"/>
 
 # Offline Backup workflow in Azure Backup
@@ -34,7 +34,7 @@ With Azure Backup and Azure Import/Export, it is simple and straightforward to u
 7. Download the Azure Import/Export tool from [here](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) to the machine to which the SATA drive writer is connected.
 
 ## Workflow
-The information provided in this section is for completing the **Offline Backup** workflow so your data can be delivered to an Azure data center and uploaded to Azure storage. If you have questions about the Import service or any aspect of the process, see the Import service overview referenced [above](../storage-import-export-service.md).
+The information provided in this section is for completing the **Offline Backup** workflow so your data can be delivered to an Azure data center and uploaded to Azure storage. If you have questions about the Import service or any aspect of the process, see the [Import service overview](../storage-import-export-service.md) documentation referenced above.
 
 ### Initiate Offline Backup
 

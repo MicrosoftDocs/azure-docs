@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Send x-plat notifications to a specific user with Windows Store client"
 	description="Learn how to send push notifications to all devices of a specific user."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015"
+	ms.date="12/02/2015"
 	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
@@ -36,72 +36,71 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. We will instead perform **InitNotificationAsync** in **MainPage.cs** to work with user authentication. Delete your **InitNotificationAsync** method definition and call in **App.xmal.cs**, and add the following in **MainPage.cs** in the **MainPage** class:
+You must authenticate the user before registering for push notifications to make sure that the user ID is added as a tag in the registration. To do this you must move **InitNotificationAsync** into MainPage.cs and call it after **AuthenticateAsync**. 
 
+2. In Visual Studio, open the App.xmal.cs and remove the call to **InitNotificationAsync** from the **OnLaunched** method, and also delete the method definition itself. 
+
+3. In the MainPage.cs project file add the following using statement:
+
+		using Windows.Networking.PushNotifications; 
+
+4. Add the **InitNotificationAsync** method back into the **MainPage** class:
+
+        // Registers for template push notifications.
         private async void InitNotificationsAsync()
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
- 
-            // building templates for wns
-            var toastTemplate = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(message)</text></binding></visual></toast>";
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
+
+            // Define a toast templates for WNS.
+            var toastTemplate =
+                @"<toast><visual><binding template=""ToastText02""><text id=""1"">"
+                                + @"New item:</text><text id=""2"">"
+                                + @"$(message)</text></binding></visual></toast>";
+
             JObject templateBody = new JObject();
             templateBody["body"] = toastTemplate;
- 
+
+            // Add the required WNS toast header.
             JObject wnsToastHeaders = new JObject();
             wnsToastHeaders["X-WNS-Type"] = "wns/toast";
             templateBody["headers"] = wnsToastHeaders;
- 
+
             JObject templates = new JObject();
             templates["testTemplate"] = templateBody;
- 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri, templates);
+
+            // Register for push notifications.
+            await App.MobileService.GetPush()
+                .RegisterAsync(channel.Uri, templates);
         }
 
-    You will also want to transfer some using statements to **MainPage.cs**.
+    Note that this registration uses a template. To learn more about template registrations, see [Templates](../notification-hubs/notification-hubs-templates.md) in the Notification Hubs documentation.
 
-2. Use this method right after the **AuthenticateAsync** call in **ButtonLogin_Click**.
+2. Re-add the call to **InitNotificationsAsync** in the **ButtonLogin_Click** method as shown here:
 
-        await AuthenticateAsync();
-        InitNotificationAsync();
+		private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
+		{
+		    // Login the user and then load data from the mobile app.
+		    if (await AuthenticateAsync())
+		    {
 
-Your app is now set up to register user device with the user login information.
+		        // Hide the login button and load items from the mobile app.
+		        ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+		        //await InitLocalStoreAsync(); //offline sync support.
+		        await RefreshTodoItems();
+		    }
+		} 
+
+	This makes sure that the user is authenticated before registering for push notifications. When an authenticated user registers for push notifications, a tag with the user ID is automatically added.
+
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
-1. In Visual Studio, update the `PostTodoItem` method definition with the following code:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create tag to identify user
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            // build dictionary for template
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
-
-            try
-            {
-            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>Test the app
 
-Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
+Run any of the client apps you have set up, using the same sign-in method and user. When an item is inserted, the Mobile App backend sends notifications to all client apps where the user is signed-in.
 
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-windows-store-dotnet-get-started-users.md

@@ -87,8 +87,8 @@ await client.SendAsync(data);
 // Create the Event Hub client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get the default subscriber group
-EventHubSubscriberGroup defaultSubscriberGroup = eventHubClient.GetDefaultSubscriberGroup();
+// Get the default consumer group
+EventHubConsumerGroup defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
 // All messages
 EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shardId: index);

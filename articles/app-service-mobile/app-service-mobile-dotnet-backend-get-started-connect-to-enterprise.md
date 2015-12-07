@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Connect a Mobile App to an enterprise SaaS | Microsoft Azure"
 	description="Learn how to make calls to enterprise resources such as SharePoint Online"
+	keywords="azure app service,app service,mobile app,mobile backend,saas,azure saas,enterprise mobile"
 	documentationCenter=""
 	authors="mattchenderson"
 	manager="dwrede"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="06/19/2015"
+	ms.date="12/03/2015"
 	ms.author="mahender"/>
 
 # Connect your mobile app to SaaS APIs
@@ -31,7 +32,7 @@ This tutorial requires the following:
 ## <a name="configure-permissions"></a>Configure your application for delegated access to SharePoint
 By default, the token you receive from AAD has limited permissions. In order to access a third-party resource or SaaS application such as SharePoint Online, you must explicitly allow it.
 
-1. In the **Active Directory** Section of the [Azure Management Portal], select your tenant. Navigate to the web application that you created for the App Service.
+1. In the **Active Directory** Section of the [Azure classic portal], select your tenant. Navigate to the web application that you created for the App Service.
 
 2. In the **Configure** tab, scroll the page down to the permissions to other applications section. Select **Office 365 SharePoint Online** and grant the **Edit or delete users' files** delegated permission. Then click **Save**.
 
@@ -41,13 +42,13 @@ You have now configured Azure AD to issue a SharePoint access token to the App S
 
 ## <a name="store-credentials"></a>Add SharePoint information to your Mobile App
 
-In order to make a call to SharePoint, you need to specify the endpoints that the mobile app needs to talk to. You also need to be able to prove the identity of your app service. This is accomplished using a Client ID and Client Secret pair. You have already obtained and stored the Client ID for the app service during the AAD login setup. Because these are sensitive credentials, you shouldn't store them as plaintext in our code. Instead, you'll set these values as Application Settings for our Mobile App Code site.
+In order to make a call to SharePoint, you need to specify the endpoints that the mobile app needs to talk to. You also need to be able to prove the identity of your app service. This is accomplished using a Client ID and Client Secret pair. You have already obtained and stored the Client ID for the app service during the AAD login setup. Because these are sensitive credentials, you shouldn't store them as plaintext in our code. Instead, you'll set these values as Application Settings for our Mobile App backend.
 
 1. Return to the AAD Applications tab for your tenant, and select the web application for your app service.
 
 2. Under Configure, scroll down to Keys. You'll obtain a Client Secret by generating a new key. Note once you create a key and leave the page, there is no way to get it out of the portal again. Upon creation you must copy and save this value in a secure location. Select a duration for your key, then click save, and copy out the resulting value.
 
-3. In the Mobile App Code section of the Management Portal, navigate to the Configure tab, and scroll down to App Settings. Here you can provide a key-value pair to help you reference the necessary credentials.
+3. In your Mobile App backend in the [Azure portal](https://portal.azure.com/), click **All settings** > **Application settings**, and scroll down to **App settings**. Here you can provide a key-value pair to help you reference the necessary credentials.
 
 * Set SP_Authority to be the authority endpoint for your AAD tenant. This should be the same as the authority value used for your client app. It'll be of the form `https://login.windows.net/contoso.onmicrosoft.com`
 
@@ -182,7 +183,7 @@ To create a Word document, you'll use the OpenXML NuGet package. Install this pa
 
 <!-- URLs. -->
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
 [Azure Active Directory Authentication Library Single Sign-On]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/

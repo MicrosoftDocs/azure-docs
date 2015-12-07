@@ -59,7 +59,7 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 First, you create the TestLab virtual network that will host the Corpnet subnet of the base configuration.
 
-1.	In the task bar of the [Azure portal](https://manage.windowsazure.com), click **New > Network Services > Virtual Network > Custom Create**.
+1.	In the task bar of the [Azure classic portal](https://manage.windowsazure.com), click **New > Network Services > Virtual Network > Custom Create**.
 2.	On the Virtual Network Details page, type **TestLab** in **Name**.
 3.	In **Location**, select the appropriate region.
 4.	Click the Next arrow.
@@ -126,7 +126,7 @@ First, fill in the name of your cloud service and run these commands at the Azur
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure Management Portal, click **Virtual Machines** in the left pane, and then click **Started** in the **Status** column for the DC1 virtual machine.  
+1.	In the Azure classic portal, click **Virtual Machines** in the left pane, and then click **Started** in the **Status** column for the DC1 virtual machine.  
 2.	In the task bar, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -155,7 +155,7 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	On the virtual machines page of the Azure Management Portal, click **Running** in the **Status** column for the DC1 virtual machine.
+1.	On the virtual machines page of the Azure classic portal, click **Running** in the **Status** column for the DC1 virtual machine.
 2.	In the task bar, click **Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Send cross-platform notifications to a specific user in iOS" 
 	description="Learn how to send push notifications to all devices of a specific user."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
@@ -65,38 +65,11 @@ Before you start this tutorial, you must have already completed these App Servic
             }
         }];
 
+	It is important that you authenticate the user before registering for push notifications. When an authenticated user registers for push notifications, a tag with the user ID is automatically added.
+
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
-1. In Visual Studio, update the `PostTodoItem` method definition with the following code:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create tag to identify user
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            // build dictionary for template
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
-
-            try
-            {
-            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>Test the app
 

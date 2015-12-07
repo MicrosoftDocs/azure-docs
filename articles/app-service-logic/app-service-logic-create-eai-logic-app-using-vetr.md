@@ -45,7 +45,7 @@ The following BizTalk API Apps help build this pattern:
 ## Constructing basic VETR pattern
 ### The basics
 
-In the Azure Management Portal, click the **+New** button at the bottom-left of the screen and click **Logic App**. Choose a name, location, subscription, resource group, and location that works. Resource groups act as containers for your apps and all of the resources for your app go to the same resource group.
+In the Azure portal, click the **+New** button at the bottom-left of the screen and click **Logic App**. Choose a name, location, subscription, resource group, and location that works. Resource groups act as containers for your apps and all of the resources for your app go to the same resource group.
 
 Next, let's add triggers and actions.
 

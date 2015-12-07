@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # Service Fabric application scenarios
@@ -56,9 +56,11 @@ Get started building stateless and stateful services with the Service Fabric
 
 Also see the following topics:
 
-[Defining and Managing Service State](service-fabric-concepts-state.md)
+[Tell me about microservices](service-fabric-overview-microservices.md)
 
-[Availability of services](service-fabric-concepts-availability-services.md)
+[Defining and managing service state](service-fabric-concepts-state.md)
+
+[Availability of services](service-fabric-availability-services.md)
 
 [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 

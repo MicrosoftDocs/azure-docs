@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Using soft delete in Mobile Services (Windows Store) | Microsoft Azure" 
-	description="Learn how to use Azure Mobile Services soft delete feature in your application" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Using soft delete in Mobile Services (Windows Store) | Microsoft Azure"
+	description="Learn how to use Azure Mobile Services soft delete feature in your application"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # Using soft delete in Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Overview
 
@@ -45,7 +50,7 @@ Soft delete support for the .NET backend first released with version 1.0.402 of 
 The following steps guide you on how to enable soft delete for a .NET backend mobile service.
 
 1. Open your .NET backend mobile service project in Visual Studio.
-2. Right click the .NET backend project and click **Manage NuGet Packages**. 
+2. Right click the .NET backend project and click **Manage NuGet Packages**.
 3. In the package manager dialog, click **Nuget.org** under updates and install version 1.0.402 or later of the [Microsoft Azure Mobile Services .NET Backend](http://go.microsoft.com/fwlink/?LinkId=513165) NuGet packages.
 3. In Solution Explorer for Visual Studio, expand the **Controllers** node under your .NET backend project and open your controller source for. For example, *TodoItemController.cs*.
 4. In the `Initialize()` method of your controller, pass the `enableSoftDelete: true` parameter to the EntityDomainManager constructor.
@@ -66,12 +71,12 @@ If you are creating a new table for your mobile service, you can enable soft del
 
 To enable soft delete on an existing table in the JavaScript backend:
 
-1. In the [Management Portal], click your mobile service. Then click the Data tab.
+1. In the [Azure classic portal], click your mobile service. Then click the Data tab.
 2. On the data page, click to select the desired table. Then click the **Enable Soft Delete** button in the command bar. If the table already has soft delete enabled, this button will not appear but you will be able to see the *\__deleted* column when clicking the **Browse** or **Columns** tab for the table.
 
     ![][0]
 
-    To disable soft delete for your table, click the **Columns** tab and then click the *\__deleted* column and the **Delete** button.  
+    To disable soft delete for your table, click the **Columns** tab and then click the *\__deleted* column and the **Delete** button.
 
     ![][1]
 
@@ -83,28 +88,28 @@ The following scheduled job purges soft deleted records that are more than a mon
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
 
-To learn more about schedule jobs with .NET backend Mobile Services, see: [Schedule recurring jobs with JavaScript backend Mobile Services](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
+To learn more about schedule jobs with .NET backend Mobile Services, see: [Schedule recurring jobs with JavaScript backend Mobile Services](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 
 
 
@@ -114,12 +119,12 @@ To learn more about schedule jobs with .NET backend Mobile Services, see: [Sched
 You use table scripts to add logic around the soft delete feature with JavaScript backend mobile services.
 
 To detect an undelete request, use the property "undelete" in your update table script:
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -159,7 +164,6 @@ To learn more about scheduled jobs with JavaScript backend Mobile Services, see:
 <!-- URLs. -->
 [SQL bit type]: http://msdn.microsoft.com/library/ms177603.aspx
 [Offline data Sync for Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 
 
- 
