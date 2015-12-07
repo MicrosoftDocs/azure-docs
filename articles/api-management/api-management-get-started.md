@@ -95,7 +95,7 @@ APIs can be created (and operations can be added) manually, or they can be impor
 
 >[AZURE.NOTE] For guidance on creating an API and manually adding operations, see [How to create APIs](api-management-howto-create-apis.md) and [How to add operations to an API](api-management-howto-add-operations.md).
 
-APIs are configured from the publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure portal for your API Management service.
+APIs are configured from the publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 

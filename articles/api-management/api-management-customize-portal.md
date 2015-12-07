@@ -24,7 +24,7 @@ This guide shows you how to modify the look and feel of the developer portal in 
 
 One of the key aspects of portal customization is replacing the text at the top of all pages with your company name or logo.
 
-Content within the developer portal is modified via the publisher portal, which is accessed through the Azure Classic Portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
+Content within the developer portal is modified via the publisher portal, which is accessed through the Azure Classic Portal. To reach the API publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 

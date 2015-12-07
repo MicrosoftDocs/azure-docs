@@ -69,7 +69,7 @@ Specify the request body using the following template.
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
