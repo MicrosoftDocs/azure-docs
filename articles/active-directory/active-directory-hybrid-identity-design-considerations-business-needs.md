@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory ybrid identity design considerations - determine identity requirements | Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine identity requirements | Microsoft Azure"
 	description="Identify the company’s business needs that will lead you to define the requirements for the hybrid identity design."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Determine identity requirements for your hybrid identity solution
