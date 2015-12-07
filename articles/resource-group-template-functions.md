@@ -28,11 +28,15 @@ Resource Manager provides the following expressions for working with integers:
 
 - [add](#add)
 - [copyIndex](#copyindex)
+- [div](#div)
+- [int](#int)
+- [length](#length)
+- [mod](#mod)
+- [mul](#mul)
+- [sub](#sub)
 
 
 <a id="add" />
-### add
-
 **add(operand1, operand2)**
 
 Returns the sum of the two provided integers.
@@ -44,14 +48,12 @@ Returns the sum of the two provided integers.
 
 
 <a id="copyindex" />
-### copyIndex
-
 **copyIndex(offset)**
 
 Returns the current index of an iteration loop. For examples of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-### div
 
+<a id="div" />
 **div(operand1, operand2)**
 
 Returns the integer division of the two provided integers.
@@ -61,8 +63,8 @@ Returns the integer division of the two provided integers.
 | operand1                           |   Yes    | Number being divided.
 | operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
 
-### int
 
+<a id="int" />
 **int(valueToConvert)**
 
 Converts the specified value to Integer.
@@ -80,8 +82,8 @@ The following example converts the user-provided parameter value to Integer.
         "intValue": "[int(parameters('appId'))]"
     }
 
-### length
 
+<a id="length" />
 **length(array or string)**
 
 Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
@@ -102,8 +104,8 @@ Or, you can use with a string:
         "nameLength": "[length(parameters('appName'))]"
     }
 
-### mod
 
+<a id="mod" />
 **mod(operand1, operand2)**
 
 Returns the remainder of the integer division using the two provided integers.
@@ -114,8 +116,8 @@ Returns the remainder of the integer division using the two provided integers.
 | operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
 
 
-### mul
 
+<a id="mul" />
 **mul(operand1, operand2)**
 
 Returns the multiplication of the two provided integers.
@@ -125,8 +127,8 @@ Returns the multiplication of the two provided integers.
 | operand1                           |   Yes    | First operand to use.
 | operand2                           |   Yes    | Second operand to use.
 
-### sub
 
+<a id="sub" />
 **sub(operand1, operand2)**
 
 Returns the subtraction of the two provided integers.
