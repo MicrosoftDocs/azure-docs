@@ -47,8 +47,8 @@
 	This code sends a template notification only to registrations tagged with the current user's SID. Note that the SID value can change since it derived from the authentication provider's token. 
  
 2. Republish the server project.
-<!---
-### <a name="nodejs"></a>Node.js backend project
+
+<!---### <a name="nodejs"></a>Node.js backend project
 
 1. Replace the existing code in the todoitem.js file with the following:
 
@@ -96,5 +96,4 @@
 
 	This sends a template notification only to registrations tagged with the current user's SID. Note that the SID value can change since it derived from the authentication provider's token. 
 
-2. When editing the file in your local computer, republish the server project.
- -->
+2. When editing the file in your local computer, republish the server project.-->
