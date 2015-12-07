@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Add caching to improve performance in Azure API Management
@@ -32,7 +32,7 @@ In this step, you will review the caching settings of the **GET Resource (cached
 
 >[AZURE.NOTE] Each API Management service instance comes preconfigured with an Echo API that can be used to experiment with and learn about API Management. For more information, see [Get started with Azure API Management][].
 
-To get started, click **Manage** in the Azure portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
