@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -84,7 +84,7 @@ Timeouts happen in the client that you use to talk to Redis. For the most part R
 <a name="cache-monitor"></a>
 ## How do I monitor the health and performance of my cache?
 
-Microsoft Azure Redis Cache instances can be monitored in the [Azure preview portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
 <a name="cache-disconnect"></a>
 ## Why was my client disconnected from the cache?
@@ -157,7 +157,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 <a name="cache-benchmarking"></a>
 ## How can I benchmark and test the performance of my cache?
 
--	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the preview portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+-	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	You can use redis-benchmark.exe to load test your Redis server.
 	-	Ensure that the load testing client and the Redis cache are in the same region.
 -	Use redis-cli.exe and monitor the cache using the INFO command.
@@ -169,7 +169,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). To run Redis commands you have several options.
 
--	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the preview portal.
+-	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure Portal.
 -	You can also use the Redis command line tools. To use them, perform the following steps.
 	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
@@ -202,6 +202,17 @@ Azure Cache currently has three offerings:
 -	Azure Managed Cache service
 -	Azure In-Role Cache
 
+>[AZURE.IMPORTANT]We’re announcing the November 30, 2016, retirement for Azure Managed Cache Service and Azure In-Role Cache. We recommend that you migrate to Azure Redis Cache in preparation for this retirement. 
+>
+>Azure Redis Cache has been the recommended caching solution in Azure since the service became generally available, and it’s is now available in all Azure regions, including China and US Government. Because of this availability, we’re announcing the upcoming retirement for Managed Cache Service and In-Role Cache service. 
+>
+>Managed Cache Service and In-Role Cache service will remain available for existing customers for a maximum of 12 months from the date of this announcement on November 30, 2015—the end of service date for both will end on November 30, 2016. After this date, Managed Cache Service will be shut down, and In-Role Cache service will no longer be supported. 
+>
+>We’ll remove support for creating new in-role caches in the first Azure SDK release that happens after February 1, 2016. Customers will be able to open existing projects that have in-role caches. 
+>
+>During this period, we encourage all existing Managed Cache Service and In-Role Cache service customers to migrate to Azure Redis Cache. Azure Redis Cache provides more features and a better value overall. For more information on migrating, please visit the [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md) documentation webpage. 
+>
+>If you have any questions, please [contact us](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933). 
 
 ### Azure Redis Cache
 Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/08/2015"
+	ms.date="11/30/2015"
 	ms.author="christopheranderson"/>
 
 # Recover your mobile service in the event of a disaster
@@ -86,15 +86,19 @@ To recover your mobile service after an outage:
 	+ In the Azure classic portal, on the **"Configure"** tab of your mobile service, choose "Change database" and then select the newly recovered database.
 
 7. Your mobile service is now hosted in a different physical location. You'll need to update your publishing and/or git credentials to allow for updating your running site.
-	+ If you are using a **.NET backend**, set up your publishing profile again, as described in [Publish your mobile service](mobile-services-dotnet-backend-windows-store-dotnet-get-started/#publish-your-mobile-service). This will update your publishing details to point to the new service location.
-	+ If you are using a **Javascript backend** and managing your service with the Azure classic portal, you don't need to take any extra action.
+
+	+ If you are using a **.NET backend**, set up your publishing profile again, as described in [Publish your mobile service](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md#publish-your-mobile-service). This will update your publishing details to point to the new service location.
+	+ If you are using a **Javascript backend** and managing your service with the Portal, you don't need to take any extra action.
+
 	+ If you are using a **Javascript backend** and managing your service with node, update your git remote to point to the new repository. To do this, you remove the .git file path from your git remote:
 
 		1. Find your current origin remote:
+
 				git remote -v
 				 origin  https://myservice.scm.azure-mobile.net/myservice.git (fetch)
 				 origin  https://myservice.scm.azure-mobile.net/myservice.git (push)
-		3. Update the remote using with the same url, but without the final .git file path:
+
+		3. Update the remote using the same url, but without the final .git file path:
 				git remote set-url origin https://myservice.scm.azure-mobile.net
 		4. Pull from origin to verify that it is working correctly.
 
@@ -107,7 +111,7 @@ Now you should be in a state where your mobile service has been recovered to a n
 <!-- URLs. -->
 [SQL Database business continuity guidance]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-
+[Github]: https://github.com/
 [source control feature]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [using the Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Azure classic portal]: http://manage.windowsazure.com/
