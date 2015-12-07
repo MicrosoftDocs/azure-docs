@@ -109,8 +109,6 @@ All outbound traffic to Internet originating from your service is Source NATed (
 
 Azure Load balancer configuration supports full cone NAT for UDP. Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request).
 
-![snat](./media/load-balancer-overview/load-balancer-snat.png)
-
 
 >[AZURE.NOTE]Note that for each new outbound connection initiated by a VM, an outbound port is also allocated by Azure Load Balancer. The external host will see traffic coming as VIP: allocated port.  If your scenarios require large number of outbound connections, it is recommended that the VMs uses Instance-Level public IPs so that it has dedicated outbound IP for Source Network Address Translation (SNAT). This will reduce the risk of port exhaustion. 
 >
