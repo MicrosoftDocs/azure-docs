@@ -81,7 +81,7 @@ The following steps demonstrate how to publish an application by using use the *
 
 The Visual Studio publishing experience is optimized for publishing to remote clusters associated with one of your Azure subscriptions. However, it is possible to publish to an arbitrary endpoint (such as Service Fabric party clusters) by directly editing the publish profile XML. As described above, two publish profiles are provided by default - **Local.xml** and **Cloud.xml** - but you are welcome to create additional profiles for different environments. For instance, you might want to create a profile for publishing to party clusters, perhaps named **Party.xml**.
 
-If you are connecting to a unsecured cluster, all that's required is the cluster connection endpoint, such as `partycluster1.westus.cloudapp.azure.com:19000`. In that case, the connection endpoint in the publish profile would something like this:
+If you are connecting to a unsecured cluster, all that's required is the cluster connection endpoint, such as `partycluster1.eastus.cloudapp.azure.com:19000`. In that case, the connection endpoint in the publish profile would something like this:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
