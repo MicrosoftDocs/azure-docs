@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
 
->[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. During the preview period, you cannot scale to, from, or within a premium tier cache.
+>[AZURE.NOTE] The Azure Redis Cache scaling feature is currently in preview. During the preview period, you cannot scale to or from a premium tier cache, but you can change the pricing tier within a premium cache.
 
-Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure preview portal](https://portal.azure.com).
+Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure Portal](https://portal.azure.com).
 
 ## When to scale
 
@@ -36,7 +36,7 @@ You can monitor the following metrics to help determine if you need to scale.
 If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scale a cache
-To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [preview portal](https://portal.azure.com) and click **Settings**, **Pricing tier**.
+To scale your cache, [browse to the cache](cache-configure.md#configure-redis-cache-settings) in the [Azure Portal](https://portal.azure.com) and click **Settings**, **Pricing tier**.
 
 You can also click the **Standard tier** or **Basic tier** part in the **Redis Cache** blade.
 
@@ -61,7 +61,7 @@ When scaling is complete, the status changes from **Scaling** to **Running**.
 
 ## How to automate a scaling operation
 
-In addition to scaling your Azure Redis Cache instance in the preview portal you can scale using the [Microsoft Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). To scale your cache, call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
+In addition to scaling your Azure Redis Cache instance in the Azure Portal you can scale using the [Microsoft Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). To scale your cache, call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
@@ -89,7 +89,7 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ## Can I scale to, from, or within a Premium cache
 
-During the preview period, scaling is not available for **Premium** caches.
+During the preview period, scaling is not available for **Premium** caches, but you can change the pricing tier within a premium cache.
 
 ## After scaling, do I have to change my cache name or access keys
 
@@ -121,7 +121,7 @@ Note that while Standard and Premium caches have a 99.9% SLA for availability, t
 
 ## Operations that are not supported
 
-You can't scale to, from, or within a **Premium** cache.
+You can't scale to or from a **Premium** cache.
 
 You can't change from a **Standard** to a **Basic** cache.
 
@@ -137,7 +137,7 @@ Scaling takes approximately 20 minutes, depending on how much data is in the cac
 
 ## How can I tell when scaling is complete
 
-In the preview portal you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
+In the Azure Portal you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
 
 ## Why is this feature in preview
 

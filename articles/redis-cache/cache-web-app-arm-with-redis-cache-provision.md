@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="12/03/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Web App plus Redis Cache using a template
