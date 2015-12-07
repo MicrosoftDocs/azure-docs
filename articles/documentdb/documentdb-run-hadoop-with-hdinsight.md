@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="10/28/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -78,12 +78,12 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 
 **To create an Azure Storage account**
 
-1. Sign into the [Azure management portal][azure-classic-portal].
+1. Sign into the [Azure Classic Portal][azure-classic-portal].
 	
-	> [AZURE.NOTE] Azure HDInsight is currently supported in the Azure management portal, while Azure DocumentDB only exists in the Microsoft Azure  portal.
+	> [AZURE.NOTE] Azure HDInsight is currently supported in the Azure Classic Portal, while Azure DocumentDB only exists in the Microsoft Azure  portal.
 
 2. Click **+ NEW** on the lower left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
-	![Azure portal where you can use Quick Create to set up a new storage account.][image-storageaccount-quickcreate]
+	![Azure Classic Portal where you can use Quick Create to set up a new storage account.][image-storageaccount-quickcreate]
 
 3. Enter the **URL**, select the **LOCATION** and **REPLICATION** values, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. 
 	
@@ -94,9 +94,9 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Step 2: Create a customized HDInsight cluster
-This tutorial uses Script Action from the Azure management portal to customize your HDInsight cluster. In this tutorial we will use the Azure management portal to create your customized cluster. For instructions on how to use PowerShell cmdlets or the HDInsight .NET SDK, check out the [Customize HDInsight clusters using Script Action][hdinsight-custom-provision] article.
+This tutorial uses Script Action from the Azure Classic Portal to customize your HDInsight cluster. In this tutorial we will use the Azure Classic Portal to create your customized cluster. For instructions on how to use PowerShell cmdlets or the HDInsight .NET SDK, check out the [Customize HDInsight clusters using Script Action][hdinsight-custom-provision] article.
 
-1. Sign in to the [Azure management portal][azure-classic-portal]. You may be already signed in from the previous step.
+1. Sign in to the [Azure Classic Portal][azure-classic-portal]. You may be already signed in from the previous step.
 
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **CUSTOM CREATE**.
 
@@ -162,7 +162,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 			<td>Specifies the default container on the storage account that is used as the default file system for the HDInsight cluster. If you choose <strong>Use Existing Storage</strong> for the <strong>Storage Account</strong> field, and there are no existing containers in that account, the container is created by default with the same name as the cluster name. If a container with the name of the cluster already exists, a sequence number will be appended to the container name.
         </td></tr>
 		<tr><td>Additional Storage Accounts</td>
-			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage accounts that can be used by a cluster. However, if you create a cluster using the Azure portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information.</td></tr>
+			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage accounts that can be used by a cluster. However, if you create a cluster using the Azure Classic Portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information.</td></tr>
 	</table>
 
 	Click the right arrow.
@@ -192,7 +192,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 
 1. Install Azure PowerShell. Instructions can be found [here][powershell-install-configure].
 
-	> [AZURE.NOTE] Alternatively, just for Hive queries, you can use HDInsight's online Hive Editor. To do so, sign in to the [Azure management portal][azure-classic-portal], click **HDInsight** on the left pane to view a list of your HDInsight clusters. Click the cluster you want to run Hive queries on, and then click **Query Console**.
+	> [AZURE.NOTE] Alternatively, just for Hive queries, you can use HDInsight's online Hive Editor. To do so, sign in to the [Azure Classic Portal][azure-classic-portal], click **HDInsight** on the left pane to view a list of your HDInsight clusters. Click the cluster you want to run Hive queries on, and then click **Query Console**.
 
 2. Open the Azure PowerShell Integrated Scripting Environment:
 	- On a computer running Windows 8 or Windows Server 2012 or higher, you can use the built-in Search. From the Start screen, type **powershell ise** and click **Enter**. 
@@ -298,7 +298,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 
 9. **Run** your new script! **Click** the green execute button.
 
-10. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
+10. Check the results. Sign into the [Azure Portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel. </br>
 	2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
 	3. Find and click <strong>DocumentDB Accounts</strong>. </br>
@@ -385,7 +385,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 		
 9. **Run** your new script! **Click** the green execute button.
 
-10. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
+10. Check the results. Sign into the [Azure Portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel. </br>
 	2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
 	3. Find and click <strong>DocumentDB Accounts</strong>. </br>
@@ -428,7 +428,7 @@ This tutorial uses Script Action from the Azure management portal to customize y
 
 5. **Run** your new script! **Click** the green execute button.
 
-6. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
+6. Check the results. Sign into the [Azure Portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel.
 	2. Click <strong>everything</strong> at the top-right of the browse panel.
 	3. Find and click <strong>DocumentDB Accounts</strong>.

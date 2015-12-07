@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect design concepts | Microsoft Azure"
+   pageTitle="Azure AD Connect: Design concepts | Microsoft Azure"
    description="This topic details certain implementation design areas"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="08/27/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Design concepts for Azure AD Connect
@@ -36,9 +36,13 @@ This topic will only talk about sourceAnchor as it relates to users. The same ru
 The attribute value must follow the following rules:
 
 - Be less than 60 characters in length
-- Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @
+- Not contain a special character: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 - Must be globally unique
 - Must be either a string, integer or binary
+- Should not be based on user's name, these change
+- Should not be case sensitive and avoid values that may vary by case
+- Should be assigned when the object is created.
+
 
 If the selected sourceAnchor is not of type string, Azure AD Connect will Base64Encode the attribute value to ensure no special characters will appear. If you use another federation server than ADFS, make sure your server also has the capability to Base64Encode the attribute.
 
@@ -48,9 +52,9 @@ If you have a single forest on-premises then the attribute you should use is **o
 
 If you have multiple forests and do not move users between forests and between domains in the same forest, then **objectGUID** is a good attribute to use even in this case.
 
-If you move users between forests and domains then you must find an attribute which will not change. Common used attributes include **employeeID**. If you consider an attribute which will contain letters, such as **sAMAccountName**, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes which should not be used include those with the name of the user. In a marriage or divorce the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes will also contain the @-character, which is not allowed in the sourceAnchor.
+If you move users between forests and domains, then you must find an attribute which will not change or can be moved with the users during the move. A recommended approach is to introduce a synthetic attribute. An attribute which could hold something which looks like a GUID would be suitable. During object creation a new GUID is created and stamped on the user. A custom rule can be created in the sync engine server to create this value based on the **objectGUID** and update the selected attribute in ADDS. When you move the object, make sure to also copy the content of this value.
 
-In the case where there is absolutely no suitable attribute to use, then a synthetic value would have to be introduced. For example, an attribute which could hold something which looks like a GUID would be suitable. During object creation a new GUID is created and stamped on the user. When you move the object, make sure to also copy the content of this value.
+Another solution is to pick an existing attribute you know will not change. Commonly used attributes include **employeeID**. If you consider an attribute which will contain letters, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes which should not be used include those with the name of the user. In a marriage or divorce the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes will also contain the @-character, which is not allowed in the sourceAnchor.
 
 ### Changing the sourceAnchor attribute
 The sourceAnchor attribute value cannot be changed after the object has been created in Azure AD and the identity is synchronized.
@@ -60,3 +64,6 @@ For this reason, the following restrictions apply to Azure AD Connect:
 - The sourceAnchor attribute can only be set during initial installation. If you re-run the installation wizard this option is read-only. If you need to change this, then you must uninstall and reinstall.
 - If you install another Azure AD Connect server, then you must select the same sourceAnchor attribute as previously used. If you have earlier been using DirSync and move to Azure AD Connect, then you must use **objectGUID** since that is the attribute used by DirSync.
 - If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync will throw an error and will not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
+
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

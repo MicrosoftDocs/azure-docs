@@ -1,11 +1,12 @@
 <properties
-	pageTitle="How to create a LAMP Stack with Microsoft Azure"
+	pageTitle="Create a LAMP Stack with Azure | Microsoft Azure"
 	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 #How to create a LAMP Stack with Microsoft Azure
 
 A "LAMP" stack is a group of open source software that is typically installed together to enable a server to host dynamic websites and web applications. This term is actually an acronym that represents the Linux operating system with the Apache web server. The site data is stored in a MySQL database, and dynamic content is processed by PHP.  
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 In this guide, we'll get a LAMP stack installed on a Linux image and deploy it on Microsoft Azure.  
 
@@ -51,8 +55,8 @@ Follow these steps to generate the SSH Authentication Key.
 -	Select and copy the public key in **Key** and save it in a file named **publicKey.pem**. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
 -	Click **Save private key** and save it in a file named **privateKey.ppk**.
 
-###Step 2: Create the image in the Azure Portal.
-In the [Azure Portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image.
+###Step 2: Create the image in the Azure portal.
+In the [Azure portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image.
 
 ![][3]
 
@@ -74,7 +78,7 @@ Endpoints in Azure consists of a protocol (TCP or UDP), along with a public and 
 
 TCP port 80 is the default port number on which Apache listens. Opening this port with an Azure endpoint will allow you and other Internet clients access to the Apache web server.  
 
-In the Azure Portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
+In the Azure portal, click **Browse -> Virtual Machine**, and then click the virtual machine that you created.
 
 ![][5]
 
@@ -102,7 +106,7 @@ Click **OK** to add the endpoint to your virtual machine.
 ###Step 2: Connect to the image you created
 You can choose any SSH tool to connect to your new virtual machine. In this example, we use Putty.  
 
-First, get the DNS name of your virtual machine from the Azure Portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
+First, get the DNS name of your virtual machine from the Azure portal. Click **Browse -> Virtual machines ->** the name of your virtual machine **-> Properties**, and then look in the **Domain Name** field of the **Properties** tile.
 
 Get the port number for SSH connections from the **SSH** field.   Here is an example.  
 
@@ -145,6 +149,7 @@ To install Apache, open terminal and execute this command:
 Once it installs, start Apache with this command:  
 
 	sudo service httpd start
+
 ####Test Apache
 To check if Apache is successfully installed, browse to your Apache server’s DNS name (for the example URL in this article, http://lampdemo.cloudapp.net/). The page should display the words “It works!"
 ![][14]
@@ -467,4 +472,3 @@ When you restart the Apache server using one of the following commands:
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 

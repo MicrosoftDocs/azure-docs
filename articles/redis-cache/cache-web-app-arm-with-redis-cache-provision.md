@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Provision Web App with Redis Cache" 
 	description="Use Azure Resource Manager template to deploy web app with Redis Cache." 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="cache-redis" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="12/03/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Web App plus Redis Cache using a template
@@ -34,7 +34,7 @@ In this template, you will deploy:
 
 To run the deployment automatically, click the following button:
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
+[![Deploy to Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
 
 ## Parameters to specify
 
@@ -50,7 +50,7 @@ To run the deployment automatically, click the following button:
 
 ### Redis Cache
 
-Creates the Azure Redics Cache that is used with the web app. The name of the cache is specified in the **redisCacheName** parameter.
+Creates the Azure Redis Cache that is used with the web app. The name of the cache is specified in the **redisCacheName** parameter.
 
 The template creates the cache in the same location as the web app, which is recommended for best performance. 
 

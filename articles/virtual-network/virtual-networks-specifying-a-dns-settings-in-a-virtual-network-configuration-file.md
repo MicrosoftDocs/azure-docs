@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Specifying a DNS Settings in a Virtual Network Configuration File"
-   description="Description"
+   pageTitle="Specifying a DNS Settings in a Virtual Network Configuration File | Microsoft Azure"
+   description="How to change DNS server settings in a virtual network using a virtual network configuration file"
    services="virtual-network"
    documentationCenter="na"
    authors="joaoma"

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Getting Started with Azure Active Directory (.NET Projects)" 
-	description="How to get started using Azure Active Directory in Visual Studio" 
+	pageTitle="Get Started with Azure Active Directory and Visual Studio connected services (MVC projects)" 
+	description="How to get started using Azure Active Directory in MVC projects after connecting to or creating an Azure AD using Visual Studio connected services" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
-	ms.author="patshea"/>
+	ms.date="09/03/2015" 
+	ms.author="tarcher"/>
 
-# Getting Started with Azure Active Directory (.NET Projects)
+# Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Build your first pipeline using Azure Data Factory"
-	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight using Data Factory Editor"
+	pageTitle="Build your first Azure Data Factory pipeline using Data Factory Editor"
+	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure Classic Portal."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Build your first pipeline using Azure Data Factory
+# Build your first Azure Data Factory pipeline using Data Factory Editor (Azure Classic Portal)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 
-In this article, you will learn how to use the [Azure Preview Portal](https://portal.azure.com/) to create your first pipeline. This tutorial consists of the following steps:
+In this article, you will learn how to use the [Azure Portal](https://portal.azure.com/) to create your first pipeline. This tutorial consists of the following steps:
 
 1.	Creating the data factory
 2.	Creating the linked services (data stores, computes) and datasets
@@ -32,9 +32,11 @@ In this article, you will learn how to use the [Azure Preview Portal](https://po
 
 This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
+> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.  
+
 ## Step 1: Creating the data factory
 
-1.	After logging into the [Azure Preview Portal](http://portal.azure.com/), do the following:
+1.	After logging into the [Azure Portal](http://portal.azure.com/), do the following:
 	1.	Click **NEW** on the left menu. 
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.
@@ -45,7 +47,10 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 
 	![New data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] Azure Data Factory names are globally unique. You will need to prefix the name of the data factory with your name, to enable the successful creation of the factory. 
+	> [AZURE.IMPORTANT] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “DataFactoryMyFirstPipeline” is not available**, change the name of the data factory (for example, yournameDataFactoryMyFirstPipeline) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	>  
+	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+
 3.	If you have not created any resource group,  you will need to create a resource group. To do this:
 	1.	Click on **RESOURCE GROUP NAME**.
 	2.	Select **Create a new resource group** in the **Resource group** blade.
@@ -55,7 +60,7 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 		![Create resource group](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	After you have selected the resource group, verify that you are using the correct subscription where you want the data factory to be created.
 5.	Click **Create** on the **New data factory** blade.
-6.	You will see the data factory being created in the **Startboard** of the Azure Preview Portal as follows:   
+6.	You will see the data factory being created in the **Startboard** of the Azure Portal as follows:   
 
 	![Creating data factory status](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Congratulations! You have successfully created your first data factory. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory. 	
@@ -65,7 +70,7 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial. 
 
 ## Step 2: Create linked services and datasets
-In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory and then crate a dataset to represent the output data from Hive processing.
+In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory and then create a dataset to represent the output data from Hive processing.
 
 ### Create Azure Storage linked service
 1.	Click **Author and deploy** on the **DATA FACTORY** blade for **DataFactoryFirstPipeline**. This launches the Data Factory Editor. 
@@ -76,7 +81,7 @@ In this step, you will link your Azure Storage account and an on-demand Azure HD
 	![Azure Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	You should see the JSON script for creating an Azure Storage linked service in the editor. 
-4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
 5. Click **Deploy** on the command bar to deploy the linked service.
 
 	![Deploy button](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -94,10 +99,9 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
-		      "jobsContainer": "adfjobs",
+		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -107,10 +111,9 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 	
 	Property | Description
 	-------- | -----------
-	Version | This specifies that the version of the HDInsight created to be 3.1. 
+	Version | This specifies that the version of the HDInsight created to be 3.2. 
 	ClusterSize | This creates a one node HDInsight cluster. 
 	TimeToLive | This specifies that the idle time for the HDInsight cluster, before it is deleted.
-	JobsContainer | This specifies the name of the job container that will be created to store the logs that are generated by HDInsight
 	linkedServiceName | This specifies the storage account that will be used to store the logs that are generated by HDInsight
 3. Click **Deploy** on the command bar to deploy the linked service. 
 4. Confirm that you see both StorageLinkedService and HDInsightOnDemandLinkedService in the tree view on the left.
@@ -199,7 +202,7 @@ In this step, you will create your first pipeline.
 	
 	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in a container called **script**.
 
-	The **extendedProperties** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:PartitionedData}).
+	The **defines** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:PartitionedData}).
 
 	The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
@@ -229,3 +232,4 @@ In this step, you will create your first pipeline.
 ## Next Steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](./data-factory-get-started.md).
   
+

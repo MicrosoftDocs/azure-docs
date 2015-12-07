@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Adding custom Service Fabric health reports"
+   pageTitle="Add custom Service Fabric health reports | Microsoft Azure"
    description="Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Adding custom Service Fabric health reports

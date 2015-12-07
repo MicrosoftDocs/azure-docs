@@ -1,10 +1,10 @@
 <properties 
    pageTitle="What is StorSimple Snapshot Manager? | Microsoft Azure"
-   description="Describes StorSimple Snapshot Manager, its architecture, and its features."
+   description="Describes the StorSimple Snapshot Manager, its architecture, and its features."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="10/12/2015"
    ms.author="v-sharos" />
 
 # What is StorSimple Snapshot Manager?
@@ -23,7 +23,7 @@ StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that
 
 This overview introduces the StorSimple Snapshot Manager, describe its features, and explains its role in Microsoft Azure StorSimple. 
 
-For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [What Is StorSimple?](storsimple-overview.md) and [What are the StorSimple components?](storsimple-components.md). 
+For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [StorSimple 8000 series: a hybrid cloud storage solution](storsimple-overview.md). 
  
 ## StorSimple Snapshot Manager purpose and architecture
 
@@ -71,7 +71,9 @@ With StorSimple Snapshot Manager, you create volumes and then configure them int
 
 StorSimple Snapshot Manager uses volume groups to create backup copies that are application-consistent. Application consistency exists when all related files and databases are synchronized and represent the true state of an application at a specific point in time. Volume groups (which are also known as *consistency groups*) form the basis of a backup or restore job.
 
->[AZURE.NOTE] Volume groups are not the same as volume containers. A volume container contains one or more volumes that share a cloud storage account and other attributes, such as encryption and bandwidth consumption. A single volume container can contain up to 256 thinly provisioned StorSimple volumes. For more information about volume containers, go to [Manage your volume containers](storsimple-manage-volume-containers.md). Volume groups are collections of volumes that you configure to facilitate backup operations. If you select two volumes that belong to different volume containers, place them in a single volume group, and then create a backup policy for that volume group, each volume will be backed up in the appropriate volume container, using the appropriate storage account.
+Volume groups are not the same as volume containers. A volume container contains one or more volumes that share a cloud storage account and other attributes, such as encryption and bandwidth consumption. A single volume container can contain up to 256 thinly provisioned StorSimple volumes. For more information about volume containers, go to [Manage your volume containers](storsimple-manage-volume-containers.md). Volume groups are collections of volumes that you configure to facilitate backup operations. If you select two volumes that belong to different volume containers, place them in a single volume group, and then create a backup policy for that volume group, each volume will be backed up in the appropriate volume container, using the appropriate storage account.
+
+>[AZURE.NOTE] All volumes in a volume group must come from a single cloud service provider.
 
 ## Integration with Windows Volume Shadow Copy Service
 
@@ -144,6 +146,6 @@ For information about monitoring backup jobs, go to [Use StorSimple Snapshot Man
 
 ## Next steps
 
-[Learn more about StorSimple Snapshot Manager tasks and workflows](storsimple-snapshot-manager-admin.md)
+- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
 
-[Download StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+- Download [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).

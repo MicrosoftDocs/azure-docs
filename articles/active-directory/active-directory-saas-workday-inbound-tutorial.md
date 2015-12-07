@@ -1,25 +1,23 @@
 <properties 
-  pageTitle="Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure" 
-  description="Learn how to use Workday as source of identity data for Azure Active Directory." 
-  services="active-directory" 
-  authors="MarkusVi"  
-  documentationCenter="na" 
-  manager="msStevenPo"/>
+    pageTitle="Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure" 
+    description="Learn how to use Workday as source of identity data for Azure Active Directory." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
 <tags 
-  ms.service="active-directory" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="na" 
-  ms.workload="identity" 
-  ms.date="08/01/2015" 
-  ms.author="markvi" />
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
 
 
 #Tutorial: Configuring Workday for Inbound Synchronization
 
 
->[AZURE.TIP]For feedback, click [here](http://go.microsoft.com/fwlink/?LinkId=521880).
-  
 The objective of this tutorial is to show you the steps you need to perform in Workday and Azure AD to import people from Workday to Azure AD. 
 
 The scenario outlined in this tutorial assumes that you already have the following items:

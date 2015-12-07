@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Run Background tasks with WebJobs" 
 	description="Learn how to run background tasks in Azure web apps." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Run Background tasks with WebJobs
@@ -22,9 +22,11 @@
 
 You can run programs or scripts in WebJobs in your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
-This article shows how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
+This article shows how to deploy WebJobs by using the [Azure Portal](https://portal.azure.com). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
 The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 
@@ -72,11 +74,39 @@ The following file types are accepted:
 	
 > For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 
-## <a name="CreateScheduled"></a>Create a scheduled WebJob
+## <a name="CreateScheduledCRON"></a>Create a scheduled WebJob using a CRON expression
 
-The Azure management portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [old portal](http://manage.windowsazure.com).
+This technique is available to Web Apps running in Standard or Premium mode, and requires the **Always On** setting to be enabled on the app.
 
-1. In the [old portal](http://manage.windowsazure.com) go to the WebJob page and click **Add**.
+To turn an On Demand WebJob into a scheduled WebJob, simply include a `settings.job` file at the root of your WebJob zip file. This JSON file should include a `schedule` property with a [CRON expression](https://en.wikipedia.org/wiki/Cron), per example below.
+
+The CRON expression is composed of 6 fields: `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+For example, to trigger your WebJob every 15 minutes, your `settings.job` would have:
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+Other CRON schedule examples:
+
+- Every hour (i.e. whenever the count of minutes is 0): `0 0 * * * *` 
+- Every hour from 9 AM to 5 PM: `0 0 9-17 * * *` 
+- At 9:30 AM every day: `0 30 9 * * *`
+- At 9:30 AM every week day: `0 30 9 * * 1-5`
+
+**Note**: when deploying a WebJob from Visual Studio, make sure to mark your `settings.job` file properties as 'Copy if newer'.
+
+
+## <a name="CreateScheduled"></a>Create a scheduled WebJob using the Azure Scheduler
+
+The following alternate technique makes use of the Azure Scheduler. In this case, your WebJob does not have any direct knowledge of the schedule. Instead, the Azure Scheduler gets configured to trigger your WebJob on a schedule. 
+
+The Azure Portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [classic portal](http://manage.windowsazure.com).
+
+1. In the [classic portal](http://manage.windowsazure.com) go to the WebJob page and click **Add**.
 
 1. In the **How to Run** box, choose **Run on a schedule**.
 	
@@ -122,7 +152,7 @@ The Azure management portal doesn't yet have the ability to create a scheduled W
 	
 ### <a name="Scheduler"></a>Scheduled jobs and Azure Scheduler
 
-Scheduled jobs can be further configured in the Azure Scheduler pages of the [old portal](http://manage.windowsazure.com).
+Scheduled jobs can be further configured in the Azure Scheduler pages of the [classic portal](http://manage.windowsazure.com).
 
 1.	On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
 	

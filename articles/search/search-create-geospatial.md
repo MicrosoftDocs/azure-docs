@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a geospatial search app using Azure Search" 
-	description="Create a geospatial search app using Bing and Azure Search" 
+	pageTitle="Create a geospatial search app using Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Create a geospatial search app using Bing and Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Create a geospatial search app using Azure Search

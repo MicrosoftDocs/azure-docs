@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="How to upgrade projects to the current version of the Azure tools"
    description="Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools"
    services="visual-studio-online"
@@ -6,18 +6,18 @@
    authors="kempb"
    manager="douge"
    editor="tglee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/28/2015"
    ms.author="kempb" />
 
 # How to upgrade projects to the current version of the Azure Tools for Visual Studio
 
-##Overview
+## Overview
 
 After you install the current release of the Azure Tools (or a previous release that's newer than 1.6), any projects that were created by using a Azure Tools release before 1.6 (November 2011) will be automatically upgraded as soon as you open them. If you created projects by using the 1.6 (November 2011) release of those tools and you still have that release installed, you can open those projects in the older release and decide later whether to upgrade them.
 
@@ -43,15 +43,10 @@ If a project is automatically upgraded or you specify that you want to upgrade i
 
 1. Install the current version of the Azure Tools into the installation of Visual Studio that you want to use for the upgraded project, and then open the project that you want to upgrade. If the project was created with a Azure Tools release before 1.6 (November 2011), the project is automatically upgraded to the current version. If the project was created with the November 2011 release and that release is still installed, the project opens in that release.
 
-1. In Solution Explorer, open the shortcut menu for the project node, choose **Properties**, and then choose the **Application** tab of the dialog box that appears. 
+1. In Solution Explorer, open the shortcut menu for the project node, choose **Properties**, and then choose the **Application** tab of the dialog box that appears.
 
     The **Application** tab shows the tools version that’s associated with the project. If the current version of Azure Tools appears, the project has already been upgraded. If you've installed a newer version of the tools than what the tab shows, an **Upgrade** button appears.
 
 1. Choose the **Upgrade** button to upgrade a project to the current version of the tools.
 
 1. Build the project, and then address any errors that result from API changes. For information about how to modify your code for the new version, see the documentation for the specific API.
-
-## Resources
-
-[Azure Tools Release History]( http://go.microsoft.com/fwlink/p/?LinkId=623548)
-

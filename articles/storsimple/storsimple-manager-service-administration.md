@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Use StorSimple Manager service to administer your StorSimple device"
-   description="Manage your StorSimple device by using the StorSimple Manager service in Azure Management Portal."
+   pageTitle="StorSimple Manager service administration | Microsoft Azure"
+   description="Learn how to manage your StorSimple device by using the StorSimple Manager service in the Azure classic portal."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
-# Use StorSimple Manager service to administer your StorSimple device
+# Use the StorSimple Manager service to administer your StorSimple device
 
 ## Overview
 
@@ -30,13 +30,13 @@ After reading this article, you will learn to:
 
 ## Connect to StorSimple Manager service
 
-The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. You use a central Microsoft Azure Management Portal running in a browser to manage these devices. To connect to the StorSimple Manager service, do the following.
+The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. You use a central Microsoft Azure classic portal running in a browser to manage these devices. To connect to the StorSimple Manager service, do the following.
 
 #### To connect to the service
 
 1. Navigate to [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
-1. Using your Microsoft account credentials, log on to the Microsoft Azure Management Portal (located at the top-right of the pane).
+1. Using your Microsoft account credentials, log on to the Microsoft Azure classic portal (located at the top-right of the pane).
 
 1. Scroll down the left navigation pane to access the StorSimple Manager service.
 
@@ -63,6 +63,9 @@ The navigational hierarchy for the StorSimple Manager service UI is shown in the
 ||Jobs|Configure (Device)|
 ||Alerts|Maintenance|
 
+![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
+
+To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administer StorSimple device using StorSimple Manager service
 
@@ -93,7 +96,7 @@ For more information about each workflow, click the appropriate procedure in the
 |Modify device settings</br>Modify time settings</br>Modify DNS.md settings</br>Configure network interfaces|StorSimple Manager service → Devices → Configure|[Modify device configuration for your StorSimple device](storsimple-modify-device-config.md)|
 |View web proxy settings|StorSimple Manager service → Devices → Configure|[Configure web proxy for your device](storsimple-configure-web-proxy.md)|
 |Modify device administrator password</br>Modify StorSimple Snapshot Manager password|StorSimple Manager service → Devices → Configure|[Change StorSimple passwords](storsimple-change-passwords.md)|
-|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|Configure remote management|StorSimple Manager service → Devices → Configure|[Connect remotely to your StorSimple device](storsimple-remote-connect.md)|
 |Configure alert settings|StorSimple Manager service → Devices → Configure|[View and manage StorSimple alerts](storsimple-manage-alerts.md)|
 |Configure CHAP for your StorSimple device|StorSimple Manager service → Devices → Configure|[Configure CHAP for your StorSimple device](storsimple-configure-chap.md)|
 |Add a backup policy</br>Add or modify a schedule</br>Delete a backup policy</br>Take a manual backup</br>Create a custom backup policy with multiple volumes and schedules|StorSimple Manager service → Devices → Backup policies|[Manage backup policies](storsimple-manage-backup-policies.md)|
@@ -102,12 +105,12 @@ For more information about each workflow, click the appropriate procedure in the
 |Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](storsimple-create-manage-support-package.md)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device.md)|
 
+
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or with any of its hardware components, refer to:
 
 - [Troubleshoot an operational device](storsimple-troubleshoot-operational-device.md)
 - [Use StorSimple monitoring indicator LEDs](storsimple-monitoring-indicators.md)
-
 
 If you cannot resolve the issues and you need to create a service request, refer to:
 

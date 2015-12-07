@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Azure Stream Analytics Query Patterns | Microsoft Azure"
+	pageTitle="Query examples for common usage patterns in Stream Analytics | Microsoft Azure"
 	description="Common Azure Stream Analytics Query Patterns "
-	keywords="stream analytics, sample, query, language, guide, patterns"
+	keywords="query examples"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,18 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/19/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
-# Common Azure Stream Analytics Query Patterns  #
+# Query examples for common Stream Analytics usage patterns #
 
 ## Introduction ##
+
 Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented [here](https://msdn.microsoft.com/library/azure/dn834998.aspx).  This document outlines solutions to several common query patterns based on real world scenarios.  It is a work in progress and will continue to be updated with new patterns on an ongoing basis.
 
-## Basics ##
-
-## Data type conversions ##
+## Query example: Data type conversions ##
 **Description**: Define the types of the properties on the input stream.
 e.g. Car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.
 
@@ -56,7 +55,7 @@ e.g. Car weight is coming on the input stream as strings and needs to be convert
 **Explanation**:
 Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
 
-## Using Like/Not like to do pattern matching ##
+## Query example: Using Like/Not like to do pattern matching ##
 **Description**: Check that a field value on the event matches a certain pattern
 e.g. Return license plates that start with A and end with 9
 
@@ -87,7 +86,7 @@ e.g. Return license plates that start with A and end with 9
 **Explanation**:
 Use the LIKE statement to check that the LicensePlate field value starts with A then has any string of zero or more characters and it ends with 9. 
 
-## Specify logic for different cases/values (CASE statements) ##
+## Query example: Specify logic for different cases/values (CASE statements) ##
 **Description**: Provide different computation for a field based on some criteria.
 e.g. Provide a string description for how many cars passed of the same make with a special case for 1.
 
@@ -123,7 +122,7 @@ e.g. Provide a string description for how many cars passed of the same make with
 **Explanation**:
 The CASE clause allows us to provide a different computation based on some criteria (in our case the count of cars in the aggregate window).
 
-## Send data to multiple outputs ##
+## Query example: Send data to multiple outputs ##
 **Description**: Send data to multiple output targets from a single job.
 e.g. Analyze data for a threshold-based alert and archive all events to blob storage
 
@@ -194,9 +193,7 @@ e.g.
 	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
 	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## Patterns ##
-
-## Counting unique values
+## Query example: Counting unique values
 **Description**: count the number of unique field values that appear in the stream within a time window.
 e.g. How many unique make of cars passed through the toll booth in a 2 second window?
 
@@ -242,7 +239,7 @@ e.g. How many unique make of cars passed through the toll booth in a 2 second wi
 We do an initial aggregation to get unique makes with their count over the window.
 We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.
 
-## Determine if a value has changed ##
+## Query example: Determine if a value has changed ##
 **Description**: Look at a previous value to determine if it is different than the current value
 e.g. Is the previous car on the Toll Road the same make as the current car?
 
@@ -272,27 +269,27 @@ e.g. Is the previous car on the Toll Road the same make as the current car?
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are different.
 
-## Find first event in a window ##
+## Query example: Find first event in a window ##
 **Description**: Find first car in every 10 minute interval?
 
 **Input**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Output**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
 **Solution**:
 
@@ -307,13 +304,13 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 Now let’s change the problem and find first car of particular Make in every 10 minute interval.
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solution**:
 
@@ -326,27 +323,27 @@ Now let’s change the problem and find first car of particular Make in every 10
 	WHERE 
 		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## Find last event in a window ##
+## Query example: Find last event in a window ##
 **Description**: Find last car in every 10 minute interval.
 
 **Input**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Output**:
 
-| License plate | Make | Time |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solution**:
 
@@ -372,13 +369,13 @@ Now let’s change the problem and find first car of particular Make in every 10
 **Explanation**:
 There are two steps in the query – the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
 
-## Detect the absence of events ##
+## Query example: Detect the absence of events ##
 **Description**: Check that a stream has no value that matches a certain criteria.
 e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?
 
 **Input**:
 
-| Make | License plate | Time |
+| Make | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -407,7 +404,7 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
 
-## Detect duration of a condition ##
+## Query example: Detect duration of a condition ##
 **Description**: Find out how long a condition occurred for.
 e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.
 

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: Intranet SharePoint farm
+
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
 Set up your first or next SharePoint farm in Microsoft Azure and take advantage of ease of configuration and the ability to quickly expand the farm to include new capacity or optimization of key functionality. Many SharePoint farms grow from a standard, highly-available, three-tier configuration to a farm with possibly a dozen or more servers optimized for performance or separate roles, such as distributed caching or search.
 
@@ -33,6 +35,8 @@ Hosting an intranet SharePoint farm in Azure infrastructure services is an examp
 
 Your next step is to set up a dev/test intranet SharePoint farm hosted in Azure.
 
+> [AZURE.NOTE] Microsoft has released the SharePoint Server 2016 IT Preview. To make this preview easy to install and test, you can use an Azure virtual machine gallery image with SharePoint Server 2016 IT Preview and its prerequisites pre-installed. For more information, see [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Create a dev/test intranet SharePoint farm hosted in Azure
 
 You have two choices for creating a dev/test environment for a SharePoint farm hosted in Azure:
@@ -44,9 +48,9 @@ You can create these dev/test environments for free with your [MSDN subscription
 
 ### Cloud-only virtual network
 
-A cloud-only virtual network is not connected to an on-premises network. If you just want to quickly create a basic or high-availability SharePoint farm, see [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md). The following example shows the basic SharePoint farm configuration.
+A cloud-only virtual network is not connected to an on-premises network. If you just want to quickly create a basic or high-availability SharePoint farm, see [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md). The following example shows the basic SharePoint farm configuration.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Cross-premises virtual network
 
@@ -82,13 +86,38 @@ This baseline configuration requires the following set of Azure services and com
 - One storage account.
 - One Azure subscription.
 
+Here are the virtual machines and thier default sizes for this configuration.
+
+Item | Virtual machine description | Gallery image | Default size
+--- | --- | --- | ---
+1. | First domain controller | Windows Server 2012 R2 Datacenter | A2 (Medium)
+2. | Second domain controller | Windows Server 2012 R2 Datacenter | A2 (Medium)
+3. | First database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4. | Second database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5. | Majority node for the cluster | Windows Server 2012 R2 Datacenter | A1 (Small)
+6. | First SharePoint application server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+7. | Second SharePoint application server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+8. | First SharePoint web server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+9. | Second SharePoint web server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+
+To compute the estimated costs for this configuration, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
+
+1. In **Modules**, click **Compute**, and then click **Virtual Machines** enough times to create a list of nine virtual machines.
+2. For each virtual machine, select:
+	- Your intended region
+	- **Windows** for the type
+	- **Standard** for the pricing tier
+	- The default size in the previous table or your intended size for the **Instance size**
+
+> [AZURE.NOTE] The Azure Pricing Calculator does not include the additional costs for the SQL Server license for the two virtual machines running SQL Server 2014 Enterprise. See [Virtual Machines Pricing-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) for more information.
+
 ### Deployment phases
 
 To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure.
 
-	Use the Azure portal and Azure PowerShell to create a storage account, cloud services, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Use the Azure classic portal and Azure PowerShell to create a storage account, cloud services, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Phase 2: Configure the domain controllers.
 

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Add and manage multiple Azure AD directories | Microsoft Azure"
-   description="Instructions and best practices for adding and managing your Azure AD directories, explaining directories as a fully independent resources"
+   pageTitle="Add and manage multiple Azure Active Directory directories | Microsoft Azure"
+   description="Instructions and best practices for adding and managing your Azure Active Directory directories, explaining directories as a fully independent resources"
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="swadhwa"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/16/2015"
+   ms.date="12/01/2015"
    ms.author="curtand"/>
 
-# Add and manage multiple Azure AD directories
+# Add and manage multiple Azure Active Directory directories
 
-In Azure AD directory, each directory is a fully independent resource: a peer, fully-featured, and logically independent of other directories that you manage. There is no parent-child relationship between directories. This independence between directories includes resource independence, administrative independence, and synchronization independence.
+In Azure Active Directory (Azure AD), each directory is a fully independent resource: a peer, fully-featured, and logically independent of other directories that you manage. There is no parent-child relationship between directories. This independence between directories includes resource independence, administrative independence, and synchronization independence.
 
 ##Resource independence
 
@@ -26,7 +26,7 @@ If you create or delete a resource in one directory, it has no impact on any res
 
 ##Administrative independence
 
-If a non-administrative user of directory 'Contoso', creates a test directory 'Test' then:
+If a non-administrative user of directory 'Contoso' creates a test directory 'Test' then:
 - By default, the user who creates a directory is added as an external user in that new directory, and assigned the global administrator role in that directory.
 - The administrators of directory 'Contoso' have no direct administrative privileges to directory 'Test' unless an administrator of 'Test' specifically grants them these privileges. Administrators of 'Contoso' can control access to directory 'Test' if they control the user account which created 'Test.'
 - If you change (add or remove) an administrator role for a user in one directory, the change does not affect any administrator role that the user might have in another directory.
@@ -39,7 +39,7 @@ You can configure each Azure AD directory independently to get data synchronized
 
 ##Add an Azure AD directory
 
-To add an Azure AD directory in the Azure Management Portal, select the Active Directory extension on the left and tap **Add**.
+To add an Azure AD directory in the Azure classic portal, select the Azure Active Directory extension on the left and tap **Add**.
 
 > [AZURE.NOTE]   Unlike other Azure resources, your directories are not child resources of an Azure subscription. If you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center. You can also associate another subscription with the directory.
 

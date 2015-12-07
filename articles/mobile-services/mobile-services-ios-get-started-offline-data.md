@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Get Started with Offline Data Sync in Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -155,7 +160,7 @@ When using the Core Data offline store, you need to define particular tables and
 
     #### TodoItem
 
-    | Attribute     |  Type   | Note                                                   | 
+    | Attribute     |  Type   | Note                                                   |
     |-------------- |  ------ | -------------------------------------------------------|
     | id (required) | String  | primary key in remote store (required)                 |
     | complete      | Boolean | todo item field                                        |
@@ -198,7 +203,7 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 
 3. View the contents of the remote TodoItem table. Verify that the new items have _not_ been synced to the server.
 
-   - For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
+   - For the JavaScript backend, go to the [Azure classic portal](http://manage.windowsazure.com), and click the Data tab to view the contents of the `TodoItem` table.
    - For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
 4. Turn on Wi-Fi in the iOS simulator. Next, perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
@@ -263,7 +268,6 @@ To synchronize the local store with the server, you used `MSSyncTable.pullWithQu
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]:  mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 

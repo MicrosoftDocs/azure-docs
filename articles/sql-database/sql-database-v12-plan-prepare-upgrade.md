@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Plan and prepare to upgrade to SQL Database V12"
+	pageTitle="Plan your upgrade to SQL Database V12 | Microsoft Azure"
 	description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="10/08/2015"
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to SQL Database V12
 
 
-This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12 ([at preview in some regions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+This topic describes the planning and preparations you must perform to upgrade your Azure SQL databases from version V11 to V12.
 
 
-A new [Azure preview portal](http://portal.azure.com/) is available to support your upgrade to V12.
+A new [Azure Portal](http://portal.azure.com/) is available to support your upgrade to V12.
 
 
 The following table lists other Help topics for V12.
@@ -33,8 +33,7 @@ The following table lists other Help topics for V12.
 | Title and link | Description of content |
 | :--- | :--- |
 | [What's new in SQL Database V12](sql-database-v12-whats-new.md) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
-| [Walkthrough: sign up for the Latest SQL Database Update V12](sql-database-v12-sign-up.md) | Describes the steps you must perform if you want to upgrade your Azure SQL databases to V12. |
-| [Create a database in SQL Database Update V12](sql-database-create.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
+| [Create a database in SQL Database V12](sql-database-get-started.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
 
 
 ## Plan ahead
@@ -60,15 +59,15 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
-
+- [SQL Database service tiers](sql-database-service-tiers.md)
 - [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
-- [Azure SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Review the geo-replication configuration
 
 
-If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop the geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
+If your Azure SQL database is configured for geo-replication, you should document its current configuration, and stop geo-replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for geo-replication.
 
 
 The strategy is to leave the source intact and test on a copy of the database.
@@ -92,7 +91,7 @@ The Web and Business service pricing tier is not supported on V12.
 If your V11 Azure SQL database is a Web or Business database, the upgrade process offers to switch your database to a supported tier. The upgrade recommends a tier that fits the workload history of your database. However, you can choose any supported tier you like.
 
 
-You can reduce the steps necessary during upgrade by switching your V11 database away from the Web-and-Business tier before you start the upgrade. You can do this by using the new [Azure preview portal](http://portal.azure.com/).
+You can reduce the steps necessary during upgrade by switching your V11 database away from the Web-and-Business tier before you start the upgrade. You can do this by using the new [Azure Portal](http://portal.azure.com/).
 
 
 If you are unsure which service tier to switch to, the S2 level of the Standard tier might be a sensible initial choice. Any lesser tier will have fewer resources than the Web and Business tier had.
@@ -107,6 +106,18 @@ The upgrade to V12 cannot run if geo-replication is active on your database. You
 After the upgrade completes you can configure your database to again use geo-replication.
 
 
+### Client on an Azure VM
+
+
+If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the following port ranges on the VM:
+
+- 11000-11999
+- 14000-14999
+
+
+Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
+
+
 ##<a id="limitations"></a>Limitations during and after upgrade to V12
 
 
@@ -116,18 +127,18 @@ After the upgrade completes you can configure your database to again use geo-rep
 There are three portals for Azure, and each has different abilities regarding SQL Database V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)<br/>This Azure preview portal is new and is still at preview status. This portal is not quite yet at full General Availability (GA). This portal:
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>This Azure Portal is new and is still at preview status. This portal is not quite yet at full General Availability (GA). This portal:
  - Can manage your V12 server and database.
  - Can upgrade your V11 database to V12.
 
 
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure portal might eventually be phased out. This portal:
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure Classic Portal might eventually be phased out. This portal:
  - Can manage your V12 server and database.
  - Can *not* upgrade your V11 database to V12.
 
 
 - (http://*yourservername*.database.windows.net)<br/>
-Azure SQL Database Management portal:
+Azure SQL Database Classic Portal:
  - Can*not* manage V12 servers.
 
 
@@ -142,7 +153,7 @@ We encourage you to connect to your Azure SQL databases with Visual Studio 2013 
 You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
 
 
-In the older Azure portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
+In the older Azure Classic Portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
 
 
 For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
@@ -158,6 +169,7 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | :--- | :--- |
 | Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
+| Database is briefly unavailable in final phase of upgrade to V12 | The databases belonging to your V11 server remain available during the upgrade process. However, the connection to the server and databases is briefly unavailable in the final phase, when the switch over begins from V11 to the ready V12.<br/><br/>The switch over period can range from 40 seconds to 5 minutes. For most servers, switch over is expected to complete within 90 seconds. Switch over time increases for servers that have a large number of databases, or when the databases have heavy write workloads. |
 
 
 ### Limitation *after* upgrade to V12
@@ -167,13 +179,13 @@ The V11 database remains available for data access during the upgrade to V12. Ye
 | :--- | :--- |
 | Cannot revert to V11 | After an upgrade in-place, the result cannot be reverted or undone. |
 | Web or Business tier | Once the upgrade starts, the server for the new V12 database can no longer recognize or accept the Web or Business service tier. |
-| 50% discount not reflected in the pricing tier cards in the Azure portal | During the preview period, there is a 50% preview discount* on databases enrolled in the latest Azure SQL database preview update (V12). Even if the discount is not shown in the preview portal on the service pricing tier blade, the discount is in force.<br/><br/> The 50% discount remains in effect in all geographic regions until **2015-March-31**, when it expires for all regions. The discount is effect even in regions that have been announced at general availability (GA) status.<br/><br/> (* Use of latest Azure SQL Database Update V12 feature is subject to the preview terms in your license agreement (e.g., the Enterprise Agreement, Microsoft Azure Agreement, or Microsoft Online Subscription Agreement), as well as any applicable [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).  For the duration of the preview, Microsoft will bill you (or your reseller, as applicable) for all databases enrolled in this preview at half the general availability (GA) rate to achieve a 50% preview discount. Microsoft will provide 30 days notice via email prior to the expiration of the preview period and the discounted preview rate.) |
+
 
 
 ### Export and import *after* upgrade to V12
 
 
-You can export or import a V12 database by using the [Azure preview portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
+You can export or import a V12 database by using the [Azure Portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
 
 
 - SQL Server Management Studio (SSMS)
@@ -209,18 +221,19 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 5. You can switch the database to any supported service tier, if S0 is not your preference.
 
 
-### Powershell cmdlets
+### PowerShell cmdlets
 
 
-Powershell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+
+- [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server.md)
+
+For reference documentation about these PowerShell cmdlets, see:
 
 
-For reference documentation about these Powershell cmdlets, see:
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
 The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources.
@@ -230,10 +243,6 @@ The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, 
 
 
 If the upgrade fails for any odd reason, your V11 database remains active and available as normal.
-
-
-> [AZURE.NOTE]
-> The pre-V12 database *remains available* for data access during the upgrade to V12.
 
 
 ## Related links

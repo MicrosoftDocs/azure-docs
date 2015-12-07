@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Testability Action."
+   pageTitle="Testability Action | Microsoft Azure"
    description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/31/2015"
    ms.author="heeldin;motanv"/>
 
 # Testability actions

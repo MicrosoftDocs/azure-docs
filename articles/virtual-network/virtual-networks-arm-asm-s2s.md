@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="09/18/2015"
    ms.author="telmos" />
 
 # Connecting classic VNets to new VNets
@@ -272,9 +272,9 @@ You need to configure the classic VNet to use the IP address of the gateway crea
 
 4. Open the file you just downloaded, and edit the **LocalNetworkSite** element for **vnet02** to add the IP address of the gateway for the new VNet obtained in step 1 above. The element should look similar to the sample below.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>

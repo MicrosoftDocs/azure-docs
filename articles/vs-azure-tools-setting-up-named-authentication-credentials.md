@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Setting Up Named Authentication Credentials"
    description="Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. "
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="kempb"
    manager="douge"
    editor="tglee" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/02/2015"
    ms.author="kempb" />
 
 # Setting Up Named Authentication Credentials
@@ -21,7 +21,7 @@ To publish an application to Azure from Visual Studio or to monitor an existing 
 
 Azure Tools also supports an older way of providing credentials, using the subscription file (.publishsettings file). This topic describes this method, which is still supported in Azure SDK 2.2.
 
-Two items of data are required for authentication to Azure:
+The following items are required for authentication to Azure.
 
 - Your subscription ID
 
@@ -41,9 +41,9 @@ If you want to create a certificate yourself, you can refer to the instructions 
 
 You can also set up, modify, or export your authentication credentials in the **New Subscription** dialog box, which appears if you perform either of the following actions:
 
-- In Server Explorer, open the shortcut menu for the **Azure** node, choose **Manage Subscriptions**, choose the **Certificates** tab, and choose the **New** or **Edit** button.
+- In **Server Explorer**, open the shortcut menu for the **Azure** node, choose **Manage Subscriptions**, choose the **Certificates** tab, and choose the **New** or **Edit** button.
 
-- When you publish an Azurecloud service from the **Publish Azure Application** wizard, choose **<Manage>** in the **Choose your Subscription** list, then choose the Certificates tab, and then choose the **New** or **Edit** button.
+- When you publish an Azure cloud service from the **Publish Azure Application** wizard, choose **Manage** in the **Choose your Subscription** list, then choose the Certificates tab, and then choose the **New** or **Edit** button.
 
 The following procedure assumes that the **New Subscription** dialog box is open.
 
@@ -55,13 +55,13 @@ The following procedure assumes that the **New Subscription** dialog box is open
 
     >[AZURE.IMPORTANT] To publish your Azure application from Visual Studio, you must upload this certificate to the Management Portal.
 
-1. To upload the certificate to the Management Portal:
+1. To upload the certificate to the Azure Management Portal:
 
     1. Choose the Azure Portal link.
 
-         The [Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885) opens.
+         The [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885) opens.
 
-    1. Sign in to the Management Portal by using your Microsoft account, and then choose the **Cloud Services** button.
+    1. Sign in to the Azure Management Portal by using your Microsoft account, and then choose the **Cloud Services** button.
 
     1. Choose the cloud service that interests you.
 
@@ -70,4 +70,3 @@ The following procedure assumes that the **New Subscription** dialog box is open
     1. On the **Certificates** tab, choose the **Upload** button.
 
     1. Paste the full path of the .cer file that you just created, and then enter the password that you specified.
-

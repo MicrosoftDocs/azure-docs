@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to manage user accounts in Azure API Management
@@ -22,11 +22,11 @@ In API Management, developers are the users of the APIs that you expose using AP
 
 ## <a name="create-developer"> </a>Create a new developer
 
-To create a new developer, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+To create a new developer, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
-Click **Developers** from the **API Management** menu on the left, and then click **add user**.
+Click **Users** from the **API Management** menu on the left, and then click **add user**.
 
 ![Create developer][api-management-create-developer]
 
@@ -42,7 +42,7 @@ Developer accounts that are in an **active** state can be used to access all of 
 
 ## <a name="invite-developer"> </a>Invite a developer
 
-To invite a developer, click **Developers** from the **API Management** menu on the left, and then click **Invite User**.
+To invite a developer, click **Users** from the **API Management** menu on the left, and then click **Invite User**.
 
 ![Invite developer][api-management-invite-developer]
 
@@ -50,7 +50,7 @@ Enter the name and email address of the developer, and click **Invite**.
 
 ![Invite developer][api-management-invite-developer-window]
 
-A confirmation message is displayed, but the newly invited developer does not appear in the list until after the accept the invitation. 
+A confirmation message is displayed, but the newly invited developer does not appear in the list until after they accept the invitation. 
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure"
-	description="Use Chrome Postman with Azure Search. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
+	pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Use Chrome Postman with Azure Search, a hosted cloud search service. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,10 +14,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # How to use Chrome Postman with Azure Search #
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") is a tool provided as part of Google Chrome that allows developers to work efficiently with REST-based API services such as Azure Search. You can use Postman to quickly create and query your search indexes by sending API calls through Postman, without having to write any code. This approach is an efficient way to learn the API and try out new features.
 
@@ -108,7 +114,7 @@ Now that we have walked through all the basics of using Azure Search with Postma
 
 Documentation for the REST API can be found on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-You can also visit the [Video and tutorial list](https://msdn.microsoft.com/library/azure/dn818681.aspx) for more examples.
+You can also visit the [Video and tutorial list](search-video-demo-tutorial-list.md) for more examples.
 
 <!-- Image References -->
 [1]: ./media/search-chrome-postman/full_postman_client.png

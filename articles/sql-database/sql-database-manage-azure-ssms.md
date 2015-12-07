@@ -13,11 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/11/2015" 
 	ms.author="jeffreyg"/>
 
 
 # Managing Azure SQL Database using SQL Server Management Studio 
+
+
+> [AZURE.SELECTOR]
+- [Azure Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database logical servers and databases. This topic walks you through common tasks with SSMS. You should already have a logical server and database created in Azure SQL Database before you begin. To get started, read [Create your first Azure SQL Database](sql-database-get-started.md) and then come back.
 
@@ -28,7 +34,7 @@ It's recommended that you use the latest version of SSMS whenever you work with 
 
 Connecting to SQL Database requires that you know the server name on Azure. You might need to sign in to the portal to get this information.
 
-1.  Sign in to the [Azure Management Portal](http://manage.windowsazure.com).
+1.  Sign in to the [Azure Classic Portal](http://manage.windowsazure.com).
 
 2.  In the left pane, click **SQL Databases**.
 

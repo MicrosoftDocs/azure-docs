@@ -1,19 +1,5 @@
-<properties 
-   pageTitle="Cable your StorSimple 8600 for power | Microsoft Azure"
-   description="Explains how to attach the power cables and then turn on a StorSimple 8600 device for the first time.."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+<!--author=alkohli last changed: 9/16/15-->
+
 
 #### To cable your device for power
 

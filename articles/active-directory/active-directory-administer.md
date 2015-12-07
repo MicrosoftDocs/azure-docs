@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Administer your Azure AD directory"
+	pageTitle="Administer your Azure AD directory | Microsoft Azure"
 	description="A topic that explains what an Azure AD tenant is, and how to manage an Azure AD directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/05/2015"
+	ms.date="12/01/2015"
 	ms.author="markvi"/>
 
 # Administer your Azure AD directory

@@ -1,19 +1,4 @@
-<properties
-   pageTitle="Install updates manually"
-   description="Explains how to use the StorSimple update feature and the Management Portal to install updates manually."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### To install regular updates via the Management Portal
 

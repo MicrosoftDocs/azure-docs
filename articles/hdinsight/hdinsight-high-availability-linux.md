@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure"
-	description="Linux-based HDInsight clusters improve reliability and availability by using an additional head node."
+	pageTitle="High availability features of Linux-based HDInsight (Hadoop) | Microsoft Azure"
+	description="Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH."
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/24/2014"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight
@@ -37,7 +37,7 @@ HDInsight clusters provide a secondary head node, which allows master services a
 
 In general, all access to the cluster through the public gateways (Ambari web and REST APIs,) is not effected by having multiple head nodes. The request is routed to the active head node and serviced as appropriate.
 
-When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to headnode0; connecting through port 23 will connect to headnode1.
+When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to head node 0; connecting through port 23 will connect to head node 1.
 
 ### Internal fully qualified domain names (FQDN)
 
@@ -49,7 +49,7 @@ For example, the Oozie service can only run on one head node, and using the `ooz
 
 This will return a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## How to check on a service status
 
@@ -74,7 +74,7 @@ For example, to check the status of the **HDFS** service on a cluster named **my
 The response will be similar to the following:
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ The response will be similar to the following:
 	  }
 	}
 
-The URL tells us that the service is currently running on **headnode0**.
+The URL tells us that the service is currently running on **head node 0**.
 
 The state tells us that the service is currently running, or **STARTED**.
 
@@ -128,11 +128,7 @@ Each head node can have unique log entries, so you should check the logs on both
 
 ###Ambari
 
-> [AZURE.NOTE] Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see one of the following:
->
-> * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE] Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN,) and then use **Quick Links** to select which head node to view the logs for.
 
@@ -142,15 +138,15 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 The size of the head node can only be selected during cluster creation. The default size for head nodes is **A3**, which provides 4 cores, 7GB memory, and 285GB of local storage. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure preview portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
+When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
-* **Azure preview portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of both the head and data (worker) nodes for the cluster:
+* **Azure Portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of both the head and data (worker) nodes for the cluster:
 
 	![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 
 * **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head node using the `--headNodeSize` parameter.
 
-* **Azure PowerShell**: When using the `New-AzureHDInsightCluster` cmdlet, you can set the size of the head node using the `-HeadNodeVMSize` parameter.
+* **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head node using the `-HeadNodeVMSize` parameter.
 
 ##Next steps
 
@@ -158,7 +154,7 @@ In this document you have learned how Azure HDInsight provides high availability
 
 - [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Install and configure the Azure CLI](../xplat-cli.md)
+- [Install and configure the Azure CLI](../xplat-cli-install.md)
 
 - [Install and configure Azure PowerShell](../powershell-install-configure.md)
 
@@ -168,4 +164,4 @@ In this document you have learned how Azure HDInsight provides high availability
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md

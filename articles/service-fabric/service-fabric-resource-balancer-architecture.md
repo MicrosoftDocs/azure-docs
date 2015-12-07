@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Resource Balancer Architecture"
-   description="An architectural overview of Service Fabric's Resource Balancer"
+   pageTitle="Resource Balancer architecture | Microsoft Azure"
+   description="An architectural overview of Service Fabric's Resource Balancer."
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Resource Balancer Architecture Overview
 

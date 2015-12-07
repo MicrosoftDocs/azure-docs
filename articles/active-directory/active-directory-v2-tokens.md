@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2 | Microsoft Azure"
+	pageTitle="App Model v2 Token reference | Microsoft Azure"
 	description="The types of tokens and claims emitted by the v2.0 Endpoint"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # App model v2.0 preview: Token reference

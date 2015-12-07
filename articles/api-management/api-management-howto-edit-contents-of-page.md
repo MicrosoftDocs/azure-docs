@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to edit the contents of a page in Azure API Management
@@ -31,6 +31,6 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 
 [Next steps]: #next-steps
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png

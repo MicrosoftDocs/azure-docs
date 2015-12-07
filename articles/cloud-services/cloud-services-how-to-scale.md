@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to scale a cloud service | Microsoft Azure" 
-	description="Learn how to scale a cloud service and linked resources in Azure." 
+	pageTitle="Configure autoscale for a cloud service | Microsoft Azure" 
+	description="Learn how to use the portal to configure autoscale rules for a cloud service and linked resources in Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# How to Scale an Application
+# How to Autoscale an Application
 
-On the Scale page of the Azure Management Portal, you can manually scale your application or you can set parameters to automatically scale it. You can scale applications that are running Web Roles, Worker Roles, or Virtual Machines. To scale an application that is running instances of Web Roles or Worker Roles, you add or remove role instances to accommodate the work load.
+On the Scale page of the Azure classic portal, you can manually scale your application or you can set parameters to automatically scale it. You can scale applications that are running Web Roles, Worker Roles, or Virtual Machines. To scale an application that is running instances of Web Roles or Worker Roles, you add or remove role instances to accommodate the work load.
 
 When you scale an application up or down that is running Virtual Machines, new machines are not created or deleted, but are turned on or turned off from an availability set of previously created machines. You can specify scaling based on average percentage of CPU usage or based on the number of messages in a queue.
 
@@ -43,7 +43,7 @@ You should consider the following information before you configure scaling for y
 
 On the Scale page, you can manually increase or decrease the number of running instances in a cloud service.
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 
 2. Click **Scale**. Automatic scaling is disabled by default for all roles, which means that you can manually change the number of instances that are used by your application.
 
@@ -74,7 +74,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 ## Average CPU usage
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 
 2. Click **Scale**.
 
@@ -126,7 +126,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 ## Queue messages
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 2. Click **Scale**.
 3. Scroll to the section for the role or availability set, and then click **Queue**. This enables automatic scaling of your application based on a target number of queue messages.
 
@@ -180,7 +180,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 Often when you scale a role, it's beneficial to scale the database that the application is using also. If you link the database to the cloud service, you change the SQL Database edition and resize the database on the Scale page.
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 2. Click **Scale**.
 3. In the Linked Resources section, select the edition to use for the database.
 
@@ -199,7 +199,7 @@ You can schedule automatic scaling of your application by configuring schedules 
 
 **Note:** Schedules are currently not available for applications that use Virtual Machines.
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 2. Click **Scale**.
 3. On the Scale page, click **set up schedule times**.
 

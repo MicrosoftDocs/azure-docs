@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries"
-	description="Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure"
+	pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
+	description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
@@ -19,6 +19,9 @@
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
+
 This tutorial shows you how to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure. It also shows you how to authenticate the requests to Azure Resource Manager by using Azure Active Directory.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -28,7 +31,8 @@ To complete this tutorial you also need:
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure storage account](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/en-us/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 It takes about 30 minutes to do these steps.
 
@@ -36,31 +40,23 @@ It takes about 30 minutes to do these steps.
 
 To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory. Do the following to add an application:
 
-1. Open an Azure PowerShell prompt, and then run this command:
+1. Open an Azure PowerShell prompt, and then run this command, and enter the credentials for your subscription when prompted:
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. Set the Azure account that you want to use for this tutorial. Run this command and enter the credentials for your subscription when prompted:
+2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. Replace {password} in the following command with the one that you want to use and then run it to create the application:
+	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure portal.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
-4. Record the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![Create an AD application](./media/virtual-machines-arm-deployment/azureapplicationid.png)
+4. Set the permission to use the application:
 
-	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Management Portal.
-
-5. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. Set the permission to use the application:
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create a Visual Studio project and install the libraries
 
@@ -90,8 +86,8 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 1.	Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
 
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Azure;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.Resources.Models;
 		using Microsoft.Azure.Management.Storage;
@@ -187,7 +183,7 @@ A storage account is needed to store the virtual hard disk file that is created 
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Create a virtual network
+###Create networking configuration
 
 A virtual machine is most productive when it is added to a virtual network.
 
@@ -353,7 +349,7 @@ Now that you created all of the supporting resources, you can create a virtual m
 2.	Add the following code to the Main method to call the method that you just added:
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##Step 5: Add the code to delete the resources
 
@@ -382,8 +378,8 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 2.	Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
 
-	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure preview portal before you delete them.
+	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
 
-3. Browse to the Audit Logs in the Azure preview portal to see the status of the resources:
+3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
 
 	![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png)

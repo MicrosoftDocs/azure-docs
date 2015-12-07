@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to View Azure Service Fabric entities aggregated health"
+   pageTitle="How to View Azure Service Fabric entities aggregated health | Microsoft Azure"
    description="Describes how to query, view and evaluate the Azure Service Fabric entities aggregated health, through health queries and general queries."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # How to view Service Fabric health reports

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage a support package | Microsoft Azure"
-   description="Learn how to create, decrypt and edit a support package for your StorSimple device."
+   pageTitle="Create a StorSimple support package | Microsoft Azure"
+   description="Learn how to create, decrypt, and edit a support package for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 
-# Create and manage a support package
+# Create and manage a StorSimple support package
 
 ## Overview
 
@@ -33,13 +33,13 @@ After reading this tutorial, you will be able to:
 - Decrypt and edit a support package
 
 
-## Create a support package in the Management Portal
+## Create a support package in the Azure classic portal
 
-To troubleshoot any issues that you may be experiencing with StorSimple Manager service, you can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Management Portal. You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. An unencrypted, compressed support package is created (.cab file). This package can then be retrieved by the Support Engineer from the Support site when the engineer supplies the pass key.
+To troubleshoot any issues that you may be experiencing with StorSimple Manager service, you can create and upload a support package to the Microsoft Support site through the **Maintenance** page of the service in  the Azure classic portal. You will need to provide a support passkey to allow the upload. The support pass key should be provided to you by your Support Engineer in an email. An unencrypted, compressed support package is created (.cab file). This package can then be retrieved by the Support Engineer from the Support site when the engineer supplies the pass key.
 
-Perform the following steps in the Management Portal to create a support package:
+Perform the following steps in the classic portal to create a support package:
 
-#### To create a support package in the Management Portal
+#### To create a support package in the Azure classic portal
 
 1. Navigate to **Devices > Maintenance**.
 
@@ -123,7 +123,7 @@ The different parameters that can be used with the Export-HcsSupportPackage cmdl
 
 After you have generated a support package, you may need to edit the package to remove customer-specific information such as volume names, device IP addresses, and backup names from the log files. 
 
-> [AZURE.IMPORTANT] You can only edit a support package that was generated through Windows PowerShell for StorSimple. You cannot edit a package created in the Management Portal with StorSimple Manager service. 
+> [AZURE.IMPORTANT] You can only edit a support package that was generated through Windows PowerShell for StorSimple. You cannot edit a package created in the Azure classic portal with StorSimple Manager service. 
 
 To edit a support package before uploading it on the Microsoft Support site, you will need to decrypt the support package, edit the files and then encrypt it again. Perform the following steps to edit a support package:
 
@@ -196,6 +196,7 @@ An example demonstrating how to decrypt, edit and re-encrypt a support package i
 
 ## Next steps
 
-Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
+- Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
 

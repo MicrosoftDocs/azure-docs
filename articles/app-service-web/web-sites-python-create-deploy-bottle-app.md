@@ -14,10 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="huguesv"/>
-
-
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 
 # Creating web apps with Bottle in Azure
@@ -36,7 +34,7 @@ You will create a web app using the Bottle web framework (see alternate versions
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- [Python Tools 2.1 for Visual Studio] (optional)
+- [Python Tools 2.2 for Visual Studio][] (PTVS) - Note: this is optional
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
@@ -46,19 +44,19 @@ If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend ins
 
 For Git, we recommend [Git for Windows] or [GitHub for Windows]. If you use Visual Studio, you can use the integrated Git support.
 
-We also recommend installing [Python Tools 2.1 for Visual Studio]. This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
+We also recommend installing [Python Tools 2.2 for Visual Studio]. This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
 ### Mac/Linux
 
 You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.
 
 
-## Web app creation on the Azure Preview Portal
+## Web app creation on the Azure Portal
 
-The first step in creating your app is to create the web app via the [Azure Preview Portal](https://portal.azure.com).  
+The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com).  
 
-1. Log into the Azure Preview Portal and click the **NEW** button in the bottom left corner. 
-2. Click **Web + Mobile** > **Azure Marketplace** > **Web Apps**.
+1. Log into the Azure Portal and click the **NEW** button in the bottom left corner. 
+2. Click **Web + Mobile**.
 3. In the search box, type "python".
 4. In the search results, select **Bottle**, then click **Create**.
 5. Configure the new Bottle app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
@@ -134,7 +132,7 @@ The next 3 sections describe how to proceed with the web app development under 3
 
 ### Clone the repository
 
-First, clone the repository using the url provided on the Azure Preview Portal. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the url provided on the Azure Portal. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
 Open the solution file (.sln) that is included in the root of the repository.
 
@@ -146,7 +144,7 @@ Now we'll create a virtual environment for local development. Right-click on **P
 
 - Make sure the name of the environment is `env`.
 
-- Select the base interpreter. Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Preview Portal).
+- Select the base interpreter. Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal).
 
 - Make sure the option to download and install packages is checked.
 
@@ -160,7 +158,7 @@ Press F5 to start debugging, and your web browser will open automatically to the
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-You can set breakpoints in the sources, use the watch windows, etc. See the [PTVS documentation][] for more information on the various features.
+You can set breakpoints in the sources, use the watch windows, etc. See the [Python Tools for Visual Studio Documentation] for more information on the various features.
 
 ### Make changes
 
@@ -201,7 +199,7 @@ Browse to the Azure URL to view your changes.
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Preview Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -211,7 +209,7 @@ First, clone the repository using the URL provided on the Azure Preview Portal, 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository). Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade for your web app in the Azure Preview Portal)
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade for your web app in the Azure Portal)
 
 For Python 2.7:
 
@@ -280,7 +278,7 @@ Browse to the Azure URL to view your changes.
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Preview Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -290,7 +288,7 @@ First, clone the repository using the URL provided on the Azure Preview Portal, 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository). Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Preview Portal).
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).
 
 For Python 2.7:
 
@@ -299,6 +297,8 @@ For Python 2.7:
 For Python 3.4:
 
     python -m venv env
+or
+	pyvenv env
 
 Install any external packages required by your application. You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:
 
@@ -374,17 +374,16 @@ Follow these links to learn more about Bottle and Python Tools for Visual Studio
 
 For information on using Azure Table Storage and MongoDB:
 
-- [Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]
-- [Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]
+- [Bottle and MongoDB on Azure with Python Tools for Visual Studio]
+- [Bottle and Azure Table Storage on Azure with Python Tools for Visual Studio]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
-[Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
-[Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
+[Bottle and MongoDB on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle and Azure Table Storage on Azure with Python Tools for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
 
 <!--External Link references-->
 [Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -393,9 +392,8 @@ For information on using Azure Table Storage and MongoDB:
 [Git for Windows]: http://msysgit.github.io/
 [GitHub for Windows]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[PTVS documentation]: http://pytools.codeplex.com/documentation
-[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation 
+[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs 
 [Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
  

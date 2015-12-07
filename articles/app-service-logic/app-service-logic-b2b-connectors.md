@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
-	ms.author="mandia"/>
+	ms.date="10/15/2015" 
+	ms.author="mandia"/> 
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
 Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 
@@ -155,13 +155,13 @@ TPM Instance Name | Enter the name of the **BizTalk Trading Partner Management**
 
 
 ## Add your partners, agreements, certificates, and schemas 
-In the Azure Management Portal, open your TPM API App. In the **Components** section, add your Partners, Agreements, Certificates, and Schemas. 
+In the Azure portal, open your TPM API App. In the **Components** section, add your Partners, Agreements, Certificates, and Schemas. 
 
 You can also add agreements to your AS2 connectors, X12 API Apps, and EDIFACT API Apps. 
 
 
 ## Monitor your API Apps
-In the Azure Management Portal, open your TPM API App. In the **Operations** section, you can view different management operations. For example, you can:
+In the Azure portal, open your TPM API App. In the **Operations** section, you can view different management operations. For example, you can:
 
 - View Informational and Error events
 - View memory usage and thread count of the worker process (w3wp)
@@ -191,6 +191,7 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 4. Select **OK** to save your changes. 
 
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 ## More B2B resources
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Develop solutions for SQL Data Warehouse | Microsoft Azure"
-   description="Development techniques and best practices for building solutions with Azure SQL Data Warehouse."
+   pageTitle="Design decisions and coding techniques for SQL Data Warehouse development | Microsoft Azure"
+   description="Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Develop solutions for SQL Data Warehouse
+# Design decisions and coding techniques for SQL Data Warehouse
 
-Take a look through the development articles to better understand development principles, best practices and coding techniques for SQL Data Warehouse.
+Take a look through these development articles to better understand key design decisions, recommendations and coding techniques for SQL Data Warehouse.
 
-## Key concepts
+## Key design decisions
 The following articles highlight some of the key concepts and design decisions you will need to understand for the development of your distributed data warehouse using SQL Data Warehouse:
 
 - [connections][]
@@ -33,8 +33,8 @@ The following articles highlight some of the key concepts and design decisions y
 - [CTAS][]
 - [statistics][]
 
-## Development techniques
-These articles highlight specific coding techniques, tips and best practices for developing solutions with SQL Data Warehouse:
+## Development recommendations and coding techniques
+These articles highlight specific coding techniques, tips and recommendations for developing your SQL Data Warehouse:
 
 - [stored procedures][]
 - [labels][]

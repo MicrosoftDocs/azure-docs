@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Search in Java | Microsoft Azure"
-	description="How to build a custom Azure Search application using Java as your programming language."
+	pageTitle="Get started with Azure Search in Java | Microsoft Azure | Hosted cloud search service"
+	description="How to build a hosted cloud search application on Azure using Java as your programming language."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/24/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Get started with Azure Search in Java
@@ -28,7 +28,7 @@ We used the following software to build and test this sample:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com).
+To run this sample, you need an Azure Search service, which you can sign up for in the [Azure Classic Portal](https://portal.azure.com).
 
 > [AZURE.TIP] Download the source code for this tutorial at [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github.
 
@@ -38,7 +38,7 @@ This sample application uses data from the [United States Geological Services (U
 
 In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
 
 ## About the program files
 
@@ -55,7 +55,7 @@ The following list describes the files that are relevant to this sample.
 
 ## Create the service
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + storage** > **Search**.
 
@@ -123,7 +123,7 @@ All subsequent file modifications and run statements will be made against files 
 
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
 
-2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
+2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Classic Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
 
 3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
 
@@ -213,9 +213,9 @@ You could also try any of these terms:
 
 This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-If you already have some background in Azure Search, you can use this sample as a springboard for further experimentation, perhaps augmenting the [search page](search-pagination.md), or implementing [faceted navigation](../search-faceted-navigation/). You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+If you already have some background in Azure Search, you can use this sample as a springboard for further experimentation, perhaps augmenting the [search page](search-pagination.md), or implementing [faceted navigation](search-faceted-navigation.md). You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Secure a web app in Azure App Service"
 	description="Learn how to secure an Azure web app."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 One of the challenges of developing a web app is how to provide a safe and secure service for your customers. In this article, you will learn about features of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that can secure your web app.
 
 > [AZURE.NOTE] A full discussion of security considerations for web-based applications is beyond the scope of this document. As a starting point for further guidance on securing web applications, see the [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main_Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), which lists the current top 10 critical web application security flaws, as determined by OWASP members.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a name="https"></a> Secure communications
 
@@ -52,7 +54,7 @@ It's common practice to store connection strings, authentication credentials, an
 
 Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as **app settings** and **connection strings**. The values are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime.
 
-**App settings** and **connection strings** are configurable using the [Azure preview portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI.
+**App settings** and **connection strings** are configurable using the [Azure Portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI.
 
 For more information on app settings and connection strings, see [Configuring web apps](web-sites-configure.md).
 
@@ -60,7 +62,7 @@ For more information on app settings and connection strings, see [Configuring we
 
 Azure provides secure FTP access access to the file system for your web app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. The FTPS link for your web app can be found with the following steps:
 
-1. Open the [Azure preview portal](http://portal.azure.com).
+1. Open the [Azure Portal](http://portal.azure.com).
 2. Select **Browse All**.
 3. From the **Browse** blade, select **Web Apps**.
 4. From the **Web Apps** blade, Select the desired web app.
@@ -82,6 +84,3 @@ For information on logging information for web apps, which may be useful in dete
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 

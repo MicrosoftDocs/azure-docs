@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 2: Configure domain controllers
+
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure virtual network in Service Management. Client web requests for SharePoint farm resources can then be authenticated in the Azure virtual network, rather than sending that authentication traffic across the VPN or Azure ExpressRoute connection to your on-premises network.
 
@@ -31,9 +33,9 @@ Item | Virtual machine name | Gallery image | Minimum size
 --- | --- | --- | ---
 1. | ______________ (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | A2 (Medium)
 2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | A2 (Medium)
-3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________ (majority node witness for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
+3. | ______________ (first SQL Server computer, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4. | ______________ (second SQL Server computer, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5. | ______________ (majority node for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | A1 (Small)
 6. | ______________ (first SharePoint application server, example APP1) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
 7. | ______________ (second SharePoint application server, example APP2) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
 8. | ______________ (first SharePoint web server, example WEB1) | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
@@ -106,10 +108,10 @@ Log on to the first domain controller computer by using the credentials of the l
 
 ### <a id="logon"></a>To log on to a virtual machine by using a Remote Desktop connection
 
-1.	In the Azure portal, in the left pane, click **Virtual Machines**.
+1.	In the Azure classic portal, in the left pane, click **Virtual Machines**.
 2.	To connect to a VM, click **Running** in the **Status** column next to its name.
 3.	In the command bar on the bottom of the page, click **Connect**.
-4.	The portal informs you that the .rdp file is being retrieved. Click **OK**.
+4.	The Azure classic portal informs you that the .rdp file is being retrieved. Click **OK**.
 5.	The browser dialog appears, asking "Do you want to open or save ComputerName.rdp from manage.windowsazure.com?" Click **Open**.
 6.	In the **Remote Desktop Connection** dialog, click **Connect**.
 7.	In the **Windows Security** dialog, click **Use another account**.
@@ -183,7 +185,7 @@ Next, log on to any computer with a domain administrator account for the domain 
 
 	New-ADUser -SamAccountName sp_install -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_install" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-	New-	ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+	New-ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
 For each command, you will be prompted to enter a password. Record these account names and passwords and store them in a secure location.
 
@@ -203,14 +205,14 @@ Next, perform the following steps to add more account properties to the new user
 
 Next, update the DNS servers for your virtual network so that Azure assigns virtual machines the IP addresses of the two new domain controllers to use as their DNS servers. Note that this procedure uses values from Table V (for your virtual network settings).
 
-1.	In the left pane of the Azure portal, click **Networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
+1.	In the left pane of the Azure classic portal, click **Networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
 2.	Click **Configure**.
 3.	In **DNS Servers**, remove the entries corresponding to the DNS servers that are located on your on-premises network.
 4.	In **DNS Servers**, add two entries with friendly names and the IP addresses of these two table items:
  - Table V – Item 6 – Value column
  - Table V – Item 7 – Value column
 5.	In the command bar at the bottom, click **Save**.
-6.	In the left pane of the Azure portal, click **Virtual Machines**, and then click the **Status** column next to the name of your first domain controller.
+6.	In the left pane of the Azure classic portal, click **Virtual Machines**, and then click the **Status** column next to the name of your first domain controller.
 7.	In the command bar, click **Restart**.
 8.	When the first domain controller is started, click the **Status** column next to the name of your second domain controller.
 9.	In the command bar, click **Restart**. Wait until the second domain controller is started.

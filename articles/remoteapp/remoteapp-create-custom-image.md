@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create a custom template image for Azure RemoteApp"
+	pageTitle="How to create a custom template image for Azure RemoteApp | Microsoft Azure"
 	description="Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection."
 	services="remoteapp"
 	documentationCenter=""
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015" 
+	ms.date="09/12/2015" 
 	ms.author="elizapo"/>
 
 # How to create a custom template image for Azure RemoteApp
-Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
+Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. 
+
+
+> [AZURE.TIP] Did you know you can create an image from an Azure VM? True story, and it cuts down on the amount of time it takes to import the image. Check out the steps [here](remoteapp-image-on-azurevm.md).
+
+The requirements for the image that can be uploaded for use with Azure RemoteApp are:
 
 
 - The image size should be a multiple of MBs. If you try to upload an image that is not an exact multiple, the upload will fail.
@@ -33,7 +38,6 @@ Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the pro
 - The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
 - Uploading your VHD from a snapshot chain is not supported.
 
-> [AZURE.TIP] Did you know you can now create an image from an Azure VM? True story, and it cuts down on the amount of time it takes to import the image. Check out the steps [here](remoteapp-image-on-azurevm.md).
 
 **Before you begin**
 
@@ -56,7 +60,7 @@ These are the high level steps to create a new template image from scratch:
 4.	Install Windows Server 2012 R2.
 5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
 6.	Install additional features required by your applications.
-7.	Install and configure your applications.
+7.	Install and configure your applications. To make sharing apps easier, add any apps or programs that you want to share to the **Start** menu of the image, specifically in **%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs.
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS).
 10.	**REQUIRED:** Go to Windows Update and install all important updates.
@@ -106,11 +110,12 @@ The detailed steps for creating a new image are:
 1.	Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
 7.	Install and configure the programs and applications you want to publish through RemoteApp.
 
- 	**Important:**
+>[AZURE.IMPORTANT]
+>
+>Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
+>
+>Make sure a shortcut to your application (**.lnk** file) appears in the **Start** menu for all users (%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs). Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
 
-
-	- Install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
-	- Make sure your application appears in the **Start** menu. Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
 
 8.	Perform any additional Windows configurations required by your applications.
 9.	Disable the Encrypting File System (EFS). Run the following command at an elevated command window:

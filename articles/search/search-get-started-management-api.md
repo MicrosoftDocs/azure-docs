@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search Management REST API" 
-	description="Get started with Azure Search Management REST API" 
+	pageTitle="Get started with Azure Search Management REST API | Microsoft Azure | Hosted cloud search service" 
+	description="Administer your hosted cloud Azure Search service using a Management REST API" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search Management REST API
@@ -58,7 +58,7 @@ In this section, you will perform the following tasks:
 
 ###Create an Active Directory Service
 
-1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
 
 2. Scroll down the left navigation pane and click **Active Directory**.
 

@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="User Profile data in Azure RemoteApp"
+    pageTitle="User Profile data in Azure RemoteApp | Microsoft Azure"
 	description="Learn how user data is stored and accessed in Azure RemoteApp"
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="12/04/2015" 
     ms.author="elizapo" />
 
 
@@ -29,14 +29,17 @@ Each UPD has 50GB of persistent storage and contains both user data and applicat
 
 Read on for specifics on user profile data.
 
+>[AZURE.NOTE] Need to disable the UPD? You can do that now - check out Pavithra's blog post, [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx), for details.
+
+
 ## How can an admin get to the data?
 
-If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com) and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL where you can access the data - from there you can browse the location and retrieve any documents or files you need.
+If you need to access the data for one of your users (for disaster recovery or if the user leaves the company), contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com) and provide the subscription information for the collection and the user identity. The Azure RemoteApp team will provide you a URL to the VHD. Download that VHD and retrieve any documents or files you need. Note that the VHD is 50GB, so it will take a bit to download it.
 
 
 ## Is the data backed up?
 
-Yes, we save a backup of the user data per geographic location. The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get), if the primary data center is down.
+Yes, we save a backup of the user data per geographic location. The data is read-only and can be accessed in the same way as the regular data would be (contact Azure RemoteApp to get it), if the primary data center is down. The data is copied real-time to the backup location and we do not keep copies of different versions. So, on data corruption, we will not be able to restore it to a previously known good version but if the primary data center is down, you will be able to get user data from the other location.
 
 ## How do users see the UPD on the server side?
 
@@ -48,6 +51,8 @@ Azure RemoteApp saves the Outlook state (mailboxes, PSTs) between sessions. To e
 
 We also recommend that you use "cached" mode in Outlook and use "server/online" mode for searching.
 
+Check out [this article](remoteapp-outlook.md) for more information on using Outlook and Azure RemoteApp.
+
 ## Can we use shared data solutions?
 Yes, Azure RemoteApp supports using shared data solutions - particularly OneDrive for Business and Dropbox. Note, however, that OneDrive Consumer (the personal version) and Box are not supported.
 
@@ -55,7 +60,7 @@ Yes, Azure RemoteApp supports using shared data solutions - particularly OneDriv
 You can configure Azure RemoteApp to let users access local devices by setting up [redirection](remoteapp-redirection.md). Local devices will then be able to access the data on the UPD.
 
 ## Can I use my UPD as a network share?
-No, because the UPD is not persistent. A UPD is only available when the user is actively connected to Azure RemoteApp.
+No. UPDs cannot be used as a network share. A UPD is only available to the user when the user is actively connected to Azure RemoteApp.
 
 ## If I delete a user from a collection, is their UPD deleted?
 
@@ -71,9 +76,20 @@ Yes, if you contact [Azure RemoteApp](mailto:remoteappforum@microsoft.com), we c
 
 Right now we do not provide offline access to UPDs, beyond the 10 hour access window described above. This means that we do not currently have a way to provide you with access for long enough to complete more complicated tasks, like running anti-virus software on the UPDs or accessing data for an audit.
 
+## Do registry key settings persist?
+Yes, anything written to HKEY_Current_User is part of the UPD.
+
 ## Can I disable UPDs for a collection?
 
 Yes, you can ask Azure RemoteApp to disable UPDs for a subscription, but you cannot do that yourself. This means that UPDs will be disabled for all collections in the subscription.
+
+You might want to disable UPDs in any of the following situations: 
+
+- You need complete access and control of user data (for audit and review purposes such as financial institutions).
+- You have 3rd-party user profile management solutions on-premises and want to continue using them in your domain-joined Azure RemoteApp deployment. This would require the profile agent to be loaded into the gold image. 
+- You don’t need any local data storage or you have all data in the cloud (such as OneDrive for Business) or file share and would like to control saving of data locally using Azure RemoteApp.
+
+See  [Disable User Profile Disks (UPDs) in Azure RemoteApp](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) for more information.
 
 ## Can I restrict users from saving data to the system drive?
 

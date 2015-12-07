@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use the StorSimple Manager service to modify your StorSimple device configuration | Microsoft Azure" 
+   pageTitle="Modify the StorSimple device configuration | Microsoft Azure" 
    description="Describes how to use the StorSimple Manager service to reconfigure a StorSimple device that has already been deployed." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/14/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="12/02/2015"
+   ms.author="v-sharos"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration
 
 ## Overview 
 
-The Management Portal **Configure** page contains all the device parameters that you can reconfigure on a StorSimple device that is managed by a StorSimple Manager service. This tutorial explains how you can use the **Configure** page to perform the following device-level tasks:
+The Azure classic portal **Configure** page contains all the device parameters that you can reconfigure on a StorSimple device that is managed by a StorSimple Manager service. This tutorial explains how you can use the **Configure** page to perform the following device-level tasks:
 
 - Modify device settings 
 - Modify time settings 
@@ -39,15 +39,15 @@ A StorSimple device that is connected to the StorSimple Manager service is assig
 - **0991003** - Indicates a specific product.
 - **G44HT**- The last 5 digits are incremented to create unique serial numbers. This might not be a sequential set.
 
-You can use the Management Portal to change the device name and assign it a unique friendly name of your choice. The friendly name can contain any characters and can be a maximum of 64 characters long.
+You can use the Azure classic portal to change the device name and assign it a unique friendly name of your choice. The friendly name can contain any characters and can be a maximum of 64 characters long.
 
 You can also specify a device description. A device description usually helps identify the owner and the physical location of the device. The description field must contain fewer than 256 characters.
  
 ## Modify time settings
 
-Your device must synchronize time in order to authenticate with your cloud storage service provider. Select your time zone from the drop-down list, and specify up to two Network Time Protocol (NTP) servers. The primary NTP server is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Management Portal, but you must use the Windows PowerShell interface to change it.
+Your device must synchronize time in order to authenticate with your cloud storage service provider. Select your time zone from the drop-down list, and specify up to two Network Time Protocol (NTP) servers. The primary NTP server is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure classic portal, but you must use the Windows PowerShell interface to change it.
 
-The secondary NTP server configuration is optional. You can use the Management Portal to configure a secondary NTP server. 
+The secondary NTP server configuration is optional. You can use the classic portal to configure a secondary NTP server. 
 
 When configuring the NTP server, ensure that your network allows the NTP traffic to pass from your datacenter to the Internet. When specifying a public NTP server, you must make sure that your network firewalls and other security devices are configured to allow NTP traffic to travel to and from the outside network. If bidirectional NTP traffic is not permitted, you must use an internal NTP server (a Windows domain controller provides this function). If your device cannot synchronize time, it may not be able to communicate with your cloud storage provider.
 
@@ -61,7 +61,7 @@ If the device is deployed in a different time zone, the device time zone will ch
 
 A DNS server is used when your device attempts to communicate with your cloud storage service provider. For high availability, you are required to configure both the primary and the secondary DNS servers during the initial device deployment. To reconfigure the primary DNS server, you will need to use the Windows PowerShell interface on your StorSimple device.
 
-To modify the secondary DNS server, you can use the Management Portal.
+To modify the secondary DNS server, you can use the Azure classic portal.
 
 <!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
 
@@ -102,7 +102,7 @@ For each network interface, the following parameters are displayed:
 
 - **Fixed IP address** – This field is available only while you configure the DATA 0 interface. For operations such as updates or troubleshooting the device, you may need to connect directly to the device controller. The fixed IP address can be used to access both the active and the passive controller on your device.
 
-You can reconfigure Controller 0 and Controller 1 through the Management Portal.
+You can reconfigure Controller 0 and Controller 1 through the Azure classic portal.
 
 >[AZURE.NOTE] 
 >
@@ -124,6 +124,7 @@ Perform the following steps to swap or reassign the VIPs for any of the network 
 
 ## Next steps
 
-[Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
- 
+- Learn how to [configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
      

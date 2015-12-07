@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure web proxy for your device | Microsoft Azure"
-   description="Learn how to configure web proxy for your StorSimple device using Windows PowerShell for StorSimple"
+   pageTitle="Set up web proxy for a StorSimple device | Microsoft Azure"
+   description="Learn how to use Windows PowerShell for StorSimple to configure web proxy settings for your StorSimple device."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
-# Configure web proxy for your device
+# Configure web proxy for your StorSimple device
 
 ## Overview
 
-This tutorial describes how to use the Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device. The web proxy settings are used by the StorSimple device when communicating with the cloud. A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.
+This tutorial describes how to use Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device. The web proxy settings are used by the StorSimple device when communicating with the cloud. A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.
 
-Web proxy is an optional configuration for your StorSimple device. You can configure web proxy only via the Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
+Web proxy is an optional configuration for your StorSimple device. You can configure web proxy only via Windows PowerShell for StorSimple. The configuration is a two-step process as follows:
 
 1. You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.
 
@@ -33,7 +33,7 @@ After reading this tutorial, you will be able to:
 
 - Configure web proxy by using setup wizard and cmdlets
 - Enable web proxy by using cmdlets
-- View web proxy settings in the Management Portal
+- View web proxy settings in the Azure classic portal
 - Troubleshoot errors during web proxy configuration
 
 
@@ -75,7 +75,7 @@ You can use the setup wizard to guide you through the steps for web proxy config
 
 If you are registering your device for the first time, continue with the registration. If your device was already registered, the wizard will exit. The configured settings will be saved.
 
-Web proxy will now also be enabled. You can skip the [Enable web proxy](#enable-web-proxy) step and go directly to [View the web proxy settings in the Management Portal](#view-web-proxy-settings-in-the-management-portal).
+Web proxy will now also be enabled. You can skip the [Enable web proxy](#enable-web-proxy) step and go directly to [View web proxy settings in the Azure classic portal](#view-web-proxy-settings-in-the-azure-classic-portal).
 
 
 ## Configure web proxy via Windows PowerShell for StorSimple cmdlets
@@ -116,9 +116,9 @@ Perform the following steps in Windows PowerShell for StorSimple to enable web p
 
 	![Configure Web Proxy On StorSimple Device4](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## View web proxy settings in the Management Portal
+## View web proxy settings in the Azure classic portal
 
-The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the Management Portal. You can, however, view these configured settings in the Management Portal. Perform the following steps to view web proxy.
+The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the classic portal. You can, however, view these configured settings in the classic portal. Perform the following steps to view web proxy.
 
 #### To view web proxy settings
 1. Navigate to **StorSimple Manager service > Devices**. Select and click a device and then go to **Configure**.
@@ -143,8 +143,10 @@ If the web proxy settings have been configured incorrectly, error messages will 
 > [AZURE.NOTE] 
 > 
 > -  The above list of error messages is not exhaustive. 
-> - Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the Management Portal.|
+> - Errors related to web proxy settings will not be displayed in the Azure classic portal in your StorSimple Manager service. If there is an issue with web proxy after the configuration is completed, the device status will change to **Offline** in the classic portal.|
 
 ## Next Steps
-If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](storsimple-troubleshoot-deployment.md).
 
+- If you experience any issues while deploying your device or configuring web proxy settings, refer to [Troubleshoot your StorSimple device deployment](storsimple-troubleshoot-deployment.md).
+
+- To learn how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

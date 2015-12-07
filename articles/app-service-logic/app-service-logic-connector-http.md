@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Using the HTTP Listener and Connector in Logic Apps | Microsoft Azure App Service "
    description="How to create and configure the HTTP listener and HTTP action Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="11/25/2015"
    ms.author="prkumar"/>
 
 
@@ -82,6 +82,8 @@ Now that the connector is created, you can add it to a business workflow using a
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
+
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png

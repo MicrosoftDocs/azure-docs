@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Deploy your on-premises StorSimple device"
-   description="Steps and best practices for deploying the StorSimple Update 1 device and service."
+   pageTitle="Deploy your StorSimple device (Update 1) | Microsoft Azure"
+   description="Describes the steps and best practices for deploying the StorSimple Update 1 device and service."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/21/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
-# Deploy your on-premises StorSimple device
+# Deploy your on-premises StorSimple device (Update 1)
 
 [AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
@@ -50,7 +50,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | Step 4: Complete minimum device setup</br>Optional: Update your StorSimple device.      | Use the management service to complete the device setup and enable it to provide storage.                                                                      |
 | Step 5: Create a volume container.                                                      | Create a container to provision volumes. A volume container has storage   account, bandwidth, and encryption settings for all the volumes contained in it.    |
 | Step 6: Create a volume.                                                                | Provision storage volume(s) on the StorSimple device for your servers.                                                                                        |
-| Step 7: Mount, initialize, and format a volume.</br>Optional: Configure MPIO.            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network and itnerface failure.                                                                                                                                                              |
+| Step 7: Mount, initialize, and format a volume.</br>Optional: Configure MPIO.            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network, and interface failure.                                                                                                                                                              |
 | Step 8: Take a backup.                                                                  | Set up your backup policy to protect your data                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |
@@ -71,7 +71,7 @@ The following deployment configuration checklist describes the information that 
 | **Configure and register device**          | Data 0 network settings                           | Data 0 IP Address:</br>Subnet mask:</br>Gateway:</br>Primary DNS server:</br>Primary NTP server:</br>Web proxy server IP/FQDN (optional):</br>Web proxy port:|        |
 |                                        | Device administrator password                   	 | Password must be between 8 and 15 characters containing lowercase, uppercase, numeric and special characters. |        |
 |                                        | StorSimple Snapshot Manager password              | Password must be 14 or 15 characters containing lowercase, uppercase, numeric and special characters.|        |
-|                                        | Service Registration Key                          | This key is generated from the Azure portal.    |        |
+|                                        | Service Registration Key                          | This key is generated from the Azure classic portal.    |        |
 |                                        | Service Data Encryption Key                       | This key is created when the device is registered with the management service via the Windows PowerShell for StorSimple. Copy this key and save it in a safe location.|  |
 |   |   |  |  |
 | **Complete minimum device setup**          | Friendly name for your device                     | This is a descriptive name for the device. |        |
@@ -152,7 +152,7 @@ A StorSimple Manager service can manage multiple StorSimple devices. Perform the
 
 After the StorSimple Manager service is up and running, you will need to get the service registration key. This key is used to register and connect your StorSimple device with the service.
 
-Perform the following steps in the Management Portal.
+Perform the following steps in the Azure classic portal.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -171,7 +171,7 @@ For the minimum device configuration of your StorSimple device, you are required
 - Enable iSCSI on at least one network interface.
 - Assign fixed IP addresses to both the controllers.
 
-Perform the following steps in the Management Portal to complete the minimum device setup.
+Perform the following steps in the Azure classic portal to complete the minimum device setup.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
@@ -179,13 +179,13 @@ Perform the following steps in the Management Portal to complete the minimum dev
 
 A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device. 
 
-Perform the following steps in the Management Portal to create a volume container.
+Perform the following steps in the Azure classic portal to create a volume container.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Step 6: Create a volume
 
-After you create a volume container, you can provision a storage volume on the StorSimple device for your servers. Perform the following steps in the Management Portal to create a volume.
+After you create a volume container, you can provision a storage volume on the StorSimple device for your servers. Perform the following steps in the Azure  classic portal to create a volume.
 
 > [AZURE.IMPORTANT] StorSimple Manager can create only thinly provisioned volumes. You cannot create fully provisioned or partially provisioned volumes. 
 
@@ -202,7 +202,7 @@ The following steps are performed on your Windows Server host.
 
 > - For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md). These will also include the steps to mount, initialize and format StorSimple volumes.
 
-> - For MPIO and iSCSI installation and configuration instructions on a Linux host, go to [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-linux.md)
+> - For MPIO and iSCSI installation and configuration instructions on a Linux host, go to [Configure MPIO for your StorSimple Linux host](storsimple-configure-mpio-on-linux.md)
 
 If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
 
@@ -212,7 +212,7 @@ If you decide not to configure MPIO, perform the following steps to mount, initi
 
 Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**. 
 
-Perform the following steps in the Management Portal to create a scheduled backup.
+Perform the following steps in the Azure classic portal to create a scheduled backup.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -224,7 +224,7 @@ This is an optional step that you need to perform only if you did not enable the
 
 If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md) for step-by-step instructions.
 
-Perform the following steps in the Management Portal, on the **StorSimple Manager service** page.
+Perform the following steps in the Azure classic portal, on the **StorSimple Manager service** page.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
@@ -239,9 +239,9 @@ To connect to Windows PowerShell for StorSimple, you need to use terminal emulat
 ## Scan for and apply updates
 
 Updating your device can take several hours. Perform the following steps to scan for and apply updates on your device.
-<!-- > can take 1-4 hours--> 
+<!--can take 1-4 hours--> 
 
-<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### To update your device
 
@@ -265,7 +265,7 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
 
 ## Create a manual backup
 
-Perform the following steps in the Management Portal to create an on-demand manual backup for a single volume on your StorSimple device.
+Perform the following steps in the Azure classic portal to create an on-demand manual backup for a single volume on your StorSimple device.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 
@@ -273,7 +273,7 @@ Perform the following steps in the Management Portal to create an on-demand manu
 
 Multipath I/O (MPIO) is an optional feature and is not installed on Windows Server by default. It should be installed as a feature through Server Manager. For MPIO installation instructions, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 
-For MPIO installation instructions for a StorSimple device connected to a Linux host, go to [Configure MPIO for your Linux host](storsimple-configure-mpio-linux.md).
+For MPIO installation instructions for a StorSimple device connected to a Linux host, go to [Configure MPIO for your Linux host](storsimple-configure-mpio-on-linux.md).
 
 
 > [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device. 

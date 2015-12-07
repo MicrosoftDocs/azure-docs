@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure"
+	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure | Hosted cloud search service"
 	description="Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK."
 	services="search"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/05/2015"
 	ms.author="heidist"/>
 
 # Get started with your first Azure Search application in .NET
 
-Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. This tutorial uses the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
+Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search, a cloud hosted search service on Microsoft Azure, for its search experience. This tutorial uses the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
+To run this sample, you need an Azure Search service, which you can sign up for in the [Azure Classic Portal](https://portal.azure.com).
 
 > [AZURE.TIP] Download the source code for this tutorial at [Azure Search .NET Samples](http://go.microsoft.com/fwlink/p/?LinkId=530196). Learn how to set up connections and send requests in [How to use Azure Search from a .NET application](search-howto-dotnet-sdk.md).
 
@@ -30,11 +30,11 @@ This sample application uses data from the [United States Geological Services (U
 
 In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
 
 ## Create the Azure Search service
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + Storage** > **Search**.
 
@@ -775,7 +775,7 @@ This is the first Azure Search tutorial based on .NET and the USGS dataset. Over
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-dotnet/create-search-portal-1.PNG

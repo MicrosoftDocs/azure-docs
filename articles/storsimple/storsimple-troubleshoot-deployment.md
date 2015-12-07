@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Troubleshoot StorSimple device deployment issues | Microsoft Azure"
+   pageTitle="Troubleshoot StorSimple deployment issues | Microsoft Azure"
    description="Describes how to diagnose and fix errors that occur when you first deploy StorSimple."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Troubleshoot StorSimple device deployment issues
@@ -53,7 +53,7 @@ The following steps summarize the setup wizard process. For detailed setup infor
  
     > [AZURE.IMPORTANT] Passwords are collected before registration, but applied only after you successfully register the device. If there is a failure to apply a password, you will be prompted to supply the password again until the required passwords (that meet the complexity requirements) are collected.
 
-4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key](storsimple-manage-service.md#get-the-service-registration-key) from the Azure Management Portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
+4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key](storsimple-manage-service.md#get-the-service-registration-key) from the Azure classic portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
 
 ## Common errors during device deployment
 
@@ -120,7 +120,7 @@ Passwords are collected before the device is registered, but are applied only af
 
 > [AZURE.IMPORTANT] In general, if an attempt to apply a password fails, then the software repeatedly attempts to collect the password until it is successful. In rare instances, the password cannot be applied. In this situation, you can register the device and proceed, however the passwords will not be changed. You will receive no indication as to which password was not changed — the device administrator password or the StorSimple Snapshot Manager password. If this situation occurs, we recommend that you change both passwords.
 
-You can reset the passwords from the Management Portal of your StorSimple Manager service. For more information, see: 
+You can reset the passwords in the Azure classic portal via the StorSimple Manager service. For more information, go to: 
 
 - [Change the device administrator password](storsimple-change-passwords.md#change-the-device-administrator-password).
 - [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password).
@@ -258,6 +258,8 @@ The following is the output from controller 1 (the active controller). Only the 
 
 You can use the `Test-Connection` cmdlet to determine whether your StorSimple device can connect to the outside network. If all the networking parameters, including the DNS, are configured correctly in the setup wizard, you can use the `Test-Connection` cmdlet to ping a known address outside of the network, such as outlook.com. 
 
+You should enable ping to troubleshoot connectivity issues with this cmdlet if ping is disabled.
+
 See the following samples of output from the `Test-Connection` cmdlet. 
 
 > [AZURE.NOTE] In the first sample, the device is configured with an incorrect DNS. In the second sample, the DNS is correct.
@@ -379,7 +381,7 @@ If you are running Update 1 on your StorSimple device, you will not need to run 
 
 **Sample output – offline device running StorSimple Release (July 2014)**
 
-This sample is from a device that has a status of **Offline** in the Management Portal.
+This sample is from a device that has a status of **Offline** in the Azure classic portal.
 
      Checking device state: Success 
      Device is registered successfully 

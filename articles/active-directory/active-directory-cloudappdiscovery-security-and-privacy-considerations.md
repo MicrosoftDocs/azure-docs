@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Cloud App Discovery Security and Privacy Considerations"
+	pageTitle="Cloud App Discovery Security and Privacy Considerations | Microsoft Azure"
 	description="This topic describes the security and privacy considerations related to Cloud App Discovery."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
-	editor="lisatoft"/>
+	manager="msStevenPo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="12/01/2015"
 	ms.author="markusvi"/>
 
 # Cloud App Discovery Security and Privacy Considerations

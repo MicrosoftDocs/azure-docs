@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Installing elastic database jobs" 
+	pageTitle="Installing elastic database jobs | Microsoft Azure" 
 	description="Walk through installation of the elastic job feature." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Installing Elastic Database jobs overview
-**Elastic Database jobs** can be installed via PowerShell or through the Azure portal, although you will only gain access to create and manage jobs using the PowerShell API only if you install the PowerShell package. Additionally, the PowerShell APIs provide significantly more functionality over the portal at this point in time. For more information about **Elastic Database jobs**, see [Elastic Database jobs overview](sql-database-elastic-jobs-overview.md).
+[**Elastic Database jobs**](sql-database-elastic-jobs-overview.md) can be installed via PowerShell or through the Azure Classic Portal.You can gain access to create and manage jobs using the PowerShell API only if you install the PowerShell package. Additionally, the PowerShell APIs provide significantly more functionality than the portal at this point in time. 
 
 If you have already installed **Elastic Database jobs** through the Portal from an existing **Elastic Database pool**, the latest Powershell preview includes scripts to upgrade your existing installation. It is highly recommended to upgrade your installation to the latest **Elastic Database jobs** components in order to take advantage of new functionality exposed via the PowerShell APIs.
 
@@ -155,7 +155,7 @@ Once you have [created an Elastic Database pool](sql-database-elastic-pool-porta
 
 **Estimated time to complete:** 10 minutes.
 
-1. From the dashboard view of the elastic database pool via the [Azure preview portal](https://ms.portal.azure.com/#) , click **Create job**.
+1. From the dashboard view of the elastic database pool via the [Azure Portal](https://ms.portal.azure.com/#) , click **Create job**.
 2. If you are creating a job for the first time, you must install **Elastic Database jobs** by clicking **PREVIEW TERMS**. 
 3. Accept the terms by clicking the checkbox.
 4. In the "Install services" view, click **JOB CREDENTIALS**.

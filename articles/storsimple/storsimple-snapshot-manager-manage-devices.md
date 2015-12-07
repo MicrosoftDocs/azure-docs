@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Use StorSimple Snapshot Manager to connect and manage StorSimple devices | Microsoft Azure"
-   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to connect and  manage StorSimple devices."
+   pageTitle="Manage devices with StorSimple Snapshot Manager | Microsoft Azure"
+   description="Describes how to use the StorSimple Snapshot Manager MMC snap-in to connect and manage StorSimple devices."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to connect and manage StorSimple devices
@@ -30,7 +30,7 @@ Depending on your **View** selections, the **Results** pane shows the following 
 
 | Results column  |Description          |
 |:----------------|:--------------------| 
-| Name            | The name of the device as configured in the Microsoft Azure Management Portal|
+| Name            | The name of the device as configured in the Azure classic portal|
 | Model           | The model number of the device|
 | Version         | The version of the software installed on the device |
 | Status          | Whether the device is available |
@@ -82,7 +82,7 @@ Use the following procedure to add or replace a StorSimple device.
 
 3. In the **Device** drop-down box, select the IP address of the device or virtual device. 
 
-4. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure Management Portal. Click **OK**. StorSimple Snapshot Manager searches for the device that you identified. 
+4. In the **Password** text box, type the StorSimple Snapshot Manager password that you created for the device in the Azure classic portal. Click **OK**. StorSimple Snapshot Manager searches for the device that you identified. 
 
     - If the device is available, StorSimple Snapshot Manager adds a connection. 
 
@@ -190,11 +190,11 @@ Use the following procedure to delete an individual StorSimple device configurat
 
 ## Change an expired device password
 
-You must enter a password to authenticate a StorSimple device with StorSimple Snapshot Manager. You configure this password when you use the Windows PowerShell interface to set up the device. However, the password can expire. If this happens, you can use the Microsoft Azure Management Portal to change the password. Then, because the device was configured in StorSimple Snapshot Manager before the password expired, you must re-authenticate the device in StorSimple Snapshot Manager. 
+You must enter a password to authenticate a StorSimple device with StorSimple Snapshot Manager. You configure this password when you use the Windows PowerShell interface to set up the device. However, the password can expire. If this happens, you can use the Azure classic portal to change the password. Then, because the device was configured in StorSimple Snapshot Manager before the password expired, you must re-authenticate the device in StorSimple Snapshot Manager. 
 
 #### To change the expired password
 
-1. On the Azure Management Portal, start the StorSimple Manager service.
+1. On the Azure classic portal, start the StorSimple Manager service.
 
 2. Click **Devices** > **Configure** for the device.
 
@@ -260,5 +260,6 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 
 ## Next steps
 
-[Use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md).
+- Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+- Learn how to [use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md).
 

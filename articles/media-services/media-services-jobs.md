@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Working with Azure Media Services Jobs
@@ -33,7 +33,7 @@ Get Media Processor with **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##Creating jobs 
+##Creating jobs
 
 A job is an entity that contains metadata about a set of tasks (for example, encoding or indexing). Each task performs an atomic operation on the input asset(s). For example on how to create encoding jobs, see:
 
@@ -43,19 +43,27 @@ A job is an entity that contains metadata about a set of tasks (for example, enc
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##Encoding 
+##Encoding
 
-Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
- 
+Encode with **Azure Media Encoder** using **Azure Classic Portal**, **.NET**, or **REST API**.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##Monitoring job progress
 
-Monitor job progress using **Azure Management Portal**, **.NET** or **REST API**.
+Monitor job progress using **Azure Classic Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##Related links
 
 [Quotas and Limitations](media-services-quotas-and-limitations.md) – Describes quotas used and limitations of the Media Services Encoder
- 
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

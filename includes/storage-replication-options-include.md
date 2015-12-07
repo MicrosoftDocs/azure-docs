@@ -10,7 +10,7 @@ When you create a storage account, you must select one of the following replicat
 
 	ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.  
 
-	> [AZURE.NOTE] ZRS is currently available only for block blobs.
+	> [AZURE.NOTE] ZRS is currently available only for block blobs, and is only supported for versions 2014-02-14 and later.
 	> 
 	> Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa. 
 

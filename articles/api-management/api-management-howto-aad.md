@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
@@ -26,7 +26,7 @@ This guide shows you how to enable access to the developer portal for all users 
 
 ## How to authorize developer accounts using Azure Active Directory
 
-To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
@@ -36,7 +36,7 @@ Click **Security** from the **API Management** menu on the left and click **Exte
 
 ![External Identities][api-management-security-external-identities]
 
-Click **Azure Active Directory**. Make a note of the **Redirect URL** and switch over to your Azure Active Directory in the Azure Portal.
+Click **Azure Active Directory**. Make a note of the **Redirect URL** and switch over to your Azure Active Directory in the Azure Classic Portal.
 
 ![External Identities][api-management-security-aad-new]
 

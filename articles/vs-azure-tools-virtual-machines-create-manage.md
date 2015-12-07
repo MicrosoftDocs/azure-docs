@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Create and manage Azure Virtual Machines in Visual Studio"
    description="Create and manage Azure Virtual Machines in Visual Studio"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="kempb"
    manager="douge"
    editor="tlee" />
-<tags 
+<tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Create and Manage Azure Virtual Machines in Visual Studio
@@ -54,14 +54,14 @@ While you can create a virtual machine in the [Azure Management Portal](http://g
     You can click a virtual machine image name to see information about the image on the right side of the page.
 
     >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
-    
+
     >If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
 
 1. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
 
     You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-   >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](./storage/storage-introduction/) for more information.
 
@@ -75,7 +75,7 @@ While you can create a virtual machine in the [Azure Management Portal](http://g
 
 1. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
 
-    ![The Endpoints page in the virtual machines wizard.](./media/vs-azure-tools-virtual-machines-create-manage/IC718351.png) 
+    ![The Endpoints page in the virtual machines wizard.](./media/vs-azure-tools-virtual-machines-create-manage/IC718351.png)
 
     The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
 
@@ -92,7 +92,6 @@ While you can create a virtual machine in the [Azure Management Portal](http://g
     ![Virtual machine activity log - completed.](./media/vs-azure-tools-virtual-machines-create-manage/IC744139.png)
 
     If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
-
 
     ![Virtual machine appearing in Server Explorer.](./media/vs-azure-tools-virtual-machines-create-manage/IC744140.png)
 
@@ -145,7 +144,7 @@ As you configure your virtual machine and install software on it, it's a good id
     Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information.
 
 1. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
- 
+
     As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
 
     ![Capturing a virtual machine checkpoint](./media/vs-azure-tools-virtual-machines-create-manage/IC744144.png)
@@ -174,11 +173,6 @@ As you configure your virtual machine and install software on it, it's a good id
 
 1. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
 
-## See Also
+## Next steps
 
-[Virtual Machines](https://msdn.microsoft.com/library/azure/)
-
-[Accessing Azure Virtual Machines from Server Explorer](https://msdn.microsoft.com/library/azure/jj131259.aspx)
-
-[Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
-
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md) and [Create a virtual machine running Windows in the Azure preview portal](virtual-machines-windows-tutorial.md).

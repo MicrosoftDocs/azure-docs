@@ -2,8 +2,8 @@
 	pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
-	authors="msolhab" 
+	documentationCenter=""
+	authors="bradsev" 
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="10/13/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
@@ -28,13 +28,13 @@ The Azure virtual machine gallery includes several images that contain Microsoft
  > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or more virtual hard disks to store your data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
 
-##<a name="Provision"></a>Connect to the Azure management portal and provision an SQL Server virtual machine
+##<a name="Provision"></a>Connect to the Azure Classic Portal and provision an SQL Server virtual machine
 
-1.  Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account.
+1.  Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.
 	If you do not have an Azure account, visit [Azure free
     trial](http://www.windowsazure.com/pricing/free-trial/).
 
-2.  On the Azure Management Portal, at the bottom left of the web page,
+2.  On the Azure Classic Portal, at the bottom left of the web page,
     click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and
     then click **FROM GALLERY**.
 
@@ -323,7 +323,7 @@ can use the IP address, but the IP address might change when Azure moves
 resources for redundancy or maintenance. The DNS name will be stable
 because it can be redirected to a new IP address.)
 
-1.  In the Azure Management Portal (or from the previous step), select
+1.  In the Azure Classic Portal (or from the previous step), select
     **VIRTUAL MACHINES**.
 
 2.  On the **VIRTUAL MACHINE INSTANCES** page, in the **DNS NAME**
@@ -370,11 +370,11 @@ In later stages of the Advanced Analytics Process and Technology, you will use t
 
 Azure Virtual Machines are priced as **pay only for what you use**. To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state.
 
-> [AZURE.NOTE] Shutting down the virtual machine from inside (using Windows power options), the VM is stopped but remains allocated. To ensure you’re not being billed, always stop virtual machines from the [Azure Management Portal](http://manage.windowsazure.com/). You can also stop the VM through Powershell by calling ShutdownRoleOperation with "PostShutdownAction" equal to "StoppedDeallocated".
+> [AZURE.NOTE] Shutting down the virtual machine from inside (using Windows power options), the VM is stopped but remains allocated. To ensure you’re not being billed, always stop virtual machines from the [Azure Classic Portal](http://manage.windowsazure.com/). You can also stop the VM through Powershell by calling ShutdownRoleOperation with "PostShutdownAction" equal to "StoppedDeallocated".
 
 To shutdown and deallocate the virtual machine:
 
-1. Log in to the [Azure Management Portal](http://manage.windowsazure.com/) using your account.  
+1. Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.  
 
 2. Select **VIRTUAL MACHINES** from the left navigation bar.
 
@@ -385,11 +385,11 @@ To shutdown and deallocate the virtual machine:
 
 ![VM Shutdown][15]
 
-The virtual machine will be deallocated but not deleted. You may restart your virtual machine at any time from the Azure Management Portal.
+The virtual machine will be deallocated but not deleted. You may restart your virtual machine at any time from the Azure Classic Portal.
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Advanced Analytics Process and Technology (ADAPT).
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cortana Analytics Process (CAP).
 
 The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 

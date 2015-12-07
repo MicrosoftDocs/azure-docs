@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Replace the backup battery module on your StorSimple device | Microsoft Azure"
+   pageTitle="Replace the battery on a StorSimple device | Microsoft Azure"
    description="Describes how to remove, replace, and maintain the backup battery module on your StorSimple device."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Replace the backup battery module on your StorSimple device
@@ -27,7 +27,7 @@ This tutorial explains how to:
 - Install a new backup battery module
 - Maintain the backup battery module
 
->[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in the [Introduction to StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 ## Remove the backup battery module
 
@@ -35,7 +35,7 @@ The backup battery module for your Microsoft Azure StorSimple device is a field-
 
 #### To remove the backup battery module
 
-1. In the Management Portal, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, look at the status of the battery.
+1. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, look at the status of the battery.
 
 2. Identify the PCM in which the battery has failed. Figure 1 shows the back of the StorSimple device.
 
@@ -89,13 +89,13 @@ Perform the following steps to install the replacement battery module in the pri
 
 3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md).
 
-4. After the replacement is complete, access the Management Portal and navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify the status of the battery to make sure that the installation was successful. If the LED is showing a green status, the battery is healthy.
+4. After the replacement is complete, access the Azure classic portal and navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify the status of the battery to make sure that the installation was successful. If the LED is showing a green status, the battery is healthy.
 
 ## Maintain the backup battery module
 
 In device, the backup battery module provides power to the controller during a power loss event. It allows the StorSimple device to save critical data prior to shutting down in a controlled manner. With two fully charged batteries in the PCMs, the system can handle two consecutive loss events.
 
-In the Management Portal, the **Hardware Status** on the **Maintenance** page indicates if the battery is malfunctioning or when the end-of-life is approaching. The battery status is indicated by **Battery in PCM 0** or **Battery in PCM 1** under **Shared Components**. This page will show a **DEGRADED** state for end-of-life approaching, and **FAILED** for end-of-life reached. 
+In the Azure classic portal, the **Hardware Status** on the **Maintenance** page indicates whether the battery is malfunctioning or the end-of-life is approaching. The battery status is indicated by **Battery in PCM 0** or **Battery in PCM 1** under **Shared Components**. This page will show a **DEGRADED** state for end-of-life approaching, and **FAILED** for end-of-life reached. 
 
 >[AZURE.NOTE] The battery can report **FAILED** when it simply needs to be charged.
  

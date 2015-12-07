@@ -164,7 +164,8 @@ to learn about more complex storage tasks:
 -   See the MSDN reference [Azure Storage][].
 -   Visit the [Azure Storage Team blog][].
 
-[Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+For more information, see also the [Python Developer Center](/develop/python/).
+
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure
 [Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage

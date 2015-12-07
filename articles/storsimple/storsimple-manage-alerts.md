@@ -1,6 +1,6 @@
 <properties 
    pageTitle="View and manage StorSimple alerts | Microsoft Azure"
-   description="Describes StorSimple alerts and how to use the StorSimple Manager service to view and clear them."
+   description="Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/14/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
-# View and manage StorSimple alerts
+# Use the StorSimple Manager service to view and manage StorSimple alerts
 
 ## Overview
 
@@ -151,7 +151,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 	Depending on the amount of data on the local tiers of your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity. The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours. 
 
  
-- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure Portal. 
+- **For the data in the cloud**: For most cloud connectivity errors, an error is returned. Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online. In rare instances, user intervention may be required to bring back the volume online from the Azure classic portal. 
  
 - **For cloud snapshots in progress**: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.
 
@@ -231,4 +231,5 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 ## Next steps
 
-[Learn more about StorSimple errors](storsimple-troubleshoot-operational-device.md).
+- Learn more about [StorSimple errors](storsimple-troubleshoot-operational-device.md).
+- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

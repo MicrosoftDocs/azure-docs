@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/24/2015" 
 	ms.author="awills"/>
  
 # Application Insights for Java web apps that are already live
@@ -21,7 +21,7 @@
 
 If you have a web application that is already running on your J2EE server, you can start monitoring it with [Appliction Insight](app-insights-overview.md) without the need to make code changes or recompile your project. With this option, you get information about HTTP requests sent to your server, unhandled exceptions and performance counters.
 
-You'll need a subscription to [Microsoft Azure](http://azure.com).
+You'll need a subscription to [Microsoft Azure](https://azure.com).
 
 > [AZURE.NOTE] The procedure on this page adds the SDK to your web app at runtime. This is useful if you don't want to update or rebuild your source code. But if you can, we recommend you [add the SDK to the source code](app-insights-java-get-started.md) instead. That gives you more options such as writing code to track user activity.
 
@@ -30,17 +30,17 @@ You'll need a subscription to [Microsoft Azure](http://azure.com).
 1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
 2. Create a new Application Insights resource
 
-    ![Click + and choose Application Insights](./media/app-insights-java-get-started/01-create.png)
+    ![Click + and choose Application Insights](./media/app-insights-java-live/01-create.png)
 3. Set the application type to Java web application.
 
-    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
+    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-live/02-create.png)
 4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-live/03-key.png)
 
 ## 2. Download the SDK
 
-1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
+1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
 2. On your server, extract the SDK contents to the directory from which your project binaries are loaded. If you’re using Tomcat, this would typically be under `webapps\<your_app_name>\WEB-INF\lib`
 
 
@@ -111,18 +111,18 @@ Return to your Application Insights resource in [Microsoft Azure Portal](https:/
 
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![sample data](./media/app-insights-java-get-started/5-results.png)
+![sample data](./media/app-insights-java-live/5-results.png)
  
 
 Click through any chart to see more detailed metrics. 
 
-![](./media/app-insights-java-get-started/6-barchart.png)
+![](./media/app-insights-java-live/6-barchart.png)
 
  
 
 And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
  
-![](./media/app-insights-java-get-started/7-instance.png)
+![](./media/app-insights-java-live/7-instance.png)
 
 
 [Learn more about metrics.](app-insights-metrics-explorer.md)
