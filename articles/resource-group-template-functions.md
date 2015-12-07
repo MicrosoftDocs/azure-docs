@@ -37,6 +37,8 @@ Resource Manager provides the following expressions for working with integers:
 
 
 <a id="add" />
+### add
+
 **add(operand1, operand2)**
 
 Returns the sum of the two provided integers.
@@ -48,12 +50,18 @@ Returns the sum of the two provided integers.
 
 
 <a id="copyindex" />
+### copyIndex
+
 **copyIndex(offset)**
 
-Returns the current index of an iteration loop. For examples of using this function, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+Returns the current index of an iteration loop. 
+
+This expression is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 
 <a id="div" />
+### div
+
 **div(operand1, operand2)**
 
 Returns the integer division of the two provided integers.
@@ -65,6 +73,8 @@ Returns the integer division of the two provided integers.
 
 
 <a id="int" />
+### int
+
 **int(valueToConvert)**
 
 Converts the specified value to Integer.
@@ -84,6 +94,8 @@ The following example converts the user-provided parameter value to Integer.
 
 
 <a id="length" />
+### length
+
 **length(array or string)**
 
 Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
@@ -106,6 +118,8 @@ Or, you can use with a string:
 
 
 <a id="mod" />
+### mod
+
 **mod(operand1, operand2)**
 
 Returns the remainder of the integer division using the two provided integers.
@@ -118,6 +132,8 @@ Returns the remainder of the integer division using the two provided integers.
 
 
 <a id="mul" />
+### mul
+
 **mul(operand1, operand2)**
 
 Returns the multiplication of the two provided integers.
@@ -129,6 +145,8 @@ Returns the multiplication of the two provided integers.
 
 
 <a id="sub" />
+### sub
+
 **sub(operand1, operand2)**
 
 Returns the subtraction of the two provided integers.
@@ -141,6 +159,23 @@ Returns the subtraction of the two provided integers.
 
 ## String expressions
 
+Resource Manager provides the following expressions for working with strings:
+
+- [base64](#base64)
+- [concat](#concat)
+- [padLeft](#padleft)
+- [replace](#replace)
+- [split](#split)
+- [string](#string)
+- [toLower](#tolower)
+- [toUpper](#toupper)
+- [trim](#trim)
+- [uniqueString](#uniquestring)
+- [uri](#uri)
+
+To get the number of characters in a string or array, see [length](#length).
+
+<a id="base64" />
 ### base64
 
 **base64 (inputString)**
@@ -158,6 +193,7 @@ The following example show how to use the base64 function.
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
+<a id="concat" />
 ### concat
 
 **concat (arg1, arg2, arg3, ...)**
@@ -173,6 +209,7 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
+<a id="padleft" />
 ### padLeft
 
 **padLeft(stringToPad, totalLength, paddingCharacter)**
@@ -194,6 +231,7 @@ The following example shows how to pad the user-provided parameter value by addi
         "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
     }
 
+<a id="replace" />
 ### replace
 
 **replace(originalString, oldCharacter, newCharacter)**
@@ -215,6 +253,7 @@ The following example shows how to remove all dashes from the user-provided stri
         "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
+<a id="split" />
 ### split
 
 **split(inputString, delimiter)**
@@ -236,6 +275,7 @@ The following example splits the input string with a comma.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+<a id="string" />
 ### string
 
 **string(valueToConvert)**
@@ -255,6 +295,7 @@ The following example converts the user-provided parameter value to String.
         "stringValue": "[string(parameters('appId'))]"
     }
 
+<a id="tolower" />
 ### toLower
 
 **toLower(stringToChange)**
@@ -274,6 +315,7 @@ The following example converts the user-provided parameter value to lower case.
         "lowerCaseAppName": "[toLower(parameters('appName'))]"
     }
 
+<a id="toupper" />
 ### toUpper
 
 **toUpper(stringToChange)**
@@ -293,6 +335,7 @@ The following example converts the user-provided parameter value to upper case.
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+<a id="trim" />
 ### trim
 
 **trim (stringToTrim)**
@@ -312,6 +355,7 @@ The following example trims the white-space characters from the user-provided pa
         "trimAppName": "[trim(parameters('appName'))]"
     }
 
+<a id="uniquestring" />
 ### uniqueString
 
 **uniqueString (stringForCreatingUniqueString, ...)**
@@ -346,6 +390,7 @@ The following example shows how to create a unique name for a storage account ba
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+<a id="uri" />
 ### uri
 
 **uri (baseUri, relativeUri)**
@@ -365,8 +410,17 @@ The following example shows how to construct a link to a nested template based o
 
 
 
-## Template value expressions
+## Deployment value expressions
 
+Resource Manager provides the following expressions for getting values from sections of the template and values related to the deployment:
+
+- [deployment](#deployment)
+- [parameters](#parameters)
+- [variables](#variables)
+
+To get values from resources, resource groups, or subscriptions, see [Resource expressions](#resource-expressions).
+
+<a id="deployment" />
 ### deployment
 
 **deployment()**
@@ -411,6 +465,8 @@ The following example shows how to use deployment() to link to another template 
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
     }  
 
+
+<a id="parameters" />
 ### parameters
 
 **parameters (parameterName)**
@@ -437,6 +493,7 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
+<a id="variables" />
 ### variables
 
 **variables (variableName)**
@@ -449,8 +506,20 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 
-## Resource value expressions
+## Resource expressions
 
+Resource Manager provides the following expressions for getting resource values:
+
+- [listkeys](#listkeys)
+- [providers](#providers)
+- [reference](#reference)
+- [resourceGroup](#resourcegroup)
+- [resourceId](#resourceid)
+- [subscription](#subscription)
+
+To get values from parameters, variables, or the current deployment, see [Deployment value expressions](#deployment-value-expressions).
+
+<a id="listkeys" />
 ### listKeys
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
@@ -471,6 +540,7 @@ The following example shows how to return the keys from a storage account in the
       } 
     } 
 
+<a id="providers" />
 ### providers
 
 **providers (providerNamespace, [resourceType])**
@@ -499,6 +569,7 @@ The following example shows how to use the provider function:
 	    }
     }
 
+<a id="reference" />
 ### reference
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
@@ -560,6 +631,7 @@ The following example references a storage account in a different resource group
 		}
 	}
 
+<a id="resourcegroup" />
 ### resourceGroup
 
 **resourceGroup()**
@@ -584,6 +656,7 @@ The following example uses the resource group location to assign the location fo
        }
     ]
 
+<a id="resourceid" />
 ### resourceId
 
 **resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
@@ -647,6 +720,7 @@ Often, you need to use this function when using a storage account or virtual net
       }]
     }
 
+<a id="subscription" />
 ### subscription
 
 **subscription()**
