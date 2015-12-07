@@ -26,7 +26,7 @@ To successfully register the DPM server with the Azure Recovery Service, you mus
 >[AZURE.NOTE] For the examples in this article, version 2.0.8719.0 of the Azure Recovery Service Agent is installed, and Update Rollup 6 is installed on System Center 2012 R2 DPM.
 
 ## Prerequisites
-Before you continue, make sure that all the [prerequisites](https://azure.microsoft.com/documentation/articles/backup-azure-dpm-introduction/#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
+Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
 
 - A backup vault on the Azure site has been created.
 - Agent and vault credentials have been downloaded to the DPM server.
