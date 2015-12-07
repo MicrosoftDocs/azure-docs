@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="all" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/7/2015" 
+	ms.date="12/07/2015" 
 	ms.author="piyushjo" />
 
 #Personalize notifications by including user name
