@@ -29,9 +29,9 @@ In this tutorial, you add push notifications to the [Android quick start] projec
 
 To complete this tutorial, you need the following:
 
-* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md)
+* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)&mdash;not needed for a Node.js backend project.
+* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Create a Notification Hub
 

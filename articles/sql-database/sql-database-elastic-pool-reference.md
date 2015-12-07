@@ -32,7 +32,7 @@ An elastic database pool is a collection of elastic database throughput units (e
 ## Prerequisites for creating and managing elastic database pools
 
 
-- Elastic database pools are only available in Azure SQL Database V12 servers.   
+- Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
 - Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
 - Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using Transact-SQL.
 
