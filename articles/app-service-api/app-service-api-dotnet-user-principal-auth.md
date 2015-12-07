@@ -212,7 +212,7 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 ## Configure the AAD application for localhost 
 
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, paste the ContactsList.Angular.AAD project SSL URL.
+1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, paste the ContactsList.Angular.AAD project SSL URL, including the trailing slash.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/signonurl.png)
 
@@ -273,7 +273,7 @@ In the following sections you'll configure the projects and AAD for running the 
 
 ## Configure the AAD application for the Azure web app
 
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the ContactsList.Angular.AAD project SSL URL and replace it with the web app's base URL. (Note that this is the web app's URL, not the API app's URL.)
+1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the ContactsList.Angular.AAD project SSL URL and replace it with the web app's base URL, including the trailing slash. (Note that this is the web app's URL, not the API app's URL.)
 
 	![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
 
