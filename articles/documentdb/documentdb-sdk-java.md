@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
