@@ -140,6 +140,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 
 | Subject | Article
 | :---: | --- |
+| Learn about how automated user provisioning work,  | [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md) |
 | Edit how attributes are mapped and synced between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Get notified of provisioning failures. | [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
 | Limit who gets provisioned to an application based on attribute values | [Attribute-based app provisioning with scoping filters](active-directory-saas-scoping-filters.md) |
