@@ -46,24 +46,32 @@ You must authenticate the user before registering for push notifications to make
 
 4. Add the **InitNotificationAsync** method back into the **MainPage** class:
 
+        // Registers for template push notifications.
         private async void InitNotificationsAsync()
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
- 
-            // building templates for wns
-            var toastTemplate = 
-				"<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(message)</text></binding></visual></toast>";
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
+
+            // Define a toast templates for WNS.
+            var toastTemplate =
+                @"<toast><visual><binding template=""ToastText02""><text id=""1"">"
+                                + @"New item:</text><text id=""2"">"
+                                + @"$(message)</text></binding></visual></toast>";
+
             JObject templateBody = new JObject();
             templateBody["body"] = toastTemplate;
- 
+
+            // Add the required WNS toast header.
             JObject wnsToastHeaders = new JObject();
             wnsToastHeaders["X-WNS-Type"] = "wns/toast";
             templateBody["headers"] = wnsToastHeaders;
- 
+
             JObject templates = new JObject();
             templates["testTemplate"] = templateBody;
- 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri, templates);
+
+            // Register for push notifications.
+            await App.MobileService.GetPush()
+                .RegisterAsync(channel.Uri, templates);
         }
 
     Note that this registration uses a template. To learn more about template registrations, see [Templates](../notification-hubs/notification-hubs-templates.md) in the Notification Hubs documentation.
