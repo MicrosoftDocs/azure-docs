@@ -34,13 +34,13 @@ Deploying an application combines the following steps into one simple operation:
 4. Removing any running application instances
 5. Creating a new application instance
 
-In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. Please refer to [Publish an application to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md).
+In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, refer to [Publish an application to a remote cluster by using Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### Preserve data between test runs
 
 Often, you test services locally by adding test data input, modifying a few code blocks, and then debugging locally again. The Visual Studio Service Fabric Tools provide a handy property called **Preserve Data on Start** to keep the data that you entered in the previous session and let you use it again.
 
-### To enable the Preserve Data on Start property
+#### To enable the Preserve Data on Start property
 
 1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
 1. In the **Properties** window, set the **Preserve Data on Start** property to **Yes**.
@@ -55,7 +55,7 @@ Data is preserved by leveraging the upgrade capability from the Service Fabric p
 
 ## Add a service to your Service Fabric application
 
-You can add new fabric services to your application to extend its functionality.  To ensure the service is included in your application package, add the service through the **New Fabric Service...** menu item.
+You can add new fabric services to your application to extend its functionality.  To ensure that the service is included in your application package, add the service through the **New Fabric Service...** menu item.
 
 ![Add a new fabric service to your application][newservice]
 
