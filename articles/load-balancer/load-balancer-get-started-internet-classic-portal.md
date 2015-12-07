@@ -1,3 +1,4 @@
+
 <properties 
    pageTitle="Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal"
@@ -17,7 +18,7 @@
    ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Get started creating an Internet facing load balancer (classic) in the Azure clasic portal
+# Get started creating an Internet facing load balancer (classic) in the Azure classic portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
