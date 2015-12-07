@@ -3,7 +3,7 @@
 	description="Languages, platforms and integrations available for Application Insights"
 	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
+	authors="OlegAnaniev-MSFT"
 	manager="douge"/>
 
 <tags
