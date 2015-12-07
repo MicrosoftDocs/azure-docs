@@ -276,7 +276,7 @@ In a nutshell, the geometry is projected from geodetic coordinates onto a 2D pla
 
 If you specify an indexing policy that includes spatial index for /* (all paths), then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
 
-The following JSON snippet shows an indexing policy with spatial indexing enabled, i.e. index any GeoJSON point found within documents for spatial querying. If you are modifying the indexing policy using the Azure Preview Portal, you can specify the following JSON for indexing policy to enable spatial indexing on your collection.
+The following JSON snippet shows an indexing policy with spatial indexing enabled, i.e. index any GeoJSON point found within documents for spatial querying. If you are modifying the indexing policy using the Azure Portal, you can specify the following JSON for indexing policy to enable spatial indexing on your collection.
 
 **Collection Indexing Policy JSON with Spatial enabled**
 

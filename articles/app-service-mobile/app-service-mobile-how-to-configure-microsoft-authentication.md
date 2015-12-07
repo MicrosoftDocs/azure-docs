@@ -32,7 +32,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 ## <a name="register"> </a>Register your application with Microsoft Account
 
-1. Log on to the [Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Microsoft Account app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Microsoft Account app.
 
 2. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required.
 
@@ -59,7 +59,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
 
 
-7. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+7. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 
 8. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
 
@@ -92,4 +92,4 @@ You are now ready to use Microsoft Account for authentication in your app.
 <!-- URLs. -->
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure Management Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

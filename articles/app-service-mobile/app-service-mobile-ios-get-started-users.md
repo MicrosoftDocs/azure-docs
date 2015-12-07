@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
-# iOS authentication with Azure Mobile Apps
+# Add authentication to your iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 &nbsp;  
@@ -43,5 +43,5 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 [iOS quick start]: app-service-mobile-ios-get-started.md
 
-[Azure Management Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
  

@@ -48,7 +48,7 @@ The following is an example of the Java application monitoring the compute-inten
 
 ## To create a virtual machine
 
-1. Log in to the [Azure portal](https://manage.windowsazure.com).
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog box, select **JDK 7 Windows Server 2012**.
 Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
@@ -72,7 +72,7 @@ Note that **JDK 6 Windows Server 2012** is available in case you have legacy app
 
 ## To remotely log in to your virtual machine
 
-1. Log on to the [Azure portal](https://manage.windowsazure.com).
+1. Log on to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
@@ -88,9 +88,9 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Azure portal](https://manage.windowsazure.com).
-2.  In the lower-left navigation pane of the Azure portal, click **Service Bus, Access Control & Caching**.
-3.  In the upper-left pane of the Azure portal, click the **Service
+1.  Log on to the [Azure classic portal](https://manage.windowsazure.com).
+2.  In the lower-left navigation pane of the Azure classic portal, click **Service Bus, Access Control & Caching**.
+3.  In the upper-left pane of the Azure classic portal, click the **Service
     Bus** node, and then click the **New** button.  
     ![Service Bus Node screenshot][svc_bus_node]
 4.  In the **Create a new Service Namespace** dialog box, enter a
@@ -100,7 +100,7 @@ To create a service namespace:
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted, and then click the **Create Namespace** button.  
 
-    The namespace you created will then appear in the Azure portal
+    The namespace you created will then appear in the Azure classic portal
     and takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
 
 ## Obtain the Default Management Credentials for the namespace

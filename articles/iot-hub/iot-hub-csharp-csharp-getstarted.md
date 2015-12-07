@@ -22,7 +22,7 @@
 
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the application back end. To simplify this scenario, Azure IoT Hub offers reliable device-to-cloud and cloud-to-device hyper-scale messaging, enables secure communications using per-device security credentials and access control, and includes device libraries for the most popular languages and platforms.
 
-This tutorial shows how to use the Azure preview portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back end.
+This tutorial shows how to use the Azure portal to create an IoT hub. It also shows you how to create a device identity in your IoT hub, create a simulated device that sends device-to-cloud messages, and receives these messages from your cloud back end.
 
 At the end of this tutorial you will have three Windows console applications:
 
@@ -40,7 +40,7 @@ In order to complete this tutorial you'll need the following:
 
 ## Create an IoT hub
 
-1. Log on to the [Azure preview portal].
+1. Log on to the [Azure portal].
 
 2. In the jumpbar, click **New**, then click **Internet of Things**, and then click **IoT Hub**.
 
@@ -115,7 +115,7 @@ Additional information on IoT Hub:
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md

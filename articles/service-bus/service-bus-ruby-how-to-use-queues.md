@@ -59,7 +59,7 @@ enable more resiliency to your architecture.
 
 ## Create a service namespace
 To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within your application. You must create the
-namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+namespace through the command-line interface because the portal does not create the service bus with an ACS connection.
 
 To create a service namespace:
 
@@ -83,7 +83,7 @@ will use this value in your code later in this tutorial.
 
 > [AZURE.NOTE]
 > You can also find this key if you log on to the
-> [Azure Portal](http://manage.windowsazure.com/) and navigate to the
+> [Azure classic portal](http://manage.windowsazure.com/) and navigate to the
 > connection information for your service bus namespace.
 
 ## Create a Ruby application

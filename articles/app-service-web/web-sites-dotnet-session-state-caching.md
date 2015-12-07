@@ -93,7 +93,6 @@ For more details about how to use ASP.NET session state, see [ASP.NET Session St
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   *By [Rick Anderson](https://twitter.com/RickAndMSFT)*
   

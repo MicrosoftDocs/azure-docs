@@ -23,7 +23,7 @@
 &nbsp;  
 <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT] This topic is not currently supported by Mobile Apps because the quickstart for HTML/JavaScript apps has been temporarily removed from the Azure portal. We plan to bring it back in the very near future. Thanks you for your patience as we complete the Mobile Apps preview.
+>[AZURE.IMPORTANT] This topic is not currently supported by Mobile Apps because the quickstart for HTML/JavaScript apps has been temporarily removed from the Azure portal. We plan to bring it back in the very near future. Thanks you for your patience.
 
 ##Overview
 
@@ -43,7 +43,7 @@ To complete this tutorial, you need the following:
 
 * [Visual Studio Community 2013] or a later version.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
 ##Create a new Mobile App backend
 

@@ -36,7 +36,7 @@ The following procedure references the information in these tables to guide you 
 
 ## Create a new cross-premises Azure virtual network by using your configuration table settings
 
-1. Sign in to the [Azure portal].
+1. Sign in to the [Azure classic portal].
 2. From the taskbar, click **New > Network Services > Virtual Network > Custom Create**.
 3. On the **Virtual Network Details** page:
 	- In **Name**, type the name from Item 1 in Table V.

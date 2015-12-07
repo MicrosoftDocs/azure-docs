@@ -38,7 +38,7 @@ In order to complete this tutorial you will need the following:
 
 ## Create an Event Hub
 
-1. Log on to the [Azure portal], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
 
@@ -110,9 +110,9 @@ Now that you've built a working application that creates an Event Hub and sends 
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
 <!-- Links -->
-[Azure portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md

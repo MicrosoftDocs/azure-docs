@@ -42,7 +42,7 @@ This section documents how to list, upload and download blobs. For more informat
 
 This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key. 
 
-- To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 - For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage-create-storage-account.md).
 
 ## Upload Data to Blob

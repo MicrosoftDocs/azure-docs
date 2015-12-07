@@ -104,5 +104,4 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
-[Azure Management Portal]: https://portal.azure.com
  

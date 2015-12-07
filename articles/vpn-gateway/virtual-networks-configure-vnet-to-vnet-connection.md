@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configure a VNet-to-VNet connection | Microsoft Azure"
-   description="How to connect Azure virtual networks together in the same or different subscriptions or regions."
+   description="How to connect Azure virtual networks together in the same or different subscriptions or regions using PowerShell and the Azure Classic Portal. This article applies to VNets create using the Classic deployment model."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -17,13 +17,13 @@
    ms.author="cherylmc"/>
 
 
-# Configure a VNet-to-VNet connection in the Azure Portal
+# Configure a VNet-to-VNet connection in the Azure Classic Portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-This article will walk you through the steps to create and connect virtual networks together using the Classic deployment model (also known as Service Management). These steps will use a combination of the Azure Portal (not the Preview Portal) and PowerShell cmdlets. If you want to connect VNets that were created using the Azure Resource Manager deployment model, see the tab above. The steps are different for each model. 
+This article will walk you through the steps to create and connect virtual networks together using the Classic deployment model (also known as Service Management). These steps will use a combination of the Azure Classic Portal (not the Azure Portal) and PowerShell cmdlets. If you want to connect VNets that were created using the Azure Resource Manager deployment model, see the tab above. The steps are different for each model. 
 
 You can also connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
@@ -76,7 +76,7 @@ You may want to connect virtual networks for the following reasons:
 
 In this procedure, we’ll walk you through connecting two virtual networks, VNet1 and VNet2. You’ll need to be comfortable with networking in order to substitute the IP address ranges that are compatible with your network design requirements. From an Azure virtual network, connecting to another Azure virtual network is the same as connecting to an on premises network via site-to-site (S2S) VPN.
 
-This procedure primarily uses the Azure Portal, however, you must use Microsoft Azure PowerShell cmdlets to connect the VPN gateways.
+This procedure primarily uses the Azure Classic Portal, however, you must use Microsoft Azure PowerShell cmdlets to connect the VPN gateways.
 
 ![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
@@ -110,7 +110,7 @@ VNet1: Address Space = 10.1.0.0/16; Region=US West
 
 VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
-1. Log in to the **Azure Portal** (not the Preview Portal).
+1. Log in to the **Azure Classic Portal** (not the Azure Portal).
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -142,7 +142,7 @@ VNet2: Address Space = 10.2.0.0/16; Region=Japan East
   - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 
-**Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see *Created* listed under *Status* on the *Networks* page in the Azure Portal.
+**Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see *Created* listed under *Status* on the *Networks* page in the Azure Classic Portal.
 
 ## Create another virtual network
 
@@ -154,7 +154,7 @@ Next, repeat the preceding steps to create another virtual network. In this exer
 
 ## Add local networks
 
-When you create a VNet-to-VNet configuration, you need to configure each VNet to identify each other as a local network site. In this procedure, you’ll configure each VNet as a local network. If you already have previously configured VNets, this is how you would add them as local networks in the Azure Portal.
+When you create a VNet-to-VNet configuration, you need to configure each VNet to identify each other as a local network site. In this procedure, you’ll configure each VNet as a local network. If you already have previously configured VNets, this is how you would add them as local networks in the Azure Classic Portal.
 
 1. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Add Local Network**
 
@@ -166,7 +166,7 @@ When you create a VNet-to-VNet configuration, you need to configure each VNet to
 
 4. After configuring VNet1 as a local network, go back and configure VNet2 using the values that correspond to that VNet.
 
-5. Now you’ll point each VNet to the other as a local network. In the Azure Portal, go to the **Configure** page for VNet1. Under **site-to-site connectivity**, select **Connect to the local network**, then select **VNET2** as the local network.
+5. Now you’ll point each VNet to the other as a local network. In the Azure Classic Portal, go to the **Configure** page for VNet1. Under **site-to-site connectivity**, select **Connect to the local network**, then select **VNET2** as the local network.
 
   ![Connect to local network](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736058.jpg)  
 

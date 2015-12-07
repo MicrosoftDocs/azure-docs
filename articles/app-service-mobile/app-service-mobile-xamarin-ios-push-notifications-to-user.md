@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Send push notifications to a specific user with Xamarin iOS client" 
 	description="Learn how to send push notifications to all devices of a user" 
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
@@ -22,7 +22,7 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration. Send then hits every platform with these placeholders, enabling cross-platform notifications.
+This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduces [templates], which give client applications the freedom of specifying payload formats and variable placeholders at registration. When a template notification is sent from a server, the notification hub directs it every platform with these placeholders, enabling cross-platform notifications.
 
 > [AZURE.NOTE] To get push working with cross-platform clients, you will need to complete this tutorial for each platform you would like to enable. You will only need to do the [mobile backend update](#backend) once for clients that share the same mobile backend.
  
@@ -36,7 +36,7 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. Move the APNs registration snippets from **FinishedLaunching** in **AppDelegate.cs** to the **RefreshAsync** Task definition in **QSTodoListViewController.cs**. The registrations should happen after authentication completes.
++ Move the APNS registration snippets from **FinishedLaunching** in **AppDelegate.cs** to the **RefreshAsync** Task definition in **QSTodoListViewController.cs**. 
 
         ...
         if (todoService.User == null) {
@@ -58,52 +58,11 @@ Before you start this tutorial, you must have already completed these App Servic
         }
         ...
 
-2. In **AppDelegate.cs**, replace the **RegisterAsync** call in **RegisteredForRemoteNotifications** with the following to work with templates:
-
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{\"aps\": {\"alert\":\"$(message)\"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
-        // register with templates
-        await push.RegisterAsync (deviceToken, templates);
+	This makes sure that the user is authenticated before registering for push notifications. When an authenticated user registers for push notifications, a tag with the user ID is automatically added.
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
-1. In Visual Studio, update the `PostTodoItem` method definition with the following code:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create given user tag
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
-
-            try
-            {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>Test the app
 
@@ -112,4 +71,4 @@ Re-publish your mobile backend project and run any of the client apps you have s
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-xamarin-ios-get-started-users.md
 [Get started with push notifications]: app-service-mobile-xamarin-ios-get-started-push.md
-[templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx 
+[templates]: ../notification-hubs/notification-hubs-templates.md 
