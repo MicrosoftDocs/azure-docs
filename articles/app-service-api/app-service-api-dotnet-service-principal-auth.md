@@ -250,6 +250,36 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
 
+## Protect the API app from browser access
+
+For this tutorial you used the Express option in the Azure portal to set up AAD authentication for the API app that you want to access by using service principal authentication. By default, App Service configures the new AAD application in a way that enables a user to go to the API app's URL in a browser and log on. That means it's possible for an end user, not just a service principal, to access the API. If you only want a service principal to have access to the API, you can prevent browser access by changing the **Reply URL** in the AAD application so that it's different from the API app's base URL. 
+
+### Verify browser access works
+
+1. In a browser, go to the URL of the API app that you created for the CompanyContacts.API project.
+
+	The browser goes to a login screen.
+	
+2. Log in with credentials for a user in your AAD tenant.
+
+3. The browser displays the API app's "successfully created" screen, and you can now go to the Swagger UI URL and call the API.
+
+### Disable browser access
+
+1. In the classic portal's **Configure** tab for the AAD application that was created for the CompanyContacts.API project, change the value in the **Reply URL** field so that it is a valid URL but not the API app's URL.
+ 
+2. Click **Save**.
+
+### Verify browser access no longer works
+
+1. In an Incognito or InPrivate browser window, go to the URL of the API app again.
+
+2. Log in when prompted to do so.
+
+3. Login succeeds but leads to an error page.
+
+	You can still access the API app by using a service principal token, but users in the AAD tenant cannot log in and access the API from a browser.
+
 ## Next steps
 
 This is the last tutorial in the getting started with API Apps series. This section offers additional suggestions for learning more about how to work with API apps.
