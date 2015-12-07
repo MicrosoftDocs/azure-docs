@@ -99,7 +99,7 @@ Azure Active Directory authentication is supported in the latest SQL Database V1
 
 If you have an existing database, verify it is hosted in SQL Database V12 by connecting to the database (for example using SQL Server Management Studio) and executing `SELECT @@VERSION;` The expected output for a database in SQL Database V12 is at least **Microsoft SQL Azure (RTM) - 12.0**.
 
-If your database is not hosted in SQL Database V12, see [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), and then visit the Azure Portal to migrate the database to SQL Database V12.
+If your database is not hosted in SQL Database V12, see [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), and then visit the Azure Classic Portal to migrate the database to SQL Database V12.
 
 Alternatively, you can create a new database in SQL Database V12 by following the steps listed in [Create your first Azure SQL database](sql-database-get-started.md). **Tip**: Read the next step before you select a subscription for your new database.
 
@@ -111,7 +111,7 @@ To associate your database with the Azure AD directory for your organization, ma
 
 The following procedures provide step by step instructions on how to change the associated directory for a given subscription.
 
-1. Connect to your [Azure portal](https://manage.windowsazure.com/) by using an Azure subscription administrator.
+1. Connect to your [Azure Classic Portal](https://manage.windowsazure.com/) by using an Azure subscription administrator.
 2. On the left banner, select **SETTINGS**. 
 3. Your subscriptions appear in the settings screen. If the desired subscription does not appear, click **Subscriptions** at the top, drop down the **FILTER BY DIRECTORY** box and select the directory that contains your subscriptions, and then click **APPLY**.
 
@@ -135,9 +135,9 @@ Each Azure SQL Server starts with a single server administrator account which is
 
 > [AZURE.NOTE] Users that are not based on an Azure AD account (including the Azure SQL Server administrator account) cannot create Azure AD based users because they do not have permission to validate proposed database users with the Azure AD.
 
-### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure Portal 
+### Provision an Azure Active Directory administrator for your Azure SQL Server by using the Azure Classic Portal 
 
-1. In the [Azure Portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Database making sure that the same subscription is used for both Azure AD and SQL Server.
+1. In the [Azure Classic Portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Database making sure that the same subscription is used for both Azure AD and SQL Server.
 
 	![choose-ad][8]
 2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
@@ -197,7 +197,7 @@ Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE] The Azure AD **ObjectID** is required when the **DisplayName** is not unique. To retrieve the **ObjectID** and **DisplayName** values, use the Active Directory section of Azure portal, and view the properties of a user or group.
+> [AZURE.NOTE] The Azure AD **ObjectID** is required when the **DisplayName** is not unique. To retrieve the **ObjectID** and **DisplayName** values, use the Active Directory section of Azure Classic Portal, and view the properties of a user or group.
 
 The following example returns information about the current Azure AD admin for Azure SQL Server:
 

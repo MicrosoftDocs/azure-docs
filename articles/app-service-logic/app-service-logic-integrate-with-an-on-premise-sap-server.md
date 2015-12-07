@@ -40,7 +40,7 @@ The SAP specific client libraries are required on the client machine where the h
 
 
 ## Create a new SAP Connector
-1. Sign in to the Microsoft Azure Management portal.
+1. Sign in to the Microsoft Azure portal.
 2. Select **New**.
 3. In the create blade, select **Compute** > **Azure Marketplace**.
 4. In the marketplace blade, select **API Apps**, and search for SAP in the search bar:

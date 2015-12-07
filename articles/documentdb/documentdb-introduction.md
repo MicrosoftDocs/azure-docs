@@ -24,7 +24,7 @@ DocumentDB is a NoSQL document database for big data solutions handling JSON dat
 A quick way to learn about this JSON database and see it in action is to follow these three steps: 
 
 1. Watch the two minute [What is DocumentDB?](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/) video, which introduces the benefits of using DocumentDB.
-2. Watch the three minute [Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video, which highlights how to get started with DocumentDB by using the Azure preview portal.
+2. Watch the three minute [Create DocumentDB on Azure](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) video, which highlights how to get started with DocumentDB by using the Azure Portal.
 3. Visit the [Query Playground](http://www.documentdb.com/sql/demo), where you can walk through different activities to learn about the rich querying functionality available in DocumentDB. Then, head over to the Sandbox tab and run your own custom SQL queries and experiment with DocumentDB.
 
 Then, return to this article, where we'll dig in deeper and you'll learn the answers to the following questions:  
@@ -99,7 +99,7 @@ DocumentDB allows you to write application logic as named programs written entir
 JavaScript execution within DocumentDB is modeled after the concepts supported by relational database systems, with JavaScript as a modern replacement for Transact-SQL. All JavaScript logic is executed within an ambient ACID transaction with snapshot isolation. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted.
 
 ## Next steps
-If you already have an Azure account, you can get started with DocumentDB in the [Azure preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) by [creating a DocumentDB database account](documentdb-create-account.md).
+If you already have an Azure account, you can get started with DocumentDB in the [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB) by [creating a DocumentDB database account](documentdb-create-account.md).
 
 If you don't have an Azure account, you can:
 

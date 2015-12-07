@@ -57,9 +57,10 @@ You can divide your VNet into multiple subnets for organization and security. Su
 
 ## IP addresses
 
-There are two types of IP addresses assigned to components in Azure: public and private. IaaS VMs and PaaS role instances deployed to an Azure subnet are automatically assigned a private IP address to each of their NICs based on the CIDR address blocks assigned to your subnets. You can also assign a public IP address to your IaaS VMs and PaaS role instances. 
 
-These IP addresses are dynamic, meaning that they can change at any time. You may want to ensure the IP address for certain services remain the same, at all times. To do so, you can reserve an IP address, making it static.
+There are two types of IP addresses assigned to resources in Azure: *public* and *private*. Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Private IP Addresses allows communication between resources in a virtual network, along with those connected through a VPN, without using an Internet-routable IP addresses. 
+
+To learn more about IP addresses in Azure, visit [IP addresses in virtual network](virtual-network-ip-addresses-arm.md)
 
 ## Azure load balancers
 

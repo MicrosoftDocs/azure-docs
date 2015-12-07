@@ -39,15 +39,15 @@ At a high level the following diagram shows the HPC Pack cluster you'll create.
 
 ## Step 1. Set up an HPC Pack cluster in Azure
 
-We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure preview portal; and second, using an Azure PowerShell deployment script.
+We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure portal; and second, using an Azure PowerShell deployment script.
 
 
 ### Use a quickstart template
-Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure preview portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps.
+Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps.
 
 1. Visit the [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). If you want, review information about the template and the source code.
 
-2. Click **Deploy to Azure** to start a deployment with the template in the Azure preview portal.
+2. Click **Deploy to Azure** to start a deployment with the template in the Azure portal.
 
     ![Deploy template to Azure][github]
 
@@ -81,7 +81,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
 3.	When the deployment completes (it typically takes around 30 minutes), export the cluster certificate file from the cluster head node. In a later step this public certificate will be imported on the client computer to provide the server-side authentication for secure HTTP binding.
 
-    a. Connect to the head node by Remote Desktop from the Azure preview portal.
+    a. Connect to the head node by Remote Desktop from the Azure portal.
 
      ![Connect to the head node][connect]
 
@@ -348,7 +348,7 @@ To do this, explicitly set UseAzureQueue flag to false in the SessionStartInfo.
 
 ### Use NetTcp binding
 
-To use NetTcp binding, the configuration is like connecting to an on-premises cluster. You'll need to open a few endpoints on the head node VM. In the Azure portal do the following.
+To use NetTcp binding, the configuration is like connecting to an on-premises cluster. You'll need to open a few endpoints on the head node VM. In the Azure classic portal do the following.
 
 
 1. Stop the VM.

@@ -18,6 +18,11 @@
 
 # Send Push Notifications to Authenticated Users
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 In this topic, you learn how to send push notifications to an authenticated user on iOS. Before starting this tutorial, complete [Get started with authentication] and [Get started with push notifications] first.
@@ -46,6 +51,4 @@ In this tutorial, you require users to authenticate first, register with the not
 <!-- URLs. -->
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library

@@ -47,7 +47,7 @@ U-SQL  | Explain Techniques for doing range-based JOINs | 1 | Pending | [@MikeRy
 
 Area   |Topic | location
 ------------- | ------------- | -------------- 
-Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](../data-lake-analytics-manage-use-powershell.md)
 
 ## How to Give Feedback on the Backlog
 There are a few options to give feedback on the backlog:
