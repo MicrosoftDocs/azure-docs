@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to log events to Azure Event Hubs in Azure API Management

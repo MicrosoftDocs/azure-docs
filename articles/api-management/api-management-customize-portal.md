@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Customize the developer portal in Azure API Management
@@ -24,7 +24,7 @@ This guide shows you how to modify the look and feel of the developer portal in 
 
 One of the key aspects of portal customization is replacing the text at the top of all pages with your company name or logo.
 
-Content within the developer portal is modified via the publisher portal, which is accessed through the Azure portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
+Content within the developer portal is modified via the publisher portal, which is accessed through the Azure Classic Portal. To reach the API publisher portal, click **Manage** in the Azure portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
@@ -85,7 +85,7 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
