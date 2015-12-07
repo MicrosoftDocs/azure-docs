@@ -252,7 +252,7 @@ You can find the step by step to create a virtual machine and assign to a NIC fo
 
 ### Step 1
 
-Using the load balancer from the example above, assign load balancer object to variable $slb using Get-AzureLoadBalancer
+Using the load balancer from the example above, assign load balancer object to variable $slb using Get-AzureRmLoadBalancer
 
 	$slb=get-azureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
@@ -273,7 +273,7 @@ Save the new configuration using Set-AzureLoadBalancer
 
 Use the command Remove-AzureRmLoadBalancer to delete a previously created load balancer named "NRP-LB"  in a resource group called "NRP-RG" 
 
-	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 >[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
 
