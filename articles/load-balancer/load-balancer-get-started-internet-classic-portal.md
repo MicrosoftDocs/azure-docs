@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started creating an Internet facing load balancer in classic deployment model using the Azure portal | Microsoft Azure"
-   description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure portal"
+   pageTitle="Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Azure"
+   description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
-# Get started creating an Internet facing load balancer (classic) in the Azure portal
+# Get started creating an Internet facing load balancer (classic) in the Azure clasic portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -34,7 +34,7 @@ In order to load balance network traffic from the Internet across the virtual ma
 
 **To configure a load-balanced set for virtual machines**
 
-1. In the Azure portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
+1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
 2.	Click **Endpoints**, and then click **Add**.
 
 4.	On the **Add an endpoint to a virtual machine** page, click the right arrow.
