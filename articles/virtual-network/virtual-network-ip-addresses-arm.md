@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/03/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # IP Addresses in Azure Virtual Network
 This article covers IP addressing for Virtual machines, Load balancers, VPN gateways and APP gateways.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-classic.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] .
 
 ## Public IP Addresses
 Public IP Addresses allow Azure resources to communicate with Internet and other Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs). A public IP address is an independent resource and can be associated to different types of Azure resources like [Virtual machines](virtual-machines-about.md) (VM), [Load balancers](load-balancer-overview.md) (LB).
@@ -85,7 +85,6 @@ A private IP address can be assigned to an [Azure Application Gateway](applicati
 
 ## Next steps
 
-[Azure Networking API reference](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [Azure PowerShell reference for networking](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
