@@ -58,7 +58,7 @@ The following steps will show you how to configure a load balancer between 2 vir
 ## Step by Step using PowerShell
 
 
-## Setup PowerShell to use Resource Manager
+### Setup PowerShell to use Resource Manager
 
 Make sure you have the latest production version of the Azure module for PowerShell, and have PowerShell setup correctly to access your Azure subscription.
 
