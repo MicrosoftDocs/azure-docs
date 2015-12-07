@@ -58,8 +58,6 @@ The following steps will show you how to configure a load balancer between 2 vir
 ## Step by Step using PowerShell
 
 
-### Create Resource Group for load balancer
-
 ## Setup PowerShell to use Resource Manager
 
 Make sure you have the latest production version of the Azure module for PowerShell, and have PowerShell setup correctly to access your Azure subscription.
@@ -85,7 +83,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
+### Create Resource Group for load balancer
 
 ### Step 4
 
