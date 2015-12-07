@@ -10,6 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="na"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
@@ -99,7 +100,7 @@ The following code sample illustrates this approach. It assumes that a variable 
 
 ## Setup for Azure worker roles
 
-You can automate the installation and deployment of the .NET version and libraries needed for elastic database transactions to Azure (into the guest OS of your cloud service). For Azure worker roles, use the startup tasks. The concepts and steps are documented in [Install .NET on a Cloud Service Role](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).  
+You can automate the installation and deployment of the .NET version and libraries needed for elastic database transactions to Azure (into the guest OS of your cloud service). For Azure worker roles, use the startup tasks. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
 Note that the installer for .NET 4.6.1 requires more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
@@ -143,7 +144,7 @@ The following limitations currently apply to elastic database transactions in SQ
 
 ## Learn more
 
-Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](http://feedback.azure.com/forums/217321-sql-database).
+Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
