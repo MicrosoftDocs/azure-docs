@@ -26,7 +26,7 @@
 
 ## Create a Media Services account
 
-Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.
+Use the Azure Classic Portal, the .NET SDK, or the REST API to create an Azure Media Services account.
 
 <a id="setup_dev_env"></a>
 ## Set up the development environment  

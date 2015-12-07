@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configure CHAP for your StorSimple device
@@ -31,7 +31,7 @@ The CHAP settings on the StorSimple device can be configured in the following wa
 
 - Bidirectional or mutual or reverse authentication
 
-In each of these cases, the device Management Portal and the server iSCSI initiator software need to be configured. The detailed steps for this configuration are described in the following tutorial.
+In each of these cases, the portal for the device and the server iSCSI initiator software need to be configured. The detailed steps for this configuration are described in the following tutorial.
 
 ## Unidirectional or one-way authentication
 
@@ -39,7 +39,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
 #### To configure your device for one-way authentication
 
-1. In the Management Portal, on the **Devices** page, click the **Configure** tab.
+1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
 
     ![CHAP Initiator](./media/storsimple-configure-chap/IC740943.png)
 
@@ -75,9 +75,9 @@ In unidirectional authentication, the target authenticates the initiator. This a
 													
 	1. Select the **Enable CHAP log on** check box.
 
-	2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the Management Portal.
+	2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
 
-	3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the Management Portal.
+	3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
 
 	4. Click **OK**.
 
@@ -96,7 +96,7 @@ In bidirectional authentication, the target authenticates the initiator and then
 
 #### To configure your device for mutual authentication
 
-1. In the Management Portal, on the **Devices** page, click the **Configure** tab.
+1. In the Azure classic portal, on the **Devices** page, click the **Configure** tab.
 
     ![CHAP target](./media/storsimple-configure-chap/IC740948.png)
 
@@ -128,7 +128,7 @@ In bidirectional authentication, the target authenticates the initiator and then
 
 4. In the **iSCSI Initiator Mutual CHAP Secret** dialog box:
 													
-	1. Type the **Reverse CHAP Password** that you configured in the Management Portal.
+	1. Type the **Reverse CHAP Password** that you configured in the Azure classic portal.
 
 	2. Click **OK**.
 
@@ -144,9 +144,9 @@ In bidirectional authentication, the target authenticates the initiator and then
 													
 	1. Select the **Enable CHAP log on** check box.
 
-	2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the Management Portal.
+	2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
 
-	3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the Management Portal.
+	3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
 
 	4. Select the **Perform mutual authentication** check box.
 

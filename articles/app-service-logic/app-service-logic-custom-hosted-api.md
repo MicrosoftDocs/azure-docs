@@ -54,9 +54,9 @@ In this section, you’ll create two Azure Active Directory applications – one
 
 This is what the Logic app will use to authenticate against active directory. You only *need* to do this once for your directory; for example, can choose to use the same identity for all of your Logic apps, although you may also create unique ones per Logic app if you wish. You can either do this in the UI or use PowerShell.
 
-#### Create the application identity using the Azure portal
+#### Create the application identity using the Azure classic portal
 
-1. Navigate to [Active directory in the Azure portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) and select the directory that you use for your Web App
+1. Navigate to [Active directory in the Azure classic portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) and select the directory that you use for your Web App
 2. Click the **Applications** tab
 3. Click **Add** in the command bar at the bottom of the page
 4. Give your identity a Name to use, click the next arrow
@@ -85,7 +85,7 @@ If your Web app is already deployed you can just enable it in the portal. Otherw
 
 At this point an Application will automatically be created for you. You will need this Application's Client ID for Part 3, so you'll need to:
 
-1. Go to [Active directory in the Azure portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) and select your directory. 
+1. Go to [Active directory in the Azure classic portal](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory) and select your directory. 
 2. Search for the app in the search box
 3. Click on it in the list
 4. Click on the **Configure** tab
@@ -95,7 +95,7 @@ At this point an Application will automatically be created for you. You will nee
 
 First, you need to create an application for your Web app. This should be different from the application that is used for your Logic app. Start by following the steps above in Part 1, but now for the **HomePage** and **IdentifierUris** use the actual https://**URL** of your Web app.
 
->[AZURE.NOTE]When you create the Application for your Web app, you must use the [Azure portal approach](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), as the PowerShell commandlet does not set up the required permissions to sign users into a website.
+>[AZURE.NOTE]When you create the Application for your Web app, you must use the [Azure classic portal approach](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory), as the PowerShell commandlet does not set up the required permissions to sign users into a website.
 
 Once you have the client ID and tenant ID include the following as a sub resource  of the Web app in your deployment template :
 
