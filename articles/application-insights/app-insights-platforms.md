@@ -81,5 +81,5 @@ These are implementations we've heard about, including some by third parties.
 
 ## <a name="projects"></a> Build your own SDK
 
-If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home)
-[Windows Store apps using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
+If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home).
+
