@@ -1,6 +1,6 @@
-Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
+<!---Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
 
-### <a name="dotnet"></a>.NET backend project
+### <a name="dotnet"></a>.NET backend project -->
 1. In Visual Studio, update the `PostTodoItem` method definition with the following code:  
 
 	    public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -47,7 +47,7 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 	This code sends a template notification only to registrations tagged with the current user's SID. Note that the SID value can change since it derived from the authentication provider's token. 
  
 2. Republish the server project.
-
+<!---
 ### <a name="nodejs"></a>Node.js backend project
 
 1. Replace the existing code in the todoitem.js file with the following:
@@ -97,3 +97,4 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 	This sends a template notification only to registrations tagged with the current user's SID. Note that the SID value can change since it derived from the authentication provider's token. 
 
 2. When editing the file in your local computer, republish the server project.
+ -->
