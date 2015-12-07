@@ -83,7 +83,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
      If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is selected.
 
 8. Make sure that **Start deployment** is selected.
-9. Click **Create**.
+9. Click **OK**.
 
     ![Publish your cloud service](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
