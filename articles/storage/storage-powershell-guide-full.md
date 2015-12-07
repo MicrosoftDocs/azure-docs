@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure PowerShell cmdlets for Azure Storage to create and manage storage accounts; work with blobs, tables, queues, and files; configure and query storage analytics, and create shared access signatures."
 	services="storage"
 	documentationCenter="na"
-	authors="tamram" 
-	manager="adinah"/>
+	authors="robinsh" 
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="selcint"/>
+	ms.date="12/7/2015"
+	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
 
