@@ -77,13 +77,23 @@ The following steps demonstrate how to publish an application by using use the *
 
 6. When you're done specifying all of the necessary settings, choose the **Publish** button to publish your application to the selected Service Fabric cluster. The settings you specified are applied to the publish process.
 
-## Publishing to an arbitrary cluster endpoint
+## Publishing to an arbitrary cluster endpoint (including party clusters)
 
-The Visual Studio publishing experience is optimized for publishing to remote clusters associated with one of your Azure subscriptions. However, it is possible to publish to an arbitrary endpoint (such as Service Fabric party clusters) by directly editing the publish profile XML.
+The Visual Studio publishing experience is optimized for publishing to remote clusters associated with one of your Azure subscriptions. However, it is possible to publish to an arbitrary endpoint (such as Service Fabric party clusters) by directly editing the publish profile XML. As described above, two publish profiles are provided by default - **Local.xml** and **Cloud.xml** - but you are welcome to create additional profiles for different environments. For instance, you might want to create a profile for publishing to party clusters, perhaps named **Party.xml**.
 
-If you are connecting to a unsecured cluster, all that's required is the cluster connection endpoint, such as `mycluster.westus.cloudapp.azure.com:19000`. If you are connecting to a secured cluster, you will also need to provide the details of the client certificate from the local store to be used for authentication.
+If you are connecting to a unsecured cluster, all that's required is the cluster connection endpoint, such as `partycluster1.westus.cloudapp.azure.com:19000`. In that case, the connection endpoint in the publish profile would something like this:
 
+```XML
+<ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
+```
 
+  If you are connecting to a secured cluster, you will also need to provide the details of the client certificate from the local store to be used for authentication. For more details, see [configuring secure connections to a Service Fabric cluster](service-fabric-visualstudio-configure-secure-connections.md).
+
+  Once your publish profile is set up, you can reference it in the publish dialog as shown below.
+
+  ![New publish profile in publish dialog][4]
+
+  Note that in this case, the new publish profile points to one of the default application parameters files. This is appropriate if you want to publish the same application configuration to a number of environments. By contrast, in cases where you want to have different configurations for each environment you want to publish to, it would make sense to create a corresponding application parameters file.
 
 ## Next steps
 
@@ -94,3 +104,4 @@ To learn how to automate the publishing process in a Continuous Integration envi
 [1]: ./media/service-fabric-publish-app-remote-cluster/SelectCluster.png
 [2]: ./media/service-fabric-publish-app-remote-cluster/EditParams.png
 [3]: ./media/service-fabric-publish-app-remote-cluster/EditVersions.png
+[4]: ./media/service-fabric-publish-app-remote-cluster/publish-to-party-cluster.png
