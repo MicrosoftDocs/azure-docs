@@ -110,7 +110,7 @@ This guide is intended to help IT professionals understand and use the various S
 
 [Enabling hybrid access with App Proxy](active-directory-appssoaccess-enable-hybrid-access.md)
 
-[Azure AD Domain Services (Preview)](https://azure.microsoft.com/documentation/articles/active-directory-ds-overview/)
+[Azure AD Domain Services (Preview)](active-directory-ds-overview.md)
 
 ##Building Apps that Integrate with Azure AD
 
