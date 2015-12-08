@@ -2,6 +2,7 @@
     pageTitle="Azure RemoteApp licensing"
     description="Learn how licensing works in Azure RemoteApp."
     services="remoteapp"
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
