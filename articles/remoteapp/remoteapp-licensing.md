@@ -2,7 +2,6 @@
     pageTitle="Azure RemoteApp licensing"
     description="Learn how licensing works in Azure RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,7 +11,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

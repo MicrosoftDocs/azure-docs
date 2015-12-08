@@ -26,22 +26,22 @@ We will accomplish this using Azure RemoteApp by hosting Office 365 on scale-abl
 ## Create a cloud collection
 
 First after you have created an Azure account, navigate to **RemoteApp** by clicking on the link on the left side.
-![Showing Azure RemoteApp on the Azure Portal](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/1-menu.png)
+![Showing Azure RemoteApp on the Azure Portal](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
 Then continue by clicking **new** on the bottom and "quick creating" a collection. Provide a name, the region, the subscription, the plan and the image "Office Proffesional 2013" that we provide.
-![Create Dialog](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/2-quickcreate.PNG)
+![Create Dialog](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.PNG)
 
 Once you finish the form the collection creation process should start. This may take up to an hour or so.
 
-![Waiting](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/3-waiting.PNG)
+![Waiting](./media/remoteapp-tutorial-o365anywhere/3-waiting.PNG)
 
 Once the process is done, it will look something like this. If we click **Publishing** we can see that most Office applications have been published for us already.
-![Collection created](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/4-done.PNG)
+![Collection created](./media/remoteapp-tutorial-o365anywhere/4-done.PNG)
 
-![Published apps](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/5-publish.PNG)
+![Published apps](./media/remoteapp-tutorial-o365anywhere/5-publish.PNG)
 
 At this point you can also add more users that have access to this collection by clicking **User Access**.
-![Configure user access](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/6-user.PNG)
+![Configure user access](./media/remoteapp-tutorial-o365anywhere/6-user.PNG)
 
 Now let's try out connecting to Office 365!
 
@@ -51,18 +51,18 @@ We'll head over to [https://www.remoteapp.windowsazure.com/](https://www.remotea
 
 Once the application starts you'll be asked to sign in with your Microsoft account (formerly called a "Live ID"), use the same one as your Azure account for now. When you're signed in you should see a notification about new invitations, click there and you should see a list like one below. Accept the invitation that matches your Azure account owner email.
 
-![New invitation](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/7-araclient.PNG)
+![New invitation](./media/remoteapp-tutorial-o365anywhere/7-araclient.PNG)
 
 What it looks like when there are new invitations.
 
-![Accept an application](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/8-invitation.PNG)
+![Accept an application](./media/remoteapp-tutorial-o365anywhere/8-invitation.PNG)
 
 Once you accept the invitation you should see all the Office apps in the Azure RemoteApp client.
 
-![List of apps](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/9-work.PNG)
+![List of apps](./media/remoteapp-tutorial-o365anywhere/9-work.PNG)
 
 When you click on any of these the application should start on the Azure virtual machine and you should be all set! Enjoy!
 
-![starting](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/10-arastart.PNG)
+![starting](./media/remoteapp-tutorial-o365anywhere/10-arastart.PNG)
 
-![powerpoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
+![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
