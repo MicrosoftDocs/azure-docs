@@ -1,0 +1,365 @@
+<properties
+pageTitle="Indexing Azure Blob Storage with Azure Search"
+description="Learn how to index Azure Blob Storage and extract text from documents with Azure Search"
+services="search"
+documentationCenter=""
+authors="chaosrealm"
+manager="pablocas"
+editor="" />
+
+<tags
+ms.service="search"
+ms.devlang="rest-api"
+ms.workload="search" ms.topic="article"  
+ms.tgt_pltfrm="na"
+ms.date="12/07/2015"
+ms.author="eugenesh" />
+
+# Indexing Documents in Azure Blob Storage with Azure Search
+
+For quite some time now, Azure Search customers have been able to "automagically" index some popular data sources by using indexers for [Azure SQL Database](https://azure.microsoft.com/en-us/documentation/articles/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/) and [Azure DocumentDB](https://azure.microsoft.com/en-us/documentation/articles/documentdb-search-indexer/).
+
+We're now adding support for indexing documents stored in Azure Blob storage. Many customers have asked us to simplify indexing documents stored in blobs, such as PDFs, Office documents, or HTML pages. Until now, this involved writing custom code to do text extraction and adding the documents to an Azure Search index. 
+
+> [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+
+## Setting up blob indexing
+
+To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for blob indexing will be added to the Azure Search .NET SDK and the Azure Portal.
+
+A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows). A data source is defined as an independent resource so that it can be used by multiple indexers.
+
+An indexer is a resource that connects data sources with target search indexes.
+
+To set up a blob indexer, do the following:
+
+1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account
+	- Pass in your storage account connection string as the `credentials.connectionString` parameter
+	- Specify a container name. You can also optionally include a folder using the `query` parameter
+2. Create the indexer by connecting your data source to an existing target index (create the index if you don't already have one)
+
+The following example provides an illustration:
+
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "my-folder" }
+	}   
+
+Next, create an indexer that references the data source and a target index. For example:
+
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  "name" : "blob-indexer",
+	  "dataSourceName" : " blob-datasource ",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" }
+	}
+
+
+## Supported document formats
+
+The blob indexer can extract text from the following document formats:
+
+- PDF
+- Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+- HTML
+- XML
+- ZIP
+- Plain text files (including JSON)  
+
+## Document extraction process
+
+Azure Search indexes each document (blob) as follows:
+
+- The entire text content of the document is extracted into a string field named `content`. Note that we currently don't provide support for extracting multiple documents from a single blob:
+	- For example, a CSV file is indexed as a single document.
+	- A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
+
+- User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.
+
+- Standard blob metadata properties are extracted into the following fields:
+
+	- **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+
+	- **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+
+	- **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
+
+	- **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob.
+	> [AZURE.NOTE] Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
+
+	- **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
+
+	- **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+
+- Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
+
+You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application. 
+
+> [AZURE.NOTE] Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Search to the field names in your search index. 
+
+## Picking the document key field and dealing with different field names
+
+In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
+   
+You should carefully consider which extracted field should map to the key field for your index. The candidates are:
+
+- **metadata\_storage\_name** - this might be a convenient candidate, but note that 1) the names might not be unique, as you may have blobs with the same name in different folders, and 2) the name may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by enabling the `base64EncodeKeys` option in the indexer properties - if you do this, remember to encode document keys when passing them in API calls such as Lookup. (For example, in .NET you can use the [UrlTokenEncode method](https://msdn.microsoft.com/en-us/library/system.web.httpserverutility.urltokenencode.aspx) for that purpose).
+
+- **metadata\_storage\_path** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://msdn.microsoft.com/en-us/library/azure/dn857353.aspx).  As above, you have the option of encoding the keys using the `base64EncodeKeys` option.
+
+- If none of the options above work for you, you have the ultimate flexibility of adding a custom metadata property to the blobs. This option does, however, require your blob upload process to add that metadata property to all blobs. Since the key is a required property, all blobs that don't have that property will fail to be indexed.
+
+> [AZURE.IMPORTANT] If there is no explicit mapping for the key field in the index, Azure Search will automatically use `metadata_storage_path` (the second option above) as the key and enable base-64 encoding of keys.
+
+For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
+
+	"fieldMappings" : [
+	  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	  { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+	]
+
+To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
+
+	PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  "dataSourceName" : " blob-datasource ",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" },
+	  "fieldMappings" : [
+	    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+	    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+	  ],
+	  "parameters" : { "base64EncodeKeys": true }
+	}
+
+## Incremental indexing and deletion detection
+
+When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
+
+> [AZURE.NOTE] You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
+
+To indicate that certain documents must be removed from the index, you should use a soft delete strategy - instead of deleting the corresponding blobs, add a custom metadata property to indicate that they're deleted, and set up a soft deletion detection policy on the data source.
+
+> [AZURE.NOTE] If you just delete the blobs instead of using a deletion detection policy, corresponding documents will not be removed from the search index.
+
+For example, the policy shown below will consider that a blob is deleted if it has a metadata property `IsDeleted` with the value `true`:
+
+	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<your storage connection string>" },
+		"container" : { "name" : "my-container", "query" : "my-folder" },
+		"dataDeletionDetectionPolicy" : {
+			"@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", 	
+			"softDeleteColumnName" : "IsDeleted",
+			"softDeleteMarkerValue" : "true"
+		}
+	}   
+
+<a name="ContentSpecificMetadata"></a>
+## Content type-specific metadata properties
+
+The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
+
+<table style="font-size:12">
+
+<tr>
+<th>Document format / content type</th>
+<th>Content-type specific metadata properties</th>
+<th>Processing details </th>
+</tr>
+
+<tr>
+<td>HTML (`text/html`)</td>
+<td>
+`metadata_content_encoding`<br/>
+`metadata_content_type`<br/>
+`metadata_language`<br/>
+`metadata_description`<br/>
+`metadata_keywords`<br/>
+`metadata_title`
+</td>
+<td>Strip HTML markup and extract text</td>
+</tr>
+
+<tr>
+<td>PDF (`application/pdf`)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_language`<br/>
+`metadata_author`<br/>
+`metadata_title`
+</td>
+<td>Extract text, including embedded documents (excluding images)</td>
+</tr>
+
+<tr>
+<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_author`<br/>
+`metadata_character_count`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`<br/>
+`metadata_page_count`<br/>
+`metadata_word_count`
+</td>
+<td>Extract text, including embedded documents</td>
+</tr>
+
+<tr>
+<td>DOC (application/msword)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_author`<br/>
+`metadata_character_count`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`<br/>
+`metadata_page_count`<br/>
+`metadata_word_count`
+</td>
+<td>Extract text, including embedded documents</td>
+</tr>
+
+<tr>
+<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_author`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`
+</td>
+<td>Extract text, including embedded documents</td>
+</tr>
+
+<tr>
+<td>XLS (application/vnd.ms-excel)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_author`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`
+</td>
+<td>Extract text, including embedded documents</td>
+</tr>
+
+<tr>
+<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_author`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`<br/>
+`metadata_slide_count`<br/>
+`metadata_title`
+</td>
+<td>Extract text, including embedded documents</td>
+</tr>
+
+<tr>
+<td>PPT (application/vnd.ms-powerpoint)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_author`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`<br/>
+`metadata_slide_count`<br/>
+`metadata_title`
+</td>
+<td>Extract text, including embedded documents</td>
+</tr>
+
+<tr>
+<td>MSG (application/vnd.ms-outlook)</td>
+<td>
+`metadata_content_type`<br/>
+`metadata_message_from`<br/>
+`metadata_message_to`<br/>
+`metadata_message_cc`<br/>
+`metadata_message_bcc`<br/>
+`metadata_creation_date`<br/>
+`metadata_last_modified`<br/>
+`metadata_subject`
+</td>
+<td>Extract text, including attachments</td>
+</tr>
+
+<tr>
+<td>ZIP (application/zip)</td>
+<td>
+`metadata_content_type`
+</td>
+<td>Extract text from all documents in the archive</td>
+</tr>
+
+<tr>
+<td>XML (application/xml)</td>
+<td>
+`metadata_content_type`</br>
+`metadata_content_encoding`</br>
+</td>
+<td>Strip XML markup and extract text </td>
+</tr>
+
+<tr>
+<td>JSON (application/json)</td>
+<td>
+`metadata_content_type`</br>
+`metadata_content_encoding`
+</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Plain text (text/plain)</td>
+<td>
+`metadata_content_type`</br>
+`metadata_content_encoding`</br>
+</td>
+<td></td>
+</tr>
+</table>
+
+<a name="CustomMetadataControl"></a>
+## Using custom metadata to control document extraction
+
+You can add metadata properties to a blob to control certain aspects of the blob indexing and document extraction process. Currently the following properties are supported:
+
+<table style="font-size:12">
+
+<tr>
+<th>Property name</th>
+<th>Property value</th>
+<th>Explanation</th>
+</tr>
+
+<tr>
+<td>AzureSearch_Skip</td>
+<td>"true"</td>
+<td>Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted.
+This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
+</td>
+</tr>
+
+</table>
+
+## Help us make Azure Search better
+
+If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
