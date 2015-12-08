@@ -66,7 +66,7 @@ A result of ```1``` indicates an encrypted database, ```0``` indicates a non-enc
 
  
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/en-us/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
