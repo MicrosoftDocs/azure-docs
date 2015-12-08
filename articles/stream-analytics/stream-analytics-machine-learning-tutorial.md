@@ -77,11 +77,11 @@ For this step you can use any CSV file including the one I specified in the intr
 
 1.	Login to Azure Management Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com). 
 2.	Click **New**, **Data Services**, **Machine Learning**, **Quick Create**.
-3.	Fill in the **Quick Create **form by providing the following:  
-	a.	**Workspace Name**.  
-	b.	**Workspace Owner**. The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).  
-	c.	**Location**.  
-	d.	**Storage Account**. Here you can either choose an existing Storage Account or create a new one. This storage is internal to AML and hence is of little importance for this exercise.  
+3.	Fill in the **Quick Create** form by providing the following:  
+	a.	**Workspace Name**  
+	b.	**Workspace Owner** The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).  
+	c.	**Location**  
+	d.	**Storage Account** Here you can either choose an existing Storage Account or create a new one. This storage is internal to AML and hence is of little importance for this exercise.  
 4.	Click **Create an ML Workspace** button.
 5.	Once created, click on the **workspace** in the list of **workspaces** and navigate to the **Dashboard** tab. In the **Quick Glance** section of the Dashboard click **Sign-in to ML Studio**.
 
@@ -97,8 +97,10 @@ For this step you can use any CSV file including the one I specified in the intr
     Notice here that I connected Project Columns node to the first port of the three available input ports on the Execute Python Script.
 7.	Select newly placed Execute Python Script node to see its Properties on the right pane. Modify Python Script section as follows:  
     a.	Write import pandas right before the definition of the function  
-    b.  Delete the body of the function completely and replace it with `return pandas.DataFrame(dataframe1['Model'].apply(lambda x: x + ' Hello World!')),`  
-
+    b.  Delete the body of the function completely and replace it with  
+ 		
+		`return pandas.DataFrame(dataframe1['Model'].apply(lambda x: x + ' Hello World!')),`    
+		
 	The only thing you need to change here is the name of the column which we select from dataframe1. In this case I selected the “Model” column. Also, please pay attention of the indentation of the return statement.  
 
 	c.	In the end this is how the script looks. 
@@ -147,7 +149,7 @@ For this step you can use any CSV file including the one I specified in the intr
 In this tutorial, an exercise of using a Machine Learning module was demonstrated as a function inside a Stream Analytics job. The processing power of Stream Analytics was extended by Machine Learning modules. Data was read from a Blob Storage, processed using a Machine Learning module, and outputted the result back into the same Blob Storage. 
 
 Note:
-1.	The choice of the **Input** and **Output** was fairly basic. The **input** could have been Event Hub and the **output** Power BI as an example. Conceptually, there is no difference.
-2.	The same CSV was used as the **input** for a Stream Analytics job and as an **input** for a Machine Learning model. Again this is basic and chosen to demonstrate the concepts covered rather than a true "real world" scenario. The CSV in the Machine Learning module was only needed to define the model and to define the signature of the function. During the runtime of AML Web Service that CSV file and all the transformations that we performed (such as Project Columns) were not used. Hence, to define the AML model, a completely different CSV file with different schema and values could have been leveraged in a more advanced example.
+1.	The choice of the **Input** and **Output** was fairly basic. The **input** could have been Event Hub and the **output** Power BI as an example. Conceptually, there is no difference.  
+2.	The same CSV was used as the **input** for a Stream Analytics job and as an **input** for a Machine Learning model. Again this is basic and chosen to demonstrate the concepts covered rather than a true "real world" scenario. The CSV in the Machine Learning module was only needed to define the model and to define the signature of the function. During the runtime of AML Web Service that CSV file and all the transformations that we performed (such as Project Columns) were not used. Hence, to define the AML model, a completely different CSV file with different schema and values could have been leveraged in a more advanced example.  
 
 
