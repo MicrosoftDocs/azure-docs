@@ -32,7 +32,7 @@ Service Fabric provides security for the following scenarios:
 
 	![Client-to-Node][Client-to-Node]
 
-	For either type of communication scenarios (Node to Node or Client to Node), Service Fabric provides support for using either [Certificate Security](https://msdn.microsoft.com/en-us/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/en-us/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent, from each other, and could be the same or different for each.
+	For either type of communication scenarios (Node to Node or Client to Node), Service Fabric provides support for using either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent, from each other, and could be the same or different for each.
 
 	In Azure Service Fabric uses X509 Server certificates that you specify as a part of the Node Type configurations when you create a cluster. For a quick overview what these certificates are and how you can acquire/create them, please scroll down to the bottom of this page.
 
