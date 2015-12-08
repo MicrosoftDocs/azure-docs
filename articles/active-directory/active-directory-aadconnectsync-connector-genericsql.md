@@ -32,7 +32,7 @@ The Generic SQL Connector enable you to integrate the synchronization service wi
 
 From a high level perspective, the following features supported by the current release of the connector:
 
-| Features | Support |
+| Feature | Support |
 | --- | --- |
 | Connected data source | The Connector is supported with all 64-bit ODBC drivers. It has been tested with the following: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li>
 | Scenarios	| <li>Object Lifecycle Management</li><li>Password Management</li> |
@@ -157,12 +157,12 @@ The Global Parameters page is used to configure Delta Import, Date/Time format, 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
 The Generic SQL Connector supports the following methods for Delta Import:
-- **Trigger**: See [Generating Delta Views Using Triggers](https://technet.microsoft.com/en-us/library/cc708665.aspx).
+- **Trigger**: See [Generating Delta Views Using Triggers](https://technet.microsoft.com/library/cc708665.aspx).
 - **Watermark**: This is a generic approach and can be used with any database. The watermark query is pre-populated based on the database vendor. A watermark column must be present on every table/view used. This must track inserts and updates to the tables as well as its dependent (multi-valued or child) tables. The clocks between Synchronization Service and the database server must be synchronized. If not, some entries in the delta import might be omitted.  
 Limitation:
     - Watermark strategy does not supports deleted objects.
-- **Snapshot** (Works only with Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/en-us/library/cc720640.aspx)
-- **Change Tracking** (Works only with Microsoft SQL Server) [About Change Tracking](https://msdn.microsoft.com/en-ca/library/bb933875.aspx)  
+- **Snapshot** (Works only with Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
+- **Change Tracking** (Works only with Microsoft SQL Server) [About Change Tracking](https://msdn.microsoft.com/library/bb933875.aspx)  
 Limitations:
     - Anchor & DN attribute must be part of primary key for the selected object in the table.
     - SQL query unsupported with Change Tracking.
@@ -233,7 +233,7 @@ Do the following:
 
 - Store procedure (SP), Connector does not uses any logic to handle pagination during import.
 - Stored procedure supports the pagination and provide start Index and End Index.
-Refer link for paginated stored procedure: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/en-us/library/bb445504.aspx)
+Refer link for paginated stored procedure: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx)
 - @StartIndex and @EndIndex will be replaced at execution time with respective page size value configured on “Configure Step” page
 Example: If connector retrieve first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex considered as 500 and this values, increases as connector retrieve subsequent pages and change the @StartIndex & @EndIndex value.
 - Executing parameterized stored procedure type all parameters in [Name]: [Direction]: [Value] format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
