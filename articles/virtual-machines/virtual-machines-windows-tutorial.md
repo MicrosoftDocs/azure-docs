@@ -20,9 +20,11 @@
 # Create a virtual machine running Windows in the Azure portal#
 
 > [AZURE.SELECTOR]
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 <br>
 
 This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
