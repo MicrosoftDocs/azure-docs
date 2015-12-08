@@ -10,7 +10,6 @@
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
