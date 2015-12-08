@@ -65,14 +65,14 @@ For options 1 and 2, turn on **App Service Authentication**, and in the **Action
 
 App Service authentication processing happens before requests reach your API app, which means that the authentication features work for API apps written in any language or framework.  Your API can be based on ASP.NET, Java, Node.js, or any framework that App Service supports.
 
-In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims. Claims information is populated for you in .NET classes.
-
-For APIs written in other languages, App Service passes on the JWT token in the Authorization header of an HTTP request. In addition, App Service gives you easier access to the most commonly used claims by setting some special headers, such as the following:
+App Service passes on the JWT token in the Authorization header of an HTTP request, and code written in any language or framework can get the information it needs from the token. In addition, App Service gives you easier access to the most commonly used claims by setting some special headers, such as the following:
 
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 * X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
 * X-MS-TOKEN-FACEBOOK-EXPIRES-ON
+ 
+In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims because claims information is populated for you in .NET classes.
 
 ## Service principal authentication
 
