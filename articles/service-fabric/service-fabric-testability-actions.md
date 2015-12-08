@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="12/04/2015"
    ms.author="heeldin;motanv"/>
 
 # Testability actions
@@ -237,4 +237,3 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 - How to test your service
    - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
    - [Service to service communication failures](service-fabric-testability-scenarios-service-communication.md)
- 
