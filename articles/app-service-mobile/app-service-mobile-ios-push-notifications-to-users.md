@@ -78,5 +78,5 @@ Re-publish your mobile backend project and run any of the client apps you have s
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-ios-get-started-users.md
 [Get started with push notifications]: app-service-mobile-ios-get-started-push.md
-[templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
+[templates]: https://msdn.microsoft.com/library/dn530748.aspx
  
