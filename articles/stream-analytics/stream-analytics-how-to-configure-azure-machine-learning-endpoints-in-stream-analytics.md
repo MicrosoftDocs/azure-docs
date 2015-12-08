@@ -50,7 +50,7 @@ By using REST APIs you may configure your job to call Azure Machine Language fun
 
 ## Creating a UDF with basic properties
 
-As an example, the following sample code creates a scalar UDF named *newudf* that binds to an Azure Machine Learning endpoint. Note that the en**dpoint (service URI) can be found on the API help page for the chosen service and the *apiKey* can be found on the services main page.
+As an example, the following sample code creates a scalar UDF named *newudf* that binds to an Azure Machine Learning endpoint. Note that the *endpoint* (service URI) can be found on the API help page for the chosen service and the *apiKey* can be found on the services main page.
 
 PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
 
