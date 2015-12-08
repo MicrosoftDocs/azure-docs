@@ -74,7 +74,7 @@ Example request body:
 
 ## Call RetrieveDefaultDefinition endpoint for default UDF
 
-Once this is entered, the complete definition of the UDF is needed. The RetrieveDefaultDefinition is performed. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint from the request if it is provided explicitly. However it will use the one located in the database if one is not explicitly provided. Here the UDF takes a single string parameter (which is a sentenc)e and returns a single output of type string which indicates the “sentiment” label for that sentence.
+Once this is entered, the complete definition of the UDF is needed. The RetrieveDefaultDefinition is performed. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint from the request if it is provided explicitly. However it will use the one located in the database if one is not explicitly provided. Here the UDF takes a single string parameter (a sentence) and returns a single output of type string which indicates the “sentiment” label for that sentence.
 
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
 
