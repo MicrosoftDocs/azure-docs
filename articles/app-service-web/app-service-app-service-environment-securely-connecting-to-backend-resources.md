@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>	
 
 # Securely Connecting to Backend Resources from an App Service Environment #
@@ -21,7 +21,7 @@
 ## Overview ##
 Since an App Service Environment is always created in a subnet of a regional classic "v1" [virtual network][virtualnetwork], outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.  
 
-**Note:**  An App Service Environment cannot be created in a "v2" virtual network.
+**Note:**  An App Service Environment cannot be created in a "v2" ARM-managed virtual network.
 
 For example, there may be a SQL Server running on a cluster of virtual machines with port 1433 locked down.  The endpoint may be ACLd to only allow access from other resources on the same virtual network.  
 
