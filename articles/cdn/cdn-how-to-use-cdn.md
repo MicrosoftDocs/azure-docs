@@ -140,5 +140,6 @@ For more information on mapping a custom domain, see [How to Map Content Deliver
 
 - [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md)
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
+- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
  
 

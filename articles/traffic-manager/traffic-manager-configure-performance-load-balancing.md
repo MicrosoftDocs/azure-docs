@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Configure Performance traffic routing method | Microsoft Azure"
    description="This article will help you configure performance traffic routing method in Traffic Manager"
    services="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Configure Performance traffic routing method
