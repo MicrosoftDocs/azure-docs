@@ -20,7 +20,9 @@
 # Manage virtual machines using Azure Resource Manager and PowerShell
 
 > [AZURE.SELECTOR]
-- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+<br> 
 
 Using Azure PowerShell and Resource Manager templates provides you with a lot of power and flexibility when managing resources in Microsoft Azure. You can use the tasks in this article to create and manage virtual machine resources.
 
