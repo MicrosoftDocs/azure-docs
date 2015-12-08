@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/08/2015"
 	ms.author="szark"/>
 
 
 
 #Linux on Azure-Endorsed Distributions
 
-The Linux images in the Azure Gallery are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on [this page](virtual-machines-linux-create-upload-vhd.md).
+The Linux images in the Azure Gallery or Marketplace (Red Hat Enterprise Linux is coming soon) are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on [this page](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -37,23 +37,15 @@ The Azure Linux Agent is already pre-installed on the Azure Gallery images and a
 
 Distribution|Version|Drivers|Agent
 ---|---|---|---
-Ubuntu|Ubuntu 12.04, 14.04, 15.04 and 15.10|In Kernel|Package: In repo under "walinuxagent" <p><p>Source: [GitHub](https://github.com/Azure/WALinuxAgent)
 CentOS by OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [LIS Download](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: In Kernel|Package: In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic repo   under "WALinuxAgent"<p><p>Source: [GitHub](https://github.com/Azure/WALinuxAgent)
+Debian by Credativ |Debian 7.9+, 8.2+|In Kernel|Package: In repo under "waagent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494.4.0+ |In Kernel|Source: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6.4+, 7.0+|In Kernel|Package: In repo under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Red Hat Enterprise Linux |RHEL 6.7+, 7.1+|In Kernel|Package: In repo under "WALinuxAgent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
 SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ and  <p><p> SLES for SAP 11.3+ |In Kernel|Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent"<p><p>Source: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|In Kernel|Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "WALinuxAgent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-Debian by Credativ |Debian 7.9+, 8.2+|In Kernel|Package: In repo under "waagent" <p><p>Source Code: [GitHub](https://github.com/Azure/WALinuxAgent)
-
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 and 15.10|In Kernel|Package: In repo under "walinuxagent" <p><p>Source: [GitHub](https://github.com/Azure/WALinuxAgent)
 ## Partners
-
-### Canonical
-[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
-
-Canonical engineering and open community governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers. Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.
-
-With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market, from PCs to servers and handheld devices.
-
 
 ### CoreOS
 [https://coreos.com/docs/running-coreos/cloud-providers/azure/](https://coreos.com/docs/running-coreos/cloud-providers/azure/)
@@ -62,6 +54,11 @@ From the CoreOS Website:
 
 *CoreOS is designed for security, consistency, and reliability. Instead of installing packages via yum or apt, CoreOS uses Linux containers to manage your services at a higher level of abstraction. A single service's code and all dependencies are packaged within a container that can be run on one or many CoreOS machines.*
 
+
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+Credativ is an independent consulting and services company, specialising in the development and implementation of professional solutions through the use of free software. As leading Open Source specialists, we have international recognition with many IT departments using our support. In conjunction with Microsoft, credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy), which are specially designed to run on Azure and can be easily managed via the platform. credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centres.
 
 ### OpenLogic
 [http://www.openlogic.com/azure](http://www.openlogic.com/azure)
@@ -74,13 +71,20 @@ OpenLogic is a leading provider of enterprise open source solutions for the clou
 
 Oracle’s strategy is to offer a broad portfolio of solutions for public and private clouds, while giving customers choice and flexibility in how they deploy Oracle software in Oracle clouds as well as other clouds.  Oracle’s partnership with Microsoft enables customers to deploy Oracle software in Microsoft public and private clouds with the confidence of certification and support from Oracle.  Oracle’s commitment and investment in Oracle public and private cloud solutions is unchanged.
 
+### Red Hat
+[http://www.redhat.com/en/partners/strategic-alliance/microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)
+
+The world's leading provider of open source solutions, Red Hat help more than 90% of Fortune 500* companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. We do this by providing secure solutions through an open business model and an affordable, predictable subscription model.
 
 ### SUSE
 [http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
 
 SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure.
 
-### Credativ
-[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+### Canonical
+[http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 
-Credativ is an independent consulting and services company, specialising in the development and implementation of professional solutions through the use of free software. As leading Open Source specialists, we have international recognition with many IT departments using our support. In conjunction with Microsoft, credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy), which are specially designed to run on Azure and can be easily managed via the platform. credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centres.
+Canonical engineering and open community governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers. Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.
+
+With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market, from PCs to servers and handheld devices.
+
