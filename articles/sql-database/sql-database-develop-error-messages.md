@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Error messages for SQL Database client programs"
 	description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
 	services="sql-database"
@@ -216,6 +216,7 @@ The following table lists all the general errors that do not fall into any previ
 |40651|16|Failed to create server because the subscription <subscription-id> is disabled.|
 |40652|16|Cannot move or create server. Subscription <subscription-id> will exceed server quota.|
 |40671|17|Communication failure between the gateway and the management service. Please retry later.|
+|40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN. <server name>.database.windows.net should be modified to <server name>.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
 |45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
 
