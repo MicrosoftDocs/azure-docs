@@ -65,7 +65,7 @@ Example request body:
        			"type": "Microsoft.MachineLearning/WebService",
        			"properties": {
          				"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77fb4b46bf2a30c63c078dca/services/b7be5e40fd194258796fb402c1958eaf/execute ",
-         				"apiKey": "replacekeyhere",
+         				"apiKey": "replacekeyhere"
     					}
     			}
     		}
@@ -81,51 +81,47 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 Example request body:  
 
 	{
-	"bindingType": "Microsoft.MachineLearning/WebService",
-	"bindingRetrievalProperties": {
-		"executeEndpoint": null,
-		"udfype": "Scalar"
+		"bindingType": "Microsoft.MachineLearning/WebService",
+		"bindingRetrievalProperties": {
+			"executeEndpoint": null,
+			"udfype": "Scalar"
 		}
 	}
 
 A sample output of this would look something like below.  
 
+
 	{
-	"name": "newudf",
-	"properties": {
-		"type": "Scalar",
+		"name": "newudf",
 		"properties": {
-			"inputs": [
-			{
-			"dataType": "nvarchar(max)",
-			"isConfigurationParameter": null
-			}
-			],
-		"output": {
-			"dataType": "nvarchar(max)"
-		},
-		"binding": {
-			"type": "Microsoft.MachineLearning/WebService",
+			"type": "Scalar",
 			"properties": {
-			"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77ga4a4bbf2a30c63c078dca/services/b7be5e40fd194258896fb602c1858eaf/execute",
-			"apiKey": null,
-			"inputs": {
-				"name": "input1",
-				"columnNames": [
-				{
-					"name": "tweet",
-					"dataType": "string",
-					"mapTo": 0
-				}
-				]
-			},
-			"outputs": [
-				{
-					"name": "Sentiment",
-					"dataType": "string"
-				}
-				],
-				"batchSize": 10
+				"inputs": [{
+					"dataType": "nvarchar(max)",
+					"isConfigurationParameter": null
+				}],
+				"output": {
+					"dataType": "nvarchar(max)"
+				},
+				"binding": {
+					"type": "Microsoft.MachineLearning/WebService",
+					"properties": {
+						"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77ga4a4bbf2a30c63c078dca/services/b7be5e40fd194258896fb602c1858eaf/execute",
+						"apiKey": null,
+						"inputs": {
+							"name": "input1",
+							"columnNames": [{
+								"name": "tweet",
+								"dataType": "string",
+								"mapTo": 0
+							}]
+						},
+						"outputs": [{
+							"name": "Sentiment",
+							"dataType": "string"
+						}],
+						"batchSize": 10
+					}
 				}
 			}
 		}
