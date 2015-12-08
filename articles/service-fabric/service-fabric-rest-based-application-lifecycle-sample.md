@@ -56,20 +56,20 @@ To create the application packages and copy them to the ImageStore, take the fol
 5. Save the changed ApplicationManifest.xml file.
 6. Run the following PowerShell script as an administrator to copy the applications to the ImageStore:
 
+```powershell
+# Deploy the WordCount and upgrade applications
+$applicationPathWordCount = "C:\Temp\WordCount"
+$applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
 
-		# Deploy the WordCount and upgrade applications
-		$applicationPathWordCount = "C:\Temp\WordCount"
-		$applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
+# LOCAL:
+$imageStoreConnection = "file:C:\SfDevCluster\Data\ImageStoreShare"
+$cluster = 'localhost:19000'
 
-		# LOCAL:
-		$imageStoreConnection = "fabric:ImageStore"
-		$cluster = 'localhost:19000'
+Connect-ServiceFabricCluster $cluster
 
-		Connect-ServiceFabricCluster $cluster
-
-		Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWordCount -ImageStoreConnectionString $imageStoreConnection
-		Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
-
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWordCount -ImageStoreConnectionString $imageStoreConnection
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
+```
 
 After the PowerShell script completes, this application will be ready to run.
 
