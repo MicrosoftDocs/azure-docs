@@ -42,5 +42,5 @@ Once you have created an instance of an X12 API App, browse to that instance, an
 If batches are created as part of X12 agreements in the associated Trading Partner Management API app, then the Batching section lists all these batches. You can select a batch to see the active message (if any) and also the information for the completed batches.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
-[2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg 
+[1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
+[2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
