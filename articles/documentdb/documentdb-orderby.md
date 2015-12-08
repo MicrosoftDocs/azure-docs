@@ -131,7 +131,7 @@ Take a look at this [Github samples project](https://github.com/Azure/azure-docu
 
 Future service updates will expand on the Order By support introduced here. We are working on the following additions and will prioritize the release of these improvements based on your feedback:
 
-- Dynamic Indexing Policies: Support to modify indexing policy after collection creation and in the Azure Portal
+- Dynamic Indexing Policies: Support to modify indexing policy after collection creation and in the Azure Classic Portal
 - Support for Compound Indexes for more efficient Order By and Order By on multiple properties.
 
 ## FAQ

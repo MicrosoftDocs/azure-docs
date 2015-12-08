@@ -170,7 +170,7 @@ Please note that you must not deploy virtual machines or role instances in the g
 
 ### How do I specify which traffic goes through the VPN gateway?
 
-If you are using the Azure Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
+If you are using the Azure Classic Portal, add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks.
 
 ### Can I configure Forced Tunneling?
 
@@ -250,7 +250,7 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and Si
 
 ### If my virtual machine is in a virtual network and I have a cross-premises connection, how should I connect to the VM?
 
-You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Management Portal and save the settings for the RDP connection to your computer. The settings will contain the necessary connection information.
+You have a few options. If you have RDP enabled and you have created an endpoint, you can connect to your virtual machine by using the VIP. In that case, you would specify the VIP and the port that you want to connect to. You'll need to configure the port on your virtual machine for the traffic. Typically, you would go to the Azure Classic Portal and save the settings for the RDP connection to your computer. The settings will contain the necessary connection information.
 
 If you have a virtual network with cross-premises connectivity configured, you can connect to your virtual machine by using the internal DIP or private IP address. You can also connect to your virtual machine by internal DIP from another virtual machine that's located on the same virtual network. You can't RDP to your virtual machine by using the DIP if you are connecting from a location outside of your virtual network. For example, if you have a point-to-site virtual network configured and you don't establish a connection from your computer, you can't connect to the virtual machine by DIP.
 

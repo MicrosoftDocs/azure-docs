@@ -39,11 +39,11 @@ R is compatible with Azure Blob Storage (WASB) so that data that is stored there
 
 ## Install R
 
-A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while creating the cluster using the Azure preview portal.
+A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while creating the cluster using the Azure Portal.
 
 > [AZURE.NOTE] The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
-1. When you create an HDInsight cluster from the preview portal, click **Optional Configuration**, and then click **Script Actions**.
+1. When you create an HDInsight cluster from the Portal, click **Optional Configuration**, and then click **Script Actions**.
 2. On the **Script Actions** page, enter the following values:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
@@ -67,7 +67,7 @@ You can also use the script to install R on HDInsight by using Azure PowerShell 
 ## Run R scripts
 This section describes how to run an R script on the Hadoop cluster with HDInsight.
 
-1. **Establish a Remote Desktop connection to the cluster**: From the preview portal, enable Remote Desktop for the cluster you created with R installed, and then connect to the cluster. For instructions, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. **Establish a Remote Desktop connection to the cluster**: From the Portal, enable Remote Desktop for the cluster you created with R installed, and then connect to the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. **Open the R console**: The R installation puts a link to the R console on the desktop of the head node. Click on it to open the R console.
 

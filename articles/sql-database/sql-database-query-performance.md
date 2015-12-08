@@ -26,7 +26,6 @@ Managing and tuning the performance of relational databases is a challenging tas
 - The ability to drill down into the details of a query.
 ​
 
-
 ## Prerequisites
 
 - Query Performance Insight is only available with Azure SQL Database V12.

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations- determine multi-factor authentication requirements"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine multi-factor authentication requirements"
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Determine multi-factor authentication requirements for your hybrid identity solution

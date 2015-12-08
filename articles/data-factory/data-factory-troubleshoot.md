@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
-You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory. 
+You can troubleshoot Azure Data Factory issues using Azure Classic Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Classic Portal to quickly troubleshoot errors that you encounter with Data Factory. 
 
 ## Problem: Not able to run Data Factory cmdlets
 To resolve this issue, switch Azure mode to **AzureResourceManager**: 
@@ -31,23 +31,23 @@ You are probably not using the right Azure account or subscription with the Azur
 
 1. Add-AzureAccount - Use the right user ID and password
 2. Get-AzureSubscription - View all the subscriptions for the account. 
-3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Portal.
 
-## Problem: Fail to launch Data Gateway Express Setup from Azure Portal
+## Problem: Fail to launch Data Gateway Express Setup from Azure Classic Portal
 The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If you fails to start the Express Setup, you can
 
 1. Switch to Internet Explorer if you fails with other browsers. Or
 2. Use the "Manual Setup" links shown on the same blade in the portal to do the installation, and then copy the Key that is provided on the screen, and paste when the Data Management Gateway configuration is ready. If it doesn't launch, check your start menu for "Microsoft Data Management Gateway" and paste in the key when it launches. 
 
 
-## Problem: Fail to launch Credentials Manager from Azure Portal
-When set up or update a SQL Server Linked Service via Azure Portal, the Credentials Manager application will be launched to guarantee security. It requires Internet Explorer or a Microsoft ClickOnce compatible web browser. You can switch to Internet Explorer if you fails with other browsers.
+## Problem: Fail to launch Credentials Manager from Azure Classic Portal
+When set up or update a SQL Server Linked Service via Azure Classic Portal, the Credentials Manager application will be launched to guarantee security. It requires Internet Explorer or a Microsoft ClickOnce compatible web browser. You can switch to Internet Explorer if you fails with other browsers.
 
 ## Problem: Fail to connect to on-premises SQL Server 
 Verify that the SQL Server is reachable from the machine where the gateway is installed. On the machine on which the gateway is installed, you can
 
 1. Ping the machine where the SQL Server is installed. Or
-2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).
+2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Classic Portal using SQL Server Management Studio (SSMS).
 
 
 ## Problem: Input slices are in PendingExecution or PendingValidation state for ever
@@ -92,7 +92,7 @@ See Tables topic in [JSON Scripting Reference][json-scripting-reference] for mor
 ## Problem: Hybrid copy operation fails
 To learn more details:
 
-1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
+1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Classic Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
 2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
 
 ## Problem: On Demand HDInsight Provisioning Fails with Error
@@ -110,11 +110,11 @@ Additionally, there is a second JSON property additionalLinkedServiceNames where
 ## Problem: Custom Activity Fails
 When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job. 
 
-When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 
+When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure Classic Portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 
 
 To enumerate and read the logs for a particular Custom Activity, you may follow one of the illustrated walkthroughs later on this page. In summary:
 
-1.  In the Azure portal **Browse** to locate your Data Factory.
+1.  In the Azure Classic Portal **Browse** to locate your Data Factory.
 2.  Use the **Diagram** button to view the data factory diagram, and click on the **Dataset** Table that follows the specific **Pipeline** which has the Custom Activity. 
 3.  In the **Table** blade, Click on the slice of interest in the **Problem slices** for the time frame to be investigated.
 4.  The detailed **Data Slice** blade will appear and it can list multiple **Activity runs** for the slice. Click on an **Activity** from the list. 
@@ -171,7 +171,7 @@ If you use the discontinued versions of the Azure PowerShell SDK you may receive
 
 
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
-In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.
+In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Classic Portal to troubleshoot the error.
 
 ### Prerequisites
 1. Complete the Tutorial in the [Get started with Azure Data Factory][adfgetstarted] article.
@@ -185,9 +185,9 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
 	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
 
-### Use Azure Preview Portal to troubleshoot the error
+### Use Azure Portal to troubleshoot the error
 
-1.	Login to [Azure Preview Portal][azure-preview-portal]. 
+1.	Login to [Azure Portal][azure-portal]. 
 2.	Click **ADFTutorialDataFactory** from the **Startboard**. If you don’t see the data factory link on the **Startboard**, click **BROWSE** hub and click **Everything**. Click **Data factories…** in the **Browse** blade, and click **ADFTutorialDataFactory**.
 3.	Notice that you see **With errors** on the **Datasets** tile. Click **With errors**. You should see **Datasets with errors** blade.
 
@@ -270,10 +270,10 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
  
 
 ## <a name="pighivewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
-This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell. 
+This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Portal and Azure PowerShell. 
 
 
-### Walkthrough: Use Azure Portal to troubleshoot an error with Pig/Hive processing
+### Walkthrough: Use Azure Classic Portal to troubleshoot an error with Pig/Hive processing
 In this scenario, data set is in an error state due to a failure in Hive processing on an HDInsight cluster.
 
 1. Click **With errors** on **Datasets** tile on the **DATA FACTORY** home page.
@@ -362,7 +362,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 

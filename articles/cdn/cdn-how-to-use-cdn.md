@@ -115,7 +115,7 @@ You can use query strings to differentiate objects retrieved from an origin. For
 
 Query strings are passed as string literals. If you have a service that takes two parameters, such as `?area=2&item=1` and make subsequent calls to the origin using `?item=1&area=2`, you will cache two copies of the same object.
 
-> [AZURE.NOTE] For more information
+For more information on query string caching, see [Controlling caching behavior of CDN requests with query strings](cdn-query-string.md).
 
 ## Accessing cached content over HTTPS
 
@@ -140,5 +140,6 @@ For more information on mapping a custom domain, see [How to Map Content Deliver
 
 - [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md)
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
+- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
  
 
