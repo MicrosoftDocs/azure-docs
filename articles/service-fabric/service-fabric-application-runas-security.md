@@ -17,19 +17,19 @@
    ms.author="mfussell"/>
 
 # RunAs: Running a Service Fabric application with different security permissions
-Service Fabric provides the ability to secure applications running in the cluster under different user accounts, known as "RunAs". In addition, it also secures the resources used by the applications with the user account such as files, directories and certificates.
+Azure Service Fabric provides the ability to secure applications running in the cluster under different user accounts, known as **RunAs**. Service Fabric also secures the resources used by the applications with the user account, such as files, directories, and certificates.
 
-By default, Service Fabric applications run under the account that the Fabric.exe process is running under. It also provides the capability to run applications under a local user account, specified within the application’s manifest. Supported account types for RunAs are **LocalUser**, **NetworkService**, **LocalService** and **LocalSystem**.
+By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Service Fabric also provides the capability to run applications under a local user account, specified within the application’s manifest. Supported account types for RunAs are **LocalUser**, **NetworkService**, **LocalService**, and **LocalSystem**.
 
-> [AZURE.NOTE] Domain accounts are supported on Windows Server deployments where Active Directory is available.
+> [AZURE.NOTE] Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.
 
-User groups can be defined and created where one or more users can be added to this group to be managed together. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
+User groups can be defined and created that allow one or more users to be added to a group and managed together. This is particularly useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
-## Setting the RunAs policy for the Setup EntryPoint
+## Setting the RunAs policy for SetupEntryPoint
 
-As described in the [application model](service-fabric-application-model.md) the **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *Network* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host exe with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and re-started (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
+As described in the [application model](service-fabric-application-model.md), **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *network* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host exe with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
-Below is a simple example service manifest showing the SetupEntryPoint and the main EntryPoint for the service.
+Below is a simple service manifest example that shows SetupEntryPoint and the main EntryPoint for the service.
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -56,7 +56,7 @@ Below is a simple example service manifest showing the SetupEntryPoint and the m
 
 ### Configuring the RunAs policy
 
-Having configured the service to have a SetupEntryPoint, you can change the security permissions that it runs under in the application  manifest. The example below shows how to configure the service to run under administrator account privileges.
+After you configure the service to have a SetupEntryPoint, you can change the security permissions that it runs under in the application  manifest. The example below shows how to configure the service to run under administrator account privileges.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -80,15 +80,15 @@ Having configured the service to have a SetupEntryPoint, you can change the secu
 </ApplicationManifest>
 ~~~
 
-First create a **Principals** section with a user name e.g. SetupAdminUser. This indicates that the user is a member of the Administrators system group.
+First, create a **Principals** section with a user name, e.g. SetupAdminUser. This indicates that the user is a member of the administrators system group.
 
-Next under the **ServiceManifestImport** section configure a policy to apply this principal to the **SetupEntryPoint**. This tells Service Fabric that when the MySetup.bat file is run that it should be RunAs with Administrator priviledges. Given that you have *not* applied a policy to the main entry point, the code in MyServiceHost.exe will run under the system NetworkService account which is the default account that all service entry points are RunAs.
+Next, under the **ServiceManifestImport** section, configure a policy to apply this principal to **SetupEntryPoint**. This tells Service Fabric that when the MySetup.bat file is run, it should be RunAs with administrator privileges. Given that you have *not* applied a policy to the main entry point, the code in MyServiceHost.exe will run under the system NetworkService account, which is the default account that all service entry points are RunAs.
 
-Let's now add the file MySetup.bat to the Visual Studio project in order to test the Administrator privileges. In Visual Studio right click on the service project and add a new file call MySetup.bat. Next it is necessary to ensure that this file is included in the service package, which it is not by default. To ensure that the MySetup.bat file is include in the package select the file, right click to get context menu, choose properties and in the properties dialog ensure that the **Copy to Output Directory** is set to **Copy if newer**. This is shown in the screen shot below.
+Let's now add the file MySetup.bat to the Visual Studio project to test the administrator privileges. In Visual Studio, right-click on the service project and add a new file call MySetup.bat. Next, it is necessary to ensure that this file is included in the service package. By default, it is not. To ensure that the MySetup.bat file is include in the package, select the file, right-click to get the context menu, choose **Properties**, and in the properties dialog box, ensure that **Copy to Output Directory** is set to **Copy if newer**. This is shown in the screen shot below.
 
 ![Visual Studio CopyToOutput for SetupEntryPoint batch file][image1]
 
-Now open the MySetup.bat file and add the following commands.
+Now open the MySetup.bat file and add the following commands:
 
 ~~~
 REM Set a system environment variable. This requires administrator privilege
@@ -100,21 +100,21 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Next build and deploy the solution to a local development cluster.  Once the service has started, as seen in the Service Fabric Explorer, you can see that the MySetup.bat was successful in a two ways. Open a PowerShell command prompt and type
+Next, build and deploy the solution to a local development cluster.  Once the service has started, as shown in the Service Fabric Explorer, you can see that the MySetup.bat file was successful in a two ways. Open a PowerShell command prompt and type:
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Second note the name of the node that the service was deployed and started in the Service Fabric Explorer e.g. Node 1 and then navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example if this was deployed to Node 2 then you can go to this path for the MyApplicationType
+Second, note the name of the node where the service was deployed and started in the Service Fabric Explorer, e.g. Node 1, and then navigate to the application instance work folder to find the out.txt file that shows the value of **TestVariable**. For example, if this was deployed to Node 2, then you can go to this path for MyApplicationType:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
 ##  Launching PowerShell commands from SetupEntryPoint
-In order to run PowerShell from the **SetupEntryPoint** point you can run PowerShell.exe in a batch file pointing to a PowerShell file. First add a PowerShell file to the service project e.g. MySetup.ps1. Remember to set the *Copy if newer* property so that this file is also included in the service package. The example below shows a sample batch file to launch a PowerShell file called MySetup.ps1 which sets a system environment variable called *TestVariable*.
+To run Windows PowerShell from the **SetupEntryPoint** point, you can run PowerShell.exe in a batch file pointing to a PowerShell file. First, add a PowerShell file to the service project, e.g. MySetup.ps1. Remember to set the **Copy if newer** property so that the file is also included in the service package. The example below shows a sample batch file to launch a PowerShell file called MySetup.ps1, which sets a system environment variable called *TestVariable*.
 
 MySetup.bat to launch PowerShell file.
 
@@ -122,7 +122,7 @@ MySetup.bat to launch PowerShell file.
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-In the PowerShell file add the following to set a system environment variable.
+In the PowerShell file, add the following to set a system environment variable:
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
@@ -130,10 +130,10 @@ In the PowerShell file add the following to set a system environment variable.
 ```
 
 ## Applying RunAsPolicy to services
-In the steps above you saw how to apply RunAs policy to a SetupEntryPoint. Let's looks a little deeper how to create different principals that can be applied as service policies.
+In the steps above, you saw how to apply RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
 
-### Create local user groups
-User groups can be defined and created where one or more users can be added to this group. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The example below shows a local group called **LocalAdminGroup** with Administrator privileges. Two users, Customer1 and Customer2 are made members of this local group.
+### Creating local user groups
+User groups can be defined and created that allow one or more users to be added to a group. This is particularly useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level. The example below shows a local group called **LocalAdminGroup** with administrator privileges. Two users, Customer1 and Customer2, are made members of this local group.
 
 ~~~
 <Principals>
@@ -159,8 +159,8 @@ User groups can be defined and created where one or more users can be added to t
 </Principals>
 ~~~
 
-### Create local users
-You can create a local user that can be used to secure a service within the application. When a LocalUser account type is specified in the Principals section of the application manifest, Service Fabric creates local user accounts on machines where the application is deployed. These accounts by default do not have the same name as specified in the application manifest (for example “Customer3” in the sample below), but instead it will be a dynamically generated and have random passwords.
+### Creating local users
+You can create a local user that can be used to secure a service within the application. When a **LocalUser** account type is specified in the principals section of the application manifest, Service Fabric creates local user accounts on machines where the application is deployed. By default, these accounts do not have the same names as those specified in the application manifest (for example, Customer3 in the sample below). Instead, they are dynamically generated and have random passwords.
 
 ~~~
 <Principals>
@@ -170,7 +170,7 @@ You can create a local user that can be used to secure a service within the appl
 </Principals>
 ~~~
 
-<!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
+<!-- If an application requires that the user account and password be the same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
       <Parameter Name="EndpointProviderEnabled" Value="true"/>
@@ -179,8 +179,8 @@ You can create a local user that can be used to secure a service within the appl
  </Section>
 -->
 
-## Assigning policies to the service code packages
-The **RunAsPolicy** section for a **ServiceManifestImport** specifies the account from Principals section that should be used to run a code package and associates code packages from the service manifest with user accounts in the Principals section. You can specify this for the Setup or Main entry points, or specify All to apply this to both. The example below show different policies being applied.
+## Assigning policies to service code packages
+The **RunAsPolicy** section for a **ServiceManifestImport** specifies the account from the principals section that should be used to run a code package. It also associates code packages from the service manifest with user accounts in the principals section. You can specify this for the setup and main entry points, or you can specify all to apply it to both. The example below shows different policies being applied.
 
 ~~~
 <Policies>
@@ -189,10 +189,10 @@ The **RunAsPolicy** section for a **ServiceManifestImport** specifies the accoun
 </Policies>
 ~~~
 
-If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying an **SetupEntryPoint** is especially useful when you want to run certain high privilege setup operation under a system account, while the actual service code can run under a lower privileged account.
+If **EntryPointType** is not specified, the default is set to EntryPointType=”Main”. Specifying a **SetupEntryPoint** is especially useful when you want to run a certain high privilege setup operation under a system account, while the actual service code can run under a lower privilege account.
 
-### Applying a default policy to all the service code packages
-The **DefaultRunAsPolicy** section is used to specify a default user account for all code packages that don’t have specific **RunAsPolicy** defined. If most code packages specified in service manifests used by an application need to run under the same RunAs user, the application can just define a default RunAs policy with that user account instead of specifying a **RunAsPolicy** for every code package. For example the following example specifies that if a code package does not have **RunAsPolicy** specified, the code package should run under the MyDefaultAccount specified in the Principals section.
+### Applying a default policy to all service code packages
+The **DefaultRunAsPolicy** section is used to specify a default user account for all code packages that don’t have specific **RunAsPolicy** defined. If most code packages specified in service manifests used by an application need to run under the same RunAs user, the application can just define a default RunAs policy with that user account, rather than specifying a **RunAsPolicy** for every code package. The following example specifies that if a code package does not have **RunAsPolicy** specified, the code package should run under the **MyDefaultAccount** specified in the principals section.
 
 ~~~
 <Policies>
@@ -200,8 +200,8 @@ The **DefaultRunAsPolicy** section is used to specify a default user account for
 </Policies>
 ~~~
 
-## Assigning SecurityAccessPolicy for http and https endpoints
-If you apply a RunAs policy to a service and service manifest declares endpoint resources with the http protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly ACL’ed for the RunAs user account that the service runs under. Otherwise http.sys does not have access the the service and you will get failure with calls from the client. The example below applies the Customer3 account to endpoint called *ServiceEndpointName* giving it full access rights.
+## Assigning SecurityAccessPolicy for HTTP and HTTPS endpoints
+If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTTP protocol, you must specify a **SecurityAccessPolicy** to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. Otherwise, http.sys does not have access the the service, and you will get failure with calls from the client. The example below applies the Customer3 account to an endpoint called *ServiceEndpointName*, giving it full access rights.
 
 ~~~
 <Policies>
@@ -211,7 +211,7 @@ If you apply a RunAs policy to a service and service manifest declares endpoint 
 </Policies>
 ~~~
 
-For https endpoint you have to additional indicate the name of the certificate to return to the client with an **EndpointBindingPolicy** wuth the certificate is defined in a certificates section in the application manifest.
+For the HTTPS endpoint, you also have to indicate the name of the certificate to return to the client, You can do this by using  **EndpointBindingPolicy**, with the certificate defined in a certificates section in the application manifest.
 
 ~~~
 <Policies>
@@ -225,7 +225,7 @@ For https endpoint you have to additional indicate the name of the certificate t
 
 
 ## A complete application manifest example
-The application manifest below shows many of the different settings described above.
+The application manifest below shows many of the settings described above.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -284,8 +284,8 @@ The application manifest below shows many of the different settings described ab
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-* [Understand the application model](service-fabric-application-model.md)
-* [Specifying Resources in a Service Manifest](service-fabric-service-manifest-resources.md)
-* [Deploy an application](service-fabric-deploy-remove-applications.md)
+* [Understanding the application model](service-fabric-application-model.md)
+* [Specifying resources in a service manifest](service-fabric-service-manifest-resources.md)
+* [Deploying an application](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
