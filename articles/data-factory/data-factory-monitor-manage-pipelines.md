@@ -326,7 +326,7 @@ To specify an alert definition, you create a JSON file describing the operations
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -357,10 +357,12 @@ OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
+See [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) for details about JSON elements used in the above example. 
+
 #### Deploying the Alert 
 To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDeployment**, as shown in the following example:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Once the resource group deployment has completed successfully, you will see the following messages:
 
@@ -404,6 +406,33 @@ To retrieve the list of deployed Azure Resource Group deployments, use the cmdle
 
 - See [Azure Insight Cmdlets](https://msdn.microsoft.com/library/mt282452.aspx) article for PowerShell cmdlets that you can use to add/get/remove alerts. Here are a few examples of using the **Get-AlertRule** cmdlet: 
 
+
+		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+			
+				Properties :
+		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+		        Condition   :
+				DataSource :
+				EventName             :
+				Category              :
+				Level                 :
+				OperationName         : RunFinished
+				ResourceGroupName     :
+				ResourceProviderName  :
+				ResourceId            :
+				Status                : Failed
+				SubStatus             : FailedExecution
+				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+		        Condition  	:
+				Description : One or more of the data slices for the Azure Data Factory has failed processing.
+				Status      : Enabled
+				Name:       : ADFAlertsSlice
+				Tags       :
+				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+				Location   : West US
+				Name       : ADFAlertsSlice
+		
 		PS C:\> Get-AlertRule -res $resourceGroup
 	
 				Properties : Microsoft.Azure.Management.Insights.Models.Rule
