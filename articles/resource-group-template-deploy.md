@@ -28,13 +28,13 @@ When deploying an application with a template, you can provide parameter values 
 
 By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
 
-- **leaves unchanged** resources that exist in the resource group but not specified in the template
+- **leaves unchanged** resources that exist in the resource group but are not specified in the template
 - **adds** resources that are specified in the template but do not exist in the resource group 
 - **does not re-provision** resources that exist in the resource group in the same condition defined in the template
 
 Through Azure PowerShell or the REST API, you can specify a complete update to the resource group. Azure CLI currently does not support complete deployments. With complete deployment, Resource Manager:
 
-- **deletes** resources that exist in the resource group but not specified in the template
+- **deletes** resources that exist in the resource group but are not specified in the template
 - **adds** resources that are specified in the template but do not exist in the resource group 
 - **does not re-provision** resources that exist in the resource group in the same condition defined in the template
  
@@ -74,7 +74,7 @@ You specify the type of deployment through the **Mode** property.
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. The **mode** parameter is not specified which means the default value of **Incremental** is used.
+5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. The **Mode** parameter is not specified which means the default value of **Incremental** is used.
    
      You have the following options for providing parameter values: 
    
