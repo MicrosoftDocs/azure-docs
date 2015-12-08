@@ -34,7 +34,7 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-+ In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Services], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
++ In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
 	 This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
