@@ -40,26 +40,26 @@ A vehicle telematics simulator is included as part of this solution. It emits di
 
 This is a JSON format dataset and contains the below schema.
 
-Column | Description | Values |  
-------- | ----------- | --------- | 
-VIN | Randomly generated Vehicle Identification Number | This is obtained from a master list of 10,000 randomly generated vehicle identification number | 
-Outside temperature | The outside temperature where the vehicle is driving | Randomly generated number from 0-100 | 
-Engine temperature | The engine temperature of the vehicle | Randomly generated number from 0-500 | 
-Speed | The engine speed at which the vehicle is driving | Randomly generated number from 0-100 | 
-Fuel | The fuel level of the vehicle | Randomly generated number from 0-100 (indicates fuel level percentage) | 
-EngineOil | The engine oil level of the vehicle | Randomly generated number from 0-100 (indicates engine oil level percentage) | 
-Tirepressure | The tirepressure of the vehicle | Randomly generated number from 0-50 (indicates tirepressure level percentage) | 
-Odometer | The odometer reading of the vehicle | Randomly generated number from 0-200000 | 
-Accelerator_pedal_position | The accelerator pedal position of the vehicle | Randomly generated number from 0-100 (indicates accelerator level percentage) | 
-Parking_brake_status | Indicates whether the vehicle is parked or not | True or False | 
-Headlamp_status | Indicates where the headlamp is on or not | True or False | 
-Brake_pedal_status | Indicates whether the brake pedal is pressed or not | True or False | 
-Transmission_gear_position | The transmission gear position of the vehicle | States: first, second, third, fourth, fifth, sixth, seventh, eighth | 
-Ignition_status | Indicates whether the vehicle is running or stopped | True or False | 
-Windshield_wiper_status | Indicates whether the windshield wiper is turned or not | True or False | 
-ABS | Indicates whether ABS is engaged or not | True or False | 
-Timestamp | The timestamp when the data point is created | Date | 
-City | The location of the vehicle | 4 cities in this solution : Bellevue, Redmond, Sammamish, Seattle | 
+Column | Description | Values   
+ ------- | ----------- | ---------  
+VIN | Randomly generated Vehicle Identification Number | This is obtained from a master list of 10,000 randomly generated vehicle identification number
+Outside temperature | The outside temperature where the vehicle is driving | Randomly generated number from 0-100
+Engine temperature | The engine temperature of the vehicle | Randomly generated number from 0-500
+Speed | The engine speed at which the vehicle is driving | Randomly generated number from 0-100
+Fuel | The fuel level of the vehicle | Randomly generated number from 0-100 (indicates fuel level percentage)
+EngineOil | The engine oil level of the vehicle | Randomly generated number from 0-100 (indicates engine oil level percentage)
+Tirepressure | The tirepressure of the vehicle | Randomly generated number from 0-50 (indicates tirepressure level percentage)
+Odometer | The odometer reading of the vehicle | Randomly generated number from 0-200000
+Accelerator_pedal_position | The accelerator pedal position of the vehicle | Randomly generated number from 0-100 (indicates accelerator level percentage)
+Parking_brake_status | Indicates whether the vehicle is parked or not | True or False
+Headlamp_status | Indicates where the headlamp is on or not | True or False
+Brake_pedal_status | Indicates whether the brake pedal is pressed or not | True or False
+Transmission_gear_position | The transmission gear position of the vehicle | States: first, second, third, fourth, fifth, sixth, seventh, eighth
+Ignition_status | Indicates whether the vehicle is running or stopped | True or False
+Windshield_wiper_status | Indicates whether the windshield wiper is turned or not | True or False
+ABS | Indicates whether ABS is engaged or not | True or False
+Timestamp | The timestamp when the data point is created | Date
+City | The location of the vehicle | 4 cities in this solution : Bellevue, Redmond, Sammamish, Seattle
 
 
 The vehicle model reference dataset contains VIN to the model mapping. 

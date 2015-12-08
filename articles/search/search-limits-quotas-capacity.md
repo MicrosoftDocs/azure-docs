@@ -27,21 +27,7 @@ Standard runs on dedicated machines that are used only by your service. Sole use
 
 Azure subscribers can use the shared (multi-tenant) Search service for development or very small search applications. The shared service comes with your Azure subscription. It's a no-cost option that allows you to experiment with the service before signing up. It provides:
 
-Object|Limit
-------|-----
-Maximum number of indexes|3
-Maximum number of fields per index|1000
-Maximum document count|10,000
-Maximum storage size|50 MB
-Maximum partitions|N/A
-Maximum replicas|N/A
-Maximum search units|N/A
-Maximum number of indexers|3
-Maximum number of Indexer data sources|3
-Maximum number of indexed documents per indexer invocation|10,000
-Maximum Indexer running time|3 minutes
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-free.md)]
 
 Notice that there are no quotas or maximum limits associated with queries. Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources. The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.
 
@@ -51,21 +37,7 @@ Under the Standard pricing tier, a dedicated Search service stores only your dat
 
 The following table is a list of upper limits, but you should review the matrix chart further on to understand capacity in terms of allowable [combinations of partitions and replicas](#chart).
 
-Object|Limit
-------|----
-Maximum number of indexes|50 per Search service
-Maximum number of fields per index|1000
-Maximum document count|15 million per partition
-Maximum storage size|25 GB per partition
-Maximum partitions|12 per Search service
-Maximum replicas|12 per Search service
-Maximum search units|36 per Search service
-Maximum search services|12 per Azure subscription
-Maximum number of indexers|50 per Search service
-Maximum number of Indexer data sources|50 per Search service
-Maximum number of indexed documents per indexer invocation|Unlimited
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-standard.md)]
 
 Capacity in Azure Search can be purchased in increments called search units. The Standard pricing tier allows for up to 36 search units per Search service. This limit overrides the individual limits on partitions and replicas. For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
@@ -116,7 +88,7 @@ General recommendations for high availability are:
 
 Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. Instead, you might consider adding redundancy at the service level. For a deeper discussion of the workarounds, see [this forum post](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE] Recall that service level agreements and scalability are features of the standard service. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-portal.md) for instructions on service provisioning.
+> [AZURE.NOTE] Recall that service level agreements and scalability are features of the standard service. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on service provisioning.
 
 ## API-key limits
 
@@ -127,7 +99,7 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 
 ## Request limits
 
-- Maximum of 16 MB per request
+- Maximum of 16 MB per request <sup>1</sup>
 - Maximum 8 KB URL length
 - Maximum 1000 documents per batch of index uploads, merges, or deletes
 - Maximum 32 fields in $orderby clause
@@ -137,3 +109,5 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 
 - Maximum 1000 documents returned per page of search results
 - Maximum 100 suggestions returned per Suggest API request
+
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or Collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions). 
