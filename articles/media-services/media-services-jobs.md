@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Working with Azure Media Services Jobs
@@ -54,6 +54,18 @@ Encode with **Azure Media Encoder** using **Azure Classic Portal**, **.NET**, or
 Monitor job progress using **Azure Classic Portal**, **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
+
+##Listing 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#list-jobs-and-assets)
+- [REST](media-services-rest-manage-entities.md/#querying-entities)
+
+##Deleting jobs
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md/#delete-a-job)
+- [REST](media-services-rest-manage-entities.md/##deleting-entities)
 
 ##Related links
 
