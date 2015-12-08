@@ -20,14 +20,14 @@
 
 # Working with claims aware apps in Application Proxy
 
-Claims aware apps perform a redirection to the Security Token Service (STS), which in turn requests credentials from the user in exchange for a token before redirecting the user to the application. To enable Application Proxy to be able to work with these redirects, the following steps need to be taken to enable Application Proxy to work with claims aware applications.
+Claims aware apps perform a redirection to the Security Token Service (STS), which in turn requests credentials from the user in exchange for a token before redirecting the user to the application. To enable Application Proxy to work with these redirects, the following steps need to be taken.
 
 > [AZURE.IMPORTANT] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 
 ## Prerequisite
 
-Before performing this procedure, make sure that the STS the claims aware app redirects to is available outside your on-premises network.
+Before performing this procedure, make sure that the STS the claims aware app redirects to is available outside of your on-premises network.
 
 
 ### Azure classic portal configuration
