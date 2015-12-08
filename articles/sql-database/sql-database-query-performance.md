@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
