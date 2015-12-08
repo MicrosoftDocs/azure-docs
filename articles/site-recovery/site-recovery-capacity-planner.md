@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Plan capacity for virtual machine and physical server protection in Azure Site Recovery"
+	pageTitle="Plan capacity for virtual machine and physical server protection in Site Recovery | Microsoft Azure"
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
 	services="site-recovery" 
 	documentationCenter="" 
