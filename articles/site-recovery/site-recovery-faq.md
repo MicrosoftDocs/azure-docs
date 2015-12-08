@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Site Recovery: Frequently asked questions" 
+	pageTitle="Site Recovery: Frequently asked questions | Microsoft Azure" 
 	description="This article discusses popular questions about Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter=""
