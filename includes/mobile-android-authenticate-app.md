@@ -48,20 +48,20 @@
 
 		private void createTable() {
 	
-			// Get the Mobile Service Table instance to use
+			// Get the table instance to use.
 			mToDoTable = mClient.getTable(ToDoItem.class);
 	
 			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
 	
-			// Create an adapter to bind the items with the view
+			// Create an adapter to bind the items with the view.
 			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 			listViewToDo.setAdapter(mAdapter);
 	
-			// Load the items from the Mobile Service
+			// Load the items from Azure.
 			refreshItemsFromTable();
 		}
 
 9. From the **Run** menu, then click **Run app** to start the app and sign in with your chosen identity provider. 
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query the backend service and make updates to data.

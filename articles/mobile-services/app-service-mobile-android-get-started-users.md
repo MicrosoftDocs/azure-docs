@@ -48,11 +48,6 @@ Next, you will update the app to authenticate users before requesting resources 
 
 [AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="refresh-tokens"></a>Refresh the token cache
-
-[AZURE.INCLUDE [mobile-android-authenticate-app-refresh-token](../../includes/mobile-android-authenticate-app-refresh-token.md)]
-
-
 ##Next steps
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
