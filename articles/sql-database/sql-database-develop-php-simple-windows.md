@@ -175,7 +175,7 @@ This code example demonstrates the use of transactions in which you:
 	}
 
 
-## Further reading
+## Next steps
 
 
 For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://technet.microsoft.com/library/cc793139.aspx).

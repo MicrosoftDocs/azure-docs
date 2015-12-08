@@ -225,6 +225,6 @@ For this code sample to work, you must first have or create a stored procedure t
 	});
 
 
-## Further reading
+## Next steps
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).

@@ -168,6 +168,6 @@ In this example you will see how to execute an [INSERT](https://msdn.microsoft.c
 	}
 
 
-## Further reading
+## Next steps
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).

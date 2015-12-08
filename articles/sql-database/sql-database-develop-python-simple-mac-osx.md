@@ -119,6 +119,6 @@ This code example demonstrates the use of transactions in which you:
 	cnxn.rollback()
 
 
-## Further reading
+## Next steps
 
 For more information, see the [Python Developer Center](/develop/python/).

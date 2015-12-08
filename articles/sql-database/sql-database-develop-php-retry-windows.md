@@ -136,6 +136,6 @@ The [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) functio
 		}
 	?>
 
-## Further reading
+## Next steps
 
 For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://technet.microsoft.com/library/cc793139.aspx).
