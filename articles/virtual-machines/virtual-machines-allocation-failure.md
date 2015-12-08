@@ -27,10 +27,6 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 The "Troubleshooting common allocation failures" section lists steps to address common issues. The "Troubleshooting specific allocation failure scenarios" section provides resolution steps by specific error message. Before you get started, here are some background information to understand how allocation works and Why allocation failure happens.
 
-```
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](http://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get Support** on the [Azure Support](http://azure.microsoft.com/support/options/) site.
-```
-
 ## Background information
 ### How allocation works
 The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or Availability Set is hosted.
