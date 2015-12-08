@@ -132,6 +132,6 @@ To learn about the business continuity features of other Azure SQL Database edit
 [Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/en-us/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->

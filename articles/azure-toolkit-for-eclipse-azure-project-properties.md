@@ -16,7 +16,7 @@
     ms.date="11/19/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/en-us/library/azure/jj835232.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
 
 # Azure Project Properties #
 
