@@ -845,5 +845,5 @@ This issue is intermittent, however, it occurs more freqently during frequent di
     # sudo yum update
 
 
-##Reference:
-You could get more information from Red Hat on this topic, see [here](https://access.redhat.com/certified-hypervisors).
+## Next Steps
+You're now ready to use your Red Hat Enterprise Linux .vhd to upload to Azure and create new Azure Virtual Machines.You could get more information from Red Hat on this topic, see [here](https://access.redhat.com/certified-hypervisors).
