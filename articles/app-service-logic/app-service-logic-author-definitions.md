@@ -234,7 +234,7 @@ Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.micro
 }
 ```
 
-You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx). 
+You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx). 
 
 >[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
 
