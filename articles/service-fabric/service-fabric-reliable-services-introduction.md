@@ -32,27 +32,27 @@ Service Fabric manages the lifetime of services, from provisioning and deploymen
 ## What are reliable services?
 Reliable services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the reliable services programming model, you get:
 
-1. For stateful services, the reliable services programming model allows you to consistently and reliably store your state right inside your service using reliable collections, a simple set of highly available collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for reliable state management. With reliable collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores, and with the additional latency improvements that co-locating the compute and state provide.
+1. For stateful services, the reliable services programming model allows you to consistently and reliably store your state right inside your service by using reliable collections. This is a simple set of highly available collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for reliable state management. With reliable collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores, and with the additional latency improvements that co-locating the compute and state provide.
 
 2. A simple model for running your own code that looks like programming models you are used to. Your code has a well-defined entry point and easily managed lifecycle.
 
-3. A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable Services provides some great out-of-the-box options you can use, or you can provide your own.
+3. A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable services provide some great out-of-the-box options you can use, or you can provide your own.
 
 ## What makes reliable services different?
 Reliable services in Service Fabric is different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.  
 
-+ **Reliability** - Your service will stay up even in unreliable environments where your machines may fail or hit network issues.
++ **Reliability**--Your service will stay up even in unreliable environments where your machines may fail or hit network issues.
 
-+ **Availability** - Your service will be reachable and responsive. (This doesn't mean that you can't have services that can't be found or reached from outside.)
++ **Availability**--Your service will be reachable and responsive. (This doesn't mean that you can't have services that can't be found or reached from outside.)
 
-+ **Scalability** – Services are decoupled from specific hardware, and they can grow or shrink as necessary through the addition or removal of hardware or virtual resources. Services are easily partitioned (especially in the stateful case) to ensure that independent portions of the service can scale and respond to failures independently. Finally, Service Fabric encourages services to be lightweight by allowing thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances to a single instance of a particular workload.
++ **Scalability**--Services are decoupled from specific hardware, and they can grow or shrink as necessary through the addition or removal of hardware or virtual resources. Services are easily partitioned (especially in the stateful case) to ensure that independent portions of the service can scale and respond to failures independently. Finally, Service Fabric encourages services to be lightweight by allowing thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances to a single instance of a particular workload.
 
-+ **Consistency** - Any information stored in this service can be guaranteed to be consistent (this applies only to stateful services - more on this later)
++ **Consistency**--Any information stored in this service can be guaranteed to be consistent (this applies only to stateful services - more on this later)
 
 ## Service lifecycle
-Whether your service is stateful or stateless, reliable services provides a simple lifecycle that lets you quickly plug in your code and get started.  There are just one or two methods you need to implement to get your service up and running.
+Whether your service is stateful or stateless, reliable services provide a simple lifecycle that lets you quickly plug in your code and get started.  There are just one or two methods that you need to implement to get your service up and running.
 
-+ **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This is where the service defines the communication stack that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint or endpoints for the service (how clients will reach it), as well as how the messages that show up end up interacting with the rest of the service code.
++ **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This is where the service defines the communication stack that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint or endpoints for the service (how clients will reach it). It also defines how the messages that appear end up interacting with the rest of the service code.
 
 + **RunAsync** - This is where your service runs its business logic. The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a reliable queue and process them, this is where that work would happen.
 
@@ -94,7 +94,7 @@ Most services today store their state externally, since the external store is wh
 
 Let's say we want to write a service that takes requests for a series of conversions that need to be performed on an image, and the image that needs to be converted.  For this service, it would return a communication listener (let's suppose Web API) that opens up a communication port and allows submissions via an API like `ConvertImage(Image i, IList<Conversion> conversions)`. In this API, the service could take the information and store the request in a reliable queue, and then return some token to the client so it could keep track of the request (since the requests could take some time).
 
-In this service, RunAsync could be more complex; the service could have a loop inside its RunAsync that pulls requests out of IReliableQueue, performs the conversions listed, and stores the results in IReliableDictionary, so when the client comes back, they can get their converted images. To ensure that even if something fails the image isn't lost, this reliable service would pull out of the queue, perform the conversions, and store the result in a transaction, so the message is actually removed only from the queue and the results are stored in the result dictionary when the conversions are complete. If something fails in the middle (such as the machine this instance of the code is running on), the request remains in the queue waiting to be processed again.
+In this service, RunAsync could be more complex. The service could have a loop inside its RunAsync that pulls requests out of IReliableQueue, performs the conversions listed, and stores the results in IReliableDictionary, so that when the client comes back, they can get their converted images. To ensure that even if something fails the image isn't lost, this reliable service would pull out of the queue, perform the conversions, and store the result in a transaction. In this case, the message is actually removed only from the queue and the results are stored in the result dictionary when the conversions are complete. If something fails in the middle (such as the machine this instance of the code is running on), the request remains in the queue waiting to be processed again.
 
 One thing to note about this service is that it sounds like a normal .NET service. The only difference is that the data structures being used (IReliableQueue and IReliableDictionary) are provided by Service Fabric, and hence are made highly reliable, available, and consistent.
 
@@ -126,5 +126,5 @@ If any of the following characterize your application service needs, then you sh
 
 ## Next steps
 + [Reliable services quick start](service-fabric-reliable-services-quick-start.md)
-+ [Check out reliable services advanced usage](service-fabric-reliable-services-advanced-usage.md)
-+ [See the reliable actors programming model](service-fabric-reliable-actors-introduction.md)
++ [Reliable services advanced usage](service-fabric-reliable-services-advanced-usage.md)
++ [The reliable actors programming model](service-fabric-reliable-actors-introduction.md)
