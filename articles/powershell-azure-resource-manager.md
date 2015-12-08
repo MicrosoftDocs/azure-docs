@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -350,7 +350,9 @@ You have your resource group and you have your template, so you are now ready to
 
     PS C:\> New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -TemplateFile c:\Azure\Templates\azuredeploy.json
 
-You specify the resource group and the location of the template. If your template is not local, you could use the -TemplateUri parameter and specify a URI for the template. 
+You specify the resource group and the location of the template. If your template is not local, you could use the **-TemplateUri** parameter and specify a URI for the template. You can set the 
+**-Mode** parameter to either **Incremental** or **Complete**. By default, Resource Manager performs an incremental update during deployment; therefore, it is not essential to set **-Mode** when you want **Incremental**. 
+To understand the differences between these deployment modes, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
 
 ###Dynamic Template Parameters
 

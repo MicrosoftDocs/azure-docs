@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors

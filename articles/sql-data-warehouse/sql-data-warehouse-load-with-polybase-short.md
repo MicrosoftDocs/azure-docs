@@ -175,8 +175,8 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Create External Data Source]:https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [Create External File Format]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [Create External Table]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
-[Create Master Key]:https://msdn.microsoft.com/en-us/library/ms174382.aspx
-[Create Database Scoped Credential]:https://msdn.microsoft.com/en-us/library/mt270260.aspx
+[Create Master Key]:https://msdn.microsoft.com/library/ms174382.aspx
+[Create Database Scoped Credential]:https://msdn.microsoft.com/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
 
 
