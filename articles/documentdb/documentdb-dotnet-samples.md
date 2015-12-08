@@ -72,10 +72,7 @@ Task | API reference
 [Replace a document](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L263) | [DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
 [Upsert a document](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L300) | [DocumentClient.UpsertDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.upsertdocumentasync.aspx)
 [Delete document](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L322) | [DocumentClient.DeleteDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentasync.aspx)
-[Working with .NET dynamic objects](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L331-L380) | 
-[DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) <br/>
-[DocumentClient.ReadDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.readdocumentfeedasync.aspx) <br/>
-[DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
+[Working with .NET dynamic objects](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L331-L380) | [DocumentClient.CreateDocumentAsync](https://something.aspx)<br>[DocumentClient.ReadDocumentAsync](https://something.aspx)<br>[DocumentClient.ReplaceDocumentAsync](https://something.aspx)
 
 ## Indexing samples
 
