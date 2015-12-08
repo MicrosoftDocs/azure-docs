@@ -96,8 +96,8 @@ Fixes in Update 03-Dec-15 includes:
 
 >[AZURE.NOTE]
 >
-	-	All ASR updates are cumulative.
-	-	The CS and RX updates can’t be rolled back once it is applied on the system.
+>-	All ASR updates are cumulative.
+>-	The CS and RX updates can’t be rolled back once it is applied on the system.
 
 
 ### ASR Scout 8.0.1 Update 1
@@ -128,4 +128,4 @@ This latest update includes bug fixes and new features:
 
 ## Next steps
 
-Post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
+Post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
