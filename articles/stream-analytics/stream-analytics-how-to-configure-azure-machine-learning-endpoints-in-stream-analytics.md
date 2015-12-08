@@ -28,10 +28,10 @@ Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool yo
 
 - **Workspace**: The *workspace* is a container that holds all other Machine Learning resources together in a container for management and control.
 - **Experiment**: *Experiments* are created by data scientists to utilize datasets and train a machine learning model.
-- **Endpoint**: *Endpoints* are the Azure Machine Learning object used to apply the experiment to input and return output. 
-- **Scoring Webservice**: A *scoring webservice* is utilized to apply a trained experiment to one or more endpoints.
+- **Endpoint**: *Endpoints* are the Azure Machine Learning object used to take features as input, apply a specified machine learning model and return scored output.
+- **Scoring Webservice**: A *scoring webservice* is a collection of endpoints as mentioned above.
 
-Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution exclusively. The specific service is named a [Request/Response Service](./machine-learning/machine-learning-consume-web-services/#request-response-service-rrs "Azure Machine Learning request-response service") in AzureML studio.
+Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is named a [Request/Response Service](./machine-learning/machine-learning-consume-web-services/#request-response-service-rrs "Azure Machine Learning request-response service") in AzureML studio.
 
 ## Machine Learning resources that needed for Stream Analytics jobs
 
@@ -50,7 +50,7 @@ By using REST APIs you may configure your job to call Azure Machine Language fun
 
 ## Creating a UDF with basic properties
 
-As an example, the following sample code creates a scalar UDF named *newudf* that binds to an Azure Machine Learning endpoint. Note that the *endpoint* (service URI) can be found on the API help page for the chosen service and the *apiKey* can be found on the services main page.
+As an example, the following sample code creates a scalar UDF named *newudf* that binds to an Azure Machine Learning endpoint. Note that the *endpoint* (service URI) can be found on the API help page for the chosen service and the *apiKey* can be found on the Services main page.
 
 PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
 
@@ -74,7 +74,7 @@ Example request body:
 
 ## Call RetrieveDefaultDefinition endpoint for default UDF
 
-Once this is entered, the complete definition of the UDF is needed. The RetrieveDefaultDefinition is performed. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint from the request if it is provided explicitly. However it will use the one located in the database if one is not explicitly provided. Here the UDF takes a single string parameter (a sentence) and returns a single output of type string which indicates the “sentiment” label for that sentence.
+Once the skeleton UDF is created the complete definition of the UDF is needed. The RetreiveDefaultDefinition endpoint helps you get the default definition for a scalar function that is bound to an Azure Machine Learning endpoint. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint provided in the request if it is provided explicitly. Otherwise it will use the one originally referenced. Here the UDF takes a single string parameter (a sentence) and returns a single output of type string which indicates the “sentiment” label for that sentence.
 
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
 
@@ -84,7 +84,7 @@ Example request body:
 		"bindingType": "Microsoft.MachineLearning/WebService",
 		"bindingRetrievalProperties": {
 			"executeEndpoint": null,
-			"udfype": "Scalar"
+			"udfType": "Scalar"
 		}
 	}
 
