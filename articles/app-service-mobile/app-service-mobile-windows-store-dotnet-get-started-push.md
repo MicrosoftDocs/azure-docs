@@ -201,9 +201,6 @@ Your app is now ready to receive toast notifications.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-##Next steps
-
-<!-- Finally, the tutorial [Send cross-platform notifications to a specific user](app-service-mobile-windows-store-dotnet-push-notifications-to-users.md) will show you how to send a push notification to all device registrations that belong to a specific authenticated user, on any device platform. -->
 
 ##<a id="more"></a>More
 

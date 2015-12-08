@@ -182,4 +182,4 @@ Logs are handled via the standard App Service logging features. To learn more ab
 [App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [App Service Environment]: app-service-app-service-environment-intro.md
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[migrate a mobile service to a mobile app on App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
