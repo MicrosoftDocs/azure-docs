@@ -3,8 +3,8 @@
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Online (VSO)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
