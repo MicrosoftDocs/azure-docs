@@ -71,15 +71,15 @@ For this step you can use any CSV file including the one I specified in the intr
 
 1.	Expand Azure and right click on the **Storage**. Choose **Attach External Storage** and provide **Account Name** and **Account Key**.  
 
-    ![stream analytics machine learning tutorial server explorer](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-server-explorer.png)  
+    ![stream analytics machine learning tutorial server explorer](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-server-explorer.png)  
 
 2.	Expand the storage you just attached and choose **Create Blob Container** and provide a logical name. Once created, double click on the container to view its contents (which will be empty at this point).  
 
-    ![stream-analytics machine learning tutorial create blob](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-create-blob.png)  
+    ![stream-analytics machine learning tutorial create blob](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-create-blob.png)  
 
 3.	Upload the CSV file by clicking the **Upload Blob** icon and then choose **file from the local disk**.  
 
-    ![stream analytics machine learning tutorial upload csv](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-upload-csv.png)  
+    ![stream analytics machine learning tutorial upload csv](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-upload-csv.png)  
 
 ## Create a Machine Learning workspace
 
@@ -94,32 +94,32 @@ For this step you can use any CSV file including the one I specified in the intr
 4.	Click **Create an ML Workspace** button.
 5.	Once created, click on the **workspace** in the list of **workspaces** and navigate to the **Dashboard** tab. In the **Quick Glance** section of the Dashboard click **Sign-in to ML Studio**.  
 
-    ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-quick-glance.png)  
+    ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-quick-glance.png)  
 
 ## Create and deploy a Machine Learning model
 
 1.	In ML Studio, click New, Experiment, Blank Experiment. 
 2.	Expand Data Input and Output and drag Reader node on to the canvas.  
 
-    ![stream analytics machine learning tutorial data input output](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-data-input-output.png)  
+    ![stream analytics machine learning tutorial data input output](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-data-input-output.png)  
 
 3.	Select the Reader node which you just placed on the canvas. You should see the Properties of the Reader on the right side. Fill in the information about your Blob Storage which you configured in the Upload a CSV file to a Blob Storage section.  
 	Note: don’t forget to check File has header row check box.  
 
-    ![stream analytics machine learning tutorial file has header row](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-file-has-header-row.png)  
+    ![stream analytics machine learning tutorial file has header row](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-file-has-header-row.png)  
 
 4.	On the left pane, select Data Transformation, Manipulation, Project Columns node and drag it onto the canvas. Connect Reader node with the Project Columns node.  
 
-    ![stream analytics machine learning tutorial execute python](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-execute-python.png)  
+    ![stream analytics machine learning tutorial execute python](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-execute-python.png)  
 
 5.	Select Project Columns node to see its Properties on the right pane. Click Launch column selector button. You should see the dialog box shown below. Provide a single name of the column and click the OK button. In my case I chose the “Model” column from my CSV file.  
 
-    ![stream analytics machine learning tutorial select columns](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-select-columns.png)  
+    ![stream analytics machine learning tutorial select columns](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-select-columns.png)  
 
 6.	On the left pane, expand Python Language Modules and drag Execute Python Script node to the canvas. Connect Project Columns node with Execute Python Script node.  
     Notice here that I connected Project Columns node to the first port of the three available input ports on the Execute Python Script.  
 
-    ![stream analytics machine learning tutorial project column](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-project-column.png)  
+    ![stream analytics machine learning tutorial project column](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-project-column.png)  
 
 7.	Select newly placed Execute Python Script node to see its Properties on the right pane. Modify Python Script section as follows:  
     a.	Write import pandas right before the definition of the function  
@@ -131,39 +131,39 @@ For this step you can use any CSV file including the one I specified in the intr
 
 	c.	In the end this is how the script looks. 
 
-    ![stream analytics machine learning tutorial script example](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-script-example.png)  
+    ![stream analytics machine learning tutorial script example](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-script-example.png)  
 
 8.	On the left pane, expand **Web Service** and drag the **Input node** on the canvas. Connect the **Input node** with the **Execute Python Script** node.  
 
-    ![stream analytics machine learning tutorial execute python scripts](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-execute-python-scripts.png)  
+    ![stream analytics machine learning tutorial execute python scripts](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-execute-python-scripts.png)  
 
 9.	On the left pane, expand **Web Service** and drag **Output** on the canvas. Connect the **Output node** with **Execute Python Script** node.  
 
-    ![stream analytics machine learning tutorial execute output scripts](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-execute-output-scripts.png)  
+    ![stream analytics machine learning tutorial execute output scripts](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-execute-output-scripts.png)  
 
 10.	Click Run button at the bottom  
 	It might take up to a minute to run the entire model. You will see how individual nodes are run one after another.  
 11.	Click Deploy Web Service button the bottom  
 12.	Once the service is deployed you will be navigated to the Web Services tab where you should see the Test button. This step is optional is only needed to make sure that the service which just deployed does what it’s supposed to do. Click on the Test button and a dialog box will prompt you for a sample input. I typed in “foo bar” and pressed OK.  
 
-    ![stream analytics machine learning tutorial predict data](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-predict-data.png)  
+    ![stream analytics machine learning tutorial predict data](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-predict-data.png)  
 
 	This is what I got the test run was complete. The result was “foo bar Hello World!”, exactly what we expected.  
 
-    ![stream analytics machine learning tutorial test returned success](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-test-returned-success.png)  
+    ![stream analytics machine learning tutorial test returned success](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-test-returned-success.png)  
 
 13.	Before we can move on to creating an ASA job we will need to pieces of information, the endpoint URL of the web service that we just deployed and the API Key which we can use to authenticate requests to that endpoint.  
 	a.	On the same page where we tested our endpoint there should be an API key field. Copy that API key and store it somewhere temporarily.  
 
-    ![stream analytics machine learning tutorial api key](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-api-key.png)  
+    ![stream analytics machine learning tutorial api key](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-api-key.png)  
 
 	b.	Click on the Request/Response link.  
 
-    ![stream analytics machine learning tutorial default endpoint](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-default-endpoint.png)  
+    ![stream analytics machine learning tutorial default endpoint](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-default-endpoint.png)  
 
 	You will be navigated to a helper page of you web service. Copy the Request URI property and store it temporarily.  
 
-    ![stream analytics machine learning tutorial ml uri](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-ml-uri.png)  
+    ![stream analytics machine learning tutorial ml uri](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-ml-uri.png)  
 
 ## Create an Stream Analytics job which uses the Machine Learning model
 
@@ -171,30 +171,30 @@ For this step you can use any CSV file including the one I specified in the intr
 2.	Click **New**, **Data Services**, **Stream Analytics**, **Quick Create**. Provide **Job Name**, **Region** in which the job should be created and choose a **Regional Monitoring Storage Account**.
 3.	Once the job is created, navigate to the **Inputs** tab and click **Add Input**.  
 
-    ![stream analytics machine learning tutorial create input](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-create-input.png)  
+    ![stream analytics machine learning tutorial create input](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-create-input.png)  
 
 4.	On the first page of **Add Input** wizard window select **Data stream** and click next. On the second page select **Blob Storage** as an input and click next.
 5.	On the **Blob Storage Settings** page of the wizard provide the same information we used when we were configuring the **Reader** in Machine Learning module. Click **next**.  
 
-    ![stream analytics machine learning tutorial blob settings](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-blob-settings.png)  
+    ![stream analytics machine learning tutorial blob settings](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-blob-settings.png)  
 
 6.	Choose CSV as **Event Serialization Format**. Take the defaults for the rest of the **Serialization settings**. Click **OK**.
 7.	Navigate to the **Outputs** tab and click **Add an Output**.  
 
-    ![stream analytics machine learning tutorial add output screen](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-add-output-screen.png)  
+    ![stream analytics machine learning tutorial add output screen](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-add-output-screen.png)  
 
 8.	As with Output, choose **Blob Storage** and provide the same parameters with the exception of the container. In my case for example, my Input was configured to read from container called “cars”, that’s where I uploaded my CSV. For the Output I chose “carsoutput”.  
 
-    ![stream analytics machine learning tutorial blob storage settings](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-blob-storage-settings.png)  
+    ![stream analytics machine learning tutorial blob storage settings](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-blob-storage-settings.png)  
 
 9.	Click **Next** to configure output’s **Serialization settings**. As with Input, choose **CSV** and click **OK**.
 10.	Navigate to the **Functions** tab and click **Add a Machine Learning Function**.  
 
-    ![stream analytics machine learning tutorial create function](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-create-function.png)  
+    ![stream analytics machine learning tutorial create function](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-create-function.png)  
 
 11.	On the **Machine Learning Web Service Settings** page, you should be able to find your Machine Learning workspace, web service and the default endpoint. However, you can always choose to provide settings manually and supply the endpoint **URL** and **API key** which was saved at the end of the **Create and Deploy Machine Learning Model** section. Once all the information has been provided, click **OK**.  
 
-    ![stream analytics machine learning tutorial ml web service](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-ml-web-service.png)  
+    ![stream analytics machine learning tutorial ml web service](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-ml-web-service.png)  
 
 12.	Navigate to the **Query** tab and modify the query ash shown below:  
 	`select Model, helloworld(Model) from input`  
@@ -206,17 +206,17 @@ For this step you can use any CSV file including the one I specified in the intr
 1.	Click **Start** at the bottom of the job. 
 2.	On the **Start Query Dialog**, choose **Custom Time** and select a time prior to when the CSV was uploaded to Blob Storage. Click **OK**.  
 
-    ![stream analytics machine learning tutorial custom time](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-custom-time.png)  
+    ![stream analytics machine learning tutorial custom time](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-custom-time.png)  
 
 3.	Navigate to the Blob Storage using the tool used when the CSV file was uploaded. This tutorial used Visual Studio.
 4.	In few minutes after the job is started, the output container is created and a CSV file uploaded into it. In our example, it was “carscontainer”.  
 
-    ![stream analytics machine learning tutorial storage container](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-storage-container.png)  
+    ![stream analytics machine learning tutorial storage container](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-storage-container.png)  
 
 5.	Double clicking on the file will open the default CSV editor and should show something as below:  
 	This step finalizes the exercise described in this article. 
 
-    ![stream analytics machine learning tutorial csv view](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-csv-view.png)  
+    ![stream analytics machine learning tutorial csv view](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-csv-view.png)  
 
 ## Conclusion
 
