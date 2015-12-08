@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/7/2015"
+	ms.date="12/07/2015"
 	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
