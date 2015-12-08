@@ -57,18 +57,18 @@ PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/M
 Example request body:  
 
 	{
-	"name": "newudf",
-	"properties": {
-    	"type": "Scalar",
-	   	"properties": {
-     		"binding": {
-       			"type": "Microsoft.MachineLearning/WebService",
-       			"properties": {
-         				"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77fb4b46bf2a30c63c078dca/services/b7be5e40fd194258796fb402c1958eaf/execute ",
-         				"apiKey": "replacekeyhere"
-    					}
-    			}
-    		}
+		"name": "newudf",
+		"properties": {
+			"type": "Scalar",
+			"properties": {
+				"binding": {
+					"type": "Microsoft.MachineLearning/WebService",
+					"properties": {
+						"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77fb4b46bf2a30c63c078dca/services/b7be5e40fd194258796fb402c1958eaf/execute ",
+						"apiKey": "replacekeyhere"
+					}
+				}
+			}
 		}
 	}
 
