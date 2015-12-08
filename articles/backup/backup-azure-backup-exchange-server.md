@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/07/2015"
-	ms.author="jimpark,delhan"/>
+	ms.author="jimpark;delhan"/>
 
 
 # Back up an Exchange server to Azure Recovery Service with System Center 2012 R2 DPM
