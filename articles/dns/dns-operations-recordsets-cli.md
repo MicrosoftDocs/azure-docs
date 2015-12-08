@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # How to manage DNS records using CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
-- [Azure Powershell](dns-operations-recordsets.md)
+- [PowerShell](dns-operations-recordsets.md)
 
 This guide will show how to manage record sets and records for your DNS zone.
 
@@ -236,7 +236,7 @@ The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 
 ##See Also
 
-[Get started creating record sets and records](dns-getstarted-create-recordset-cli.md)<BR>
-[Perform operations on DNS zones](dns-operations-dnszones-cli.md)<BR>
+[Delegate a domain to Azure DNS](dns-domain-delegation.md)<BR>
+[Manage DNS zones](dns-operations-dnszones-cli.md)<BR>
 [Automate operations using .NET SDK](dns-sdk.md)
  

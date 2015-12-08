@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -47,7 +47,7 @@ A key goal for SQL Database V12 was to improve the compatibility with Microsoft 
 - [Full-text search](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Please see [here](http://msdn.microsoft.com/library/azure/ee336281.aspx) for the small set of features not yet supported in SQL Database.
+Please see [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
 
 ## More premium performance, new performance levels
@@ -92,7 +92,7 @@ Security is a primary concern for anyone who runs their business in the cloud. T
 
 - [Row-level security](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md)
-- [Contained databases](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [Contained databases](http://msdn.microsoft.com/library/ff929188.aspx)
 - [Application roles](http://msdn.microsoft.com/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
 - [Transparent Data Encryption](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
@@ -113,7 +113,7 @@ V12 offers significantly improved recovery point objectives (RPOs) and estimated
 | Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
-See [SQL Database business continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx) for more information.
+See [SQL Database business continuity](sql-database-business-continuity.md) for more information.
 
 
 ## More reasons to upgrade now
@@ -133,7 +133,7 @@ There are many good reasons why customers should upgrade now to Azure SQL Databa
 One easy way to see if you have a database or logical server running on an earlier version of the SQL Database service is to do the following:
 
 
-1. Go to the [Azure preview portal](http://portal.azure.com/).
+1. Go to the [Azure Portal](http://portal.azure.com/).
 2. Click **Browse**.
 3. Click **SQL Servers**.
 4. The icon next to your server or database tells the story:

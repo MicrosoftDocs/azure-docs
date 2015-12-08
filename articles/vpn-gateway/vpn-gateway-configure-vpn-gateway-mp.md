@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure a VPN Gateway in the Azure Portal | Microsoft Azure"
+   pageTitle="Configure a VPN Gateway in the Azure Classic Portal | Microsoft Azure"
    description="This article walks you through configuring your virtual network VPN gateway and changing a VPN gateway routing type from static to dynamic or dynamic to static."
    services="vpn-gateway"
    documentationCenter="na"
@@ -17,17 +17,17 @@
    ms.date="10/21/2015"
    ms.author="cherylmc" />
 
-# Configure a VPN gateway in the Azure portal
+# Configure a VPN gateway in the Azure Classic Portal
 
 >[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
 
-This article was written for the classic deployment model and the Azure portal (not the Preview Portal). At this time, if you want to configure a VPN Gateway for the classic deployment model using a portal, you must use the Azure portal. 
+This article was written for the classic deployment model and the Azure Classic Portal (not the Azure Portal). At this time, if you want to configure a VPN Gateway for the classic deployment model using a portal, you must use the Azure Classic Portal. 
 
 If you want to create a secure cross-premises connection between Azure and your on-premises location, you'll need to configure a VPN gateway. There are different types of gateways and the type of gateway you'll create depends both on your network design plan, and the on-premises VPN device you want to use. For example, some connectivity options, such as a point-to-site connection, require a dynamic routing gateway. If you want to configure your gateway to support both point-to-site (P2S) connections and a site-to-site (S2S) connection, you'll have to configure a dynamic routing gateway even though site-to-site can be configured with either gateway routing type. Additionally, you'll have to make sure the device you want to use for your site-to-site connection will support the gateway type that you want to create. See [About VPN Gateways](vpn-gateway-about-vpngateways.md).
 
 ## Configuration overview
 
-The procedure below will walk you through configuring your VPN gateway in the Azure Portal. These steps apply to gateways for VNets that were created using the Service Management mode and are visible in the Azure Portal. They are not the steps for using the Preview Portal or for VNets configured using the Resource Manager mode. You can find information about creating VNet gateways for virtual networks created using the Resource Manager mode in [Create a virtual network with a site-to-site connection using Azure Resource Manager and PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
+The procedure below will walk you through configuring your VPN gateway in the Azure Classic Portal. These steps apply to gateways for VNets that were created using the Service Management mode and are visible in the Azure Classic Portal. They are not the steps for using the Preview Portal or for VNets configured using the Resource Manager mode. You can find information about creating VNet gateways for virtual networks created using the Resource Manager mode in [Create a virtual network with a site-to-site connection using Azure Resource Manager and PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 Before you configure your gateway, you'll first need to create your virtual network. For steps to create a virtual network for cross-premises connectivity, see [Configure a virtual network with a site-to-site VPN connection](vpn-gateway-site-to-site-create.md), or [Configure a virtual network with a point-to-site VPN connection](vpn-gateway-point-to-site-create.md). Then, use the steps below to configure the VPN gateway and gather the information you'll need to configure your VPN device. 
 
@@ -43,7 +43,7 @@ If you already have a VPN gateway and you want to change the routing type, see [
 
 ## Create a VPN gateway
 
-1. In the Azure Portal,on the **Networks** page, verify that the status column for your virtual network is **Created**.
+1. In the Azure Classic Portal,on the **Networks** page, verify that the status column for your virtual network is **Created**.
 
 1. In the **Name** column, click the name of your virtual network.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Move data From MySQL using Azure Data Factory
@@ -238,7 +238,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the MySQL Database instance that linked service refers to. | Yes | 
+| tableName | Name of the table in the MySQL Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) | 
 
 ## MySQL Copy Activity type properties
 
@@ -250,7 +250,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | Yes | 
+| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified) | 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Notes on Service Fabric Reliable Actors type serialization
@@ -56,7 +56,7 @@ The actor state needs to be data contract serializable. For instance if we have 
 
 ```csharp
 
-public class VoiceMailActor : Actor<VoicemailBox>, IVoiceMail
+public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
 {
 ...
 

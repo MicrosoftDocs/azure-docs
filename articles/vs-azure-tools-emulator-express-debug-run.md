@@ -3,7 +3,7 @@
    description="Using Emulator Express to run and debug a cloud service on a local machine"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="tarcher"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags

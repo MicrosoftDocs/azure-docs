@@ -3,7 +3,7 @@
 	description="Describes what happens after adding Azure Storage to a ASP.NET project using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
-	authors="tarcher"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 

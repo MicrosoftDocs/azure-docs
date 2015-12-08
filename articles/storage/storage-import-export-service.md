@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" 
-	description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." 
-	authors="tamram" 
-	manager="adinah" 
+	description="Learn how to create import and export jobs in the Azure Portal to transfer data to blob storage." 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage
+
+[AZURE.INCLUDE [storage-selector-portal-import-export-service](../../includes/storage-selector-portal-import-export-service.md)]
 
 ## Overview
 
@@ -27,10 +29,10 @@ To transfer a large set of file data into Blob storage, you can send one or more
 
 You can create and manage import and export jobs in one of two ways:
 
-- By using the Azure Management Portal.
+- By using the [Azure Portal](portal.azure.com).
 - By using a REST interface to the service.
 
-This article provides an overview of the Import/Export service and describes how to use the Management Portal to work with the Import/Export service. For information on the REST API, see the [Azure Import/Export Service REST API Reference](http://go.microsoft.com/fwlink/?LinkID=329099).
+This article provides an overview of the Import/Export service and describes how to use the [Azure Portal](portal.azure.com) to work with the Import/Export service. For information on the REST API, see the [Azure Import/Export Service REST API Reference](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ## Introduction to the Import/Export Service ##
 
@@ -51,15 +53,14 @@ When you create an import job or an export job, you'll also need the *drive ID*,
 
 1.	**Subscription and storage accounts:** You must have an existing Azure subscription and one or more storage accounts to use the Import/Export service. Each job may be used to transfer data to or from only one storage account. In other words, a job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md).
 2.	**Hard drives:** Only 3.5 inch SATA II/III internal hard drives are supported for use with the Import/Export service. Hard drives up to 6TB are supported. For import jobs, only the first data volume on the drive will be processed. The data volume must be formatted with NTFS. You can attach a SATA II/III disk externally to most computers using an external SATA II/III USB Adapter.
-
-  > [AZURE.IMPORTANT] External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
-
 3.	**BitLocker encryption:** All data stored on hard drives must be encrypted using BitLocker with encryption keys protected with numerical passwords.
 4.	**Blob storage targets:** Data may be uploaded to or downloaded from block blobs and page blobs. 
 5.	**Number of jobs:** A customer may have up to 20 jobs active per storage account.
 6.	**Maximum size of a job:** The size of a job is determined by the capacity of the hard drives used and the maximum amount of data that can be stored in a storage account. Each job may contain no more than 10 hard drives.
 
-## Create an Import Job in the Management Portal##
+  > [AZURE.IMPORTANT] External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
+
+## Create an Import Job in the Azure Portal##
 
 Create an import job to notify the Import/Export service that you'll be shipping one or more drives containing data to the data center to be imported into your storage account.
 
@@ -77,15 +78,13 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 ### Create the Import Job
 
-1.	Once you have prepared your drive, navigate to your storage account in the Management Portal, and view the 	Dashboard. Under **Quick Glance**, click **Create an Import Job**. 
+1.	Once you have prepared your drive, navigate to your storage account in the [Azure Portal](portal.azure.com), and view the 	Dashboard. Under **Quick Glance**, click **Create an Import Job**. 
  
 2.	In Step 1 of the wizard, indicate that you have prepared your drive and that you have the drive journal file 	available.
  
 3.	In Step 2, provide contact information for the person responsible for this import job. If you wish to save 	verbose log data for the import job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
-4.	In Step 3, upload the drive journal files that you obtained during the drive preparation step. You'll need 	to upload one file for each drive that you have prepared.
-
-	![Create import job - Step 3][import-job-03]
+4.	In Step 3, upload the drive journal files that you obtained during the drive preparation step. You'll need to upload one file for each drive that you have prepared.
 
 5.	In Step 4, enter a descriptive name for the import job. Note that the name you enter may contain only 	lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. 	You'll use the name you choose to track your jobs while they are in progress and once they are completed.
 
@@ -97,23 +96,21 @@ The Microsoft Azure Import/Export Tool generates a *drive journal* file for each
 
 	If you do not have a tracking number yet, choose **I will provide my shipping information for this import job once I have shipped my package**, then complete the import process.
 
-7. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
+7. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the [Azure Portal](portal.azure.com), select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
 	
 	If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
 
 	If the job is in the Creating, Shipping or Transferring state, you can also update your carrier account number in Step 2 of the wizard. Once the job is in the Packaging state, you cannot update your carrier account number for that job. 
 
-## Create an Export Job in the Management Portal##
+## Create an Export Job in the Azure Portal##
 
 Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center, so that data can be exported from your storage account to the drives, and the drives then shipped to you.
 
-1. 	To create an export job, navigate to your storage account in the Management Portal, and view the Dashboard. 	Under **Quick Glance**, click **Create an Export Job**, and proceed through the 	wizard.
+1. 	To create an export job, navigate to your storage account in the [Azure Portal](portal.azure.com), and view the Dashboard. 	Under **Quick Glance**, click **Create an Export Job**, and proceed through the 	wizard.
 
 2. 	In Step 2, provide contact information for the person responsible for this export job. If you wish to save 	verbose log data for the export job, check the option to **Save the verbose log in my 'waimportexport' 	blob container**.
 
 3.	In Step 3, specify which blob data you wish to export from your storage account to your blank drive or 	drives. You can choose to export all blob data in the storage account, or you can specify which blobs 	or 	sets of blobs to export.
-
-	![Create export job - Step 3][export-job-03]
 
 	- To specify a blob to export, use the **Equal To** selector, and specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
 	- To specify all blobs starting with a prefix, use the **Starts With** selector, and specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name.
@@ -141,7 +138,7 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 	If you do not have a tracking number yet, choose **I will provide my shipping information for this export job once I have shipped my package**, then complete the export process.
 
-6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the Management Portal, select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
+6. To enter your tracking number after you have shipped your package, return to the **Import/Export** page for your storage account in the [Azure Portal](portal.azure.com), select your job from the list, and choose **Shipping Info**. Navigate through the wizard and enter your tracking number in Step 2. 
 	
 	If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
 
@@ -149,9 +146,9 @@ Create an export job to notify the Import/Export service that you'll be shipping
 
 > [AZURE.NOTE] If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
 
-## Track Job Status in the Management Portal##
+## Track Job Status in the Azure Portal##
 
-You can track the status of your import or export jobs from the Management Portal. Navigate to your storage account in the Management Portal, and click the **Import/Export** tab. A list of your jobs will appear on the page. You can filter the list on job status, job name, job type, or tracking number.
+You can track the status of your import or export jobs from the [Azure Portal](portal.azure.com). Navigate to your storage account in the Management Portal, and click the **Import/Export** tab. A list of your jobs will appear on the page. You can filter the list on job status, job name, job type, or tracking number.
 
 The table describes what each job status designation means:
 
@@ -166,9 +163,7 @@ Complete|Your hard drive has been shipped back to you.
 
 ## View BitLocker Keys for an Export Job ##
 
-For export jobs, you can view and copy the BitLocker keys generated by the service for your drive, so that you can decrypt your exported data once you receive the drives from the Azure data center. Navigate to your storage account in the Management Portal, and click the **Import/Export** tab. Select your export job from the list, and click the **View Keys** button. The BitLocker keys appear as shown:
-
-![View BitLocker keys for export job][export-job-bitlocker-keys]
+For export jobs, you can view and copy the BitLocker keys generated by the service for your drive, so that you can decrypt your exported data once you receive the drives from the Azure data center. Navigate to your storage account in the [Azure Portal](portal.azure.com), and click the **Import/Export** tab. Select your export job from the list, and click the **View Keys** button. The BitLocker keys appear as shown:
 
 ## Frequently Asked Questions ##
 
@@ -211,7 +206,7 @@ For export jobs, you can view and copy the BitLocker keys generated by the servi
 
 - You can cancel a job when its status is Creating or Shipping.
 
-**How long can I view the status of completed jobs in the Management Portal?**
+**How long can I view the status of completed jobs in the Azure Portal?**
 
 - You can view status for completed jobs for up to 90 days. All completed jobs will be deleted after 90 days.
 

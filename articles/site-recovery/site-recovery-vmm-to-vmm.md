@@ -169,22 +169,24 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 8. Click *Next* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  *VMM Servers* tab on the **Servers** page in the vault.
 
 >[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
->
->1. Download the Provider installation file and registration key to a folder say C:\ASR
->2. Stop the System Center Virtual Machine Manager Service
->3. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
->
+
+1. Download the Provider installation file and registration key to a folder say C:\ASR
+1. Stop the System Center Virtual Machine Manager Service
+1. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. Install the provider by executing the following command
->
+1. Install the provider by executing the following command
+
 		C:\ASR> setupdr.exe /i
->5. Register the provider by running the following command
->
+1. Register the provider by running the following command
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####Command line Install Parameter List####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>     
+
+    
+#### Command line Install Parameter List
+
  - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
  - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
  - **/EncryptionEnabled** : Optional Parameter that you need to use only in the VMM to Azure Scenario if you need encryption of your virtual machines at at rest in Azure. Please ensure that the name of the file you provide has a **.pfx** extension.

@@ -25,13 +25,13 @@ Ongoing access management, usage evaluation, and reporting continue to be a chal
 
  Azure AD supports extensive access management for configured applications, enabling organizations to easily achieve the right access policies ranging from automatic, attribute-based assignment (ABAC or RBAC scenarios) through delegation and including administrator management. With Azure AD you can easily achieve complex policies, combining multiple management models for a single application and can even re-use management rules across applications with the same audiences.
 
- - [Adding new applications](active-directory-sso-newly-acquired-saas-apps.md)
- - [Adding existing applications](active-directory-sso-integrate-existing-apps)
+ - [Adding new or existing applications](active-directory-sso-integrate-saas-apps.md)
+ 
 
  Azure AD's application assignment focuses on two primary assignment modes:
 
 - **Individual assignment** An IT admin with global, user, or AU privileges can select individual user accounts and grant them access to the application.
-- **Group-based assignment (paid Azure AD only)** An IT admin with global, user, or AU privileges can assign a group to the application. A specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In this mode, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". With this assignment option, administrators can benefit from any of Azure AD group management options, including attribute-based dynamic groups, external system groups (e.g. AD on premises or Workday), Administrator or self-service managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity.
+- **Group-based assignment (paid Azure AD only)** An IT admin with global, user, or AU privileges can assign a group to the application. A specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In this mode, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". With this assignment option, administrators can benefit from any of Azure AD group management options, including attribute-based dynamic groups, external system groups (e.g. AD on premises or Workday), Administrator or self-service managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity. Please noet that nested group memberships are not supported for group-based assignemnt to applications at this time.
 
 Using these two assignment modes, administrators can achieve any desirable assignment management approach.
 

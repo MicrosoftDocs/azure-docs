@@ -81,7 +81,7 @@ storedProcedureParameters | Specify values for stored procedure parameters | No
 	> [AZURE.IMPORTANT] **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON . In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
 	
 ### Create a data factory  
-4. After logging into the [Azure Preview Portal](http://portal.azure.com/), do the following:
+4. After logging into the [Azure Portal](http://portal.azure.com/), do the following:
 	1.	Click **NEW** on the left menu. 
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.
@@ -93,7 +93,7 @@ storedProcedureParameters | Specify values for stored procedure parameters | No
 	4.	Click **OK**.
 4.	After you have selected the resource group, verify that you are using the correct subscription where you want the data factory to be created.
 5.	Click **Create** on the **New data factory** blade.
-6.	You will see the data factory being created in the **Startboard** of the Azure Preview Portal. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory.
+6.	You will see the data factory being created in the **Startboard** of the Azure Portal. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory.
 
 ### Create an Azure SQL linked service  
 After creating the data factory, you create an Azure SQL linked service that links your Azure SQL Database to the data factory. This is the database that contains the sampletable table and sp_sample stored procedure.

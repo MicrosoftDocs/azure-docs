@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/11/2015"
 	ms.author="genli"/>
 
 # How to add or change Azure Co-Administrator, Service Administrator and Account Administrator
@@ -26,7 +26,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 | Administrative role   | Limit  | Description
 | ------------- | ------------- |---------------|
 |Account Administrator  | 1 per Azure account  |This is the person who signed up for or bought Azure subscriptions, and is authorized to access the Account Center and perform various management tasks. These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator.
-| Service Administrator | 1 per Azure subscription  |This person is authorized to access the Azure Management Portal for subscriptions in the account assigned to them. By default, for a new subscription, the Account Administrator is also the Service Administrator is the.|
+| Service Administrator | 1 per Azure subscription  |This person is authorized to access the Azure Management Portal for subscriptions in the account assigned to them. By default, for a new subscription, the Account Administrator is also the Service Administrator.|
 |Co-administrator|200 per subscription (in addition to Service Administrator)|This person has the same access privileges as the Service Administrator, but can’t change the association of subscriptions to Azure directories.|
 
 ## Add a Co-Administrator for a subscription
@@ -43,6 +43,7 @@ The following email address can be added as a Co-Administrator:
 	user@<your domain>.onmicrosoft.com
 
 **Note**
+
  * If you are logged in with a Microsoft Account, you can only add other Microsoft Accounts as Co-Administrator. This is a security consideration to prevent non-organizational accounts from discovering if certain accounts (e.g. janedoe@contoso.com) are valid accounts.
  * If you are logged in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com. Users logged in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
  * Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
@@ -60,8 +61,8 @@ Only the Account Administrator can change the Service Administrator for a subscr
 3. On the right side, click **Edit subscription** details. </br>
 ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
-4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new service administrator. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+4. In the **SERVICE ADMINISTRATOR** box, enter the email address of the new Service Administrator. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Change the Account Administrator (transfer ownership of the Azure account to another account)
+## Change the Account Administrator
 
-To transfer ownership of the Azure account to another. Account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).
+To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).

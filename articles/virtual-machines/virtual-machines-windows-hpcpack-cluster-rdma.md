@@ -71,7 +71,7 @@ in an Azure VM.
 
 4. **Deploy and configure an HPC Pack 2012 R2 head node**
 
-    Download the latest HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47755). For requirements and instructions to prepare for an Azure burst deployment, see [HPC Pack Getting Started Guide](https://technet.microsoft.com/library/jj884144.aspx) and [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+    Download the latest HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [HPC Pack Getting Started Guide](https://technet.microsoft.com/library/jj884144.aspx) and [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 5. **Configure a management certificate in the Azure subscription**
 
@@ -79,7 +79,7 @@ in an Azure VM.
 
 6. **Create a new cloud service and a storage account**
 
-    Use the Azure Management Portal to create a cloud service and a storage account for the deployment in a region where the compute intensive instances are available. (Don’t associate the cloud service and storage account with an existing affinity group used for other deployments.)
+    Use the Azure classic portal to create a cloud service and a storage account for the deployment in a region where the compute intensive instances are available. (Don’t associate the cloud service and storage account with an existing affinity group used for other deployments.)
 
 7. **Create an Azure node template**
 
@@ -115,13 +115,13 @@ in an Azure VM.
 
 ## Scenario 2. Deploy compute nodes in compute-intensive VMs (IaaS)
 
-In this scenario, you deploy the HPC Pack head node and cluster ompute nodes oin VMs joined to an Active Directory domain in an Azure virtual network.
+In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs joined to an Active Directory domain in an Azure virtual network.
 The [HPC Pack IaaS deployment
 script](virtual-machines-hpcpack-cluster-powershell-script.md)
 automates most of this process, and provides flexible deployment options
 including the ability to specify the A8 or A9 VM size for the cluster
 nodes. The following steps guide you to use this automated deployment
-method. Alternatively, you deploy the cluster with the Resource Manager deployment model by using an Azure quickstart template. For test deployments, you can also manually deploy the Active Directory
+method. Alternatively, deploy the cluster with the Resource Manager deployment model by using an Azure quickstart template. For test deployments, you can also manually deploy the Active Directory
 domain, the head node VM, compute node VMs, and other parts of the
 HPC Pack cluster infrastructure in Azure. See [HPC cluster options with Microsoft HPC Pack in Azure](virtual-machines-hpcpack-cluster-options.md).
 
@@ -130,7 +130,7 @@ HPC Pack cluster infrastructure in Azure. See [HPC cluster options with Microsof
 
 1. **Create a cluster head node and compute node VMs by running the HPC Pack IaaS deployment script on a client computer**
 
- Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47755).
+ Download the HPC Pack IaaS Deployment Script package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
 
  To prepare the client computer, create the script configuration file, and run the script, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md). To deploy size A8 and A9 compute nodes, see the additional considerations later in this article.
 
@@ -224,8 +224,11 @@ To run mpipingpong on the cluster:
     On an HPC Pack cluster deployed on Azure VMs, modify the command as noted in step 2.
 
 5. When the job completes, to view the output (in this case, the output of task 1 of the job), type the following:
-  task view &lt;JobID&gt;.1
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   The output will include throughput results similar to the following.
 
   ![Ping pong throughput][pingpong2]

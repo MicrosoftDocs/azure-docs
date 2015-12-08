@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Transferring an Azure subscription
@@ -25,7 +25,7 @@ Do you:
 - Want to move your Azure subscription from one directory to another?
 - Have Azure and Office 365 in different tenants and want to consolidate?
 
-You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go or MSDN subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go or MSDN subscription that you own, no matter which country you operate in.
+You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscriptions.  We’ve added the ability to transfer your subscription to another user. In other words, you can now change the account admin on any Pay-As-You-Go, MSDN, Action Pack, or BizSpark subscription that you own, no matter which country you operate in.
 
 ## How to transfer an Azure subscription
 
@@ -66,7 +66,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 -   **How do I use this mechanism to change the directory for subscription?**-   
     An Azure subscription is created in the directory that the Account Admin belongs to. So, in order to change the directory, just transfer the subscription to a user account in the target directory. When that user completes the steps to accept transfer, the subscription will automatically move to the target directory.
-   
+
 -   **If I take over billing ownership of a subscription from another
     organization, will they continue to have access to my resources?**
 
@@ -111,10 +111,10 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 ## Next steps after accepting ownership of a subscription
 
-1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure management portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293).
-2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure preview portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more](http://go.microsoft.com/fwlink/?LinkID=533293).
+2. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com) [Learn more about RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Update credentials associated with this subscription's services. These include:
-    -   Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
+    - Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
     -	Access keys for services like Storage. For more information, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
     -	Remote Access credentials for services like Azure Virtual Machines
 4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions)  [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)

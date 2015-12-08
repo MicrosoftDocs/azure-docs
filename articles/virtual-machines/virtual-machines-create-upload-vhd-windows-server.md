@@ -66,7 +66,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 ### Option 1: Create a storage account
 
-1. Sign in to the [portal](http://manage.windowsazure.com).
+1. Sign in to the Azure classic portal.
 
 2. On the command bar, click **New**.
 
@@ -102,7 +102,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 ### Option 2: Get the storage account info
 
-1.	Sign in to the [portal](http://manage.windowsazure.com).
+1.	Sign in to the Azure classic portal.
 
 2.	From the navigation pane, click **Storage**.
 
@@ -156,7 +156,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 	Where:
 	- **BlobStorageURL** is the URL for the storage account
 	- **YourImagesFolder** is the container within blob storage where you want to store your images
-	- **VHDName** is the name you want the portal to display to identify the virtual hard disk
+	- **VHDName** is the name you want the Azure classic portal to display to identify the virtual hard disk
 	- **PathToVHDFile** is the full path and name of the .vhd file
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
@@ -165,11 +165,11 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 ## Step 5: Add the image to your list of custom images
 
-> [AZURE.TIP] To use Azure PowerShell instead of the portal to add the image, use the **Add-AzureVMImage** cmdlet. For example:
+> [AZURE.TIP] To use Azure PowerShell instead of the Azure classic portal to add the image, use the **Add-AzureVMImage** cmdlet. For example:
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
-1. From the portal, under **All Items**, click **Virtual Machines**.
+1. From the Azure classic portal, under **All Items**, click **Virtual Machines**.
 
 2. Under Virtual Machines, click **Images**.
 
@@ -199,7 +199,7 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 	![create VM from custom image](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP] If you get an error when you try to create a VM, with this error message, "The VHD https://XXXXX... has an unsupported virtual size of YYYY bytes. The size must be a whole number (in MBs)," it means your VHD is not a whole number of MBs and needs to be a fixed size VHD. Try using the **Add-AzureVMImage** PowerShell cmdlet instead of the portal to add the image (see step 5, above). The Azure cmdlets ensure that the VHD meets the Azure requirements.
+	> [AZURE.TIP] If you get an error when you try to create a VM, with this error message, "The VHD https://XXXXX... has an unsupported virtual size of YYYY bytes. The size must be a whole number (in MBs)," it means your VHD is not a whole number of MBs and needs to be a fixed size VHD. Try using the **Add-AzureVMImage** PowerShell cmdlet instead of the Azure classic portal to add the image (see step 5, above). The Azure cmdlets ensure that the VHD meets the Azure requirements.
 
 ## Next steps ##
 

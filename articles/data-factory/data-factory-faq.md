@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -57,7 +57,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
   
 ### How do customers access Data Factory?
 
-Customers can get access to Data Factory through the [Azure Preview Portal][azure-preview-portal].
+Customers can get access to Data Factory through the [Azure Portal][azure-portal].
 
 ### What is the Data Factory’s region availability?
 
@@ -72,7 +72,7 @@ See **Azure Data Factory Limits** section of the [Azure Subscription and Service
 
 You can author/create data factories using one of the following:
 
-- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure Portal**. The Data Factory blades in the Azure Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
 - **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell][create-data-factory-using-powershell] for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.  
 - **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically) article for details.  
 - **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
@@ -126,10 +126,6 @@ If you are using an on-demand cluster that is created by the Data Factory servic
 
 In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
 
-## Stored Procedure Activity - FAQ
-### What data sources does the Stored Procedure Activity support?
-The Stored Procedure Activity supports only Azure SQL Database at this time. 
-
 ## Slices - FAQ
 
 ### How can I rerun a slice?
@@ -172,7 +168,7 @@ If you really want to stop all the executions immediately, the only way would be
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx 
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
-[azure-preview-portal]: http://portal.azure.com
+[azure-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777

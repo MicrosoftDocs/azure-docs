@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Performance and scale overview
-By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues.  Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse.  Instead, SQL Data Warehouse asks you this question: how fast do you want to process your data? 
+By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues. Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse. Instead, SQL Data Warehouse asks you this question: how fast do you want to analyze your data? 
 
 SQL Data Warehouse is a cloud based, distributed database platform that's designed to deliver great performance at scale where you are in full control of the resources used to resolve your queries. By simply adjusting the number of data warehouse units allocated to your data warehouse you can elastically scale the size of your warehouse resources in seconds. As a distributed, scale out platform, SQL Data Warehouse enables your data warehouse to process significant data volumes efficiently and effectively whilst leaving you in complete control of the cost of the solution.
 

@@ -42,7 +42,7 @@ Start working with the Azure Batch .NET Library by creating a console applicatio
 
 	2. Search online for **WindowsAzure.Storage** and then click **Install** to install the Azure Storage package and dependencies.
 
-> [AZURE.TIP] This tutorial makes use of some of the core Batch concepts discussed in [API basics for Azure Batch](batch-api-basics.md), highly recommended reading for those new to Batch.
+> [AZURE.TIP] This tutorial makes use of some of the core Batch concepts discussed in [Azure Batch feature overview](batch-api-basics.md), highly recommended reading for those new to Batch.
 
 ## Step 1: Create and upload the support files
 
@@ -208,7 +208,7 @@ A pool of compute nodes is the first set of resources that you must create when 
 			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Replace the bracketed values with those associated with your Batch account, each of which can be found in the [Azure Preview portal](https://portal.azure.com). To locate these values, log in to the [Azure Preview portal](https://portal.azure.com) and:
+	Replace the bracketed values with those associated with your Batch account, each of which can be found in the [Azure portal](https://portal.azure.com). To locate these values, log in to the [Azure portal](https://portal.azure.com) and:
 
 	- **[account-name]** - Click **Batch Accounts**, select the Batch account you created earlier
 	- **[account-url]** - Within the Batch account blade, click **Properties** > **URL**

@@ -65,11 +65,11 @@ In the pop-up browser window, enter your Azure account user name and password. A
 
 If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
 
-    Get-AzureRmContext
+    Get-AzureRmSubscription
 
 Then, to specify the subscription to use, type:
 
-    Set-AzureRmContext -SubscriptionName <subscription name>
+    Set-AzureRmContext -SubscriptionId <subscription ID>
 
 For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
@@ -79,8 +79,6 @@ For more information about configuring Azure PowerShell, see  [How to install an
 When you use Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group named **ContosoResourceGroup** for this tutorial:
 
 	New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
-
-For the **-Location** parameter, use the command [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn654582.aspx) to identify how to specify an alternative location to the one in this example. If you need more information, type: `Get-Help Get-AzureLocation`
 
 
 ## <a id="vault"></a>Create a key vault ##
@@ -93,8 +91,8 @@ For example, if you use the vault name of **ContosoKeyVault**, the resource grou
 
 The output of this cmdlet shows properties of the key vault that you’ve just created. The two most important properties are:
 
-- **Name**: In the example, this is **ContosoKeyVault**. You will use this name for other Key Vault cmdlets.
-- **vaultUri**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault Name**: In the example, this is **ContosoKeyVault**. You will use this name for other Key Vault cmdlets.
+- **Vault URI**: In the example, this is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
@@ -218,7 +216,7 @@ If you no longer need the key vault and the key or secret that it contains, you 
 
 Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:
 
-	Remove-AzureResourceGroup -ResourceGroupName 'ContosoResourceGroup'
+	Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
 ## <a id="other"></a>Other Azure PowerShell Cmdlets ##

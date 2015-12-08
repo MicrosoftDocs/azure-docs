@@ -23,8 +23,6 @@ ms.service="virtual-machines"
 
 Take advantage of Microsoft HPC Pack and Azure compute and infrastructure services to create and manage a cloud-based high performance computing (HPC) cluster. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies and supports both Windows and Linux HPC workloads. A cloud-based HPC Pack cluster provides a cluster administrator or independent software vendor (ISV) a flexible, scalable platform to run compute-intensive applications while reducing investment in an on-premises compute cluster infrastructure.
 
-<!-- Take advantage of automated tools for HPC Pack cluster deployment in Azure VMs, including an HPC Pack image that can be used with either Azure quickstart templates or Azure PowerShell scripts, or deploy your cluster manually in the Azure portal.-->
-
 
 ## Run an HPC Pack cluster in Azure VMs
 
@@ -51,15 +49,17 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 ### Tutorials
 
-* [Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md)
 
-* [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
-### Manual deployment with the Azure portal
+### Manual deployment with the Azure classic portal
 
 
 
@@ -76,11 +76,10 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 * [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## Add worker role nodes to an HPC Pack cluster
 
 
-* [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -88,9 +87,14 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Integrate with Azure Batch 
+
+* [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Create RDMA clusters for MPI workloads
 
 * [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-hpcpack-cluster-rdma.md)
+
+* [Tutorial: Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->

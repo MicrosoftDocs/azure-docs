@@ -22,8 +22,8 @@ Azure Search is hosted cloud search service on Microsoft Azure. The following gu
 
 As a preview customer, you might have used either one of these older preview versions:
 
-- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
-- [2014-10-20-Preview](search-api-2014-10-20-preview.md)
+- 2014-07-31-Preview
+- 2014-10-20-Preview
 
 Now that Azure Search is generally available, we encourage transitioning to newer releases: 2015-02-28 is the official API version of the generally available release of Azure Search. This version is documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx ).
 

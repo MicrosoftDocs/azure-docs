@@ -31,7 +31,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 - **Azure Subscription**: Verify the number of cores available in your Azure Subscription. If you create the recommended VM size of **A3**, you need **4** available cores. If you use a VM size of **A2**, you need **2** available cores.
 	
-	- To verify the core limit of your subscription, in the Azure Management Portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
+	- To verify the core limit of your subscription, in the Azure classic portal, click SETTINGS in the left pane and then Click USAGE in the top menu.
 	
 	- To increase the core quota, contact [Azure Support](http://azure.microsoft.com/support/options/). For VM size information, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
@@ -43,7 +43,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 ## Step 1: Provision an Azure Virtual Machine
 
-1. Browse to the [Azure Management Portal](https://manage.windowsazure.com).
+1. Browse to the Azure classic portal.
 
 1. Click **Virtual Machines** in the left pane.
 
@@ -143,7 +143,7 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
 
 1. To trust the root CA of the certificate on the Local VM, add the certificate to the **Trusted Root Certification Authorities**. The following is a summary of the steps required. For detailed steps on how to trust the CA, see [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
 
-	1. From the Azure Management portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
+	1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 	
 		![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 	
@@ -193,7 +193,7 @@ For more detailed steps, see the section [Connect to the Virtual Machine and Sta
 
 To use the Windows PowerShell script to configure the report server, complete the following steps. The configuration includes HTTP, not HTTPS:
 
-1. From the Azure Management portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
+1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
 	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
@@ -334,7 +334,7 @@ To use the Windows PowerShell script to configure the report server, complete th
 
 To use Windows PowerShell to configure the report server, complete the following steps. The configuration includes HTTPS, not HTTP.
 
-1. From the Azure Management portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
+1. From the Azure classic portal, select the VM and click connect. Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.
 
 	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif) Use the user VM name, user name and password you configured when you created the VM. 
 
@@ -557,11 +557,11 @@ The result will include the following:
 
 If you do not want to run the PowerShell script to configure the report server, follow the steps in this section to use the Reporting Services native mode configuration manager to configure the report server.
 
-1. From the Azure Management portal, select the VM and click connect. Use the user name and password you configured when you created the VM.
+1. From the Azure classic portal, select the VM and click connect. Use the user name and password you configured when you created the VM.
 
 	![connect to azure virtual machine](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC650112.gif)
 
-1. Run Windows update and install updates to the VM. If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure Management portal.
+1. Run Windows update and install updates to the VM. If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure classic portal.
 
 1. From the Start menu on the VM, type **Reporting Services** and open **Reporting Services Configuration Manager**.
 
@@ -683,7 +683,7 @@ The following table summarizes some of the options available to publish existing
 
 ## Minimize cost if you are not using the VM
 
->[AZURE.NOTE] To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure Management portal. If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM. To reduce charges, you need to shut down the VM in the Azure Management Portal. If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines).
+>[AZURE.NOTE] To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure classic portal. If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM. To reduce charges, you need to shut down the VM in the Azure classic portal. If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines).
 
 ## More Information
 

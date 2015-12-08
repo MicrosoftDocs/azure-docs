@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Android apps
@@ -56,10 +56,8 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-<ol start="7">
-<li><p>Click the <b>Configure</b> tab at the top, enter the <b>API Key</b> value you obtained in the previous section, and then click <b>Save</b>.</p>
-</li>
-</ol>
+&emsp;&emsp;7.   Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
+
 &emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
@@ -84,10 +82,10 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ###Add code
 
-1. Download the <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">Notification Hubs Android SDK</a>. Extract the .zip file and copy **notificationhubs\notification-hubs-0.3.jar** and **notifications\notifications-1.0.1.jar** to the **app\libs** directory of your project. You can do this by dragging the files directly into the **libs** folder in the Project View window of Android Studio. Refresh the **libs** folder.
+1. Download the notification-hubs-0.4.jar file from the **Files** tab of the [Notification-Hubs-Android-SDK on Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Also download [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) to the **app\libs** directory of your project. You can do this by dragging the files directly into the **libs** folder in the Project View window of Android Studio. Refresh the **libs** folder.
 
 
-    > [AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
+    >[AZURE.NOTE] The numbers at the end of the file name may change in subsequent SDK releases.
 
 2. Set up the application to obtain a registration ID from GCM, and use it to register the app instance to the notification hub.
 

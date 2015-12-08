@@ -3,7 +3,7 @@
    description="Test the performance of a cloud service using the Visual Studio profiler"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="tarcher"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 

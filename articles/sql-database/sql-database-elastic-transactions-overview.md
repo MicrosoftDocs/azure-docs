@@ -37,9 +37,9 @@ Elastic database transactions use two-phase commit to ensure transaction atomici
 
 ## Installation and migration
 
-The capabilities for elastic database transactions in SQL DB are provided through updates to the .NET libraries System.Data.dll and System.Transactions.dll. The DLLs ensure that two-phase commit is used where necessary to ensure atomicity. To start developing applications using elastic database transactions, install the [.NET 4.6.1 Release Candidate](http://blogs.msdn.com/b/dotnet/archive/2015/10/29/announcing-net-framework-4-6-1-rc.aspx) or a later version of the .NET framework. When running on an earlier version of the .NET framework, transactions will fail to promote to a distributed transaction and an exception will be raised.
+The capabilities for elastic database transactions in SQL DB are provided through updates to the .NET libraries System.Data.dll and System.Transactions.dll. The DLLs ensure that two-phase commit is used where necessary to ensure atomicity. To start developing applications using elastic database transactions, install [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) or a later version. When running on an earlier version of the .NET framework, transactions will fail to promote to a distributed transaction and an exception will be raised.
 
-After installation, you can use the distributed transaction APIs in System.Transactions with connections to SQL DB. If you have existing MSDTC applications using these APIs, simply rebuild your existing applications for .NET 4.6 after installing the release candidate. If your projects target .NET 4.6, they will automatically use the updated DLLs from the release candidate and distributed transaction API calls in combination with connections to SQL DB will now succeed.
+After installation, you can use the distributed transaction APIs in System.Transactions with connections to SQL DB. If you have existing MSDTC applications using these APIs, simply rebuild your existing applications for .NET 4.6 after installing the 4.6.1 Framework. If your projects target .NET 4.6, they will automatically use the updated DLLs from the new Framework version and distributed transaction API calls in combination with connections to SQL DB will now succeed.
 
 Remember that elastic database transactions do not require installing MSDTC. Instead, elastic database transactions are directly managed by and within SQL DB. This significantly simplifies cloud scenarios since a deployment of MSDTC is not necessary to use distributed transactions with SQL DB. Section 4 explains in more detail how to deploy elastic database transactions and the required .NET framework together with your cloud applications to Azure.
 
@@ -99,7 +99,7 @@ The following code sample illustrates this approach. It assumes that a variable 
 
 ## Setup for Azure worker roles
 
-You can automate the installation and deployment of the .NET version and libraries needed for elastic database transactions to Azure (into the guest OS of your cloud service). For Azure worker roles, use the startup tasks. The concepts and steps are documented in [Install .NET on a Cloud Service Role](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).  
+You can automate the installation and deployment of the .NET version and libraries needed for elastic database transactions to Azure (into the guest OS of your cloud service). For Azure worker roles, use the startup tasks. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
 Note that the installer for .NET 4.6.1 requires more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
@@ -143,7 +143,7 @@ The following limitations currently apply to elastic database transactions in SQ
 
 ## Learn more
 
-Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](http://feedback.azure.com/forums/217321-sql-database).
+Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

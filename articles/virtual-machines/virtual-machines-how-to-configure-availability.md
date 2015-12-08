@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configure an availability set for VMs | Microsoft Azure"
-	description="Configure an availability set for a new or existing virtual machine in the classic deployment model using the Azure portal and Azure PowerShell."
+	description="Configure an availability set for a new or existing virtual machine in the classic deployment model using the Azure classic portal and Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -35,11 +35,11 @@ You can put virtual machines into an availability set by using one of two option
 
 ## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time##
 
-You can use either the Azure portal or Azure PowerShell commands to do this.
+You can use either the Azure classic portal or Azure PowerShell commands to do this.
 
-To use the portal:
+To use the Azure classic portal:
 
-1. If you haven't already done so, sign in to the [portal](http://manage.windowsazure.com).
+1. If you haven't already done so, sign in to the Azure classic portal.
 
 2. On the command bar, click **New**.
 
@@ -72,10 +72,10 @@ To use Azure PowerShell commands to create an Azure virtual machine and add it t
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set##
 
-In the portal, you can add existing virtual machines to an existing availability set
+In the Azure classic portal, you can add existing virtual machines to an existing availability set
  or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
 
-1. If you have not already done so, sign in to the [portal](http://manage.windowsazure.com).
+1. If you have not already done so, sign in to the Azure classic portal.
 
 2. On the command bar, click **Virtual Machines**.
 

@@ -37,7 +37,7 @@ same as the one to “burst to Azure” to add cloud compute capacity to an
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
-Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 If you want to use the A8 or A9 compute intensive instance size, see
 [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
@@ -56,7 +56,7 @@ subscription (or subscriptions).
 
 ## Step 1: Create a cloud service and a storage account to add Azure nodes
 
-Use the Azure Portal or equivalent tools to configure the following, which are needed to deploy
+Use the Azure classic portal or equivalent tools to configure the following, which are needed to deploy
 your Azure nodes:
 
 * A new Azure cloud service
@@ -100,7 +100,7 @@ Deployments](http://technet.microsoft.com/library/gg481759.aspx).
 The steps to add and start
 Azure nodes in this scenario are generally the same as those used with
 an on-premises head node. For more information, see the following
-sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
+sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
 
 * Create an Azure node template
 
@@ -118,7 +118,7 @@ Pack](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 * If you want a way to
 automatically grow or shrink the Azure computing resources according to
-the current workload of jobs and tasks on the cluster, see [Grow and shrink Azure compute resources in an HPC Pack cluste](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+the current workload of jobs and tasks on the cluster, see [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png

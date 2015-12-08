@@ -3,7 +3,7 @@
 	description="Describes what happened to your Azure Cordova project after adding Azure Mobile Services by using Visual Studio Connected Services " 
 	services="mobile-services" 
 	documentationCenter="na" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 

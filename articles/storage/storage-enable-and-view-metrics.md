@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enabling storage metrics in the Azure portal | Microsoft Azure" 
+	pageTitle="Enabling storage metrics in the Azure Portal | Microsoft Azure" 
 	description="How to enable storage metrics for the Blob, Queue, Table, and File services" 
 	services="storage" 
 	documentationCenter="" 
@@ -13,42 +13,44 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
-# Enabling Storage metrics and viewing metrics data
+# Enabling Azure Storage metrics and viewing metrics data
 
-By default, Storage Metrics is not enabled for your storage services. You can enable monitoring using either the Azure Management Portal, Windows PowerShell, or programmatically through a storage API.
+[AZURE.INCLUDE [storage-selector-portal-enable-and-view-metrics](../../includes/storage-selector-portal-enable-and-view-metrics.md)]
+
+## Overview
+
+By default, Storage Metrics is not enabled for your storage services. You can enable monitoring via the [Azure Portal](portal.azure.com) or Windows PowerShell, or programmatically via the storage client library.
 
 When you enable Storage Metrics, you must choose a retention period for the data: this period determines for how long the storage service keeps the metrics and charges you for the space required to store them. Typically, you should use a shorter retention period for minute metrics than hourly metrics because of the significant extra space required for minute metrics. You should choose a retention period such that you have sufficient time to analyze the data and download any metrics you wish to keep for off-line analysis or reporting purposes. Remember that you will also be billed for downloading metrics data from your storage account.
 
-## How to enable Storage metrics using the Azure management portal
+## How to enable metrics using the Azure Portal
 
-In the Azure Management Portal, you use the Configure page for a storage account to control Storage Metrics. For monitoring, you can set a level and a retention period in days for each of blobs, tables, and queues. In each case, the level is one of the following:
+Follow these steps to enable metrics in the [Azure Portal](portal.azure.com):
 
+1. Navigate to your storage account. 
+1. Open the **Settings** blade and select **Diagnostics**.
+1. Ensure that **Status** is set to **On**.
+1. Select the metrics for the services you wish to monitor.
+2. Specify a retention policy to indicate how long to retain metrics and log data.
 
-- Off — this means no metrics are collected.
+Note that the [Azure Portal](portal.azure.com) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
-- Minimal — Storage Metrics collects a basic set of metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the Blob, Table, and Queue services.
-
-- Verbose — Storage Metrics collects a full set of metrics that includes the same metrics for each storage API operation, in addition to the service-level metrics. Verbose metrics enable closer analysis of issues that occur during application operations.
-
-Note that the Management Portal does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
-
-
-## How to enable Storage metrics using PowerShell
+## How to enable metrics using PowerShell
 
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty to retrieve the current settings, and the cmdlet Set-AzureStorageServiceMetricsProperty to change the current settings.
 
 The cmdlets that control Storage Metrics use the following parameters:
 
-- MetricsType possible values are Hour and Minute.
+- MetricsType: possible values are Hour and Minute.
 
-- ServiceType possible value are Blob, Queue, and Table.
+- ServiceType: possible value are Blob, Queue, and Table.
 
-- MetricsLevel possible values are None (equivalent to Off in the Management Portal), Service (equivalent to Minimal in the Management Portal), and ServiceAndApi (equivalent to Verbose in the Management Portal).
+- MetricsLevel: possible values are None, Service, and ServiceAndApi.
 
-For example, the following command switches on minute metrics for the blob service in your default storage account with the retention period set to five days:
+For example, the following command switches on minute metrics for the Blob service in your default storage account with the retention period set to five days:
 
 `Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 
@@ -60,34 +62,44 @@ For information about how to configure the Azure PowerShell cmdlets to work with
 
 ## How to enable Storage metrics programmatically
 
-In addition to using the Azure Management Portal or the Azure PowerShell cmdlets to control Storage Metrics, you can also use one of the Azure Storage APIs. For example, if you are using a .NET language you can use the Storage Client Library.
+The following C# snippet shows how to enable metrics and logging for the Blob service using the storage client library for .NET:
 
-The classes CloudBlobClient, CloudQueueClient, and CloudTableClient all have methods such as SetServiceProperties and SetServicePropertiesAsync that take a ServiceProperties object as a parameter. You can use the ServiceProperties object to configure Storage Metrics. For example, the following C# snippet shows how to change the metrics level and retention days for the hourly queue metrics:
+	// Parse connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    var storageAccount = CloudStorageAccount.Parse(connStr);
-    var queueClient = storageAccount.CreateCloudQueueClient();
-    var serviceProperties = queueClient.GetServiceProperties();
-     
-    serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;
-    serviceProperties.HourMetrics.RetentionDays = 10;
-     
-    queueClient.SetServiceProperties(serviceProperties);
+    // Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    ServiceProperties properties = new ServiceProperties();
+    properties.Logging.LoggingOperations = LoggingOperations.All;
+    properties.Logging.RetentionDays = 10;
+    properties.Logging.Version = "1.0";
+
+    // Configure service properties for metrics. Both metrics and logging must be set at the same time.
+    properties.HourMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+    properties.HourMetrics.RetentionDays = 10;
+    properties.HourMetrics.Version = "1.0";
+
+    properties.MinuteMetrics.MetricsLevel = MetricsLevel.ServiceAndApi;
+    properties.MinuteMetrics.RetentionDays = 10;
+    properties.MinuteMetrics.Version = "1.0";
+
+    // Set the default service version to be used for anonymous requests.
+    properties.DefaultServiceVersion = "2015-04-05";
+
+    // Set the service properties.
+    blobClient.SetServiceProperties(properties);
+
     
 ## Viewing Storage metrics
 
-When you have configured Storage Metrics to monitor your storage account, it records the metrics in a set of well-known tables in your storage account. You can use the Monitor page for your storage account in the Management Portal to view the hourly metrics as they become available on a chart. On this page in the Management Portal, you can:
+After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure Portal](portal.azure.com):
 
-- Select which metrics to plot on the chart (the choice of available metrics will depend on whether you chose verbose or minimal monitoring for the service on the Configure page).
-
-
-- Select the time range for the metrics displayed on the chart.
-
-
-- Choose to use an absolute or relative scale to plot the metrics.
-
-
-- Configure email alerts to notify you when a specific metric reaches a certain value.
-
+1. Navigate to your storage account in the [Azure Portal](portal.azure.com).
+2. In the **Monitoring** section, click **Add Tiles** to add a new chart. In the **Tile Gallery**, select the metric you want to view, and drag it to the **Monitoring** section.
+3. To edit which metrics are displayed in a chart, click the **Edit** link. You can add or remove individual metrics by selecting or deselecting them.
+4. Click **Save** when you've finished editing metrics.
 
 If you want to download the metrics for long-term storage or to analyze them locally, you will need to use a tool or write some code to read the tables. You must download the minute metrics for analysis. The tables do not appear if you list all the tables in your storage account, but you can access them directly by name. Many third-party storage-browsing tools are aware of these tables and enable you to view them directly (see the blog post [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) for a list of available tools).
 
@@ -122,7 +134,7 @@ In this example minute metrics data, the partition key uses the time at minute r
 
 The sample data above shows all the records for a single minute (starting at 11:00AM), so the number of QueryEntities requests plus the number of QueryEntity requests plus the number of UpdateEntity requests add up to seven, which is the total shown on the user:All row. Similarly, you can derive the average end-to-end latency 104.4286 on the user:All row by calculating ((143.8 * 5) + 3 + 9)/7.
 
-You should consider setting up alerts in the Management Portal on the Monitor page so that Storage Metrics can automatically notify you of any important changes in the behavior of your storage services.If you use a storage explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. See the blog post [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) for a list of available storage explorer tools.
+You should consider setting up alerts in the [Azure Portal](portal.azure.com) on the Monitor page so that Storage Metrics can automatically notify you of any important changes in the behavior of your storage services.If you use a storage explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. See the blog post [Microsoft Azure Storage Explorers](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) for a list of available storage explorer tools.
 
 
 

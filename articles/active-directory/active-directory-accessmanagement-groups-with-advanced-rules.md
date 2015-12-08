@@ -4,38 +4,38 @@
 	description="How-to's to create advanced rules for a group including supported expression rule operators and parameters."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Using attributes to create advanced rules
-The Azure Management Portal provides you with the flexibility to set up a more advanced rule to enable dynamic memberships for groups.
+The Azure portal provides you with the flexibility to set up advanced rules in Azure Active Directory (Azure AD) to enable more complex dynamic memberships for Azure AD groups.
 
 **To create the advanced rule**
-In the Azure Management Portal, under the group’s **Configure** tab, select the **Advanced rule** radio button and then type in your advanced rule in the provided text box. You can create your advanced rule using the following information.
+In the Azure portal, under the group’s **Configure** tab, select the **Advanced rule** option and then type in your advanced rule in the provided text box. You can create your advanced rule using the following information.
 
 ## Constructing the body of an advanced rule
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
 
 - Left parameter
 - Binary operator
-- Right constant 
+- Right constant
 
-A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where open and close parenthesis are required for the entire binary expression, double quotes are required for the right constant, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
+A complete advanced rule looks similar to this: (leftParameter binaryOperator "RightConstant"), where the opening and closing parenthesis are required for the entire binary expression, double quotes are required for the right constant, and the syntax for the left parameter is user.property. An advanced rule can consist of more than one binary expressions separated by the -and, -or, and -not logical operators.
 The following are examples of a properly constructed advanced rule:
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing") 
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Sales") -or (user.department -eq "Marketing")
+- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 For the complete list of supported parameters and expression rule operators, see sections below.
 
@@ -153,17 +153,17 @@ Allowed operators
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## Direct Reports Rule
-You can now populate members in a group based on the manager attribute of a user. 
+You can now populate members in a group based on the manager attribute of a user.
 To configure a group as a “Manager” group
 --------------------------------------------------------------------------------
-1. On the Administrator portal, click the **Configure** tab, and then select **ADVANCED RULE**. 
+1. On the Administrator portal, click the **Configure** tab, and then select **ADVANCED RULE**.
 2. Type the rule with the following syntax:
 Direct Reports for *Direct Reports for {UserID_of_manager}*
-3. When saving this rule, all users that satisfy the rule will be joined as members of the group. Note that it can take some minutes for the group to initially populate. 
+3. When saving this rule, all users that satisfy the rule will be joined as members of the group. Note that it can take some minutes for the group to initially populate.
 
 
-## Additional Information
-Here are some topics that will provide some additional information on Azure Active Directory 
+## Additional information
+These articles provide additional information on Azure Active Directory.
 
 * [Troubleshooting dynamic memberships for groups](active-directory-accessmanagement-troubleshooting.md)
 

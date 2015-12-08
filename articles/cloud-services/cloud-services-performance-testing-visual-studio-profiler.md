@@ -3,7 +3,7 @@
 	services="cloud-services"
 	description="Investigate performance issues in cloud services with the Visual Studio profiler" 
 	documentationCenter=""
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"
 	tags="" 

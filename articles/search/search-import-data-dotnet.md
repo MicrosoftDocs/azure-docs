@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="na"
+	ms.devlang="dotnet"
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
@@ -22,7 +22,7 @@
 - [Overview](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
+- [REST](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 This article shows you how to populate an index using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). The content below is a subset of the [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md). Refer to the parent article for end-to-end steps.
