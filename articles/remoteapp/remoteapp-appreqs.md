@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="App requirements for Azure RemoteApp"
+    pageTitle="App requirements for Azure RemoteApp | Microsoft Azure"
     description="Learn about the requirements for apps that you want to use in Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

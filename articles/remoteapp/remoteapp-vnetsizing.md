@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Sizing information for a VNET in Azure RemoteApp"
+    pageTitle="Sizing information for a VNET in Azure RemoteApp | Microsoft Azure"
     description="Learn about the IP address requirements for Azure RemoteApp running with a VNET"
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

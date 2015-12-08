@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure RemoteApp licensing"
+    pageTitle="Azure RemoteApp licensing | Microsoft Azure"
     description="Learn how licensing works in Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""

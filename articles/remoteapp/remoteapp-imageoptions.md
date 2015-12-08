@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Create an Azure RemoteApp image"
+    pageTitle="Create an Azure RemoteApp image | Microsoft Azure"
     description="Learn about the options available for creating images for Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

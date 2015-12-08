@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Azure RemoteApp image requirements"
+    pageTitle="Azure RemoteApp image requirements | Microsoft Azure"
     description="Learn about the requirements for creating images to be used with Azure RemoteApp"
     services="remoteapp"
 	documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Secure apps and resources in Azure RemoteApp"
+    pageTitle="Secure apps and resources in Azure RemoteApp | Microsoft Azure"
     description="Learn how to lock down apps and resources in Azure RemoteApp"
     services="remoteapp"
 	documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

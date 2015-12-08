@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Getting started in Azure RemoteApp with Powershell"
+   pageTitle="Getting started in Azure RemoteApp with Powershell | Microsoft Azure"
    description="Learn how to get started in Azure RemoteApp with Powershell"
    services="remoteapp"
    documentationCenter=""

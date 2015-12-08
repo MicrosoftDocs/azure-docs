@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Best practices for Azure RemoteApp clients"
+    pageTitle="Best practices for Azure RemoteApp clients | Microsoft Azure"
     description="Learn about best practices for using the RemoteApp clients"
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 

@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Upload a custom image for Azure RemoteApp"
+    pageTitle="Upload a custom image for Azure RemoteApp | Microsoft Azure"
     description="Learn how to upload a custom image for Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="ericor" />
 
 

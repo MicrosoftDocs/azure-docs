@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure RemoteApp best practices"
+    pageTitle="Azure RemoteApp best practices | Microsoft Azure"
     description="Best practices for configuring and using Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Best practices for configuring and using Azure RemoteApp

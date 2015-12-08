@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Add a user to your Azure RemoteApp collection"
+    pageTitle="Add a user to your Azure RemoteApp collection | Microsoft Azure"
     description="Learn how to add users to your Azure RemoteApp collection"
     services="remoteapp"
 	documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # How to add a user to your Azure RemoteApp collection

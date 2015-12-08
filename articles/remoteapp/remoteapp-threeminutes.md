@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less"
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less | Microsoft Azure"
     description="Test drive Azure RemoteApp functionality without installing the service."
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015" 
+    ms.date="12/05/2015"
     ms.author="mbaldwin" />
 
 

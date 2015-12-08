@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get the same Office 365 experience on any device with Azure RemoteApp"
+   pageTitle="Get the same Office 365 experience on any device with Azure RemoteApp | Microsoft Azure"
    description="Learn how to share any Office 365 app with your users by using Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
