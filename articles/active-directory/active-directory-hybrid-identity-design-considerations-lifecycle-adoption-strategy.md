@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations- determine hybrid identity lifecycle adoption strategy | Microsoft Azure"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine hybrid identity lifecycle adoption strategy | Microsoft Azure"
 	description="Helps define the hybrid identity management tasks according to the options available for each lifecycle phase."
 	documentationCenter=""
 	services="active-directory"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="femila"/>
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
@@ -22,7 +22,7 @@ Before an API in API Management can be used, operations must be added. This guid
 
 ## <a name="add-operation"> </a>Add an operation
 
-Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
