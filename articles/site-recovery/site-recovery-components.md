@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How does Azure Site Recovery work?"
+	pageTitle="How does Site Recovery work? | Microsoft Azure"
 	description="This article provides an overview of Site Recovery architecture"
 	services="site-recovery"
 	documentationCenter=""
