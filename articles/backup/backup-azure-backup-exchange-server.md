@@ -103,8 +103,6 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
     ![Specify online retention policy](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 
-    For more information, see Set up offline replication.
-
 18. Confirm the settings, and then click **Create Group**.
 
 19. Click **Close**.
