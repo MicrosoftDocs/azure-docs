@@ -18,7 +18,7 @@
 	ms.author="jeffstok"
 />
 
-# Introduction: Machine Learning user defined function capabilities in Stream Analytics
+# Machine Learning user defined function capabilities in Stream Analytics
 
 Stream Analytics provides support for user defined functions that call out to Azure Machine Learning endpoints. REST API support for this feature is detailed in the Stream Analytics REST API library. This article provides supplemental information needed for successful implementation of this capability in Stream Analytics.
 
