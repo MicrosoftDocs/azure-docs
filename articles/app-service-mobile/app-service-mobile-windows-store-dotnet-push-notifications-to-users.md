@@ -105,5 +105,5 @@ Run any of the client apps you have set up, using the same sign-in method and us
 <!-- URLs. -->
 [Get started with authentication]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx
+[templates]: https://msdn.microsoft.com/library/dn530748.aspx
  
