@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -79,8 +79,6 @@ Transient fault errors should prompt your client program to run *retry logic* th
 |49918|16|Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 |49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
-
-**Note:** Errors 10053 and 10054 might also deserve inclusion in your retry logic.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>

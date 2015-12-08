@@ -32,13 +32,10 @@ Completing this tutorial is a prerequisite for all other Android tutorials about
 
 To complete this tutorial, you need the following:
 
-* An [active Azure account](http://azure.microsoft.com/pricing/free-trial/)
-
-* A PC with [Visual Studio Community 2013] or newer
-
-* [Android Developer Tools](https://developer.android.com/sdk/index.html)), which includes the Android Studio integrated development environment, and the latest Android platform.
-
+* [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
 * Azure Mobile Android SDK, which is automatically referenced ss part of the quickstart project you download.
+* A PC with [Visual Studio Community 2013] or newer&mdash;not required for a Node.js backend.
+* An [active Azure account](http://azure.microsoft.com/pricing/free-trial/).
 
 ## Create a new Azure mobile app backend
 

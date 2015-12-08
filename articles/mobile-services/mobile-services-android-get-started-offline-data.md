@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/06/2015"
 	ms.author="ricksal"/>
 
 # Add Offline Data Sync to your Android Mobile Services app
