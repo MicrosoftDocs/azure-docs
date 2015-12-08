@@ -31,11 +31,11 @@ Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool yo
 - **Endpoint**: *Endpoints* are the Azure Machine Learning object used to apply the experiment to input and return output. 
 - **Scoring Webservice**: A *scoring webservice* is utilized to apply a trained experiment to one or more endpoints.
 
-Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution exclusively. The specific service is named a [Request/Response Service](./articles/machine-learning-consume-web-services/#request-response-service-rrs "Azure Machine Learning request-response service") in AzureML studio.
+Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution exclusively. The specific service is named a [Request/Response Service](./machine-learning/machine-learning-consume-web-services/#request-response-service-rrs "Azure Machine Learning request-response service") in AzureML studio.
 
 ## Machine Learning resources that needed for Stream Analytics jobs
 
-For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](./articles/machine-learning-connect-to-azure-machine-learning-web-service/#get-an-azure-machine-learning-authorization-key "Azure Machine Learning API Key") and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
+For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](./machine-learning/machine-learning-connect-to-azure-machine-learning-web-service/#get-an-azure-machine-learning-authorization-key "Azure Machine Learning API Key") and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
 
 ## Configure a Stream Analytics and Machine Learning UDF via REST API
 
