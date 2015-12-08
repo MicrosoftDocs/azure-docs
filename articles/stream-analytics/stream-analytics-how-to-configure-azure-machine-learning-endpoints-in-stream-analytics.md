@@ -33,11 +33,11 @@ Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool yo
 
 Each endpoint has apis for batch execution and synchronous execution. Stream Analytics uses synchronous execution exclusively. The specific service is named a [Request/Response Service](./articles/machine-learning-consume-web-services/#request-response-service-rrs "Azure Machine Learning request-response service") in AzureML studio.
 
-## AzureML resources that are needed for Stream Analytics jobs
+## Machine Learning resources that needed for Stream Analytics jobs
 
 For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](./articles/machine-learning-connect-to-azure-machine-learning-web-service/#get-an-azure-machine-learning-authorization-key "Azure Machine Learning API Key") and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
 
-## Configuring a Stream Analytics job with Azure Machine Learning functions via the REST API
+## Configure a Stream Analytics and Machine Learning UDF via REST API
 
 By using REST APIs you may configure your job to call Azure Machine Language functions. The steps are as follows:
 
@@ -72,7 +72,7 @@ Example request body:
 		}
 	}
 
-## Call the RetrieveDefaultDefinition endpoint to get default UDF
+## Call RetrieveDefaultDefinition endpoint for default UDF
 
 Once this is entered, the complete definition of the UDF is needed. The RetrieveDefaultDefinition is performed. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint from the request if it is provided explicitly. However it will use the one located in the database if one is not explicitly provided. Here the UDF takes a single string parameter (which is a sentenc)e and returns a single output of type string which indicates the “sentiment” label for that sentence.
 
@@ -131,7 +131,7 @@ A sample output of this would look something like below.
 		}
 	}
 
-## Patch the UDF with the previous response 
+## Patch UDF with the response 
 
 Now the UDF must be patched with the previous response, as shown below.
 
@@ -139,7 +139,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Request Body: Output from  RetrieveDefaultDefinition
 
-## Implement a Stream Analytics transformation that calls the UDF
+## Implement Stream Analytics transformation to call the UDF
 
 Now query the UDF (here named scoreTweet) for every input event and write a response for that event to an output.  
 
