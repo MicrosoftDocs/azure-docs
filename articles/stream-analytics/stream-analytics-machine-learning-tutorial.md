@@ -23,7 +23,7 @@
 
 This tutorial is designed to help you quickly setup a simple Stream Analytics and Machine Learning integrated job. At the end of this tutorial,  you will have a Stream Analytics job which reads data from Azure Blob Storage and outputs the data back into the same Blob Storage. Specifically, it will read the data from one container and will output into a different container. To demonstrate the value of Stream Analytics and Machine Learning integration, during the processing, the job will modify the input values by utilizing a simple Machine Learning model, such that f(“foo”) = “foo Hello World!”.
 
-    ![stream analytics machine learning tutorial map](./media/stream-analytics-machine-learning/stream-analytics-machine-learning-tutorial-map.png)  
+    ![stream analytics machine learning tutorial map](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-map.png)  
 
 Whilst this is clearly not a realistic use of Machine Learning on Streaming Data, this tutorial will provide the needed information to quickly understanding how can you combine the power of Stream Analytics and Machine Learning. You can replace the Machine Learning model in the tutorial with your own model and use this feature for your scenario.
 
