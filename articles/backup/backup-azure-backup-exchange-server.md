@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DPM Protection of SharePoint farm to Azure | Microsoft Azure"
-	description="This article provides an overview of DPM Protection of SharePoint farm to Azure"
+	pageTitle="Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM | Microsoft Azure"
+	description="Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/08/2015"
 	ms.author="jimpark;delhan"/>
 
 
-# Back up an Exchange server to Azure Recovery Service with System Center 2012 R2 DPM
-This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to the Azure Recovery Service.  
+# Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
+This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to  Azure Backup.  
 
 ## Updates
-To successfully register the DPM server with the Azure Recovery Service, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of the Azure Recovery Service Agent. Get the latest update rollup from [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+To successfully register the DPM server with Azure Backup, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of Azure Backup Agent. Get the latest update rollup from [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
->[AZURE.NOTE] For the examples in this article, version 2.0.8719.0 of the Azure Recovery Service Agent is installed, and Update Rollup 6 is installed on System Center 2012 R2 DPM.
+>[AZURE.NOTE] For the examples in this article, version 2.0.8719.0 of the Azure Backup Agent is installed, and Update Rollup 6 is installed on System Center 2012 R2 DPM.
 
 ## Prerequisites
 Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
@@ -40,7 +40,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
 2. Install the agent on the Exchange server by clicking Management > Agents > Install in DPM Administrator Console. See [Install the DPM protection agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) for detailed steps.
 
-## Create a protection group for the Exchange server to the Azure Recovery Service
+## Create a protection group for the Exchange server
 
 1. In the DPM Administrator Console, click **Protection**, and then click **New** on the tool ribbon to open the **Create New Protection Group** wizard.
 
@@ -89,11 +89,11 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
     ![Specify online protection data](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
 
-15. Define the schedule for the **Azure Recovery Service**, and then click **Next**. For example:
+15. Define the schedule for **Azure Backup**, and then click **Next**. For example:
 
     >[AZURE.NOTE] Note Online recovery points are based on express full recovery points. Therefore, you must schedule the online recovery point after the time that’s specified for the express full recovery point.
 
-16. Configure the retention policy for the **Azure Recovery Service**, and then click **Next**.
+16. Configure the retention policy for **Azure Backup**, and then click **Next**.
 
     ![Specify online backup schedule](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -107,7 +107,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
 19. Click **Close**.
 
-## Recover the Exchange database from Azure Recovery Service by using DPM
+## Recover the Exchange database
 
 1. To recover an Exchange database, click **Recovery** in the DPM Administrator Console.
 
