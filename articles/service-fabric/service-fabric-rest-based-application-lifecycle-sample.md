@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="12/07/2015"
    ms.author="ryanwi"/>
 
 # REST-based application lifecycle sample
