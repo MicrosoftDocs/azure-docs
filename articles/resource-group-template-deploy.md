@@ -104,7 +104,7 @@ You specify the type of deployment through the **Mode** property.
 
           PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
           Confirm
-          Are you sure you want to use the complete deployment mode? Resources in the resource group 'linktest' which are not
+          Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
