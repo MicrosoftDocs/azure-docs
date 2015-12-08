@@ -22,7 +22,7 @@
 
 #Linux on Azure-Endorsed Distributions
 
-The Linux images in the Azure Gallery or Marketplace (Red Hat Enterprise Linux is coming soon) are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on [this page](virtual-machines-linux-create-upload-vhd.md).
+The Linux images in the Azure Gallery or Marketplace are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on [this page](virtual-machines-linux-create-upload-vhd.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -63,7 +63,7 @@ From the CoreOS Website:
 ### Credativ
 [http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
-Credativ is an independent consulting and services company, specialising in the development and implementation of professional solutions through the use of free software. As leading Open Source specialists, we have international recognition with many IT departments using our support. In conjunction with Microsoft, credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy), which are specially designed to run on Azure and can be easily managed via the platform. Credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centres.
+Credativ is an independent consulting and services company, specialising in the development and implementation of professional solutions through the use of free software. As leading Open Source specialists, we have international recognition with many IT departments using our support. In conjunction with Microsoft, Credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy), which are specially designed to run on Azure and can be easily managed via the platform. Credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centres.
 
 ### Oracle
 [http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
@@ -73,7 +73,7 @@ Oracle’s strategy is to offer a broad portfolio of solutions for public and pr
 ### Red Hat
 [http://www.redhat.com/en/partners/strategic-alliance/microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)
 
-The world's leading provider of open source solutions, Red Hat help more than 90% of Fortune 500* companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. We do this by providing secure solutions through an open business model and an affordable, predictable subscription model.
+The world's leading provider of open source solutions, Red Hat help more than 90% of Fortune 500* companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. Red Hat does this by providing secure solutions through an open business model and an affordable, predictable subscription model.
 
 ### SUSE
 [http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
