@@ -148,7 +148,7 @@ For this step you can use any CSV file including the one I specified in the intr
 
 In this tutorial, an exercise of using a Machine Learning module was demonstrated as a function inside a Stream Analytics job. The processing power of Stream Analytics was extended by Machine Learning modules. Data was read from a Blob Storage, processed using a Machine Learning module, and outputted the result back into the same Blob Storage. 
 
-Note:
+Note:  
 1.	The choice of the **Input** and **Output** was fairly basic. The **input** could have been Event Hub and the **output** Power BI as an example. Conceptually, there is no difference.  
 2.	The same CSV was used as the **input** for a Stream Analytics job and as an **input** for a Machine Learning model. Again this is basic and chosen to demonstrate the concepts covered rather than a true "real world" scenario. The CSV in the Machine Learning module was only needed to define the model and to define the signature of the function. During the runtime of AML Web Service that CSV file and all the transformations that we performed (such as Project Columns) were not used. Hence, to define the AML model, a completely different CSV file with different schema and values could have been leveraged in a more advanced example.  
 
