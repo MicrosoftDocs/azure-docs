@@ -69,48 +69,51 @@ At a high level, the following steps will be performed:
 
 For this step you can use any CSV file including the one I specified in the introduction. To upload the file, you can use any tool you like include writing some code. For simple tasks like this I usually use Visual Studio.
 
-1.	Expand Azure and right click on the Storage. Choose Attach External Storage… and provide Account Name and Account Key
-2.	Expand storage you just attached and choose Create Blob Container and provide a nice name. Once created, double click on the container to view its content (which will be empty at this point).
-3.	Upload CSV file by clicking Upload Blob icon and then choosing the file from the local disk.
+1.	Expand Azure and right click on the **Storage**. Choose **Attach External Storage** and provide **Account Name** and **Account Key**.
+2.	Expand the storage you just attached and choose **Create Blob Container** and provide a logical name. Once created, double click on the container to view its contents (which will be empty at this point).
+3.	Upload the CSV file by clicking the **Upload Blob** icon and then choose **file from the local disk**.
 
 ## Create a Machine Learning workspace
 
 1.	Login to Azure Management Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com). 
 2.	Click **New**, **Data Services**, **Machine Learning**, **Quick Create**.
-3.	Fill in the Quick Create form by providing the following:
-	a.	**Workspace Name**.
-	b.	**Workspace Owner**. The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).
-	c.	**Location**.
-	d.	**Storage Account**. Here you can either choose an existing Storage Account or create a new one. This storage is internal to AML and hence is of little importance for this exercise. 
+3.	Fill in the **Quick Create **form by providing the following:  
+	a.	**Workspace Name**.  
+	b.	**Workspace Owner**. The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).  
+	c.	**Location**.  
+	d.	**Storage Account**. Here you can either choose an existing Storage Account or create a new one. This storage is internal to AML and hence is of little importance for this exercise.  
 4.	Click **Create an ML Workspace** button.
-5.	Once created, click on the workspace in the list of workspaces and navigate to the **Dashboard** tab. In the Quick Glance section of the Dashboard click **Sign-in to ML Studio**.
+5.	Once created, click on the **workspace** in the list of **workspaces** and navigate to the **Dashboard** tab. In the **Quick Glance** section of the Dashboard click **Sign-in to ML Studio**.
 
 ## Create and deploy a Machine Learning model
 
 1.	In ML Studio, click New, Experiment, Blank Experiment. 
 2.	Expand Data Input and Output and drag Reader node on to the canvas
-3.	Select the Reader node which you just placed on the canvas. You should see the Properties of the Reader on the right side. Fill in the information about your Blob Storage which you configured in the Upload a CSV file to a Blob Storage section.
+3.	Select the Reader node which you just placed on the canvas. You should see the Properties of the Reader on the right side. Fill in the information about your Blob Storage which you configured in the Upload a CSV file to a Blob Storage section.  
 	Note: don’t forget to check File has header row check box.
 4.	On the left pane, select Data Transformation, Manipulation, Project Columns node and drag it onto the canvas. Connect Reader node with the Project Columns node.
 5.	Select Project Columns node to see its Properties on the right pane. Click Launch column selector button. You should see the dialog box shown below. Provide a single name of the column and click the OK button. In my case I chose the “Model” column from my CSV file.
-6.	On the left pane, expand Python Language Modules and drag Execute Python Script node to the canvas. Connect Project Columns node with Execute Python Script node.
+6.	On the left pane, expand Python Language Modules and drag Execute Python Script node to the canvas. Connect Project Columns node with Execute Python Script node.  
     Notice here that I connected Project Columns node to the first port of the three available input ports on the Execute Python Script.
-7.	Select newly placed Execute Python Script node to see its Properties on the right pane. Modify Python Script section as follows:
-    a.	Write import pandas right before the definition of the function
-    Delete the body of the function completely and replace it with `return pandas.DataFrame(dataframe1['Model'].apply(lambda x: x + ' Hello World!')),`
-	The only thing you need to change here is the name of the column which we select from dataframe1. In this case I selected the “Model” column. Also, please pay attention of the indentation of the return statement.
-	c.	In the end this is how my script looks. 
-8.	On the left pane, expand Web Service and drag Input node on the canvas. Connect Input node with Execute Python Script node.
-9.	On the left pane, expand Web Service and drag Output on the canvas. Connect Output node with Execute Python Script node.
-10.	Click Run button at the bottom
-	It might take up to a minute to run the entire model. You will see how individual nodes are run one after another.
-11.	Click Deploy Web Service button the bottom
-12.	Once the service is deployed you will be navigated to the Web Services tab where you should see the Test button. This step is optional is only needed to make sure that the service which just deployed does what it’s supposed to do. Click on the Test button and a dialog box will prompt you for a sample input. I typed in “foo bar” and pressed OK.
-	This is what I got the test run was complete. The result was “foo bar Hello World!”, exactly what we expected.
-13.	Before we can move on to creating an ASA job we will need to pieces of information, the endpoint URL of the web service that we just deployed and the API Key which we can use to authenticate requests to that endpoint.
-	a.	On the same page where we tested our endpoint there should be an API key field. Copy that API key and store it somewhere temporarily.
-	b.	Click on the Request/Response link.
-	You will be navigated to a helper page of you web service. Copy the Request URI property and store it temporarily.
+7.	Select newly placed Execute Python Script node to see its Properties on the right pane. Modify Python Script section as follows:  
+    a.	Write import pandas right before the definition of the function  
+    b.  Delete the body of the function completely and replace it with `return pandas.DataFrame(dataframe1['Model'].apply(lambda x: x + ' Hello World!')),`  
+
+	The only thing you need to change here is the name of the column which we select from dataframe1. In this case I selected the “Model” column. Also, please pay attention of the indentation of the return statement.  
+
+	c.	In the end this is how the script looks. 
+
+8.	On the left pane, expand **Web Service** and drag the **Input node** on the canvas. Connect the **Input node** with the **Execute Python Script** node.
+9.	On the left pane, expand **Web Service** and drag **Output** on the canvas. Connect the **Output node** with **Execute Python Script** node.
+10.	Click Run button at the bottom  
+	It might take up to a minute to run the entire model. You will see how individual nodes are run one after another.  
+11.	Click Deploy Web Service button the bottom  
+12.	Once the service is deployed you will be navigated to the Web Services tab where you should see the Test button. This step is optional is only needed to make sure that the service which just deployed does what it’s supposed to do. Click on the Test button and a dialog box will prompt you for a sample input. I typed in “foo bar” and pressed OK.  
+	This is what I got the test run was complete. The result was “foo bar Hello World!”, exactly what we expected.  
+13.	Before we can move on to creating an ASA job we will need to pieces of information, the endpoint URL of the web service that we just deployed and the API Key which we can use to authenticate requests to that endpoint.  
+	a.	On the same page where we tested our endpoint there should be an API key field. Copy that API key and store it somewhere temporarily.  
+	b.	Click on the Request/Response link.  
+	You will be navigated to a helper page of you web service. Copy the Request URI property and store it temporarily.  
 
 ## Create an Stream Analytics job which uses the Machine Learning model
 
@@ -125,10 +128,10 @@ For this step you can use any CSV file including the one I specified in the intr
 9.	Click **Next** to configure output’s **Serialization settings**. As with Input, choose **CSV** and click **OK**.
 10.	Navigate to the **Functions** tab and click **Add a Machine Learning Function**.
 11.	On the **Machine Learning Web Service Settings** page, you should be able to find your Machine Learning workspace, web service and the default endpoint. However, you can always choose to provide settings manually and supply the endpoint **URL** and **API key** which was saved at the end of the **Create and Deploy Machine Learning Model** section. Once all the information has been provided, click **OK**.
-12.	Navigate to the **Query** tab and modify the query ash shown below:
-	`select Model, helloworld(Model) from input`
-	The query selects the first column to be the unmodified column from the **input**. The second column is modified by invoking the Machine Learning **model**. The value from the **input**, say “Toyota”, will be passed to the Machine Learning model and will return “Toyota Hello World!”. This process will continue for every record of the **input**. 
-	Click *Save* to save the query.
+12.	Navigate to the **Query** tab and modify the query ash shown below:  
+	`select Model, helloworld(Model) from input`  
+	The query selects the first column to be the unmodified column from the **input**. The second column is modified by invoking the Machine Learning **model**. The value from the **input**, say “Toyota”, will be passed to the Machine Learning model and will return “Toyota Hello World!”. This process will continue for every record of the **input**.  
+	Click *Save* to save the query.  
 
 ## Start the ASA Job and observe the output
 
@@ -136,7 +139,7 @@ For this step you can use any CSV file including the one I specified in the intr
 2.	On the **Start Query Dialog**, choose **Custom Time** and select a time prior to when the CSV was uploaded to Blob Storage. Click **OK**. 
 3.	Navigate to the Blob Storage using the tool used when the CSV file was uploaded. This tutorial used Visual Studio.
 4.	In few minutes after the job is started, the output container is created and a CSV file uploaded into it. In our example, it was “carscontainer”.
-5.	Double clicking on the file will open the default CSV editor and should show something as below:
+5.	Double clicking on the file will open the default CSV editor and should show something as below:  
 	This step finalizes the exercise described in this article. 
 
 ## Conclusion
