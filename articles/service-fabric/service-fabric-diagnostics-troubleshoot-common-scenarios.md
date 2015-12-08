@@ -43,5 +43,5 @@ If the crash happens during the initialization or running of your registered ser
 
 Learn more about existing diagnostics provided by Service Fabric:
 
-* [Actors diagnostics](service-fabric-reliable-actors-diagnostics.md)
+* [Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)
 * [Reliable Services Diagnostics](service-fabric-reliable-services-diagnostics.md)
