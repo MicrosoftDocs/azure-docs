@@ -134,17 +134,18 @@ This guide is intended to help IT professionals understand and use the various S
 
 *Main article: [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)*
 
-> *Main article: [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)*
-
 Automate the creation, maintenance, and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow, and more.
 
-| Subject | Article
+| Purpose | Articles
 | :---: | --- |
-| Learn about how automated user provisioning work,  | [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md) |
-| Edit how attributes are mapped and synced between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| Get notified of provisioning failures. | [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
-| Limit who gets provisioned to an application based on attribute values | [Attribute-based app provisioning with scoping filters](active-directory-saas-scoping-filters.md) |
-| Enable automated provisioning to any app that supports SCIM | [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md) |
+| Learn about how it works and find answers to common questions | [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
+| Edit how information is synced between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| How to enable automated provisioning to any app that supports the SCIM protocol | [Set up Automated User Provisioning to any SCIM-Enabled Application](active-directory-scim-provisioning.md) |
+| Get notified of provisioning failures | [Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
+| Limit who gets provisioned to an application based on their attribute values | [Scoping Filters](active-directory-saas-scoping-filters.md) |
+
+
+
 
 ##Tools for Managing who has Access to which Apps
 
