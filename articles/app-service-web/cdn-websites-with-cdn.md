@@ -63,7 +63,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-5. Configure a new App Service plan in the dialog as shown below and click **OK**.
+5. Configure a new App Service plan in the dialog as shown below and click **OK**. 
 
 	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
