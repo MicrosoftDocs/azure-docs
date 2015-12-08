@@ -36,8 +36,6 @@ This guide is intended to help IT professionals understand and use the various S
 
 Cloud App Discovery helps IT departments learn which SaaS apps are being used throughout the organization. It can measure app usage and popularity so that IT can determine which apps will benefit the most from being brought under IT control and being integrated with Azure AD.
 
-**Main article:** [Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-
 | Article Guide |   |
 | :---: | --- |
 | A general overview of how it works | [Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
@@ -140,17 +138,13 @@ Cloud App Discovery helps IT departments learn which SaaS apps are being used th
 
 Automate the creation, maintenance, and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow, and more. Match and sync existing identities between Azure AD and your SaaS apps, and control access by automatically disabling accounts when users leave the organization.
 
-**Main Article:** [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
-
 | Article Guide |   |
 | :---: | --- |
 | Learn about how it works and find answers to common questions | [Automate User Provisioning/Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
-| Edit how information is synced between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Configure how information is mapped between Azure AD and your SaaS app | [Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | How to enable automated provisioning to any app that supports the SCIM protocol | [Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
 | Get notified of provisioning failures | [Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md) |
 | Limit who gets provisioned to an application based on their attribute values | [Scoping Filters](active-directory-saas-scoping-filters.md) |
-
-
 
 
 ##Tools for Managing who has Access to which Apps
