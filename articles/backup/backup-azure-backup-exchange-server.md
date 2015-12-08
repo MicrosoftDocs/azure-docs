@@ -21,7 +21,7 @@
 This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to  Azure Backup.  
 
 ## Updates
-To successfully register the DPM server with Azure Backup, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of Azure Backup Agent. Get the latest update rollup from [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+To successfully register the DPM server with Azure Backup, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of the Azure Backup Agent. Get the latest update rollup from the [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 >[AZURE.NOTE] For the examples in this article, version 2.0.8719.0 of the Azure Backup Agent is installed, and Update Rollup 6 is installed on System Center 2012 R2 DPM.
 
@@ -38,7 +38,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
 1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](https://technet.microsoft.com/library/Hh758204.aspx).
 
-2. Install the agent on the Exchange server by clicking Management > Agents > Install in DPM Administrator Console. See [Install the DPM protection agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) for detailed steps.
+2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in DPM Administrator Console. See [Install the DPM protection agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) for detailed steps.
 
 ## Create a protection group for the Exchange server
 
@@ -75,6 +75,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 8. Click **Next**.
 
 9. Select the database for **Copy Backup**, and then click **Next**.
+
     >[AZURE.NOTE] If you do not select “Full backup” for at least one DAG copy of a database, logs will not be truncated.
 
 10. Configure the goals for **Short-Term backup**, and then click **Next**.
@@ -91,11 +92,11 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
 15. Define the schedule for **Azure Backup**, and then click **Next**. For example:
 
+    ![Specify online backup schedule](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
+
     >[AZURE.NOTE] Note Online recovery points are based on express full recovery points. Therefore, you must schedule the online recovery point after the time that’s specified for the express full recovery point.
 
 16. Configure the retention policy for **Azure Backup**, and then click **Next**.
-
-    ![Specify online backup schedule](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
 17. Choose an online replication option and click **Next**.
 
@@ -113,7 +114,7 @@ To install the DPM protection agent on the Exchange server, follow these steps:
 
 2. Locate the Exchange database that you want to recover.
 
-3. Select an online recovery point from the recovery time drop-down list.
+3. Select an online recovery point from the *recovery time* drop-down list.
 
 4. Click **Recover** to start the **Recovery Wizard**.
 
