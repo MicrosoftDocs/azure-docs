@@ -39,7 +39,7 @@ In order to route traffic for cloud services and websites (endpoints) that are l
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-[What is Traffic Manager?](traffic-manmager-overview.md)
+[What is Traffic Manager?](traffic-manager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
