@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="12/07/2015"
    ms.author="bwren;sngun"/>
 
 # Azure Automation webhooks
@@ -54,6 +54,18 @@ The **$WebhookData** object will have the following properties:
 There is no configuration of the webhook required to support the **$WebhookData** parameter, and the runbook is not required to accept it.  If the runbook does not define the parameter, then any details of the request sent from the client is ignored.
 
 If you specify a value for $WebhookData when you create the webhook, that value will be overriden when the webhook starts the runbook with the data from the client POST request, even if the client does not include any data in the request body.  If you start a runbook that has $WebhookData using a method other than a webhook, you can provide a value for $Webhookdata that will be recognized by the runbook.  This value should be an object with the same properties as $Webhookdata so that the runbook can properly work with it.
+
+To test this property, create a runbook that takes $WebhookData as an input parameter of type **Object** and add code to it.
+
+![WebhookData parameter from UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
+
+Now Save the runbook and open the **Test blade** to test it using Azure portal. In the test balde, enter a value for $WebhookData parameter in JSON format and start the runbook. Below is a sample JSON formatted value that can be passed to the $WebhoookData parameter.
+
+{"WebhookName":"MyWebhook", "RequestHeader": {"From":"Test User"}, "RequestBody": "[\"VM1\",\"VM2\"]"}
+
+![WebhookData parameter from UI](media/automation-webhooks/Start WebhookData parameter from UI.png)
+
+Once the runbook completes execution, you can view the $WebhookData property values in the output screen.
 
 >[AZURE.NOTE] The values of all input parameters are logged with the runbook job.  This means that any input provided by the client in the webhook request will be logged and available to anyone with access to the automation job.  For this reason, you should be cautious about including sensitive information in webhook calls.
 
