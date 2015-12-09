@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/08/2015"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -101,4 +101,4 @@ Both [Classic and Resource Manager](azure-classic-rm.md) virtual machines are su
 Access Control List recommendations currently apply to Classic virtual machines. Network Security Groups and recommendations for installation of Web Application Firewall currently only apply to Resource Manager virtual machines.
 
 ### Are Linux virtual machines supported?
-Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.
+Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.
