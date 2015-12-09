@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/03/2015"
+   ms.date="12/09/2015"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference
@@ -239,7 +239,7 @@ Do the following:
 - For your Stored Procedure to support pagination to need to provide Start Index and End Index. See: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
 - @StartIndex and @EndIndex will be replaced at execution time with respective page size value configured on **Configure Step** page. Example: If connector retrieve first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex considered as 500 and this values, increases as connector retrieve subsequent pages and change the @StartIndex & @EndIndex value.
 - To execute parameterized Stored Procedure, provide the parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
-- Generic SQL connector also supports Import operation from distributed environment, e.g. Linked Servers in Microsoft SQL Server. In case information is to be retrieved from a Table in Linked server then Table is to be provided in the format: [ServerName].[Database].[Schema].[TableName]`
+- Generic SQL connector also supports Import operation from distributed environment, e.g. Linked Servers in Microsoft SQL Server. In case information is to be retrieved from a Table in Linked server then Table is to be provided in the format: `[ServerName].[Database].[Schema].[TableName]`
     - In distributed environments the Connector only supports Microsoft linked server.
 - Generic SQL Connector supports only those objects that have the similar structure (both alias name and data type) between run steps information and schema detection. If the selected object from schema and provided information at run step is different, then SQL Connector will unable to support this type of scenarios.
 

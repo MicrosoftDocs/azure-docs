@@ -47,6 +47,7 @@ From a high level perspective, the following features are supported by the curre
 ### Delta import and password management support
 
 Supported Directories for Delta import and Password management:
+
 - Microsoft Active Directory Lightweight Directory Services (AD LDS)
     - Supports all operations for delta import
     - Supports Set Password and Change Password
@@ -124,6 +125,7 @@ The connector tries to detect if the options are present on the server. If the o
 ### Delta import
 
 Delta import is only available when a support directory has been detected. The following methods are currently used:
+
 - LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 - LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
 - TimeStamp. For Novell eDirectory the Connector will use last date/time to get created and updated objects. Novell eDirectory does not provide an equivalent means to retrieve deleted objects.
@@ -173,6 +175,7 @@ On the Global Parameters page, you configure the DN to the delta change log and 
 The top section shows information provided by the server itself, such as the name of the server. The Connector will also verify that the mandatory controls are present in the Root DSE. If these are not listed, a warning will be presented. Some LDAP directories will not list all features in the Root DSE and it is possible that the Connector will work without issues even if this warning is present.
 
 The **supported controls** checkboxes controls the behavior for certain operations:
+
 - With tree delete selected, a hierarchy will be deleted with one LDAP call. With tree delete unselected, the connector will do a recursive delete if needed.
 - With paged results selected the Connector will do paged imports with the size specified on the run steps.
 - The VLVControl and SortControl is an alternative to the pagedResultsControl to read data from the LDAP directory.
