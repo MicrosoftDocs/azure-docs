@@ -20,9 +20,11 @@
 # Linux VM extension configuration samples
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
 - [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
 <br> 
+
 
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
 
