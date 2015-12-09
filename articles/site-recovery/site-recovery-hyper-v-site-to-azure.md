@@ -168,6 +168,7 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 
 >[AZURE.NOTE] The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server CORE for Windows Server 2012 R2
 ### Command line Install
+
 1. Download the Provider installation file and registration key to a folder say C:\ASR
 1. Extract the Provider installer by executing the below commands from a command prompt with **Administrator** privileges
 
