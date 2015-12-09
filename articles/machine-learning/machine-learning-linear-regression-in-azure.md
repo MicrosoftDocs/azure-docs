@@ -3,7 +3,6 @@
 	description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
