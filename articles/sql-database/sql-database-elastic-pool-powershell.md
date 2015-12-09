@@ -61,7 +61,7 @@ To select the subscription you need your subscription Id or subscription name (*
 
 ## Create a resource group, server, and firewall rule
 
-Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic database pool will be created to contain multiple databases. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRMLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
+Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic database pool will be created to contain multiple databases. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
 
 If you already have a resource group you can go to the next step, or you can run the following command to create a new resource group:
 

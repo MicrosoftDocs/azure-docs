@@ -65,7 +65,7 @@ If you already have a resource group you can jump ahead to create a server, or y
 
 ## Create a server 
 
-To create a new V12 server use the [New-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace server12 with the name for your server. It must be unique to Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use any valid location.
+To create a new V12 server use the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace server12 with the name for your server. It must be unique to Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use any valid location.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
@@ -73,7 +73,7 @@ When you run this command a window opens asking for a **User name** and **Passwo
 
 ## Create a server firewall rule
 
-To create a firewall rule to access the server use the [New-AzureRMSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) command. Run the following command replacing the start and end IP addresses with valid values for your client.
+To create a firewall rule to access the server use the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) command. Run the following command replacing the start and end IP addresses with valid values for your client.
 
 If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
 
@@ -83,27 +83,27 @@ For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.c
 
 ## Create a SQL database
 
-To create a database use the [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) command. You need a server to create a database. The following example creates a SQL database named TestDB12. The database is created as a Standard S1 database.
+To create a database use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) command. You need a server to create a database. The following example creates a SQL database named TestDB12. The database is created as a Standard S1 database.
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
 
 
 ## Change the performance level of a SQL database
 
-You can scale your database up or down with the [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) command. The following example scales up a SQL database named TestDB12 from its current performance level to a Standard S3 level.
+You can scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) command. The following example scales up a SQL database named TestDB12 from its current performance level to a Standard S3 level.
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
 
 ## Delete a SQL database
 
-You can delete a SQL database with the [Remove-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) command. The following example deletes a SQL database named TestDB12.
+You can delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) command. The following example deletes a SQL database named TestDB12.
 
 	Remove-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
 
 ## Delete a server
 
-You can also delete a server with the [Remove-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) command. The following example deletes a server named server12.
+You can also delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) command. The following example deletes a server named server12.
 
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 

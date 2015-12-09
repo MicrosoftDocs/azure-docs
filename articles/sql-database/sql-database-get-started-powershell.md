@@ -48,15 +48,15 @@ After successfully signing in you will see some information on screen that inclu
 
 ### Select your Azure subscription
 
-To select the subscription you need your subscription Id. You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureRMSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
+To select the subscription you need your subscription Id. You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
 
 	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-After successfully running **Select-AzureRMSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureRMSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
+After successfully running **Select-AzureRmSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureRmSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
 
 ## Database setup: Create a resource group, server, and firewall rule
 
-Now you have access to run cmdlets against your selected Azure subscription so the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRMLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
+Now you have access to run cmdlets against your selected Azure subscription so the next step is establishing the resource group that contains the server where the database will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRmLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
 
 Run the following command to create a new resource group:
 
@@ -67,7 +67,7 @@ After successfully creating the new resource group you see information on screen
 
 ### Create a server 
 
-SQL Databases are created inside Azure SQL Database servers. Run **New-AzureRMSqlServer** to create a new server. Replace the ServerName with the name for your server. It must be unique to all Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose but you should use the same location you used for the resource group created in the previous step.
+SQL Databases are created inside Azure SQL Database servers. Run **New-AzureRmSqlServer** to create a new server. Replace the ServerName with the name for your server. It must be unique to all Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose but you should use the same location you used for the resource group created in the previous step.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
