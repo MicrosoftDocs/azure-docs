@@ -57,7 +57,7 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named ADF
 	- Run **Login-AzureRmAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
 	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
 	- Run **Select-AzureSubscription <Name of the subscription>** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
-3. Create an Azure resource group named *ADFTutorialResourceGroup* by running the following command.
+3. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command.
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 

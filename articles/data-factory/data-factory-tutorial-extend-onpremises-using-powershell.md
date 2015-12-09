@@ -25,10 +25,14 @@ In the last step of log processing scenario from the first walkthrough with Part
 In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline using the same set of cmdlets introduced in the first walkthrough.
 
 > [AZURE.IMPORTANT] 
-> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference][cmdlet-reference] for comprehensive documentation on Data Factory cmdlets.
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
 >    
-> If you are using Azure PowerShell 1.0, You will need to use the cmdlets that are documented [here](https://msdn.microsoft.com/library/dn820234.aspx). For example, use New-AzureRMDataFactory instead of using New-AzureDataFactory.  
-
+> If you are using Azure PowerShell of version < 1.0, You will need to use cmdlets that are documented [here][old-cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
+> 1. Start Azure PowerShell and run the following commands. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
+	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+2. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
 ## Pr-requisites
 
 You **must** perform the walkthrough in the [Tutorial: Move and process log files using Data Factory][datafactorytutorial] before performing the walkthrough in this article. 
@@ -121,22 +125,22 @@ To start with, you need to create the SQL Server database, table, user defined t
 ### Create the on-premises logical Table
 
 1.	In **Azure PowerShell**, switch to the **C:\ADFWalkthrough\OnPremises** folder. 
-2.	Use the cmdlet **New-AzureDataFactoryDataset** to create the Tables as follows for **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+2.	Use the cmdlet **New-AzureRmDataFactoryDataset** to create the Tables as follows for **MarketingCampaignEffectivenessOnPremSQLTable.json**.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Create the pipeline to copy the data from Azure Blob to SQL Server
 
-1.	Use the cmdlet **New-AzureDataFactoryPipeline** to create the Pipeline as follows for **EgressDataToOnPremPipeline.json**.
+1.	Use the cmdlet **New-AzureRmDataFactoryPipeline** to create the Pipeline as follows for **EgressDataToOnPremPipeline.json**.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Use the cmdlet **Set-AzureDataFactoryPipelineActivePeriod** to specify the active period for **EgressDataToOnPremPipeline**.
+2. Use the cmdlet **Set-AzureRmDataFactoryPipelineActivePeriod** to specify the active period for **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Press **‘Y’** to continue.
 	
