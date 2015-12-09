@@ -23,9 +23,12 @@
 - [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
 - [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 - [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [Azure CLI](virtual-machines-linux-tutorial.md)
+
 <br>
+
+
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. You can't create this resource with the classic deployment model.
 
