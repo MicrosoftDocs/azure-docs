@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/16/2015"
+  ms.date="12/08/2015"
   ms.author="stevenpo"/>
 
 
@@ -26,12 +26,12 @@ Ongoing access management, usage evaluation, and reporting continue to be a chal
  Azure AD supports extensive access management for configured applications, enabling organizations to easily achieve the right access policies ranging from automatic, attribute-based assignment (ABAC or RBAC scenarios) through delegation and including administrator management. With Azure AD you can easily achieve complex policies, combining multiple management models for a single application and can even re-use management rules across applications with the same audiences.
 
  - [Adding new or existing applications](active-directory-sso-integrate-saas-apps.md)
- 
+
 
  Azure AD's application assignment focuses on two primary assignment modes:
 
-- **Individual assignment** An IT admin with global, user, or AU privileges can select individual user accounts and grant them access to the application.
-- **Group-based assignment (paid Azure AD only)** An IT admin with global, user, or AU privileges can assign a group to the application. A specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In this mode, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". With this assignment option, administrators can benefit from any of Azure AD group management options, including attribute-based dynamic groups, external system groups (e.g. AD on premises or Workday), Administrator or self-service managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity. Please noet that nested group memberships are not supported for group-based assignemnt to applications at this time.
+- **Individual assignment** An IT admin with directory Global Administrator permissions can select individual user accounts and grant them access to the application.
+- **Group-based assignment (paid Azure AD only)** An IT admin with directory Global Administrator permissions can assign a group to the application. A specific users' access is determined by whether they are members of the group at the time they attempt to access the application. In this mode, an administrator can effectively create an assignment rule stating "any current member of the assigned group has access to the application". With this assignment option, administrators can benefit from any of Azure AD group management options, including attribute-based dynamic groups, external system groups (e.g. AD on premises or Workday), Administrator or self-service managed groups. A single group can be easily assigned to multiple apps, ensuring that applications with assignment affinity can share assignment rules, reducing the overall management complexity. Please note that nested group memberships are not supported for group-based assignment to applications at this time.
 
 Using these two assignment modes, administrators can achieve any desirable assignment management approach.
 
@@ -44,11 +44,11 @@ Consider an application like Salesforce. In many organizations, Salesforce is pr
 With Azure AD, applications like Salesforce can be pre-configured for single sign-on (SSO) and automated provisioning. Once the application is configured, an Administrator can take the one-time action to create and assign the appropriate groups. In this example an administrator could execute the following assignments:
 
 - Attribute-based groups can be defined to automatically represent all members of the marketing and sales teams using attributes like department or role:
-    - All members of marketing groups would be assigned to the "marketing" role in salesforce
-    - All members of sales team groups would be assigned to the "sales" role in salesforce. A further refinement could use multiple groups that represent regional sales teams assigned to different salesforce roles.
-- To enable the exception mechanism, a self-service group could be created for each role. For example, the "salesforce marketing exception" group can be created as a self-service group. The group can be assigned to the salesforce marketing role and the marketing leadership team can be made owners. Members of the marketing leadership team could add or remove users, set a join policy, or even approve or deny individual users' requests to join. This is supported through an information worker appropriate experience that does not require specialized training for owners or members.
+    - All members of marketing groups would be assigned to the "marketing" role in Salesforce
+    - All members of sales team groups would be assigned to the "sales" role in Salesforce. A further refinement could use multiple groups that represent regional sales teams assigned to different Salesforce roles.
+- To enable the exception mechanism, a self-service group could be created for each role. For example, the "Salesforce marketing exception" group can be created as a self-service group. The group can be assigned to the Salesforce marketing role and the marketing leadership team can be made owners. Members of the marketing leadership team could add or remove users, set a join policy, or even approve or deny individual users' requests to join. This is supported through an information worker appropriate experience that does not require specialized training for owners or members.
 
-In this case, all assigned users would be automatically provisioned to salesforce, as they are added to different groups their role assignment would be updated in salesforce. Users would be able to discover and access Salesforce through the Microsoft application access panel, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
+In this case, all assigned users would be automatically provisioned to Salesforce, as they are added to different groups their role assignment would be updated in Salesforce. Users would be able to discover and access Salesforce through the Microsoft application access panel, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
 
  Administrators can employ [Azure AD conditional access](active-directory-conditional-access.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
 

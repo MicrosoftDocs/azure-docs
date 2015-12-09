@@ -3,7 +3,7 @@ By default, APIs in a Mobile App backend can be invoked anonymously. Next, you n
 
 + **Node.js backend (via portal)** :  
 	
-	In your Mobile App's **Settings**, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and **Save**. 
+	In your Mobile App's **Settings**, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, then click **Save**. 
 
 + **.NET backend (C#)**:  
 
@@ -20,5 +20,5 @@ By default, APIs in a Mobile App backend can be invoked anonymously. Next, you n
 
         table.access = 'authenticated';
 
-	For more details, refer to [Require authentication for access to tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) in [How to use the Azure Mobile Apps Node.js SDK](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
+	For more details, refer to [How to: Require authentication for access to tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). To learn how to download the quickstart code project from your site, see [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
 

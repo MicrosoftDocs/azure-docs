@@ -299,7 +299,17 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	When you select an API app to generate client code for it, Visual Studio retrieves the metadata from this URL. 
 
-## <a id="codegen"></a> Consume from .NET by using generated client code 
+### API definition URL in Azure Resource Manager tooling
+
+You can also configure the API definition URL for an API app by using Azure Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). 
+
+Set the `apiDefinition` property on the Microsoft.Web/sites/config resource type for your <site name>/web resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the cors property:
+
+		"apiDefinition": {
+		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		}
+
+## <a id="codegen"></a> Consume from a .NET client by using generated client code 
 
 One of the advantages of integrating Swagger into Azure API apps is automatic code generation. Generated client classes make it easier to write code that calls an API app.
 
@@ -436,5 +446,4 @@ Before deploying to Azure, change the API endpoint in the MVC project so that wh
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, and consume them from .NET clients. The next tutorial in the getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
-
+In this tutorial, you've seen how to create API apps, deploy code to them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
