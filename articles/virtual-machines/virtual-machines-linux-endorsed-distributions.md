@@ -63,7 +63,7 @@ From the CoreOS Website:
 ### Credativ
 [http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
-Credativ is an independent consulting and services company, specializing in the development and implementation of professional solutions through the use of free software. As leading Open Source specialists, Credative has international recognition with many IT departments using our support. In conjunction with Microsoft, Credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy), which are specially designed to run on Azure and can be easily managed via the platform. Credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
+Credativ is an independent consulting and services company, specializing in the development and implementation of professional solutions through the use of free software. As leading Open Source specialists, Credative has international recognition with many IT departments using their support. In conjunction with Microsoft, Credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy), which are specially designed to run on Azure and can be easily managed via the platform. Credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
 
 ### Oracle
 [http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
