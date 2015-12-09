@@ -30,7 +30,7 @@ For an introduction to authentication features used in this tutorial, see the pr
 
 ## How to follow this tutorial
 
-This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md). If you are following the Node or Java getting started series, the instructions for configuring authentication in Azure apply to all API languages and frameworks.
+This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md).
 
 ## The CompanyUsers.API sample project
 
@@ -207,11 +207,11 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 ## Update settings in the API app that runs the ContactsList.API project code
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the API app blade for the API app that you deployed the ContactsList.API project to.  This is the calling API app, not the one being called, which you just created in this tutorial).
+1. In the [Azure portal](https://portal.azure.com/), navigate to the API app blade for the API app that you deployed the ContactsList.API project to.  (This is the calling API app, not the one being called, which you just created in this tutorial).
 
 2. Click **Settings > Application Settings**.
 
-	You'll add some settings here, but you have to get them from another page on the classic Azure portal.
+	You'll add some settings here, but you have to get them from an AAD page on the classic Azure portal.
 
 3. In the [classic Azure portal](https://manage.windowsazure.com/), go to the **Configure** tab for the AAD application that you created for the ContactsList.API API app.
 
@@ -221,12 +221,15 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
 
-
 7. Copy the key value.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-3. In the Azure portal **Application settings** blade, **App settings** section, add a key named ida:ClientSecret, and in the value field paste in the key you just created.
+3. In the Azure portal **Application settings** blade, **App settings** section, add a key named "ida:ClientSecret", and in the value field paste in the key you just created.
+
+3. Add a key named "ida:ClientId", and in the value field paste in the client ID from the same AAD **Configure** page.
+
+4. Add a key named "ida:Authority", and in the value field enter "https://login.windows.net/{your tenant}"; for example,"https://login.windows.net/contoso.onmicrosoft.com".
 
 3. In the classic Azure portal, go to the **Configure** tab for the AAD application that you created for the CompanyContacts.API API app.
 
@@ -234,7 +237,7 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 3. In the Azure portal **Application settings** blade, **App settings** section, add a key named ida:Resource, and in the value field paste in the Client ID you just copied.
 
-4. Add a key named CompanyContactsAPIUrl, and in the value field enter https://{your api app name}.azurewebsites.net, for example:  https://companycontactsapi.azurewebsites.net.
+4. Add a key named CompanyContactsAPIUrl, and in the value field enter "https://{your api app name}.azurewebsites.net", for example:  "https://companycontactsapi.azurewebsites.net."
 
 6. Click Save.
 
@@ -256,13 +259,15 @@ For this tutorial you used the Express option in the Azure portal to set up AAD 
 
 ### Verify browser access works
 
-1. In a browser, go to the URL of the API app that you created for the CompanyContacts.API project.
+1. In a new browser window, go to the HTTPS URL of the API app that you created for the CompanyContacts.API project.
 
 	The browser goes to a login screen.
 	
 2. Log in with credentials for a user in your AAD tenant.
 
-3. The browser displays the API app's "successfully created" screen, and you can now go to the Swagger UI URL and call the API.
+3. The browser displays the API app's "successfully created" screen. 
+
+	If the Swagger UI were enabled you would be able to go to the `/swagger` URL and call the API. You can call the API from the browser by adding `/api/contacts/get` to the URL.
 
 ### Disable browser access
 
@@ -272,7 +277,7 @@ For this tutorial you used the Express option in the Azure portal to set up AAD 
 
 ### Verify browser access no longer works
 
-1. In an Incognito or InPrivate browser window, go to the URL of the API app again.
+1. In a new browser window, go to the URL of the API app again.
 
 2. Log in when prompted to do so.
 
