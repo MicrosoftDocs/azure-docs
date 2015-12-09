@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/08/2015"
+   ms.date="12/09/2015"
    ms.author="andkjell"/>
 
 # Generic LDAP Connector technical reference
@@ -39,7 +39,7 @@ From a high level perspective, the following features are supported by the curre
 
 | Feature | Support |
 | --- | --- |
-| Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>IBM Tivoli DS</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li>Notable directories not supported: <li>Oracle Internet Directory (OID)</li> |
+| Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>IBM Tivoli DS</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li>Notable directories not supported: <li>Microsoft Active Directory Domain Services (AD DS)</li><li>Oracle Internet Directory (OID)</li> |
 | Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
 | Operations |The following operations are supported on all LDAP directories: <li>Full Import</li><li>Export</li>The following operations are only supported on specified directories:<li>Delta import</li><li>Set Password, Change Password</li> |
 | Schema | <li>Schema is detected from the LDAP schema (RFC3673 and RFC4512/4.2)</li><li>Supports structural classes, aux classes, and extensibleObject object class (RFC4512/4.3)</li>
@@ -124,8 +124,10 @@ The connector tries to detect if the options are present on the server. If the o
 ### Delta import
 
 Delta import is only available when a support directory has been detected. The following methods are currently used:
-- LDAP Changelog (http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-- For Novell eDirectory the Connector will use last date/time to get created and updated objects. Novell eDirectory does not provide an equivalent means to retrieve deleted objects.
+- LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+- LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+- TimeStamp. For Novell eDirectory the Connector will use last date/time to get created and updated objects. Novell eDirectory does not provide an equivalent means to retrieve deleted objects.
+- USNChanged. See: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### Not supported
 
@@ -137,13 +139,13 @@ The following LDAP features are not supported:
 
 To Create a Generic LDAP connector, in **Synchronization Service** select **Management Agent** and **Create**. Select the **Generic LDAP (Microsoft)** Connector.
 
-![]()
+![CreateConnector](./media/active-directory-aadconnectsync-connector-genericldap/createconnector.png)
 
 ### Connectivity
 
 On the Connectivity page, you must specify the Host, Port and Binding information. Depending on which Binding is selected, additional information might be supplied in the following sections.
 
-![]()
+![Connectivity](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
 
 - The Connection Timeout setting is only used for the first connection to the server when detecting the schema.
 - If Binding is Anonymous, then neither username / password nor certificate are used.
@@ -156,7 +158,7 @@ The attribute aliases text box is used for attributes defined in the schema with
 
 The following is an example for how this could look like:
 
-![]()
+![Connectivity](./media/active-directory-aadconnectsync-connector-genericldap/connectivityattributes.png)
 
 Select the **include operational attributes in schema** checkbox to also include attributes created by the server. These include attributes such as when the object was created and last update time.
 
@@ -166,7 +168,7 @@ Select **Include extensible attributes in schema** if extensible objects (RFC451
 
 On the Global Parameters page, you configure the DN to the delta change log and additional LDAP features. The page will be pre-populated with the information provided by the LDAP server.
 
-![]()
+![Connectivity](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
 
 The top section shows information provided by the server itself, such as the name of the server. The Connector will also verify that the mandatory controls are present in the Root DSE. If these are not listed, a warning will be presented. Some LDAP directories will not list all features in the Root DSE and it is possible that the Connector will work without issues even if this warning is present.
 
@@ -196,11 +198,15 @@ In the additional partitions list it is possible to add additional namespaces no
 
 This page is used to map the DN component, e.g. OU, to the object type which should be provisioned, e.g. organizationalUnit.
 
+![Provisioning Hierachy](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)
+
 By configuring provisioning hierarchy you can configure the Connector to automatically create a structure when needed. For example if there is a namespace dc=contoso,dc=com and a new object cn=Joe, ou=Seattle, c=US, dc=contoso, dc=com is provisioned, then the Connector can create a new object of type country for US and an organizationalUnit for Seattle if those are not already present in the directory.
 
 ### Configure Partitions and Hierarchies
 
 On the partitions and hierarchies page, select all namespaces with objects you plan to import and export.
+
+![Partitions](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
 
 For each namespace it is also possible to configure connectivity settings which would override the values specified on the Connectivity screen. If these values are left to their default blank value, the information from the Connectivity screen will be used.
 
@@ -209,6 +215,8 @@ It is also possible to select which containers and OUs the Connector should impo
 ### Configure Anchors
 
 This page does always have a preconfigured value and cannot be changed. If the server vendor and version has been identified then this might be populated with an immutable attribute, e.g. the GUID for an object. If it has not been detected or is known to not have an immutable attribute, then the connector will use dn (distinguished name) as the anchor.
+
+![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
 
 The following is a list of LDAP servers and the anchor being used:
 
