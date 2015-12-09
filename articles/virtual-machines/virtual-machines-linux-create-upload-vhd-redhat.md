@@ -846,4 +846,4 @@ This issue is intermittent, however, it occurs more freqently during frequent di
 
 
 ## Next Steps
-You're now ready to use your Red Hat Enterprise Linux .vhd  and create new Azure Virtual Machines in Azure. You could get more information from Red Hat on this topic, see [here](https://access.redhat.com/certified-hypervisors).
+You're now ready to use your Red Hat Enterprise Linux .vhd  to create new Azure Virtual Machines in Azure. For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, visit [the Red Hat website](https://access.redhat.com/certified-hypervisors).
