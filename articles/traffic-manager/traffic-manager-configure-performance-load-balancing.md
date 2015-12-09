@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Configure Performance traffic routing method | Microsoft Azure"
    description="This article will help you configure performance traffic routing method in Traffic Manager"
    services="traffic-manager"
@@ -12,11 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-<<<<<<< HEAD
-   ms.date="12/01/2015"
-=======
-   ms.date="12/07/2015"
->>>>>>> a3f5d567d733b449f5139eb82d8e8a8ab9d19f95
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 # Configure Performance traffic routing method
@@ -43,7 +39,7 @@ In order to route traffic for cloud services and websites (endpoints) that are l
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
 
-[What is Traffic Manager?](../traffic-manmager-overview.md)
+[What is Traffic Manager?](traffic-manmager-overview.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
