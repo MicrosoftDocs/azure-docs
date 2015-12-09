@@ -1,3 +1,5 @@
-# Deploying Applications in Azure App Service
-test
+# Azure App Service Deployment Overview
+
+Azure App Service provides a rich and integrated feature set to support creating powerful and flexible deployment workflows. App deployment can leverage options including continuous integration or local source control publishing, WebDeploy, and FTP. The recommended method for production app deployment is deployment slot swap. Deployment slots represent staging and integration environments associated with production apps. Deployment slots can be configured and targeted with web traffic for validation, and traffic can be swapped on demand for deployment to production with no down time and automated warm-up. The steps of a deployment workflow can be easily automated via release management products such as Visual Studio Release Management. This is useful for coordination with other solution resources (e.g. data store), recurrence, and replication across multiple units of deployment. 
+
 [AZURE.INCLUDE [app-service-blueprint-deployment](../includes/app-service-blueprint-deployment.md)]
