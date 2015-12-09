@@ -110,7 +110,7 @@ can monitor the status of the migration in the activity monitor and your site wi
 
   ![Migration Activity Monitor][1]
 
-Each migration can take anywhere from 30 seconds to 15 minutes or more, depending on the number of Mobile Services being migrated.  Your site will remain
+Each migration can take anywhere from 3 to 15 minutes per mobile service being migrated.  Your site will remain
 available during the migration but will be restarted at the end of the migration process.
 
 ## Finalizing the Migration
@@ -142,7 +142,7 @@ As a starting point, we recommend the following:
 Note that there is considerable flexibility in choosing the right pricing tier for your application.  Refer to [App Service Pricing] for
 full details on the pricing of your new App Service.
 
-### TODO: Review the Migrated Scheduler Jobs
+### Review the Migrated Scheduler Jobs
 
 Scheduler Jobs will not be visible until approximately 30 minutes after migration.  Any scheduled jobs will continue to run in the background.
 To view your scheduled jobs:
