@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Adding resources to an Azure resource group"
-   description="Learn how to add resources to an Azure Resource Group by using Visual Studio."
+   pageTitle="Editing a Resource Manager template with Visual Studio | Microsoft Azure"
+   description="Learn how to add resources to an Azure Resource Manager template by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Adding resources to an Azure resource group
+# Editing Resource Manager templates with Visual Studio
 
-If you need to add more resources to a resource group, you can do this in the JSON Outline window in Visual Studio.
+Visual Studio enables you to edit the Resource Manager template for your resource group. You can make changes to the template either through the Visual Studio JSON Outline window or directly to the template syntax.
 
-## Adding resources to a resource group
+## Adding resources to a resource group through JSON Outline window
 
 ### To add resources to a resource group
 
@@ -51,11 +51,19 @@ If you need to add more resources to a resource group, you can do this in the JS
 
 1. If any parameters need to be specified by you, the **Edit Parameters** dialog box appears. Enter any required values and then choose the **Save** button. The new resource is deployed to your Azure resource group.
 
+## Editing the template syntax
+
+With Visual Studio, you can also edit the template directly. When you start editing values in the template, you will get help from the editor for the possible values you can provide. 
+
+![Edit template](./media/vs-azure-tools-resource-group-adding-resources/arm-edit-template.png)
+
+For more information about the structure of the template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
+
 ## See Also
 
-[Creating and Deploying Azure Resource Group Deployment Projects](http://go.microsoft.com/fwlink/p/?LinkID=623073)
+[Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
 
-[Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/dn654592.aspx)
+[Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
 [Using Windows PowerShell with Azure Resource Manager](../powershell-azure-resource-manager/)
 
