@@ -332,7 +332,7 @@ GO
 ------  Create credential (your Azure Storage container must already exist).
 
 
-IF EXISTS
+IF NOT EXISTS
 	(SELECT * FROM sys.symmetric_keys
 		WHERE symmetric_key_id = 101)
 BEGIN
