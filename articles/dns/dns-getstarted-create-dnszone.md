@@ -42,7 +42,7 @@ Log in to your Azure account (you will be prompted to Authenticate with your cre
 Choose which of your Azure subscriptions to use
 
 	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-	
+
 You can list the available subscriptions using 'Get-AzureRmSubscription'.
 
 ### Step 3
@@ -56,6 +56,8 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
 
 	PS c:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+
+
 
 ## Etags and Tags
 
@@ -126,22 +128,22 @@ Having created your first DNS zone, you can test it using DNS tools such as nslo
 
 If you haven’t yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by Get-AzureRmDnsRecordSet above—be sure the substitute the correct values for your zone into the command below.<BR>
 
-	C:\> nslookup
-	> set type=SOA
-	> server ns1-01.azure-dns.com
-	> contoso.com
+		C:\> nslookup
+		> set type=SOA
+		> server ns1-01.azure-dns.com
+		> contoso.com
 
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
+		Server: ns1-01.azure-dns.com
+		Address:  208.76.47.1
 
-	contoso.com
-       		primary name server = ns1-01.azure-dns.com
-       		responsible mail addr = msnhst.microsoft.com
-       		serial  = 1
-       		refresh = 900 (15 mins)
-        	retry   = 300 (5 mins)
-        	expire  = 604800 (7 days)
-		default TTL = 300 (5 mins)
+		contoso.com
+        		primary name server = ns1-01.azure-dns.com
+        		responsible mail addr = msnhst.microsoft.com
+        		serial  = 1
+        		refresh = 900 (15 mins)
+        		retry   = 300 (5 mins)
+        		expire  = 604800 (7 days)
+        		default TTL = 300 (5 mins)
 
 ## Next Steps
 
