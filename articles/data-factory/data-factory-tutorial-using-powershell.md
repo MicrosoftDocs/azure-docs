@@ -19,17 +19,6 @@
 # Tutorial: Move and process log files using Data Factory [PowerShell]
 This article provides an end-to-end walkthrough of a canonical scenario of log processing using Azure Data Factory to transform data from log files into insights.
 
-> [AZURE.IMPORTANT] 
->   
-> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
->    
-> If you are using Azure PowerShell of version < 1.0, You will need to use cmdlets that are documented [here][old-cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
-> 1. Start Azure PowerShell and run the following commands. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
-	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
-	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
-2. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
-
 ## Scenario
 Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). Each of these games produces tons of logs. Contoso’s goal is to collect and analyze the logs produced by these games to get usage information, identify up-sell and cross-sell opportunities, develop new compelling features etc. to improve business and provide better experience to customers.
  
@@ -38,7 +27,20 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 ## Getting ready for the tutorial
 1.	Read [Introduction to Azure Data Factory][adfintroduction] to get an overview of Azure Data Factory and understanding of the top level concepts.
 2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options] [azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. 
+3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer.
+
+	This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
+    
+	If you are using Azure PowerShell of **version < 1.0**, You will need to use cmdlets that are documented [here][old-cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
+
+	1. Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.
+	2. Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	3. Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+	
+	Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
+
+2. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
+ 
 2.	**(recommended)** Review and practice the tutorial in the [Get started with Azure Data Factory][adfgetstarted] article for a simple tutorial to get familiar with the portal and cmdlets.
 3.	**(recommended)** Review and practice the walkthrough in the [Use Pig and Hive with Azure Data Factory][usepigandhive] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
 4.	Download [ADFWalkthrough][adfwalkthrough-download] files to **C:\ADFWalkthrough** folder **preserving the folder structure**:

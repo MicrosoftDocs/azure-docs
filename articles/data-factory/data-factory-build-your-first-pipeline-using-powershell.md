@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/02/2015"
+	ms.date="12/08/2015"
 	ms.author="spelluru"/>
 
 # Build your first Azure Data Factory pipeline using Azure PowerShell
@@ -30,24 +30,24 @@ In this article, you will learn how to use Azure PowerShell to create your first
 2.	Creating the linked services (data stores, computes) and datasets.
 3.	Creating the pipeline.
 
-This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
-
 > [AZURE.IMPORTANT] 
-> Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.
->   
+> This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
+> 
 > This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
->    
-> If you are using Azure PowerShell of version < 1.0, You will need to use cmdlets that are documented [here][cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
-> 1. Start Azure PowerShell and run the following commands. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
-	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
-	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
-2. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
 
 ## Prerequisites
 Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
 
-- **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer. 
+- **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer. 
+
+If you are using Azure PowerShell of **version < 1.0**, You will need to use cmdlets that are documented [here][cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
+ 
+1. Start Azure PowerShell and run the following commands. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
+	1. Run **Add-AzureAccount** and enter the  user name and password that you use to sign in to the Azure Portal.
+	2. Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	3. Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+4. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
+
 
 ## Step 1: Creating the data factory
 
