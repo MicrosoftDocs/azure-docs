@@ -33,7 +33,7 @@ There is no additional cost when sending a message to, or receiving a message fr
 
 To use partitioned queues and topics with Microsoft Azure Service Bus, use the Azure SDK version 2.2 or later, or specify `api-version=2013-10` in your HTTP requests.
 
-You can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][].
+You can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure classic portal][].
 
 There are several ways to create a partitioned queue or topic. When you create the queue or topic from your application, you can enable partitioning for the queue or topic by respectively setting the [QueueDescription.EnablePartitioning][] or [TopicDescription.EnablePartitioning][] property to **true**. These properties must be set at the time the queue or topic is created. It is not possible to change these properties on an existing queue or topic. For example:
 
@@ -45,7 +45,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatively, you can create a partitioned queue or topic in Visual Studio or in the [Azure portal][]. When you create a new queue or topic in the portal, check the **Enable Partitioning** option in the **Configure** tab of the queue or topic window. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
+Alternatively, you can create a partitioned queue or topic in Visual Studio or in the [Azure classic portal][]. When you create a new queue or topic in the portal, check the **Enable Partitioning** option in the **Configure** tab of the queue or topic window. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
 
 ## Use of partition keys
 
@@ -128,7 +128,7 @@ In its current implementation, Service Bus imposes the following limitations on 
 See the discussion of AMQP 1.0 support for Service Bus partitioned queues and topics (coming soon!) to learn more about paritioning messaging entities. 
 
   [Service Bus Architecture]: service-bus-architecture.md
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx

@@ -45,10 +45,10 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 1.	In your favorite text editor, create the file C:\VMSSTemplate.json and add the initial JSON structure to support the template.
 
 	```
-	{
+{
 		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
+   "contentVersion": "1.0.0.0",
+ "parameters": {
 		}
 		"variables": {
 		}
@@ -71,17 +71,17 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	```
 	"vmName": {
 		"type": "string"
-	},
+      },
 	"vmSSName": {
 		"type": "string"
-	},
-	"instanceCount": {
+    },
+    "instanceCount": {
 		"type": "string"
-	},
-	"adminUsername": {
+      },
+    "adminUsername": {
 		"type": "string"
-	},
-	"adminPassword": {
+    },
+    "adminPassword": {
 		"type": "securestring"
 	},
 	"storageAccountName": {
@@ -89,7 +89,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	"vmssStoragePrefix": {
 		"type": "string"
-	}
+      }
 	```
 
 
@@ -112,9 +112,9 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	"imagePublisher": "MicrosoftWindowsServer",
 	"imageOffer": "WindowsServer",
 	"imageVersion": "2012-R2-Datacenter",
-	"addressPrefix": "10.0.0.0/16",
+    "addressPrefix": "10.0.0.0/16",
 	"subnetName": "Subnet",
-	"subnetPrefix": "10.0.0.0/24",
+    "subnetPrefix": "10.0.0.0/24",
 	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
 	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
 	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
@@ -155,45 +155,45 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended 5 storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the suffix that you provide in the parameters for the template.
 
 	```
-	{
-		"type": "Microsoft.Storage/storageAccounts",
+    {
+      "type": "Microsoft.Storage/storageAccounts",
 		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
 		"apiVersion": "2015-05-01-preview",
-		"copy": {
-			"name": "storageLoop",
-			"count": 5
-		},
+      "copy": {
+        "name": "storageLoop",
+        "count": 5
+      },
 		"location": "[resourceGroup().location]",
-		"properties": {
-			"accountType": "[variables('storageAccountType')]"
-		}
-	},
+      "properties": {
+        "accountType": "[variables('storageAccountType')]"
+      }
+    },
 	```
 
 5.	Add the virtual network resource. For more information, see [Network Resource Provider](../virtual-network/resource-groups-networking.md).
 
 	```
-	{
+    {
 		"apiVersion": "2015-06-15",
-		"type": "Microsoft.Network/virtualNetworks",
-		"name": "[variables('virtualNetworkName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[variables('virtualNetworkName')]",
 		"location": "[resourceGroup().location]",
-		"properties": {
-			"addressSpace": {
-				"addressPrefixes": [
-					"[variables('addressPrefix')]"
-				]
-			},
-			"subnets": [
-				{
-					"name": "[variables('subnetName')]",
-					"properties": {
-						"addressPrefix": "[variables('subnetPrefix')]"
-					}
-				}
-			]
-		}
-	},
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
 	```
 
 6.	Add the public IP address resources that are used by the load balancer and network interface.
@@ -228,7 +228,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 7.	Add the load balancer resource that is used by the scale set. For more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/oad-balancer-arm.md).
 
 	```
-	{
+    {
 		"apiVersion": "2015-06-15",
 		"name": "[variables('loadBalancerName')]",
 		"type": "Microsoft.Network/loadBalancers",
@@ -311,7 +311,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 		"type": "Microsoft.Compute/virtualMachines",
 		"name": "[parameters('vmName')]",
 		"location": "[resourceGroup().location]",
-		"dependsOn": [
+      "dependsOn": [
 			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
 		],
 		"properties": {
@@ -372,53 +372,53 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
 			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
 			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
-		],
-		"sku": {
-			"name": "[variables('vmSize')]",
-			"tier": "Standard",
-			"capacity": "[parameters('instanceCount')]"
-		},
-		"properties": {
-			"upgradePolicy": {
-				"mode": "Manual"
-			},
-			"virtualMachineProfile": {
-				"storageProfile": {
-					"osDisk": {
-						"vhdContainers": [
+      ],
+      "sku": {
+        "name": "[variables('vmSize')]",
+        "tier": "Standard",
+        "capacity": "[parameters('instanceCount')]"
+      },
+      "properties": {
+         "upgradePolicy": {
+         "mode": "Manual"
+        },
+        "virtualMachineProfile": {
+          "storageProfile": {
+            "osDisk": {
+              "vhdContainers": [
 							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
-						],
+              ],
 						"name": "vmssosdisk",
-						"caching": "ReadOnly",
-						"createOption": "FromImage"
-					},
+              "caching": "ReadOnly",
+              "createOption": "FromImage"
+            },
 					"imageReference": {
 						"publisher": "[variables('imagePublisher')]",
 						"offer": "[variables('imageOffer')]",
 						"sku": "[variables('imageVersion')]",
 						"version": "latest"
 					}
-				},
-				"osProfile": {
-					"computerNamePrefix": "[parameters('vmSSName')]",
-					"adminUsername": "[parameters('adminUsername')]",
-					"adminPassword": "[parameters('adminPassword')]"
-				},
-				"networkProfile": {
-					"networkInterfaceConfigurations": [
-						{
+          },
+          "osProfile": {
+            "computerNamePrefix": "[parameters('vmSSName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
 							"name": "[variables('nicName2')]",
-							"properties": {
-								"primary": "true",
-								"ipConfigurations": [
-									{
+                "properties": {
+                  "primary": "true",
+                  "ipConfigurations": [
+                    {
 										"name": "ip1",
-										"properties": {
-											"subnet": {
+                      "properties": {
+                        "subnet": {
 												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
 											},
 											"loadBalancerBackendAddressPools": [
@@ -432,11 +432,11 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 												}
 											]
 										}
-									}
+                        }
 								]
-							}
-						}
-					]
+                      }
+                    }
+                  ]
 				},
 				"extensionProfile": {
 					"extensions": [
@@ -456,12 +456,12 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
 									"storageAccountEndPoint": "https://core.windows.net"
 								}
-							}
-						}
-					]
+                }
+              }
+            ]
 				}
 			}
-		}
+          }
 	},
 	```
 

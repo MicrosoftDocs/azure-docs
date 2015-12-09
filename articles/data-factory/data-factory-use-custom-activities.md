@@ -233,7 +233,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 
 #### To use an on-demand HDInsight cluster
 
-1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
+1. In the **Azure Classic Portal**, click **Author and Deploy** in the Data Factory home page.
 2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
 2. Do the following in the JSON script:
 	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
@@ -248,7 +248,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 			    "typeProperties": {
 			      "clusterSize": "1",
 			      "timeToLive": "00:05:00",
-			      "version": "3.1",
+			      "version": "3.2",
 			      "linkedServiceName": "StorageLinkedService"
 			    }
 			  }
@@ -374,7 +374,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 
 	(blob location), (name of the blob), (number of lines in the blob), (node on which the activity ran), (date time stamp)
 
-10.	Use the [Azure Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
+10.	Use the [Azure Classic Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
 
 	![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
 
@@ -398,7 +398,7 @@ You can run your custom .NET activities using Azure Batch as a compute resource.
 
 Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
 
-1. Create an Azure Batch account using the Azure Management Portal. See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
+1. Create an Azure Batch account using the [Azure Classic Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
 
 	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
 2. Create an Azure Batch pool. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.

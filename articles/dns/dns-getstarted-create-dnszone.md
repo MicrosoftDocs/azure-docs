@@ -34,37 +34,28 @@ Azure DNS uses Azure Resource Manager (ARM). Follow this instructions for Azure 
 
 
 ### Step 1
+Log in to your Azure account (you will be prompted to Authenticate with your credentials)
 
-		PS C:\> Login-AzureRmAccount
-
-
+	PS C:\> Login-AzureRmAccount
 
 ### Step 2
+Choose which of your Azure subscriptions to use
 
-Check the subscriptions for the account 
+	PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-		PS C:\> get-AzureRmSubscription 
+You can list the available subscriptions using 'Get-AzureRmSubscription'.
 
-You will be prompted to Authenticate with your credentials.<BR>
+### Step 3
+Create a new resource group (skip this step if using an existing resource group)
 
-### Step 3 Choose which of your Azure subscriptions to use. <BR>
+	PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
 
 ### Step 4
-Create a new resource group (skip this step if using an existing resource group)<BR>
-
-		PS C:\> New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-
-
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.<BR>
-
-### Step 5
-
 The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
 
-	PS c:\> Register-AzureRmProvider -ProviderNamespace Microsoft.Network
+	PS c:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -95,7 +86,7 @@ Azure DNS PowerShell supports Tags on both zones and record sets specified using
 
 A DNS zone is created using the New-AzureRmDnsZone cmdlet. In the example below we will create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':<BR>
 
-		PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’.  For example, as ‘contoso.com’ rather than ‘contoso.com.’.<BR>
 
@@ -109,7 +100,7 @@ Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creat
 
 To view these records, use Get-AzureRmDnsRecordSet:
 
-		PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -154,9 +145,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
         		expire  = 604800 (7 days)
         		default TTL = 300 (5 mins)
 
-
 ## Next Steps
-
 
 [Get started creating record sets and records](dns-getstarted-create-recordset.md)<BR>
 [How to manage DNS zones](dns-operations-dnszones.md)<BR>
