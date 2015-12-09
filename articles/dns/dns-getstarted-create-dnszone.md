@@ -36,7 +36,7 @@ Azure DNS uses Azure Resource Manager (ARM). Follow this instructions for Azure 
 ### Step 1
 Log in to your Azure account (you will be prompted to Authenticate with your credentials)
 
-		PS C:\> Login-AzureRmAccount
+	PS C:\> Login-AzureRmAccount
 
 ### Step 2
 Choose which of your Azure subscriptions to use
@@ -86,7 +86,7 @@ Azure DNS PowerShell supports Tags on both zones and record sets specified using
 
 A DNS zone is created using the New-AzureRmDnsZone cmdlet. In the example below we will create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':<BR>
 
-		PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’.  For example, as ‘contoso.com’ rather than ‘contoso.com.’.<BR>
 
@@ -100,7 +100,7 @@ Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creat
 
 To view these records, use Get-AzureRmDnsRecordSet:
 
-		PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
