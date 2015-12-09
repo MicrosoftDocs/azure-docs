@@ -22,7 +22,7 @@
 
 ## Overview
 
-This tutorial shows how to use the Authentication and Authorization features of Azure App Service to protect an API app, and how to consume the API app on behalf of end users. The authentication provider shown in the tutorial is Azure Active Directory, and the sample client is an AngularJS single page application running in a browser.
+This tutorial shows how to use the authentication and authorization features of Azure App Service to protect an API app, and how to consume the API app on behalf of end users. The authentication provider shown in the tutorial is Azure Active Directory, the API is ASP.NET Web API, and the client is an AngularJS single page application running in a browser.
 
 ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
  
@@ -36,7 +36,7 @@ This tutorial builds on a sample application that you download and create an API
 
 ## The ContactsList.Angular.AAD sample project
 
-In the [ContactsList sample application](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), the ContactsList.Angular.AAD project is an AngularJS client that includes code for working with Azure Active Directory. The code is based on an AAD sample that can be found in the [Azure-Samples/active-directory-angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) repository.
+In the [ContactsList sample application](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), the ContactsList.Angular.AAD project is an AngularJS client that includes code for working with Azure Active Directory. The code is based on an AAD sample that can be found in the [Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi) repository.
 
 The code in the ContactsList.Angular.AAD project is structured differently than the simpler ContactsLists.Angular project. The code that calls the API is in the *app/scripts/contactsSvc.js* file in the ContactsList.Angular.AAD project. 
 
@@ -70,7 +70,7 @@ The code in the ContactsList.Angular.AAD project is structured differently than 
 		    };
 		}]);
 
-Here, the `Get` method is labeled `getItems`, and in the controller (*app/scripts/contactsCtrl.js*) `getItems` is wired up to `$scope.populate`.
+Here, the `Get` method is labeled `getItems`.  In the controller (*app/scripts/contactsCtrl.js*), `getItems` is wired up to `$scope.populate`.
 
 		$scope.populate = function () {
 		    contactsSvc.getItems().then(function (results) {
@@ -86,7 +86,14 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 		<div ng-init="populate()">
 
-The additional code for logging in and including an authorization token with API requests is provided by the Azure Active Directory Authentication Library for JavaScript, in the *adal.js* and *adal-angular.js* files. In *app.js*, the code passes the `$http` provider to the adalProvider.init function. That function adds interceptors to the `$http` provider that add the token to requests. 
+The additional code for logging in and including an authorization token with API requests is provided by the [Azure Active Directory Authentication Library for JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), in the *adal.js* and *adal-angular.js* files. 
+
+In the *app.js* file, the code passes configuration information and the `$http` provider to the `adalProvider.init` function. Configuration information includes the AAD application client ID that pertains to each API endpoint and the client ID that pertains to this AngularJS app. The `init` function adds interceptors to the `$http` provider, that these add the authorization token to requests.
+
+		var endpoints = { 
+		    //"https://{your api app name}.azurewebsites.net/": "{your client id}"
+		    "https://localhost:44300/": "{your client id}"
+		};
 
 		adalProvider.init(
 		    {
@@ -100,18 +107,9 @@ The additional code for logging in and including an authorization token with API
 		    $httpProvider
 		    );
 
-Notice that this code passes in the AAD client ID. If you were running the Angular frontend and the API from the same base URL, that's the only place you would need to specify the client ID because the ADAL code would assume that API requests are for the same client ID.
-
-However, for this tutorial the frontend and API will have different URLs, so the code in *app.js* also has to indicate the client ID for the target API. It does this by passing in to the `adalProvider.init` function an array of endpoints that specifies the AAD client ID for each endpoint. For this tutorial there is only one endpoint.
-
-		var endpoints = { 
-		    //"https://{your api app name}.azurewebsites.net/": "{yourclientid}"
-		    "https://localhost:44300/": "{your client id}"
-		};
-
 ## Set up authentication and authorization in Azure
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you want to protect for access by authenticated users. (For this tutorial, choose the API app to which you deployed the ContactsList.API project.)
+1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you want to protect so that only authenticated users can call it. (For this tutorial, choose the API app to which you deployed the ContactsList.API project.)
 
 2. Click **Settings**
 
@@ -145,13 +143,13 @@ However, for this tutorial the frontend and API will have different URLs, so the
 
 11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
 
-	You have to go to the classic portal because certain Azure Active Directory settings that you need to complete the configuration process are not yet available in the current Azure portal.
+	You have to go to the classic portal because certain Azure Active Directory settings that you need access to are not yet available in the current Azure portal.
 
 12. On the **Directory** tab, click your AAD tenant.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/selecttenant.png)
 
-14. Click **Applications > Application my company owns**, and then click the check mark.
+14. Click **Applications > Applications my company owns**, and then click the check mark.
 
 	You might also have to refresh the page to see the new application.
 
@@ -175,15 +173,13 @@ However, for this tutorial the frontend and API will have different URLs, so the
 
 ## Configure the ContactsList.Angular.AAD project to call the Azure API app
 
-The sample code contains URL endpoints for running both the Angular frontend and the API locally. For this tutorial you'll configure the project to run in Azure, deploy to Azure, and run it there.
-
-You can also run both frontend and API locally by replacing the Azure URLs in the following instructions with localhost SSL URLs. While running locally, the ContactsList.Angular.AAD project code does require you to be logged on before it will call the API and display contacts. However, when the API is not running in a protected Azure API app there is nothing to prevent unauthenticated callers from calling the API.
+The following instructions explain how to deploy the application to Azure and run it there, but with minor changes you could run locally. The sample code contains localhost URL endpoints. If you want to run locally, set up the projects for SSL, use the localhost SSL URLs in project code, and use the localhost SSL URLs in the AAD application configuration. While running locally, the AngularJS code will only allow logged on users to call the API, but unauthenticated callers from other clients could call the API.
 
 1. In the ContactsList.Angular.AAD project, open the *app/scripts/app.js* file.
 
 8. In the code that sets the `endpoints` variable, comment out the localhost endpoint and uncomment the Azure endpoint.
 
-10. Replace "yourclientid" with the actual value of the AAD application's client ID from the classic portal's **Configure** tab for the AAD application, and .
+10. Replace "yourclientid" with the actual value of the AAD application's client ID from the classic portal's **Configure** tab for the AAD application.
 
 2. Replace "{your api app name}" with the name of the API app that you deployed the ContactsList.API project to.
 
@@ -209,21 +205,20 @@ You can also run both frontend and API locally by replacing the Azure URLs in th
 		    $httpProvider
 		    );
 
-1. In the *app/scripts/contactsSvc.js* file, make the same endpoint URL change that you did earlier in *app.js*.
+1. In the *app/scripts/contactsSvc.js* file, make the same endpoint URL change from localhost to API app URL that you did earlier in *app.js*.
 
 	The code is now similar to the following example.
 
 		var apiEndpoint = "https://contactslistapi.azurewebsites.net";
 		//var apiEndpoint = "https://localhost:44300";
 
-
 ## Configure the AAD application for the Azure web app
 
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the ContactsList.Angular.AAD project SSL URL and replace it with the web app's base URL, including the trailing slash. (Note that this is the web app's URL, not the API app's URL.)
+1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the URL that is already there and replace it with the web app's base URL, including the trailing slash. (Note that this is the URL of the web app that will run the AngularJS code, not the API app's URL.)
 
 	![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
 
-3. In the **Reply URL** field, replace the ContactsList.Angular.AAD project SSL URL with the web app's base URL. 
+3. In the **Reply URL** field, replace the URL that is already there with the web app's base URL.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
 
@@ -231,7 +226,7 @@ You can also run both frontend and API locally by replacing the Azure URLs in th
 
 ## Deploy the ContactsList.Angular.AAD project to Azure
 
-8. In **Solution Explorer**, right-click the ContactsList.Angular.API project, and then click **Publish**.
+8. In **Solution Explorer**, right-click the ContactsList.Angular.AAD project, and then click **Publish**.
 
 9. Click **Microsoft Azure App Service**.
 
@@ -247,9 +242,9 @@ You can also run both frontend and API locally by replacing the Azure URLs in th
 
 	![](./media/app-service-api-dotnet-user-principal-auth/httpsinconntab.png)
 
-12. In the **Publish Web** wizard, click the **Settings** tab, expand **File Publish Options**, and select the **Remove additional files at destination** check box.
-
 	This setting determines what URL the default browser will be opened to after a successful deployment.
+
+12. In the **Publish Web** wizard, click the **Settings** tab, expand **File Publish Options**, and select the **Remove additional files at destination** check box.
 
 7. Click **Publish**.
 
