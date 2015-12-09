@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
@@ -37,10 +37,10 @@ Some steps are shared between the different types of solutions. This article pro
 | **Get pre-approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
 | **Step 1: Register your seller account** | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] | [Microsoft seller account: creation and registration][link-accts] |
 |**Step 2: Create your offer**| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
-|| [VM technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | Data service technical prerequisites | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[VM image publishing guide][link-single-vm] | Developer service publishing guide | Data service publishing guide | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
+|| [VM technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md) | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+||[VM image publishing guide][link-single-vm] | Developer service publishing guide | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
 || [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
-| **Step 3: Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your developer service offer in staging | Test your data service offer in staging | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
+| **Step 3: Push your offer to staging** | [Test your VM offer in staging](marketplace-publishing-vm-image-test-in-staging.md) | Test your developer service offer in staging | [Test your data service offer in staging](marketplace-publishing-data-service-test-in-staging.md) | [Test your solution template in staging](marketplace-publishing-solution-template-test-in-staging.md) |
 | **Step 4: Deploy your offer to the Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
@@ -57,6 +57,12 @@ Some steps are shared between the different types of solutions. This article pro
 - [Setting up Azure PowerShell](marketplace-publishing-powershell-setup.md)
 - [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-tutorial/)
+
+**Data Services**
+
+- [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
+- [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 [suppt-general]:marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]:marketplace-publishing-report-seller-insights.md

@@ -20,12 +20,12 @@
 
 ##Encoding overview
 
-Azure Media Services provides multiple options for the encoding of media in the cloud. 
+Azure Media Services provides multiple options for the encoding of media in the cloud.
 
-When starting out with Media Services, it is important to understand the difference between codecs and file formats. 
+When starting out with Media Services, it is important to understand the difference between codecs and file formats.
 Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
@@ -35,7 +35,7 @@ To take advantage of [dynamic packaging](media-services-dynamic-packaging-overvi
 Media Services supports the following on demand encoders that are described in this article:
 
 - **Media Encoder Standard**
-- **Azure Media Encoder** 
+- **Azure Media Encoder**
 - **Media Encoder Premium Workflow**
 
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
@@ -46,7 +46,7 @@ Note that by default each Media Services account can have one active encoding ta
 
 ###Overview
 
-It is recommended to use the Media Encoder Standard encoder. However, it is currently not exposed via the Azure portal.
+It is recommended to use the Media Encoder Standard encoder. However, it is currently not exposed via the Azure Classic Portal.
 
 When compared to Azure Media Encoder, this encoder supports more input and output formats and codecs. Other benefits include:
 

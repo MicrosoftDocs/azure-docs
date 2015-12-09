@@ -12,7 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
+<<<<<<< HEAD
    ms.date="12/01/2015"
+=======
+   ms.date="12/07/2015"
+>>>>>>> a3f5d567d733b449f5139eb82d8e8a8ab9d19f95
    ms.author="joaoma" />
 
 # Configure Performance traffic routing method

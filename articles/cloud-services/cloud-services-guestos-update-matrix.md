@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter="na" 
    authors="yuemlu" 
-   manager="markkie" 
+   manager="timlt" 
    editor=""/>
 
 <tags
@@ -135,7 +135,7 @@ The December Guest OS release is projected to start on or after Jan 9 2015.
 
 ## Guest OS Release Information
 
-This section lists the currently supported Guest OS versions. Guest OS families and versions have a release date, a disabled date, and an expiration date. As of the release date, a Guest OS version can be manually selected in the management portal. A Guest OS is removed from the management portal on or after its "disabled" date. It is then "in transition" but is supported with limited ability to update a deployment. The expiration date is when a version or family is scheduled to be removed from the Azure system completely. Cloud services still running on a version when it expires will be stopped, deleted, or force upgraded to a newer version, as detailed in the [Azure Guest OS Supportability and Retirement Policy][retirepolicy]. 
+This section lists the currently supported Guest OS versions. Guest OS families and versions have a release date, a disabled date, and an expiration date. As of the release date, a Guest OS version can be manually selected in the Azure classic portal. A Guest OS is removed from the Azure classic portal on or after its "disabled" date. It is then "in transition" but is supported with limited ability to update a deployment. The expiration date is when a version or family is scheduled to be removed from the Azure system completely. Cloud services still running on a version when it expires will be stopped, deleted, or force upgraded to a newer version, as detailed in the [Azure Guest OS Supportability and Retirement Policy][retirepolicy]. 
 
 Microsoft supports at least two recent versions of each supported Guest OS family. The disable date of an existing Guest OS version could move to a later date to ensure at least two released versions remain enabled for deployment.
 
@@ -149,7 +149,7 @@ The **Guest OS family** corresponds to a Windows Server operating system release
 
 A **"Guest OS version"** is the family OS image plus relevant [Microsoft Security Response Center (MSRC)][msrc] patches available at the date the new Guest OS version is produced. Not all patches may be included. Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1. 
 
-A **"Guest OS release"** refers to a rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing requiring changes. The latest release always supersedes any previous releases, public or not. The management portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
+A **"Guest OS release"** refers to a rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing requiring changes. The latest release always supersedes any previous releases, public or not. The Azure classic portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug. 
 
 In the example below, 2 is the family, 12 is the version and "rel2" is the release.
 
@@ -282,7 +282,7 @@ This page includes information on upcoming Guest OS Releases. Customers have ind
 
 Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by a number of factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We will update the [Guest OS Update RSS Feed][rss] with the latest information we have, but consider that time an approximate window. We are aware that this is problematic for customers and working on a plan to limit or time reboots. 
 
-When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
+When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure classic portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file. 
 
 For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
 
@@ -324,7 +324,7 @@ Because of the partial rollout of the last two releases, people on auto update o
 
 1. The cipher changes outlined in Differences between Azure Guest OS and Default Windows Server have not been rolled out across the entirety of Azure. Customers not on the August or September releases will receive these changes in the October release. 
 
-2. The August and September Guest OSes have been disabled in the Management Portal. You cannot manually choose them. This is to protect against issues that could arise if you select this Guest OS version. 
+2. The August and September Guest OSes have been disabled in the Azure classic portal. You cannot manually choose them. This is to protect against issues that could arise if you select this Guest OS version. 
 
 3. The disabled dates of some earlier releases have been adjusted forward. This is to ensure continued availability in the portal and support for at least two released Guest OS versions in each family. 
 

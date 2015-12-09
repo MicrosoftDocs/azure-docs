@@ -72,7 +72,7 @@ For Virtual Machine Scale Sets the extensions configuration is specified in the 
    
 The *publisher* property with the value of **Microsoft.Azure.Diagnostics** and the *type* property with the value of **IaaSDiagnostics** uniquely identify the Azure Diagnostics extension.
 
-The value of the *name* property can be used to refer to the extension in the resource group. Setting it specifically to **Microsoft.Insights.VMDiagnosticsSettings** will enable it to be easily identified by the Azure Portal portal ensuring that the monitoring charts show up correctly in the Azure Portal.
+The value of the *name* property can be used to refer to the extension in the resource group. Setting it specifically to **Microsoft.Insights.VMDiagnosticsSettings** will enable it to be easily identified by the Azure classic portal portal ensuring that the monitoring charts show up correctly in the Azure classic portal.
 
 The *typeHandlerVersion* specifies the version of the extension you would like to use. Setting *autoUpgradeMinorVersion* minor version to **true** ensures that you will get the latest Minor version of the extension that is available. It is highly recommended that you always set *autoUpgradeMinorVersion* to always be **true** so that you always get to use the latest available diagnostics extension with all the new features and bug fixes. 
 
@@ -120,7 +120,7 @@ The following describes the diagnostics configuration xml that collects standard
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-The Metrics definition xml node in the above configuration is an important configuration element as it defines how the performance counters defined earlier in the xml in *PerformanceCounter* node will be aggregated and stored. These metrics are what drives the charts and alerts in thew Azure preview portal so its important to include this in the configuration if you want to see the monitoring data in the portal. 
+The Metrics definition xml node in the above configuration is an important configuration element as it defines how the performance counters defined earlier in the xml in *PerformanceCounter* node will be aggregated and stored. These metrics are what drives the charts and alerts in thew Azure portal so its important to include this in the configuration if you want to see the monitoring data in the portal. 
 
 The following is an example of the xml for metrics definitions: 
 

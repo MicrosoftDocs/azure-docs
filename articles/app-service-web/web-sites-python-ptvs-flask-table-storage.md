@@ -72,7 +72,7 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-2. Click the **New** icon on the top left of the portal, then click **Data + Storage** > **Storage Account**. Click on **Create**, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
+2. Click the **New** icon on the top left of the Portal, then click **Data + Storage** > **Storage Account**. Click on **Create**, then give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
 
@@ -84,7 +84,7 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 ## Configure the Project
 
-In this section, we'll configure our application to use the storage account we just created. We'll see how to obtain connection settings from the Azure portal. Then we'll run the application locally.
+In this section, we'll configure our application to use the storage account we just created. We'll see how to obtain connection settings from the Azure Portal. Then we'll run the application locally.
 
 1.  In Visual Studio, right-click on your project node in Solution Explorer and select **Properties**. Click on the **Debug** tab.
 
@@ -186,7 +186,6 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -196,7 +195,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Flask and
 [How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Azure Management Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure SDK for .NET]: http://azure.microsoft.com/downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025

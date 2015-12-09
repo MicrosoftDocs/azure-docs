@@ -12,7 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
+<<<<<<< HEAD
    ms.date="12/01/2015"
+=======
+   ms.date="12/07/2015"
+>>>>>>> a3f5d567d733b449f5139eb82d8e8a8ab9d19f95
    ms.author="joaoma" />
 
 # Configure Performance traffic routing method
@@ -21,8 +25,13 @@ In order to route traffic for cloud services and websites (endpoints) that are l
 
 ## Route traffic based on lowest latency across a set of endpoints:
 
+<<<<<<< HEAD
 1. In the Azure portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md) for the steps to create a basic Traffic Manager profile.
 2. In the Azure portal, on the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+=======
+1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md) for the steps to create a basic Traffic Manager profile.
+2. In the Azure classic portal, on the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
+>>>>>>> a3f5d567d733b449f5139eb82d8e8a8ab9d19f95
 3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present. For steps to add or remove endpoints from your profile, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
 4. On the page for your profile, click **Configure** at the top to open the configuration page.
 5. For **traffic routing method settings**, verify that the traffic routing method is **Performance*. If it’s not, click **Performance** in the dropdown list.

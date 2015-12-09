@@ -21,7 +21,7 @@
 # Provision a SQL Server virtual machine in Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-provision-sql-server.md)
+- [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## Overview
@@ -33,7 +33,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
 
 In this tutorial, you will:
 
-* [Connect to the Azure portal and provision a virtual machine from the gallery](#Provision)
+* [Connect to the Azure classic portal and provision a virtual machine from the gallery](#Provision)
 * [Open the virtual machine using Remote Desktop and complete setup](#RemoteDesktop)
 * [Complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer](#SSMS)
 * [Next steps](#Optional)
@@ -42,9 +42,9 @@ In this tutorial, you will:
 
 ##<a id="Provision">Provision a SQL Server virtual machine from the gallery</a>
 
-1. Log in to the [Azure portal](http://manage.windowsazure.com) using your account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
+1. Log in to the [Azure classic portal](http://manage.windowsazure.com) using your account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-2. On the Azure portal, at the bottom left of the web page, click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
+2. On the Azure classic portal, at the bottom left of the web page, click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 
 3. On the **Choose an Image** page, click **SQL SERVER**. Then select a SQL Server image. Click the next arrow at the bottom right of the page. 
 

@@ -240,14 +240,14 @@ Template workflow activities in Visual Studio TFS Team Build.
     deployment is being created.
 
     -   To create a new cloud service, you can call this script or use
-        the Azure Management Portal. The cloud service name
+        the Azure classic portal. The cloud service name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique.
 
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   To create a new storage account, you can call this script or use
-        the Azure Management Portal. The storage account name
+        the Azure classic portal. The storage account name
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique. You can try using the same name as the
         cloud service.
@@ -305,7 +305,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
-    Azure Management Portal. Read the following article to learn
+    Azure classic portal. Read the following article to learn
     more:
     [http://msdn.microsoft.com/library/windowsazure/gg443832.aspx][].
 

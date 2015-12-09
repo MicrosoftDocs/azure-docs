@@ -59,8 +59,8 @@ Follow these steps to generate the SSH authentication key.
 5.	Select and copy the public key in **Key** and save it in a file named publicKey.pem. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
 6.	Click **Save private key** and save it in a file named privateKey.ppk.
 
-###Step 2: Create the image in the Azure Preview Portal.
-In the [Azure preview portal](https://portal.azure.com/), click **New** in the task bar to create an image, choosing the Linux image based on your needs. The following example uses the Ubuntu 14.04 image.
+###Step 2: Create the image in the Azure portal.
+In the [Azure portal](https://portal.azure.com/), click **New** in the task bar to create an image, choosing the Linux image based on your needs. The following example uses the Ubuntu 14.04 image.
 ![][3]
 
 For **Host Name** specify the name for the URL that you and Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example tomcatdemo, and Azure will generate the URL as tomcatdemo.cloudapp.net.  
@@ -77,7 +77,7 @@ Endpoints in Azure consist of a protocol (TCP or UDP), along with a public and p
 
 TCP port 8080 is the default port number on which tomcat listens. Opening this port with an Azure endpoint will allow you and other Internet clients access to tomcat pages.  
 
-1.	In the Azure preview portal, click **Browse** -> **Virtual Machine**, and then click the virtual machine that you created.  
+1.	In the Azure portal, click **Browse** -> **Virtual Machine**, and then click the virtual machine that you created.  
 ![][5]
 2.	To add an endpoint to your virtual machine, click the **Endpoints** box.
 ![][6]
@@ -97,7 +97,7 @@ TCP port 8080 is the default port number on which tomcat listens. Opening this p
 ###Step 2: Connect to the image you created.
 You can choose any SSH tool to connect to your virtual machine. In this example, we use Putty.  
 
-First, get the DNS name of your virtual machine from the Azure preview portal. **Click Browse** -> **Virtual machines** -> the name of your virtual machine -> **Properties**, and then look in the **Domain Name** field of the **Properties** tile.  
+First, get the DNS name of your virtual machine from the Azure portal. **Click Browse** -> **Virtual machines** -> the name of your virtual machine -> **Properties**, and then look in the **Domain Name** field of the **Properties** tile.  
 
 Get the port number for SSH connections from the **SSH** field. Here is an example.  
 ![][8]

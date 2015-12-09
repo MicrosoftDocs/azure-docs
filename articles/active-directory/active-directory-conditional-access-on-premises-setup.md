@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure"
 	description="A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2."
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # Setting up on-premises conditional access using Azure Active Directory Device Registration
 
@@ -47,13 +47,13 @@ Scenario Prerequisites
 * Windows Server 2012 R2 Web Application Proxy Microsoft Azure Active Directory Connect (Azure AD Connect). [Download Azure AD Connect here](http://www.microsoft.com/en-us/download/details.aspx?id=47594).
 * Verified domain. 
 
-Known Issues in this release
+Known issues in this release
 -------------------------------------------------------------------------------
 * Device based conditional access policies require device object write-back to Active Directory from Azure Active Directory. It can take up to 3 hours for device objects to be written-back to Active Directory
 * iOS 7 devices will always prompt the user to select a certificate during client certificate authentication. 
 * Some versions of iOS8, before iOS 8.3 do not work. 
 
-## Scenario Assumptions
+## Scenario assumptions
 This scenario assumes that you have a hybrid environment consisting of an Azure AD tenant and a local active directory. These tenants should be connected using Azure AD Connect and with a verified domain and AD FS for SSO. The checklist below will help you configure your environment to the stage described above. 
 
 Checklist: Prerequisites for Conditional Access Scenario
@@ -76,8 +76,7 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 | Enable Device Registration in your Azure Active Directory tenant to allow devices to join the workplace. By default, multi-factor authentication is not enabled for the service. However, multi-factor authentication is recommended when registering a device. Before enabling multi-factor authentication in ADRS, ensure that AD FS is configured for a multi-factor authentication provider. | [Enable Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)               |
 | Devices will discover your Azure Active Directory Device Registration Service by looking for well-known DNS records. You must configure your company DNS so that devices can discover your Azure Active Directory Device Registration Service.                                                                                                                                                   | [Configure Azure Active Directory Device Registration discovery.](active-directory-conditional-access-device-registration-overview.md) |
 
-##Part 2: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure Active Direct
-
+##Part 2: Deploy and configure Windows Server 2012 R2 Active Directory Federation Services and set up a federation relationship with Azure AD
 
 | Task                                                                                                                                                                                                                                                                                                                                                                                             | Reference                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -92,7 +91,7 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 | Complete part 2 of Enabling device writeback in Azure AD Connect. Upon completion, return this this guide. | [Enabling device writeback in Azure AD Connect](#Upgrade your Active Directory Domain Services Schema)               |
 	 
 
-##[Optional] Part 4: Enabling multi-factor authentication
+##[Optional] Part 4: Enable multi-factor authentication
 
 It is strongly recommended that you configure one of the several options for multi-factor authentication. If you want to require MFA, see [Choose the multi-factor security solution for you](multi-factor-authentication-get-started.md). It includes a description of each solution, and links to help you configure the solution of your choice. 
 
@@ -127,7 +126,7 @@ This will help you integrate your Azure AD tenant with your local active directo
    
 
 
-## Upgrade your Active Directory Domain Services Schema
+## Upgrade your Active Directory Domain Services schema
 > [AZURE.NOTE]
 > Upgrading your Active Directory schema cannot be reversed. It is recommended that you first perform this in a test environment.
 
@@ -156,7 +155,7 @@ This will help you integrate your Azure AD tenant with your local active directo
 ### Enable device authentication in AD FS
 
 1. On your federation server, open the AD FS management console and navigate to **AD FS** > **Authentication Policies**.
-2. Select E**dit Global Primary Authentication…** from the **Actions** pane.
+2. Select **Edit Global Primary Authentication…** from the **Actions** pane.
 3. Check **Enable device authentication** and then select**OK**.
 4. By default, AD FS will periodically remove unused devices from Active Directory. You must disable this task when using Azure Active Directory Device Registration so that devices can be managed in Azure.
 
@@ -220,7 +219,7 @@ This section assumes that you have already configured a Relying Party Trust for 
 9. Select **Finish** and then select **Apply**.
 10. Remove any rules that are more permissive than the rule you just created. For example, remove the default **Permit Access to all Users** rule.
 
-Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace. For more advanced access polices, see [Manage Risk with Multi-Factor Access Control](https://technet.microsoft.com/en-us/library/dn280949.aspx).
+Your application is now configured to allow access only when the user is coming from a device that they registered and joined to the workplace. For more advanced access polices, see [Manage Risk with Multi-Factor Access Control](https://technet.microsoft.com/library/dn280949.aspx).
 
 Next, you will configure a custom error message for your application. The error message will let users know that they must join their device to the workplace before they are allowed access to the application. You can create a custom application access denied message using custom HTML and Windows PowerShell.
 

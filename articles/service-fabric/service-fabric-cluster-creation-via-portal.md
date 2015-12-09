@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Setting up a Service Fabric Cluster from the Azure Portal
@@ -66,7 +66,7 @@ This page helps you with setting up of a Service Fabric cluster. It is assumed t
 
 
 
-1. **Optional:  Placement Properties**- you do not need to add any configurations here, a default placement property of the "NodeTypeName" is added by the system. If can choose to add more if your application has such a need. 
+10. **Optional:  Placement Properties**- you do not need to add any configurations here, a default placement property of the "NodeTypeName" is added by the system. If can choose to add more if your application has such a need. 
 
   
 ## Security Configurations

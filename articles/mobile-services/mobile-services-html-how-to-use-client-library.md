@@ -43,7 +43,7 @@ In the editor, open or create a JavaScript file, and add the following code that
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key, which you obtain from the [Azure portal](http://manage.windowsazure.com/).
+You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key, which you obtain from the [Azure classic portal](http://manage.windowsazure.com/).
 
 >[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#authentication).
 
@@ -628,7 +628,7 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 ##<a name="hostnames"></a>How to: Use cross-origin resource sharing
 
-To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure Management portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
+To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure classic portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
