@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Services WCF communication stack | Microsoft Azure"
-   description="The built-in WCF communication stack in Services Fabric provides client-service WCF communication for Reliable Services."
+   description="The built-in WCF communication stack in Service Fabric provides client-service WCF communication for Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
@@ -17,7 +17,7 @@
    ms.author="bharatn@microsoft.com"/>
 
 # WCF-based communication stack for Reliable Services
-The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service. They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) methods. The framework provides a WCF-based implementation of the communication stack for service authors who want to use WCF-based communication.
+The Reliable Services framework allows service authors to choose the communication stack that they want to use for their service. They can plug in the communication stack of their choice via the **ICommunicationListener** returned from the [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) methods. The framework provides an implementation of the communication stack based on the Windows Communication Foundation (WCF) for service authors who want to use WCF-based communication.
 
 ## WCF Communication Listener
 The WCF-specific implementation of **ICommunicationListener** is provided by the **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** class.
@@ -32,7 +32,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
-            // that identifies the endpoint that the WCF servicehost should listen on.
+            // that identifies the endpoint that the WCF ServiceHost should listen on.
             //
             EndpointResourceName = "ServiceEndpoint",
 
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Writing clients for the WCF communication stack
-For writing clients to communicate with services using WCF, the framework provides **WcfClientCommunicationFactory**, which is the WCF-specific implementation of [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md).
+For writing clients to communicate with services by using WCF, the framework provides **WcfClientCommunicationFactory**, which is the WCF-specific implementation of [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
