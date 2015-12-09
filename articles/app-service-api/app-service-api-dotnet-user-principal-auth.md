@@ -32,7 +32,7 @@ For an introduction to authentication features used in this tutorial, see the pr
 
 ## How to follow this tutorial
 
-This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md).
+This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the API Apps and ASP.NET getting started series](app-service-api-dotnet-get-started.md).
 
 ## The ContactsList.Angular.AAD sample project
 

@@ -22,7 +22,7 @@
 
 ## Overview
 
-This tutorial shows how to use the Authentication and Authorization features of Azure App Service to protect an API app, and how to consume a protected API app on behalf of a service account. The authentication provider shown in the tutorial is Azure Active Directory, and the sample client is an ASP.NET Web API running in an API app.
+This tutorial shows how to use the authentication and authorization features of Azure App Service to protect an API app, and how to consume a protected API app on behalf of a service account. The authentication provider shown in the tutorial is Azure Active Directory, and both client and API are ASP.NET Web APIs running in API apps.
 
 ## Authentication and authorization in App Service
 
@@ -30,7 +30,7 @@ For an introduction to authentication features used in this tutorial, see the pr
 
 ## How to follow this tutorial
 
-This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md).
+This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the API Apps and ASP.NET getting started series](app-service-api-dotnet-get-started.md).
 
 ## The CompanyUsers.API sample project
 
@@ -68,7 +68,7 @@ And here is the Get method in ContactsList.API, showing how it calls CompanyCont
 		    return contactsList;
 		}
 
-The client object for CompanyContacts.API is a modification of the generated API app client code that adds a token to the HTTP request.
+The client object returned by `CompanyContactsAPIClientWithAuth()` in the code above is based on the generated client code but adds an authorization token to HTTP requests.
 
 		private static CompanyContactsAPI CompanyContactsAPIClientWithAuth()
 		{
@@ -88,7 +88,7 @@ The client object for CompanyContacts.API is a modification of the generated API
 
 4. Sign in to your Azure account if you have not already done so, or refresh your credentials if they're expired.
 
-4. In the App Service dialog box, choose the Azure **Subscription** you want to use, and then click **New**.
+4. In the **App Service** dialog box, choose the Azure **Subscription** you want to use, and then click **New**.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/clicknew.png)
 
@@ -124,7 +124,9 @@ The ContactsList.API project already has the generated client code, but you'll d
 
 3. In the **Add REST API Client** dialog box, click **Download from Microsoft Azure API App**, and then click **Browse**.
 
-8. In the **App Service** dialog box, expand the resource group that you're using for this tutorial, and then select the API app that you just created
+8. In the **App Service** dialog box, expand the resource group that you're using for this tutorial, and then select the API app that you just created.
+
+	If you don't see the API app in the list, chances are that when you were creating the API app you accidentally omitted the step that changed the type from web app to API app. In that case, you can create a new API app by repeating the steps you did earlier. You'll need to choose a different name for the API app, unless you go to the portal and delete the web app first. 
 
 10. Click **OK**.
 
@@ -150,7 +152,7 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 		     return client;
 		 }
  
-4. In the Get method, uncomment the block of code that uses the client object returned by `CompanyContactsAPIClientWithAuth`.
+4. In the `Get` method, uncomment the block of code that calls CompanyContacts.API.
 
 		using (var client = CompanyContactsAPIClientWithAuth())
 		{
@@ -167,11 +169,13 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 3. In the **Publish Web** wizard, click **Publish**.
 
+	Visual Studio deploys the project and opens a browser window to the API app base URL. Close this browser window.
+
 ## Set up authentication and authorization in Azure for the new API app
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the API App blade of the API app that you created in this tutorial for the CompanyContacts.API project, and then click **Settings**.
 
-2. Find the **Features** section, and then click **Authentication/ Authorization**.
+2. Find the **Features** section, and then click **Authentication / Authorization**.
 
 3. In the **Authentication / Authorization** blade, click **On**.
 
@@ -197,23 +201,11 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 16. Click **Configure**.
 
-15. At the bottom of the page, click **Manage manifest > Download manifest**, and save the file in a location where you can edit it.
-
-16. In the downloaded manifest file, search for the  `oauth2AllowImplicitFlow` property. Change the value of this property from `false` to `true`, and then save the file.
-
-16. Click **Manage manifest > Upload manifest**, and upload the file that you updated in the preceding step.
-
 17. Keep this page open so you can copy and paste values from it and update values on the page in later steps of the tutorial.
 
 ## Update settings in the API app that runs the ContactsList.API project code
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the API app blade for the API app that you deployed the ContactsList.API project to.  (This is the calling API app, not the one being called, which you just created in this tutorial).
-
-2. Click **Settings > Application Settings**.
-
-	You'll add some settings here, but you have to get them from an AAD page on the classic Azure portal.
-
-3. In the [classic Azure portal](https://manage.windowsazure.com/), go to the **Configure** tab for the AAD application that you created for the ContactsList.API API app.
+3. In another browser window go to the [classic Azure portal](https://manage.windowsazure.com/), and then go to the **Configure** tab for the AAD application that you created for the ContactsList.API API app.
 
 5. Under **keys**, select **1 year** from the **Select duration** drop-down list.
 
@@ -225,7 +217,11 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
-3. In the Azure portal **Application settings** blade, **App settings** section, add a key named "ida:ClientSecret", and in the value field paste in the key you just created.
+1. In another browser window, go to the [Azure portal](https://portal.azure.com/), and then navigate to the API app blade for the API app that you deployed the ContactsList.API project to.  (This is the calling API app, not the one being called: ContactsList.API, not CompanyContacts.API.)
+
+2. Click **Settings > Application Settings**.
+
+3. In the **App settings** section, add a key named "ida:ClientSecret", and in the value field paste in the key you just created.
 
 3. Add a key named "ida:ClientId", and in the value field paste in the client ID from the same AAD **Configure** page.
 
@@ -237,7 +233,7 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 3. In the Azure portal **Application settings** blade, **App settings** section, add a key named ida:Resource, and in the value field paste in the Client ID you just copied.
 
-4. Add a key named CompanyContactsAPIUrl, and in the value field enter "https://{your api app name}.azurewebsites.net", for example:  "https://companycontactsapi.azurewebsites.net."
+4. Add a key named "CompanyContactsAPIUrl", and in the value field enter "https://{your api app name}.azurewebsites.net", for example:  "https://companycontactsapi.azurewebsites.net."
 
 6. Click Save.
 
