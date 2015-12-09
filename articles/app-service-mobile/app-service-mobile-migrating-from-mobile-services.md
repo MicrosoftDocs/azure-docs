@@ -60,7 +60,6 @@ There are workarounds for most of the items in this list.  Please refer to the [
 You should follow the following steps before migrating your site:
 
   *  Raise the Mobile Service tier to Standard
-  *  Optionally convert your On-demand Scheduled Jobs to [WebJobs].  This can be done post-migration as well.
 
 In addition, Microsoft recommends that you [prepare for disaster recovery] by backing up your mobile service scripts and SQL database if you
 have not done so already.
@@ -82,15 +81,6 @@ upgrade the Mobile Service pricing tier to Standard.  You can do this in the SCA
   4.  Under **Mobile Service Tier**, click on the **STANDARD** tier.  Click on the **SAVE** icon at the bottom of the page.
 
 Remember to set the pricing tier to an appropriate setting after migration.
-
-### <a name="opt-ondemand-webjobs"></a>(Optional) Convert On-demand Scheduled Jobs to WebJobs
-
-Scheduled jobs are found in the SCHEDULE tab of your Mobile Service.  Any job with a defined schedule will be migrated to a Scheduler Collection.
-On-demand jobs will be migrated but are triggered manually by sending a web request.  We recommend that you transition On-demand Scheduled Jobs to
-[WebJobs].
-
-You can convert your on-demand scheduled jobs either before or after the migration.  Converting your scheduled jobs to WebJobs is not a trivial
-task.  Consult the [WebJobs] documentation for more details.
 
 ## <a name="migrating-site"></a>Migrating your site
 
