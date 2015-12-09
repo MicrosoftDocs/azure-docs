@@ -90,7 +90,7 @@ client library quick starts:
 - [Windows Store Client QuickStart]
 - [HTML/Javascript Client QuickStart]
 
-You can find the code for this basic application in the [basicapp sample on GitHub]. 
+You can find the code for this basic application in the [basicapp sample on GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>How to: Create a Node backend with Visual Studio 2015
 
@@ -180,7 +180,7 @@ The azure-mobile-apps Node.js Server SDK provides mechanisms to expose data tabl
 | PATCH /tables/_tablename_/:id | Update an existing record in the table |
 | DELETE /tables/_tablename_/:id | Delete a record in the table |
 
-This WebAPI supports [OData] and extends the table schema to support [offline data sync].  
+This WebAPI supports [OData] and extends the table schema to support [offline data sync].
 
 ### <a name="howto-dynamicschema"></a>How to: Define tables using a dynamic schema
 
@@ -252,8 +252,8 @@ The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for s
 
 The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package] to establish and use a connection to both SQL Express and SQL Database.  This package requires that you enable TCP connections on your SQL Express instance.
 
-> [AZURE.NOTE] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
-we recommend the use of a SQL Express data store and using the sql driver.
+> [AZURE.TIP] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
+we recommend the use of a SQL Express data store and using the mssql driver.
 
 1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly
 require 64 Bit support, the 32 Bit version will consume less memory when running.
@@ -266,14 +266,14 @@ require 64 Bit support, the 32 Bit version will consume less memory when running
   4. Right-click on **TCP/IP** and select **Properties**.
   5. Click on the **IP Addresses** tab.
   6. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
-  
+
 	 	 ![Configure SQL Express for TCP/IP][3]
   7. Click on **OK**.  Click on **OK** in the pop-up dialog.
   8. Click on **SQL Server Services** in the left hand tree menu.
   9. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
   10. Close the SQL Server 2014 Configuration Manager.
 
-3. Create a Run the SQL Server 2014 Management Studio and connect to your local SQL Express instance
+3. Run the SQL Server 2014 Management Studio and connect to your local SQL Express instance
 
   1. Right-click on your instance in the Object Explorer and select **Properties**
   2. Select the **Security** page.
@@ -295,13 +295,13 @@ require 64 Bit support, the 32 Bit version will consume less memory when running
   12. Click on **OK**
   13. Close the SQL Server 2015 Management Studio
 
-Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.  
+Ensure you record the username and password you selected.  You may need to assign additional server roles or permissions depending on your specific database requirements.
 
 The Node.js application will read the **SQLCONNSTR_MS_TableConnectionString** environment variable to read the connection string for this database.  You can set this within your environment.  For example, you can use PowerShell to set this environment variable:
 
     $env:SQLCONNSTR_MS_TableConnectionString = "Server=127.0.0.1; Database=mytestdatabase; User Id=azuremobile; Password=T3stPa55word;"
 
-Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.  
+Note that you must access the database through a TCP/IP connection and provide a username and password for the connection.
 
 ### <a name="howto-config-localdev"></a>How to: Configure your project for local development
 
@@ -346,7 +346,7 @@ Using Azure SQL Database as a data store is identical across all Azure App Servi
 
 4. The Default App Service plan will be selected.  If you wish to change your App Service plan, you can do so by clicking on the App Service Plan > **+ Create New**.  Provide a name of the new App Service plan and select an appropriate location.  Click the Pricing tier and select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**.  Once you have selected the pricing tier, click the **Select** button.  Back in the **App Service plan** blade, click **OK**.
 
-5. Click **Create**. This creates a Mobile App backend where you will later deploy your server project.  Provisioning a Mobile App backend can take a couple of minutes.  Once the Mobile App backend is provisioned, the portal will open the **Settings** blade for the Mobile App backend.  
+5. Click **Create**. This creates a Mobile App backend where you will later deploy your server project.  Provisioning a Mobile App backend can take a couple of minutes.  Once the Mobile App backend is provisioned, the portal will open the **Settings** blade for the Mobile App backend.
 
 Once the Mobile App backend is created, you can choose to either connect an existing SQL database to your Mobile App backend or create a new SQL database.  In this section, we will create a new SQL database.
 
@@ -587,7 +587,7 @@ Let's take a simple API that will return the server date using the _Date.now()_ 
 
 	module.exports = api;
 
-Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.  
+Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.
 
 ### <a name="howto-customapi-auth"></a>How to: Require authentication for access to a custom API
 
@@ -622,7 +622,7 @@ The same token that is used for the tables endpoint must be used for custom APIs
 ## <a name="Debugging"></a>Debugging and troubleshooting
 
 The Azure App Service provides several debugging and troubleshooting techniques for Node.js applications.
-All of these techniques are available.  
+All of these techniques are available.
 
 - [Monitoring an Azure App Service]
 - [Enable Diagnostic Logging in Azure App Service]
@@ -634,11 +634,11 @@ Node.js applications have access to a wide range of diagnostic log tools.  Inter
 
 ## <a name="in-portal-editing"></a>In-portal code editing experience
 
-Special tooling in the Azure portal makes it easy to work with a Node.js backend project without having to download the code project. Easy Tables and Easy APIs in the portal let you create and work with tables and custom APIs right in the portal. You can even edit table operation and API scripts right in the portal using the Visual Studio Online "Monaco" editor. 
+Special tooling in the Azure portal makes it easy to work with a Node.js backend project without having to download the code project. Easy Tables and Easy APIs in the portal let you create and work with tables and custom APIs right in the portal. You can even edit table operation and API scripts right in the portal using the Visual Studio Online "Monaco" editor.
 
 ### <a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
 
-When you click **Easy tables** in your backend site settings, you can add a new table or modify or delete an existing table. You can also see data in the table. 
+When you click **Easy tables** in your backend site settings, you can add a new table or modify or delete an existing table. You can also see data in the table.
 
 ![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
@@ -646,7 +646,7 @@ The following commands are available on the command bar for a table:
 
 + **Change permissions** - modify the the permission for read, insert, update and delete operations on the table. Options are to allow anonymous access, to require authentication, or to disable all access to the operation. This modifies the table.json project code file.
 + **Edit script** - the script file for the table is opened in the Visual Studio Online editor.
-+ **Manage schema** - add or delete columns or change the table index. 
++ **Manage schema** - add or delete columns or change the table index.
 + **Clear table** - truncates an existing table be deleting all data rows but leaving the schema unchanged.
 + **Delete rows** - delete individual rows of data.
 + **View streaming logs** - connects you to the streaming log service for your site.
@@ -657,7 +657,7 @@ When you click **Easy APIs** in your backend site settings, you can add a new cu
 
 ![Work with Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the Visual Studio Online editor, or view the streaming logs. 
+In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the Visual Studio Online editor, or view the streaming logs.
 
 ###<a name="online-editor"></a>How to: Edit code in Visual Studio Online
 
@@ -669,8 +669,8 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 
 2. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 
-From the editor, you can also execute the code on the site 
- 
+From the editor, you can also execute the code on the site
+
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
