@@ -354,7 +354,7 @@ favorites:
   * For .NET-based server projects, the new [Mobile Apps SDK NuGet packages](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) has more flexibility on NuGet dependencies, supports the new App Service authentication features, and composes with any ASP.NET project, including MVC. To learn more about upgrading, see [Upgrade your existing .NET Mobile Service to App Service](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 <!-- Images -->
-[0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.png
+[0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG
 [1]: ./media/app-service-mobile-migrating-from-mobile-services/migration-activity-monitor.png
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
