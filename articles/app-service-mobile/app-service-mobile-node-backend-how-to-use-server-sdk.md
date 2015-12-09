@@ -253,7 +253,7 @@ The Azure Mobile Apps The AzureMobile Apps Node SDK provides three options for s
 The Azure Mobile Apps Node.js SDK uses the [mssql Node.js package] to establish and use a connection to both SQL Express and SQL Database.  This package requires that you enable TCP connections on your SQL Express instance.
 
 > [AZURE.TIP] The memory driver does not provide a complete set of facilities for testing.  If you wish to test your backend locally,
-we recommend the use of a SQL Express data store and using the mssql driver.
+we recommend the use of a SQL Express data store and the mssql driver.
 
 1. Download and install [Microsoft SQL Server 2014 Express].  Ensure you install the SQL Server 2014 Express with Tools edition.  Unless you explicitly
 require 64 Bit support, the 32 Bit version will consume less memory when running.
@@ -532,10 +532,6 @@ exists within the database, no data is injected into the table.  If dynamic sche
 the seeded data.
 
 We recommend that you explicitly call the initialize() method to create the table when the service starts running.
-
-## Push notifications
-
-
 
 ## <a name="CustomAPI"></a>Custom APIs
 
