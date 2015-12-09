@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/06/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio"/>
 
 # Create a Microsoft seller account
@@ -78,8 +78,6 @@ The Microsoft Developer Center is used to register the company information once.
     > [AZURE.WARNING] **"Sell-from" Countries:** In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries above. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For more information, see the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 6. Select your "Account Type", **Individual** or **Company**.
-
-    <!-- Insert screenshot -->
 
     > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
@@ -166,8 +164,8 @@ Now that your account is created and registered, click the type of artifact (vir
 || Virtual machine image | Developer service | Data service | Solution template |
 |----|-----|-----|-----|-----|
 |**Step 2: Create your offer** |[General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
-|| [VM image technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md)  | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [VM image publishing guide][link-single-vm] | Developer service publishing guide | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
+|| [VM image technical prerequisites][link-single-vm-prereq] | [Developer service technical prerequisites](marketplace-publishing-dev-service-creation-prerequisites.md) | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md)  | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [VM image publishing guide][link-single-vm] | [Developer service publishing guide](marketplace-publishing-dev-creation.md) | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
 || [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] | [Azure Marketplace marketing content guide][link-pushstaging] |
 
 ## See also
