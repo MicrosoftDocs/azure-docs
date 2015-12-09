@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/07/2015"
+ms.date="12/09/2015"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -94,8 +94,7 @@ Azure Search indexes each document (blob) as follows:
 
 	- **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
 
-	- **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob.
-	> [AZURE.NOTE] Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
+	- **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
 
 	- **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
 
