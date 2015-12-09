@@ -16,12 +16,12 @@
 	ms.date="12/9/2015"
 	ms.author="adrianhall"/>
 
-# Migrate your existing Azure Mobile Service to Azure App Service
+# <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
 
 With the [general availability of Azure App Service], Azure Mobile Services sites can be easily migrated in-place to take advantage of all the
 features of the Azure App Service.  This document explains what to expect when migrating your site from Azure Mobile Services to Azure App Service.
 
-## What does migration do to your site
+## <a name="what-does-migration-do"></a>What does migration do to your site
 
 Migration of your Azure Mobile Service will turn your Mobile Service into an [Azure App Service] without affecting the code in any way.  Your Notification
 Hubs, SQL data connection, authentication settings and scheduled jobs, domain name will remain unchanged.  Mobile clients using your Azure Mobile Service
@@ -29,7 +29,7 @@ will continue to operate normally.  Migration will restart your service once it 
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
-## Why you should migrate your site
+## <a name="why-migrate"></a>Why you should migrate your site
 
 Microsoft is recommending that you migrate your Azure Mobile Service to take advantage of the features of Azure App Service, including:
 
@@ -41,7 +41,7 @@ Microsoft is recommending that you migrate your Azure Mobile Service to take adv
 
 For more information on the benefits of Azure App Service, see the [Mobile Services vs. App Service] topic.
 
-## Why you should not migrate your site
+## <a name="why-not-migrate"></a>Why you should not migrate your site
 
 There are a few reasons why you should not migrate your Azure Mobile Services now:
 
@@ -55,7 +55,7 @@ site as part of the process and your users may notice this momentary availabilit
 
 There are workarounds for most of the items in this list.  Please refer to the [Before you begin] section below for details.
 
-## Before you begin
+## <a name="before-you-begin"></a>Before you begin
 
 You should follow the following steps before migrating your site:
 
@@ -69,7 +69,7 @@ If you wish to test the migration process before migrating your production site,
 with a copy of the data source) and test the migration against the new URL.  You will have to have a test client implementation to properly
 test the migrated site.
 
-### (Optional) Raise the Mobile Service tier to Standard
+### <a name="opt-raise-service-tier"></a>(Optional) Raise the Mobile Service tier to Standard
 
 All Mobile Services sites that share a hosting plan are migrated at once.  Mobile Services in the Free or Basic pricing tiers share
 a hosting plan with other services in the same pricing tier and [Azure Region]. If your Mobile Service is operating on the Standard pricing
@@ -83,15 +83,16 @@ upgrade the Mobile Service pricing tier to Standard.  You can do this in the SCA
 
 Remember to set the pricing tier to an appropriate setting after migration.
 
-### (Optional) Deal with On-demand Scheduled Jobs
+### <a name="opt-ondemand-webjobs"></a>(Optional) Convert On-demand Scheduled Jobs to WebJobs
 
 Scheduled jobs are found in the SCHEDULE tab of your Mobile Service.  Any job with a defined schedule will be migrated to a Scheduler Collection.
 On-demand jobs will be migrated but are triggered manually by sending a web request.  We recommend that you transition On-demand Scheduled Jobs to
 [WebJobs].
 
-You can convert your on-demand scheduled jobs either before or after the migration.
+You can convert your on-demand scheduled jobs either before or after the migration.  Converting your scheduled jobs to WebJobs is not a trivial
+task.  Consult the [WebJobs] documentation for more details.
 
-## Migrating your site
+## <a name="migrating-site"></a>Migrating your site
 
 To migrate your site:
 
@@ -113,7 +114,7 @@ can monitor the status of the migration in the activity monitor and your site wi
 Each migration can take anywhere from 3 to 15 minutes per mobile service being migrated.  Your site will remain
 available during the migration but will be restarted at the end of the migration process.
 
-## Finalizing the Migration
+## <a name="finalizing-migration"></a>Finalizing the Migration
 
 You should plan to test your site from a mobile client at the conclusion of the migration process.  Ensure you can perform all common client actions
 without changes to the mobile client.  In addition, you should ensure that the changes you made to effect the migration (such as changing the pricing
@@ -121,7 +122,7 @@ tier or enabling scheduled jobs) are reverted if necessary.
 
 Please note the following specific management tasks:
 
-### Select an appropriate App Service pricing tier
+### <a name="update-app-service-tier"></a>Select an appropriate App Service pricing tier
 
 You have more flexibility in pricing after you migrate to Azure App Service.
 
@@ -142,7 +143,10 @@ As a starting point, we recommend the following:
 Note that there is considerable flexibility in choosing the right pricing tier for your application.  Refer to [App Service Pricing] for
 full details on the pricing of your new App Service.
 
-### Review the Migrated Scheduler Jobs
+> [AZURE.TIP] The App Service Standard tier contains access to many features that you may want to use, including [staging slots],
+> automatic backups and auto-scaling.  Check out the new capabilities while you are there!
+
+### <a name="review-migration-scheduler-jobs"></a>Review the Migrated Scheduler Jobs
 
 Scheduler Jobs will not be visible until approximately 30 minutes after migration.  Any scheduled jobs will continue to run in the background.
 To view your scheduled jobs:
@@ -152,7 +156,7 @@ To view your scheduled jobs:
 
 There are a limited number of free scheduler jobs available post-migration.  You should review your usage and the [Azure Scheduler Plans].
 
-### Configure CORS if needed
+### <a name="configure-cors"></a>Configure CORS if needed
 
 [Cross-origin resource sharing] (also known as CORS) is a technique to allow a website to access a Web API on a different domain.  If you were using
 Azure Mobile Services with an associated website then you will need to configure CORS as part of the migration.  If you were accessing Azure Mobile
@@ -170,12 +174,12 @@ CORS is handled within the App Service settings.  To configure CORS:
 > [AZURE.TIP]  One of the advantages of using an Azure App Service is that you can run your web site and mobile service on the same site.  See
 > the [next steps] section for more information.
 
-## Working with your site post-migration
+## <a name="working-with-your-site"></a>Working with your site post-migration
 
 You will start working with your new App Service in the [Azure Portal] post-migration.  The following are some notes on specific operations that
 you used to perform in the [Azure Classic Portal], together with their App Service equivalent.
 
-### Downloading and Publishing your migrated site
+### <a name="publishing-your-site"></a>Downloading and Publishing your migrated site
 
 Your site is available via git or ftp.  The deployment credentials are migrated with the rest of your site.  If you did not set your deployment
 credentials or you do not remember them, you can reset them:
@@ -191,7 +195,7 @@ information, see the [Azure App Service deployment documentation].
 
 > [AZURE.NOTE] TODO: INCLUDE SOMETHING ABOUT THE PUBLISHING PROFILE UPDATE HERE
 
-### Authentication
+### <a name="authentication"></a>Authentication
 
 All authentication settings are available as App Settings in your migrated site.  To update your authentication settings, you must alter the
 appropriate app settings.  The following table shows the appropriate app settings for your authentication provider:
@@ -225,7 +229,7 @@ You can update multiple app settings at the same time.
 > _MS_ApplicationKey_.  You only need to alter the app setting prefixed by **MS_**. However, it is a good idea to update both app settings at
 > the same time.
 
-### Data
+### <a name="easytables"></a>Data
 
 The _Data_ tab has been replaced by _Easy Tables_ within the Azure Portal.  To access Easy Tables:
 
@@ -244,7 +248,7 @@ you can do from this blade, including:
   * Clearing the table contents
   * Deleting specific rows of the table
 
-### API
+### <a name="easyapis"></a>API
 
 The _API_ tab has been replaced by _Easy APIs_ within the Azure Portal.  To access Easy APIs:
 
@@ -256,7 +260,7 @@ The _API_ tab has been replaced by _Easy APIs_ within the Azure Portal.  To acce
 Your migrated APIs will already be listed in the blade.  You can also add a new API from this blade.  To manage a specific API, click on the API.
 From the new blade, you can adjust the permissions and edit the scripts for the API.
 
-### On-Demand Jobs
+### <a name="on-demand-jobs"></a>On-Demand Jobs
 
 On-demand Jobs are triggered through a web request.  We recommend using [Postman] or [Fiddler] for this.  If your site is called 'contoso' then you will have an
 endpoint https://contoso.azure-mobile.net/jobs/_yourjobname_ that you can use to trigger the on-demand job.  You will need to submit an additional
@@ -286,7 +290,7 @@ Alternatively you can use [curl] to trigger the on-demand job on a command line:
 
 Your on-demand jobs are located in App_Data/config/scripts/scheduler post-migration.  We recommend that you convert all on-demand jobs to [WebJobs].
 
-### Notification Hubs
+### <a name="notification-hubs"></a>Notification Hubs
 
 Notification Hubs are managed in the Notification Hub section of the portal.  If you wish to update the settings of your Notification Hub:
 
@@ -298,7 +302,7 @@ Most individual Push Notification Service settings are under _Notification Servi
 notification hub is associated with your migrated Mobile Service through an app setting.  If you wish to change the association, review the [Notification
 Hubs Overview] documentation for information.
 
-### App Settings
+### <a name="app-settings"></a>App Settings
 
 The following additional app settings are migrated from your Mobile Service and available under *Settings* > *App Settings*:
 
@@ -312,7 +316,7 @@ The following additional app settings are migrated from your Mobile Service and 
 The application key and master key should be identical to the Application Keys from your original Mobile Service.  In particular, the Application Key is
 sent by mobile clients to validate their use of the mobile API.
 
-### Diagnostics and Logging
+### <a name="diagnostics"></a>Diagnostics and Logging
 
 Diagnostic Logging is normally disabled in an Azure App Service.  To enable diagnostic logging:
 
@@ -337,7 +341,7 @@ To view the logs:
 Logs will stream into the window provided as they are generated.  You can also download the logs for later analysis using your deployment credentials.  See
 the [Logging] documentation for more information.
 
-## Next Steps
+## <a name="next-steps"></a>Next Steps
 
 We hope that this is not the end of your journey into the Azure App Service platform.  More features are available.  Here are links to some of our
 favorites:
@@ -347,7 +351,7 @@ favorites:
   * You can [continuously deploy] your site by linking your site to GitHub, TFS or Mercurial
   * You can use [Application Insights] to monitor your site
 
-### Upgrading your Mobile Services site to Azure Mobile Apps v2.0
+### <a name="upgrading-your-site"></a>Upgrading your Mobile Services site to Azure Mobile Apps v2.0
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
