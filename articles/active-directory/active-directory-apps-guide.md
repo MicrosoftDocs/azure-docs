@@ -32,6 +32,8 @@ This guide is intended to help IT professionals understand and use the various S
 
 [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md) | dunno which category this fits into
 
+[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
 ##Cloud App Discovery: Find which SaaS Apps are being Used in Your Organization
 
 Cloud App Discovery helps IT departments learn which SaaS apps are being used throughout the organization. It can measure app usage and popularity so that IT can determine which apps will benefit the most from being brought under IT control and being integrated with Azure AD.
@@ -44,25 +46,19 @@ Cloud App Discovery helps IT departments learn which SaaS apps are being used th
 | Tutorials for deploying Cloud App Discovery | [Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installing on Proxy Servers with Custom Ports](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
 | The change log for updates to the Cloud App Discovery agent | [Change log](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
 
-##Federated Single Sign-On (SSO): Sign Into Apps Using Azure AD Accounts
+##Federation-Based Single Sign-On (SSO): Sign Into Apps Using Azure AD Accounts
 
-intro goes here
+When users attempt to sign into their federation-enabled apps, they will get redirected your organization's official sign-in page, rendered by Azure Active Directory, where they can then sign into any service using their main work or school account. This allows admins to easily control who has access to an app and to enable additional security features (such as multi-factor authentication, anomolous sign-in alerts, and more), even if these features are not natively supported by those apps.
 
 | Article Guide |   |
 | :---: | --- |
-| something | [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-
-[Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md) | overview?
-
-[Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
-
-[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-
-[Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md)
-
-[How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md)
-
-[Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md)
+| An introduction to single sign-on, federation, and the application gallery | [Single Sign-On with Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified configuration steps | [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) |
+| More than 150 tutorials on how to configure single sign-on to specific apps such as Salesforce, ServiceNow, Workday, and more | [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
+| How to manually configure single sign-on for apps that are not pre-integrated with Azure AD | [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md) |
+| Troubleshooting your federation-based single sign-on configuration | [How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md) |
+| Configure what information gets sent to the app when users initiate single sign-on | [Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md) |
+| How to configure your app's certificate's expiration date, and how to renew your certificates | [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
 
 ##Password-Based Single Sign-On: Account Sharing and SSO for Non-Federated Apps
 
