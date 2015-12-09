@@ -46,7 +46,11 @@ Cloud App Discovery helps IT departments learn which SaaS apps are being used th
 
 ##Federated Single Sign-On (SSO): Sign Into Apps Using Azure AD Accounts
 
-[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md) | #mess
+intro goes here
+
+| Article Guide |   |
+| :---: | --- |
+| something | [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
 
 [Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md) | overview?
 
