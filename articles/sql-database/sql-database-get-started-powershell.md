@@ -29,10 +29,8 @@
 
 Learn how to create a new SQL database and do common database setup tasks using PowerShell cmdlets.
 
-> [AZURE.IMPORTANT] Starting with the release of Azure PowerShell 1.0 Preview, the Switch-AzureMode cmdlet is no longer available, and cmdlets that were in the Azure ResourceManger module have been renamed. The examples in this article use the new PowerShell 1.0 Preview naming convention. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. Due to the removal of Switch-AzureMode, you should download and install the latest Azure PowerShell by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 - If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
@@ -43,7 +41,7 @@ Now that you are running the Azure Resource Manager module you have access to al
 
 First you must establish access to your Azure account so run the following cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureRMAccount
+	Add-AzureRmAccount
 
 After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -52,7 +50,7 @@ After successfully signing in you will see some information on screen that inclu
 
 To select the subscription you need your subscription Id. You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-AzureRMSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
 
-	Select-AzureRMSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 After successfully running **Select-AzureRMSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureRMSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
 
@@ -62,7 +60,7 @@ Now you have access to run cmdlets against your selected Azure subscription so t
 
 Run the following command to create a new resource group:
 
-	New-AzureRMResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
+	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
 After successfully creating the new resource group you see information on screen that includes **ProvisioningState : Succeeded**.
 
@@ -71,7 +69,7 @@ After successfully creating the new resource group you see information on screen
 
 SQL Databases are created inside Azure SQL Database servers. Run **New-AzureRMSqlServer** to create a new server. Replace the ServerName with the name for your server. It must be unique to all Azure SQL Servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. You can edit the command to use any valid location you choose but you should use the same location you used for the resource group created in the previous step.
 
-	New-AzureRMSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 When you run this command a window opens asking for a **User name** and **Password**. This is  not your Azure credentials, enter the user name and password that will be the administrator credentials you want to create for the new server.
 
@@ -81,7 +79,7 @@ The server details appear after the server is successfully created.
 
 Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your computer.
 
-	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 The firewall rule details appear after the rule is successfully created.
 
@@ -97,7 +95,7 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 The following command creates a new (blank) SQL database at the Standard service tier with an S1 performance level:
 
 
-	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 The database details appear after the database is successfully created.
@@ -119,16 +117,16 @@ The database details appear after the database is successfully created.
     $DatabasePerfomanceLevel = "S1"
     
     
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+    $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
     
-    $Server = New-AzureRMSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
+    $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
     
-    $FirewallRule = New-AzureRMSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
+    $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
     
-    $SqlDatabase = New-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
+    $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
     
     $SqlDatabase
     
