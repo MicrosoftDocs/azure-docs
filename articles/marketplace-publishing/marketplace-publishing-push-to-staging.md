@@ -88,7 +88,7 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
 6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
 
-### 2.2. Set your developer service prices
+### 2.2. Set your Developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
 
 **Example:**  Contoso developer service offering

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio; v-shresh"/>
 
 # Pre-requisites to creating a developer service Onboarding Guide
@@ -30,9 +30,9 @@ Navigate to [Azure Accounts Portal][link-acctportal] (and sign in with MSA from 
 
 ## 2. Install IDE that supports C#, .VSIX packages, .Net4.5 or greater, publishing to Microsoft Azure Cloud Service
 
-1. Need to have Visual Studio 2013 Ultimate or higher
-1. Need to have service PatchVS2013.4 or higher
-1. Azure SDK 2.3 or higher
+- Need to have Visual Studio 2013 Ultimate or higher
+- Need to have service PatchVS2013.4 or higher
+- Azure SDK 2.3 or higher
 
 
 ## 3. Install VSIX
@@ -44,7 +44,7 @@ VS Menu Bar --> Tools --> Extensions and Updates… --> Remove “Application Se
 
 ## 4. Review the Publisher portal Offer marketing Data
 
- The Azure Management Portal gives subscribers a plethora of opportunities to learn about your service. Eye catching logos, engaging descriptions, and distinctive plans are only some of the tools that will help you stand out.You need to feel these marketing details about your offering in Marketplace such as description of your product, cpmpany logo's, price plans, details of plans etc. This information is used as marketing content in our azure portal. Please find some of the marketing data mappings [here](marketplace-publishing-dev-services-pre-requisites-marketing-content-guide.md).
+ The Azure Management Portal gives subscribers a plethora of opportunities to learn about your service. Eye catching logos, engaging descriptions, and distinctive plans are only some of the tools that will help you stand out.You need to feel these marketing details about your offering in Marketplace such as description of your product, company logo's, price plans, details of plans etc. This information is used as marketing content in our azure portal. Please find some of the marketing data mappings [here](marketplace-publishing-dev-services-pre-requisites-marketing-content-guide.md).
 
 ## 5. Define Pricing Model for your Offering (section: Pricing & Billing)
 

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="12/08/2015"
    ms.author="hascipio; v-shresh"/>
 
 # Testing your Developer Service in Staging for the Azure Marketplace#
 
 ## Step 1. Push to staging
 
-- Navigate to [Publisher Portal])(https://publish.windowsazure.com). Go to **Publish** tab and click on **“Push to Staging”**. It will pop-up a box and ask for subscriptions you want to white list for Staged offer. Add the pay-as-you-go subscription you create in earlier.
+- Navigate to [Publisher Portal](https://publish.windowsazure.com). Go to **Publish** tab and click on **“Push to Staging”**. It will pop-up a box and ask for subscriptions you want to white list for Staged offer. Add the pay-as-you-go subscription you create in earlier.
 
 ## Step 2. Test the staged offer
 
