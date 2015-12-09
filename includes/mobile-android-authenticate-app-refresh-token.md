@@ -1,4 +1,4 @@
-Our token cache should work in a simple case but, what happens when the token expires or is revoked? The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running during a call the app makes directly or a call made by the Mobile Services library. The result will be an HTTP status code 401 "Unauthorized". 
+Our token cache should work in a simple case but, what happens when the token expires or is revoked? The token could expire when the app is not running. This would mean the token cache is invalid. The token could also expire while the app is actually running. The result is an HTTP status code 401 "Unauthorized". 
 
 We need to be able to detect an expired token, and refresh it. To do this we use a [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) from the [Android client library](http://dl.windowsazure.com/androiddocs/).
 
@@ -49,7 +49,7 @@ In this section you will define a ServiceFilter that will detect a HTTP status c
     	}
     	
 
-4. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method will actually trigger the wait and then update the token on outbound requests when authentication is complete. 
+4. In the ToDoActivity.java file, add the following method to the ToDoActivity class. This method triggers the wait and then update the token on outbound requests when authentication is complete. 
 
     	
     	/**

@@ -26,27 +26,17 @@ This tutorial shows how to use the Authentication and Authorization features of 
 
 ![](./media/app-service-api-dotnet-user-principal-auth/contactspageazure.png)
  
-This is the third in a series of tutorials that show how to work with API apps in Azure App Service. For information about the series, see [Get started with API Apps and ASP.NET in Azure App Service](app-service-api-dotnet-get-started.md).
+## Authentication and authorization in App Service
 
-## Authentication and Authorization in Azure App Service
+For an introduction to authentication features used in this tutorial, see the previous tutorial in this series, [authentication and authorization for API Apps in Azure App Service](app-service-api-dotnet-get-started.md).
 
-Azure App Service offers built-in services for authentication and authorization. You're free to handle authentication in your own code, but App Service offers a turnkey solution if you want to minimize the amount of code you have to write and maintain. 
+## How to follow this tutorial
 
-You can use any of five authentication providers supported by App Service: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account. And you can protect an API written in any language supported by App Service: without writing any code in your API, you can require user log-in or a token to access it.
-
-Azure App Service handles authentication and leaves authorization to be handled by your code. You can configure App Service to only allow authenticated users to call your API, or you can allow all callers. In either case, App Service passes authentication information to your app in the HTTP headers, and your code can use that information to make authorization choices. 
-
-* In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims. Claims information is populated for you in .NET classes.
-
-* For APIs written in other languages, App Service passes on the JWT token in the Authorization header of an HTTP request. In addition, Azure sets some special headers (for example, `x-ms-client-principal-id`) to give you easier access to the most important claims.
-
-For more information about authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/) and [App Service API Apps - What's changed](app-service-api-whats-changed.md).
+This tutorial builds on a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md). If you are following the Node or Java getting started series, the instructions for configuring authentication in Azure apply to all API languages and frameworks.
 
 ## The ContactsList.Angular.AAD sample project
 
-In this tutorial you use the sample projects that you downloaded in the [first tutorial in this series](app-service-api-dotnet-get-started.md) and the Azure resources (API app and web app) that you created in the first tutorial.
-
-The ContactsList.Angular.AAD project is an AngularJS client that includes code for working with Azure Active Directory. The code is based on an AAD sample that can be found in the [Azure-Samples/active-directory-angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) repository.
+In the [ContactsList sample application](https://github.com/Azure-Samples/app-service-api-dotnet-contact-list), the ContactsList.Angular.AAD project is an AngularJS client that includes code for working with Azure Active Directory. The code is based on an AAD sample that can be found in the [Azure-Samples/active-directory-angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) repository.
 
 The code in the ContactsList.Angular.AAD project is structured differently than the simpler ContactsLists.Angular project. The code that calls the API is in the *app/scripts/contactsSvc.js* file in the ContactsList.Angular.AAD project. 
 
@@ -98,7 +88,9 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 ## Set up authentication and authorization in Azure
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you created in the first tutorial, and then click **Settings**.
+1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you want to protect for access by authenticated users. (For this tutorial, choose the API app to which you deployed the ContactsList.API project.)
+
+2. Click **Settings**
 
 2. Find the **Features** section, and then click **Authentication/ Authorization**.
 
@@ -116,7 +108,7 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	Azure will automatically create an AAD application in your AAD tenant. Make a note of the name of the new AAD application, as you'll select it later when you go to the Azure classic portal to get the client ID of the new AAD application.
+	"Express" here means that Azure will automatically create an AAD application in your AAD tenant. Make a note of the name of the new AAD application, as you'll select it later when you go to the Azure classic portal to get the client ID of the new AAD application.
 
 7. Click **OK**.
 
@@ -130,7 +122,9 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
 
-12. On the Directory tab, click your AAD tenant.
+	You have to go to the classic portal because certain Azure Active Directory settings that you need to complete the configuration process are not yet available in the current Azure portal.
+
+12. On the **Directory** tab, click your AAD tenant.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/selecttenant.png)
 
@@ -218,11 +212,11 @@ In the view (*app/views/Contacts.html*), $scope.populate is called on initializa
 
 ## Configure the AAD application for localhost 
 
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, paste the ContactsList.Angular.AAD project SSL URL and remove the trailing slash.
+1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, paste the ContactsList.Angular.AAD project SSL URL, including the trailing slash.
 
 	![](./media/app-service-api-dotnet-user-principal-auth/signonurl.png)
 
-3. Near the bottom of the **Configure** tab, in the **Reply URL** field, paste the ContactsList.Angular.AAD project SSL URL, replacing the value already there and leaving the trailing slash in place. 
+3. Near the bottom of the **Configure** tab, in the **Reply URL** field, paste the ContactsList.Angular.AAD project SSL URL, replacing the value already there. 
 
 	![](./media/app-service-api-dotnet-user-principal-auth/replyurl.png)
 
@@ -279,11 +273,11 @@ In the following sections you'll configure the projects and AAD for running the 
 
 ## Configure the AAD application for the Azure web app
 
-1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the ContactsList.Angular.AAD project SSL URL and replace it with the web app's base URL without the trailing slash. (Note that this is the web app's URL, not the API app's URL.)
+1. In the **Configure** tab for the AAD application in the classic portal, in the **Sign-on URL** field, delete the ContactsList.Angular.AAD project SSL URL and replace it with the web app's base URL, including the trailing slash. (Note that this is the web app's URL, not the API app's URL.)
 
 	![](./media/app-service-api-dotnet-user-principal-auth/signonurlazure.png)
 
-3. In the **Reply URL** field, replace the ContactsList.Angular.AAD project SSL URL with the web app's base URL, leaving the trailing slash in place. 
+3. In the **Reply URL** field, replace the ContactsList.Angular.AAD project SSL URL with the web app's base URL. 
 
 	![](./media/app-service-api-dotnet-user-principal-auth/replyurlazure.png)
 
