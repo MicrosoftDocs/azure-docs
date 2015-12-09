@@ -33,6 +33,14 @@ Backing up and restoring business critical data is complicated by the fact that 
 
 >[AZURE.NOTE] For Linux virtual machines, only file-consistent back up is possible, since Linux does not have an equivalent platform to VSS.
 
+Azure Backup takes VSS Full backup on Windows VMs. Read More about [VSS Full backup](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx). To enable VSS Copy Backups the below registry key needs to be set on the VM.
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+"USEVSSCOPYBACKUP"="TRUE"
+```
+
+
 This table explains the types of consistency and the conditions they occur under during Azure VM backup and restore procedures.
 
 | Consistency | VSS-based | Explanation and details |
@@ -76,6 +84,11 @@ While a majority of the time is spent in reading and copying data, there are oth
 - Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms)
 - Snapshot Time - Time taken to trigger a snapshot. Snapshots are triggered close to scheduled backup time.
 - Queue wait time - Since the backup service is processing backups from multiple customers, copying backup data from snapshot to Azure backup vault  might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM back up time will be less than 24 hours for daily backup policies.
+
+## Data encryption
+
+Azure Backup does not encrypt data as a part of the backup process. However you can encrypt data within the VM and backup the protected data seamlessly. Read more about [backup of encrypted data](backup-azure-vms-encryption.md).
+
 
 ## How are protected instances calculated?
 Azure virtual machines that are backed up using Azure Backup are subject to [Azure Backup pricing](http://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine – excluding the “resource disk”. You are *not* billed based on the maximum size supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk. Similarly, the backup storage bill is based on the amount of data stored with Azure Backup, which is the sum of the actual data in each recovery point.

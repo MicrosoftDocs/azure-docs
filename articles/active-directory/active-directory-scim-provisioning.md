@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications | Microsoft Azure"
 	description="Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification"
 	services="active-directory"
@@ -93,12 +93,12 @@ Here’s how it works:
 
 To make this process easier, a set of [code samples](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) are provided that create a SCIM web service endpoint and demonstrate automatic provisioning. One sample is of a provider that maintains a file with rows of comma-separated values representing users and groups.  The other is of a provider that operates on the Amazon Web Services Identity and Access Management service.  
 
-
 **Prerequisites**
+
 * Visual Studio 2013 or later
-* [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/)
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
-* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/en-us/services/active-directory/)
+* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 * The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). See the README file included with the sample for additional details
 
 ###Getting Started
@@ -380,7 +380,7 @@ Group resources are identified by the schema identifier, http://schemas.microsof
 The figure below shows the messages that Azure Active Directory will send to a SCIM service to manage the lifecycle of a user in another identity store.  The diagram also shows how a SCIM service implemented using the Common Language Infrastructure libraries provided by Microsoft for building such services will translate those requests into calls to the methods of a provider.  
 
 ![][4]
-Figure: User provisioning and de-provisioning sequence
+*Figure: User provisioning and de-provisioning sequence*
 
 **1:**  Azure Active Directory will query the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure Active Directory.  The query will be expressed as a Hypertext Transfer Protocol request like this one, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory: 
 
@@ -688,7 +688,7 @@ The figure below shows the messages that Azure Active Directory will send to a S
 * Requests to determine whether a reference attribute has a certain value will be requests about the members attribute.  
 
 ![][5]
-Figure: User provisioning and de-provisioning sequence
+*Figure: Group provisioning and de-provisioning sequence*
 
 	
 <!--Image references-->

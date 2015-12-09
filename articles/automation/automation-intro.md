@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="What is Azure Automation | Microsoft Azure"
 	description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC."
 	services="automation"
@@ -81,7 +81,7 @@ Following are just a few examples of the kinds of scenarios that you can automat
 
 ## How does Azure Automation relate to other automation tools?
 
-[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) is intended to automate management tasks in the private cloud. It is installed locally in your data center as a component of [Windows Azure Pack](https://www.microsoft.com/en-us/server-cloud/). SMA and Azure Automation use the same runbook format based on Windows PowerShell and Windows PowerShell Workflow, but SMA does not support [graphical runbooks](automation-graphical-authoring-intro.md).  
+[Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) is intended to automate management tasks in the private cloud. It is installed locally in your data center as a component of [Microsoft Azure Pack](https://www.microsoft.com/en-us/server-cloud/). SMA and Azure Automation use the same runbook format based on Windows PowerShell and Windows PowerShell Workflow, but SMA does not support [graphical runbooks](automation-graphical-authoring-intro.md).  
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) is intended for automation of on-premises resources. It uses a different runbook format than Azure Automation and Service Management Automation and has a graphical interface to create runbooks without requiring any scripting. Its runbooks are composed of activities from Integration Packs that are written specifically for Orchestrator. 
 
@@ -92,7 +92,7 @@ A variety of resources are available for you to learn more about Azure Automatio
 
 * **Azure Automation Library** is where you are right now. The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks. 
 * [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/jj156055.aspx) provides information for automating Azure operations using Windows PowerShell. Runbooks use these cmdlets to work with Azure resources. 
-* [Management Blog](https://azure.microsoft.com/en-us/blog/tag/azure-automation/) provides the latest information on Azure Automation and other management technologies from Microsoft. You should subscribe to this blog to stay up to date with the latest from the Azure Automation team. 
+* [Management Blog](https://azure.microsoft.com/blog/tag/azure-automation/) provides the latest information on Azure Automation and other management technologies from Microsoft. You should subscribe to this blog to stay up to date with the latest from the Azure Automation team. 
 * [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561) allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community. 
 * [Azure Automation Cmdlets](https://msdn.microsoft.com/library/mt244122.aspx) provides information for automating administration tasks. It contains cmdlets to manage Automation accounts, assets, runbooks, DSC.
 

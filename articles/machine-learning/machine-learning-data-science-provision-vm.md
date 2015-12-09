@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Provision a Data Science Virtual Machine | Microsoft Azure" 
+	pageTitle="Provision the Microsoft Data Science Virtual Machine | Microsoft Azure" 
 	description="Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="11/26/2015" 
 	ms.author="bradsev" />
 
 
-# Provision a Data Science Virtual Machine
+# Provision the Microsoft Data Science Virtual Machine
 
 ## Introduction
 
@@ -35,6 +35,8 @@ Doing data science involves iterating on a sequence of tasks: finding, loading, 
 
 The Microsoft Data Science Virtual Machine jump starts your analytics project. It enables you to work on tasks in a variety of languages including R, Python, SQL, and C#. Visual Studio provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications using various services on Microsoft’s cloud platform. 
 
+There is no software charges for this data science VM image. You only pay for the Azure usage fees which is dependent on the size of the virtual machine you will be  provisioning with this VM image. More details on the compute fees can be found [here] (https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/). 
+
 
 ## Prerequisites
 
@@ -49,41 +51,39 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
-1.	Login to the [Azure portal](https://ms.portal.azure.com/).
-2.	Navigate to **New** -> **Compute** -> **Marketplace** and search for *Data Science Virtual Machine*.![provision-data-science-vm](./media/machine-learning-data-science-provision-vm/provision-data-science-virtual-machine.png)
-3.	Select the one VM titled “**Microsoft Data Science Virtual Machine**” to see a panel describing the Data Science Virtual Machine. 	
-4.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-5.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+1.	Navigate to the virtual machine listing on [Azure Classic Portal](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
- **1. Basics**: 
+  **a. Basics**: 
 
-- **Name**: Name of your data science server you are creating.
-- **User Name**: Admin account login id
-- **Password**: Admin account password
-- **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed
-- **Resource Group**: You can create a new one or use an existing group
-- **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
+   - **Name**: Name of your data science server you are creating.
+   - **User Name**: Admin account login id
+   - **Password**: Admin account password
+   - **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed
+   - **Resource Group**: You can create a new one or use an existing group
+   - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access
 
- **2. Size**: 
+  **b. Size**: 
 
-- Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
+   - Select one of the server types that meets your functional requirement and cost constraints. You can get more choices of VM sizes by selecting “View All”
 
- **3. Settings**
+  **c. Settings**
 
-- **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
-- **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
-- **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
+   - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
+   - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
+   - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
 
- **4. Summary**: 
+  **d. Summary**: 
 
-- Verify that all information you entered is correct.
+   - Verify that all information you entered is correct.
 
- **5. Buy**: 
+  **e. Buy**: 
 
-- Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+   - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 
-The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Portal.
+The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Classic Portal.
 
 ## How to access the Microsoft Data Science Virtual Machine
 
@@ -97,7 +97,7 @@ Once your VM is created and provisioned, you are ready to start using the tools 
 If you wish to use R for your analytics, the VM has Revolution R Open (RRO) installed. This is an Open source distribution of R and it is completely compatible with CRAN-R. It contains the latest open source R engine along with the Intel Math Kernel Library. An IDE called “RRO RGui” is also packaged in the VM. You are free to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
 
 ### Python
-For development using Python, Anaconda Python distribution 2.7 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering and data analytics packages. You can use IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key). 
+For development using Python, Anaconda Python distribution 2.7 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering and data analytics packages. You can use Python Tools for Visual Studio (PTVS) that is installed within the Visual Studio 2015 Community edition or one of the IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key). 
 
 ### IPython Notebook
 Anaconda distribution also comes with an IPython notebook, an environment to share code and analysis. An IPython notebook server has been pre-configured. There is a desktop icon to launch the browser to access the Notebook server. If you are on the VM via remote desktop you can also visit [https://localhost:9999/](https://localhost:9999/) to access the IPython notebook server (Note: Simply continue if you get any certificate warnings.) 

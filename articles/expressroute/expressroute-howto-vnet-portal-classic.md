@@ -23,7 +23,7 @@ These steps will walk you through configuring a virtual network and a gateway fo
 
 >[AZURE.IMPORTANT] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md)
 
-1. Log in to the **Azure Portal**.
+1. Log in to the **Azure Classic Portal**.
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -55,7 +55,7 @@ These steps will walk you through configuring a virtual network and a gateway fo
 	- **Add gateway subnet** - Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration. 
 	***Important:***  The gateway subnet prefix for ExpressRoute must be /28 or smaller. (/27, /26 etc.)
 
-7. Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Management Portal.
+7. Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Azure Classic Portal.
 
 8. On the **Networks** page, click the virtual network that you just created, then click **Dashboard**.
 9. On the bottom of the Dashboard page, click **CREATE GATEWAY**, then click **Yes**.

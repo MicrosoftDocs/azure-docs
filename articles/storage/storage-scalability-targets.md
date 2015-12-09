@@ -3,8 +3,8 @@
    description="Learn about the scalability and performance targets for Azure Storage, including capacity, request rate, and inbound and outbound bandwidth for both standard and premium storage accounts. Understand performance targets for partitions within each of the Azure Storage services."
    services="storage"
    documentationCenter="na"
-   authors="tamram"
-   manager="na"
+   authors="robinsh"
+   manager="carmonm"
    editor="na" />
 <tags 
    ms.service="storage"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="11/17/2015"
-   ms.author="tamram" />
+   ms.date="12/04/2015"
+   ms.author="robinsh" />
 
 # Azure Storage Scalability and Performance Targets
 
