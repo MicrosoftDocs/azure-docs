@@ -48,14 +48,14 @@ Cloud App Discovery helps IT departments learn which SaaS apps are being used th
 
 ##Federation-Based Single Sign-On (SSO): Sign Into Apps Using Azure AD Accounts
 
-When users attempt to sign into their federation-enabled apps, they will get redirected your organization's official sign-in page, rendered by Azure Active Directory, where they can then sign into any service using their main work or school account. This allows admins to easily control who has access to an app and to enable additional security features (such as multi-factor authentication, anomolous sign-in alerts, and more), even if these features are not natively supported by those apps.
+Single sign-on allows users to access a variety of apps and services using only one account. Federation is one method through which you can enable single sign-on. When users attempt to sign into federation-enabled apps, they will get redirected to their organization's official sign-in page, rendered by Azure Active Directory.
 
 | Article Guide |   |
 | :---: | --- |
-| An introduction to single sign-on, federation, and the application gallery | [Single Sign-On with Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified configuration steps | [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) |
-| More than 150 tutorials on how to configure single sign-on to specific apps such as Salesforce, ServiceNow, Workday, and more | [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
+| An introduction to federation and other types of sign-on | [Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified configuration steps | [Browse the Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/)<br /><br />[Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) |
 | How to manually configure single sign-on for apps that are not pre-integrated with Azure AD | [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md) |
+| More than 150 app tutorials on how to configure single sign-on. Includes apps such as Salesforce, ServiceNow, Workday, and many more | [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Troubleshooting your federation-based single sign-on configuration | [How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md) |
 | Configure what information gets sent to the app when users initiate single sign-on | [Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates | [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
