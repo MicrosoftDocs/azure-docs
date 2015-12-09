@@ -67,16 +67,16 @@ In other words, any write within a transaction will be visible to a following re
 that belongs to the same transaction.
 
 ### Reliable Dictionary
-| Operation / Role      | Primary          | Secondary        |
+| Operation \ Role      | Primary          | Secondary        |
 | --------------------- | :--------------- | :--------------- |
 | Single entity read    | Repeatable Read  | Snapshot         |
-| Enumeration / Count   | Snapshot         | Snapshot         |
+| Enumeration \ Count   | Snapshot         | Snapshot         |
 
 ### Reliable Queue
-| Operation / Role      | Primary          | Secondary        |
+| Operation \ Role      | Primary          | Secondary        |
 | --------------------- | :--------------- | :--------------- |
 | Single entity read    | Snapshot         | Snapshot         |
-| Enumeration / Count   | Snapshot         | Snapshot         |
+| Enumeration \ Count   | Snapshot         | Snapshot         |
 
 ## Persistence model
 The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.

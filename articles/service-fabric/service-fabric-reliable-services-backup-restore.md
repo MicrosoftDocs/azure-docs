@@ -37,7 +37,7 @@ The Backup/Restore feature allows services built on the Reliable Services API to
 
 The service author has full control of when to take backups and where backups will be stored.
 
-To start a backup, the service needs to invoke **IReliableStateManager.BackupAsync**.  Backups can only be taken from primary replicas, and they require write status.
+To start a backup, the service needs to invoke **IReliableStateManager.BackupAsync**.  Backups can only be taken from primary replicas, and they require write status to be granted.
 
 As shown below, the simplest overload of **BackupAsync** takes in Func<< BackupInfo, bool >> called **backupCallback**.
 
@@ -47,7 +47,7 @@ await this.StateManager.BackupAsync(this.BackupCallbackAsync);
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (**BackupInfo.Directory**). The callback function expects to move the **BackupInfo.Directory** to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
 
-The following code demonstrates how the **backupCallback** can be used to upload the backup to Azure Storage:
+The following code demonstrates how the backupCallback can be used to upload the backup to Azure Storage:
 
 ```C#
 private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
