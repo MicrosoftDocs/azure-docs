@@ -53,14 +53,14 @@ There are a few reasons why you should not migrate your Azure Mobile Services no
 In you are in a busy period, then please plan to migrate during a scheduled maintenance window.  The migration process restarts your
 site as part of the process and your users may notice this momentary availability disruption.
 
-There are workarounds for most of the items in this list.  Please refer to the [Before you begin] section below for details.
+There are workarounds for most of the items in this list.  Please refer to the [Before you begin](#before-you-begin) section below for details.
 
 ## <a name="before-you-begin"></a>Before you begin
 
 You should follow the following steps before migrating your site:
 
   *  Raise the Mobile Service tier to Standard
-  *  Optionally convert your On-demand Scheduled Jobs to WebJobs.  This can be done post-migration as well.
+  *  Optionally convert your On-demand Scheduled Jobs to [WebJobs].  This can be done post-migration as well.
 
 In addition, Microsoft recommends that you [prepare for disaster recovery] by backing up your mobile service scripts and SQL database if you
 have not done so already.
@@ -172,7 +172,7 @@ CORS is handled within the App Service settings.  To configure CORS:
   6.  Once your list of Allowed Origins is correct, click on the Save button.
 
 > [AZURE.TIP]  One of the advantages of using an Azure App Service is that you can run your web site and mobile service on the same site.  See
-> the [next steps] section for more information.
+> the [next steps](#next-steps) section for more information.
 
 ## <a name="working-with-your-site"></a>Working with your site post-migration
 
@@ -193,8 +193,6 @@ credentials or you do not remember them, you can reset them:
 You can use these credentials to clone the site with git or set up automated deployments from GitHub, TFS or Mercurial.  For more
 information, see the [Azure App Service deployment documentation].
 
-> [AZURE.NOTE] TODO: INCLUDE SOMETHING ABOUT THE PUBLISHING PROFILE UPDATE HERE
-
 ### <a name="authentication"></a>Authentication
 
 All authentication settings are available as App Settings in your migrated site.  To update your authentication settings, you must alter the
@@ -211,8 +209,11 @@ Note: **MS_AadTenants** is stored as a comma-separated list of tenant domains (t
 
 > [AZURE.WARNING] Azure App Service provides a separate "no-code" Authentication and Authorization system under the _Authentication / Authorization_
 > Settings menu and a deprecated _Mobile Authentication_ option under the Settings menu.  These options are incompatible with a migrated Azure
-> Mobile Service.  **DO NOT USE THE AUTHENTICATION MECHANISMS IN THE SETTINGS MENU**.  You must [upgrade your site] to take advantage of the Azure
-> App Service authentication
+> Mobile Service.
+>
+> **DO NOT USE THE AUTHENTICATION MECHANISMS IN THE SETTINGS MENU**.
+>
+> You must [upgrade your site] to take advantage of the Azure App Service authentication
 
 To set an App Setting on your App Service:
 
