@@ -30,16 +30,21 @@ The sample application is a simple contacts list. The following illustration sho
 
 ## What you'll learn
 
-In this tutorial, you'll learn:
+Three features of Azure App service are particularly helpful for developing and hosting APIs:
+
+* Integrated support for API metadata
+* CORS support
+* Authentication and authorization support
+ 
+This is the first tutorial in a series that introduces these features. This tutorial focuses on API metadata, the second focuses on CORS, and the third and fourth focus on authentication and authorization.
+
+In these tutorials, you'll learn:
 
 * How to prepare your machine for Azure development by installing the Azure SDK for .NET.
 * How to work with API apps and web apps in Azure App Service by using tools built into Visual Studio 2015.
 * How to automate API discovery by using the Swashbuckle NuGet package to dynamically generate Swagger API definition JSON.
 * How to use automatically generated client code to consume an API app from a .NET client.
 * How to use the Azure portal to configure the endpoint for API app metadata.
-
-This is the first of a series of tutorials. Subsequent tutorials build on what you create in this one, and in those tutorials you'll learn:
- 
 * How to use CORS to call an API app from a JavaScript client when the client is from a different domain than the API.
 * How to use Azure Active Directory to protect an API from unauthenticated access.
 * How to consume a protected API for users logged in to Azure Active Directory.
@@ -47,9 +52,15 @@ This is the first of a series of tutorials. Subsequent tutorials build on what y
 
 ## Prerequisites
 
+### ASP.NET Web API
+
 The tutorial assumes that you are familiar with ASP.NET Web API; if you need an introduction, see [Getting Started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api).
 
-The instructions and screen shots assume you're using Visual Studio 2015, but the same guidance should work for Visual Studio 2013.
+## Visual Studio 2015
+
+The instructions and screen shots assume you're using Visual Studio 2015, but the same guidance works for Visual Studio 2013.
+
+## Azure account
 
 You need an Azure account to complete the tutorial. You can:
 
@@ -82,15 +93,17 @@ The code that you'll deploy to an API app and a web app for this tutorial is in 
 
 2. Build the solution to restore the NuGet packages.
 
-## Use Swashbuckle and Swagger while running locally
+## Use Swagger metadata and UI
 
-[Swagger](http://swagger.io/) is a JSON format for describing an an API's methods and responses. Support for Swagger 2.0 is built into Azure App Service. As you'll see later in the tutorial, if you provide Swagger metadata for an API, Visual Studio can generate client code that makes it easier to consume the API.
+Support for [Swagger](http://swagger.io/) 2.0 API metadata is built into Azure App Service. Each API app can define a URL endpoint that returns metadata for the API in Swagger JSON format. The metadata returned from that endpoint can be used to generate client code that makes it easier to consume the API. 
 
-To provide Swagger 2.0 metadata for an ASP.NET Web API project, you can install the [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package. Swashbuckle uses Reflection to dynamically generate metadata. The NuGet package is already installed in the ContactsList.API project that you downloaded, and it is already installed when you create a new project by using the **Azure API App** project template.
+In this section of the tutorial, you'll see how to automatically generate metadata for an ASP.NET Web API project, and you'll run an API test tool. For these tasks you won't use Azure App Service yet; you'll see later how API Apps makes use of the metadata.
+
+To provide Swagger 2.0 metadata for an ASP.NET Web API project, you can install the [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet package. Swashbuckle uses Reflection to dynamically generate metadata. The Swashbuckle NuGet package is already installed in the ContactsList.API project that you downloaded, and it is already installed when you create a new project by using the **Azure API App** project template. (In Visual Studio: **File > New > Project > ASP.NET Web Application > Azure API App**.)
 
 In this section of the tutorial you take a look at the generated Swagger 2.0 metadata, and then you try out a test UI that is based on the Swagger metadata. 
 
-2. Set the ContactsList.API project as the startup project. (Right-click the project in **Solution Explorer**, and then click **Set as Startup Project** in the context menu.)
+2. Set the ContactsList.API project as the startup project. (Not the CompanyContacts.API project; that project is used in one of the later tutorials.)
  
 4. Press F5 to run the project in debug mode.
 
@@ -104,7 +117,7 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 
 	![](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-	If you're using Chrome, the browser displays the JSON in the browser window.
+	If you're using Chrome or Edge, the browser displays the JSON in the browser window.
 
 	![](./media/app-service-api-dotnet-get-started/chromev1json.png)
 
@@ -190,9 +203,13 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 
 12. Try also the Put, Delete, and Get by ID methods, and then close the browser.
 
-Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package. If you want to create a new project to be deployed as an App Service API app, use the ASP.NET **Azure API App** project template. That template creates a Web API project with Swashbuckle installed.
+Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package. If you want to create a new project to be deployed as an App Service API app, use the ASP.NET **Azure API App** project template, shown in the following illustration.
 
 ![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
+
+This template creates a Web API project with Swashbuckle installed.
+
+**Note:** By default, Swashbuckle may generate duplicate Swagger operation IDs for your controller methods. This happens if your controller has overloaded HTTP methods, for example: `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
 
 ## Create an API app in Azure and deploy the ContactsList.API project to it
 
@@ -212,9 +229,11 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 3. In the **Hosting** tab of the **Create App Service** dialog box, click **Change Type**, and then click **API App**.
 
+	![](./media/app-service-api-dotnet-get-started/apptype.png)
+
 4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain. 
 
-	Visual Studio proposes a unique name by appending date-time string to the project name.  You can accept that name if you prefer. 
+	Visual Studio proposes a unique name by appending a date-time string to the project name.  You can accept that name if you prefer. 
 
 	If you enter a name that someone else has already used, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
 
@@ -250,7 +269,7 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	Visual Studio creates the API app and creates a publish profile that has all of the required settings for the new API app. In the following steps you use the new publish profile to deploy the project. 
  
-	Note: There are other ways to create API apps in Azure App Service. In Visual Studio the same dialogs are available while you're creating a new project. You can also create API apps by using the Azure portal, [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
+	**Note:** There are other ways to create API apps in Azure App Service. In Visual Studio the same dialogs are available while you're creating a new project. You can also create API apps by using the Azure portal, [Azure cmdlets for Windows PowerShell](../powershell-install-configure.md), or the [cross-platform command-line interface](../xplat-cli.md).
 
 8. In the **Connection** tab of the **Publish Web** wizard, click **Publish**.
 
@@ -278,9 +297,19 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	![](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
-	When you select an API app to generate code for, Visual Studio retrieves the metadata from this URL. 
+	When you select an API app to generate client code for it, Visual Studio retrieves the metadata from this URL. 
 
-## Consume from .NET by using generated client code 
+### API definition URL in Azure Resource Manager tooling
+
+You can also configure the API definition URL for an API app by using Azure Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). 
+
+Set the `apiDefinition` property on the Microsoft.Web/sites/config resource type for your <site name>/web resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the cors property:
+
+		"apiDefinition": {
+		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+		}
+
+## <a id="codegen"></a> Consume from a .NET client by using generated client code 
 
 One of the advantages of integrating Swagger into Azure API apps is automatic code generation. Generated client classes make it easier to write code that calls an API app.
 
@@ -290,9 +319,11 @@ In this section you see how to consume an API app from an ASP.NET MVC web app. Y
 
 You can generate client code for an API app by using Visual Studio or from the command line. For this tutorial you'll use Visual Studio. For information about how to do it from the command line, see the readme file of the [Azure/autorest](https://github.com/azure/autorest) repository on GitHub.com.
 
-The ContactsList.MVC project already has the generated client code, but you'll delete it and regenerate it to see how it's done and to make your own API app's URL be the default target URL.
+The ContactsList.MVC project already has the generated client code, but you'll delete it and regenerate it to make your own API app's URL be the default target URL.
 
 1. In Visual Studio **Solution Explorer**, in the ContactsList.MVC project, delete the *ContactsList.API* folder.
+
+	This folder was created by using the code generation process that you're about to go through.
 
 	![](./media/app-service-api-dotnet-get-started/deletecodegen.png)
 
@@ -337,7 +368,14 @@ The ContactsList.MVC project already has the generated client code, but you'll d
 
 	This code passes in to the local IIS Express URL of thet API project to the client class constructor so that you can run the MVC web project and the API project locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from. 
 
-6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project.  
+6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project. For example, if you named your API App ContactsListAPIContoso, the code would look like the following example:
+
+		private ContactsListAPIContoso db = new ContactsListAPIContoso(new Uri("http://localhost:51864"));
+		
+		public ActionResult Index()
+		{
+		    return View(db.Contacts.Get());
+		}
 
 7. Build the solution.
 
@@ -367,7 +405,7 @@ Before deploying to Azure, change the API endpoint in the MVC project so that wh
 
 1. In the ContactsList.MVC project, open *Controllers\ContactsController.cs*.
 
-2. Comment out the line that sets the API base URL to the localhost URL, uncomment the line that has no constructor parrameter. The code now looks like the following example, except that both lines should have the class name that reflects the name of your API app that you generated the code from.
+2. Comment out the line that sets the API base URL to the localhost URL, uncomment the line that has no constructor parrameter. The code now looks like the following example, except that in both lines the class name reflects the name of your API app that you generated the code from.
 
 		private ContactsListAPI db = new ContactsListAPI();
 		//private ContactsListAPI db = new ContactsListAPI(new Uri("http://localhost:51864"));
@@ -408,5 +446,4 @@ Before deploying to Azure, change the API endpoint in the MVC project so that wh
 
 ## Next steps
 
-In this tutorial, you've seen how to create API apps, deploy code to them, and consume them from .NET clients. The next tutorial in the getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
-
+In this tutorial, you've seen how to create API apps, deploy code to them, and consume them from .NET clients. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).

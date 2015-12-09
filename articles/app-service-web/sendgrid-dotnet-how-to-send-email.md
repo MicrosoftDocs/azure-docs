@@ -146,7 +146,7 @@ the Web API provided by SendGrid. Alternatively, you may [use .NET's built in li
 Sending email requires that you supply your
 SendGrid account credentials (username and password) or SendGrid API Key. API Key is the preferred method. If you need details about how to configure API keys, please visit our [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
 
-You may store these credentials via your Azure portal
+You may store these credentials via your Azure Portal
 by clicking CONFIGURE and adding the key/value pairs under "app settings".
 
  ![Azure app settings][azure_app_settings]

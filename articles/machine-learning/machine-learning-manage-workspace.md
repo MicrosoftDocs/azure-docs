@@ -18,7 +18,7 @@
 
 
 # Manage an Azure Machine Learning workspace
-Using the Azure management portal, you can manage your Machine Learning workspaces to:
+Using the Azure Classic Portal, you can manage your Machine Learning workspaces to:
 
 - Monitor how the workspace is being used
 - Configure the workspace to allow or deny access
@@ -34,7 +34,7 @@ In addition, the dashboard tab provides an overview of your workspace usage and 
 To manage a workspace:
 
 1.	Sign-in to your Microsoft Azure account - use the account that's associated with the Azure subscription.
-2.	In the [Azure management portal](https://manage.windowsazure.com/), in the Microsoft Azure services panel, click **MACHINE LEARNING**.
+2.	In the [Azure Classic Portal](https://manage.windowsazure.com/), in the Microsoft Azure services panel, click **MACHINE LEARNING**.
 3.	Click the workspace you want to manage.
 
 The workspace page has three tabs:
@@ -54,7 +54,7 @@ From the dashboard you can view overall usage of your workspace and get a quick 
 - **Usage overview** displays Azure storage being used by the workspace.
 - **Quick glance** provides a summary of workspace information and useful links.
 
-> [AZURE.NOTE] The **Sign-in to ML Studio** link opens Machine Learning Studio using the Microsoft Account you are currently signed into. The Microsoft Account you used to sign in to the Azure portal to create a workspace does not automatically have permission to open that workspace. To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace.
+> [AZURE.NOTE] The **Sign-in to ML Studio** link opens Machine Learning Studio using the Microsoft Account you are currently signed into. The Microsoft Account you used to sign in to the Azure Classic Portal to create a workspace does not automatically have permission to open that workspace. To open a workspace, you must be signed in to the Microsoft Account that was defined as the owner of the workspace, or you need to receive an invitation from the owner to join the workspace.
 
 
 ## To grant or suspend access for users ##

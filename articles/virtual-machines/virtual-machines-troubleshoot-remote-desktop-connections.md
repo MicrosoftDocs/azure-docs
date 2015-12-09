@@ -34,7 +34,7 @@ The first section 'Basic Steps' lists steps to address common connection issues,
 
 These basic steps can help resolve most of the common Remote Desktop connection failures in virtual machines created using the classic deployment model. After performing each step, try reconnecting to the VM.
 
-- Reset Remote Desktop service from the [Azure preview portal](https://portal.azure.com) to fix startup issues with the RDP server.<br>
+- Reset Remote Desktop service from the [Azure portal](https://portal.azure.com) to fix startup issues with the RDP server.<br>
 	Click Browse all > Virtual machines (classic) > your Windows virtual machine > **Reset Remote Access**.
 
     ![Screenshot that shows resetting RDP configuration](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)

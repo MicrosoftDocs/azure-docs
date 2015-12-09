@@ -29,7 +29,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 ## Prerequisites
 
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
 ## Create a .NET application

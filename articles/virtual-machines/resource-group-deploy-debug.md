@@ -24,7 +24,7 @@ issue and resume operations in your solution.
 
 This topic focuses primarily on using deployment commands to troubleshoot deployments. For information about using the audit logs to track all operations on your resources, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
-This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure preview portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 Solutions to common errors that users encounter are also described in this topic.
 
@@ -317,7 +317,7 @@ To be specific about cores, for example, you can check the regions for which you
 
 ## Checking resource provider registration
 
-Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider. If you are enabled to use a provider, it must also be registered for use. Most providers are registered automatically by the Azure preview portal or the command-line interface you are using, but not all.
+Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider. If you are enabled to use a provider, it must also be registered for use. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all.
 
 ### PowerShell
 

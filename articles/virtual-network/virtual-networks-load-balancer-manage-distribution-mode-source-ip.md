@@ -4,7 +4,7 @@
    services="virtual-network" 
    documentationCenter="" 
    authors="telmosampaio" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""
    />
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/21/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"
    />
    

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guides" 
    description="Troubleshooting Guide for Azure Mobile Engagement" 
    services="mobile-engagement" 
@@ -29,7 +29,7 @@ In general, you should always ensure the following:
 2. You are using the latest version of the platform SDKs. 
 3. Test on both an actual device and an emulator because some issues are specific to emulator only. 
 4. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](azure-subscription-service-limits.md)
-5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/en-us/status/)
+5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/status/)
 
 ## 'Monitor' issues
 
