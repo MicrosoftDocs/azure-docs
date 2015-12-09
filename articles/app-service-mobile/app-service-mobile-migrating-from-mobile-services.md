@@ -98,7 +98,9 @@ To migrate your site:
   1.  Log onto the [Azure Classic Portal].
   2.  Select your Mobile Service.
   3.  Click on the **Migrate to App Service** button.
+
     ![The Migrate Button][0]
+
   4.  Read the Migrate to App Service dialog.
   5.  Enter the name of your Mobile Service in the box provided.  For example, if your domain name is contoso.azure-mobile.net, then enter _contoso_ in the box provided.
   6.  Click on the tick button.
