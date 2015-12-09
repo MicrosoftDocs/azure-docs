@@ -249,6 +249,8 @@ The code in ContactsList.API that calls CompanyContacts.API is commented out for
 
 	![](./media/app-service-api-dotnet-service-principal-auth/contactspagewithdavolio.png)
 
+As was true in the previous tutorial, you can also set up the Visual Studio projects with localhost SSL URLs and run the application locally. In that case, you can store in the Web.config file the settings that you stored in Azure for running in Azure (client ID, client secret, etc.).  However, be careful not to check in to source control a Web.config file that has sensitive information such as the client secret. For more information, see [Best practices for deploying passwords and other sensitive data to ASP.NET and Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+
 ## Protect the API app from browser access
 
 For this tutorial you used the Express option in the Azure portal to set up AAD authentication for the API app that you want to access by using service principal authentication. By default, App Service configures the new AAD application in a way that enables a user to go to the API app's URL in a browser and log on. That means it's possible for an end user, not just a service principal, to access the API. If you only want a service principal to have access to the API, you can prevent browser access by changing the **Reply URL** in the AAD application so that it's different from the API app's base URL. 
