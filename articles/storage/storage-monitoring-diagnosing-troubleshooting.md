@@ -123,7 +123,7 @@ The remainder of this section describes what metrics you should monitor and why.
 
 You can use the [Azure Portal](portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
-The [Azure Portal](portal.azure.com) can also provide with notifications of incidents that affect the various Azure services.
+The [Azure Portal](portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
 Note: This information was previously available, along with historical data, on the Azure Service Dashboard at <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
 While the [Azure Portal](portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, and Application Insights for Visual Studio Team Services are examples of this outside-in approach. For more information about Application Insights for Visual Studio Team Services, see the appendix "[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]."
@@ -150,7 +150,7 @@ The "[Troubleshooting guidance]" section of this guide describes some common sto
 
 To monitor the performance of the storage services, you can use the following metrics from the hourly and minute metrics tables.
 
-- The values in the **AverageE2ELatency** and **AverageServerLatency** show the average time the storage service or API operation type is taking to process requests. **AverageE2ELatency** is a measure of end-to-end latency that includes the time taken to read the request and send the response in addition to the time taken to process the request (therefore includes network latency once the request reaches the storage service); **AverageServerLatency** is a measure of just the processing time and therefore excludes any network latency related to communicating with the client. See the section "[Metrics show high AverageE2ELatency and low AverageServerLatency]" later in this guide for a discussion of why there might be a significant difference between these two values.
+- The values in the **AverageE2ELatency** and **AverageServerLatency** columns show the average time the storage service or API operation type is taking to process requests. **AverageE2ELatency** is a measure of end-to-end latency that includes the time taken to read the request and send the response in addition to the time taken to process the request (therefore includes network latency once the request reaches the storage service); **AverageServerLatency** is a measure of just the processing time and therefore excludes any network latency related to communicating with the client. See the section "[Metrics show high AverageE2ELatency and low AverageServerLatency]" later in this guide for a discussion of why there might be a significant difference between these two values.
 - The values in the **TotalIngress** and **TotalEgress** columns show the total amount of data, in bytes, coming in to and going out of your storage service or through a specific API operation type.
 - The values in the **TotalRequests** column show the total number of requests that the storage service of API operation is receiving. **TotalRequests** is the total number of requests that the storage service receives.
 
@@ -365,7 +365,7 @@ Note that the storage service only calculates the metric **AverageE2ELatency** f
 
 #### Investigating client performance issues
 
-Possible reasons for the client responding slowly include having a limited number of available connections or threads. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
+Possible reasons for the client responding slowly include having a limited number of available connections or threads, or being low on resources such as CPU, memory or network bandwidth. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
 For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information see the post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> on the Microsoft Azure Storage Team Blog. You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
@@ -389,7 +389,13 @@ For more information about using Microsoft Message Analyzer to troubleshoot netw
 
 In this scenario, the most likely cause is a delay in the storage requests reaching the storage service. You should investigate why requests from the client are not making it through to the blob service.
 
-Possible reasons for the client delaying sending requests include having a limited number of available connections or threads. You should also check if the client is performing multiple retries, and investigate the reason if this is the case. You can do this programmatically by looking in the **OperationContext** object associated with the request and retrieving the **ServerRequestId** value. For more information, see the code sample in the section "[Server request ID]."
+One possible reason for the client delaying sending requests is that there are a limited number of available connections or threads. 
+
+You should also check whether the client is performing multiple retries, and investigate the reason if this is the case. To determine whether the client is performing multiple retries, you can:
+
+- Examine the Storage Analytics logs. If multiple retries are happening, you will see multiple operations with the same client request ID but with different server request IDs.
+- Examine the client logs. Verbose logging will indicate that a retry has occurred.
+- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID]. 
 
 If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark or Microsoft Message Analyzer to investigate network issues.
 
@@ -405,7 +411,7 @@ If you are seeing high **AverageServerLatency** for blob download requests when 
 
 High **AverageServerLatency** values can also be a symptom of poorly designed tables or queries that result in scan operations or that follow the append/prepend anti-pattern. See "[Metrics show an increase in PercentThrottlingError]" for more information.
 
-> [AZURE.NOTE] You can find a comprehensive checklist including other issues to be aware here: "[Designing Scalable and Performant Storage Based Applications Checklist](storage-performance-checklist.md)."
+> [AZURE.NOTE] You can find a comprehensive checklist including other issues to be aware here: [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>You are experiencing unexpected delays in message delivery on a queue
 
@@ -483,7 +489,7 @@ In this scenario, you should investigate why the SAS token is expiring before th
 
 - Typically, you should not set a start time when you create a SAS for a client to use immediately. If there are small clock differences between the host generating the SAS using the current time and the storage service, then it is possible for the storage service to receive a SAS that is not yet valid.
 - You should not set a very short expiry time on a SAS. Again, small clock differences between the host generating the SAS and the storage service can lead to a SAS apparently expiring earlier than anticipated.
-- Does the version parameter in the SAS key (for example **sv=2012-02-12**) match the version of the Storage Client Library you are using. You should always use the latest version of the Storage Client Library. For more information on SAS token versioning and dependencies on client library version see <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">What's new for Microsoft Azure Storage</a>.
+- Does the version parameter in the SAS key (for example **sv=2015-04-05**) match the version of the Storage Client Library you are using? We recommend that you always use the latest version of the [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/). For more information on SAS token versioning and dependencies on client library version see [What's new for Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 - If you regenerate your storage access keys, this can invalidate any existing SAS tokens. This may be an issue if you generate SAS tokens with a long expiry time for client applications to cache.
 
 If you are using the Storage Client Library to generate SAS tokens, then it is easy to build a valid token. However, if you are using the Storage REST API and constructing the SAS tokens by hand you should carefully read the topic <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegating Access with a Shared Access Signature</a> on MSDN.
