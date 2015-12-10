@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Register a Microsoft managed API or an IT managed API
@@ -24,11 +24,11 @@ Using the IT managed APIs, you control and monitor everything, including memory,
 
 To use the **Microsoft managed** or **IT managed** APIs, you must "register" the APIs in the Azure portal. Once registered, you can use these APIs in your apps. The following options are available: 
 
-- Register a Microsoft managed API or an IT managed API
-- Register an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md)
-- Register using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md)
+- Register a pre-built Microsoft managed API or an IT managed API (in this topic).
+- Register a web app, API app, and mobile app hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+- Register one of your own Swagger APIs using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
-This article focuses on **registering Microsoft managed APIs and the IT managed APIs**. 
+This article focuses on **registering pre-built Microsoft managed APIs and the IT managed APIs**. 
 
 #### Prerequisites to get started
 
@@ -128,8 +128,11 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 
 In this topic, you've seen how to register your own instance of the available APIs that PowerApps provides out-of-box. Here are some related topics and resources for learning more about PowerApps:  
 
-- [Configure APIs](powerapps-configure-apis.md)
-- [Add a new API](powerapps-register-from-available-apis.md)
+
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 

@@ -243,17 +243,20 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 	5. For the **linkedServiceName**, specify **HDInsightStorageLinkedService** that you had created in the Get started tutorial. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		Note that the **type** of linked service is set to **HDInsightOnDemandLinkedService**.
+		Note that the **type** of linked service is set to **HDInsightOnDemand**.
 
 2. Click **Deploy** on the command bar to deploy the linked service.
    
@@ -321,7 +324,8 @@ In this step, you will create the following pipelines:
         "isPaused": false
 
 	Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
- 
+ 	
+	If you are using On-demand HDInsight linked service, set **linkedServiceName** property to **HDInsightOnDemandLinkedService**.
 3. Click **Deploy** on the toolbar to create and deploy the pipeline. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 4. Repeat steps 1-3 with the content from the following files: 
 	1. EnrichGameLogsPipeline.json
@@ -355,11 +359,7 @@ In this step, you will create the following pipelines:
 
 		![Monitoring Startboard][image-data-factory-monitoring-startboard]
 
-	2. Click **BROWSE** hub, and click **Everything**.
-	 	
-		![Monitoring Hub Everything][image-data-factory-monitoring-hub-everything]
-
-		In the **Browse** blade, select **Data factories** and select **LogProcessingFactory** in the **Data factories** blade.
+	2. Click **BROWSE**, in the **Browse** blade, select **Data factories** and select **LogProcessingFactory** in the **Data factories** blade.
 
 		![Monitoring Browse Datafactories][image-data-factory-monitoring-browse-datafactories]
 2. You can monitor your data factory in several ways. You can start with pipelines or data sets. Let’s start with Pipelines and drill further. 
