@@ -130,7 +130,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 4.	In few minutes after the job is started, the output container is created and a CSV file uploaded into it.  
 5.	Double clicking on the file will open the default CSV editor and should show something as below:  
 
-    ![stream analytics machine learning tutorial csv view](./media/sstream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+    ![stream analytics machine learning tutorial csv view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ## Conclusion
 
@@ -142,4 +142,4 @@ The Azure Machine Language function related metrics are also able to be observed
 - FUNCTION EVENTS indicates the number of events in the request – By default, each request to ML web service contains up to 1000 events.  
 - FAILED FUNCTION REQUESTS indicates number of failed requests to machine learning web service.  
 
-    ![stream analytics machine learning tutorial ml monitor view](./media/sstream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)  
+    ![stream analytics machine learning tutorial ml monitor view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)  

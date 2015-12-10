@@ -25,7 +25,7 @@ This release contains the following update.
 Title | Description
 ---|---
 REST API version update | The REST API version has been updated to 2015-10-01. Details can be found on MSDN at [Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx).
-Azure Machine Learning Integration | With this release comes support for Azure Machine Learning user defined functions. A tutorial can be found [here](https://azure.microsoft.com/documentation/articles/stream-analytics-machine-learning-tutorial/) as well as the general blog announcement [here](http://blogs.msdn.com/b/streamanalytics/).
+Azure Machine Learning Integration | With this release comes support for Azure Machine Learning user defined functions. A tutorial can be found [here](stream-analytics-machine-learning-tutorial.md) as well as the general blog announcement [here](http://blogs.msdn.com/b/streamanalytics/).
 
 ## Notes for 11/12/2015 release of Stream Analytics ##
 
