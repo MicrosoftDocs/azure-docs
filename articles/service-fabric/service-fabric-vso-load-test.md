@@ -94,7 +94,7 @@ A load test project is composed of one or more scenarios described by the Web Pe
 1. In the **Run Settings** section, specify the load test duration.
     >[AZURE.NOTE] The **Test Iterations** option is available only when you run load test locally using Visual Studio.
 
-1. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Servicesaccount. Log in using your Team Servicesaccount, and then choose a geographic location. When you're done, choose the **Finish** button.
+1. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in using your Team Services account, and then choose a geographic location. When you're done, choose the **Finish** button.
 
 1. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 
@@ -124,7 +124,7 @@ See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](h
 
 ## Automate your Load Test
 
-Visual Studio Team Services Load Test provides APIs to enable you to manage load tests and analyze results in a Team Servicesaccount. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
+Visual Studio Team Services Load Test provides APIs to enable you to manage load tests and analyze results in a Team Services account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
 
 ## Next Steps
 - [Monitoring and Diagnosing Services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
