@@ -57,7 +57,7 @@ To create or perform any of the supported tasks in Generic SQL connector, you mu
 
 For the ports required for the ODBC driver to work, please consult the database vendor's documentation.
 
-## Create Connector
+## Create a new Connector
 
 To Create a Generic SQL connector, in **Synchronization Service** select **Management Agent** and **Create**. Select the **Generic SQL (Microsoft)** Connector.
 

@@ -41,7 +41,7 @@ The execution policy on the Synchronization Service server must be configured to
 
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-## Create Connector
+## Create a new Connector
 
 To create a Windows PowerShell connector in the synchronization service, you must provide a series of Windows PowerShell scripts that execute the steps requested by the synchronization service. Depending on the data source, you will connect to and the functionality you require, the scripts you must implement will vary. This section outlines each of the scripts that can be implemented as well as when they are required.
 

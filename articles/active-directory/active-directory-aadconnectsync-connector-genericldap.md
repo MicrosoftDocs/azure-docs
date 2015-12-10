@@ -137,7 +137,7 @@ The following LDAP features are not supported:
 
 - LDAP referrals between servers (RFC 4511/4.1.10)
 
-## Create Connector
+## Create a new Connector
 
 To Create a Generic LDAP connector, in **Synchronization Service** select **Management Agent** and **Create**. Select the **Generic LDAP (Microsoft)** Connector.
 
