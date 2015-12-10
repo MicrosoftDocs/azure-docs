@@ -6,7 +6,8 @@
 	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+/>
 
 <tags 
 	ms.service="stream-analytics" 
@@ -15,7 +16,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+	ms.author="jeffstok"
+/>
 
 
 # How to add streaming data inputs to Stream Analytics jobs

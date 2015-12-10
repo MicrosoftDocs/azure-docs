@@ -3,7 +3,7 @@
     description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Online."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 

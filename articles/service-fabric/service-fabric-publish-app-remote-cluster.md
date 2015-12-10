@@ -3,7 +3,7 @@
     description="Learn about the steps needed to publish an application to a remote service fabric cluster by using Visual Studio."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 

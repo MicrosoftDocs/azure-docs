@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/08/2015" 
 	ms.author="mandia"/>
 
 
@@ -23,11 +23,11 @@ Azure BizTalk Services includes Backup and Restore capabilities. This topic desc
 
 You can also back up BizTalk Services using the [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
+> [AZURE.NOTE] Hybrid Connections are NOT backed up, regardless of the Edition. You must recreate your hybrid connections.
+
 ## Before you Begin
 
 - Backup and Restore may not be available for all editions. See [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md).
-
-	**Note**  Hybrid Connections are NOT backed up, regardless of the Edition.
 
 - Using the Azure classic portal, you can create an On Demand backup or create a scheduled backup. 
 

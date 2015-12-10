@@ -40,9 +40,9 @@ You must first complete the [Xamarin.Forms quickstart tutorial](app-service-mobi
 
 ##Add authentication to the portable class library 
 
-Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache data. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support can implement this interface in the platform specific project. 
+Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache data. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support will implement this interface in the platform specific project. 
 
-You will add a new button to the portable class library. The user will need to click this button to authenticate after the app starts. 
+You will also update the user interface defined in the portable class library, adding a login button. The user will need to click this button to authenticate after the app starts. 
 
 1. In Visual Studio or Xamarin Studio, open App.cs from the **portable** project. Add the following `using` statement to the file.
 
@@ -87,7 +87,7 @@ You will add a new button to the portable class library. The user will need to c
                 await RefreshItems(true, syncItems: false);
         }
 
-6. In TodoList.xaml.cs, at the to of the constructor for the `TodoList` class define the following login button and click handler...
+6. In TodoList.xaml.cs, at the top of the constructor for the `TodoList` class define the following login button and click handler...
 
         public TodoList()
         {
@@ -398,19 +398,20 @@ In this section you will add authentication for the WinPhone81 project. If you a
 
 7. On Windows Phone you need to additionally complete the login. Open App.xaml.cs and add the following `using` statement and code to the `OnActivated` handler in the `App` class.
 
-	` using Microsoft.WindowsAzure.MobileServices; `
+	```
+		using Microsoft.WindowsAzure.MobileServices;
+	```
 
-
-	       protected override void OnActivated(IActivatedEventArgs args)
-	        {
-	            base.OnActivated(args);
-	
-	            if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
-	            {
-	                var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
-	                client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
-	            }
-	        }
+		protected override void OnActivated(IActivatedEventArgs args)
+		{
+		    base.OnActivated(args);
+		
+		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+		    {
+		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
+		        client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
+		    }
+		}
 
 
 

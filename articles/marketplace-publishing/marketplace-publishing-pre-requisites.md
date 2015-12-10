@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="12/06/2015"
   ms.author="hascipio; v-divte"/>
 
 # General prerequisites for creating an offer for the Azure Marketplace
@@ -29,13 +29,13 @@ For detailed instructions on registering a seller account with Microsoft, go to 
 
 > [AZURE.IMPORTANT] You do not have to complete company tax and bank information if you are planning to publish only free offers (or bring your own license).
 
-> The company registration must be completed to get started. However, while your company works on the tax and bank information in the Seller Dashboard account, the developers can start working on creating the virtual machine image in the [publishing portal](https://publish.windowsazure.com), getting it certified, and testing it in the Azure staging environment. You will need the complete seller account approval only for the final step of publishing your offer to the Azure Marketplace.
+> The company registration must be completed to get started. However, while your company works on the tax and bank information in the Microsoft Developer account, the developers can start working on creating the virtual machine image in the [publishing portal](https://publish.windowsazure.com), getting it certified, and testing it in the Azure staging environment. You will need the complete seller account approval only for the final step of publishing your offer to the Azure Marketplace.
 
 > If you have issues with completing the seller registration, log a support ticket as below:
-1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975).
-2. Choose **Seller Dashboard registration and your account**.
-3. Choose **Registering for a developer account**.
-4. Choose the contact method.
+> 1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
+> 2. Choose **Developer Center**.
+> 3. Choose **Publisher Profile**.
+> 4. Choose the contact method.
 
 
 ## Acquire an Azure "pay-as-you-go" subscription
