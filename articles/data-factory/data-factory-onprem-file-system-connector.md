@@ -52,13 +52,15 @@ As a first step, do setup the data management gateway as per the instructions in
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+For host, you can specify **Local** or **localhost** if the file share is on the gateway machine itself. And, we recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties.  See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
 
 **Azure Blob storage linked service:**
 
@@ -84,7 +86,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -146,7 +148,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -273,13 +275,15 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+For host, you can specify **Local** or **localhost** if the file share is on the gateway machine itself. And, we recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties.  See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
 
 **Azure SQL input dataset:**
 
@@ -320,7 +324,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	    "type": "FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -431,7 +435,7 @@ type | The type property should be set to **OnPremisesFileServer** | Yes
 host | Host name of the server. Use ‘ \ ’ as the escape character as in the following example: if your share is: \\servername, specify \\\\servername.<p>If the file system is local to the gateway machine, use Local or localhost. If the file system is on a server different from the gateway machine, use \\\\servername.</p> | Yes
 userid  | Specify the ID of the user who has access to the server | No (if you choose encryptedCredential)
 password | Specify the password for the user (userid) | No (if you choose encryptedCredential 
-encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
+encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureRmDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises File System data source.
