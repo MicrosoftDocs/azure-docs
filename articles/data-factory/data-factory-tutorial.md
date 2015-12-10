@@ -243,17 +243,20 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 	5. For the **linkedServiceName**, specify **HDInsightStorageLinkedService** that you had created in the Get started tutorial. 
 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.2",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
+			    "name": "HDInsightOnDemandLinkedService",
+			    "properties": {
+			        "type": "HDInsightOnDemand",
+			        "description": "",
+			        "typeProperties": {
+			            "clusterSize": "4",
+			            "timeToLive": "00:30:00",
+			            "version": "3.2",
+			            "linkedServiceName": "StorageLinkedService"
+			        }
+			    }
 			}
 
-		Note that the **type** of linked service is set to **HDInsightOnDemandLinkedService**.
+		Note that the **type** of linked service is set to **HDInsightOnDemand**.
 
 2. Click **Deploy** on the command bar to deploy the linked service.
    
