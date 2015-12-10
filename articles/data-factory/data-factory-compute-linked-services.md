@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="12/10/2015"
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -103,14 +103,15 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	        "templeton.mapper.memory.mb": "5000"
 	      },
 	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx8000m",
-	        "mapreduce.map.java.opts": "-Xmx8000m",
+	        "mapreduce.reduce.java.opts": "-Xmx4000m",
+	        "mapreduce.map.java.opts": "-Xmx4000m",
 	        "mapreduce.map.memory.mb": "5000",
 	        "mapreduce.reduce.memory.mb": "5000",
 	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
 	      },
 	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000"
+	        "yarn.app.mapreduce.am.resource.mb": "5000",
+	        "mapreduce.map.memory.mb": "5000"
 	      },
 	      "additionalLinkedServiceNames": [
 	        "datafeeds",
