@@ -53,7 +53,7 @@ At a high level, the following steps will be performed:
 
 ## Upload the CSV input file to Blob Storage
 
-For this step you can use any CSV file including the one specified in the introduction. To upload the file, [Azure Storage Explorer](http://storageexplorer.com/ "Azure Storage Explorer") or Visual Studio may be used as well as custom code. For this tutorial examples are provided for Visual Studio.
+For this step you can use any CSV file including the one specified in the introduction. To upload the file, [Azure Storage Explorer](http://storageexplorer.com/) or Visual Studio may be used as well as custom code. For this tutorial examples are provided for Visual Studio.
 
 1.	Expand Azure and right click on the **Storage**. Choose **Attach External Storage** and provide **Account Name** and **Account Key**.  
 
@@ -61,7 +61,7 @@ For this step you can use any CSV file including the one specified in the introd
 
 2.	Expand the storage you just attached and choose **Create Blob Container** and provide a logical name. Once created, double click on the container to view its contents (which will be empty at this point).  
 
-    ![stream-analytics machine learning tutorial create blob](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-tutorial-create-blob.png)  
+    ![stream-analytics machine learning tutorial create blob](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)  
 
 3.	Upload the CSV file by clicking the **Upload Blob** icon and then choose **file from the local disk**.  
 
@@ -101,21 +101,21 @@ Take note of the web service URL and access key from the downloaded excel as sho
 5.	On the **Blob Storage Settings** page of the wizard provide the storage account blob container name defined earlier when the data was uploaded. Click **next**. Choose **CSV** as **Event Serialization Format**. Accept the defaults for the rest of the **Serialization settings**. Click **OK**.  
 6.	Navigate to the **Outputs** tab and click **Add an Output**.  
 
-    ![stream analytics machine learning tutorial add output](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)  
+    ![stream analytics machine learning tutorial add output](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)  
 
 7.	Choose **Blob Storage** and provide the same parameters with the exception of the container. The **Input** was configured to read from the container named “test” where the **CSV** file was uploaded. For the **Output**, put “testoutput”. The container names need to be different, and verify this container exists.     
 8.	Click **Next** to configure output’s **Serialization settings**. As with Input, choose **CSV** and click the **OK** button.
 9.	Navigate to **Functions** tab and click **Add a Machine Learning Function**.  
 
-    ![stream analytics machine learning tutorial add machine learning function](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)  
+    ![stream analytics machine learning tutorial add machine learning function](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)  
 
 10.	On the **Machine Learning Web Service Settings** page, locate the Machine Learning workspace, web service and the default endpoint. For this tutorial, apply the settings manually to gain familiarity with configuring a web service for any workspace as long as you know the URL and you have the KEY. Supply the endpoint **URL** and **API key**. Then click **OK**.    
 
-    ![stream analytics machine learning tutorial machine learning web service](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
+    ![stream analytics machine learning tutorial machine learning web service](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
 
 11.	Navigate to **Query** tab and modify the query as below:  
 
-    ![stream analytics machine learning tutorial machine learning query](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)    
+    ![stream analytics machine learning tutorial machine learning query](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)    
 
 12. Click **Save** to save the query.    
 
