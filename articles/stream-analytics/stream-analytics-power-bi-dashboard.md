@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Power BI dashboard on Stream Analytics | Microsoft Azure" 
 	description="Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="analytics dashboard, real-time dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,18 +14,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 	
-# Azure Stream Analytics & Power BI: Live dashboard for analytics in real-time on streaming data
+# Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data
 
-Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI dashboard.
+Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI analytics dashboard.
 
 Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly. [Watch a video illustrating the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). 
 
-In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. 
+In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs and utilize a real-time dashboard.
 
-> [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. At this time, creation and configuration of Power BI outputs is not supported in the Azure Portal.
+> [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
 
 ## Prerequisites ##
 
@@ -35,7 +35,7 @@ In this article, learn how create your own custom business intelligence tools by
 
 ## Create Azure Stream Analytics Job ##
 
-From [Azure Classic Portal](https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
+From [Azure Portal](https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
 
 Specifiy the following values, then click **Create Stream Analytics job**:
 

@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Troubleshoot creating RemoteApp hybrid collections"
-    description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="vkbucha" 
+<properties
+    pageTitle="Troubleshoot creating RemoteApp hybrid collections | Microsoft Azure"
+    description="Learn how to troubleshoot RemoteApp hybrid collection creation failures"
+    services="remoteapp"
+    documentationCenter=""
+    authors="vkbucha"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="11/04/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
     ms.author="elizapo" />
 
 
@@ -37,7 +37,7 @@ After your request is approved, make sure the following ports are opened on the 
 Outbound: TCP: 443, TCP: 10101-10175
 
 ## Does your VNET have network security groups defined? ##
-If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet: 
+If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet:
 
 	https://management.remoteapp.windowsazure.com  
 	https://opsapi.mohoro.com  
@@ -75,7 +75,7 @@ For example:
 ![Define your DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
 ## Are you using an Active Directory domain controller in your collection? ##
-Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. 
+Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration.
 
 See [Configuring Active Directory for Azure RemoteApp](remoteapp-ad.md) for more information.
 
@@ -84,4 +84,3 @@ Make sure the domain details provided are valid and the domain controller is rea
 ## What domain name did you specify when you created your collection? ##
 
 The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local). For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.
-

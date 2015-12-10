@@ -145,7 +145,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
 
     This code retrieves the channel URI for the app from WNS, and then registers that channel URI with your notification hub.
 
-    >[AZURE.NOTE]Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example). Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained in the previous section.
+    >[AZURE.NOTE]Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the [Azure Classic Portal] on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example). Also replace the connection string placeholder with the **DefaultListenSharedAccessSignature** connection string that you obtained in the previous section.
 
 5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
@@ -173,7 +173,7 @@ Your app is now ready to receive toast notifications.
 
 ##Send notifications 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -230,7 +230,7 @@ To send notifications by using a .NET console application follow these steps.
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your notification hub."
+   	Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the [Azure Classic Portal] on the **Notification Hubs** tab. Also, replace the connection string placeholder with the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your notification hub."
 
 	>[AZURE.NOTE]Make sure that you use the connection string that has **Full** access, not **Listen** access. The listen-access string does not have permissions to send notifications.
 
@@ -275,7 +275,7 @@ To learn more general information about Notification Hubs, see [Notification Hub
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md

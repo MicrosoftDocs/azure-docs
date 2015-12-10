@@ -55,10 +55,103 @@ Before you can send push notifications to your Windows apps from Azure, you must
 
 ##<a id="update-service"></a>Update the server to send push notifications
 
-Now that push notifications are enabled in the app, you must update your app backend to send push notifications. 
+Now that push notifications are enabled in the app, you must update your app backend to send push notifications. Use the procedure below that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
 
-[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
+### <a name="dotnet"></a>.NET backend project
 
+1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for Microsoft.Azure.NotificationHubs, then click **Install**. This installs the Notification Hubs client library.
+
+2. Expand **Controllers**, open TodoItemController.cs, and add the following using statements:
+
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+
+3. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**: 
+
+	    // Get the settings for the server project.
+	    HttpConfiguration config = this.Configuration;
+	    MobileAppSettingsDictionary settings =
+	        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+	
+	    // Get the Notification Hubs credentials for the Mobile App.
+	    string notificationHubName = settings.NotificationHubName;
+	    string notificationHubConnection = settings
+	        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+	
+	    // Create the notification hub client.
+	    NotificationHubClient hub = NotificationHubClient
+	        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+	
+	    // Define a WNS payload
+	    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
+	                            + item.Text + @"</text></binding></visual></toast>";
+	    try
+	    {
+	        // Send the push notification.
+	        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+	
+	        // Write the success result to the logs.
+	        config.Services.GetTraceWriter().Info(result.State.ToString());
+	    }
+	    catch (System.Exception ex)
+	    {
+	        // Write the failure result to the logs.
+	        config.Services.GetTraceWriter()
+	            .Error(ex.Message, null, "Push.SendAsync Error");
+	    }
+	
+	This code tells the notification hub to send a push notification after a new item is insertion.
+
+### <a name="nodejs"></a>Node.js backend project
+
+1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+
+2. Replace the existing code in the todoitem.js file with the following:
+
+		var azureMobileApps = require('azure-mobile-apps'),
+	    promises = require('azure-mobile-apps/src/utilities/promises'),
+	    logger = require('azure-mobile-apps/src/logger');
+	
+		var table = azureMobileApps.table();
+		
+		table.insert(function (context) {
+	    // For more information about the Notification Hubs JavaScript SDK,  
+	    // see http://aka.ms/nodejshubs
+	    logger.info('Running TodoItem.insert');
+	    
+	    // Define the WNS payload that contains the new item Text.
+	    var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
+		                            + context.item.text + "</text></binding></visual></toast>";
+	    
+	    // Execute the insert.  The insert returns the results as a Promise,
+	    // Do the push as a post-execute action within the promise flow.
+	    return context.execute()
+	        .then(function (results) {
+	            // Only do the push if configured
+	            if (context.push) {
+					// Send a WNS native toast notification.
+	                context.push.wns.sendToast(null, payload, function (error) {
+	                    if (error) {
+	                        logger.error('Error while sending push notification: ', error);
+	                    } else {
+	                        logger.info('Push notification sent successfully!');
+	                    }
+	                });
+	            }
+	            // Don't forget to return the results from the context.execute()
+	            return results;
+	        })
+	        .catch(function (error) {
+	            logger.error('Error while running context.execute: ', error);
+	        });
+		});
+
+		module.exports = table;  
+
+	This sends a WNS toast notification that contains the item.text when a new todo item is inserted.
+
+2. When editing the file in your local computer, republish the server project. 
 
 ## <a name="publish-the-service"></a>Publish the mobile backend to Azure
 
@@ -75,10 +168,12 @@ Now that push notifications are enabled in the app, you must update your app bac
     
         private async Task InitNotificationsAsync()
         {
+            // Get a channel URI from WNS.
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            // Register the channel URI with Notification Hubs.
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.
@@ -92,7 +187,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 			// ...
 		}
 
-    This guarantees that the short-lived ChannelURI is registered each time the application is launched.
+    This guarantees that the short-lived ChannelURI is registered each time the application is launched. 
 
 4. In Solution Explorer double-click **Package.appxmanifest** of the Windows Store app, in **Notifications**, set **Toast capable** to **Yes**.
 
@@ -106,9 +201,6 @@ Your app is now ready to receive toast notifications.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-##Next steps
-
-Finally, the tutorial [Send cross-platform notifications to a specific user](app-service-mobile-windows-store-dotnet-push-notifications-to-users.md) will show you how to send a push notification to all device registrations that belong to a specific authenticated user, on any device platform.
 
 ##<a id="more"></a>More
 

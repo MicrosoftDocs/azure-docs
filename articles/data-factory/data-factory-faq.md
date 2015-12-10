@@ -132,11 +132,11 @@ In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 repres
 You can rerun a slice in one of the following ways: 
 
 - Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the portal. 
-- Run **Set-AzureDataFactorySliceStatus** cmdlet with Status set to **PendingExecution** for the slice.   
+- Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **PendingExecution** for the slice.   
 	
-		Set-AzureDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
-See [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet. 
+See [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet. 
 
 ### How long did it take to process a slice?
 1. Click **Datasets** tile on the **DATA FACTORY** blade for your data factory.
@@ -147,7 +147,7 @@ See [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] for de
 6. You should see the **DURATION** field with a value. This is the time taken to process the slice.   
 
 ### How to stop a running slice?
-If you need to stop the pipeline from executing, you can use [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
+If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
 
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline. 
 
@@ -169,7 +169,7 @@ If you really want to stop all the executions immediately, the only way would be
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx 
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
+[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

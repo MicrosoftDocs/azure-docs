@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/16/2015"
+   ms.date="12/06/2015"
    ms.author="seanmck"/>
 
 # Your Service Fabric application and next steps
@@ -58,6 +58,10 @@ Service Fabric provides integration with ASP.NET 5 for building web-based entry 
 
 ### Create an Azure cluster
 The Service Fabric SDK provides a local cluster for development and testing. To create a cluster in Azure, see [Setting up a Service Fabric Cluster from the Azure Portal][create-cluster-in-portal]
+
+### Try deploying to Azure for free with party clusters
+
+If you'd like to try deploying and managing applications in Azure without setting up your own clusters, you can use the free [party cluster service](http://aka.ms/tryservicefabric).
 
 ### Publish your application to Azure
 You can publish your application directly from Visual Studio to an Azure cluster. To learn how, see [Publishing your application to Azure][publish-app-to-azure].

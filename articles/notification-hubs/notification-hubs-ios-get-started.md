@@ -157,7 +157,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 ## Send notifications
 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
 
 ![][30]
 
@@ -446,7 +446,7 @@ To test push notifications on iOS, you must deploy the app to a device. You cann
 
 	![][33]
 
-2. You can send a test notification from the Azure portal. If you added code for sending the notification in the app, touch inside the text field to enter a notification message. Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.
+2. You can send a test notification from the [Azure Classic Portal]. If you added code for sending the notification in the app, touch inside the text field to enter a notification message. Then press the **Send** button on the keyboard or the **Send Notification** button in the view to send the notification message.
 
 	![][34]
 
@@ -493,7 +493,7 @@ For more general information about Notification Hubs, see [Notification Hubs Gui
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
