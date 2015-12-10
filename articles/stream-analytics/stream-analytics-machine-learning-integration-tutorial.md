@@ -17,7 +17,7 @@
 	ms.workload="data-services" 
 	ms.date="12/10/2015" 
 	ms.author="jeffstok"
-/>
+/> 
 
 # Tutorial: Introduction to Stream Analytics and Machine Learning integration #
 
