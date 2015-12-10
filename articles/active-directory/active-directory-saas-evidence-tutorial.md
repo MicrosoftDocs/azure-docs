@@ -32,7 +32,7 @@ This section outlines how to add Evidence.com as an integrated application in Az
 
 **To enable the application integration for Evidence:**
 
-1.	In the [Azure clasic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
+1.	In the [Azure classic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
 2.	From the **Directory** list, select the directory for which you want to enable directory integration.
 
@@ -51,7 +51,7 @@ This section outlines how to enable users to authenticate to Evidence.com with t
 
 **To configure single sign-on, perform the following steps:**
 
-1.	After adding Evidence.com in the Windows Azure management portal, click **Configure Single Sign-On**. 
+1.	After adding Evidence.com in the Azure classic portal, click **Configure Single Sign-On**. 
  
 2.	On the next screen, select **Azure AD Single Sign-On**, and then click **Next**.
 
@@ -95,11 +95,11 @@ For Azure AD users to be able to sign in, they must be provisioned for access in
 
 ## Assigning users to Evidence.com
 
-For provisioned AAD users to be able to see Evidence.com on their Access Panel, they must be assigned access inside the Azure management portal.
+For provisioned AAD users to be able to see Evidence.com on their Access Panel, they must be assigned access inside the Azure classic portal.
 
 **To assign users to Evidence.com:**
 
-1.	On the quick start page for Evidence.com in the Azure classic portal, click **Assign users to Evidence**.
+1.	On the quick start page for Evidence.com in the Azure classic portal, click **Assign users to Evidence.com**.
  
 2.	In the **Show** menu, select whether you want to assign a user or a group to Evidence.com, and click the Checkmark button.
  
