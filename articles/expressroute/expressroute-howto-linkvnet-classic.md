@@ -16,7 +16,7 @@
    ms.date="11/02/2015"
    ms.author="cherylmc" />
 
-# Linking VNets to ExpressRoute circuits
+# Linking Virtual Network to ExpressRoute circuits
 
 > [AZURE.SELECTOR]
 - [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
