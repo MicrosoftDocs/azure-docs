@@ -70,7 +70,7 @@ For this step you can use any CSV file including the one specified in the introd
 1.	Download the [predictive sentiment analytics model](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) in Cortana Analytics Gallery.  
 2.	Click **Open** in the Studio:  
 
-    ![stream analytics machine learning tutorial open machine learning studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-tutorial-open-ml-studio.png)  
+    ![stream analytics machine learning tutorial open machine learning studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3.	Sign in to be taken to the workspace. Choose the location that best suits your location.
 4.	Now click on **Run** at the bottom of the Studio  
@@ -79,11 +79,11 @@ For this step you can use any CSV file including the one specified in the introd
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`  
 
-    ![stream analytics machine learning tutorial analysis data](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-tutorial-analysis-data.png)  
+    ![stream analytics machine learning tutorial analysis data](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)  
 
 Click on the **Excel 2010 or earlier** workbook link to get your API key and the URL that you’ll need later for setting up the Stream Analytics job. (This step is only required to leverage a machine learning model from another Azure account's workspace. This tutorial assumes this is the case to address this scenario)  
 
-    ![stream analytics machine learning tutorial analysis experiment](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-tutorial-analysis-experiement.png)  
+    ![stream analytics machine learning tutorial analysis experiment](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)  
 
 Take note of the web service URL and access key from the downloaded excel as shown below:  
 
@@ -95,27 +95,27 @@ Take note of the web service URL and access key from the downloaded excel as sho
 2.	Click **New**, **Data Services**, **Stream Analytics** and **Quick Create**. Provide the **Job Name**, appropriate **Region** for the job and choose a **Regional Monitoring Storage Account**.    
 3.	Once the job is created, navigate to the **Inputs** tab and click **Add Input**.  
 
-    ![stream analytics machine learning tutorial data add machine learning input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-tutorial-add-input-screen.png)  
+    ![stream analytics machine learning tutorial data add machine learning input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-integration-learning-tutorial-add-input-screen.png)  
 
 4.	On the first page of **Add Input** wizard window select **Data stream** and click next. On the second page select **Blob Storage** as the input and click **next**.  
 5.	On the **Blob Storage Settings** page of the wizard provide the storage account blob container name defined earlier when the data was uploaded. Click **next**. Choose **CSV** as **Event Serialization Format**. Accept the defaults for the rest of the **Serialization settings**. Click **OK**.  
 6.	Navigate to the **Outputs** tab and click **Add an Output**.  
 
-    ![stream analytics machine learning tutorial add output](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-add-output-screen.png)  
+    ![stream analytics machine learning tutorial add output](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-add-output-screen.png)  
 
 7.	Choose **Blob Storage** and provide the same parameters with the exception of the container. The **Input** was configured to read from the container named “test” where the **CSV** file was uploaded. For the **Output**, put “testoutput”. The container names need to be different, and verify this container exists.     
 8.	Click **Next** to configure output’s **Serialization settings**. As with Input, choose **CSV** and click the **OK** button.
 9.	Navigate to **Functions** tab and click **Add a Machine Learning Function**.  
 
-    ![stream analytics machine learning tutorial add machine learning function](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-add-ml-function.png)  
+    ![stream analytics machine learning tutorial add machine learning function](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-add-ml-function.png)  
 
 10.	On the **Machine Learning Web Service Settings** page, locate the Machine Learning workspace, web service and the default endpoint. For this tutorial, apply the settings manually to gain familiarity with configuring a web service for any workspace as long as you know the URL and you have the KEY. Supply the endpoint **URL** and **API key**. Then click **OK**.    
 
-    ![stream analytics machine learning tutorial machine learning web service](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-ml-web-service.png)    
+    ![stream analytics machine learning tutorial machine learning web service](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-web-service.png)    
 
 11.	Navigate to **Query** tab and modify the query as below:  
 
-    ![stream analytics machine learning tutorial machine learning query](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-tutorial-ml-query.png)    
+    ![stream analytics machine learning tutorial machine learning query](./media/stream-analytics-machine-learning-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)    
 
 12. Click **Save** to save the query.    
 
