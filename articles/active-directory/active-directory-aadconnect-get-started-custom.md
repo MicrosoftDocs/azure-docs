@@ -1,5 +1,5 @@
-<properties
-	pageTitle="Custom installation of Azure AD Connect | Microsoft Azure"
+﻿<properties
+	pageTitle="Azure AD Connect: Custom installation | Microsoft Azure"
 	description="This document details the custom installation options for Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -51,7 +51,7 @@ Permissions | By default Azure AD Connect will create four groups local to the s
 
 
 ## User sign-in
-After installing the required components you will be asked to specify how the single sign-on method that users will use.  The table below provides a brief description of the available options.
+After installing the required components you will be asked to specify how the single sign-on method that users will use.  The table below provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-aadconnect-user-signin.md).
 
 ![User Signin](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
@@ -99,7 +99,7 @@ My own attribute|This option allows you to select your own attribute.  **Limitat
 
 - **UserPrincipalName** - The attribute userPrincipalName is the attribute users will use when they login to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. It is strongly recommended to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified then it is possible to select another attribute, for example email, as the attribute holding the login ID.  This is known as **Alternate ID**.  The Alternate ID attribute value must follow the RFC822 standard.  An Alternate ID can be used with both password Single Sign-On (SSO) and federation SSO as the sign-in solution.
 
->[AZURE.WARNING] Using an Alternate ID is not compatible with all Office 365 workloads.  For more information, please refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx.).
+>[AZURE.WARNING] Using an Alternate ID is not compatible with all Office 365 workloads.  For more information, please refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
 
 
 
@@ -247,6 +247,8 @@ In addition, perform the following verification steps:
 
 
 ## Next steps
+After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager or Synchronization Rule Editor.
+
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

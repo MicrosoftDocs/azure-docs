@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="12/06/2015"
    ms.author="v-jeana; hascipio"/>
 
 
@@ -60,7 +60,7 @@ Available problem types are as follows:
   - **Managing Customers**
   - **Managing Offers**
   - **Payouts**
-  - **Seller Dashboard**
+  - **Developer Center**
   - **Other**
 
 ## 4. Request support

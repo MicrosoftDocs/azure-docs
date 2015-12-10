@@ -1,10 +1,10 @@
-<properties
+﻿<properties
    pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Online (VSO)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
@@ -125,7 +125,7 @@ Note that the build definition you create from these instructions doesn't suppor
 
 ### Install Service Fabric SDK
 
-Install the [Service Fabric SDK](https://azure.microsoft.com/en-us/campaigns/service-fabric/).
+Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-fabric/).
 
 ### Register Service Fabric SDK's NuGet repository
 
@@ -282,7 +282,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 2.	Choose **Build** > **MSBuild**.
 3.	Choose the pencil icon next to the build step's name and rename it to **Package**.
 4.	Choose the **…** button next to the **Solution** field and then select your application project's .sfproj file.
-5.	Enter `c` for **Platform**.
+5.	Enter `$(BuildPlatform)` for **Platform**.
 6.	Enter `$(BuildConfiguration)` for **Configuration**.
 7.	Enter `/t:Package` for **MSBuild Arguments**.
 8.	Clear the **Restore NuGet Packages** check box (if it isn't already cleared).

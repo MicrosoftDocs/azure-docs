@@ -68,7 +68,7 @@ The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE an
 
 For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][].
 
-For an example of setting the environment variables in the Azure portal for an Azure Website, see [Node.js Web Application with Storage][].
+For an example of setting the environment variables in the [Azure classic portal][] for an Azure Website, see [Node.js Web Application with Storage][].
 
 ## Create a queue
 
@@ -193,7 +193,7 @@ To learn more, see the following resources.
 -   [Node.js Developer Center](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

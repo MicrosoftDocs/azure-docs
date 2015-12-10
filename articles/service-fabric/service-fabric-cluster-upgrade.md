@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # Upgrading a Service Fabric cluster
@@ -67,6 +67,10 @@ You can update the primary or the secondary certificates easily from the portal 
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Note** Before you identify the certificates you want to use to the cluster resources, you will need to have completed the following steps, else the new certificate will not be used.
+1) upload the new certificate to the keyvault - refer to [Service Fabric Security](service-fabric-cluster-security.md) for instructions - start with step #2 in that document.
+2) update all the Virtual Machines that make up our cluster, so that the certificate get deployed on them. Refer to [this blog post](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) on how to.
+
 ### Application Ports
 
 You can do this by changing the load balancer resource properties associated with the Node Type. you can use the portal or ARM PowerShell directly.
@@ -75,15 +79,17 @@ In order to open a new port on all VMs in a Node type, you need to do the follow
 
 1. **Add a new probe to the appropriate load balancer**
 
- If you have deployed your cluster using the portal, then the load balancer will named "loadBalancer-0" , "loadBalancer-1" and so on, one for each Node Type. Since the load balancer names are unique only with in a resource group (RG), it is best if you searched for them under a given RG.
+    If you have deployed your cluster using the portal, then the load balancer will named "loadBalancer-0" , "loadBalancer-1" and so on, one for each Node Type. Since the load balancer names are unique only with in a resource group (RG), it is best if you searched for them under a given RG.
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **Add a new rule to the the load balancer**
 
-  To the same Load balancer, add a new rule using the probe you created in the previous step.
+    To the same Load balancer, add a new rule using the probe you created in the previous step.
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### Placement Properties
 

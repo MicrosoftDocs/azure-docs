@@ -23,7 +23,8 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 This guide will show how to manage your DNS zone. It will help understanding the sequence of operations to be done in order to administer your DNS zone.
-
+ 
+ 
 ## Create a new DNS zone
 
 To create a new DNS zone to host your domain, use the `azure network dns zone create`:

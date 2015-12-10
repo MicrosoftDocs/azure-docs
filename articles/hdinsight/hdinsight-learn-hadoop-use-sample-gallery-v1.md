@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/11/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Learn Hadoop by using the HDInsight Getting Started Gallery

@@ -71,9 +71,11 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService and Max
 ## Next steps
 
 
-[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
+[Service Fabric Application Upgrade using Visual Studio](service-fabric-application-upgrade.md)
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md)
+[Service Fabric Application Upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
+
+[Manual Upgrade and Upgrading with a Diff Package](service-fabric-application-upgrade-advanced.md)
 
 [Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 

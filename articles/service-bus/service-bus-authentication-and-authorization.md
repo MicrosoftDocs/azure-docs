@@ -45,7 +45,7 @@ SAS authentication support for Service Bus is included in the Azure .NET SDK ver
 
 ## ACS authentication
 
-Service Bus authentication through ACS is managed through a companion “-sb” ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure portal; you must create the namespace using the [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet. For example:
+Service Bus authentication through ACS is managed through a companion “-sb” ACS namespace. If you want a companion ACS namespace to be created for a Service Bus namespace, you cannot create your Service Bus namespace using the Azure classic portal; you must create the namespace using the [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx) PowerShell cmdlet. For example:
 
 ```
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true

@@ -39,11 +39,11 @@ Start with regenerating secondary storage key. By default, the secondary key is 
 
 Update Media Services to use the secondary storage access key. You can use one of the following two methods to synchronize the regenerated storage key with Media Services.
 
-- Use Azure Portal: select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
+- Use the Azure Classic Portal: select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
 
-- Use Media Services management REST API. 
+- Use Media Services management REST API.
 
-	The following code example shows how to construct the https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/en-us/library/azure/dn167656.aspx).
+The following code example shows how to construct the https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{

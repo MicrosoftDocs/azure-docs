@@ -12,28 +12,30 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="09/29/2015"
+    ms.date="12/04/2015"
     ms.author="elizapo" />
 
 # What's coming in Azure RemoteApp
 
 We are always working to improve Azure RemoteApp based on your feedback. Here are rough time lines for future feature availability.
 
-|Feature|Jan-March 2015|Apr-June 2015|July-Sep 2015|Oct-Dec 2015|
-|-----------|-------|-------|-------|-------|
-|RemoteApp PowerShell cmdlets and SDK for deployment and management|X| | | |
-|Create and upload an image from an Azure VM|X| | | |
-|Deploy to a VNET without joining a domain (cloud collection connection to the Azure VMs) ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th))| |X| | |
-|Re-use an existing virtual network for RemoteApp hybrid collection (also enables ExpressRoute) ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
-|ExpressRoute ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
-|Azure RemoteApp available in the new [Azure preview portal](http://azure.microsoft.com/en-us/overview/preview-portal/)| | | |X|
-|Windows 10 Universal Application for Azure RemoteApp Preview| | |X| |
-|Ability to publish individual applications to specific users - **Public Preview** ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | ||X|
-|Windows client redistributable MSI package ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| | ||X|
-
+|Feature|Jan-March 2016|April-March 2016|
+|-----------|-------|-------|
+|Azure Remote App available in both the [Azure classic portal](http://manage.windowsazure.com) and [Azure portal](http://portal.azure.com) |X | |
+|Windows 10 Universal Application for Azure RemoteApp Preview|X| |
+|Ability to publish individual applications to specific users - **Public Preview** ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))|X | |
+|Windows client redistributable MSI package ([feedback](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| X| |
+|HTML5-based client for Azure RemoteApp|X ||
+|Azure Resource Manager (ARM) support||X|
+|Cloud Solution Provider (CSP)||X|
 
 Other improvements added earlier this year:
 
+- Deploy to a VNET without joining a domain (cloud collection connection to the Azure VMs)
+- Re-use an existing virtual network for RemoteApp hybrid collection (also enables ExpressRoute)
+- ExpressRoute
+- RemoteApp PowerShell cmdlets and SDK for deployment and management
+- Create and upload an image from an Azure VM
 - Upload line-of-business (LOB) applications to a cloud collection, as well as in a hybrid collection
 - Support for Windows Phone
 - Usage metrics dashboard

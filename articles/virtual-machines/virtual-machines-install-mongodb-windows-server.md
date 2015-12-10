@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  Using the [Azure portal][AzureManagementPortal], you can create a virtual machine running Windows Server from the Image Gallery, using the classic deployment model. You can then install and configure a MongoDB database on the virtual machine.
+[MongoDB][MongoDB] is a popular open-source, high-performance NoSQL database.  Using the [Azure classic portal][AzurePortal], you can create a virtual machine running Windows Server from the Image Gallery, using the classic deployment model. You can then install and configure a MongoDB database on the virtual machine.
 
 
 ## Create a virtual machine running Windows Server
@@ -49,4 +49,4 @@ In this tutorial, you learned how to create a virtual machine running Windows Se
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzureManagementPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com

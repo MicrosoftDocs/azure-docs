@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Scale Stream Analytics jobs to increase throughput | Microsoft Azure"
 	description="Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="data streaming, streaming data processing, tune analytics"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,15 +14,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
-# Scale Azure Stream Analytics jobs to increase throughput #
+# Scale Azure Stream Analytics jobs to increase stream data processing throughput #
 
-Learn how to calculate *streaming units* for Stream Analytics jobs, and how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units. 
+Learn how to tune analytics jobs and calculate *streaming units* for Stream Analytics, how to scale Stream Analytics jobs by configuring input partitions, tuning the analytics query definition and setting job streaming units. 
 
 ## What are the parts of a Stream Analytics job? ##
-An Azure Stream Analytics job definition includes inputs, a query, and output. Inputs are from where the job reads the data stream, the query is used to transform the data input stream, and the output is where the job sends the job results to.  
+A Stream Analytics job definition includes inputs, a query, and output. Inputs are from where the job reads the data stream, the query is used to transform the data input stream, and the output is where the job sends the job results to.  
 
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md), [Get started using Azure Stream Analytics](stream-analytics-get-started.md), and [Azure Stream Analytics developer guide](../stream-analytics-developer-guide.md).
 

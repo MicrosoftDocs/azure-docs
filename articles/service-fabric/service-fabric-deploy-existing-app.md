@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploy an existing application in Azure Service Fabric | Microsoft Azure"
+   pageTitle="Deploy a custom application to Azure Service Fabric | Microsoft Azure"
    description="Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# Deploy an existing application to Service Fabric
+# Deploy a custom application to Service Fabric
 
 You can run any type of existing application, such as Node.js, Java or native applications in Service Fabric. Service Fabric treats those applications like stateless services and places them on nodes in a cluster based on availability and other metrics. This article describes how to package and deploy an existing application to a Service Fabric cluster.
 
-## Benefits of running an existing application in Service Fabric
+## Benefits of running a custom application in Service Fabric
 
 There are a couple of advantages that come with running the application in Service Fabric Cluster:
 
@@ -46,7 +46,6 @@ Before getting into the details of deploying an existing application, it is usef
 
   The service manifest describes the components of a service. It includes data such as name and type of the service (information that Service Fabric uses to manage the service), its code, configuration and data components plus some additional parameters that can be used to configure the service once it is deployed. We are not going into the details of all the different parameters available in the service manifest, we will go through the subset that is required to make an existing application to run on Service Fabric
 
-For detailed information on the Service Fabric packaging format read [this](service-fabric-develop-your-service-index.md).
 
 ## Application package file structure
 In order to deploy an application to Service Fabric, the application needs to follow a predefined directory structure. Below is an example of that structure.
@@ -79,7 +78,7 @@ The process of packaging an existing application is based on the following steps
 - update the service manifest file
 - update the application manifest
 
->[AZURE.NOTE]: We do provide a packaging tool allowing you to create the ApplicationPackage automatically. The tool is currently in preview. You can find more information [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE]: We do provide a packaging tool allowing you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
 
 ### Create the package directory structure
 You can start by creating the directory structure as described before.
@@ -277,6 +276,6 @@ If you browse to the directory using Server Explorer you can find working direct
 ## Next steps
 In this article you have learned how to package an existing application and deploy it to Service Fabric. As a next step you can check out additional content for this topic.
 
-- Sample for packaging and deploying an existing application on [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), including the pre-release of the packaging tool
-- Sample for packaging multiple applications on [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-- How to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Sample for packaging and deploying a custom application on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the pre-release of the packaging tool.
+- Learn how to [deploy multiple custom applications](service-fabric-deploy-multiple-apps.md).
+- How to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).

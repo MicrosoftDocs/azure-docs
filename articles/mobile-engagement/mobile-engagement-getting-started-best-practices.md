@@ -394,6 +394,7 @@ After you have developed some experience you might consider adding the following
 
 ## Next Steps
 
+- [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
 - Visit [Define your Mobile Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md) to learn more about defining your Mobile Engagement strategy.
 
 

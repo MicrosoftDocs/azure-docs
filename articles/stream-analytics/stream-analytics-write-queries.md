@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Write Queries | Microsoft Azure" 
-	description="Write Queries learning path segment."
+	pageTitle="How to write queries in Stream Analytics | Microsoft Azure" 
+	description="Write queries in Stream Analytics and query data | learning path segment."
+	keywords="how to write queries, query data, write a query, writing queries"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,14 +14,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Write Queries
+# How to write queries in Stream Analytics
 
-Stream processing logic in Azure Stream Analytics is implemented as a "standing query" that is defined before a job starts and executed on data as it reaches the job. The data transformation is expressed in a SQL-like query language, which is largely a subset of T-SQL with some added language extensions like [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) used to express temporal semantics.  
+Writing queries for stream processing logic in Azure Stream Analytics is implemented as a "standing query" that is defined before a job starts and executed on data as it reaches the job. The data transformation is expressed in a SQL-like query language, which is largely a subset of T-SQL with some added language extensions like [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) used to express temporal semantics.
 
-## To author a Stream Analytics query: ##
+## Writing Queries: ##
 
 1. In your Stream Analytics Job in the Azure Management portal, click **Query**.
 
@@ -35,9 +36,9 @@ Stream processing logic in Azure Stream Analytics is implemented as a "standing 
     - If you have defined at least one input and output for your job, you can replace the placeholder "[YourOutputAlias]" and "[YourInputAlias]" fields with the aliases of the input and output that you wish use first. In addition, you can still author and test your query in the Azure portal without defining inputs and outputs on the job.
     - If you wish to perform more processing than a simple pass-through, you can edit the query definition. To get started with query authoring, take a look at some common query patterns are captured [here](stream-analytics-query-patterns).  
   
-    ![Query Window](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)  
+    ![Query data Window](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)  
 
-## To test a query: ##
+## To validate query data is working: ##
 
 You can test that your query behaves as expected by running it in the browser over one or more local JSON files containing test data. This will not start the job or have any billing implications.
 
@@ -45,11 +46,11 @@ You can test that your query behaves as expected by running it in the browser ov
 
 1.	Make sure that there are no errors in the query (otherwise the Test button will be disabled) and then click the Test button.  
 
-    ![Query Test](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)  
+    ![Query data Test](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)  
 
 2.	You will be prompted to specify files for each of the inputs referenced in the query. In this example, the template query is left as-is, so the dialog is prompting for an input named "yourinputalias".  
 
-    ![Test Data](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)  
+    ![Test Data query](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)  
 
 3.	Browse to a test file. Several sample files are available on [github](https://github.com/Azure/azure-stream-analytics/tree/master/Sample Data) and you can also retrieve sample data from your own data stream inputs via the Sample Data function on the inputs tab.  
 
