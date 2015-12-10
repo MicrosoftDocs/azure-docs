@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/18/2015"
+   ms.date="12/10/2015"
    ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -29,9 +29,9 @@ At it's core, SQL Data Warehouse runs using Microsoft’s massive parallel proce
 
 ![SQL Data Warehouse Architecture][1]
 
-- **Control Node:**  You connect to the control node when using SQL Data Warehouse with any development, loading, or business intelligence tools. In SQL Data Warehouse, the compute node is a SQL Database, and when connecting it looks and feels like a standard SQL Database.  However, under the surface, it coordinates all of the data movement and computation that takes place in the system. When a command is issued to the control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
+- **Control Node:**  You connect to the control node when using SQL Data Warehouse with any development, loading, or business intelligence tools. In SQL Data Warehouse, the control node is a SQL Database, and when connecting it looks and feels like a standard SQL Database.  However, under the surface, it coordinates all of the data movement and computation that takes place in the system. When a command is issued to the control node, it breaks it down into a set of queries that will be passed onto the compute nodes of the service.
 
-- **Compute Nodes:** Like the control node, the compute nodes of SQL Data Warehouse are powered using using SQL Databases.  Their job is to serve as the compute power of the service.  Behind the scenes, any time data is loaded into SQL Data Warehouse, it is distributed across the nodes of the service.  Then, any time the control node receives a command it breaks it into pieces for each compute node, and the compute nodes operate over their corresponding data.  After completing their computation, compute nodes pass partial results to the control node which then aggregates results before returning an answer.
+- **Compute Nodes:** Like the control node, the compute nodes of SQL Data Warehouse are powered using SQL Databases.  Their job is to serve as the compute power of the service.  Behind the scenes, any time data is loaded into SQL Data Warehouse, it is distributed across the nodes of the service.  Then, any time the control node receives a command it breaks it into pieces for each compute node, and the compute nodes operate over their corresponding data.  After completing their computation, compute nodes pass partial results to the control node which then aggregates results before returning an answer.
 
 - **Storage:** All storage for SQL Data Warehouse is standard Azure Storage Blobs. This means that when interacting with data, compute nodes are writing and reading directly to/from Blobs. Azure Storage's ability to expand transparently and nearly limitlessly allows us to automatically scale storage, and to do so separately from compute. Azure Storage also allows us to persist storage while scaling or paused, streamline our back-up and restore process, and have safer, more fault tolerant storage.
 
