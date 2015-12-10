@@ -63,6 +63,10 @@ Go onto the new VM and navigate to this download page:
 
 There is an option to only download SSMS. After download, go into the install directory and run Setup to install SSMS. 
 
+You also need to install SQL Server 2014 Service Pack 1. You can download it here: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
+
+SQL Server 2014 Service Pack 1 includes essential functionality for working with Azure SQL Database. 
+
 
 ### 3. Run Validate script and Sysprep
 
