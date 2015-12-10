@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/03/2015"
+ ms.date="12/08/2015"
  ms.author="rasquill"/>
 #About virtual machine extensions and features
 
