@@ -69,7 +69,7 @@ This section outlines how to enable users to authenticate to Evidence.com with t
 
 9.	Open the certificate downloaded in step 4 using a text editor like Notepad.exe, and copy and paste the contents into the **Security Certificate** box. 
 
-10. Save the configuration in Evidence.com
+10. Save the configuration in Evidence.com.
  
 11.	In the Azure classic portal, check **Confirm that you have configured single sign-on as described above**. Checking this will enable the current certificate to start working for this application checkbox.
  
