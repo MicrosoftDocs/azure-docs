@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/06/2015"
    ms.author="hascipio"/>
 
 # Create a Microsoft seller account
 This article walks you through the necessary account creation and registration process to become an approved Microsoft seller for the Azure Marketplace.
 
 ## 1. Create a Microsoft account
-> [AZURE.WARNING] In order to complete the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the publishing portal and the Seller Dashboard. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
+> [AZURE.WARNING] To start the publishing process, you will need to create a Microsoft account. This account will be used to register for and to sign in to both the **Microsoft Developer Center** and **Azure Publishing Portal**. You should have only one Microsoft account for your Azure Marketplace offerings. It should not be specific to services or offers.
 
 The address that forms the user name should be on your domain and controlled by your IT team (such as publishing@example.com). Payment, tax information, and reporting will be routed through this account.
 
   > [AZURE.WARNING] Words like "Azure" and "Microsoft" are not supported for Microsoft account registration. Avoid using these words to complete the account creation and registration process.
+
+### Instructions
 
 1. Create a distribution list (DL) or security group (SG) within your company's domain.
   - Add your onboarding team to the DL.
@@ -36,20 +38,14 @@ The address that forms the user name should be on your domain and controlled by 
  - You can register for a Microsoft account at [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx).
  - Use marketplace@example.com as the email address.
  - Your Microsoft account ID is now marketplace@example.com.
-
-    <!--[drawing][img-msalive]-->
-
 4. When registering, use a valid phone number. The system will send a verification code as a text message or an automated call if identity verification is required.
 5. Verify the email address sent to the DL.
+6. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
 
-    <!--[drawing][img-email]-->
+> [AZURE.TIP] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
 
-6. You’re now ready to use the new Microsoft account in the Seller Dashboard.
-
-> [AZURE.IMPORTANT] Using the DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
-
-## 2. Create your Seller Dashboard account
-The Microsoft Seller Dashboard is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, and the same account must be used in the Azure publishing portal. You should check to make sure your company does not already have a Seller Dashboard account before you attempt to create one. During the process, we will collect bank account information, tax information, and company address information. These are typically obtainable from finance or business contacts.
+## 2. Create your Microsoft Developer Center account
+The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Azure Publishing Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
 
 > [AZURE.IMPORTANT] You must complete the following seller profile components in order to progress through the various phases of offer creation and deployment.
 
@@ -67,9 +63,7 @@ The Microsoft Seller Dashboard is used to register the company information once.
 ### Register your company account
 1. Open a new  Internet Explorer InPrivate or Chrome Incognito browsing session to ensure that you’re not signed in to a personal account.
 
-2. Go to [http://sellerdashboard.microsoft.com](http://sellerdashboard.microsoft.com).
-
-    ![drawing][img-sd-url]
+2. Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).
 
 3. Sign in with your company registration Microsoft account (e.g., marketplace@example.com).
 
@@ -79,93 +73,89 @@ The Microsoft Seller Dashboard is used to register the company information once.
 
     ![drawing][img-verify]
 
-5. Go to **Account Details**. On this screen, you will enter your personal information, which is used only for identity verification. That means your name, email address, residential address, and personal phone number. This information is not shared with anyone outside of Microsoft.
+5. In the "Registration-Account Info" section, select your **Account country/region** from the dropdown menu.
 
-    ![drawing][img-sd-top]
+    > [AZURE.WARNING] **"Sell-from" Countries:** In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries above. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For more information, see the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
-    <!--[drawing][img-sd-info]-->
+6. Select your "Account Type", **Individual** or **Company**.
 
-6. Register on behalf of your company by designating your account type as **Company**, not **Individual**. Click **Next**.
+    <!-- Insert screenshot -->
 
-    ![drawing][img-sd-type]
+    > [AZURE.IMPORTANT] To better understand account types and which is best for you to choose,please view page [Account types, locations, and fees](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
 
-7. Fill in the company details. This needs to be accurate information--headquarters and reference will be checked by a team at Microsoft.
+7. Enter the **Publisher display name**, typically the name of your company.
 
-    ![drawing][img-sd-mktg1]
+    > [AZURE.TIP] Currently, the Azure Publishing Portal does not use Publisher display name. But this must be filled to complete the registration process.
 
-8. The company name is used by the publishing portal, so it should be accurate.
+8. Enter the contact info for the account.
 
-    <!--[drawing][img-sd-mktg2]-->
+    > [AZURE.IMPORTANT] You must provide accurate contact information because it will be used in our verification process for your company to be approved in the Developer Center.
 
-9. Use the address of your company headquarters.
+9. For a company account, you'll also need to provide contact info for the **Company Approver**, the person who can verify that you are authorized to create the account on behalf of your organization. When you are finished, click **Next** to move on to the **"Payment section"**.
 
-    ![drawing][img-sd-addr]
+10. Enter your payment info to pay for your account. If you have a promo code that covers the cost of registration, you can enter that here. Otherwise, provide your credit card info (or PayPal in supported markets). When you are finished, click **Next** to move on to the **"Review screen"**.
 
-10. Use a reference that will be accessible and recognizable as a company representative.
+11. Review your account info and confirm that everything is correct. Then, read and accept the terms and conditions of the **Microsoft Azure Marketplace Publisher Agreement**. Check the box to indicate you have read and accepted these terms.
 
-    ![drawing][img-sd-legal]
+12. Click **Finish** to confirm your registration. We'll send a confirmation message to your developer email address.
 
-11. Click **Submit for Approval** and you are done.
+13. If you are planning to publish only free offers, click **Go to Azure Marketplace Publishing Portal** and you can skip to section 3 of this document, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal).
 
-    ![drawing][img-sd-submit]
-
-
-If you are planning to publish only free offers, then you can skip to section 3, "Register your account in the publishing portal".
-
-If you are planning to publish commercial offers, you must complete tax and banking information in your Seller Dashboard account.
+14. If you are planning to publish commercial offers, click **Update your account information** where you must complete tax and banking information in your Developer Center account.
 
 > [AZURE.IMPORTANT] You will not be able to properly test your offers in staging and will not be able to push your offers to production without completing the tax and bank account information.
 
-If you prefer to update your tax and bank information later, you can go to section 3, "Register your account in the publishing portal", and come back later by using links in the publishing portal.
+If you prefer to update your tax and bank information later, you can go to section 3, [Register your account in the publishing portal](#3-register-your-account-in-the-publishing-portal), and come back later by using links in the Azure Publishing Portal.
 
 ### Add tax and banking information
- If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Seller Dashboard. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
+ If you want to publish commercial offers for purchase, you also need to add payout and tax information and submit it for validation in the Developer Center. If you will publish only free offers (or BYOL offers), then you do not need to add this information. You can add it later, but it takes some time to validate the tax information. If you know that you will offer commercial offers for purchase, we recommend that you add it as soon as possible.
 
-1. Sign in to the [Seller Dashboard](http://sellerdashboard.microsoft.com) with your Microsoft account.
+**Bank Information**
 
-2. Click the **ACCOUNT** tab, and then click **payout & tax**.
+1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
 
-3. Click **ADD PAYOUT AND TAX INFO**.
+2. Click **Payout account** in the left menu, under **Choose payment method** click **Bank account** or **PayPal**.
 
-4. On the **Choose a payment method** page, under **New payment method**, click **Bank account** or **PayPal**.
+    > [AZURE.IMPORTANT] If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
 
-> [AZURE.IMPORTANT] If you have commercial offers that customers purchase in the Marketplace, this is the account where you will receive payout for those purchases.
+3. Enter the payment info, and click **Save** when you are satisfied.
 
-5. Enter details for a bank account or a PayPal account.
+    > [AZURE.IMPORTANT] If you need to update or change your payout account, follow the same steps above, replacing the current info with the new info. Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.
 
-6. Click **NEXT**.
+4. Click **Next**.
 
-7. On the **Tax Information** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **NEXT**.
+**Tax Information**
 
-8. Enter your tax details, and then click **NEXT**.
+1. Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account (if needed).
 
-9. Click **Submit**.
-  If you are not ready to submit your tax information for validation yet, you can click **Save** or **Save and Exit**. It takes some time to validate the tax information, so we recommend that you submit it for validation as soon as possible.
+2. Click **Tax profile** in the left menu.
 
-> [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Seller Dashboard account.
+3. On the **Set up your tax form** page, select the country or region where you have permanent residency, and then select the country or region where you hold primary citizenship. Click **Next**.
+
+4. Enter your tax details, and then click **Next**.
+
+> [AZURE.WARNING] You will not be able to push to production your commercial offers without completing the tax and bank account information in your Microsoft Developer Center account.
 
 ## 3. Register your account in the publishing portal
 The Azure publishing portal is used to publish and manage your offer(s). You will find some useful information in the publishing portal that will guide you through your offer creation process.
 
-> [AZURE.WARNING] The same company Microsoft account that was used in the Seller Dashboard registration must be used here. Additional users can be added to assist once the master publisher account has been created.
+> [AZURE.WARNING] The same company Microsoft account that was used in the Microsoft Developer Center registration must be used here. Additional users can be added to assist once the master publisher account has been created.
 
 1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
+
 2.	Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
-3.	 Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
-4.	Read and accept the terms of the publisher agreement (first time signing in to the publishing portal), and you are done here.
+
+3.	Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > If you have issues with Seller Registration completion, please log a support ticket as below:
-  1. Contact [Support](http://go.microsoft.com/fwlink?LinkId=272975).
-  2. Choose **Seller Dashboard registration and your account**.
-  3. Choose **Registering for a developer account**.
+  > If you have issues with Developer Center registration, please log a support ticket as below:
+  1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).
+  2. Choose **Developer Center**.
+  3. Choose **Profile**.
   4. Choose a contact method.
 
-### "Sell-from" countries
 
-> [AZURE.WARNING]
-In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved “sell-from” countries. This restriction is for payout and taxation reasons. We are actively looking to expand this list of countries in the near future, so stay tuned. For the complete list, see section 1b of the  [Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 
@@ -197,7 +187,7 @@ Now that your account is created and registered, click the type of artifact (vir
 [img-sd-legal]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-personal-cmp.jpg
 [img-sd-submit]:media/marketplace-publishing-accounts-creation-registration/seller-dashboard-approval.jpg
 
-[link-msdndoc]: https://msdn.microsoft.com/en-us/library/jj552460.aspx
+[link-msdndoc]: https://msdn.microsoft.com/library/jj552460.aspx
 [link-sellerdashboard]: http://sellerdashboard.microsoft.com/
 [link-pubportal]: https://publish.windowsazure.com
 [link-single-vm]:marketplace-publishing-vm-image-creation.md

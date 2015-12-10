@@ -28,7 +28,7 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP] It is recommended that you [perform a migration](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
+>[AZURE.TIP] It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
 
 ### Improvements in Mobile Apps Node.js server SDK
 
@@ -247,10 +247,9 @@ When you have the new client version ready, try it out against your upgraded ser
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
