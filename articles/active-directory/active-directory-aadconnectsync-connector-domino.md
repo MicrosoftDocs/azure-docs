@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect sync: Lotus Domino Connector"
-   description="This article describes how to configure Microsoft's Domino Connector."
+   description="This article describes how to configure Microsoft's Lotus Domino Connector."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -39,15 +39,14 @@ From a high level perspective, the following features are supported by the curre
 | Operations | <li>Full and Delta Import</li><li>Export</li><li>Set and change password on HTTP password</li> |
 | Schema | <li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li> |
 
-The Lotus Domino connector leverages the Lotus Notes client to communicate with Lotus Domino Server. As a consequence of this, a supported Lotus Notes Client must be installed on the synchronization server. The communication between the client and the server is implemented through the Lotus Notes .NET Interop (Interop.domino.dll) interface. This interface facilitates the communication between the Microsoft.NET platform and Lotus Notes client and supports access to Lotus Domino documents and views.
+The Lotus Domino connector leverages the Lotus Notes client to communicate with Lotus Domino Server. As a consequence of this, a supported Lotus Notes Client must be installed on the synchronization server. The communication between the client and the server is implemented through the Lotus Notes .NET Interop (Interop.domino.dll) interface. This interface facilitates the communication between the Microsoft.NET platform and Lotus Notes client and supports access to Lotus Domino documents and views. For delta import it is also possible that the C++ native interface is used (depending on the selected delta import method).
 
 ### Prerequisites
 
 Before you use the Connector, make sure you have the following on the synchronization server in addition to any hotfix mentioned above:
 
-- Microsoft .NET 4.5.1 Framework or later
-- The Lotus Notes client must be installed on your synchromziation server
-- You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account.
+- Microsoft .NET 4.5.2 Framework or later
+- The Lotus Notes client must be installed on your synchronization server
 - The Lotus Domino Connector requires the default Lotus Domino LDAP schema database (schema.nsf) to be present on the Domino Directory server. You need to verify that it is present. If it is not present you can install it by running or restarting the LDAP service on the Domino server.
 
 ### Connected Data Source permissions
@@ -113,7 +112,7 @@ On the features page install only the required Lotus Notes features and **Client
 
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account.
+**Note:** You must start Lotus Notes once with a user that is located on the same server as the account you will use as the connector’s service account.
 
 ### Create Connector
 
@@ -147,7 +146,7 @@ For **Delta Import** you have these options:
 In **Schema Options** you have the following options:
 
 - **Default Schema**. The default option and the Connector will detect the schema from the Domino server.
-- **DSML-Schema**. Only used if the Domino server does not expose the schema. Then you can create a DSML file with the schema and import it instead.
+- **DSML-Schema**. Only used if the Domino server does not expose the schema. Then you can create a DSML file with the schema and import it instead. For more information see [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 When you click Next, the UserID and password configuration parameters are verified.
 
@@ -161,25 +160,40 @@ The **Domino Server Time Zone** parameter defines the location of your Domino Se
 
 This configuration option is required to support **delta import** operations because it enables the synchronization service determine changes between the last two imports.
 
-#### Import settings
+#### Import settings, method
 
-In a Domino system where records are updated by a back-end process, some records might not appear in a full import. This behavior occurs if search indexes are out-of-date in Domino. This causes some of the records in the FIM Synchronization Service to be deleted. If you experience this problem, change the new Perform Full Import By option from the default setting of Search to Views.
+The **Perform Full Import By** has these options:
+
+- Search
+- View (Recommended)
+
+**Search** is using indexing in Domino but it is common that the indexes are not updated in real-time and the data returned from the server is not always correct. However search is faster. For a system with many changes, this option usually doesn't work very well and provide false deletes in some situations.
+
+**View** is the recommended option since it provides the correct state of data. It is slightly slower than search.
 
 #### Creation of Virtual Contact Objects
 
-In Domino, reference attributes can contain many different formats to reference other objects. To be able to represent different variations the Connector implements \_Contact objects, a.k.a. as Virtual Contacts (VC). These objects are created so they can be joined to existing MV objects and projected as new objects and in this way preserve reference attributes.
+The **Enable creation of \_Contact object** has these options:
 
-**Enable creation of \_Contact object for non-reference value**.
+- None
+- Non-Reference Values
+- Reference and Non-Reference Values
+
+In Domino, reference attributes can contain many different formats to reference other objects. To be able to represent different variations the Connector implements \_Contact objects, a.k.a. as Virtual Contacts (VC). These objects are created so they can be joined to existing MV objects and projected as new objects and in this way preserve reference attributes.
 
 By enabling this setting and if the content of a reference attribute is not a DN format, a \_Contact object is created.
 
-For example, a member attribute of a group can contain SMTP addresses. It is also possible to have shortName and other attributes present in reference attributes.
+For example, a member attribute of a group can contain SMTP addresses. It is also possible to have shortName and other attributes present in reference attributes. For this scenario, select **Non-Reference Values**.
 
-When Lotus Domino is configured to have separate address books with different distinguished names representing the same object, it's possible to also create \_Contact objects for all reference values that are found in an address book. On the Global parameters page under Enable creation of \_Contact objects, select the **Reference and Non-Reference Values** option.
+When Lotus Domino is configured to have separate address books with different distinguished names representing the same object, it's possible to also create \_Contact objects for all reference values that are found in an address book. For this scenario, select the **Reference and Non-Reference Values** option.
+
+If you have multiple values in the attribute **FullName** then you also want to enable the creation of Virtual Contacts so references can be resolved. This attribute can have multiple values after a marriage. Select the checkbox **Enable ... FullName has multiple values** for this scenario.
 
 By joining on the correct attributes, the \_Contact objects would be a connector to the MV object.
 
 These objects will have VC=\_Contact added to their DN.
+
+#### Import settings, conflict object
 
 **Exclude Conflict Object**
 
@@ -193,7 +207,7 @@ If the option **Use AdminP for updating references** is unselected then export o
 
 In Domino, it is possible that a reference attribute has routing information embedded as a suffix to the DN. For example the member attribute in a group could contain **CN=example/organization@ABC**. The suffix @ABC is the routing information. The routing information is used by Domino to send emails to the correct Domino system, which could be a system in a different organization. In the Routing Information field you can specify the routing suffixes used within the organization in scope of the Connector. If one of these values is found as a suffix in a reference attribute, the routing information is removed from the reference so it will match the DN for the object in the Connector space. If the routing suffix on a reference value cannot be matched to one of those specified, a \_Contact object is created. These \_Contact objects will be created with **RO=@<RoutingSuffix>** inserted into the DN. For these \_Contact objects the following attributes are also added to allow joining to a real object if necessary: \_routingName, \_contactName, \_displayName, and UniversalID.
 
-### Additional address books
+#### Additional address books
 
 If you do not have **directory assistance** installed, which will provide the name of secondary address books, then you can manually enter these.
 
@@ -258,6 +272,14 @@ The most recent update to this attribute is **David Alexander**. Because the Imp
 The logic to convert multi-valued attributes into single-valued attributes does not apply to member attribute of a group object and to the fullname attribute of a person object.
 
 It also possible to configure import and export transformation rules for multivalued attributes per attribute, as an exception to the global rule. To configure this option, enter [objecttype].[attributename] in the **import exclusion attribute list** and **export exclusion attribute list** text boxes. For example, if you enter Person.Assistant and the global flag is set to import all values, only the first value will be imported for the assistant.
+
+#### Certifiers
+
+The **Password for all Certifers(s)** can be used if all certifiers haev the same password. Then you can enter the password here and only specify the certifier file.
+
+All Organization/Organizational Units are listed. To be able to export person objects to the primary address book, a certifier with its password is required.
+
+If you only import, then you do not have to specify any certifiers.
 
 ### Configure Provisioning Hierarchy
 
@@ -426,6 +448,7 @@ The Lotus Domino connector mainly supports four types of objects (document types
 - Group
 - Mail-In Database
 - Person
+- Contact (Person with no certifier)
 - Resource
 
 This section lists the attributes that are mandatory for each supported object type in order to export object to a Domino server.
@@ -518,4 +541,4 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the How to Enable ETW Tracing for FIM 2010 R2 Connectors
+-	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

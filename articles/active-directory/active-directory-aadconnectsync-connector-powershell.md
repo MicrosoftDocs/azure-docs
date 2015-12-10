@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/09/2015"
+   ms.date="12/10/2015"
    ms.author="andkjell"/>
 
 # PowerShell Connector technical reference
@@ -34,7 +34,7 @@ The PowerShell Connector enable you to integrate the synchronization service wit
 
 Before you use the Connector, make sure you have the following on the synchronization server in addition to any hotfix mentioned above:
 
-- Microsoft .NET 4.5.1 Framework or later
+- Microsoft .NET 4.5.2 Framework or later
 - Windows PowerShell 2.0, 3.0, or 4.0
 
 The execution policy on the Synchronization Service server must be configured to allow the connector to run Windows PowerShell scripts. Unless the scripts the connector will run are digitally signed, configure the execution policy by running this command:
@@ -115,12 +115,6 @@ The schema discovery script receives the following parameters from the connector
 
 The script must return a single [Schema][schema] object to the pipeline. The Schema object is comprised of [SchemaType][schemaT] objects that represent object types (e.g. users, groups, etc.). The SchemaType object holds a collection of [SchemaAttribute][schemaA] objects that represent the attributes (e.g. given name, surname, postal address, etc.) of the type.
 
-To simplify the creation of the schema, the FIMPowerShellConnectorModule Windows PowerShell Module provides the following cmdlets:
-
-- New-FIMPSConnectorSchema
-- New-FIMPSConnectorSchemaType
-- Add-FIMPSConnectorSchemaAttribute
-
 **Additional Parameters**
 
 In addition to the standard configuration settings discussed so far, you can define additional custom configuration settings that are specific to the instance of the Connector. These parameters can be specified at the connector, partition, or run step levels and accessed from the relevant Windows PowerShell script. Custom configuration settings can be stored in the Synchronization Service database in plain text format or they may be encrypted. The Synchronization Service automatically encrypts and decrypts secure configuration settings when required.
@@ -128,8 +122,6 @@ In addition to the standard configuration settings discussed so far, you can def
 To specify custom configuration settings, separate the name of each parameter with a comma ( , ).
 
 To access custom configuration settings from a script, you must suffix the name with and underscore ( \_ ) and the scope of the parameter (Global, Partition, or RunStep). For example, to access the Global FileName parameter, use this code snippet: `$ConfigurationParameters["FileName_Global"].Value`
-
-The FIMPowerShellConnectorModule Windows PowerShell Module includes a cmdlet, Get-FIMPSConnectorConfigurationSetting, to simplify access to configuration settings.
 
 ### Capabilities
 
@@ -224,11 +216,6 @@ The import data script receives the following parameters from the connector:
 | Types | [Schema][schema] | Schema for the connector space that will be imported. |
 
 The import data script must write a List[[CSEntryChange][csec]] object to the pipeline. This collection is comprised of CSEntryChange attributes that represent each object being imported. During a Full Import run, this collection should have a full set of CSEntryChange objects that have all of the attributes for each individual object. During a Delta Import, the CSEntryChange object should either contain the attribute level deltas for each object to import, or a complete representation of the objects that have changed (Replace mode).
-
-To simplify the steps necessary to supply imported objects to the connector, the FIMPowerShellConnectorModule includes the following cmdlets:
-
-- New-FIMPSConnectorCSEntryChange
-- Add-FIMPSConnectorCSAttribute
 
 **End Import**
 
@@ -354,7 +341,7 @@ Substitute the name of the Windows PowerShell connector for the <ConnectorName> 
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the How to Enable ETW Tracing for FIM 2010 R2 Connectors
+-	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx

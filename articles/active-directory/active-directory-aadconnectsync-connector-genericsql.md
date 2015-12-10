@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/09/2015"
+   ms.date="12/10/2015"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference
@@ -43,7 +43,7 @@ From a high level perspective, the following features supported by the current r
 
 Before you use the Connector, make sure you have the following on the synchronization server in addition to any hotfix mentioned above:
 
-- Microsoft .NET 4.5.1 Framework or later
+- Microsoft .NET 4.5.2 Framework or later
 - 64-bit ODBC client drivers
 
 ### Permissions in connected data source
@@ -305,4 +305,4 @@ If users chooses the SQL query option, Export require 3 different queries to per
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the How to Enable ETW Tracing for FIM 2010 R2 Connectors
+-	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
