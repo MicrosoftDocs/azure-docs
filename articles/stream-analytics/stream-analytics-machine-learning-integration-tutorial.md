@@ -73,7 +73,7 @@ For this step you can use any CSV file including the one specified in the introd
 
 1.	Expand Azure and right click on the **Storage**. Choose **Attach External Storage** and provide **Account Name** and **Account Key**.  
 
-    ![stream analytics machine learning tutorial server explorer](./media/stream-analytics-machine-learning-integration-tutorialstream-analytics-machine-learning-integration-tutorial-server-explorer.png)  
+    ![stream analytics machine learning tutorial server explorer](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)  
 
 2.	Expand the storage you just attached and choose **Create Blob Container** and provide a logical name. Once created, double click on the container to view its contents (which will be empty at this point).  
 
@@ -108,7 +108,7 @@ For this step you can use any CSV file including the one specified in the introd
 3.	Select the Reader node which you just placed on the canvas. You should see the Properties of the Reader on the right side. Fill in the information about your Blob Storage which you configured in the Upload a CSV file to a Blob Storage section.  
 	Note: don’t forget to check File has header row check box.  
 
-    ![stream analytics machine learning tutorial file has header row](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutoriall-file-has-header-row.png)  
+    ![stream analytics machine learning tutorial file has header row](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-file-has-header-row.png)  
 
 4.	On the left pane, select Data Transformation, Manipulation, Project Columns node and drag it onto the canvas. Connect Reader node with the Project Columns node.  
 
