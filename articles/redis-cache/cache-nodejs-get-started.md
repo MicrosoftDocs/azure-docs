@@ -43,8 +43,7 @@ In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **Ne
 
   ![][1]
 
-Enter a DNS hostname. It will have the form `<name>
-  .redis.cache.windows.net`. Click **Create**.
+Enter a DNS hostname. It will have the form `&lt;name&gt;.redis.cache.windows.net`. Click **Create**.
 
   ![][2]
 
@@ -53,21 +52,12 @@ Enter a DNS hostname. It will have the form `<name>
 
   ![][4]
 
-
-  ## Enable the non-SSL endpoint
-
-
-  Click the link under **Ports**, and click **No** for "Allow access only via SSL". This enables the non-SSL port for the cache. The node_redis client currently does not support SSL.
-
-  ![][3]
-
-
   ## Add something to the cache and retrieve it
 
   var redis = require("redis");
 
   // Add your cache name and access key.
-  var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
+  var client = redis.createClient(6380,'&lt;name&gt;.redis.cache.windows.net', {auth_pass: '&lt;key&gt;', tls: {servername: '&lt;name&gt;.redis.cache.windows.net'}});
 
 	client.set("foo", "bar", function(err, reply) {
 	    console.log(reply);
