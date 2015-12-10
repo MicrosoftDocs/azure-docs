@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/16/2015"
+	ms.date="12/07/2015"
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET web app in Azure App Service
@@ -105,27 +105,27 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
 
-	The default settings specify that Visual Studio will create an Azure web app for your web project. In the next section of the tutorial, you'll deploy the web project to the newly created web app.
+	The default settings specify that Visual Studio will create an Azure app service for your web project. In the next section of the tutorial, you'll deploy the web project to the newly created app service.
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 
-	When you're signed in, the **Configure Microsoft Azure Web App Settings** dialog box asks you what resources you want to create.
+	When you're signed in, the **Create App Service** dialog box asks you what resources you want to create.
 
 	![Signed in to Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. In the **Configure Microsoft Azure Web App Settings** dialog box, enter a **Web App name** that is unique in the *azurewebsites.net* domain. For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810. If a default web name is created for you, it will be unique and you can use that.
+3. In the **Create App Service** dialog box, enter a **Web App name** that is unique in the *azurewebsites.net* domain. For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810. If a default web name is created for you, it will be unique and you can use that.
 
 	If someone else has already used the name that you enter, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
 
 	Azure will use this name as the prefix for your application's URL. The complete URL will consist of this name plus *.azurewebsites.net* (as shown next to the **Web App name** text box). For example, if the name is `MyExample810`, the URL will be `MyExample810.azurewebsites.net`. The URL has to be unique.
 
-4. In the **App Service plan** drop-down, select **Create new App Service plan**.
+4. Next to the **App Service plan** drop-down, click the **New...** button.
 
 	The [Next steps](#next-steps) section has links to information about App Service plans.
 
 5. Enter **MyExamplePlan**, or another name if you prefer, for the plan name.
 
-6. In the **Resource group** drop-down, select **Create new resource group**.
+6. In the **Resource group** drop-down, type the name of your new resource group.
 
 	The [Next steps](#next-steps) section has links to information about resource groups.
 
@@ -167,7 +167,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Choose Publish](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you'll accept the settings that deploy to the web app that you created earlier.
+	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you'll accept the settings that deploy to the app service that you created earlier.
 
 8. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
 
@@ -193,7 +193,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
-	Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is loaded from the Internet.
+	Upon successful deployment, the default browser automatically opens to the URL of the deployed app service, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is loaded from the Internet.
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
@@ -225,7 +225,7 @@ This change is now in the deployed site but not the local project. If you redepl
 
 This feature is handy for [temporarily turning off customErrors in the Web.config file in order to get a detailed error message](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-In **Server Explorer** you can also right-click the web app node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
+In **Server Explorer** you can also right-click the app service node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
 
 ![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
 
@@ -233,11 +233,11 @@ For more information, see [Troubleshooting Azure web apps in Visual Studio](web-
 
 ## Monitor and manage the web app in the Azure Portal
 
-The [Azure Portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created. In this section of the tutorial, you look at some of what you can do in the Portal.
+The [Azure Portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the app service that you just created. In this section of the tutorial, you look at some of what you can do in the Portal.
 
 1. In your browser, go to [https://portal.azure.com](https://portal.azure.com), and sign in with your Azure credentials.
 
-2. Click **Web Apps**, and then click the name of your web app.
+2. Click **App Services**, and then click the name of your web app.
 
 	The **Web app** blade displays an overview of settings and usage statistics for your web app.
 
