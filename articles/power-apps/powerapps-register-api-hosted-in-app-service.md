@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Register an API hosted in your app service environment
@@ -27,11 +27,11 @@ When you host your APIs in your app service environment, you leverage all the ex
 
 To use these APIs in your apps, you must "register" the APIs in the Azure portal. The following options are available: 
 
-- Register a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
-- Register an API hosted within your app service environment.
-- Register using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
+- Register a pre-built [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+- Register a web app, API app, and mobile app hosted within your App Service Environment (in this topic).
+- Register one of your own Swagger APIs using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
-This article shows you how to **register an API hosted in your app service environment**.
+This article shows you how to **register a web app, API app, and mobile app hosted in your app service environment**.
 
 #### Prerequisites to get started
 
@@ -71,8 +71,9 @@ After the API is deployed to your app service environment, use the following ste
 ## Summary and next steps
 In this topic, you've seen how to register an APIs hosted in your app service environment. Here are some related topics and resources for learning more about PowerApps: 
 
-- [Configure APIs](../powerapps-configure-apis.md)
-- [Add a new API](../powerapps-register-from-available-apis.md)
+- [Configure the API properties](powerapps-configure-apis.md)
+- [Give users access to the APIs](powerapps-manage-api-connection-user-access.md)
+- [Start creating your apps in PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
