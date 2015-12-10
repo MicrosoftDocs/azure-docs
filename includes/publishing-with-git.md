@@ -1,6 +1,6 @@
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports continuous deployment to Web Apps from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your application, and then quickly and easily push changes to your Azure web app when you want.
 
-In this article, you will learn how to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository sites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
+In this article, you will learn how to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository sites like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Team Services].
 
 > [AZURE.NOTE] Many of the Git commands described in this article are performed automatically when creating a web app using the [Azure Command-Line Tools for Mac and Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
@@ -296,4 +296,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md

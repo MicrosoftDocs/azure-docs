@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Create a virtual machine running Linux | Microsoft Azure"
-	description="Learn to create Azure virtual machine (VM) running Linux by using an image from Azure and the Azure Command-Line Interface."
+	description="Learn to create an Azure Linux virtual machine or Azure Ubuntu virtual machine by using an image from Azure and the Azure Command-Line Interface."
+	keywords="linux virtual machine,virtual machine linux,Azure Linux,azure ubuntu" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -24,10 +25,9 @@
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 
 <br>
+Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to quickly create an Ubuntu Server VM running in Azure, connect to it using **ssh**, and create and mount a new disk. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
-
-
-Creating an Azure virtual machine (VM) that runs Linux is easy to do from the command line or from the portal. This tutorial shows you how to use the Azure Command-Line Interface for Mac, Linux, and Windows (the Azure CLI) to create quickly an Ubuntu Server VM running in Azure, connect to it using **ssh**, and creating and mounting a new disk. (This topic uses an Ubuntu Server VM, but you can also create Linux VMs using [your own images as templates](virtual-machines-linux-create-upload-vhd.md).)
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Even better. Now [log in with your work or school id](../xplat-cli-connect.md#us
 
 > [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can use `azure login -u` along with the work or school ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md).
 
-## Create your Azure VM
+## Create the Azure virtual machine
 
 Type `azure group create <my-group-name> westus` replacing _&lt;my-group-name&gt;_ with a group name that's unique to you (you can use a different region if you want). You should see something like the following:
 
@@ -162,9 +162,9 @@ and then creates the infrastructure necessary to host the VM. This includes:
 
 Your VM is up and running and waiting for you to connect.
 
-## Connecting to your VM
+## Connect to the Linux virtual machine
 
-With Linux VMs, you typically connect using **ssh**. 
+With Linux virtual machines, you typically connect using **ssh**. 
 
 > [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
 

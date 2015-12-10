@@ -1,7 +1,8 @@
 <properties 
-    pageTitle="Create an Azure SQL Database elastic database pool with PowerShell | Microsoft Azure" 
-    description="Create an elastic database pool to share resources across multiple Azure SQL Databases." 
-    services="sql-database" 
+    pageTitle="Scale-out resources with elastic database pools | Microsoft Azure" 
+    description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating an elastic database pool to manage multiple databases." 
+	keywords="multiple databases,scale-out"    
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
@@ -16,17 +17,18 @@
     ms.date="11/06/2015"
     ms.author="adamkr; sstein"/>
 
-# Create an elastic database pool with PowerShell
+# Create an elastic database pool with PowerShell to scale-out resources for multiple SQL databases 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-
-This article shows you how to create an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
+Learn how to manage multiple databases by creating an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
 
 > [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
+
+Elastic database pools allow you to scale-out database resources and management across multiple SQL databases.
 
 This article shows you how to create everything you need (including the V12 server) to create and configure an elastic database pool except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
@@ -60,7 +62,7 @@ To select the subscription you need your subscription Id or subscription name (*
 
 ## Create a resource group, server, and firewall rule
 
-Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic database pool will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRMLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
+Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic database pool will be created to contain multiple databases. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureRMLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
 
 If you already have a resource group you can go to the next step, or you can run the following command to create a new resource group:
 
@@ -129,6 +131,8 @@ Move the existing database into the elastic database pool.
 
 
 ## Monitoring elastic databases and elastic database pools
+Elastic database pools provide metrics reports to help you scale-out efforts to manage multiple databases.
+
 
 ### Get the status of elastic database pool operations
 

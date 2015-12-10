@@ -87,7 +87,7 @@ Also, see [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Sch
 
 You can also monitor your application performance by leveraging _site extensions_.
 
-Each App Service web app provides an extensible management end point that allows you to leverage a powerful set of tools deployed as site extensions. These tools range from source code editors like [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) to management tools for connected resources such as a MySQL database connected to a web app.
+Each App Service web app provides an extensible management end point that allows you to leverage a powerful set of tools deployed as site extensions. These tools range from source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) to management tools for connected resources such as a MySQL database connected to a web app.
 
 [Azure Application Insights](/services/application-insights/) and [New Relic](/marketplace/partners/newrelic/newrelic/) are two of the performance monitoring site extensions that are available. To use New Relic, you install an agent at runtime. To use Azure Application Insights, you rebuild your code with an SDK, and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.
 
@@ -158,7 +158,7 @@ Some of the things that Kudu provides are:
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
 
 For more information on features available in Kudu, see
-[Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+[Azure Websites Team Services tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 ### 3. Mitigate the issue

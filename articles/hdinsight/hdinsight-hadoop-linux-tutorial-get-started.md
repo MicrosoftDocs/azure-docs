@@ -70,9 +70,7 @@ Use the following steps to create a new cluster:
 
 	![Provide cluster credentials](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and cannot be used as the SSH user name:
-    >
-    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH.
 
 	For more information on using SSH with HDInsight, see one of the following documents:
 
@@ -134,7 +132,7 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 2. When prompted, enter the password that you provided while provisioning the cluster. After you are successfully connected, the prompt will change to the following:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 
 ###To connect from a Windows-based computer
@@ -149,7 +147,7 @@ You can connect to an HDInsight cluster on Linux from a Linux computer or a Wind
 
 4. Click **Open** to connect to the cluster. When prompted for the user name, enter **hdiuser**. For the password, enter the password you specified while provisioning the cluster. After you are successfully connected, the prompt will change to the following:
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>Run a Hive query
 

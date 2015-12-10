@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/29/2015"
+   ms.date="11/17/2015"
    ms.author="tomfitz"/>
 
 # Create Active Directory application and service principal using portal
@@ -84,7 +84,7 @@ The portal should now have your application selected.
 
      ![save][13]
 
-     The saved key is displayed and you can copy it.
+     The saved key is displayed and you can copy it. You will not be able to retrieve the key later so you will want to copy it now.
 
      ![saved key][8]
 
@@ -92,6 +92,9 @@ The portal should now have your application selected.
   
      ![client id][5]
 
+5. In some cases, you need to pass the tenant id with your authentication request. You can retrieve the tenant id by selecting **View endpoints** and retrieving the id as shown below.
+
+     ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 Your application is now ready and the service principal created on your tenant. When signing in as a service principal be sure to use:
 
@@ -100,7 +103,17 @@ Your application is now ready and the service principal created on your tenant. 
 
 ## Assigning the application to a role
 
-You can use the [preview portal](https://portal.azure.com) to assign the Active Directory application to a role that has access to the resource you need to access. For information about assigning the application to a role, see [Azure Active Directory Role-based Access Control](active-directory/role-based-access-control-configure.md).
+You must assign the application to a role to grant it permissions for performing actions. You can use the [preview portal](https://portal.azure.com) to assign the Active Directory application to a role with the correct permissions.
+
+To get started with access control in the preview portal, select the **Access** icon.
+
+![select users](./media/resource-group-create-service-principal-portal/select-users.png)
+
+Select the role you wish to assign the application to, and search for the application.
+
+![select users](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+For more information about working with users, applications and roles, see [Manage access using the Azure Management Portal](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Get access token in code
 

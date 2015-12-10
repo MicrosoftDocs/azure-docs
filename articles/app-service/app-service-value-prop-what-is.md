@@ -17,7 +17,7 @@
 	ms.author="omark"/>
 
 # What is Azure App Service?
-Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Online and GitHub, staging and production support, and automatic patching.
+Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Team Services and GitHub, staging and production support, and automatic patching.
 
 Azure App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.  [Learn more](http://azure.microsoft.com/documentation/services/app-service/) about how App Service relates to these existing services.
 
@@ -30,7 +30,7 @@ Focused on rapid development of web and mobile apps, as well as automating busin
 
 - **Integration made simple** - Integrate data across clouds and automate business processes in minutes with a simple visual design experience. Easily integrate your logic it with any mobile or web app via standard REST APIs.  Build sophisticated enterprise application integration, B2B solutions using EDI, business policies (rules engine), and more based on the industry leading BizTalk platform.
 
-- **Unparalleled developer productivity** - Optimized for DevOps, with continuous integration support for Visual Studio Online and Github, so you can focus on rapidly improving your apps without worrying about infrastructure. Deploy app updates with built-in staging, roll-back and in-production testing capabilities.
+- **Unparalleled developer productivity** - Optimized for DevOps, with continuous integration support for Visual Studio Team Services and Github, so you can focus on rapidly improving your apps without worrying about infrastructure. Deploy app updates with built-in staging, roll-back and in-production testing capabilities.
 
 - **Enterprise Ready** - Enjoy peace of mind with enterprise grade security and management. Provide delegated and role-based administration; easily secure and manage data flowing to your mobile apps; and protect your assets with built-in backup and restore capability. Rest confidently knowing App Service is PCI compliant. Stay in control with dedicated environments, and the ability to deploy across public and private clouds.  Benefit from over 25 years of Microsoft experience and our enterprise Service Level Agreement.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Getting started with Password Management
@@ -186,7 +186,7 @@ Before you can enable and use the Password Writeback, you must make sure you com
   
 - You have the Azure AD Connect tool installed and you have prepared your AD environment for synchronization to the cloud.  For more information, see [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md).
 
-  > [AZURE.NOTE] Before you test password writeback, make sure that you first complete a full import and a full sync from both AD and Azure AD in 
+  > [AZURE.NOTE] Before you test password writeback, make sure that you first complete a full import and a full sync from both AD and Azure AD in Azure AD Connect.
 
 - If you are using Azure AD Sync or Azure AD Connect  **TCP 443** outbound (and in some cases **TCP 9350-9354**) need to be open.  See [Step 3: Configure your firewall](#step-3-configure-your-firewall) for more information. Using DirSync for this scenario is no longer supported.  If you are still using DirSync, please upgrade to the latest version of Azure AD Connect before deploying password writeback.
 
@@ -308,18 +308,17 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 <br/>
 <br/>
 
-**Additional Resources**
+## Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages: 
 
-
-* [What is Password Management](active-directory-passwords.md)
-* [How Password Management works](active-directory-passwords-how-it-works.md)
-* [Customize Password Management](active-directory-passwords-customize.md)
-* [Password Management Best Practices](active-directory-passwords-best-practices.md)
-* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
-* [Password Management FAQ](active-directory-passwords-faq.md)
-* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
-* [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reset your own password**](active-directory-passwords-update-your-own-password) - learn about how to reset or change your own password as a user of the system
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 

@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="Create an Azure SQL Database with C#" 
-   description="This article shows you how to create an Azure SQL Database with C# using the the Azure SQL Database Library for .NET." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+	pageTitle="Try SQL Database: Use C# to create a SQL database | Microsoft Azure" 
+	description="Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET." 
+	keywords="try sql, sql c#"   
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -16,7 +17,7 @@
    ms.date="09/01/2015"
    ms.author="sstein"/>
 
-# Create a SQL Database with C&#x23;
+# Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET 
 
 **Single database**
 
@@ -27,9 +28,9 @@
 
 
 
-This article provides commands to create an Azure SQL database with C# using the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 
-This article shows how to create a single database, for creating elastic databases see [Create an Elastic database pool](sql-database-elastic-pool-portal.md).
+You'll try SQL Database by creating a single database with SQL and C#. To create elastic databases, see [Create an Elastic database pool](sql-database-elastic-pool-portal.md).
 
 Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
 
@@ -49,7 +50,7 @@ To complete the steps in this article you need the following:
 
 ## Installing the required libraries
 
-Get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
+To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -68,33 +69,33 @@ To create a new application and register it in the correct active directory do t
 
 1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
 
-    ![AAD][1]
+    ![Try SQL Database: Set up Azure Active Directory (AAD).][1]
 
 2. Select the directory to authenticate your application and click it's **Name**.
 
-    ![Directories][4]
+    ![Select the directory to authenticate your SQL C# application.][4]
 
 3. On the directory page, click **APPLICATIONS**.
 
-    ![Applications][5]
+    ![The directory page with Applications.][5]
 
-4. Click **ADD** to create a new application.
+4. Click **ADD** to create a new C# application for your SQL database.
 
-    ![Add application][6]
+    ![Add your SQL C# application.][6]
 
 5. Select **Add an application my organization is developing**.
 
 5. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
 
-    ![Add application][7]
+    ![Provide information about your SQL C# application.][7]
 
 6. Provide a **REDIRECT URI**. It doesn't need to be an actual endpoint, just a valid URI.
 
-    ![Add application][8]
+    ![Add a redirect URL for your SQL C# application.][8]
 
 7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id in your code).
 
-    ![get client id][9]
+    ![Get client ID for your SQL C# application.][9]
 
 
 1. On the bottom of the page click on **Add application**.
@@ -102,7 +103,7 @@ To create a new application and register it in the correct active directory do t
 1. Select **Azure Service Management API**, and then complete the wizard.
 2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
 
-    ![permissions][2]
+    ![Set permissions.][2]
 
 2. Click **SAVE**.
 
@@ -115,7 +116,7 @@ The domain name is required for your code. An easy way to identify the proper do
 1. Go to the [Azure preview portal](https://portal.azure.com).
 2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
 
-    ![Identify domain name][3]
+    ![Identify the domain name.][3]
 
 
 
@@ -223,9 +224,9 @@ The following example creates a rule that opens access to the server from any IP
 To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from *any* Azure subscription to access the server.
 
 
-## Create a database
+## Use C&#x23; to create a Basic SQL database
 
-The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated. 
+The following C# command will create a new Basic SQL database if a database with the same name does not already exist on the server; if a database with the same name does exist it will be updated. 
 
         // Create a database
 
@@ -250,7 +251,7 @@ The following command will create a new Basic database if a database with the sa
 
 
 
-## Sample console application
+## Sample C&#x23; console application
 
 
     using Microsoft.Azure;
@@ -411,6 +412,7 @@ The following command will create a new Basic database if a database with the sa
 
 
 ## Next Steps
+Now that you've tried SQL Database and set up a database with C#, you're ready for the following articles:
 
 - [Connect to and query your SQL Database with C#](sql-database-connect-query.md)
 - [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)

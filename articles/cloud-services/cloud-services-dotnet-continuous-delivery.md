@@ -31,7 +31,7 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Azure target environments.
 
-You can also use Visual Studio Online, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][].
+You can also use Visual Studio Team Services, a version of TFS that is hosted in Azure, to do this more easily. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][].
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you
@@ -772,7 +772,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 To enable remote debugging when using continuous delivery, see [Enable remote debugging when using continuous delivery to publish to Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-  [Continuous Delivery to Azure by Using Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md  
+  [Continuous Delivery to Azure by Using Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md  
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484

@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Query SQL Database with C# | Microsoft Azure"
-	description="Details about IP addresses, connection strings, config file for secure login, and free Visual Studio all to enable your C# program to connect to your Azure SQL Database database in the cloud, by using ADO.NET."
+	pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
+	description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
 	services="sql-database"
+	keywords="c# database query, c# query, connect to database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -17,22 +18,22 @@
 	ms.author="genemi"/>
 
 
-# Connect to and query your SQL Database with C&#x23;
+# Write a program in C&#x23; to query and connect to a SQL Database
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-You want to write a C# program that uses ADO.NET to connect to an Azure SQL Database database in the cloud. 
+Learn how to write a program in C# to query and connect to an Azure SQL database in the cloud.
 
-This topic describes every step for people who are new to Azure SQL Database and C#. Others who are experienced with Microsoft SQL Server and C# may skip some steps and focus on those that are particular to SQL Database.
+This article describes every step for people who are new to Azure SQL Database, C#, and ADO.NET. Others who are experienced with Microsoft SQL Server and C# may skip some steps and focus on those that are particular to SQL Database.
 
 
 ## Prerequisites
 
 
-To run the C# code sample, you must have:
+To run the C# query code sample, you must have:
 
 
 - An Azure account and subscription. You can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
@@ -74,8 +75,8 @@ If you need to install Visual Studio, you can:
 
 5. For convenience, click the minimize control on each of the previous blades.
 
-6. Click the **Open in Visual Studio** button near the top on your database blade. A new blade about Visual Studio opens with links to install locations for Visual Studio. 
- 
+6. Click the **Open in Visual Studio** button near the top on your database blade. A new blade about Visual Studio opens with links to install locations for Visual Studio.
+
 	![Open in Visual Studio button][20-OpenInVisualStudioButton]
 
 7. Click the **Community (free)** link, or a similar link. A new webpage is added.
@@ -99,7 +100,7 @@ In Visual Studio, create a new project that is based on the starter template for
 
 1. Click **File** > **New** > **Project**. The **** dialog is displayed.
 
-2. Under **Installed**, expand to C# and Windows, so that the **Console Application** option appears in the middle pane. 
+2. Under **Installed**, expand to C# and Windows, so that the **Console Application** option appears in the middle pane.
 
 	![The New Project dialog][30-VSNewProject]
 
@@ -126,7 +127,7 @@ Our C# sample uses the .NET Framework assembly **System.Configuration.dll**, so 
 ## Step 4: Get the connection string
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to copy the connection string for your database.
+Use the [Azure preview portal](http://portal.azure.com/) to copy the connection string needed to connect to the SQL database.
 
 Your first use will be to connect Visual Studio to your Azure SQL Database **AdventureWorksLT** database.
 
@@ -145,10 +146,10 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
-	    <startup> 
+	    <startup>
 	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	    </startup>
-	
+
 		<connectionStrings>
 			<clear />
 			<add name="ConnectionString4NoUserIDNoPassword"
@@ -172,11 +173,11 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
 ## Step 6: Paste in the sample C# code
 
 
-1. In Visual Studio, use the **Solution Explorer** pane to open your **Program.cs** file. 
+1. In Visual Studio, use the **Solution Explorer** pane to open your **Program.cs** file.
 
-	![Paste in our sample C# program code][40-VSProgramCsOverlay]
+	![Paste in the sample C# query code.][40-VSProgramCsOverlay]
 
-2. Overwrite all the starter code in Program.cs by pasting in the following sample C# code. 
+2. Overwrite all the starter code in Program.cs by pasting in the following sample C# code.
  - If you want a shorter code sample, you can assign the whole connection string as a literal to the variable **SQLConnectionString**. Then you can erase the two methods **GetConnectionStringFromExeConfig** and **GatherPasswordFromConsole**.
 
 
@@ -186,7 +187,7 @@ using G = System.Configuration;   // System.Configuration.dll
 using D = System.Data;            // System.Data.dll
 using C = System.Data.SqlClient;  // System.Data.dll
 using T = System.Text;
-	
+
 namespace ConnectAndQuery_Example
 {
 	class Program
@@ -195,7 +196,7 @@ namespace ConnectAndQuery_Example
 		{
 			string connectionString4NoUserIDNoPassword,
 				password, userName, SQLConnectionString;
-	
+
 			// Get most of the connection string from ConnectAndQuery_Example.exe.config
 			// file, in the same directory where ConnectAndQuery_Example.exe resides.
 			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
@@ -205,17 +206,17 @@ namespace ConnectAndQuery_Example
 			userName = Console.ReadLine();
 			// Get the password from keyboard input.
 			password = Program.GatherPasswordFromConsole();
-	
+
 			SQLConnectionString = "Password=" + password + ';' +
 				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
-	
+
 			// Create an SqlConnection from the provided connection string.
 			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
 			{
 				// Formulate the command.
 				C.SqlCommand command = new C.SqlCommand();
 				command.Connection = connection;
-	
+
 				// Specify the query to be executed.
 				command.CommandType = D.CommandType.Text;
 				command.CommandText = @"
@@ -224,7 +225,7 @@ namespace ConnectAndQuery_Example
 					";
 				// Open a connection to database.
 				connection.Open();
-	
+
 				// Read data returned for the query.
 				C.SqlDataReader reader = command.ExecuteReader();
 				while (reader.Read())
@@ -237,12 +238,12 @@ namespace ConnectAndQuery_Example
 			Console.ReadKey(true);
 		}
 		//----------------------------------------------------------------------------------
-	
+
 		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
 		{
 			G.ConnectionStringSettings connectionStringSettings =
 				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
-	
+
 			if (connectionStringSettings == null)
 			{
 				throw new ApplicationException(String.Format
@@ -251,7 +252,7 @@ namespace ConnectAndQuery_Example
 			}
 				return connectionStringSettings.ConnectionString;
 		}
-	
+
 		static string GatherPasswordFromConsole()
 		{
 			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
@@ -294,7 +295,7 @@ namespace ConnectAndQuery_Example
 
 2. Gathers user name and password from the keyboard, and adds them to complete the connection string.
 
-3. Uses the connection string, and ADO.NET classes, to connect to the **AdventureWorksLT** demonstration database on Azure SQL Database.
+3. Uses the connection string, and ADO.NET classes, to connect to the **AdventureWorksLT** demonstration database on SQL Database.
 
 4. Issues an SQL **SELECT** to read from the **SalesLT** table.
 
@@ -312,7 +313,7 @@ We try to keep the C# sample short. Yet we added code to read a config file to h
 ## Step 7: Add allowed IP address range in the server firewall
 
 
-Your client C# program cannot connect to Azure SQL Database until the IP address of the client computer has been added in the SQL Database firewall. Your program will fail with a handy error message that states the necessary IP address.
+Your client C# program cannot connect to SQL Database until the IP address of the client computer has been added in the SQL Database firewall. Your program will fail with a handy error message that states the necessary IP address.
 
 
 You can use the [Azure preview portal](http://portal.azure.com/) to add the IP address.
@@ -331,7 +332,7 @@ For more information, see:<br/>
 ## Step 8: Run the program
 
 
-1. In Visual Studio, run your program by menu **DEBUG** > **Start Debugging**. A console window is displayed.
+1. In Visual Studio, run your C# query program by menu **DEBUG** > **Start Debugging**. A console window is displayed.
 
 2. You enter your user name and password, as directed.
  - A few connection tools require your user name to have "@{your_serverName_here}" appended, but for ADO.NET this suffix is optional. Don't bother typing the suffix.
