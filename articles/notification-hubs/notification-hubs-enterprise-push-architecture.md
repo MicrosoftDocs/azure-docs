@@ -214,7 +214,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 	![][3]
 
-	g. Configure the job to be "Run Continuously" so that when you log in to the Azure management portal you should see something like the following:
+	g. Configure the job to be "Run Continuously" so that when you log in to the Azure Classic Portal you should see something like the following:
 
 	![][4]
 
@@ -251,7 +251,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 	![][5]
 
-4. The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in Azure Management portal for your Web Job:
+4. The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in Azure Classic Portal for your Web Job:
 
 	![][6]
 

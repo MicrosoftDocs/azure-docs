@@ -41,7 +41,7 @@ We have a number of customers using Notification Hubs with a few notable ones be
 * Bing Apps – 10s of millions of devices, sending 3 million notifications/day
 
 ###4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
-Go to the [Azure Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
+Go to the [Azure Classic Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
 
 ##Design & Development
 ###1.	Which service side platforms do you support?
@@ -111,18 +111,18 @@ Recommendation is to use an app backend which either:
 If you don’t have a backend then when the app starts up on the devices then they will do a new registration in the secondary NH and eventually the secondary NH will have all the active devices registered but the downside is that there will be a time period when devices where apps haven't opened up will not receive notifications.
 
 ###2.	Is there any audit log capability?
-All Notification Hubs Management operations go to Operation Logs which are exposed in the Azure Management Portal.
+All Notification Hubs Management operations go to Operation Logs which are exposed in the Azure Classic Portal.
 
 ##Monitoring & Troubleshooting
 ###1.	What troubleshooting capabilities are available?
 Azure Notification Hubs provide several features to do common troubleshooting particularly in the most common scenario around dropped notifications. See details in this troubleshooting whitepaper - [NH - troubleshooting]
 
 ###2.	What telemetry features are available?
-Azure Notification Hubs enable viewing telemetry data in the Azure management portal. Details of the available metrics are available here - [NH - Metrics].
+Azure Notification Hubs enables viewing telemetry data in the Azure Classic Portal. Details of the available metrics are available here - [NH - Metrics].
 Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is up to the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
 It also provides the capability to export the telemetry programmatically (in Standard Tier). See this sample for details - [NH - Metrics sample]
 
-[Azure Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
