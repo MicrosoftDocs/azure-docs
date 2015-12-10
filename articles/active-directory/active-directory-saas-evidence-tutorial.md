@@ -21,8 +21,8 @@
 
 The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory (AAD) and Evidence.com. The scenario outlined in this tutorial assumes that you already have the following items:
 	
-•	A valid Microsoft Azure subscription
-•	An Evidence.com subscription with single sign On enabled (email earlyaccess@evidence.com if SAML-based single sign on is not enabled)
+* A valid Microsoft Azure subscription
+* An Evidence.com subscription with single sign On enabled (email earlyaccess@evidence.com if SAML-based single sign on is not enabled)
 
 After completing this tutorial, the AAD users to whom you have assigned Evidence.com access will be able to single sign into the application using the AAD Access Panel.
 
