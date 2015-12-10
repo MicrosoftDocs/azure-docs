@@ -32,8 +32,8 @@ First, you need to fill out the **Virtual machine name** column of Table M and m
 
 Item | Virtual machine name | Gallery image | Minimum size 
 --- | --- | --- | --- 
-1. | ______________ (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | Standard_D1
-2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | Standard_D1
+1. | ______________ (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | Standard_D2
+2. | ______________ (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | Standard_D2
 3. | ______________ (primary database server, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
 4. | ______________ (secondary database server, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard_DS4
 5. | ______________ (majority node for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | Standard_D1
@@ -42,9 +42,9 @@ Item | Virtual machine name | Gallery image | Minimum size
 
 **Table M – Virtual machines for the high-availability line of business application in Azure**
 
-For the complete list of virtual machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+For the complete list of virtual machine sizes, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
-Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this PowerShell command set uses values from the following:
+Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the < and > characters. Note that this PowerShell command block uses values from the following:
 
 - Table M, for your virtual machines
 - Table V, for your virtual network settings
@@ -54,7 +54,7 @@ Use the following block of Azure PowerShell commands to create the virtual machi
 
 Recall that you defined Tables V, S, ST, and A in [Phase 1: Configure Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace all instances of "-AzureRM" with "-Azure" and add the **Switch-AzureMode AzureResourceManager** command before you execute any commands. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.
 
@@ -111,7 +111,7 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE] Because these virtual machines are for an intranet application, they are not assigned a public IP address or a DNS domain name label and exposed to the Internet. However, this also means that you cannot connect to them from the Azure portal. The **Connect** button will be unavailable when you view the properties of the virtual machine. Use the Remote Desktop Connection accessory or another Remote Desktop tool to connect to the virtual machine using its private IP address or intranet DNS name.
+> [AZURE.NOTE] Because these virtual machines are for an intranet application, they are not assigned a public IP address or a DNS domain name label and exposed to the Internet. However, this also means that you cannot connect to them from the Azure preview portal. The **Connect** button will be unavailable when you view the properties of the virtual machine. Use the Remote Desktop Connection accessory or another Remote Desktop tool to connect to the virtual machine using its private IP address or intranet DNS name.
 
 ## Configure the first domain controller
 
@@ -165,17 +165,16 @@ You will be prompted to supply the credentials of a domain administrator account
 
 Next, you need to update the DNS servers for your virtual network so that Azure assigns virtual machines the IP addresses of the two new domain controllers to use as their DNS servers. Note that this procedure uses values from Table V (for your virtual network settings) and Table M (for your virtual machines).
 
-1.	In the left pane of the Azure portal, click **Browse all > Virtual networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
-2.	On the pane for your virtual network, click **All settings**.
-3.	On the **Settings** pane, click **DNS servers**.
-4.	On the **DNS servers** pane, type the following:
+1.	In the left pane of the Azure Preview portal, click **Virtual networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
+2.	On the **Settings** pane, click **DNS servers**.
+3.	On the **DNS servers** pane, type the following:
 	- For **Primary DNS server**: Table V – Item 6 – Value column
 	- For **Secondary DNS server**: Table V – Item 7 – Value column
-5.	In the left pane of the Azure portal, click **Browse all > Virtual machines**.
-6.	In the **Virtual machines pane**, click the name of your first domain controller (Table M – Item 1 - Virtual machine name column).
-7.	On the pane for the virtual machine, click **Restart**.
-8.	When the first domain controller is started, click the name of your second domain controller on the **Virtual machines** pane (Table M – Item 2 - Virtual machine name column).
-9.	On the pane for the virtual machine, click **Restart**. Wait until the second domain controller is started.
+4.	In the left pane of the Azure preview portal, click **Virtual machines**.
+5.	In the **Virtual machines pane**, click the name of your first domain controller (Table M – Item 1 - Virtual machine name column).
+6.	On the pane for the virtual machine, click **Restart**.
+7.	When the first domain controller is started, click the name of your second domain controller on the **Virtual machines** pane (Table M – Item 2 - Virtual machine name column).
+8.	On the pane for the virtual machine, click **Restart**. Wait until the second domain controller is started.
 
 Note that we restart the two domain controllers so that they are not configured with the on-premises DNS servers as DNS servers. Because they are both DNS servers themselves, they were automatically configured with the on-premises DNS servers as DNS forwarders when they were promoted to domain controllers.
 
@@ -196,16 +195,5 @@ This diagram shows the configuration resulting from the successful completion of
 
 ## Next step
 
-To continue with the configuration of this workload, go to [Phase 3: Configure SQL Server infrastructure](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+- Use [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md) to continue with the configuration of this workload.
 
-## Additional resources
-
-[Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
