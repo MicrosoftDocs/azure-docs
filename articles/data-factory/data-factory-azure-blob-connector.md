@@ -374,12 +374,12 @@ There are two types of linked services you can use to link an Azure blob storage
 
 ## Azure Storage Linked Service properties
 
-+The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. This provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. This provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | type | The type property must be set to: **AzureStorage** | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. | Yes |
+| connectionString | Specify information needed to connect to Azure storage. | Yes | 
 
 See the following article for steps to view/copy the account key for an Azure Storage: [View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
@@ -401,10 +401,12 @@ A shared access signature (SAS) provides delegated access to resources in your s
   
 The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). This provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service.  
 
-| Property | Description | Required |  
-| -------- | ----------- | -------- |  
-| type | The type property must be set to: **AzureStorageSas** | Yes |  
-| sasUri | Shared Access Signature (SAS) URI to the Azure Storage resource (blob, container, or table). See the notes below for details. | Yes |  
+
+| Property | Description | Required | 
+| :------- | :---------- | :------- |
+| type | The type property must be set to: **AzureStorageSas** | Yes |
+| sasUri | Shared Access Signature (SAS) URI to the Azure Storage resource (blob, container, or, table). See the notes below for details. | Yes |
+  
 
 **Example:**
   
