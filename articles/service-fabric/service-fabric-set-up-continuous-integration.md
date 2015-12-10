@@ -24,7 +24,7 @@ This article takes you through setting up continuous integration (CI) for a Serv
 To get started, set up your project on Visual Studio Team Services.
 
 1. If you haven't already, create a Team Services account using your [Microsoft account](http://www.microsoft.com/account).
-2. Create a new project on Team Servicesusing the Microsoft account.
+2. Create a new project on Team Services using the Microsoft account.
 3. Push the source for your new or existing Service Fabric app to this project.
 
 See [Connect to Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) for more information on working with Team Services projects.
