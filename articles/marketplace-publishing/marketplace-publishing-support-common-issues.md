@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/08/2015"
+      ms.date="12/06/2015"
       ms.author="v-jeana; hascipio"/>
 
 # How to troubleshoot common Azure Marketplace publisher issues
@@ -63,12 +63,12 @@ In some circumstances, you may need to validate the subscription details for one
 
 ## How do I update my publisher profile?
 
-If you want to update your publisher profile, this can be done via the Seller Dashboard:
+If you want to update your publisher profile, this can be done via the Microsoft Developer Center:
 
-**1. Sign in to the Seller Dashboard**.
+**1. Sign in to the Microsoft Developer Center**.
 
 - Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
-- Go to http://sellerdashboard.microsoft.com.
+- Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ![inprivate][4]
 
