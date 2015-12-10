@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-    manager="msmets"
+	manager="msmets"
 	editor=""/>
 
 <tags
