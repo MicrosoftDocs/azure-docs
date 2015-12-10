@@ -1881,6 +1881,8 @@ The table below depicts the build parameters for recommendation build.
 |FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling.| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | Bounds the number of items in a frequent set.| Integer | 2-3 (2) |
 |FbtMinimalScore | Minimal score that a frequent set should have in order to be included in the returned results. The higher the better.| Double | 0 and above (0) |
+|FbtSimilarityFunction | Defines the similarity function to be used by the build. | String | cooccurrence, lift, jaccard (lift) |
+
 
 ###11.2. Trigger a Recommendation Build
 
