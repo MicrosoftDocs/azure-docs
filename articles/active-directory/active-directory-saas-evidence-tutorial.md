@@ -26,7 +26,7 @@ The objective of this tutorial is to show how to set up single sign-on between A
 
 After completing this tutorial, the AAD users to whom you have assigned Evidence.com access will be able to single sign into the application using the AAD Access Panel.
 
-## Add Evidence to your directory
+## Add Evidence.com to your directory
 
 This section outlines how to add Evidence.com as an integrated application in Azure Active Directory.
 
@@ -61,22 +61,22 @@ This section outlines how to enable users to authenticate to Evidence.com with t
 
 5.	In a separate web browser window, login to your Evidence.com tenant as an administrator and navigate to **Admin** Tab
       
-a.	Click on **Agency Single Sign On**
+6.	Click on **Agency Single Sign On**
  
-b.	Select **SAML Based Single Sign On**
+7.	Select **SAML Based Single Sign On**
  
-c.	Copy the **Issuer URL**, **Single Sign On** and **Single Sign Out** values shown in the Azure classic portal and to the corresponding fields in Evidence.com.
+8.	Copy the **Issuer URL**, **Single Sign On** and **Single Sign Out** values shown in the Azure classic portal and to the corresponding fields in Evidence.com.
 
-d.	Open the certificate downloaded in step 4 using a text editor like Notepad.exe, and copy and paste the contents into the **Security Certificate** box. 
+9.	Open the certificate downloaded in step 4 using a text editor like Notepad.exe, and copy and paste the contents into the **Security Certificate** box. 
 
-e. Save the configuration in Evidence.com
+10. Save the configuration in Evidence.com
  
-6.	In the Azure classic portal, check **Confirm that you have configured single sign-on as described above**. Checking this will enable the current certificate to start working for this application checkbox.
+11.	In the Azure classic portal, check **Confirm that you have configured single sign-on as described above**. Checking this will enable the current certificate to start working for this application checkbox.
  
-7.	On the Single sign-on confirmation page, click **Complete**.  
+12.	On the Single sign-on confirmation page, click **Complete**.  
 
 
-## Creating an Evidence test user
+## Creating an Evidence.com test user
 
 For Azure AD users to be able to sign in, they must be provisioned for access inside the Evidence.com application. This section describes how to create Azure AD user accounts inside Evidence.com
 
@@ -93,11 +93,11 @@ For Azure AD users to be able to sign in, they must be provisioned for access in
 5.  The **Email Address** of the added user must match the username of the users in Azure AD who you wish to give access. If the username and email address are not the same value in your organization, you can use the **Evidence.com > Attributes > Single Sign-On** section of the Azure classic portal to change the nameidenitifer sent to Evidence.com to be the email address.
 
 
-## Assigning users to Evidence
+## Assigning users to Evidence.com
 
 For provisioned AAD users to be able to see Evidence.com on their Access Panel, they must be assigned access inside the Azure management portal.
 
-**To assign users to Evidence: **
+**To assign users to Evidence.com: **
 
 1.	On the quick start page for Evidence.com in the Azure classic portal, click **Assign users to Evidence**.
  
