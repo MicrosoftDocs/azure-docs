@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
-   ms.author="cherylmc" />
+   ms.date="12/09/2015"
+   ms.author="ganesr" />
 
 # Linking Virtual Networks to ExpressRoute circuits
 
