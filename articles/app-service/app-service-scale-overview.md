@@ -16,11 +16,8 @@
 	ms.topic="article" 
 	ms.date="12/08/2015" 
 	ms.author="byvinyal"/>
-
-[AZURE.INCLUDE app-service-blueprint-how-app-service-works]
-
 # Azure App Service: Scaling App Service Applications #
-Applications hosted in Azure App Service can [achieve massive scale](https://azure.microsoft.com/en-us/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/)
+Applications hosted in Azure App Service can [achieve massive scale](https://azure.microsoft.com/en-us/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage)
 however scaling an application is a complex problem that does not have a "one 
 size fits all" solution. To correctly scale your application there are 3 key 
 areas that will contribute to your applications success:
@@ -41,3 +38,5 @@ areas that will contribute to your applications success:
 This section will help you understand all the factors and help you device a 
 strategy that takes advantage of the necessary App Service features to achieve 
 your scalability goals.
+
+[AZURE.INCLUDE app-service-blueprint-how-app-service-works]
