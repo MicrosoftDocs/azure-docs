@@ -34,30 +34,6 @@ The prerequisites for this article are as follows:
 1.	An active Azure subscription
 2.	A CSV file with some data in it. The one in Figure 2 is provided here for download, or you may create your own. This tutorial is written with the assumption that the one provided for download is used.
 
-    LicensePlate,Make,Model
-    JNB 7001,Honda,CRV
-    YXZ 1001,Toyota,Camry
-    ABC 1004,Ford,Taurus
-    XYZ 1003,Toyota,Corolla
-    BNJ 1007,Honda,CRV
-    CDE 1007,Toyota,4x4
-    BAC 1005,Toyota,Camry
-    ZYX 1002,Honda,Accord
-    ZXY 1001,Toyota,Camry
-    CBA 1008,Ford,Mustang
-    DCB 1004,Volvo,S80
-    CDB 1003,Volvo,C30
-    YZX 1009,Volvo,V70
-    BCD 1002,Toyota,Rav4
-    CBD 1005,Toyota,Camry
-    NJB 1006,Ford,Focus
-    PAC 1209,Chevy,Malibu
-    EDC 3109,Ford,Focus
-    DEC 1008,Toyota,Corolla
-    DBC 1006,Honda,Civic
-    APC 2019,Honda,Civic
-    EDC 1019,Honda,Accord
-
 At a high level, the following steps will be performed:
 
 1.	Upload the CSV input file into Blob Storage
@@ -83,34 +59,41 @@ For this step you can use any CSV file including the one specified in the introd
 
     ![stream analytics machine learning tutorial upload csv](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-upload-csv.png)  
 
-## Create a Machine Learning workspace
+## Add the Sentiment Analytics Model from Cortana Analytics Gallery
 
-1.	Login to Azure Management Portal at [https://manage.windowsazure.com](https://manage.windowsazure.com).  
-2.	Click **New**, **Data Services**, **Machine Learning**, **Quick Create**.  
-3.	Fill in the **Quick Create** form by providing the following:  
-	a.	**Workspace Name**  
-	b.	**Workspace Owner** The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).  
-	c.	**Location**  
-	d.	**Storage Account** Here you can either choose an existing Storage Account or create a new one. This storage is internal to AML and hence is of little importance for this exercise.  
-
-4.	Click **Create an ML Workspace** button.
-5.	Once created, click on the **workspace** in the list of **workspaces** and navigate to the **Dashboard** tab. In the **Quick Glance** section of the Dashboard click **Sign-in to ML Studio**.  
+1.	Download the [predictive sentiment analytics model](https://gallery.cortanaanalytics.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) in Cortana Analytics Gallery.  
+2.	Click **Open** in the Studio:  
 
     ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
-## Create and deploy a Machine Learning model
+3.	Sign in to be taken to the workspace. Choose the location that best suits your location.
+4.	Now click on **Run** at the bottom of the Studio  
+5.	Once it runs successfully, click on **Deploy Web Service**.
+6.	Now the sentiment analytics model is ready for use. To validate, click the **test** button and providing text input such as “I love Microsoft” and the test should return a similar result as shown below:
 
-1.	In ML Studio, click New, Experiment, Blank Experiment. 
-2.	Expand Data Input and Output and drag Reader node on to the canvas.  
+`'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`  
+
+
+    ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+
+Click on the **Excel 2010 or earlier** workbook link to get your API key and the URL that you’ll need later for setting up the Stream Analytics job. (This step is only required to leverage a machine learning model from another Azure account's workspace. This tutoraial assumes this is the case to address this scenario)  
+
+    ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+
+Take note of the web service url and access key from the downloaded excel as shown below:  
+
+    ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+
+## Create an Stream Analytics job which uses the machine learning model
+
+1.	Navigate to the [Azure Management Portal](https://manage.windowsazure.com).  
+2.	Click **New**, **Data Services**, **Stream Analytics** and **Quick Create**. Provide the **Job Name**, appropriate **Region** for the job and choose a **Regional Monitoring Storage Account**.  
+3.	Once the job is created, navigate to the **Inputs** tab and click **Add Input**.  
 
     ![stream analytics machine learning tutorial data input output](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial.png)  
 
-3.	Select the Reader node which you just placed on the canvas. You should see the Properties of the Reader on the right side. Fill in the information about your Blob Storage which you configured in the Upload a CSV file to a Blob Storage section.  
-	Note: don’t forget to check File has header row check box.  
-
-    ![stream analytics machine learning tutorial file has header row](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-file-has-header-row.png)  
-
-4.	On the left pane, select Data Transformation, Manipulation, Project Columns node and drag it onto the canvas. Connect Reader node with the Project Columns node.  
+4.	On the first page of Add Input wizard window select **Data stream** and click next. On the second page select **Blob Storage** as the input and click **next**.  
+5.	On the left pane, select Data Transformation, Manipulation, Project Columns node and drag it onto the canvas. Connect Reader node with the Project Columns node.    
 
     ![stream analytics machine learning tutorial execute python](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-execute-python.png)  
 
