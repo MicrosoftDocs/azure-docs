@@ -43,7 +43,7 @@ In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **Ne
 
   ![][1]
 
-Enter a DNS hostname. It will have the form `&lt;name&gt;.redis.cache.windows.net`. Click **Create**.
+Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Click **Create**.
 
   ![][2]
 
@@ -52,21 +52,22 @@ Enter a DNS hostname. It will have the form `&lt;name&gt;.redis.cache.windows.ne
 
   ![][4]
 
-  ## Add something to the cache and retrieve it
+## Add something to the cache and retrieve it
 
-  var redis = require("redis");
+```js
+var redis = require("redis");
 
-  // Add your cache name and access key.
-  var client = redis.createClient(6380,'&lt;name&gt;.redis.cache.windows.net', {auth_pass: '&lt;key&gt;', tls: {servername: '&lt;name&gt;.redis.cache.windows.net'}});
+// Add your cache name and access key.
+var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
-	client.set("foo", "bar", function(err, reply) {
-	    console.log(reply);
-	});
+client.set("foo", "bar", function(err, reply) {
+  console.log(reply);
+});
 
-	client.get("foo",  function(err, reply) {
-	    console.log(reply);
-	});
-
+client.get("foo",  function(err, reply) {
+  console.log(reply);
+});
+```
 
 Output:
 
