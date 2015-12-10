@@ -6,15 +6,15 @@ In this section, you'll create a Windows console app that creates a new device i
 
 	![][10]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
+2. In Solution Explorer, right-click the **CreateDeviceIdentity** project, and then click **Manage NuGet Packages**.
 
-3. In the **Manage Packages for Solution** window, make sure the **Include prerelease** option is checked. Then search for **Microsoft Azure Devices**, click **Install**, and accept the terms of use.
+3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Then search for **Microsoft Azure Devices**, click **Install**, and accept the terms of use.
 
 	![][11]
 
 4. This downloads, installs, and adds a reference to the [Microsoft Azure Devices SDK][lnk-nuget-device-sdk] NuGet package.
 
-4. Add the following `using` statement at the top of the **Program.cs** file:
+4. Add the following `using` statements at the top of the **Program.cs** file:
 
 		using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
@@ -63,9 +63,9 @@ In this section, you'll create a Windows console app that reads device-to-cloud 
 
     ![][10]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**.
+2. In Solution Explorer, right-click the **ReadDeviceToCloudMessages** project, and then click **Manage NuGet Packages**.
 
-3. In the **Manage Packages for Solution** window, make sure the **Include prerelease** option is checked. Then search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use.
+3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Then search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use.
 
     This downloads, installs, and adds a reference to the [Azure Service Bus][lnk-servicebus-nuget], with all its dependencies.
 

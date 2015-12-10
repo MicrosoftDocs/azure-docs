@@ -6,9 +6,9 @@ In this section, you'll create a Windows console app that simulates a device tha
 
    	![][30]
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**.
+2. In Solution Explorer, right-click the **SimulatedDevice** project, and then click **Manage NuGet Packages**.
 
-3. In the **Manage Packages for Solution** window, make sure the **Include prerelease** option is checked. Search for **Microsoft Azure Devices Client**, click **Install**, and accept the terms of use.
+3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Search for **Microsoft Azure Devices Client**, click **Install**, and accept the terms of use.
 
 	This downloads, installs, and adds a reference to the [Azure IoT - Device SDK NuGet package][lnk-device-nuget].
 

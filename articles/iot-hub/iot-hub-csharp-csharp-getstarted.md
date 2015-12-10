@@ -53,30 +53,28 @@ You need to create an IoT Hub for you simulated device to connect to. The follow
 
 2. In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
 
-   	![][1]
+    ![][1]
 
 3. In the **IoT hub** blade, choose the configuration for your IoT hub.
 
-   	![][2]
+    ![][2]
 
     * In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
     * Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
     * In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
     * In **Location**, select the location to host your IoT hub.  
 
-
 4. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
 
     ![][3]
 
-
 5. When the IoT hub has been created successfully, open the blade of the new IoT hub, make a note of the **Hostname**, and then click the **Keys** icon.
 
-   	![][4]
+    ![][4]
 
 6. Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade.
 
-   	![][5]
+    ![][5]
 
 You have now created your IoT hub and you have the hostname and connection string you need to complete the rest of this tutorial.
 
@@ -133,6 +131,6 @@ Additional information on IoT Hub:
 [lnk-supported-devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [lnk-dev-center]: http://www.azure.com/develop/iot
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="_blank"
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
