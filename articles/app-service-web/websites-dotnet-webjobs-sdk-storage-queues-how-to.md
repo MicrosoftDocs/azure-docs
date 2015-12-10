@@ -131,7 +131,7 @@ The SDK implements a random exponential back-off algorithm to reduce the effect 
 
 ### <a id="instances"></a> Multiple instances
 
-If your web app runs on multiple instances, a continuous WebJobs runs on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results). For `QueueTrigger` functions, this does not apply; `QueueTrigger` automatically prevents a function from processing a queue message multiple times. 
+If your web app runs on multiple instances, a continuous WebJob runs on each machine, and each machine will wait for triggers and attempt to run functions. The WebJobs SDK queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent.
 
 ### <a id="parallel"></a> Parallel execution
 
