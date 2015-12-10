@@ -22,6 +22,8 @@ This guide is intended to help IT professionals understand and use the various S
 
 ##Overview
 
+[sloppy, work in progress]
+
 [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
 
 [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md)
@@ -62,6 +64,8 @@ Single sign-on allows users to access a variety of apps and services using only 
 
 ##Password-Based Single Sign-On: Account Sharing and SSO for Non-Federated Apps
 
+[sloppy, work in progress]
+
 [Sharing accounts with Azure AD](active-directory-sharing-accounts.md)
 
 [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
@@ -69,6 +73,8 @@ Single sign-on allows users to access a variety of apps and services using only 
 [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 
 ##Conditional Access: Enforce Additional Security Requirements for High-Risk Apps
+
+[sloppy, work in progress]
 
 [Managing Risk With Conditional Access](active-directory-conditional-access.md)
 
@@ -89,6 +95,8 @@ Single sign-on allows users to access a variety of apps and services using only 
 [Setting up on-premises conditional access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md)
 
 ##App Proxy: Enable SSO and Remote Access to On-Premises Applications
+
+[sloppy, work in progress]
 
 [Working with claims aware apps in Application Proxy](active-directory-application-proxy-claims-aware-apps.md)
 
@@ -117,6 +125,8 @@ Single sign-on allows users to access a variety of apps and services using only 
 [Azure AD Domain Services (Preview)](active-directory-ds-overview.md)
 
 ##Building Apps that Integrate with Azure AD
+
+[sloppy, work in progress]
 
 [Azure AD and Applications: Guiding Developers](active-directory-applications-guiding-developers-for-lob-applications.md)
 
@@ -149,6 +159,8 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 
 ##Tools for Managing who has Access to which Apps
 
+[sloppy, work in progress]
+
 [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
 [Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md)
@@ -171,6 +183,8 @@ also make sure to delegated/self-service stuff is included
 
 ##B2B: Enable Partner Access to Applications
 
+[sloppy, work in progress]
+
 [Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration](active-directory-b2b-what-is-azure-ad-b2b.md)
 
 [Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-collaboration-overview.md)
@@ -189,9 +203,13 @@ also make sure to delegated/self-service stuff is included
 
 ##Access Panel: A Portal for Users to Access Apps and More
 
+[sloppy, work in progress]
+
 [Introduction to Access Panel](active-directory-saas-access-panel-introduction.md)
 
 ##Reporting (needs better headline)
+
+[sloppy, work in progress]
 
 something about reports related to managing apps, sign ins to apps, security reports
 
