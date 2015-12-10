@@ -95,7 +95,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 2.	Click **New**, **Data Services**, **Stream Analytics** and **Quick Create**. Provide the **Job Name**, appropriate **Region** for the job and choose a **Regional Monitoring Storage Account**.    
 3.	Once the job is created, navigate to the **Inputs** tab and click **Add Input**.  
 
-    ![stream analytics machine learning tutorial data add machine learning input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-integration-learning-tutorial-add-input-screen.png)  
+    ![stream analytics machine learning tutorial data add machine learning input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-add-input-screen.png)  
 
 4.	On the first page of **Add Input** wizard window select **Data stream** and click next. On the second page select **Blob Storage** as the input and click **next**.  
 5.	On the **Blob Storage Settings** page of the wizard provide the storage account blob container name defined earlier when the data was uploaded. Click **next**. Choose **CSV** as **Event Serialization Format**. Accept the defaults for the rest of the **Serialization settings**. Click **OK**.  
