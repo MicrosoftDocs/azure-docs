@@ -376,6 +376,7 @@ to learn more.
 - [Get started with Table storage for .NET](storage-dotnet-how-to-use-tables.md)
 - [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
 - [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 - [Use SQL Database to store relational data](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 

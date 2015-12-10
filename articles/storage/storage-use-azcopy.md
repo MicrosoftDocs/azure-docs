@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Copy or move data to Storage with AzCopy | Microsoft Azure" 
-	description="Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts." 
+	description="Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage." 
 	services="storage" 
 	documentationCenter="" 
 	authors="micurd" 
@@ -16,7 +16,7 @@
 	ms.date="12/10/2015" 
 	ms.author="micurd"/>
 
-# Move data with the AzCopy Command-Line Utility
+# Transfer data with the AzCopy Command-Line Utility
 
 ## Overview
 
