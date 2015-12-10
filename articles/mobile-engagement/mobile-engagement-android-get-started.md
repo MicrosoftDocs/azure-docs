@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="12/02/2015"
 	ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Android apps
@@ -103,7 +103,7 @@ Download and integrate the SDK library
 		import com.microsoft.azure.engagement.EngagementAgent;
 		import com.microsoft.azure.engagement.EngagementConfiguration;
 
-3. Go back to the Azure portal in your app's **Connection Info** page and copy the **Connection String**.
+3. Go back to the Azure Classic Portal in your app's **Connection Info** page and copy the **Connection String**.
 
 	  ![][9]
 
@@ -266,7 +266,7 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 
 1. Navigate to your Mobile Engagement portal
 
-	From your Azure portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
+	From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
 
 	![][15]
 

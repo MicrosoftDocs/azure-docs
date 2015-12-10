@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/01/2015"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -29,14 +29,14 @@ After enabling [security policies](security-center-policies.md) for the subscrip
 
 For more information on how to apply recommendations read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-##Resource Health
+##Resource health
 The **Resources health** tile allows you to monitor the security state of your resources. You will see a number of issues with high and medium severity that require attention as shown below:
 
 ![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1.png)
 
 The security policies that are enabled will impact the types of controls being monitored here. If Azure Security Center identifies a vulnerability which needs to addressed, such as a VM with missing security updates or a subnet without a [Network Security Group](virtual-networks-nsg.md), it will be identified here. 
 
-###Virtual Machine
+###Virtual machine
 When you click on **Virtual Machines** in the **Resources health** tile, the **Virtual Machines** blade will open with more details about the onboarding and prevention steps as well as a list of all VMs monitored by Azure Security Center as shown below:
 
 ![Missing system update by VM](./media/security-center-monitoring/security-center-monitoring-fig2.png)

@@ -1,5 +1,5 @@
 
-1. Back in the Mobile App backend settings, scroll down to **Mobile**, click **Get started** > your client platform. 
+1. Back in the Mobile App backend settings, click **Get started** > your client platform. 
 
 2. Under **Create a table API**, select your **Backend language**, either **C#** or **Node.js**:
 

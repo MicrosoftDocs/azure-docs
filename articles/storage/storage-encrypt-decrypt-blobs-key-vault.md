@@ -167,7 +167,7 @@ Add the following code to encrypt a blob and upload it to your Azure storage acc
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-Following is a screenshot from the current Azure portal for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
+Following is a screenshot from the [Azure Classic Portal](manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault. The **KeyId** property is the URI for the key in Key Vault that acts as the KEK. The **EncryptedKey** property contains the encrypted version of the CEK.
 
 ![Screenshot showing Blob metadata that includes encryption metadata][1]
 

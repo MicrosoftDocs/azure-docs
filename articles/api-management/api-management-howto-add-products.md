@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to create and publish a product in Azure API Management
@@ -22,7 +22,7 @@ In Azure API Management, a product contains one or more APIs as well as a usage 
 
 ## <a name="create-product"> </a>Create a product
 
-Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 

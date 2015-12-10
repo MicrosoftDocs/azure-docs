@@ -52,7 +52,7 @@ applications.
 ## Create a Service Namespace
 
 To begin using Service Bus queues in Azure, you must first create a service namespace. A service namespace provides a scoping container for addressing Service Bus resources within
-your application. You must create the namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.
+your application. You must create the namespace through the command-line interface because the portal does not create the service bus with an ACS connection.
 
 To create a namespace:
 
@@ -77,7 +77,7 @@ will use this value in your code later in this tutorial.
 
 > [AZURE.NOTE]
 > You can also find this key if you log on to the
-> [Azure Portal](http://manage.windowsazure.com/) and navigate to the
+> [Azure classic portal](http://manage.windowsazure.com/) and navigate to the
 > connection information for your service bus namespace.
 
 ## Create a Ruby Application
@@ -222,7 +222,7 @@ In the event that the application crashes after processing the message but befor
 
 ## How to Delete Topics and Subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure Portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
+Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure classic portal](https://manage.windowsazure.com) or programmatically. The example below demonstrates how to delete the topic named "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 

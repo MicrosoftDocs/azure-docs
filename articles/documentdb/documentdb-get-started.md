@@ -79,9 +79,9 @@ First, add these references to the beginning of your C# application, in the Prog
 
 > [AZURE.IMPORTANT] In order to complete this NoSQL tutorial, make sure you add the dependencies above.
 
-Next, save the DocumentDB account endpoint and either the primary or secondary access key, which can be found in the [Azure Preview Portal](https://portal.azure.com).
+Next, save the DocumentDB account endpoint and either the primary or secondary access key, which can be found in the [Azure Portal](https://portal.azure.com).
 
-![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure Portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";

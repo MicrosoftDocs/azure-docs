@@ -33,7 +33,7 @@ The following are some administrative and prerequisite steps you should follow b
 
 1. To create a service namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. In the main window of the Azure portal, click the name of the namespace you created in the previous step.
+1. In the main window of the [Azure classic portal][], click the name of the namespace you created in the previous step.
 
 1. Click **Configure**.
 
@@ -633,7 +633,7 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 1. Before you run the application, you must ensure that you have created a service namespace and obtained a SAS key, as described in [Introduction and Prerequsites](#introduction-and-prerequisites).
 
-1. Open a browser and go to the [Azure portal](http://manage.windowsazure.com).
+1. Open a browser and go to the [Azure classic portal][].
 
 1. Click **Service Bus** in the left-hand tree.
 
@@ -651,3 +651,4 @@ To learn more about [Service Bus](https://azure.microsoft.com/services/service-b
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus architecture](service-bus-architecture.md)
 
+[Azure classic portal]: http://manage.windowsazure.com

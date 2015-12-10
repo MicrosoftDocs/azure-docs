@@ -1,9 +1,9 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the Azure CLI | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using the Azure CLI."
+   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the Azure PowerShell | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using the Azure PowerShell."
    	services="hdinsight"
    	documentationCenter=""
-   	authors="nitinme"
+   	authors="mumian"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -25,11 +25,12 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 > [AZURE.NOTE] Azure PowerShell is only available on Windows clients. If you are using a Linux, Unix, or Mac OS X client, see [Create a Linux-based HDInsight cluster using Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) for information on using the Azure CLI to create a cluster.
 
-##Prerequisites
+###Prerequisites
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerSHell__. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+
 
 ##Create the cluster
 

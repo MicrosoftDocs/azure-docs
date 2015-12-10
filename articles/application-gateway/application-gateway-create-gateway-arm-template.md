@@ -237,7 +237,7 @@ Click to deploy is another way to use ARM templates. It's an easy way to use tem
 
 
 ### Step 1 
-Using the link [Click to deploy Application Gateway](https://azure.microsoft.com/en-us/documentation/templates/101-application-gateway-public-ip/) will redirect you to the portal template page for Application Gateway.
+Using the link [Click to deploy Application Gateway](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) will redirect you to the portal template page for Application Gateway.
 
 
 ### Step 2 

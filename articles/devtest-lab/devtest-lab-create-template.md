@@ -20,7 +20,7 @@
 
 ## Overview
 
-Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to that lab](devtest-lab-add-vm-with-artifacts.md) from a list of VM templates. In this article, you'll learn how to upload and configure a Virtual Hard Disk (VHD) image file as a template from which to create your VMs. If you're unfamiliar with VHD images, refer to the [Create and upload a Windows Server VHD to Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/) article to learn how to create a VHD image. Once you've created or obtained access to a VHD image, this article will walk you through uploading it, and creating a template from it.
+Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to that lab](devtest-lab-add-vm-with-artifacts.md) from a list of VM templates. In this article, you'll learn how to upload and configure a Virtual Hard Disk (VHD) image file as a template from which to create your VMs. If you're unfamiliar with VHD images, refer to the [Create and upload a Windows Server VHD to Azure](../virtual-machines-create-upload-vhd-windows-server.md) article to learn how to create a VHD image. Once you've created or obtained access to a VHD image, this article will walk you through uploading it, and creating a template from it.
 
 ## Create a VM template
 

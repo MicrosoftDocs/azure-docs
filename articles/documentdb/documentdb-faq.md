@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
 
@@ -42,6 +42,9 @@ Yes, DocumentDB supports cross-document transactions expressed as JavaScript sto
 ### What are the typical use cases for DocumentDB?  
 DocumentDB is a good choice for new web and mobile applications where scale, performance, and the ability to query over schema-free data is important. DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are [common use cases for DocumentDB](documentdb-use-cases.md).  
 
+### Is DocumentDB HIPAA compliant?
+DocumentDB is not currently HIPAA compliant; however, becoming a HIPAA compliant Azure service is on the roadmap. For more information about Microsoft and HIPAA see [HIPAA and the HITECH Act](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+
 ### What are the scale limits of DocumentDB?
 DocumentDB accounts can be scaled in terms of storage and throughput by adding collections. Please see [DocumentDB limits](documentdb-limits.md) for the service quotas for the number of collections. If you require additional collections, please [contact support](documentdb-increase-limits.md) to have your account quota increased. 
 
@@ -57,13 +60,13 @@ If you need any help, please reach out to us on [Stack Overflow](http://stackove
 ## Set up Microsoft Azure DocumentDB
 
 ### How do I sign-up for Microsoft Azure DocumentDB?
-Microsoft Azure DocumentDB is available in the [Azure Preview portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription. For instructions on adding a DocumentDB account, see [Create a DocumentDB database account](documentdb-create-account.md).   
+Microsoft Azure DocumentDB is available in the [Azure Portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription. For instructions on adding a DocumentDB account, see [Create a DocumentDB database account](documentdb-create-account.md).   
 
 ### What is a master key?
-A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure Preview portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
+A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the **Keys **blade of the [Azure Portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
 
 ### How do I create a database?
-You can create databases using the [Azure Preview portal]() as described in [Create a DocumentDB database](documentdb-create-database.md), one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+You can create databases using the [Azure Portal]() as described in [Create a DocumentDB database](documentdb-create-database.md), one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx), or through the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### What is a collection?
 A collection is a container of JSON documents and the associated JavaScript application logic. Queries and transactions are scoped to collections. You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed. 
@@ -99,7 +102,7 @@ DocumentDB supports language-integrated transactions via JavaScript stored proce
 There are three ways to bulk insert documents into DocumentDB:
 
 - The data migration tool, as described in [Import data to DocumentDB](documentdb-import-data.md).
-- Document Explorer in the Azure preview portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#BulkAdd).
+- Document Explorer in the Azure Portal, as described in [Bulk add documents with Document Explorer](documentdb-view-json-document-explorer.md#BulkAdd).
 - Stored procedures, as described in [DocumentDB server-side programming](documentdb-programming.md).
 
 ### Does DocumentDB support resource link caching?

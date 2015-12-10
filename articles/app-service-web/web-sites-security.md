@@ -54,7 +54,7 @@ It's common practice to store connection strings, authentication credentials, an
 
 Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as **app settings** and **connection strings**. The values are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime.
 
-**App settings** and **connection strings** are configurable using the [Azure preview portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI.
+**App settings** and **connection strings** are configurable using the [Azure Portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI.
 
 For more information on app settings and connection strings, see [Configuring web apps](web-sites-configure.md).
 
@@ -62,7 +62,7 @@ For more information on app settings and connection strings, see [Configuring we
 
 Azure provides secure FTP access access to the file system for your web app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. The FTPS link for your web app can be found with the following steps:
 
-1. Open the [Azure preview portal](http://portal.azure.com).
+1. Open the [Azure Portal](http://portal.azure.com).
 2. Select **Browse All**.
 3. From the **Browse** blade, select **Web Apps**.
 4. From the **Web Apps** blade, Select the desired web app.
@@ -84,6 +84,3 @@ For information on logging information for web apps, which may be useful in dete
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
- 

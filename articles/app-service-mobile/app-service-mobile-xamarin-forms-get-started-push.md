@@ -10,10 +10,10 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
@@ -63,39 +63,6 @@ These steps walk you through creating a new notification hub. If you already hav
 ##Deploy the updated server project to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
-
-## Update the portable class library Project 
-
-The `TodoItemManager` class defined in the shared project wraps the client connection to the Mobile App backend along with the operations we want to perform against the table hosted in the Mobile App backend. We will expose the client connection so we can register for push notifications.
-
-1. In Visual Studio or Xamarin Studio, open TodoItemManager.cs in the shared project. Add the following static member and accessors to the `TodoItemManager` class. We will use this to access the `MobileServiceClient` when we need to get the platform specific `Microsoft.WindowsAzure.MobileServices.Push` object. 
-
-        static TodoItemManager defaultInstance = null;
-
-        public static TodoItemManager DefaultInstance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
-        }
-
-		public MobileServiceClient CurrentClient
-		{
-			get { return client; }
-		}
-
-
-2. Add code to initialize `DefaultInstance` at the beginning of the constructor for the `TodoItemManager` class.
-
-        DefaultClient = this;
-
-
 
 
 ##(Optional) Configure and run the Android project
@@ -237,7 +204,7 @@ This section is for running the Xamarin droid project for Android. You can skip 
 		
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 		
-            var push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 		
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
 		
@@ -423,7 +390,7 @@ This section is for running the Xamarin iOS project for iOS devices. You can ski
                 };
 
             // Register for push with your mobile app
-            Push push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            Push push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
             push.RegisterAsync(deviceToken, templates);
         }
 
@@ -506,7 +473,7 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
                   {"headers", headers} // Only needed for WNS & MPNS
                 };
 
-            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
 3. In App.xaml.cs update the `OnLaunched` event handler with the `async` attribute and call `InitNotificationsAsync`
@@ -573,8 +540,5 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 

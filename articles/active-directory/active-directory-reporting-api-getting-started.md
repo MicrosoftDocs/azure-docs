@@ -13,22 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 
 # Getting started with the Azure AD Reporting API
 
-## Reporting Documentation Articles
-
- - [Reporting API](active-directory-reporting-api-getting-started.md)
- - [Audit Events](active-directory-reporting-audit-events.md)
- - [Retention](active-directory-reporting-retention.md)
- - [Previews](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Backfill](active-directory-reporting-backfill.md)
- - [Latencies](active-directory-reporting-latencies.md)
- - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Azure Active Directory provides a variety of activity, security and audit reports. This data can be consumed through the Azure portal, but can also be very useful in a many other applications, such as SIEM systems, audit, and business intelligence tools.
 

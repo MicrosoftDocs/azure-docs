@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Troubleshooting VM allocation failure | Microsoft Azure"
 	description="Troubleshooting allocation failure when you create, restart or resize a VM in Azure"
 	services="virtual-machines, azure-resource-manager"
@@ -87,7 +87,7 @@ The request of resizing a VM, or adding a VM or a role instance to an existing C
 
 **Workaround**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new Cloud Service to host the new VM, and add the new Cloud Service to the Regional Virtual Network where the existing VMs are running. If your existing Cloud Service does not use Regional Virtual Network, you can still create a new Virtual Network for the new Cloud Service, and then connect your [existing VNet to the new VNet](https://azure.microsoft.com/en-us/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new Cloud Service to host the new VM, and add the new Cloud Service to the Regional Virtual Network where the existing VMs are running. If your existing Cloud Service does not use Regional Virtual Network, you can still create a new Virtual Network for the new Cloud Service, and then connect your [existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster but the cluster does not have free resource at the moment. Similar to above, try adding the desired compute resource through creating a new Cloud Service (note the new Cloud Service has to use a different VIP) and use Regional Virtual Network to connect your Cloud Services.
 
@@ -105,7 +105,7 @@ GeneralError*
 
 If it's acceptable to use a different VIP, delete the stopped (de-allocated) VMs (but keep the associated disks) and add the VMs back through a different Cloud Service. Use Regional Virtual Network to connect your Cloud Services:
 1.	If your existing Cloud Service uses Regional Virtual Network, simply add the new Cloud Service to the same Virtual Network.
-2.	If your existing Cloud Service does not use Regional Virtual Network, create a new Virtual Network for the new Cloud Service, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/en-us/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+2.	If your existing Cloud Service does not use Regional Virtual Network, create a new Virtual Network for the new Cloud Service, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ### Allocation scenario: restarting stopped (de-allocated) VMs - full de-allocation
 **Error**
@@ -157,7 +157,7 @@ Before Regional Virtual Network is announced, you were required to associate a V
 
 **Workaround**
 
-If you do not need the Affinity Group, create a new Regional Virtual Network for the new resources you're adding, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/en-us/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+If you do not need the Affinity Group, create a new Regional Virtual Network for the new resources you're adding, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 Alternatively, you can [migrate your Affinity-Group-based Virtual Network to Regional Virtual Network](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then try adding the desired resources again.
 

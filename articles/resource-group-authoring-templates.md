@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
@@ -236,7 +236,7 @@ You define resources with the following structure:
 | comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
 | properties               |   No     | Resource specific configuration settings.
-| resources                |   No     | Child resources that depend on the resource being defined.
+| resources                |   No     | Child resources that depend on the resource being defined. You can provide only resource types that are permitted by the schema of the parent resource. The fully-qualified name of the child resource type includes the parent resource type, such as **Microsoft.Web/sites/extensions**.
 
 If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
@@ -278,6 +278,9 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
+                  "dependsOn": [
+                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",
