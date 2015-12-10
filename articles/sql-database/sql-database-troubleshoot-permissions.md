@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Troubleshoot Azure SQL database permissions and access" 
-	description="Quick steps to troubleshoot common permissions, access, user, and login issues" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Troubleshoot Azure SQL database permissions and access"
+	description="Quick steps to troubleshoot common permissions, access, user, and login issues"
+	services="sql-database"
+	documentationCenter=""
+	authors="dalechen"
+        manager="msmets"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="jeffreyg"/>
- 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/10/2015"
+	ms.author="daleche"/>
+
 #Troubleshoot common Azure SQL database permissions and access issues
 Use this topic for quick steps to grant and remove access to an Azure SQL database. For more comprehensive information, see:
 
