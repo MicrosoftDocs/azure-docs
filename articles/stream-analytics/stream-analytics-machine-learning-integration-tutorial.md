@@ -79,15 +79,15 @@ For this step you can use any CSV file including the one specified in the introd
 
 `'Predictive Mini Twitter sentiment analysis Experiment' test returned ["4","0.715057671070099"]...`  
 
-    ![stream analytics machine learning tutorial analysis data](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)  
+![stream analytics machine learning tutorial analysis data](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-data.png)  
 
 Click on the **Excel 2010 or earlier** workbook link to get your API key and the URL that you’ll need later for setting up the Stream Analytics job. (This step is only required to leverage a machine learning model from another Azure account's workspace. This tutorial assumes this is the case to address this scenario)  
 
-    ![stream analytics machine learning tutorial analysis experiment](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)  
+![stream analytics machine learning tutorial analysis experiment](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-analysis-experiement.png)  
 
 Take note of the web service URL and access key from the downloaded excel as shown below:  
 
-    ![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+![stream analytics machine learning tutorial quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 ## Create an Stream Analytics job which uses the machine learning model
 
