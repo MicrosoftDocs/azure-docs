@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Troubleshoot database performance in Azure SQL Database." 
-	description="Quick steps to troubleshoot database performance." 
-	services="sql-database" 
-	documentationCenter="" 
+<properties
+	pageTitle="Troubleshoot database performance in Azure SQL Database."
+	description="Quick steps to troubleshoot database performance."
+	services="sql-database"
+	documentationCenter=""
 	authors="dalechen"
-        manager="msmets"
+    manager="msmets"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="12/10/2015"
 	ms.author="daleche"/>
- 
+
 # Troubleshoot database performance using Azure SQL Database
-You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. 
+You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance.
 
 ## Steps to evaluate and tune database performance
 1.	In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
@@ -29,4 +29,3 @@ You can change the [service tier](sql-database-service-tiers.md) of a single dat
 2.	For multiple databases, consider using [elastic database pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
 If performance problems continue, contact support to open a support case.
-
