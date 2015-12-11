@@ -122,14 +122,15 @@ Click **OK** to save the persistence configuration.
 
 Click **(PREVIEW) Redis Cluster Size** to add or remove shards from a running premium cache with clustering enabled.
 
->[AZURE.NOTE] Note that while Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
+>[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 
 ![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-To change the shard count, use the slider or type a number between 1 and 10 in the Shard count text box and click **OK** to save.
+To change the shard count, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
 >[AZURE.IMPORTANT] Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
->
+
+
 ## Users and tags
 
 ![Redis Cache Users and Tags](./media/cache-configure/IC808320.png)

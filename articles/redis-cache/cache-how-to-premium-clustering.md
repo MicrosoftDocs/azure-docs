@@ -36,11 +36,11 @@ Please see the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-an
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Redis Cache service. 
 
 ## Clustering
-Clustering is configured on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure Portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
+Clustering is enabled on the **New Redis Cache** blade during cache creation. To create a cache, sign-in to the [Azure Portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
 
 ![Create a Redis Cache][redis-cache-new-cache-menu]
 
-To configure clustering, first select one of the **Premium** caches in the **Choose your pricing Tier** blade.
+To configure clustering, first select one of the **Premium** caches in the **Choose your pricing tier** blade.
 
 ![Choose your pricing tier][redis-cache-premium-pricing-tier]
 
@@ -82,11 +82,11 @@ Once the cache is created you connect to it and use it just like a non-clustered
 
 To add or remove shards from a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Settings** blade.
 
->[AZURE.NOTE] Note that while Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
+>[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 
 ![Redis cluster size][redis-cache-redis-cluster-size]
 
-To change the shard count, use the slider or type a number between 1 and 10 in the Shard count text box and click **OK** to save.
+To change the shard count, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
 ## Clustering FAQ
 
