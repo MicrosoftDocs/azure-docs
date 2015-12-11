@@ -48,21 +48,21 @@ You can also enable this feature by running the following PowerShell cmdlets.
     Login-AzureRmAccount
     Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
 
--   SearchService ResourceId:
- `/subscriptions/<your subscription ID>/resourceGroups/<your resource group>/providers/Microsoft.Search/searchServices/<your search service name>`  
+-   **SearchService ResourceId**:
+	`/subscriptions/<your subscription ID>/resourceGroups/<your resource group>/providers/Microsoft.Search/searchServices/<your search service name>`  
  
--  StorageAccount ResourceId:
+-  **StorageAccount ResourceId**:
   You can find it in the portal in Settings -> Properties -> ResourceId 
- `New: /subscriptions/<your subscription ID>/resourcegroups/your resource group>/providers/Microsoft.Storage/storageAccounts/your storage account name>` 
+ 	`New: /subscriptions/<your subscription ID>/resourcegroups/your resource group>/providers/Microsoft.Storage/storageAccounts/your storage account name>` 
  OR
-  `Classic: /subscriptions/<your subscription ID>/resourceGroups/your resource group>/providers/Microsoft.ClassicStorage/storageAccounts/<your storage account name>`   
+	`Classic: /subscriptions/<your subscription ID>/resourceGroups/your resource group>/providers/Microsoft.ClassicStorage/storageAccounts/<your storage account name>`   
 
 ----------
 
-Once enabled, the data will start flowing into your storage account within 5-10 minutes. 2 new containers will be created:
+Once enabled, the data will start flowing into your storage account within 5-10 minutes. You will find 2 new containers in your Blob Storage:
 
-    insights-logs-operationlogs: contains your search service traffic logs
-    insights-metrics-pt1m: contains your pre computed metrics
+    insights-logs-operationlogs: search service traffic logs
+    insights-metrics-pt1m: aggregated metrics
 
 
 ## Understanding the data ##
