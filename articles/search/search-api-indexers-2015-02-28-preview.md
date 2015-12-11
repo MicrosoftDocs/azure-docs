@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)" 
+pageTitle="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview) | Microsoft Azure | Hosted cloud search service" 
 description="Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## Overview ##
 
-Azure Search can integrate directly with some common data sources, removing the need to write code to index your data. To set up this up, you can call the Azure Search API to create and manage **indexers** and **data sources**. 
+Azure Search is a hosted cloud search service on Microsoft Azure. Azure Search can integrate directly with some common data sources, removing the need to write code to index your data. To set up this up, you can call the Azure Search API to create and manage **indexers** and **data sources**. 
 
 An **indexer** is a resource that connects data sources with target search indexes. An indexer is used in the following ways: 
 
@@ -92,7 +92,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Data Source** request must include an `api-key` header set to your admin key (as opposed to a query key). 
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the [Azure management portal](https://portal.azure.com/). See [Create a Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the [Azure Classic Portal](https://portal.azure.com/). See [Create a Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 <a name="CreateDataSourceRequestSyntax"></a>
 **Request Body Syntax**
@@ -121,8 +121,8 @@ Request contains the following properties:
 	- `documentdb` - Azure DocumentDB
 - `credentials`:
 	- The required `connectionString` property specifies the connection string for the data source. The format of the connection string depends on the data source type: 
-		- For Azure SQL, this is the usual SQL Server connection string. If you're using the Azure management portal to retrieve the connection string, use the `ADO.NET connection string` option.
-		- For DocumentDB, the connection string must be in the following format: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. All of the values are required. You can find them in the [Azure management portal](https://portal.azure.com/).   
+		- For Azure SQL, this is the usual SQL Server connection string. If you're using the Azure Classic Portal to retrieve the connection string, use the `ADO.NET connection string` option.
+		- For DocumentDB, the connection string must be in the following format: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. All of the values are required. You can find them in the [Azure Classic Portal](https://portal.azure.com/).   
 		
 - `container`: 
 	- The required `name` property specifies the table or view (for Azure SQL data source) or collection (for DocumentDB data source) that will be indexed. 

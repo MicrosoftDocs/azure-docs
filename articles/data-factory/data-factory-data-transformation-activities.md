@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
 # Transform and analyze using Azure Data Factory
@@ -23,12 +23,12 @@ Transformation activities in Azure Data Factory transform and process your raw d
 
 
 Transformation activity |  Compute environment 
------------------------ | --------------------
+:----------------------- | :--------------------
 [Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
 [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
 [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
 [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
-[Machine Learning Batch Execution](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
+[Machine Learning activites: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
 [Stored Procedure](data-factory-stored-proc-activity.md) | Azure SQL |
 [Data Lake Analytics U-SQL](data-factory-usql-activity.md) | Azure Data Lake Analytics 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch
@@ -41,5 +41,3 @@ You need to create a linked service for the compute environment and then use the
 
 See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute linked services supported by Data Factory. 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md). 

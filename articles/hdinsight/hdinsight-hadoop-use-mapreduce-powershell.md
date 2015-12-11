@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/16/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Run Hive queries with Hadoop on HDInsight using PowerShell
@@ -53,7 +53,6 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 		#Specify the values
 		$clusterName = "CLUSTERNAME"
-		$creds=Get-Credential
         		
 		# Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -107,7 +106,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             -HttpCredential $creds
         # Download the output
         Get-AzureStorageBlobContent `
-            -Blob example/data/WordCountOutput/* `
+            -Blob 'example/data/WordCountOutput/part-r-00000' `
             -Container $container `
             -Destination output.txt `
             -Context $context

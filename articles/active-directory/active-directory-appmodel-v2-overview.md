@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="11/06/2015"
 	ms.author="dastrock"/>
 
 # App model v2.0 preview: Sign-in Microsoft Account & Azure AD users in a single app

@@ -3,7 +3,7 @@ Since the simulated device will upload a file in an Azure Storage blob, you must
 
 ## Send an Azure blob URI to the simulated device
 
-In this section, you'll modify the **SendCloudtoDevice** console app you created in [Send Cloud-to-Device messages with IoT Hub] to include an Azure blob URI with a shared access signature. This allows the cloud back-end to grant write access to the blob only to the recipient of the cloud-to-device message.
+In this section, you'll modify the **SendCloudtoDevice** console app you created in [Send Cloud-to-Device messages with IoT Hub] to include an Azure blob URI with a shared access signature. This allows the cloud back end to grant write access to the blob only to the recipient of the cloud-to-device message.
 
 1. In Visual Studio, right-click the **SendCloudtoDevice** project, and then click **Manage NuGet Packages...**. 
 

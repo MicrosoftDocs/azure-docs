@@ -1,29 +1,30 @@
 <properties
-   pageTitle="What is Microsoft Azure Active Directory licensing? | Microsoft Azure"
-   description="Description of Microsoft Azure AD licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="What is Microsoft Azure Active Directory licensing? | Microsoft Azure"
+    description="Description of Microsoft Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions"
+    services="active-directory"
+	  keywords="Azure AD licensing"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # What is Microsoft Azure Active Directory licensing?
 
 ##Description
-Azure Active Directory (AD) is Microsoft's Identity as a Service (IDaaS) solution and platform. Azure AD is offered in a number of functional and technical versions ranging from Azure AD Free, which is available with any Microsoft service such as Office 365, Dynamics, Microsoft Intune and Azure (Azure AD does not generate any consumption charges in this mode), to Azure AD paid versions such as Enterprise Mobility Suite (EMS), Azure AD Premium and Basic, as well as Azure Multi-Factor Authentication (MFA). Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented with one or more subscriptions, and each subscription includes a pre-purchase number of licenses in your tenant. Per-user entitlements are achieved through license assignment, creating a link between the user and the product, enabling the service components for the user, and consuming one of the prepaid licenses.
+Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) solution and platform. Azure AD is offered in a number of functional and technical versions ranging from Azure AD Free, which is available with any Microsoft service such as Office 365, Dynamics, Microsoft Intune and Azure (Azure AD does not generate any consumption charges in this mode), to Azure AD paid versions such as Enterprise Mobility Suite (EMS), Azure AD Premium and Basic, as well as Azure Multi-Factor Authentication (MFA). Like many of Microsoft online services, most Azure AD paid versions are delivered through per-user entitlements as they are in Office 365, Microsoft Intune, and Azure AD. In these cases, the service purchase is represented with one or more subscriptions, and each subscription includes a pre-purchase number of licenses in your tenant. Per-user entitlements are achieved through license assignment, creating a link between the user and the product, enabling the service components for the user, and consuming one of the prepaid licenses.
 
 [Try Azure AD premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE] Azure AD administration portal is a part of the Azure Management Portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Azure AD administration portal is a part of the Azure classic portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](http://azure.microsoft.com/pricing/free-trial/).
 
 For a broad overview of Azure AD service capabilities, see [What is Azure AD](active-directory-whatis.md).
 [Learn more about Azure AD service levels](http://azure.microsoft.com/support/legal/sla/)
@@ -35,11 +36,11 @@ For a broad overview of Azure AD service capabilities, see [What is Azure AD](ac
 
 License-based (Entitlement-based) Azure AD services work by activating a subscription in your Azure AD directory/service tenant. Once the subscription is active the service capabilities can be managed by directory/service administrators and used by licensed users.
 
-When you purchase or activate Enterprise Mobility Suite, Azure AD Premium, or Azure AD Basic, your directory is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including status, next lifecycle event, and the number of assigned or available licenses is available through the Azure AD Management Portal under the Licenses tab for the specific directory. This is also to best place to manage your license assignments.
+When you purchase or activate Enterprise Mobility Suite, Azure AD Premium, or Azure AD Basic, your directory is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including status, next lifecycle event, and the number of assigned or available licenses is available through the Azure classic portal under the Licenses tab for the specific directory. This is also to best place to manage your license assignments.
 
 Each subscription consists of one or more service plans, each mapping the included functional level of the service type; for example, Azure AD, Azure MFA, Microsoft Intune, Exchange Online, or SharePoint Online. Azure AD license management does NOT require service plan level management. This is different from Office 365 which relies on this advanced configuration mode to manage access to included services. Azure AD relies on in service configuration, to enable features and manage individual permissions.
 
-In general, Azure AD subscription information is managed through the Azure Management Portal, under the Licenses tab for the specific directory. Azure AD subscriptions, with the exception of Azure AD Premium, do NOT show up in the Office portal.
+In general, Azure AD subscription information is managed through the Azure classic portal, under the Licenses tab for the specific directory. Azure AD subscriptions, with the exception of Azure AD Premium, do NOT show up in the Office portal.
 
 > [AZURE.IMPORTANT] Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
 
@@ -49,12 +50,12 @@ Paid Azure AD features span the breadth of the directory. Examples include:
 - Group-based assignment to applications, which is enabled under the specific application you are managing.
 - Advanced and self-service group management capabilities are available under the directory configuration or within the specific group.
 - Premium security reports are on the Reporting tab
-- Cloud application discovery shows up in the Azure preview portal under Identity.
+- Cloud application discovery shows up in the Azure portal under Identity.
 
 ###Assigning licenses
 While obtaining a subscription is all you need to configure paid capabilities, using your Azure AD paid features requires distributing licenses to the right individuals. In general, any user who should have access to or who is managed through an Azure AD paid feature must be assigned a license. A license assignment is a mapping between a user and a purchased service, such as Azure AD Premium, Basic, or Enterprise Mobility Suite.
 
-Managing which users in your directory should have a license is simple. It can be accomplished by assigning to a group to create assignment rules through the Azure AD management portal or by assigning licenses directly to the right individuals through portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job title has a license or even delegate the decision to other managers in the organization.
+Managing which users in your directory should have a license is simple. It can be accomplished by assigning to a group to create assignment rules through the Azure AD administration portal or by assigning licenses directly to the right individuals through a portal, PowerShell, or APIs. When assigning licenses to a group, all group members will be assigned a license. If users are added or removed from the group they will be assigned or removed the appropriate license. Group assignment can utilize any group management available to you and is consistent with group-based assignment to applications. Using this approach, you can set up rules such that all users in your directory are automatically assigned, ensure that everyone with the appropriate job title has a license or even delegate the decision to other managers in the organization.
 
 With group-based license assignment, any user missing a usage location will inherit the directory location during assignment. This location can be changed by the administrator at any time. In cases where the automated assignment failed due to error, the user information under that license type will reflect that state.
 
@@ -64,7 +65,7 @@ Getting started with Azure AD is easy; you can always create your directory as a
 
 Here are a couple of best practices:
 - If you are already using any of Microsoft's organizational services, you already have an Azure AD directory. In this case, you should continue to use the same directory for other services, so that core identity management, including provisioning and hybrid SSO, can be utilized across the services. Your users will have a single logon experience and will benefit from richer capabilities across the services. As a result, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same directory to do this.
-- If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure Management Portal. [Learn more about creating a new Azure AD directory in the Azure Management Portal](active-directory-licensing-directory-independence.md). The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure Management Portal with this account, you will be able to see this directory and access all directory administration tasks. We recommend that you create a local account with appropriate privileges to manage other Microsoft services (those not accessible through the Azure Management Portal). [Learn more about creating user accounts in Azure AD](active-directory-create-users.md).
+- If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure Azure classic portal. [Learn more about creating a new Azure AD directory in the Azure classic portal](active-directory-licensing-directory-independence.md). The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure classic portal with this account, you will be able to see this directory and access all directory administration tasks. We recommend that you create a local account with appropriate privileges to manage other Microsoft services (those not accessible through the Azure classic portal). [Learn more about creating user accounts in Azure AD](active-directory-create-users.md).
 
 > [AZURE.NOTE] Azure AD supports “external users,” which are user accounts in an instance of Azure AD that were created using either a Microsoft Account (MSA) or an Azure AD identity from another directory. While we are busy extending this capability into all of Microsoft's organizational services, right now these accounts are not supported in some of the services' experiences; for example, the Office 365 administration portal does not currently support these users. As a result, external users with Microsoft accounts will not be able to access the Office 365 administration portal at all, while external users from other Azure AD directories will be ignored. In the latter case, only the user’s local account, the Azure AD or Office 365 directory where the user was originally created, would be accessible through these experiences.
 
@@ -103,7 +104,7 @@ You can now search or page through groups and add them to the **Assign** column 
 
 When a group is assigned, its members inherit the licenses within 30 minutes, but usually within 1-2 minutes.
 
-Assignment errors can occur during Azure AD portal license assignment, but are relatively rare. Potential assignment errors are limited to:
+Assignment errors can occur during Azure AD license assignment, but are relatively rare. Potential assignment errors are limited to:
 - Assignment conflict - when a user was previously assigned a license that is incompatible with the current license. In this case, assigning the new license will require removing the previous one.
 - Exceeded available licenses - when the number of users in assigned groups exceed available licenses, the users' assignment status will reflect a failure to assign due to missing licenses.
 
@@ -125,7 +126,7 @@ Trial extensions for customers are available as self-service through the Office 
 
 ![Extending a license trial in the Office portal](./media/active-directory-licensing-what-is/extend_license_trial.png)
 
-Customers can also request a trial extension by submitting a support request. A customer admin can navigate to the Office portal [support page](http://aka.ms/extendAADtrial) (access depends on permissions for the Office support page). On this page select “Subscriptions and Trials” under Features and “Trial questions” under Symptom. Finally, enter information on the circumstances
+Customers can also request a trial extension by submitting a support request. A customer admin can navigate to the Office 365 portal [support page](http://aka.ms/extendAADtrial) (access depends on permissions for the Office support page). On this page select “Subscriptions and Trials” under Features and “Trial questions” under Symptom. Finally, enter information on the circumstances
 
 ![Extending a license trial using a support request](./media/active-directory-licensing-what-is/alternate_office_aad_trial_extension.png)
 

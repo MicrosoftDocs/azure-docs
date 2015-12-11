@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="stepsic"/> 
 	
 # Deploy from Visual Studio

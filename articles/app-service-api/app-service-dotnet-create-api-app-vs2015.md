@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET API app in Azure App Service using Visual Studio 2015
 
-> [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 

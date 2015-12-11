@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Search in Java | Microsoft Azure"
-	description="How to build a custom Azure Search application using Java as your programming language."
+	pageTitle="Get started with Azure Search in Java | Microsoft Azure | Hosted cloud search service"
+	description="How to build a hosted cloud search application on Azure using Java as your programming language."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Get started with Azure Search in Java
@@ -28,7 +28,7 @@ We used the following software to build and test this sample:
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com).
+To run this sample, you need an Azure Search service, which you can sign up for in the [Azure Classic Portal](https://portal.azure.com).
 
 > [AZURE.TIP] Download the source code for this tutorial at [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github.
 
@@ -55,7 +55,7 @@ The following list describes the files that are relevant to this sample.
 
 ## Create the service
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + storage** > **Search**.
 
@@ -123,7 +123,7 @@ All subsequent file modifications and run statements will be made against files 
 
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
 
-2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
+2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Classic Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
 
 3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
 

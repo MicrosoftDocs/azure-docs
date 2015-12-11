@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="XEvent Event File code for SQL Database | Microsoft Azure" 
+	pageTitle="XEvent Ring Buffer code for SQL Database | Microsoft Azure" 
 	description="Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 

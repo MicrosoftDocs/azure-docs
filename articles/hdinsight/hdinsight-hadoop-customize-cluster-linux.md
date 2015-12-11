@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # Customize HDInsight clusters using Script Action (Linux)
@@ -35,14 +35,14 @@ The script is ran while HDInsight is being configured. At this stage, the script
 
 Each cluster can accept multiple script actions that are invoked in the order in which they are specified. A script can be ran on the head nodes, the worker nodes, or both.
 
-> [AZURE.IMPORTANT] Script actions must complete within 15 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
+> [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 > 
 > To minimize the time it takes to run the script, avoid tasks such as downloading and compiling applications from source. Instead, pre-compile the application and store the binary in Azure Blob storage so that it can quickly be downloaded to the cluster.
 
 
 ## Example Script Action scripts
 
-Script Action scripts can be used from the Azure Preview Portal, Azure PowerShell, or the HDInsight .NET SDK. This article shows how to use Script Action from the portal. To learn how to use PowerShell and .NET SDK to use Script Action, look at the samples listed in the table below.
+Script Action scripts can be used from the Azure Portal, Azure PowerShell, or the HDInsight .NET SDK. This article shows how to use Script Action from the portal. To learn how to use PowerShell and .NET SDK to use Script Action, look at the samples listed in the table below.
 
 HDInsight provides several scripts to install the following components on HDInsight clusters:
 
@@ -54,13 +54,13 @@ Name | Script
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md).
 **Install Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md).
 
-## Use a Script Action from the Azure Preview portal
+## Use a Script Action from the Azure Portal
 
 1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal).
 
 2. Under __Optional Configuration__, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
 
-	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Use Script Action to customize a cluster")
+	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| Property | Value |
 	| -------- | ----- |
@@ -80,12 +80,12 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 ### Before you begin
 
 * For information about configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
-* For instructions on how to create ARM templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager).
+* For instructions on how to create ARM templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+* If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Create clusters using script action
 
-1. Copy the following template to a location on your computer. This template installs R on headnode as well as worker nodes in the cluster. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validator tool.
+1. Copy the following template to a location on your computer. This template installs R on headnode as well as worker nodes in the cluster. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validaton tool.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -108,7 +108,7 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 		        },
 		        "sshUserName": {
 		            "type": "string",
-		            "defaultValue": "hdiuser"
+		            "defaultValue": "username"
 		        },
 		        "sshPassword": {
 		            "type": "securestring"
@@ -243,7 +243,7 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
-		Add-AzureRMAccount
+		Add-AzureRmAccount
 
 		Id                             Type       ...
 		--                             ----
@@ -251,13 +251,13 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 
 3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
 
-		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
+		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE] You can use `Get-AzureRMSubscription` to get a list of all subscriptions associated with your account, which includes the subscription Id for each one.
+    > [AZURE.NOTE] You can use `Get-AzureRmSubscription` to get a list of all subscriptions associated with your account, which includes the subscription Id for each one.
 
 5. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
 
-		New-AzureRMResourceGroup -Name myresourcegroup -Location "West US"
+		New-AzureRmResourceGroup -Name myresourcegroup -Location "West US"
 
 		ResourceGroupName : myresourcegroup
 		Location          : westus
@@ -270,10 +270,10 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 
-6. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
+6. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
 
 
-		New-AzureRMResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
+		New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
 
 	You will be prompted to provide values for the parameters defined in the template.
@@ -289,42 +289,41 @@ In this section, we use Azure Resource Manager (ARM) templates to create an HDIn
 
 8. If your deployment fails, you can use the following cmdlets to get information about the failures.
 
-		Get-AzureRMResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
+		Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
 
 ## Use a Script Action from Azure PowerShell
 
-In this section, we use the [Add-AzureRMHDInsightScriptAction](http://msdn.microsoft.com/library/dn858088.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
+In this section, we use the [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet to invoke scripts by using Script Action to customize a cluster. Before proceeding, make sure you have installed and configured Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](../powershell-install-configure.md).
 
 Perform the following steps:
 
 1. Open the Azure PowerShell console and declare the following variables:
 
 		# PROVIDE VALUES FOR THESE VARIABLES
-		$subscriptionName = "<SubscriptionName>"		# Name of the Azure subscription
+		$subscriptionId = "<SubscriptionId>"		# ID of the Azure subscription
 		$clusterName = "<HDInsightClusterName>"			# HDInsight cluster name
 		$storageAccountName = "<StorageAccountName>"	# Azure storage account that hosts the default container
 		$storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
 		$containerName = $clusterName
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
-		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
         $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster will be created in
 
 2. Specify the configuration values (such as nodes in the cluster) and the default storage to be used.
 
 		# SPECIFY THE CONFIGURATION OPTIONS
-		Select-AzureRMSubscription $subscriptionName
-		$config = New-AzureRMHDInsightClusterConfig
+		Select-AzureRmSubscription -SubscriptionId $subscriptionId
+		$config = New-AzureRmHDInsightClusterConfig
 		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. Use **Add-AzureHDInsightScriptAction** cmdlet to invoke the script. The following example uses a script that installs R on the cluster:
+3. Use **Add-AzureRmHDInsightScriptAction** cmdlet to invoke the script. The following example uses a script that installs R on the cluster:
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-		$config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-        $config = Add-AzureRMHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
 
-	The **Add-AzureHDInsightScriptAction** cmdlet takes the following parameters:
+	The **Add-AzureRmHDInsightScriptAction** cmdlet takes the following parameters:
 
 	| Parameter | Definition |
 	| --------- | ---------- |
@@ -334,13 +333,27 @@ Perform the following steps:
 	| Parameters | Parameters required by the script. |
 	| Uri | Specifies the URI to the script that is executed. |
 
-4. Finally, create the cluster:
+4. Set the admin/HTTPS user for the cluster:
 
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+        $httpCreds = get-credential
         
-        New-AzureRMHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes 2
+    When prompted, enter 'admin' as the name, and provide a password.
 
-When prompted, enter the credentials for the cluster. It can take several minutes before the cluster is created.
+5. Set the SSH credentials:
+
+        $sshCreds = get-credential
+    
+    When prompted, enter the SSH user name and password. If you want to secure the SSH account with a certificate instead of a password, use a blank password and set `$sshPublicKey` to the contents of the certificate public key you wish to use. For example:
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
+4. Finally, create the cluster:
+        
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    If you are using a public key to secure your SSH account, you must also specify `-SshPublicKey $sshPublicKey` as a parameter.
+
+It can take several minutes before the cluster is created.
 
 ## Use a Script Action from the HDInsight .NET SDK
 
@@ -383,7 +396,7 @@ The HDInsight .NET SDK provides client libraries that makes it easier to work wi
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -495,10 +508,15 @@ You can use Ambari web UI to view information logged by scripts during cluster c
 
 If the cluster creation failed due to an error in script action, the script action logs can still be accessed directly from the default storage account associated with the cluster.
 
-* The storage logs are available at `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`. Under this, the logs are organized separately for headnode, workdernode, and zookeeper nodes. Some examples are:
-	* Headnode - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-headnode0.mycluster-ssh.d4.internal.cloudapp.net`
-	* Worker node - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-workernode0.mycluster-63d9e66a-a8e2-4022-85aa-a484e7700b5c.d4.internal.cloudapp.net`
-	* Zookeeper node - `myclusterabd338e6210f476a9d1ae67b64fb855dAmbariDb-zookeepernode0.mycluster-4965986e-3636-4a8b-ae1d-f2dfd898c8d7.d4.internal.cloudapp.net`
+* The storage logs are available at `\STORAGE_ACOCUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`. 
+
+	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
+
+	Under this, the logs are organized separately for headnode, workdernode, and zookeeper nodes. Some examples are:
+	* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+	* **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+
 * All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. For example
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'

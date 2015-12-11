@@ -3,7 +3,7 @@
    description="Debugging Azure Cloud Services"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # Debugging cloud services
 

@@ -21,7 +21,9 @@
 This article shows you how to use Azure PowerShell for backup and recovery of Azure IaaS VMs.
 
 ## Concepts
-Get [introduced to Azure IaaS VM backup](backup-azure-vms-introduction.md) in the Azure Backup documentation. It covers the essentials about why you should backup your VM, prerequisites, and limitations.
+Get [introduced to Azure IaaS VM backup](backup-azure-vms-introduction.md) in the Azure Backup documentation.
+
+> [AZURE.WARNING] Before you start, ensure that you cover the essentials about the [prerequisites](backup-azure-vms-prepare.md) needed to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.
 
 In order to use PowerShell effectively, it is necessary to understand the hierarchy of objects and from where to start.
 
@@ -53,7 +55,7 @@ The following setup and registration tasks can be automated with PowerShell:
 You can create a new backup vault using the **New-AzureRMBackupVault** commandlet. The backup vault is an ARM resource, so you need to place it within a Resource Group. In an elevated Azure PowerShell console, run the following commands:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
@@ -173,7 +175,7 @@ The variable ```$rp``` is an array of recovery points for the selected backup it
 
 There is a key difference between the restore operations done through the Azure portal and through Azure PowerShell. With PowerShell, the restore operation stops at restoring the disks and config information from the recovery point. It does not create a virtual machine.
 
-> [AZURE.WARNING] The Restore-AzureRMBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behaviour you will experience in the Azure portal.
+> [AZURE.WARNING] The Restore-AzureRMBackupItem does not create a VM. It only restores the disks to the specified storage account. This is not the same behavior you will experience in the Azure portal.
 
 ```
 PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]

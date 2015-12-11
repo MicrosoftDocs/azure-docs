@@ -11,17 +11,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for .NET
 
-The [Application Insights SDK for .NET](app-insights-start-monitoring-app-health-usage.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK for .NET](app-insights-asp-net.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 
 #### To install the SDK in your application
 
-See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
+See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 #### To upgrade to the latest SDK 
 
@@ -32,6 +32,23 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
 * Rebuild your solution.
 
+
+## Version 2.0.0-beta3
+
+- [Adaptive sampling](app-insights-sampling.md)
+
+## Version 2.0.0-beta2
+- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK](app-insights-api-telemetry-processors/#telemetry-processors)
+- Removed context initializers. Use [Telemetry Initializers]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) instead.
+- Updated Application Insights for .Net framework 4.6. 
+- Custom event names can now be up to 512 characters.
+- Property ```OperationContext.Name``` renamed to ```RootName```.
+- Property ```RequestTelemetry.Id``` removed.
+- Property ```Id``` and ```Context.Operation.Id``` of RequestTelemetry would not be initialized when creating new RequestTelemetry.
+- ```RequestTelemetry.Name``` is not initialized any longer. ```RequestTelemetry.Context.Operation.Name``` will be used instead.
+- In request monitoring, response code 401 is part of the normal authentication handshake and will result in a successful request.
+- Fix UI thread locking when initializing InMemoryChannel (default channel) from UI thread. This fixes UI freezing issues with WPF applications.
+ 
 ## Version 2.0.0-beta1
 - TrackDependency will produce valid JSON when not all required fields were specified.
 - Redundant property ```RequestTelemetry.ID``` is now just a proxy for ```RequestTelemetry.Operation.Id```.

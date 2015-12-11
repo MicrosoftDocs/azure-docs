@@ -18,7 +18,7 @@
 
 # Azure IoT Hub developer guide
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back-end.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end.
 
 Azure IoT Hub enables:
 
@@ -47,9 +47,9 @@ The following is a description of the endpoints:
 * **Device endpoints**: For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that are used to communicate to and from that device. These endpoints are currently exposed in both HTTP and [AMQP][lnk-amqp]:
     - *Send device-to-cloud messages*. This endpoint is used to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. This endpoint is used by the device to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
-* **Service endpoints**: Each IoT hub also exposes a set of endpoints used by your application back-end (*service*) to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
+* **Service endpoints**: Each IoT hub also exposes a set of endpoints used by your application back end (*service*) to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and can be used to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
-    - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back-end to send cloud-to-device reliable messages, and receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
+    - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send cloud-to-device reliable messages, and receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
 
 The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways that you can access these endpoints.
 
@@ -59,7 +59,7 @@ Finally, it is important to note that all IoT Hub endpoints are exposed over [TL
 
 When using the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host][], you can use any IoT Hub connection strings with the correct permissions, and then use `messages/events` as the Event Hub name.
 
-When using SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure Preview Portal][]:
+When using SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][]:
 
 1. In the IoT hub blade, click **Settings**, then **Messaging**,
 2. In the **Device-to-cloud settings** section, you will find an **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions** box.
@@ -193,7 +193,7 @@ IoT Hub uses the following set of *permissions* to grant access to each IoT hub'
 
 Permissions are granted in the following ways:
 
-* **Hub-level shared access policies**. *Shared access policies* can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure Management Portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **Hub-level shared access policies**. *Shared access policies* can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
     - *iothubowner*: Policy with all permissions
     - *service*: Policy with **ServiceConnect** permission
@@ -254,7 +254,7 @@ In both cases, the password field contains the token, as described in the [Token
 
 #### SASL PLAIN compared to CBS
 
-When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection is disconnected from the service, triggering a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:
+When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection is disconnected from the service, triggering a reconnect. This behavior, while not problematic for an application back end component, is very damaging for a device-side application for the following reasons:
 
 *  Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This considerably increases the consumption of power and networking resources and increases the latency of each device connection.
 * Resource-constrained devices will be mostly impacted by the increased use of resources to reconnect after each token expiration.
@@ -267,7 +267,7 @@ This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-pu
 
 ## Messaging
 
-IoT Hub provides messaging primitives to communicate from an application back-end (*service* or *cloud*) to devices, and vice-versa. We refer to these functionalities as [Device-to-Cloud](#d2c) and [Cloud-to-Device](#c2d).
+IoT Hub provides messaging primitives to communicate from an application back end (*service* or *cloud*) to devices, and vice-versa. We refer to these functionalities as [Device-to-Cloud](#d2c) and [Cloud-to-Device](#c2d).
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. This enables resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both D2C and C2D messaging.
 
@@ -339,7 +339,7 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 
 #### Non-telemetry traffic
 
-In many cases, devices send not only telemetry data points to the application back-end, but also *interactive* messages and requests that require execution and handling from the application business logic layer. Good examples are critical alerts that have to trigger a specific action in the back-end, or device replies to commands.
+In many cases, devices send not only telemetry data points to the application back end, but also *interactive* messages and requests that require execution and handling from the application business logic layer. Good examples are critical alerts that have to trigger a specific action in the back end, or device replies to commands.
 
 See the [Device-to-cloud processing][lnk-guidance-d2c-processing] section of "IoT Hub Guidance" for more information about the best way to process this kind of messages.
 
@@ -394,7 +394,7 @@ Since a thread could fail to process a message without notifying IoT Hub, messag
 
 For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub cloud-to-device messages][lnk-getstarted-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
-> [AZURE.NOTE] Typically, cloud-to-device messages should be completed whenever the loss of the message would not affect the application logic. This could happen in many different scenarios; for example: the message content has been successfully persisted on local storage, or an operation has been successfully executed, or the message is carrying transient information whose loss would not impact the functionality of the application. Sometimes, for long running tasks, it is common to complete the cloud-to-device message after having persisted the task description on local storage, and then notify the application back-end with one or more device-to-cloud message at various stages of progress of the task.
+> [AZURE.NOTE] Typically, cloud-to-device messages should be completed whenever the loss of the message would not affect the application logic. This could happen in many different scenarios; for example: the message content has been successfully persisted on local storage, or an operation has been successfully executed, or the message is carrying transient information whose loss would not impact the functionality of the application. Sometimes, for long running tasks, it is common to complete the cloud-to-device message after having persisted the task description on local storage, and then notify the application back end with one or more device-to-cloud message at various stages of progress of the task.
 
 #### Time to live <a id="ttl"></a>
 
@@ -418,9 +418,8 @@ The body is a JSON-serialized array of records, each with the following properti
 
 | Property | Description |
 | -------- | ----------- |
-| EnqueuedTime | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
-| CorrelationId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
-| StatusCode | **0** if success, **1** if the message expired, **2** if the maximum delivery count is exceeded, **3** if the message was rejected. |
+| EnqueuedTimeUtc | Timestamp indicating when the outcome of the message happened. For example, the device completed or the message expired. |
+| OriginalMessageId | **MessageId** of the cloud-to-device message to which this feedback information pertains. |
 | Description | String values for the previous outcomes. |
 | DeviceId | **DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId | **DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
@@ -431,9 +430,8 @@ The body is a JSON-serialized array of records, each with the following properti
 
     [
         {
-            "CorrelationId": "0987654321",
-            "EnqueuedTime": "2015-07-28T16:24:48.789Z",
-            "StatusCode": "0",
+            "OriginalMessageId": "0987654321",
+            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
             "Description": "Success",
             "DeviceId": "123",
             "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
@@ -493,7 +491,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 
 [Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Azure Preview Portal]: https://ms.portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png

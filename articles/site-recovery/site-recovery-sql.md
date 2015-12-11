@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Disaster recovery with SQL Server and Azure Site Recovery" 
+	pageTitle="Disaster recovery with SQL Server and Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of SQL Server to a secondary on-premises site or Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/18/2015" 
 	ms.author="raynew"/>
 
 
@@ -27,9 +27,22 @@ Site Recovery is an Azure service that contributes to your business continuity a
 
 ## Overview
 
-Many workloads use SQL Server as a foundation. Applications such as SharePoint, Dynamics, and SAP use SQL Server to implement data services. SQL Server high availability and disaster recovery features such as SQL Server availability groups to protect and recover SQL Server databases.
+Many workloads use SQL Server as a foundation. Applications such as SharePoint, Dynamics, and SAP use SQL Server to implement data services. SQL Server high availability and disaster recovery features such as SQL Server availability groups are used to protect and recover SQL Server databases. Applications deploy SQL Server in following configurations
 
-Site Recovery can protect SQL Server running as a Hyper-V virtual machine, a VMware virtual machine, or as a physical server.
+
+1. Stand-alone SQL Server: The SQL Server and all databases are hosted on a single machine (physical or a virtual machine). When virtualized, host clustering is used for local high availability (HA), there is no guest level HA implemented. 
+2.	SQL Server Failover Clustering Instances (aka Always ON FCI): In this setup, 2 or more nodes of SQL server instances with shared disks are configured in a Windows Failover cluster. If any of the SQL Failover cluster instances is down, the cluster can failover the SQL to another instance. This setup is typically used for HA on the primary site. This does not protect against failure or outage in the shared storage layer. Shared disk can be implemented using ISCSI, Fiber Channel or Shared VHDx.
+3.	SQL Always ON Availability Groups: In this setup, 2 nodes are setup in a shared nothing cluster with SQL databases configured in an availability group with synchronous replication and automatic failover.
+
+SQL Server also provides native disaster recovery technologies in Enterprise editions for recovering databases to a remote site. Where applicable, we will leverage and integrate with the following native SQL disaster recovery technologies for building Azure Site Recovery based Disaster Recovery Plan
+
+
+1. SQL Always On Availability Group from Disaster Recovery for SQL 2012 or 2014 Enterprise editions 
+2.	SQL Database Mirroring in high safety mode for SQL server standard (any version) or SQL server 2008 R2
+
+
+
+Site Recovery can protect SQL Server running on a Hyper-V virtual machine, a VMware virtual machine, or a physical server.
 
  |**On-premises to on-premises** | **On-premises to Azure** 
 ---|---|---
@@ -40,7 +53,15 @@ Site Recovery can protect SQL Server running as a Hyper-V virtual machine, a VMw
 
 ## Support and integration
 
-Site Recovery can be integrated with native SQL Server BCDR technologies summarized in the table to provide a disaster recovery solution.
+Following are the versions and editions of SQL Server that are applicable to this article:
+
+
+- SQL Server 2014 Enterprise and Standard
+- SQL Server 2012 Enterprise and Standard
+- SQL Server 2008 R2 Enterprise and Standard
+
+
+Site Recovery can be integrated with native SQL Server BCDR technologies summarized in the table below to provide a disaster recovery solution.
 
 **Feature** |**Details** | **SQL Server version** 
 ---|---|---
@@ -52,17 +73,17 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 
 
-
 The following table summarizes our recommendations for integrating SQL Server BCDR technologies into Site Recovery deployment.
 
 **Version** |**Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** 
 ---|---|---|---|---
 SQL Server 2014 or 2012 | Enterprise | Failover cluster instance | AlwaysOn availability groups | AlwaysOn availability groups
- | Enterprise | AlwaysOn availability groups for high availability | AlwaysOn availability group | AlwaysOn availability group
- | Standard | Failover cluster instance | Site Recovery replication with local mirror | Site Recovery replication with local mirror
- | Enterprise or Standard | Standalone | Site Recovery replication with local mirror | Site Recovery replication with local mirror
-SQL Server 2008 R2 | Enterprise or Standard | Standalone | Site Recovery replication with local mirror | Site Recovery replication with local mirror
-
+ | Enterprise | AlwaysOn availability groups for high availability | AlwaysOn availability groups | AlwaysOn availability groups
+ | Standard | Failover cluster instance (FCI) | Site Recovery replication with local mirror | Site Recovery replication with local mirror
+ | Enterprise or Standard | Standalone | Site Recovery replication | Site Recovery replication 
+SQL Server 2008 R2 | Enterprise or Standard | Failover cluster instance (FCI) | Site Recovery replication with local mirror | Site Recovery replication with local mirror
+ | Enterprise or Standard | Standalone | Site Recovery replication | Site Recovery replication
+SQL Server (Any version) | Enterprise or Standard | Failover cluster instance - DTC applicaiton | Site Recovery replication | Not Supported
 
 ## Deployment prerequisites
 
@@ -73,14 +94,8 @@ Here's what you need before you start:
 - The prerequisites for the scenario you want to deploy. Prerequisites can be found in each deployment article. These and listed and linked in the [Site Recovery Overview](site-recovery-overview.md).
 - If you want to set up recovery in Azure, you'll need to run the [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) tool on your SQL Server virtual machines to make sure they're compatible with Azure and Site Recovery.
 
-## Set up protection
 
-You'll need to perform a couple of steps:
-
-- Set up Active Directory
-- Set up protection for a SQL Server cluster or standalone server
-
-### Set up Active Directory
+## Set up protection of AD
 
 You'll need Active Directory on the secondary recovery site for SQL Server to run properly. there are a couple of options:
 
@@ -88,95 +103,39 @@ You'll need Active Directory on the secondary recovery site for SQL Server to ru
 
 - **Medium to large enterprise**—If you have a large number of application, you're running an Active Directory forest, and you want to fail over by application or workload, we recommend you set up an additional domain controller in the secondary datacenter or in Azure. Note that if you're using AlwaysOn availability groups to recover to a remote site we recommend you set up another additional domain controller on the secondary site or Azure, to use for the recovered SQL Server instance.
 
-The instructions in this document presume that a domain controller is available in the secondary location. 
+The instructions in this document presume that a domain controller is available in the secondary location.  You can refer to the AD DR solution guidance [here](http://aka.ms/asr-ad).
 
-### Set up protection for a standalone SQL Server
+## Integration with SQL AlwaysOn to Azure
 
-
-In this configuration we recommend you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is set up as a virtual machine or physical server, and whether you want to replicate to Azure or a secondary on-premises site. Get instructions for all deployment scenarios in the [Site Recovery Overview](site-recovery-overview.md).
-
-
-### Set up protection for SQL Server cluster (2012 or 2014 Enterprise)
-
-If the SQL Server is using availability groups for high availability, or a failover cluster instance, we recommend using availability groups on the recovery site as well. Note that this guidance is for applications that don't use distributed transactions.
-
-##### On-premises to on-premises
-
-1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
-2. Create a new virtual network on secondary site.
-3. Set up a site-to-site VPN between the new virtual network and the primary site.
-4. Create a virtual machine on the recovery site and install SQL Server on it.
-5. Extend the existing AlwaysOn availability groups to the new SQL Server virtual machine. Configure this SQL Server instance as an asynchronous replica copy.
-6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
-7. Make sure that the application farm is setup using the listener. If It's setup up using the database server name, please update it to use the listener so you don't need to reconfigure it after the failover.
-
-#### On-premises to Azure
-
-When you replicate to Azure configuring multiple availability groups is challenging because each availability group needs a dedicated listener, and configuring each listener requires a separate cloud service. We recommend that you configure one availability group with all the databases included.
-
-1. Create an Azure virtual network.
-2. Set up a site-to-site VPN between the on-premises site and this network.
-3. Create a new SQL Server Azure virtual machine in the network and configure it as an asynchronous availability group replica. If you need high availability for SQL Server tier after failover to Azure then configure two asynchronous replica copies in Azure.
-4. Set up a replica of the domain controller in the virtual network.
-5. Make sure that virtual machine extensions are enabled on the virtual machine. This is needed to push scripts specific to SQL Server in a recovery plan.
-6. Configure a SQL Server listener for the availability group using Azure's internal load balancer.
-7. Configure the application tier to use the listener to access the database tier. For applications that use distributed transactions we recommendation you use Site Recovery with SAN replication or VMWare site-to-site replication.
-
-### Set up protection for SQL Server cluster (Standard or 2008 R2)
-
-For a cluster running SQL Server Standard edition or SQL Server 2008 R2 we recommend you use Site Recovery replication to protect SQL Server.
-
-#### On-premises to on-premises
-
-- For a Hyper-V environment, if the application's uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](site-recovery-vmm-san.md).
-
-- For a VMware environment we recommend you deploy [VMware to VMware](site-recovery-vmware-to-vmware.md) protection.
-
-#### On-premises to Azure
-
-Site recovery doesn't support guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. We recommend you protect the on-premises SQL Server cluster to a standalone SQL Server and recover it in Azure.
-
-
-1. Configure an additional standalone SQL Server instance in the on-premises site.
-2. Configure this instance to serve as a mirror for the databases that need protection. Configure the mirroring in high safety mode.
-3.	Configure Site Recovery on the on-premises site based on the environment ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware](site-recovery-vmware-to-azure.md).
-4.	Use Site Recovery replication to replicate the new SQL Server instance to Azure. It's a high safety mirror copy so it'll be synchronized with the primary cluster, but it'll be replicated to Azure using Site Recovery replication.
-
-The following graphic illustrates this setup.
-
-![Standard cluster](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
-
-
-
-##Integration with SQL AlwaysOn to Azure
+### On-premises to Azure
 
 Azure Site Recovery (ASR) natively supports SQL AlwaysOn. If you have created a SQL Availability Group with an Azure virtual machine being setup as ‘Secondary’ then you can use ASR to manage the failover of the Availability Groups. 
 
 This capability is currently in preview and available when the primary datacenter is managed by System Center Virtual Machine Manager (VMM). 
 
-### Environments managed by VMM Server
+#### Environments managed by a VMM Server
 If you go inside an ASR vault you should see a tab for SQL Servers under the tab Protected Items. 
 
 ![Protected Items](./media/site-recovery-sql/protected-items.png)
 
 Below are the steps to integrate SQL AlwaysOn with ASR.
 
-#### Prerequisites
+##### Prerequisites
 - An on-premises SQL Server on standalone server or a failover cluster 
 - One or more Azure virtual machines with SQL Server installed
 - SQL Availability Group setup between on-premises SQL Server and SQL Server running in Azure
 - PowerShell remoting should be enabled on on-premises SQL Server. VMM Server should be able to make remote PowerShell calls to SQL Server
 - On on-premises SQL Server a user account should be added in SQL user groups with at least following permissions
-	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/en-us/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/en-us/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/en-us/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - A run as account should be created on VMM Server for the account in the previous step
 - SQL PS module should be installed on SQL Servers running on-premises and on Azure virtual machines
 - VM Agent should be installed virtual machines running on Azure
 - NTAUTHORITY\System should have following permissions on SQL Server running on virtual machines in Azure
-	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/en-us/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/en-us/library/ff878601.aspx#Anchor_3)
-	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/en-us/library/ff877956.aspx#Security)
+	- ALTER AVAILABILITY GROUP  - [reference 1](https://msdn.microsoft.com/library/hh231018.aspx), [reference 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ALTER DATABASE - [reference 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
-#### Adding a SQL Server
+##### 1. Adding a SQL Server
 
 Click on Add SQL to add a new SQL Server. 
 
@@ -186,18 +145,18 @@ Provide the details of the SQL Server, VMM and credentials to be used for managi
 
 ![Add SQL Dialog](./media/site-recovery-sql/add-sql-dialog.png)
 
-##### Parameters
-1. Name: Friendly name that you want to provide to refer to this SQL Server
-2. SQL Server (FQDN): Fully qualified domain name (FQDN) of the source SQL Server that you want to add. In case the SQL Server is installed on a Failover Cluster, then provide FQDN of the cluster and not of any of the cluster nodes. 
-3. SQL Server Instance: Choose Default SQL instance or provide name of the custom SQL instance.
-4. VMM Server: Select one of the VMM Servers that has already been registered with Azure Site Recovery (ASR). ASR would use this VMM server to communicate with the SQL Server
-5. RUN AS ACCOUNT: Provide name of one of the Run As Account that has been created on the VMM Server selected above. This Run As account would be used to access the SQL Server and should have Read and Failover Permissions on Availability Groups on the SQL Server. 
+###### Parameters
+ - Name: Friendly name that you want to provide to refer to this SQL Server
+ - SQL Server (FQDN): Fully qualified domain name (FQDN) of the source SQL Server that you want to add. In case the SQL Server is installed on a Failover Cluster, then provide FQDN of the cluster and not of any of the cluster nodes. 
+ - SQL Server Instance: Choose Default SQL instance or provide name of the custom SQL instance.
+ - VMM Server: Select one of the VMM Servers that has already been registered with Azure Site Recovery (ASR). ASR would use this VMM server to communicate with the SQL Server
+ - RUN AS ACCOUNT: Provide name of one of the Run As Account that has been created on the VMM Server selected above. This Run As account would be used to access the SQL Server and should have Read and Failover Permissions on Availability Groups on the SQL Server. 
 
 Once you add SQL Server it would show up under the SQL Servers tab. 
 
 ![SQL Server List](./media/site-recovery-sql/sql-server-list.png)
 
-#### Adding a SQL Availability Group
+##### 2. Adding a SQL Availability Group
 
 Once the SQL Server is added the next step is to add the Availability Groups to ASR. To do that, drill down inside the SQL Server added in previous step and click on Add SQL Availability Group. 
 
@@ -211,7 +170,7 @@ In the above example Availability Group DB1-AG would become Primary on virtual m
 
 >[AZURE.NOTE] Only the Availability Groups that are Primary on the SQL Server added in step above are available to be added to ASR. If you have made an Availability Group Primary on the SQL Server or if you have added more Availability Groups on the SQL Server after it was added, refresh it using the Refresh option available on the SQL Server.
 
-#### Creating a Recovery Plan
+#### 3. Creating a Recovery Plan
 
 The next step is to create a recovery plan using both virtual machines and the availability groups. 
 Select the same VMM Server that you used in Step-1 as source and Microsoft Azure as target.
@@ -226,7 +185,7 @@ You can further customize the recovery plan by moving virtual machines to differ
 
 ![Customize Recovery Plan](./media/site-recovery-sql/customize-rp.png)
 
-#### Failover
+#### 4. Failover
 
 Different failover options are available once an Availability Group has been added to a Recovery Plan.
 
@@ -241,16 +200,31 @@ Unplanned Failover can result into data loss. While triggering unplanned failove
 ##### Test Failover
 Test failover for SQL Availability group is not supported. If you trigger Test Failover of a Recovery Plan containing SQL Availability Group, failover would be skipped for Availability Group.
 
-##### Failback
+Consider these options as an alternative:
+
+###### Option 1
+
+
+
+1. Perform a test failover of the application and front-end tiers.
+
+2. Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.
+
+###### Option 2
+
+1.	Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network
+2.	Perform the test failover using the recovery plan.
+
+#### Failback
 
 If you want to make the Availability Group again Primary on the on-premises SQL Server then you can do so by triggering Planned Failover on the Recovery Plan and choosing the direction from Microsoft Azure to on-premises VMM Server
 
-##### Reverse Replication
+#### Reverse Replication
 
 After an unplanned failover reverse replication has to be triggered on the Availability Group to resume the replication. Till this is done the replication remains suspended.
 
 
-### Environments that are not managed by VMM
+### Environments not managed by a VMM server
 
 For the environments that are not managed by a VMM Server, Azure Automation Runbooks can be used to configure a scripted failover of SQL Availability Groups. Below are the steps to configure that:
 
@@ -327,7 +301,21 @@ For the environments that are not managed by a VMM Server, Azure Automation Runb
 
 4.	When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the automation runbook to fail over availability groups.
 
-#### Configure SQL Server scripts for failover to a secondary site
+###On-premises to On-premises
+If the SQL Server is using availability groups for high availability, or a failover cluster instance, we recommend using availability groups on the recovery site as well. Note that this guidance is for applications that don't use distributed transactions.
+
+
+1. [Configure databases](https://msdn.microsoft.com/library/hh213078.aspx) into availability groups.
+2. Create a new virtual network on secondary site.
+3. Set up a site-to-site VPN between the new virtual network and the primary site.
+4. Create a virtual machine on the recovery site and install SQL Server on it.
+5. Extend the existing AlwaysOn availability groups to the new SQL Server virtual machine. Configure this SQL Server instance as an asynchronous replica copy.
+6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
+7. Make sure that the application farm is setup using the listener. If It's setup up using the database server name, please update it to use the listener so you don't need to reconfigure it after the failover.
+
+For applications that use distributed transactions we recommendation you use [Site Recovery with SAN replication](site-recovery-vmm-san.md) or [VMWare site-to-site replication](site-recovery-vmware-to-vmware.md).
+
+#### Recovery Plan Considerations
 
 1. Add this sample script to the VMM library on the primary and secondary sites.
 
@@ -340,22 +328,44 @@ For the environments that are not managed by a VMM Server, Azure Automation Runb
 2. When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the script to fail over availability groups.
 
 
-## Test failover considerations
 
-If you're using AlwaysOn availability groups, you can't do a test failover of the SQL Server tier. Consider these options as an alternative:
-
-###Option 1
+## Setup Protection of a Standalone SQL Server
 
 
+In this configuration we recommend you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is set up as a virtual machine or physical server, and whether you want to replicate to Azure or a secondary on-premises site. Get instructions for all deployment scenarios in the [Site Recovery Overview](site-recovery-overview.md).
 
-1. Perform a test failover of the application and front-end tiers.
 
-2. Update the application tier to access the replica copy in read-only mode, and perform a read-only test of the application.
+## Setup Protection of SQL Server Cluster (Standard or 2008 R2)
 
-###Option 2
+For a cluster running SQL Server Standard edition or SQL Server 2008 R2 we recommend you use Site Recovery replication to protect SQL Server.
 
-1.	Create a copy of the replica SQL Server virtual machine instance (using VMM clone for site-to-site or Azure Backup) and bring it up in a test network
-2.	Perform the test failover using the recovery plan.
+#### On-premises to On-premises
+
+- If the application's uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](site-recovery-vmm-san.md) for a Hyper-V environment and [VMware to VMware](site-recovery-vmware-to-vmware.md) for VMware environment.
+
+- For non-DTC applications, leverage the above approach to recover the cluster as a stand-alone server by leveraging a local high safety DB mirror.
+
+#### On-premises to Azure
+
+Site recovery doesn't support guest cluster support when replicating to Azure. SQL Server also doesn't provide a low-cost disaster recovery solution for Standard edition. We recommend you protect the on-premises SQL Server cluster to a standalone SQL Server and recover it in Azure.
+
+
+1. Configure an additional standalone SQL Server instance on the on-premises site.
+2. Configure this instance to serve as a mirror for the databases that need protection. Configure the mirroring in high safety mode.
+3.	Configure Site Recovery on the on-premises site based on the environment ([Hyper-V](site-recovery-hyper-v-site-to-azure.md) or [VMware](site-recovery-vmware-to-azure.md).
+4.	Use Site Recovery replication to replicate the new SQL Server instance to Azure. It's a high safety mirror copy and so it'll be synchronized with the primary cluster, but it'll be replicated to Azure using Site Recovery replication.
+
+The following graphic illustrates this setup.
+
+![Standard cluster](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
+
+
+### Failback Considerations
+
+For SQL standard clusters, failback after an unplanned failover will require a SQL backup and restore from the Mirror instance to the original cluster and re-establishing the mirror.
+
+
+
 
 
 

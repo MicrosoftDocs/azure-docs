@@ -98,7 +98,7 @@ You now have a new Windows virtual machine named MyWindowsVM in your new resourc
 
 [Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-service-manager.md)
+[Create Windows virtual machines with Powershell and the classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 

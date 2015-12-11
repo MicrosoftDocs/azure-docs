@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Reliable Actors for Internet of Things"
-   description="Service Fabric Reliable Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
+   pageTitle="Reliable Actors for Internet of Things | Microsoft Azure"
+   description="Service Fabric Reliable Actors is the key building block in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/14/2015"
    ms.author="vturecek"/>
 
 # Reliable Actors design pattern: Internet of Things
@@ -60,10 +60,10 @@ class ThingState
 	long _deviceGroupId;
 }
 
-public class Thing : Actor<ThingState>, IThing
+public class Thing : StatefulActor<ThingState>, IThing
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._telemetry = new List<ThingTelemetry>();
         State._deviceGroupId = -1; // not activated
@@ -78,7 +78,7 @@ public class Thing : Actor<ThingState>, IThing
             var deviceGroup = ActorProxy.Create<IThingGroup>(State._deviceGroupId);
             return deviceGroup.SendTelemetryAsync(telemetry); // sending telemetry data for aggregation
         }
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task ActivateMe(string region, int version)
@@ -123,10 +123,10 @@ class ThingGroupState
     public List<ThingInfo> _faultyDevices;
 }
 
-public class ThingGroup : Actor<ThingGroupState>, IThingGroup
+public class ThingGroup : StatefulActor<ThingGroupState>, IThingGroup
 {
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         State._devices = new List<ThingInfo>();
         State._faultsPerRegion = new Dictionary<string, int>();
@@ -138,13 +138,13 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
     public Task RegisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Add(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task UnregisterDevice(ThingInfo deviceInfo)
     {
         State._devices.Remove(deviceInfo);
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 
     public Task SendTelemetryAsync(ThingTelemetry telemetry)
@@ -168,7 +168,7 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
             }
         }
 
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```

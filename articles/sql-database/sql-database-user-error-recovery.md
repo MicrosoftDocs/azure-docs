@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="10/20/2015"
+   ms.date="11/09/2015"
    ms.author="elfish"/>
 
 # Recover an Azure SQL Database from a user error
@@ -35,7 +35,7 @@ Basic databases have 7 days of retention, Standard databases have 14 days of ret
 > [AZURE.NOTE] Restoring a database creates a new database. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Azure Portal
-To use Point In Time Restore in the Azure Portal, use the following steps or [watch a video of this procedure](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore/): 
+To use Point In Time Restore in the Azure Portal, use the following steps.
 
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**.
@@ -43,8 +43,6 @@ To use Point In Time Restore in the Azure Portal, use the following steps or [wa
 4. At the top of your database's blade, select **Restore**.
 5. Specify a database name, point in time and then click **Create**.
 6. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
-
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###PowerShell
 Use PowerShell to programmatically perform a Point In Time Restore with the [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet. For a detailed walk through, please [watch the video of this procedure](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
@@ -55,7 +53,6 @@ Use PowerShell to programmatically perform a Point In Time Restore with the [Sta
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###REST API 
 Use REST to programmatically perform database restore.
@@ -66,8 +63,6 @@ Use REST to programmatically perform database restore.
 	
 3.	Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
-
 ##Restore a deleted database
 In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.
 
@@ -76,7 +71,7 @@ The retention period of a deleted database is determined by the service tier of 
 > [AZURE.NOTE] Restoring a database creates a new database. It is important to make sure the server you are restoring to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Azure Portal
-To restore a deleted database using the Azure Portal, use the following steps or [watch a video of this procedure](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database/): 
+To restore a deleted database using the Azure Portal, use the following steps.
 
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Servers**.
@@ -85,8 +80,6 @@ To restore a deleted database using the Azure Portal, use the following steps or
 5. Select the deleted database you want to restore.
 6. Specify a database name and click **Create**.
 7. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
-
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###PowerShell
 To restore a deleted database using PowerShell, use the [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet.  For a detailed walk through, please [watch a video of this procedure](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
@@ -101,7 +94,6 @@ To restore a deleted database using PowerShell, use the [Start-AzureSqlDatabaseR
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###REST API 
 Use REST to programmatically perform database restore.
@@ -113,6 +105,3 @@ Use REST to programmatically perform database restore.
 3.	Begin your restore by using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
 	
 4.	Track the status of your restore by using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
-
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
- 

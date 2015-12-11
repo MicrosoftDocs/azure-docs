@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from another data store to Azure Data Lake Store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from Azure Data Lake Store to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
 > [AZURE.NOTE]
 > You must create an Azure Data Lake Store account before creating a pipeline with a Copy Activity to move data to/from an Azure Data Lake store. To learn about Azure Data Lake Store, please see [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
@@ -55,7 +55,7 @@ The sample copies data belonging to a time series from an Azure Blob Storage to 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -228,7 +228,7 @@ The sample copies data belonging to a time series from an Azure Data Lake store 
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -396,9 +396,9 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 You can link an Azure storage account to an Azure data factory using an Azure Storage linked service. The following table provides description for JSON elements specific to Azure Storage linked service.
 
 | Property | Description | Required |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
-| dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Yes |
+| dataLakeUri | Specify information about the Azure Data Lake Store account. It is in the following format: https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Yes |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credentials, which assigns the auto-generated authorization URL to this property.  | Yes |
 | sessionId | OAuth session id from the oauth authorization session. Each session id is unique and may only be used once. This is automatically generated when you use Data Factory Editor. | Yes |  
 | accountName | Data lake account name | No |
@@ -413,10 +413,12 @@ For a full list of JSON sections & properties available for defining datasets, s
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc. of the data in the data store. The typeProperties section for dataset of type **AzureDataLakeStore** dataset has the following properties.
 
 | Property | Description | Required |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | folderPath | Path to the container and folder in the Azure Data Lake store. | Yes |
 | fileName | <p>Name of the file in the Azure Data Lake store. fileName is optional. </p><p>If you specify a filename, the activity (including Copy) works on the specific file.</p><p>When fileName is not specified Copy will include all files in the folderPath for input dataset.</p><p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. See the Leveraging partitionedBy property section below for details and examples. | No |
+| format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. | No |
+| compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optimal and Fastest. See [Compression support](#compression-support) section for more details.  | No |
 
 ### Leveraging partitionedBy property
 As mentioned above, you can specify a dynamic folderPath and filename for time series data with the **partitionedBy** section, Data Factory macros and the system variables: SliceStart and SliceEnd, which indicate start and end times for a given data slice.
@@ -447,6 +449,94 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
+### Specifying TextFormat
+
+If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
+
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| columnDelimiter | The character(s) used as a column separator in a file.This tag is optional. The default value is comma (,). | No |
+| rowDelimiter | The character(s) used as a raw separator in file. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
+| escapeChar | <p>The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No | 
+| quoteChar | <p>The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No |
+| nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |
+| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
+
+#### Samples
+The following sample shows some of the format properties for TextFormat.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myfilename"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": "\"",
+	        "NullValue": "NaN"
+	    }
+	},
+
+To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
+
+	"escapeChar": "$",
+
+### Specifying AvroFormat
+If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+
+### Compression support  
+Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
+
+To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
+
+	{  
+		"name": "AzureDatalakeStoreDataSet",  
+	  	"properties": {  
+	    	"availability": {  
+	    		"frequency": "Day",  
+	    	  	"interval": 1  
+	    	},  
+	    	"type": "AzureDatalakeStore",  
+	    	"linkedServiceName": "DataLakeStoreLinkedService",  
+	    	"typeProperties": {  
+	    		"fileName": "pagecounts.csv.gz",  
+	    	  	"folderPath": "compression/file/",  
+	    	  	"compression": {  
+	    	    	"type": "GZip",  
+	    	    	"level": "Optimal"  
+	    	  	}  
+    		}  
+	  	}  
+	}  
+ 
+Note that the **compression** section has two properties:  
+  
+- **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
+- **Level:** the compression ratio, which can be **Optimal** or **Fastest**. 
+	- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
+	- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
+	
+	See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
+
+Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Data Lake store.   
+
+When you specify compression property in an input dataset JSON, the pipeline can read compressed data from the source and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios: 
+
+- Read GZIP compressed data from an Azure Data Lake Store, decompress it, and write result data to an Azure SQL database. You define the input Azure Data Lake Store dataset with the compression JSON property in this case. 
+- Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure Data Lake Store. You define an output Azure Data Lake dataset with the compression JSON property in this case.  
+- Read a GZIP-compressed data from an Azure Data Lake Store, decompress it, compress it using BZIP2, and write result data to an Azure Data Lake Store. You define the input Azure Data Lake Store dataset with compression type set to GZIP and the output dataset with compression type set to BZIP2 in this case.   
+
+
 ## Azure Data Lake Copy Activity type properties  
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
 
@@ -464,7 +554,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Specifies the copy behavior. | <p>**PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.</p><p>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.</p><p>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.</p> | No |
+| copyBehavior | Specifies the copy behavior. | <p>**PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.</p><p>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name.</p><p>**MergeFiles:** (this capability is coming shortly) merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.</p> | No |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]

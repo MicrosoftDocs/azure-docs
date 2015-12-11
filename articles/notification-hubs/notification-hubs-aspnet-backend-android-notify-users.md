@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Notification Hubs Notify Users"
+	pageTitle="Azure Notification Hubs Notify Users with .NET backend"
 	description="Learn how to send push notifications to users in Azure. Code samples written in Java for Android"
 	documentationCenter="android"
 	services="notification-hubs"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Azure Notification Hubs Notify Users
+#Azure Notification Hubs Notify Users with .NET backend
 
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]

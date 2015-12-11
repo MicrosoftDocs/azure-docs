@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/05/2015" 
 	ms.author="nitinme"/>
 
 # Install and use Hue on HDInsight Hadoop clusters
@@ -34,7 +34,7 @@ Hue is a set of Web applications used to interact with a Hadoop cluster. You can
 
 ## Install Hue using Script Actions
 
-The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) script action is used to install Hue on an HDInsight cluster. This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
+The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) script action is used to install Hue on an HDInsight cluster. This section provides instructions about how to use the script when provisioning the cluster using the Azure Classic Portal.
 
 > [AZURE.NOTE] You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -42,7 +42,9 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/inst
 
 	> [AZURE.NOTE] To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
 
-2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
+2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information as shown below:
+
+	![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "Provide script action parameters for Hue")
 
 	* __NAME__: Enter a friendly name for the script action.
 	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh

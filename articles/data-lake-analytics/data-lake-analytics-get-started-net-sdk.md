@@ -25,9 +25,6 @@ Learn how to use the Azure .NET SDK to create Azure Data Lake Analytics accounts
 jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analtyic accounts. For more 
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
->[AZURE.IMPORTANT] This article is still under development. The UE team ran into a bug that Ben Smith and Matthew Hicks are investigating.
-
-
 In this tutorial, you will develop a C# console application which contains a U-SQL script that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
@@ -47,10 +44,10 @@ Before you begin this tutorial, you must have the following:
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
 - **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
 - **A Data Lake Analytics account**.  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. 
+	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. 
 
 ##Create console application
 
@@ -259,6 +256,5 @@ A sample search log has been copied to a public Azure Blob container. In the app
 - To see a more complexed query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
-

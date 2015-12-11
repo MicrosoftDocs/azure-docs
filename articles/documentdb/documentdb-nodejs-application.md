@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
@@ -405,7 +405,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		module.exports = config;
 
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Preview portal](http://portal.azure.com):
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Portal](http://portal.azure.com):
 
 4. Save and close the **config.js** file.
  

@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # Maximize Azure Batch compute resource usage with concurrent node tasks
@@ -38,7 +38,7 @@ To illustrate the benefits of parallel task execution, let's say that your task 
 
 Configuring the compute nodes in your Batch solution for parallel task execution is done at the pool level. When working with the Batch .NET API, the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] property is set when creating a pool. In the Batch REST API, the [maxTasksPerNode][maxtasks_rest] element is set in the request body during pool creation.
 
-Azure Batch allows a maximum tasks per node setting of up to four times (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores) then `maxTasksPerNode` may be set to sixteen. Details on the number of cores for each of the node sizes can be found in [Sizes for virtual machines](../virtual-machines/virtual-machines-size-specs.md), and more information on service limits can be found in [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
+Azure Batch allows a maximum tasks per node setting of up to four times (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores) then `maxTasksPerNode` may be set to sixteen. Details on the number of cores for each of the node sizes can be found in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md), and more information on service limits can be found in [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 
 > [AZURE.TIP] Be sure to take into account the `maxTasksPerNode` value when constructing an [autoscale formula][enable_autoscaling] for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. See [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md) for more information.
 
@@ -106,18 +106,18 @@ The second run of the sample shows a significant decrease in job duration due to
 
 ## Batch Explorer Heat Map
 
-The [Batch Explorer][batch_explorer], one of the Azure Batch [sample applications][github_samples], contains a *Heat Map* feature that provides visualization of node core usage within a pool. When executing the [ParallelTasks][parallel_tasks_sample] sample application, use the Heat Map feature to easily visualize node core activity.
+The [Batch Explorer][batch_explorer], one of the Azure Batch [sample applications][github_samples], contains a *Heat Map* feature that provides visualization of task execution. When executing the [ParallelTasks][parallel_tasks_sample] sample application, use the Heat Map feature to easily visualize the execution of parallel tasks on each node.
 
 ![Batch Explorer Heat Map][1]
 
-*Batch Explorer Heat Map showing four nodes with four cores each, with each core currently running a task*
+*Batch Explorer Heat Map showing a pool of four nodes, with each node currently executing four tasks*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[fill_type]: https://msdn.microsoft.com/en-us/library/microsoft.azure.batch.common.computenodefilltype.aspx
+[fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx  
 [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx

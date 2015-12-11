@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="12/10/2015"
    ms.author="yurid"/>
 
 #Best practices for software updates on Microsoft Azure IaaS
@@ -33,7 +33,7 @@ These same principles apply in a hybrid scenario where your company is using Azu
 
 ## Initial assessment
 
-Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you need to know:
+Even if your company is already using an update management system and you already have software update policies in place, it is important to frequently revisit previous policy assessments and update them based on your current requirements. This means that you need to be familiar with the current state of the resources in your company. To reach this state, you have to know:
 
 -   The physical and virtual computers in your enterprise.
 
@@ -75,7 +75,7 @@ For example, the Microsoft Security Response Center (MSRC) responds to all secur
 
 ## Software update considerations
 
-After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/en-us/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/en-us/library/gg712696).
+After you perform an initial audit of the software in use in your enterprise, you should determine the requirements to setup you software update management system, which depends on the software update management system that you are using. For WSUS read [Best Practices with Windows Server Update Services](https://technet.microsoft.com/library/Cc708536), for System Center read [Planning for Software Updates in Configuration Manager](https://technet.microsoft.com/library/gg712696).
 
 However, there are some general considerations and best practices that you can apply regardless of the solution that you are using as shown in the sections that follows.
 
@@ -87,13 +87,13 @@ Consider the following practices when planning to setup the software update mana
 
 -   **Create pre-production collections that include reference computers**: The pre-production collection should include representative configurations of the operating system versions, line of business software, and other software running in your enterprise.
 
-You should also consider where the software update server will be located, if it will be in the Azure IaaS infrastructure in the cloud or if it will be on-premises. This is an important decision because you need to evaluate the amount of traffic between on-premises resources and Azure infrastructure. Read [Connect an on-premises network to a Microsoft Azure virtual network](https://technet.microsoft.com/en-us/library/Dn786406.aspx) for more information on how to connect your on-premises infrastructure to Azure.
+You should also consider where the software update server will be located, if it will be in the Azure IaaS infrastructure in the cloud or if it will be on-premises. This is an important decision because you need to evaluate the amount of traffic between on-premises resources and Azure infrastructure. Read [Connect an on-premises network to a Microsoft Azure virtual network](https://technet.microsoft.com/library/Dn786406.aspx) for more information on how to connect your on-premises infrastructure to Azure.
 
-The design options that will determine where the update server will be located will also vary according to your current infrastructure and the software update system that you are currently using. For WSUS read [Deploy Windows Server Update Services in Your Organization](https://technet.microsoft.com/en-us/library/hh852340.aspx) and for System Center Configuration Manager read [Planning for Sites and Hierarchies in Configuration Manager](https://technet.microsoft.com/en-us/library/Gg712681.aspx).
+The design options that will determine where the update server will be located will also vary according to your current infrastructure and the software update system that you are currently using. For WSUS read [Deploy Windows Server Update Services in Your Organization](https://technet.microsoft.com/library/hh852340.aspx) and for System Center Configuration Manager read [Planning for Sites and Hierarchies in Configuration Manager](https://technet.microsoft.com/library/Gg712681.aspx).
 
 ### Backup
 
-Regular backups are important not only for the software update management platform itself but also for the servers that will be updated. Organizations that have a [change management process](https://technet.microsoft.com/en-us/library/cc543216.aspx) in place will require IT to justify the reasons for why the server needs to be updated, the estimated downtime and possible impact. To ensure that you have a rollback configuration in place in case an update fails, make sure to back up the system regularly.
+Regular backups are important not only for the software update management platform itself but also for the servers that will be updated. Organizations that have a [change management process](https://technet.microsoft.com/library/cc543216.aspx) in place will require IT to justify the reasons for why the server needs to be updated, the estimated downtime and possible impact. To ensure that you have a rollback configuration in place in case an update fails, make sure to back up the system regularly.
 
 Some backup options for Azure IaaS include:
 
@@ -103,7 +103,7 @@ Some backup options for Azure IaaS include:
 
 ### Monitoring
 
-You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions. 
+You should run regular reports to monitor the number of missing or installed updates, or updates with incomplete status, for each software update that is authorized. Similarly, reporting for software updates that are not yet authorized can facilitate easier deployment decisions.
 
 You should also consider the following tasks:
 

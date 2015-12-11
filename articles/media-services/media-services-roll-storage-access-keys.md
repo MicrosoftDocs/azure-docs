@@ -39,11 +39,11 @@ Start with regenerating secondary storage key. By default, the secondary key is 
 
 Update Media Services to use the secondary storage access key. You can use one of the following two methods to synchronize the regenerated storage key with Media Services.
 
-- Use Azure Portal: select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
+- Use the Azure Classic Portal: select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window. Depending on which storage key you want for the Media Services to synchronize with, select the synchronize primary key or synchronize secondary key button. In this case, use the secondary key.
 
-- Use Media Services management REST API. 
+- Use Media Services management REST API.
 
-	The following code example shows how to construct the https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/en-us/library/azure/dn167656.aspx).
+The following code example shows how to construct the https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -144,13 +144,15 @@ After 30 minutes you can recreate your OnDemand locators so they take dependency
 
 Use the same procedure as described in [step 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
- 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ###Acknowledgments 

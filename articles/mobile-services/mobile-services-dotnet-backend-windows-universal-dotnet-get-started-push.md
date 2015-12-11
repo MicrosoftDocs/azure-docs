@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure" 
-	description="Learn how to send push notifications to your universal Windows 8.1 app from your .NET backend mobile service using Azure Notification Hubs." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure"
+	description="Learn how to send push notifications to your universal Windows 8.1 app from your .NET backend mobile service using Azure Notification Hubs."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/11/2015"
 	ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -26,25 +31,25 @@ This topic shows you how to use Azure Mobile Services with a .NET backend to sen
 To complete this tutorial, you need the following:
 
 * An active [Microsoft Store account](http://go.microsoft.com/fwlink/p/?LinkId=280045).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>. 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
 ##<a id="register"></a>Register your app for push notifications
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
 &nbsp;&nbsp;6. Browse to the `\Services\MobileServices\your_service_name` project folder, open the generated push.register.cs code file, and inspect the **UploadChannel** method that registers the device's channel URL with the notification hub.
- 
+
 &nbsp;&nbsp;7. Open the shared App.xaml.cs code file and notice that a call to the new **UploadChannel** method was added in the **OnLaunched** event handler. This makes sure that registration of the device is attempted whenever the app is launched.
 
 &nbsp;&nbsp;8. Repeat the previous steps to add push notifications to the Windows Phone Store app project, then in the shared App.xaml.cs file, remove the extra call to **UploadChannel** and the remaining `#if...#endif` conditional wrapper. Both projects can now share a single call to **UploadChannel**.
 
 > [AZURE.NOTE] You can also simplify the generated code by unifying the `#if...#endif` wrapped [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) definitions into a single unwrapped definition used by both versions of the app.
 
-Now that push notifications are enabled in the app, you must update the mobile service to send push notifications. 
+Now that push notifications are enabled in the app, you must update the mobile service to send push notifications.
 
 ##<a id="update-service"></a>Update the service to send push notifications
 
-The following steps update the existing TodoItemController class to send a push notification to all registered devices when a new item is inserted. You can implement similar code in any custom [ApiController](https://msdn.microsoft.com/library/system.web.http.apicontroller.aspx), [TableController](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx), or anywhere else in your backend services. 
+The following steps update the existing TodoItemController class to send a push notification to all registered devices when a new item is inserted. You can implement similar code in any custom [ApiController](https://msdn.microsoft.com/library/system.web.http.apicontroller.aspx), [TableController](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx), or anywhere else in your backend services.
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-update-server-push](../../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
@@ -52,7 +57,7 @@ The following steps update the existing TodoItemController class to send a push 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
-The remaining steps in this section are optional. They allow you to test your app against your mobile service running on a local computer. If you plan to test push notifications using the mobile service running in Azure, you can just skip to the last section. This is because the Add Push Notification wizard already configured your app to connect to your service running in Azure. 
+The remaining steps in this section are optional. They allow you to test your app against your mobile service running on a local computer. If you plan to test push notifications using the mobile service running in Azure, you can just skip to the last section. This is because the Add Push Notification wizard already configured your app to connect to your service running in Azure.
 
 >[AZURE.NOTE]Never use a production mobile service for testing and development work. Always publish your mobile service project to a separate staging service for testing.
 
@@ -88,7 +93,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
   <br/>Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.
 
 * [Debug Notification Hubs applications](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Get guidance troubleshooting and debugging Notification Hubs solutions. 
+  </br>Get guidance troubleshooting and debugging Notification Hubs solutions.
 
 * [How to use a .NET client for Azure Mobile Services]
   <br/>Learn more about how to use Mobile Services from C# Windows apps.

@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Visual Studio
@@ -239,8 +239,6 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 2. Select **Updates** in the left pane and then select **Visual Studio Gallery**.
 4. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
 
-See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Preview Portal to monitor the pipeline and datasets you have created in this tutorial.
+See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).

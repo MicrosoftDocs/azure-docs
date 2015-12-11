@@ -3,7 +3,7 @@
 	description="Learn how to deploy a Node.js application to a web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Create a Node.js web app in Azure App Service
 
@@ -30,7 +30,7 @@ This tutorial shows how to create a simple [Node.js](http://nodejs.org) applicat
 
 You'll learn:
 
-* How to create a web app in Azure App Service by using the Azure preview portal.
+* How to create a web app in Azure App Service by using the Azure Portal.
 * How to deploy a Node.js application to the web app by pushing to the web app's Git repository.
 
 The completed application writes a short "hello world" string to the browser.
@@ -40,7 +40,7 @@ The completed application writes a short "hello world" string to the browser.
 For tutorials and sample code with more complex Node.js applications, or for other topics about how to use Node.js in Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visaul Studio subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
@@ -50,9 +50,9 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 [Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps.  
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. Click the **+ NEW** icon on the top left of the portal.
+2. Click the **+ NEW** icon on the top left of the Azure Portal.
 
 3. Click **Web + Mobile**, and then click **Web app**.
 
@@ -62,35 +62,37 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 
 	This name must be unique in the azurewebsites.net domain because the URL of the web app will be {name}.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
 
-5. Select a **Resource Group** or create a new one.
+5. Select a **Subscription**.
 
-	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
+6. Select a **Resource Group** or create a new one.
 
-5. Select an **App Service plan/Location** or create a new one.
+	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
+
+7. Select an **App Service plan/Location** or create a new one.
 
 	For more information about App Service plans, see [Azure App Service plans overview](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-6. Click **Create**.
+8. Click **Create**.
    
 	![][portal-quick-create2]
 
 	In a short time, typically less than a minute, Azure finishes creating the new web app.
 
-7. Click **Web apps > {your new web app}**.
+9. Click **Web apps > {your new web app}**.
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
-8. In the **Web app** blade, click the **Deployment** part.
+10. In the **Web app** blade, click the **Deployment** part.
 
 	![][deployment-part]
 
-9. In the **Continuous Deployment** blade, click **Choose Source**
+11. In the **Continuous Deployment** blade, click **Choose Source**
 
-14. Click **Local Git Repository**, and then click **OK**.
+12. Click **Local Git Repository**, and then click **OK**.
 
 	![][setup-git-publishing]
 
-11. Set up deployment credentials if you haven't already done so.
+13. Set up deployment credentials if you haven't already done so.
 
 	a. In the Web app blade, click **Settings > Deployment credentials**.
 
@@ -100,7 +102,7 @@ Follow these steps to create a web app in Azure App Service and enable Git publi
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-11. In the Web app blade, click **Settings**, and then click **Properties**.
+14. In the Web app blade, click **Settings**, and then click **Properties**.
  
 	To publish, you'll push to a remote Git repository. The URL for the repository is listed under **GIT URL**. You'll use this URL later in the tutorial.
 
@@ -209,7 +211,7 @@ Node.js provides a rich ecosystem of modules that can be used by your applicatio
 
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-This article uses the Azure portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
+This article uses the Azure Portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../install-configure-powershell.md) to perform the same operations.
 
 For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 

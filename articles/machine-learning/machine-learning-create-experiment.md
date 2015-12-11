@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
@@ -141,17 +141,17 @@ Now that the data is ready, constructing a predictive model consists of training
 
 We want to predict the price of an automobile, which can be any value, so we'll use a regression model. For this example, we'll train a simple *linear regression* model, and in the next step, we'll test it.
 
-1. We can use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split][split] module to the experiment canvas and connect it to the output of the last [Project Columns][project-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
+1. We can use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split Data][split] module to the experiment canvas and connect it to the output of the last [Project Columns][project-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
 
 	> [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
-2. Run the experiment. This allows the [Project Columns][project-columns] and [Split][split] modules to pass column definitions to the modules we'll be adding next.  
+2. Run the experiment. This allows the [Project Columns][project-columns] and [Split Data][split] modules to pass column definitions to the modules we'll be adding next.  
 
 3. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
 	For this experiment, select the [Linear Regression][linear-regression] module under the **Regression** category (you can also find the module by typing "linear regression" in the palette Search box), and drag it to the experiment canvas.
 
-4. Find and drag the [Train Model][train-model] module to the experiment canvas. Connect the left input port to the output of the [Linear Regression][linear-regression] module. Connect the right input port to the training data output (left port) of the [Split][split] module.
+4. Find and drag the [Train Model][train-model] module to the experiment canvas. Connect the left input port to the output of the [Linear Regression][linear-regression] module. Connect the right input port to the training data output (left port) of the [Split Data][split] module.
 
 5. Select the [Train Model][train-model] module, click **Launch column selector** in the **Properties** pane, and then select the **price** column. This is the value that our model is going to predict.
 
@@ -167,7 +167,7 @@ The result is a trained regression model that can be used to score new samples t
 
 Now that we've trained the model using 75 percent of our data, we can use it to score the other 25 percent of the data to see how well our model functions.
 
-1. Find and drag the [Score Model][score-model] module to the experiment canvas and connect the left input port to the output of the [Train Model][train-model] module. Connect the right input port to the test data output (right port) of the [Split][split] module.  
+1. Find and drag the [Score Model][score-model] module to the experiment canvas and connect the left input port to the output of the [Train Model][train-model] module. Connect the right input port to the test data output (right port) of the [Split Data][split] module.  
 
 	![Score Model module][screen8a]
 

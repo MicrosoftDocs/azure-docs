@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for Kindle apps
@@ -118,7 +118,7 @@ Edit your app manifest to support ADM:
 		    android:exported="false" />
 
 		<receiver
-		    android:name="[YOUR SERVICE NAME]$Receiver"
+		    android:name="[YOUR SERVICE NAME]$Receiver" />
 
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
@@ -186,7 +186,7 @@ Edit your app manifest to support ADM:
 
 	    	NotificationCompat.Builder mBuilder =
 	          	new NotificationCompat.Builder(ctx)
-	          	.setSmallIcon(R.drawable.ic_launcher)
+	          	.setSmallIcon(R.mipmap.ic_launcher)
 	          	.setContentTitle("Notification Hub Demo")
 	          	.setStyle(new NotificationCompat.BigTextStyle()
 	                     .bigText(msg))

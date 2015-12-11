@@ -19,7 +19,7 @@ To ensure that no messages is resubmitted outside of the deduplication window, w
 ### Provision an Azure Storage account and a Service Bus queue
 In order to use [EventProcessorHost], you must have an Azure Storage account. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. Take note of the storage account connection string.
 
-You will also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure Management Portal], following these steps:
+You will also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure portal], following these steps:
 
 1. Click **NEW** in the bottom left corner, then **App Services**, then **Service Bus**, then **Queue**, then **Custom**, select the name **d2ctutorial**, then select a deduplication window of 1 hour.
 
@@ -302,11 +302,11 @@ In this section, you'll write a Windows console app that receives interactive me
 
 [Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Portal]: https://manage.windowsazure.com/
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 

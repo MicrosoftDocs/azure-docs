@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
@@ -53,7 +53,7 @@ The following steps describe tasks involved in creating common live streaming ap
 
 3. Create a program. 
 
-	When using the Azure Management Portal, creating a program also creates an asset. 
+	When using the Azure Classic Portal, creating a program also creates an asset. 
 
 	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 1. Publish the asset associated with the program.   
@@ -157,7 +157,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 
 Once the Channel starts ingesting data, you can preview your stream.
 
-Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Management Portal to view your stream.
+Note that currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
 
 
 ####Allowed IP Addresses
@@ -240,19 +240,22 @@ Other considerations related to working with channels and related components:
 
 ##How to create channels that receive multi-bitrate live stream from on-premises encoders
 
-For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+For more information about on-premises live encoders, see [Using 3rd Party Live Encoders with Azure Media Services](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##Related topics

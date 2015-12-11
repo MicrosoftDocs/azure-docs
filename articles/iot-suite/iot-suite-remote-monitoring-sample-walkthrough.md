@@ -108,7 +108,7 @@ This web app enables you to:
 - View the command history for a device.
 
 ### Observing the behavior of the cloud solution
-You can view your provisioned resources by going to [Azure Management Portal](https://portal.azure.com) and navigating to the resource group with the solution name you specified.
+You can view your provisioned resources by going to the [Azure portal](https://portal.azure.com) and navigating to the resource group with the solution name you specified.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 

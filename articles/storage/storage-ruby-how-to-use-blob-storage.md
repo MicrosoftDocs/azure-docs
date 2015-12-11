@@ -53,7 +53,7 @@ Using your favorite text editor, add the following to the top of the Ruby file w
 ## Setup an Azure Storage Connection
 
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
-for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::BlobService** with the following code:
+for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::Blob::BlobService** with the following code:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -61,7 +61,7 @@ for information required to connect to your Azure storage account. If these envi
 
 To obtain these values:
 
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
+1. Log in to the [Azure Portal](portal.azure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
@@ -70,11 +70,11 @@ To obtain these values:
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-The **Azure::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
+The **Azure::Blob::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
 
 The following code example creates a container or print out the error if there is any.
 
-	azure_blob_service = Azure::BlobService.new
+	azure_blob_service = Azure::Blob::BlobService.new
 	begin
 	  container = azure_blob_service.create_container("test-container")
 	rescue
@@ -145,6 +145,6 @@ Finally, to delete a blob, use the **delete\_blob()** method. The following code
 
 To learn about more complex storage tasks, follow these links:
 
-- MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)

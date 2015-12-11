@@ -1,6 +1,6 @@
 <properties
    pageTitle="Load sample data into SQL Data Warehouse | Microsoft Azure"
-   description="Load ample data into SQL Data Warehouse"
+   description="Load sample data into SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,49 +13,51 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/02/2015"
    ms.author="lodipalm;barbkess"/>
 
 #Load sample data into SQL Data Warehouse
 
-Now that you have set-up a SQL Data Warehouse instance you can easily load some sample data into it.  The following will help you create a dataset called AdventureWorksPDW2012 in your database.  This dataset models out a sample data warehouse structure for a fictional company called AdventureWorks.  Note that you will need to have BCP installed for the following steps.  If you do not currently have BCP installed, please install the [Microsoft Command Line Utilities for SQL Server][]. 
+Once you've [created a SQL Data Warehouse database instance][create a SQL Data Warehouse database instance] the next step is to create and load some tables.  You can use the Adventure Works sample scripts we've created for SQL Data Warehouse to create and load tables for the fictional company called Adventure Works.  These scripts use sqlcmd to run SQL and bcp to load data.  If you don't already have these tools installed, follow these links to [install bcp][] and to [install sqlcmd][].
 
-1. To get started click to download our [Sample Data Scripts][].
+Follow these simple steps to load the Adventure Works Sample database to SQL DW...
 
-2. After the file has downloaded, extract the contents of the AdventureWorksPDW2012.zip file and open the new AdventureWorksPDW2012 folder. 
+1. Download [Adventure Works Sample Scripts for SQL Data Warehouse][].
 
-3. Edit the aw_create.bat file and set the following values at the top of the file:
+2. Extract the files from downloaded zip to a directory on your local machine.
 
-   a. **Server**: The fully qualified name of the server your SQL Data Warehouse resides on
+3. Edit the extracted file aw_create.bat and set the following variables found at the top of the file.  Be sure to leave no whitespace between the "=" and the parameter.  Below are examples of how your edits might look.
 
-   b. **User**: The user for the above server
-   
-   c. **Password**: The password for the provided server log-in
-   
-   d. **Database**: The name of the SQL Data Warehouse instance you wish to load data onto
-   
-   Ensure that there is no whitespace between the '=' and these parameters.
-   
+    	server=mylogicalserver.database.windows.net
+    	user=mydwuser
+    	password=Mydwpassw0rd
+    	database=mydwdatabase
 
-4. Run aw_create.bat from the directory in which it is located. This will create the schema and load data into all the tables using BCP.
+4. From a Windows cmd prompt, run the edited aw_create.bat.  Be sure you are in the directory where you saved your edited version of aw_create.bat.
+This script will...
+	* Drop any Adventure Works tables or views that already exist in your database
+	* Create the Adventure Works tables and views
+	* Load each Adventure Works table using bcp
+	* Validate the row counts for each Adventure Works table
+	* Collect statistics on every column for each Adventure Works table
 
 
-## Connecting to and querying your sample
+##Query your sample data
 
-As described in the [connect][] documentation you can connect to this database using Visual Studio and SSDT.  Now that you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries to get started. 
+Once you've loaded some sample data into your SQL Data Warehouse, you can quickly run a few queries.  To run a query, connect to your newly created Adventure Works database in Azure SQL DW using Visual Studio and SSDT, as described in the [connect][] document.
 
-We can run a simple select statement to get all the info of the employees:
+Example of simple select statement to get all the info of the employees:
 
 	SELECT * FROM DimEmployee;
 
-We can also run a more complex query using constructs such as GROUP BY to look at the total amount for all sales on each day:
+Example of a more complex query using constructs such as GROUP BY to look at the total amount for all sales on each day:
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-We can even use the WHERE clause to filter out orders from before a certain date:
+Example of a SELECT with a WHERE clause to filter out orders from before a certain date:
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -63,10 +65,10 @@ We can even use the WHERE clause to filter out orders from before a certain date
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-In fact, SQL Data Warehouse supports almost all of the T-SQL constructs that SQL Server does, and you can find some of the differences in our [migrate code][] documentation.  
+SQL Data Warehouse supports almost all T-SQL constructs which SQL Server supports.  Any differences are documented in our [migrate code][] documentation.
 
 ## Next steps
-Now that we've given you some time to warm up with the sample data check out how to [develop][], [load][], or [migrate][].
+Now that you've had a chance to try some queries with sample data, check out how to [develop][], [load][], or [migrate][] to SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -76,9 +78,9 @@ Now that we've given you some time to warm up with the sample data check out how
 [load]: ./sql-data-warehouse-overview-load.md
 [connect]: ./sql-data-warehouse-get-started-connect.md
 [migrate code]: ./sql-data-warehouse-migrate-code.md
-
-<!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
+[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
+[install bcp]: ./sql-data-warehouse-load-with-bcp.md
+[install sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
 
 <!--Other Web references-->
-[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
+[Adventure Works Sample Scripts for SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip

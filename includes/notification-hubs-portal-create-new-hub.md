@@ -1,6 +1,6 @@
 
 
-1. Log on to the [Azure Management Portal](https://manage.windowsazure.com/), and then click **+NEW** at the bottom of the screen.
+1. Log on to the [Azure Classic Portal](https://manage.windowsazure.com/), and then click **+NEW** at the bottom of the screen.
 
 2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
@@ -19,7 +19,7 @@
 
 5. On your namespace page, click the **Notification Hubs** tab at the top, and then click on the notification hub you just created. This will open the dashboard for your new notification hub.
 
-6. One the dashboard for your new hub click **View Connection String**. Take note of the two connection strings. You will use these later.
+6. On the dashboard for your new hub click **View Connection String**. Take note of the two connection strings. You will use these later.
 
    	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
 

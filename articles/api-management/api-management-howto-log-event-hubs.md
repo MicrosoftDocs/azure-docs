@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to log events to Azure Event Hubs in Azure API Management
 
 Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
 
+This article is a companion to the [Integrate Azure API Management with Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video and describes how to log API Management events using Azure Event Hubs.
+
 ## Create an Azure Event Hub
 
-To create a new Event Hub, sign-in to the [Azure portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
+To create a new Event Hub, sign-in to the [Azure classic portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
 
 ![Create event hub][create-event-hub]
 
@@ -67,7 +69,7 @@ Specify the request body using the following template.
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
@@ -84,7 +86,7 @@ When you make the request, if the logger is created a status code of `201 Create
 
 Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
 
-To configure policies, sign-in to the [Azure Portal](https://manage.windowsazure.com), navigate your API Management service, and click either **publisher portal** or **Manage** to access the publisher portal.
+To configure policies, sign-in to the [Azure classic portal](https://manage.windowsazure.com), navigate your API Management service, and click either **publisher portal** or **Manage** to access the publisher portal.
 
 ![Publisher portal][publisher-portal]
 
@@ -112,6 +114,15 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 	-	[Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 	-	[Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
 	-	[Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+-	Learn more about API Management and Event Hubs integration
+	-	[Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)	
+
+## Watch a video walkthrough
+
+> [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
+
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

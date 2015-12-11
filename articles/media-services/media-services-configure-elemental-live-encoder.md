@@ -16,31 +16,31 @@
 	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
-#Use the Elemental Live encoder to send a single bitrate live stream 
+#Use the Elemental Live encoder to send a single bitrate live stream
 
 > [AZURE.SELECTOR]
 - [Elemental Live](media-services-configure-elemental-live-encoder.md)
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
-  
+
 This topic shows how to configure the [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure Management Portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program). 
+This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure Classic Portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program).
 
 ##Prerequisites
 
 - Must have a working knowledge of using Elemental Live web interface to create live events.
 - [Create an Azure Media Services account](media-services-create-account.md)
-- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md) 
+- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
 
-- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool. 
+- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
 - Launch the tool and connect to your AMS account.
 
 ##Tips
 
-- Whenever possible, use a hardwired internet connection. 
-- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.  
+- Whenever possible, use a hardwired internet connection.
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
 - When using software based encoders, close out any unnecessary programs.
 
 ## Elemental Live with RTP ingest
@@ -49,19 +49,19 @@ This section shows how to configure the Elemental Live encoder that sends a sing
 
 ### Create a channel
 
-1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.  
+1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
+![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental1.png)
 
-2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTP (MPEG-TS)**. You can leave all other settings as is.  
+2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTP (MPEG-TS)**. You can leave all other settings as is.
 
 
-	 Make sure the **Start the new channel now** is selected. 
- 
-3. Click **Create Channel**.  
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
+Make sure the **Start the new channel now** is selected.
 
->[AZURE.NOTE] The channel can take as long as 20 minutes to start.  
+3. Click **Create Channel**.
+![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental12.png)
+
+>[AZURE.NOTE] The channel can take as long as 20 minutes to start.
 
 While the channel is starting you can [configure the encoder](media-services-configure-elemental-live-encoder.md#configure_elemental_rtp).
 
@@ -167,9 +167,11 @@ The stream is now ready to be embedded in a player, or distributed to an audienc
 
 Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

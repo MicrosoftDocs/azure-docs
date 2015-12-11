@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -23,25 +23,25 @@
 
 Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools for Visual Studio to write and test U-SQL scripts.
 
-U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference]().
+U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference] (http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 
 **Prerequisites**
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed** 
-- **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
-- **Data Lake Tools for Visual Studio**. Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Microsoft Azure SDK for .NET version 2.7 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
 
     Once Data Lake Tools for Visual Studio is installed, you will see a Data Lake menu in Visual Studio:
     
     ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
-- **Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)**.
+- **Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)**.
 
 	- [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Preview Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
+	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
 
 ## Connect to Azure
 
@@ -55,7 +55,7 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 **To browse your Data Lake Analytics accounts**
 
 1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
-2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
+2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
 
 ## Upload source data files
 
@@ -65,7 +65,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 
 **To upload the file to the dependent Azure Data Lake account**
 
-1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account).
+1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account".
 2. Right-click the default Data Lake Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
 3. Browse to the folder where you want to upload files, 
 4. Right-click any blank space, and then click **Upload**. 
@@ -80,7 +80,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 4. Browse to the folder where you want to upload files, 
 5. Right-click any blank space, and then click **Upload**. 
 
-## Develop and test U-SQL scripts 
+## Develop U-SQL scripts 
 
 The Data Lake Analtyics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
@@ -149,9 +149,9 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	- **Insert Azure Path**
 		
-		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click OK button the file path will be inserted to your code. 
+		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code. 
 
-5. Specify the Data Lake Analytics account, Database, and Schema:
+5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose. For more information, see [Run U-SQL locally](#run-u-sql-locally).
 
 	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
@@ -169,7 +169,7 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	* Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
 	* Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-	* Job Graph. Four graphs are provided to visualize the job’s information:  Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
+	* Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
 	* MetaData Operations. It shows all the metadata operations.
 	* State History. 
 	* Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information. 
@@ -193,14 +193,83 @@ Job playback enables you to watch job execution progress and visually detect out
 
 **To view job execution progress**  
 
-1. Click **Load Profile** on the upper right corner.  See the previous screen shot.
+1. Click **Load Profile** on the upper right corner. See the previous screen shot.
 2. Click on the Play button on the bottom left corner to review the job execution progress. 
-3. During the playback, click **Pause**  to stop it or directly drag the progress bar to specific positions. 
+3. During the playback, click **Pause** to stop it or directly drag the progress bar to specific positions. 
 
 
 ###Heat Map 
 
 Data Lake Tools for Visual Studio provides user-selectable color-overlays on job view to indicate progress, data I/O, execution time, I/O throughput of each stage. Through this, users can figure out potential issues and distribution of job properties directly and intuitively. You can choose a data source to display from the drop-down list.  
+
+## Run U-SQL locally
+
+Using the U-SQL local run experience in Visual Studio, you can: 
+
+- Run U-SQL scripts locally, along with C# Assemblies. 
+- Debug C# assemblies locally. 
+- View local tables, assemblies in Server Explorer just as you can do for Azure Data Lake Analytics service. 
+
+You will see a *Local* account in Visual Studio, and the installer creates a *DataRoot* folder located *C:\LocalRunRoot*. The DataRoot folder will be used:
+
+- Store  metadata including tables, DBs, TVFs, etc.
+- For a certain script: if a relative path is referenced in input/output paths, we will look up the DataRoot (as well as the script’s path if the it’s input)
+- The DataRoot folder will NOT be referenced if you are trying to register an assembly and use a relative path (see “Use assemblies when doing local run” part for more details)
+
+### Known issues and limitations
+
+- U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.
+- Slow performance due to low parallelism, because job plans are executed serially in a single process. 
+- Local run can't show job graphs in Visual Studio. This will be addressed in the future. 
+- Cannot create table/DB etc. in Server Explorer for the local account.
+- When a relative path is referenced:
+
+    - In script input (EXTRACT * FROM “/path/abc”) - both the DataRoot path and the script path will be searched. 
+    - In script output (OUTPUT TO “path/abc”): the DataRoot path will be used as the output folder. 
+    - In assembly registration (CRREATE ASSEMBLY xyz FROM “/path/abc”): the script path will be searched, but not the DataRoot. 
+    - In registered TVF/View or other metadata entiteis: the DataRoot Path will be searched, but not the script path. 
+    
+    For scripts ran on Data Lake serivce, the default storage account will be used as root folder and will be searched accordingly.
+
+### Test U-SQL scripts locally
+For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder. 
+
+![Submit U-SQL Visual Studio project locally](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
+
+You can also right-click a script and then click **Run Local Plan** in the context menu, or press **CTRL+F5** to trigger local run.
+
+### Use assemblies in local run
+
+There are two ways to run the customized C# files:
+
+- Write assemblies in the code behind file and the assemblies will be automatically registered and dropped after the script is done. 
+- Create a C# assembly project and register the output dll to the local account through a script like below. Please note that the path is relative to the script rather than the DataRoot folder.
+
+![Use assemblies in u-sql local run](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
+ 
+### Debug scripts and C# assemblies locally
+
+You can debug C# assemblies without submitting and registering it to the Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
+
+**To debug local code in code behind file**
+1.	Set breakpoints in the code behind file. 
+2.	Press **F5** to debug the script locally.
+
+The following procedure only works in Visual Studio 2015. In older Visual Studio you may need to manually add the pdb files. 
+
+**To debug local code in a referenced C# project**
+1.	Create a C# Assembly project, and build it to generate the output dll.
+2.	Register the dll using a U-SQL statement:
+
+        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+3.	Set breakpoints in the C# code.
+4.	Press **F5** to debug the script with referencing the C# dll locally.  
+ 
+
+
+
+
+
 
 
 
@@ -208,10 +277,9 @@ Data Lake Tools for Visual Studio provides user-selectable color-overlays on job
 
 To get started with Data Lake Analytics using different tools, see:
 
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-- [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
 
 To see more development topics: 
 

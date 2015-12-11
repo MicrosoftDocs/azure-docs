@@ -26,7 +26,7 @@ This tutorial builds on the code presented in [Get started with IoT Hub] to pres
 
 The first pattern is reliable storage of device-to-cloud messages in [Azure Blobs]. This scenario is very common when implementing *cold path* analytics, where data stored in blobs is used as input to analytics driven by tools such as [Azure Data Factory] or the [Hadoop] stack.
 
-The second pattern is reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are called *interactive* when they are immediate triggers for a set of actions in the application back-end, as opposed to a *data point* message that is fed into an analytics engine. For instance, an alarm coming from a device that has to trigger the insertion of a ticket in a CRM system is an *interactive* device-to-cloud message, as opposed to a telemetry message containing temperature samples, which is a *data point* message.
+The second pattern is reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are called *interactive* when they are immediate triggers for a set of actions in the application back end, as opposed to a *data point* message that is fed into an analytics engine. For instance, an alarm coming from a device that has to trigger the insertion of a ticket in a CRM system is an *interactive* device-to-cloud message, as opposed to a telemetry message containing temperature samples, which is a *data point* message.
 
 Since IoT Hub exposes a Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses [EventProcessorHost] to host an event processor class, which:
 
@@ -97,14 +97,14 @@ Additional information on IoT Hub:
 [Service Bus Queue]: https://azure.microsoft.com/en-us/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub Guidance - Event Hubs compatibility]: iot-hub-guidance.md#eventhubcompatible
 
 [Azure Storage]: https://azure.microsoft.com/en-us/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/en-us/documentation/services/service-bus/
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md

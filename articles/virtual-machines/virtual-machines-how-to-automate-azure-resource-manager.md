@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="davidmu"/>
 
 
@@ -34,11 +34,9 @@ Azure Resource Manager simplifies the deployment and management of complex appli
 
 [Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md)
+
 [Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## General resources
-
-[Azure Quickstart templates](http://azure.microsoft.com/documentation/templates/)
 
 [Azure compute, network, and storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -47,28 +45,14 @@ Azure Resource Manager simplifies the deployment and management of complex appli
 
 [Network resource provider](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
-
-## Automate with Azure CLI
-
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md)
-
-[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
-
-## Automate with Azure PowerShell
-
-[Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-
-## Automate with .NET
+## .NET
 
 [Deploy Azure resources using the .NET Library](virtual-machines-arm-deployment.md)
 
 
-## Automate with Azure Automation
+## Azure Automation
 
 [Managing Azure virtual machines using Azure Automation](automation-manage-virtual-machines.md)
-
-
 
 ## Additional resources
 

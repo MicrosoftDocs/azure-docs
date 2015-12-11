@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Azure SQL Database security guidelines and limitations
@@ -25,7 +25,7 @@ This topic describes the Microsoft Azure SQL Database guidelines and limitations
 
 The Azure SQL Database service is only available through TCP port 1433. To access a SQL Database from your computer, ensure that your firewall allows outgoing TCP communication on TCP port 1433. As part of the connection process, connections from Azure virtual machines are redirected to a different IP address and port, unique for each worker role. The port number will be in the range from 11000 to 11999.
 
-Before you can connect to the Azure SQL Database server for the first time, you must use the [Azure Portal](https://portal.azure.com) or [Azure Platform Management Portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) to configure the Azure SQL Database firewall. You will need to create a server-level firewall setting that enables connection attempts from your computer or Azure to Azure SQL Database server. Further, if you want to control access to certain databases in your Azure SQL Database server, create database-level firewall rules for the respective databases. For more information, see [Azure SQL Database firewall](sql-database-firewall-configure.md).
+Before you can connect to the Azure SQL Database server for the first time, you must use the [Azure Classic Portal](https://portal.azure.com) or [Azure Platform Classic Portal](https://manage.windowsazure.com/microsoft.onmicrosoft.com#Workspaces/All/dashboard) to configure the Azure SQL Database firewall. You will need to create a server-level firewall setting that enables connection attempts from your computer or Azure to Azure SQL Database server. Further, if you want to control access to certain databases in your Azure SQL Database server, create database-level firewall rules for the respective databases. For more information, see [Azure SQL Database firewall](sql-database-firewall-configure.md).
 
 ## Connection encryption and certificate validation
 
@@ -96,7 +96,7 @@ For more information about logins and users, see [Managing databases and logins 
 
 Consider the following points to make your Azure SQL Database applications less vulnerable to security threats:
 
-- Always use the latest updates: When connecting to your SQL Database, always use the most current version of tools and libraries to prevent security vulnerabilities. For more information about which tools and libraries are supported, see [Azure SQL Database General Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Always use the latest updates: When connecting to your SQL Database, always use the most current version of tools and libraries to prevent security vulnerabilities.
 - Block inbound connections on TCP port 1433: Only outbound connections on TCP port 1433 are needed for applications to communicate with SQL Database. If inbound communications are not needed by any other applications on that computer, ensure that your firewall continues to block inbound connections on TCP port 1433.
 - Prevent injection vulnerabilities: To make sure that your applications do not have SQL injection vulnerabilities, use parameterized queries where possible. Also, be sure to review code thoroughly and run a penetration test before deploying your application.
 
@@ -107,6 +107,6 @@ Consider the following points to make your Azure SQL Database applications less 
 
 [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
-[Azure SQL Database General Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ee336245.aspx)
-
 [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
+
+[Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)

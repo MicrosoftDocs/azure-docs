@@ -44,7 +44,7 @@ Working with the Azure Resource Manager through the Azure CLI requires you to au
 
 For more information on authenticating to Microsoft Azure, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](../azure-portal/resource-group-rbac.md).
+>[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
 ## Set the Azure Resource Manager mode
 
@@ -89,29 +89,29 @@ Creating a new template is beyond the scope of this article, so to start with le
 1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) to a working folder on your local computer.
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
-```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
 3. After saving the azuredeploy.parameters.json file, use the following command to create a new resource group based on the template. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. Replace the *testRG* with the group name you wish to use, and *testDeploy* with a deployment name of your choice. The location should be same as the one specified in your template parameter file.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
@@ -204,7 +204,7 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-* For information on working with Azure Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
+* For information on working with Azure Resource Manager from the Azure portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant

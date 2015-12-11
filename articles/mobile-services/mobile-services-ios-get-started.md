@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/07/2015"
+	ms.date="11/04/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -35,9 +40,9 @@ In this tutorial, you will create both a new mobile service and a simple _To do 
 
 ## Create a new iOS app
 
-You can follow an easy Quick Start in the Management Portal to create a new app connected to your mobile service:
+You can follow an easy Quick Start in the Azure classic portal to create a new app connected to your mobile service:
 
-1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 2. In the Quick Start tab, click **iOS** under **Choose a platform** and expand **Create a new iOS app**. This displays the steps to create an iOS app connected to your mobile service.
 
@@ -50,7 +55,7 @@ You can follow an easy Quick Start in the Management Portal to create a new app 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4">
-<li><p>Back in the Management Portal, click the **DATA** tab and then click the **TodoItem** table. This lets you browse the data inserted by the app into the table.<p></li></ol></p>
+<li><p>Back in the [Azure classic portal], click the **DATA** tab and then click the **TodoItem** table. This lets you browse the data inserted by the app into the table.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Next Steps
 Learn how to perform additional important tasks in Mobile Services:
@@ -90,6 +95,6 @@ Learn how to perform additional important tasks in Mobile Services:
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET backend version]: mobile-services-dotnet-backend-ios-get-started.md

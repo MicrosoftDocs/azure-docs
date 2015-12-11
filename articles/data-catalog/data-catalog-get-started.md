@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # Get started with Azure Data Catalog
@@ -39,7 +39,7 @@ Here are the steps to install the Adventure Works.
 
 The Adventure Works OLTP database supports standard online transaction processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles) including Manufacturing, Sales, and Purchasing. The Adventure Works DW database demonstrates how to build a data warehouse.
 
-The databases are located at http://msftdbprodsamples.codeplex.com/ and can be installed by following the steps in [How to install the Adventure Works 2014 Sample Databases].
+The databases are located at [CodePlex.com](http://msftdbprodsamples.codeplex.com/) and can be installed by following the steps in the [Readme for Adventure Works 2014 Sample Databases](https://msftdbprodsamples.codeplex.com/downloads/get/880669).
 
 In this exercise you installed the Adventure Works sample databases that are used in the remaining exercises. If you chose to skip this exercise and to use your own enterprise data sources, please be prepared to remember names, tags, and other metadata.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="12/01/2015"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
@@ -30,74 +30,103 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 Before you begin this article, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-	> [AZURE.NOTE] The PowerShell scripts provided in this article uses the Azure resource manager mode. To ensure the samples work for you, please download the latest Azure PowerShell using the Microsoft Web Platform Installer.  
+##Install Azure PowerShell 1.0 and greater
 
-##Provision HDInsight clusters
+First you must unintall the 0.9x versions.
 
-HDInsight cluster requires an Azure Resource group and an Blob container on an Azure Storage account:
+To check the version of the installed PowerShell:
 
-- Azure Resource group is a logical container for Azure resources. The Azure resource group and the HDInsight cluster don't have to be in the same location.  For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
+	Get-Module *azure*
+	
+To uninstall the older version, run Programs and Features in the control panel. 
+
+There are two main options for installing Azure PowerShell. 
+
+- [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from elevated PowerShell ISE or elevated Windows PowerShell console:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	For more information, see [PowerShell Gallery](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
+
+##Create clusters
+
+HDInsight cluster requires an Azure Resource group and a Blob container on an Azure Storage account:
+
+- Azure Resource group is a logical container for Azure resources. The Azure resource group and the HDInsight cluster don't have to be in the same location.  For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 - HDInsight uses a Blob container of an Azure Storage account as the default file system. An Azure Storage account and a storage container are required before you can create an HDInsight cluster. The default storage account and the HDInsight cluster have to be in the same location.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**To create an Azure resource group**
+**To connect to Azure**
 
-2. Connect to your Azure account and select a subscription (in case you have multiple subscriptions).
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # list your subscriptions and get your subscription ID
+	Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
-		Add-AzureRmAccount
-		Get-AzureRmSubscription
-		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
+**Select-AzureRMSubscription** is called in case you have multiple Azure subscriptions.
+	
+**To create a new resource group**
 
-3. Create a new resource group:
-
-	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location <Azure Data Center>  # For example, "West US"
-
+	New-AzureRmResourceGroup -name <New Azure Resource Group Name> -Location "<Azure Location>"  # For example, "EAST US 2"
 
 **To create an Azure Storage account**
 
-	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
-
-For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
+	New-AzureRmStorageAccount -ResourceGroupName <Azure Resource Group Name> -Name <Azure Storage Account Name> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
+	
+	Don't use **Standard_ZRS** because it deson't support Azure Table.  HDInsight uses Azure Table to logging. For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
 
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-For information on creating an Azure Storage account by using the Azure preview portal, see [Create, manage, or delete a storage account](storage-create-storage-account.md).
+For information on creating an Azure Storage account by using the Azure Portal, see [About Azure storage accounts](storage-create-storage-account.md).
 
 If you have already had a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
 	# List Storage accounts for the current subscription
 	Get-AzureRmStorageAccount
 	# List the keys for a Storage account
-	Get-AzureRmStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
+	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-For details on getting the information by using the preview portal, see the "View, copy, and regenerate storage access keys" section of [Create, manage, or delete a storage account](storage-create-storage-account.md).
+For details on getting the information by using the Portal, see the "View, copy, and regenerate storage access keys" section of [About Azure storage accounts](storage-create-storage-account.md).
 
 **To create an Azure storage container**
 
-Azure PowerShell cannot create a Blob container during the HDInsight provisioning process. You can create one by using the following script:
+Azure PowerShell cannot create a Blob container during the HDInsight creation process. You can create one by using the following script:
 
 	$resourceGroupName = "<AzureResoureGroupName>"
-	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountName = "<Azure Storage Account Name>"
 	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
 	$containerName="<AzureBlobContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	# Create a Blob storage container
-	New-AzureRmStorageContainer -Name $containerName -Context $destContext
+	New-AzureStorageContainer -Name $containerName -Context $destContext
 
-**To provision a cluster**
+**To create a cluster**
 
 Once you have the Storage account and the Blob container prepared, you are ready to create a cluster.
 
 	$resourceGroupName = "<AzureResoureGroupName>"
 
-	$storageAccountName = "<AzureStorageAccountName>"
+	$storageAccountName = "<Azure Storage Account Name>"
 	$containerName = "<AzureBlobContainerName>"
 
 	$clusterName = "<HDInsightClusterName>"
@@ -116,40 +145,21 @@ Once you have the Storage account and the Blob container prepared, you are ready
 		-DefaultStorageContainer $containerName  `
 		-ClusterSizeInNodes $clusterNodes
 
-##List cluster details
+##List clusters
 Use the following command to list all clusters in the current subscription:
 
 	Get-AzureRmHDInsightCluster
 
+##Show cluster
+
 Use the following command to show details of a specific cluster in the current subscription:
 
-	Get-AzureRmHDInsightCluster -ClusterName <ClusterName>
+	Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Delete clusters
 Use the following command to delete a cluster:
 
-	Remove-AzureRmHDInsightCluster -ClusterName <ClusterName>
-
-
-
-##Grant/revoke HTTP services access
-
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-
-By default, these services are granted for access. You can revoke/grant the access. Here is a sample:
-
-	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
-
->[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
-
-This can also be done via the preview portal. See [Administer HDInsight by using the Azure preview portal][hdinsight-admin-portal].
+	Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ##Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
@@ -199,148 +209,101 @@ The impact of changing the number of data nodes for each type of cluster support
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
 	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-
-
-
-##Submit MapReduce jobs
-The HDInsight cluster distribution comes with some MapReduce samples. One of the samples is for counting word frequencies in source files.
-
-**To submit a MapReduce job**
-
-The following Azure PowerShell script submits the word-count sample job:
-
-	$clusterName = "<HDInsightClusterName>"
-
-	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-								-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
-								-ClassName "wordcount" `
-								-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
 	
-	# Submit the job and wait for job completion
-	$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
-	$wordCountJob = Start-AzureRmHDInsightJob `
-						-ResourceGroupName $resourceGroupName `
-						-ClusterName $clusterName `
-						-HttpCredential $cred `
-						-JobDefinition $wordCountJobDefinition 
+
+##Grant/revoke access
+
+HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
+
+- ODBC
+- JDBC
+- Ambari
+- Oozie
+- Templeton
+
+
+By default, these services are granted for access. You can revoke/grant the access. To revoke:
+
+	Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+
+To grant:
+
+	$clusterName = "<HDInsight Cluster Name>"
+
+	# Credential option 1
+	$hadoopUserName = "admin"
+	$hadoopUserPassword = "Pass@word123"
+	$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+	$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+
+	# Credential option 2
+	#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 	
-	Wait-AzureRmHDInsightJob `
-		-ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-HttpCredential $cred `
-		-JobId $wordCountJob.JobId 
+	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
-	# Get the job output
-	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
-	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
-	$defaultStorageContainer = $cluster.DefaultStorageContainer
+>[AZURE.NOTE] By granting/revoking the access, you will reset the cluster user name and password.
+
+This can also be done via the Portal. See [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal].
+
+##Update HTTP user credentials
+
+It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+
+
+##Find the default storage account
+
+The following Powershell script demonstrates how to get the default storage account name and the default storage account key for a cluster.
+
+	$clusterName = "<HDInsight Cluster Name>"
 	
-	Get-AzureRmHDInsightJobOutput `
-		-ResourceGroupName $resourceGroupName `
-		-ClusterName $clusterName `
-		-HttpCredential $cred `
-		-DefaultStorageAccountName $defaultStorageAccount `
-		-DefaultStorageAccountKey $defaultStorageAccountKey `
-		-DefaultContainer $defaultStorageContainer  `
-		-JobId $wordCountJob.JobId `
-		-DisplayOutputType StandardError
-		
-For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-storage].
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
+	$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+	$defaultBlobContainerName = $cluster.DefaultStorageContainer
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 
-**To download the MapReduce job output**
+##Find the resource group
 
-The following Azure PowerShell script retrieves the MapReduce job output from the last procedure:
+In the ARM mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
 
-	$storageAccountName = "<StorageAccountName>"
-	$containerName = "<ContainerName>"
-
-	# Create the Storage account context object
-	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-
-	# Download the output to local computer
-	Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
-
-	# Display the output
-	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
-
-For more information on developing and running MapReduce jobs, see [Using MapReduce with HDInsight][hdinsight-use-mapreduce].
+	$clusterName = "<HDInsight Cluster Name>"
+	
+	$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+	$resourceGroupName = $cluster.ResourceGroup
 
 
+##Submit jobs
 
+**To submit MapReduce jobs**
 
+See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
 
+**To submit Hive jobs** 
 
+See [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 
+**To submit Pig jobs**
 
+See [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md).
 
+**To submit Sqoop jobs**
 
+See [Use Sqoop with HDInsight](hdinsight-use-sqoop.md).
 
+**To submit Oozie jobs**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##Submit Hive jobs
-The HDInsight cluster distribution comes with a sample Hive table called *hivesampletable*. You can use a HiveQL **SHOW TABLES** command to list the Hive tables on a cluster.
-
-**To submit a Hive job**
-
-The following script submits a Hive job to list the Hive tables:
-
-	$clusterName = "<HDInsightClusterName>"
-
-	# HiveQL query
-	$querystring = @"
-		SHOW TABLES;
-		SELECT * FROM hivesampletable
-			WHERE Country='United Kingdom'
-			LIMIT 10;
-	"@
-
-	Use-AzureHDInsightCluster -Name $clusterName
-	Invoke-Hive $querystring
-
-The Hive job will first show the Hive tables created on the cluster, and the data returned from the hivesampletable table.
-
-For more information on using Hive, see [Using Hive with HDInsight][hdinsight-use-hive].
-
+See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie.md).
 
 ##Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
 
-##Download job output from Azure Blob storage
-See the [Submit MapReduce jobs](#mapreduce) section in this article.
 
 ## See Also
 * [HDInsight cmdlet reference documentation][hdinsight-powershell-reference]
-* [Administer HDInsight by using the Azure preview portal][hdinsight-admin-portal]
+* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
-* [Provision HDInsight clusters][hdinsight-provision]
+* [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Get started with Azure HDInsight][hdinsight-get-started]

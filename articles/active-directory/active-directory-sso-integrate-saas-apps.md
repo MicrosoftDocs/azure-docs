@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Integrate Azure Active Directory single sign-on with newly acquired apps |  Microsoft Azure"
-   description="Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Integrate Azure Active Directory single sign-on with SaaS apps |  Microsoft Azure"
+    description="Enable single sign-on authentication and user provisioning centralized access management of SaaS apps in Azure Active Directory. An overview of how to integrate Azure Active Directory to SaaS apps."
+    services="active-directory"
+	  keywords="integrate Azure AD with SaaS apps"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,14 +14,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/20/2015"
+      ms.date="12/01/2015"
       ms.author="curtand"/>
 
-# Integrate Azure Active Directory single sign-on with newly acquired apps  
+# Integrate Azure Active Directory single sign-on with SaaS apps  
 
 [AZURE.INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
-To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory. You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
+To get started setting up single sign-on for an app that you’re bringing into your organization, you will be using an existing directory in Azure Active Directory (Azure AD). You can use an Azure AD directory that you obtain through Microsoft Azure, Office 365, or Windows Intune. If you have two or more of these, see [Administer your Azure AD directory](active-directory-administer.md) to determine which one to use.
 
 ## Authentication
 
@@ -40,7 +41,7 @@ Azure AD provides several customizable ways to deploy applications to end users 
 
 ## Additional considerations for applications already in use
 
-Setting up single sign on for an application that your organization already uses is a different process from the process of creating new accounts for a new application. There are a couple of preliminary steps including: mapping user identities in the application to Azure Active Directory (AD) identities, and understanding how users will experience logging in to an application after it is integrated.
+Setting up single sign on for an application that your organization already uses is a different process from the process of creating new accounts for a new application. There are a couple of preliminary steps including: mapping user identities in the application to Azure AD identities, and understanding how users will experience logging in to an application after it is integrated.
 
 > [AZURE.NOTE] To set up SSO for an existing application, you need to have global administrator rights in both Azure AD and the SaaS application.
 
@@ -56,14 +57,14 @@ When you integrate SSO for an application that’s already in use, it’s import
 
 SSO for some applications can be done on the application's sign in interface, but for other applications, the user will have to go through a central portal such as ([My Apps](http://myapps.microsoft.com) or [Office365](http://portal.office.com/myapps)) to sign in. Learn more about the different types of SSO and their user experiences in [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Another valuable resource is *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md#suppressing-user-consent) article.
+Another valuable resource is *Suppressing user consent* in the [Guiding developers](active-directory-applications-guiding-developers-for-lob-applications.md) article.
 
 ## Next steps
 
 
-For SaaS apps that you find in the App Gallery, Azure Active Directory provides a number of [tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
+For SaaS apps that you find in the App Gallery, Azure AD provides a number of [tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
 
-If app is not in App Gallery, you can [add it to the Azure Active Directory App Gallery as a custom
+If app is not in App Gallery, you can [add it to the Azure AD App Gallery as a custom
 application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 There is much more detail on all of these issues in the Azure.com library,

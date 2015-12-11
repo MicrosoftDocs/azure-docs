@@ -34,7 +34,7 @@ U-SQL database contain:
 ## Manage catalogs
 Each Azure Data Lake Analytics account has a default Azure Data Lake Store account associated with it. This Data Lake Store account is referred as the default Data Lake Store account. U-SQL catalog is stored in the default Data Lake Store account under the /catalog folder. Do not delete any files in the /catalog folder.
 
-### Use Azure Preview Portal
+### Use Azure Portal
 
 See [Manage Data Lake Analytics using portal](data-lake-analytics-use-portal.md#view-u-sql-catalog)
 
@@ -64,10 +64,9 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
 ## See also
 
 - Get started
-    - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+    - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
     - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-    - [Get started with Data Lake Analytics using Azure CLI](data-lake-analytics-get-started-cli.md)
     - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 
@@ -77,11 +76,9 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
     - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analtyics-u-sql-user-defined-operators.md)
 
 - Management
-    - [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
+    - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
     - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
-    - [Manage Azure Data Lake Analytics using Azure .NET SDK](data-lake-analytics-use-net-sdk.md)
-    - [Manage Azure Data Lake Analytics using Azure CLI](data-lake-analytics-use-cli.md)
-    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - End-to-end tutorial
     - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)

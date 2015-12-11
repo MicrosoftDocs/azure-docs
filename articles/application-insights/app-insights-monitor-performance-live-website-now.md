@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="11/25/2015"
 	ms.author="awills"/>
 
 
@@ -99,7 +99,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## View performance telemetry
 
-Sign into [the Azure Preview portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
+Sign into [the Azure portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
 
 ![Choose Browse, Application Insights, then select your app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -120,7 +120,7 @@ To segment the chart by calls to different dependencies, select the chart, turn 
 
 You can also filter the chart to look at a specific dependency, type, or performance bucket. Click Filters.
 
-#### Performance counters
+## Performance counters
 
 (Not for Azure web apps.) Click Servers on the overview blade to see charts of server performance counters such as CPU occupancy and memory usage.
 
@@ -128,11 +128,15 @@ Add a new chart, or click any chart to change what it shows.
 
 You can also [change the set of performance counters that are reported by the SDK](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
 
-#### Exceptions
+## Exceptions
 
 ![Click through the server exceptions chart](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 You can drill down to specific exceptions (from the last seven days) and get stack traces and context data.
+
+## Sampling
+
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 
 ## Troubleshooting
@@ -212,7 +216,7 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md

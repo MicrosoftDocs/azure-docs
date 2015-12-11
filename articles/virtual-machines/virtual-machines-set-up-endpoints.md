@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Set up endpoints on a virtual machine in Azure"
-	description="Learn to set up endpoints in the portal to allow communication with a virtual machine in Azure."
+	description="Learn to set up endpoints in the Azure classic portal to allow communication with a virtual machine in Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -23,18 +23,22 @@
 
 All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
 
-When you create a virtual machine in the Azure portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+When you create a virtual machine in the Azure classic portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
 - [About network security groups](virtual-networks-nsg.md)
+
+Please note network security groups control access to the virtual machine, but they don't provide port forwarding capabilities. To do port forwarding, see the following article:
+
+- [Get started configuring an internet facing load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
 
 Each endpoint has a public port and a private port:
 
 - The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
 - The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
 
 After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](virtual-networks-nsg.md).
 
@@ -42,7 +46,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 
 ##Create an endpoint
 
-1.	If you haven't already done so, sign in to the [portal](http://manage.windowsazure.com/).
+1.	If you haven't already done so, sign in to the Azure classic portal.
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine.
 
@@ -74,7 +78,7 @@ To define the set of computers that can send traffic, the ACL on an endpoint can
 
 If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](virtual-networks-nsg.md).
 
-1.	If you haven't already done so, sign in to the [portal](http://manage.windowsazure.com/).
+1.	If you haven't already done so, sign in to the Azure classic portal.
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. From the list, select the appropriate endpoint.
 

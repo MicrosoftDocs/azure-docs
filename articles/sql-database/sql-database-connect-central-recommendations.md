@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@ This topic is a good place to get started with client connectivity to Azure SQL 
 
 
 - [Guidelines for Connecting to Azure SQL Database Programmatically](http://msdn.microsoft.com/library/azure/ee336282.aspx) - discussions include the following:
- - [Ports and Firewalls](sql-database-configure-firewall-settings.md/)
+ - [Ports and Firewalls](sql-database-configure-firewall-settings.md)
  - Connection strings
-- [Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
+- [Azure SQL Database Resource Management](http://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
  - Resource governance
  - Enforcement of limits
  - Throttling
@@ -100,16 +100,6 @@ Unless your program will reuse the connection for another operation immediately 
 - Close the connection.
 
 
-#### Exception thrown when using a pool
-
-
-When connection pooling is enabled, and a timeout error or other login error occurs, an exception will be thrown. Subsequent connection attempts will fail for the next 5 seconds, which is called a *blocking period*.
-
-If the application attempts to connect within the blocking period, the first exception will be thrown again. After the blocking period ends, subsequent failures result in a new blocking period that lasts twice as long as the previous blocking period.
-
-The maximum duration of a blocking period is 60 seconds.
-
-
 ### Ports other than just 1433 in V12
 
 
@@ -132,7 +122,12 @@ The Azure system has the ability to dynamically reconfigure servers when heavy w
 
 However, a reconfiguration might cause your client program to lose its connection to SQL Database. This error is called a *transient fault*.
 
-Your client program can try to reestablish a connection after waiting for perhaps 6 to 60 seconds between retries. You must provide the retry logic in your client.
+If your client program has retry logic, it can try to reestablish a connection after giving the transient fault time to correct itself.
+
+We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
+
+A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+
 
 For code samples that illustrate retry logic, see:
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)

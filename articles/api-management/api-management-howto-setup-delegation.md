@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
@@ -129,7 +129,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 ## <a name="delegate-example-code"> </a> Example Code ##
 
-These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the API Management portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
+These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the publisher portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
 
 **C# code to generate hash of returnUrl**
 

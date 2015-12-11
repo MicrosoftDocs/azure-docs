@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="davidmu"/>
+	ms.author="josephd"/>
 
 # The three-server SharePoint farm Resource Manager template
 

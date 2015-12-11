@@ -18,23 +18,23 @@
 	ms.author="dkshir"/>
 
 
-# How to Capture a Linux Virtual Machine to Use as a Template
+# How to capture a classic Linux virtual machine as an image
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
 
 
-This article shows you how to capture an Azure virtual machine running Linux so you can use it like a template to create other virtual machines. This template includes the OS disk and data disks attached to the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.
+This article shows you how to capture a classic Azure virtual machine running Linux as an image to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines from the image.
 
-Azure treats this template as an image and stores it under **Images**. This is also where any images you've uploaded are stored. For more information about images, see [About Virtual Machine Images in Azure] [].
+Azure stores the image under **Images**. This is also where any images you've uploaded are stored. For more information about images, see [About Virtual Machine Images in Azure] [].
 
-## Before You Begin
+## Before You begin
 
 These steps assume that you've already created an Azure virtual machine using the classic deployment model and configured the operating system, including attaching any data disks. If you haven't done this yet, see these instructions:
 
 - [How to Create a Virtual Machine Running Linux] []
 
 
-## Capture the Virtual Machine
+## Capture the virtual machine
 
 1. Connect to the virtual machine using an SSH client of your choice. For details, see [How to Log on to a Virtual Machine Running Linux] [].
 
@@ -51,7 +51,7 @@ These steps assume that you've already created an Azure virtual machine using th
 	- Resets host name to localhost.localdomain
 	- Deletes the last provisioned user account (obtained from /var/lib/waagent) **and associated data**.
 
-	>[AZURE.NOTE] Deprovisioning deletes files and data in an effort to "generalize" the image. Only run this command on virtual machines that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
+	>[AZURE.NOTE] Deprovisioning deletes files and data in an effort to "generalize" the image. Only run this command on a virtual machine that you intend to capture as a new image template. It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.
 
 
 3. Type **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
@@ -59,7 +59,7 @@ These steps assume that you've already created an Azure virtual machine using th
 4. Type **Exit** to close the SSH client.
 
 
-	>[AZURE.NOTE] The next steps assume you have already [installed the Azure CLI](../xplat-cli-install.md) on your client computer. All the steps below can also be done in the [Management Portal] [].
+	>[AZURE.NOTE] The next steps assume you have already [installed the Azure CLI](../xplat-cli-install.md) on your client computer. All the steps below can also be done in the [Azure classic portal] [].
 
 5. From your client computer, open Azure CLI and login to your Azure subscription. For details, read [Connect to an Azure subscription from the Azure CLI](../xplat-cli-connect.md).
 
@@ -83,17 +83,17 @@ These steps assume that you've already created an Azure virtual machine using th
 
 	`azure vm image list`
 
-	On the [Management Portal] [], it will appear in the **IMAGES** list.
+	On the [Azure classic portal] [], it will appear in the **IMAGES** list.
 
 	![Image capture successful](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 
-## Next Steps
-The image is ready to be used as a template to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using Azure CLI with the Service Management API](virtual-machines-command-line-tools.md) for details about the command. Alternatively, you can use the [Management Portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
+## Next steps
+The image is ready to be used to create virtual machines. You can use the Azure CLI command `azure vm create` and supply the image name you just created. See [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Azure classic portal] [] to create a custom virtual machine by using the **From Gallery** method and selecting the image you just created. See [How to Create a Custom Virtual Machine] [] for more details.
 
 **See Also:** [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 
-[Management Portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [How to Log on to a Virtual Machine Running Linux]: virtual-machines-linux-how-to-log-on.md
 [About Virtual Machine Images in Azure]: virtual-machines-images.md
 [How to Create a Custom Virtual Machine]: virtual-machines-linux-create-custom.md
