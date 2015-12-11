@@ -25,21 +25,21 @@ One of the common problems our customers face is getting an Out of Memory (OOM) 
 
 A customer ran the query below using Hive.
 
-		SELECT
-			COUNT (T1.COLUMN1) as DisplayColumn1,
-			…
-			…
-			….
-		FROM
-			TABLE1 T1,
-			TABLE2 T2,
-			TABLE3 T3,
-			TABLE5 T4,
-			TABLE6 T5,
-			TABLE7 T6
-		where (T1.KEY1 = T2.KEY1….
-			…
-			…
+	SELECT
+		COUNT (T1.COLUMN1) as DisplayColumn1,
+		…
+		…
+		….
+	FROM
+		TABLE1 T1,
+		TABLE2 T2,
+		TABLE3 T3,
+		TABLE5 T4,
+		TABLE6 T5,
+		TABLE7 T6
+	where (T1.KEY1 = T2.KEY1….
+		…
+		…
 
 Some nuances of this query:
 
@@ -94,8 +94,8 @@ We confirmed that **hive.auto.convert.join.noconditionaltask** was indeed set to
     	<name>hive.auto.convert.join.noconditionaltask</name>
     	<value>true</value>
     	<description>
-      	Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
-      	If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
+      		Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
+      		If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
       	specified size, the join is directly converted to a mapjoin (there is no conditional task).
     	</description>
   	</property>
