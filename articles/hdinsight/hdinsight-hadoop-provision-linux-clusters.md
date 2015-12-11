@@ -18,7 +18,7 @@
    	ms.author="nitinme"/>
 
 
-#Create Linux-based clusters in HDInsight
+#Create Linux-based Hadoop clusters in HDInsight
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 

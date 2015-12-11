@@ -31,7 +31,6 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 - __Azure PowerSHell__. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
-
 ##Create the cluster
 
 The following procedures are needed to provision an HDInsight cluster by using Azure PowerShell:
