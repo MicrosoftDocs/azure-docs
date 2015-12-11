@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/10/2015"
+   ms.date="12/11/2015"
    ms.author="andkjell"/>
 
 # PowerShell Connector technical reference
@@ -24,7 +24,7 @@ This article describes the PowerShell Connector. The article applies to the foll
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
     -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
 
-For MIM2016 and FIM2010R2 the Connector is available as a download from the Microsoft Download Center.
+For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
 ## Overview of the PowerShell Connector
 
@@ -194,7 +194,7 @@ The begin import script receives the following parameters from the connector:
 | --- | --- | --- |
 | ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
 | Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenImportConnectionRunStep | OpenImportConnectionRunStep | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
+| OpenImportConnectionRunStep | OpenImportConnectionRunStep[oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
 | Types | [Schema][schema] | Schema for the connector space that will be imported. |
 
 The script must return a single [OpenImportConnectionResults][oicres] object to the pipeline. The sample code below demonstrates how to return an OpenImportConnectionResults object to the pipeline:
@@ -262,7 +262,7 @@ The export data script receives the following parameters from the connector:
 | --- | --- | --- |
 | ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.|
 | Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.|
-| CSEntries | IList[CSEntryChange[csec]] | List of all the connector space objects with pending exports to be processed during this pass. |
+| CSEntries | IList[CSEntryChange][csec] | List of all the connector space objects with pending exports to be processed during this pass. |
 | OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size. |
 | Types | [Schema][schema] | Schema for the connector space that will be exported. |
 
@@ -311,7 +311,7 @@ The password script is not expected to return any results to the Windows PowerSh
 
 ## Sample Connectors
 
-For a complete overview of the available sample connectors, see [Windows PowerShell Connector for FIM 2010 R2 Sample Connector Collection][samp].
+For a complete overview of the available sample connectors, see [Windows PowerShell Connector Sample Connector Collection][samp].
 
 ## Other notes
 
@@ -341,7 +341,7 @@ Substitute the name of the Windows PowerShell connector for the <ConnectorName> 
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+-	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx

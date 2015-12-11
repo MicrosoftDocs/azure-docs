@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/10/2015"
+   ms.date="12/11/2015"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference
@@ -24,7 +24,7 @@ This article describes the Generic SQL Connector. The article applies to the fol
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
     -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
 
-For MIM2016 and FIM2010R2 the Connector is available as a download from the Microsoft Download Center.
+For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
 ## Overview of the Generic SQL Connector
 
@@ -84,7 +84,7 @@ The database should support one of the authentication methods mentioned below.
 
 **DN is Anchor**: If you select this option, the DN will also be used as the anchor attribute. It can be used for a simple implementation but also has the following limitations:
 
--	Connector supports only 1 object type. Therefor any reference attributes can only reference the same object type.
+-	Connector supports only 1 object type. Therefore any reference attributes can only reference the same object type.
 
 **Export Type: Object Replace**: During export when only some attributes have been changed, the entire object with all attributes will be exported and will replace the existing object.
 
@@ -128,7 +128,7 @@ This page allows you to configure anchor and DN attribute for each detected obje
 
 ### Schema 4 (Define attribute type, reference, and direction)
 
-This page allows you to configure the attribute type like integer, reference, string, binary, or Boolean and direction for each attribute. all attributes from page **schema 2** are listed including multi-valued attributes.
+This page allows you to configure the attribute type like integer, reference, string, binary, or Boolean and direction for each attribute. All attributes from page **schema 2** are listed including multi-valued attributes.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
 
@@ -182,7 +182,7 @@ The Connector provides two methods to support password synchronization:
 
 - **Stored Procedure**: This method required two stored procedures to support Set & Change password. Type all parameters for add and change the password operation in Set Password SP and Change Password SP Parameters respectively as per below example.
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters3.png)
-- Password Extension: This method requires Password extension DLL (you need to provide the Extension DLL Name that is implementing [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) interface). Password extension assembly must be placed in extension folder so that connector can load the DLL at runtime.
+- **Password Extension**: This method requires Password extension DLL (you need to provide the Extension DLL Name that is implementing [IMAExtensible2Password](https://msdn.microsoft.com/library/microsoft.metadirectoryservices.imaextensible2password.aspx) interface). Password extension assembly must be placed in extension folder so that connector can load the DLL at runtime.
 ![globalparameters4](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters4.png)
 
 You also have to enable the Password Management on the **Configure Extension** page.
@@ -220,6 +220,7 @@ Generic SQL Connector support Full and Delta Import using these methods:
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/View**
+
 To import multi-valued attributes for an object, you have to provide the comma separated table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table.
 
 Example: You want to import the Employee object and all its multi-valued attributes. There are two tables named Employee (main table) and Department (multi-valued) table.
@@ -301,8 +302,8 @@ If users chooses the SQL query option, Export require 3 different queries to per
 - **Insert Query**: This query execute if any object comes to connector for insertion in the respective table.
 - **Update Query**: This query execute if any object comes to connector for update in the respective table.
 - **Delete Query**: This query execute if any object comes to connector for deletion in the respective table.
-- Attribute selected from the schema used as a parameter value to the query. Example: Insert into Employee (ID, Name) Values (@ID, @EmployeeName)
+- Attribute selected from the schema used as a parameter value to the query. Example: `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+-	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).

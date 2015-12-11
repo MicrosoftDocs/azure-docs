@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/10/2015"
+   ms.date="12/11/2015"
    ms.author="andkjell"/>
 
 # Generic LDAP Connector technical reference
@@ -24,7 +24,7 @@ This article describes the Generic LDAP Connector. The article applies to the fo
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
     -   Must use hotfix 4.1.3461.0 or later [KB2870703](https://support.microsoft.com/kb/2870703).
 
-For MIM2016 and FIM2010R2 the Connector is available as a download from the Microsoft Download Center.
+For MIM2016 and FIM2010R2 the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
 When referring to IETF RFCs, this document is using the format (RFC [RFC number]/[section in RFC document]), e.g. (RFC 4512/4.3).
 You can find more information at http://tools.ietf.org/html/rfc4500 (you need to replace 4500 with the correct RFC number).
@@ -39,7 +39,7 @@ From a high level perspective, the following features are supported by the curre
 
 | Feature | Support |
 | --- | --- |
-| Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>Notable directories not supported: <li>Microsoft Active Directory Domain Services (AD DS)</li><li>Oracle Internet Directory (OID)</li> |
+| Connected data source | The Connector is supported with all LDAP v3 servers (RFC 4510 compliant). It has been tested with the following: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (previously Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>Notable directories not supported: <li>Microsoft Active Directory Domain Services (AD DS) [Use the built-in Active Directory Connector instead]</li><li>Oracle Internet Directory (OID)</li> |
 | Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
 | Operations |The following operations are supported on all LDAP directories: <li>Full Import</li><li>Export</li>The following operations are only supported on specified directories:<li>Delta import</li><li>Set Password, Change Password</li> |
 | Schema | <li>Schema is detected from the LDAP schema (RFC3673 and RFC4512/4.2)</li><li>Supports structural classes, aux classes, and extensibleObject object class (RFC4512/4.3)</li>
@@ -116,9 +116,9 @@ The following LDAP controls/features must be available on the LDAP server for th
 
 - 1.3.6.1.4.1.4203.1.5.3 True/False filters
 
-The True/False filter is frequently not reported by LDAP directories. It is used to create OR filters in LDAP queries, for example when querying for multiple object types.
+The True/False filter is frequently not reported as supported by LDAP directories and might show up on the **Global Page** under **Mandatory Features Not Found**. It is used to create **OR** filters in LDAP queries, for example when importing multiple object types. If you can import more than one one object type, then your LDAP server supports this.
 
-If you use a directory where a unique identifier is the anchor the following must also be available (see the Configure Anchors section later in this guide for more information):
+If you use a directory where a unique identifier is the anchor the following must also be available (see the [Configure Anchors](#configure-anchors) section later in this article for more information):
 
 - 1.3.6.1.4.1.4203.1.5.1 All operational attributes
 
@@ -133,11 +133,11 @@ If the directory has more objects than what can fit in one call to the directory
 - 2.16.840.1.113730.3.4.9 VLVControl
 - 1.2.840.113556.1.4.473 SortControl
 
-If both options are enabled in the connector configuration, only pagedResultsControl will be used.
+If both options are enabled in the connector configuration, pagedResultsControl will be used.
 
 - 1.2.840.113556.1.4.417 ShowDeletedControl
 
-ShowDeletedControl is only used with USNChanged delta import to be able to see deleted objects.
+ShowDeletedControl is only used with the USNChanged delta import method to be able to see deleted objects.
 
 The connector tries to detect if the options are present on the server. If the options cannot be detected, a warning will be present on the Global page in the connector’s properties. Not all LDAP servers will present all controls/features they support and even if this warning is present, the connector might work without issues.
 
@@ -147,7 +147,7 @@ Delta import is only available when a support directory has been detected. The f
 
 - LDAP Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
 - LDAP Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-- TimeStamp. For Novell/NetIQ eDirectory the Connector will use last date/time to get created and updated objects. Novell/NetIQ eDirectory does not provide an equivalent means to retrieve deleted objects. This option can also be used if no other delta import method is active. This option will not be able to import deleted objects.
+- TimeStamp. For Novell/NetIQ eDirectory the Connector will use last date/time to get created and updated objects. Novell/NetIQ eDirectory does not provide an equivalent means to retrieve deleted objects. This option can also be used if no other delta import method is active on the LDAP server. This option will not be able to import deleted objects.
 - USNChanged. See: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### Not supported
@@ -173,7 +173,7 @@ On the Connectivity page, you must specify the Host, Port and Binding informatio
 - For other bindings, enter information either in username / password or select a certificate.
 - If you are using Kerberos to authenticate then also provide the Realm/Domain of the user.
 
-The attribute aliases text box is used for attributes defined in the schema with RFC4522 syntax. These cannot be detected during schema detection and the Connector needs help to identify those. For example the following is needed to be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
+The **attribute aliases** text box is used for attributes defined in the schema with RFC4522 syntax. These cannot be detected during schema detection and the Connector needs help to identify those. For example the following is needed to be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
 
 `userCertificate;binary`
 
@@ -183,7 +183,7 @@ The following is an example for how this could look like:
 
 Select the **include operational attributes in schema** checkbox to also include attributes created by the server. These include attributes such as when the object was created and last update time.
 
-Select **Include extensible attributes in schema** if extensible objects (RFC4512/4.3) are used and will allow any attribute to be used on any object. Selecting this option will make the schema very large so unless the connected directory is using this feature the recommendation is to keep the option unselected.
+Select **Include extensible attributes in schema** if extensible objects (RFC4512/4.3) are used and enabling this option will allow every attribute to be used on all object. Selecting this option will make the schema very large so unless the connected directory is using this feature the recommendation is to keep the option unselected.
 
 ### Global Parameters
 
@@ -191,7 +191,7 @@ On the Global Parameters page, you configure the DN to the delta change log and 
 
 ![Connectivity](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
 
-The top section shows information provided by the server itself, such as the name of the server. The Connector will also verify that the mandatory controls are present in the Root DSE. If these are not listed, a warning will be presented. Some LDAP directories will not list all features in the Root DSE and it is possible that the Connector will work without issues even if this warning is present.
+The top section shows information provided by the server itself, such as the name of the server. The Connector will also verify that the mandatory controls are present in the Root DSE. If these are not listed, a warning will be presented. Some LDAP directories will not list all features in the Root DSE and it is possible that the Connector will work without issues even if a warning is present.
 
 The **supported controls** checkboxes controls the behavior for certain operations:
 
@@ -211,9 +211,9 @@ The following is a list of default change log DNs:
 | Apache Directory Server | Not available. |
 | Directory 389 | Not automatically detected. Select **Change Log**. Default value to use: **cn=changelog** |
 | IBM Tivoli DS | Automatically detected. Change log. |
-| Novell eDirectory | Not available. TimeStamp. The Connector will use last updated date/time to get add and updated records. |
+| Novell eDirectory | Not available. TimeStamp. The Connector will use last updated date/time to get added and updated records. |
 | Open DJ/DS | Automatically detected. Change log.  Default value to use: **cn=changelog** |
-| Open LDAP | Automatically detected. Access log. Default value to use: **cn=accesslog**. |
+| Open LDAP | Automatically detected. Access log. Default value to use: **cn=accesslog** |
 | Oracle DSEE | Automatically detected. Change log. Default value to use: **cn=changelog** |
 | RadiantOne VDS | Virtual directory. Depends on the directory connected to VDS. |
 | Sun One Directory Server | Automatically detected. Change log. Default value to use: **cn=changelog** |
@@ -277,4 +277,4 @@ For directories with a delta change log that is based on date / time, it is high
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+-	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
