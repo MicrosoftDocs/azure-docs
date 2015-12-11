@@ -352,6 +352,7 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 
 - [Azure Storage iOS Library]
 - [Azure Storage REST API]
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 - [Azure Storage Team Blog]
 
 If you have questions regarding this library feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
