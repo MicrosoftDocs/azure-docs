@@ -1,6 +1,6 @@
 <properties
    pageTitle="Develop a Service Fabric service | Microsoft Azure"
-   description="Conceptual information and tutorials that help you understand how to develop a Service Fabric service using the Reliable Actor or Reliable Services programming model."
+   description="Conceptual information and tutorials that help you understand how to develop a Service Fabric service using the Reliable Actors or Reliable Services programming model."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -58,7 +58,7 @@ A simple, turn-based concurrency is provided for Reliable Actors methods. Concur
 Information on configuring Reliable Actors is found here:
 
 - [KVSActorStateProvider configuration](../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)  
-- [Configuring Reliable Actors--ReliableDictionaryActorStateProvider](../service-fabric/service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+- [Configure Reliable Actors--ReliableDictionaryActorStateProvider](../service-fabric/service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 Reliable Actors emit events and performance counters, which can be used to diagnose and monitor your service:
 
