@@ -78,26 +78,34 @@ In Visual Studio, do the following:
 
 5. Open the VirtualMachineTemplate.json file and then add the opening and closing brackets, the required schema element, and the required contentVersion element:
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-        "contentVersion": "1.0.0.0",
-    }
+	```
+ {
+	 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+	 "contentVersion": "1.0.0.0",
+ }
+	```
 
 6. [Parameters](../resource-group-authoring-templates.md#parameters) are not always required, but they make template management easier. They describe the type of the value, the default value if needed, and possibly the allowed values of the parameter. For this tutorial, the parameters that are used to create a virtual machine, a storage account, and a virtual network are added to the template.
 
     Add the parameters element and its child elements after the contentVersion element:
 
-       {
-         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-           "newStorageAccountName": { "type": "string" },
-           "adminUserName": { "type": "string" },
-           "adminPassword": { "type": "securestring" },
-           "dnsNameForPublicIP": { "type": "string" },
-           "windowsOSVersion": { "type": "string", "defaultValue": "2012-R2-Datacenter", "allowedValues": ["2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"] }
-         },
-       }
+	```
+ {
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   "contentVersion": "1.0.0.0",
+	 "parameters": {
+		 "newStorageAccountName": { "type": "string" },
+		 "adminUserName": { "type": "string" },
+		 "adminPassword": { "type": "securestring" },
+		 "dnsNameForPublicIP": { "type": "string" },
+		 "windowsOSVersion": {
+			 "type": "string",
+			 "defaultValue": "2012-R2-Datacenter",
+			 "allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter" ]
+		 }
+   },
+ }
+	```
 
 7. [Variables](../resource-group-authoring-templates.md#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values.
 
