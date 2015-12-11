@@ -2,7 +2,7 @@
 	pageTitle="Out of memory error (OOM) - Hive settings | Microsoft Azure"
 	description="Fix an out of memory error (OOM) from a Hive query in Hadoop in HDInsight. The customer scenario is a query across many large tables."
 	keywords="out of memory error, OOM, Hive settings"
-	services="service-name"
+	services="hdinsight"
 	documentationCenter=""
 	authors="rashimg"
 	manager="paulettm"
