@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Restore a web app in Azure App Service" 
-	description="Learn how to restore your web app from a backup." 
+	pageTitle="Restore an app in Azure App Service" 
+	description="Learn how to restore your app from a backup." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
