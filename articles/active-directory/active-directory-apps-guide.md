@@ -62,15 +62,15 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Configure what information gets sent to the app when users initiate single sign-on | [Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates | [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
 
-##Password-Based Single Sign-On: Account Sharing and SSO for Non-Federated Apps
+##Password-Based Single Sign-On (SSO): Account Sharing and SSO for Non-Federated Apps
 
 To enable single sign-on to apps that don't support federation, Azure AD offers password management features that can securely store passwords and automatically sign users into their apps. You can easily distribute credentials for newly created accounts and share team accounts with multiple people. Users don't necessarily need to know the credentials to the accounts that they're given access to.
 
-[Sharing accounts with Azure AD](active-directory-sharing-accounts.md)
-
-[How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
-
-[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+| Article Guide |   |
+| :---: | --- |
+| An introduction to how password-based SSO works and a brief technical overview | [Password-Based Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| A summary of the scenarios related to account sharing and how these problems are solved by Azure AD | [Sharing accounts with Azure AD](active-directory-sharing-accounts.md) |
+| Deploying and troubleshooting guides for the Internet Explorer version of Azure AD's password management extension | [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)<br /><br />[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 ##Conditional Access: Enforce Additional Security Requirements for High-Risk Apps
 
