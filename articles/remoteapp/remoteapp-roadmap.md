@@ -28,8 +28,9 @@ We are always working to improve Azure RemoteApp based on your feedback. Here ar
 |HTML5-based client for Azure RemoteApp|X ||
 |Azure Resource Manager (ARM) support||X|
 |Cloud Solution Provider (CSP)||X|
-|Avaiability in India region|X||
-|Availability in UK region| |X|
+|Availability in India region|X||
+|Availability in UK region||X|
+
 
 Other improvements added earlier this year:
 
