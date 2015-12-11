@@ -92,41 +92,39 @@ Log schema
 
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
-|time| datetime | "2015-12-07T00:00:43.6872559Z" | the operation's timestamp |
-|resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource id |
-| operationName | string | "Query.Search" | |
-| operationVersion | string | "2015-02-28"| the api-version used in this operation |
-| category | string | "OperationLogs" | this is always the same value |
-| resultType | string | "Success" | Only 2 possible values: Success or Failure | 
+|time| datetime | "2015-12-07T00:00:43.6872559Z" | Timestamp of the operation|
+|resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | Your ResourceId |
+| operationName | string | "Query.Search" | The name of the operation |
+| operationVersion | string | "2015-02-28"| The api-version used |
+| category | string | "OperationLogs" | constant |
+| resultType | string | "Success" | Possible values: Success or Failure | 
 | resultSignature | int | 200 | HTTP result code |
-| durationMS | int | 50 | duration of the operation in milliseconds |
-| properties | object |  see below | object that contains the operation specific data|
+| durationMS | int | 50 | Duration of the operation in milliseconds |
+| properties | object |  see below | Object containing operation specific data|
 
 Properties schema
 
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
-|Description| string | "GET /indexes('content')/docs" | The operation endpoint |
-|Query | string | "?search=AzureSearch&$count=true&api-version=2015-02-28" | the query parameters |
+|Description| string | "GET /indexes('content')/docs" | The operation's endpoint |
+|Query | string | "?search=AzureSearch&$count=true&api-version=2015-02-28" | The query parameters |
 | Documents | int | 42 | Number of documents processed|
-| IndexName | string | "testindex"| the name of the index associated with the operation |
+| IndexName | string | "testindex"| Name of the index associated with the operation |
 
 ### Metrics ###
 
 The metrics blobs contain aggregated values for your search service.
+Each file has one root object called **records** that contains an array of metric objects
 
 Available metrics:
 
 - Latency
 
-
-Each file has one root object called **records** that contains an array of metric objects
-
 Metrics schema
 
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
-| resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/RESOURCEGROUPS/<br/>DEFAULT/PROVIDERS/MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource id |
+| resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE"  | your resource id |
 | metricName | string | "Latency" | the name of the metric |
 | time| datetime | "2015-12-07T00:00:43.6872559Z" | the operation's timestamp |
 | average | int | 64| The average value of the raw samples in the metric time interval |
