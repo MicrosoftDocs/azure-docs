@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect sync: PowerShell Connector"
-   description="This article describes how to configure Microsoft's Powershell Connector."
+   description="This article describes how to configure Microsoft's Windows PowerShell Connector."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
@@ -16,9 +16,9 @@
    ms.date="12/11/2015"
    ms.author="andkjell"/>
 
-# PowerShell Connector technical reference
+# WIndows PowerShell Connector technical reference
 
-This article describes the PowerShell Connector. The article applies to the following products:
+This article describes the Windows PowerShell Connector. The article applies to the following products:
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
