@@ -77,7 +77,7 @@ With the rationalization of the App Service types, publish is also unified under
 
 ![API Apps Publish](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-To learn more about SDK 2.8.1, read the announcement [blog post](https://azure.microsoft.com/en-us/blog/announcing-azure-sdk-2-8-1-for-net/).
+To learn more about SDK 2.8.1, read the announcement [blog post](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
 
 Alternatively, you can manually import the publish profile from the management portal to enable publish. However, Cloud Explorer, code generation and API app selection/creation will require SDK 2.8.1 or higher.
 
