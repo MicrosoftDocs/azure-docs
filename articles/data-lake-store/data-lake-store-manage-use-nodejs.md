@@ -18,6 +18,13 @@
 
 # Manage Azure Data Lake Store using Azure SDK for Node.js
 
+> [AZURE.SELECTOR]
+- [Using Portal](data-lake-store-get-started-portal.md)
+- [Using PowerShell](data-lake-store-get-started-powershell.md)
+- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
+- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+
 
 The Azure ADK for Node.js can be used for managing Azure Data Lake store accounts, and the file system:
 
@@ -30,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. See [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md) to create an account.
-- **A service principal with permissions to access the Data Lake Analytics account. See [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
+- **A service principal with permissions to access the Data Lake Analytics account**. See [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Install the SDK
 
