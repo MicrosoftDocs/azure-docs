@@ -57,7 +57,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
     </Startup>
 	```
 
-	The above configuration will run the console command *install.cmd* with administrator privileges so it can install the .NET framework. The configuration also creates a LocalStorage with the name *InstallLogs* to store any log information created by the install script. For more see: [Use local storage to store files during startup](https://msdn.microsoft.com/library/azure/hh974419.aspx) 
+	The above configuration will run the console command *install.cmd* with administrator privileges so it can install the .NET framework. The configuration also creates a LocalStorage with the name *NETFXInstall*. The startup script will set the temp folder to use this local storage resource so that the .NET framework installer will be downloaded and installed from this resource. It is important to set the size of this resource to at least 1024MB to ensure the framework will install correctly. For more see: [Use local storage to store files during startup](https://msdn.microsoft.com/library/azure/hh974419.aspx) 
 
 2. Create a file **install.cmd** and add it to all roles by right click on the role and selecting **Add>Existing Item...**. So all roles should now have the .NET installer file as well as the install.cmd file.
 	
@@ -72,7 +72,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
 	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
 	REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
-	set netfx="NDP461"
+	set netfx="NDP46"
 	
 
 	REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
@@ -93,7 +93,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	goto logtimestamp
 	
 	:NDP461
-	set netfxinstallfile="NDP461-KB3088520-Web.exe"
+	set netfxinstallfile="NDP461-KB3102438-Web.exe"
 	set netfxregkey="0x6041f"
 	
 	
