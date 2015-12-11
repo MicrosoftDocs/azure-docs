@@ -123,9 +123,10 @@ Available metrics:
 Each file has one root object called **records** that contains an array of metric objects
 
 Metrics schema
+
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
-| resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/RESOURCEGROUPS/DEFAULT/PROVIDERS/MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource id |
+| resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/RESOURCEGROUPS/<br/>DEFAULT/PROVIDERS/MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource id |
 | metricName | string | "Latency" | the name of the metric |
 | time| datetime | "2015-12-07T00:00:43.6872559Z" | the operation's timestamp |
 | average | int | 64| The average value of the raw samples in the metric time interval |
@@ -133,7 +134,7 @@ Metrics schema
 | maximum | int | 78 | The maximum value of the raw samples in the metric time interval | 
 | total | int | 258 | The total value of the raw samples in the metric time interval |
 | count | int | 4 | The number of raw samples used to generate the metric |
-| timegrain | string | "PT1m" | The time grain of the metric in ISO 8601|
+| timegrain | string | "PT1M" | The time grain of the metric in ISO 8601|
 
 ## Analyzing your data ##
 
