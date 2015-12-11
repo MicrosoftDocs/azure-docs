@@ -80,8 +80,8 @@ In Visual Studio, do the following:
 
 	```
  {
-	 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-	 "contentVersion": "1.0.0.0",
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+     "contentVersion": "1.0.0.0",
  }
 	```
 
@@ -91,19 +91,19 @@ In Visual Studio, do the following:
 
 	```
  {
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-   "contentVersion": "1.0.0.0",
-   "parameters": {
-     "newStorageAccountName": { "type": "string" },
-     "adminUserName": { "type": "string" },
-     "adminPassword": { "type": "securestring" },
-     "dnsNameForPublicIP": { "type": "string" },
-     "windowsOSVersion": {
-       "type": "string",
-       "defaultValue": "2012-R2-Datacenter",
-       "allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter" ]
-     }
-   },
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+         "newStorageAccountName": { "type": "string" },
+         "adminUserName": { "type": "string" },
+         "adminPassword": { "type": "securestring" },
+         "dnsNameForPublicIP": { "type": "string" },
+         "windowsOSVersion": {
+             "type": "string",
+             "defaultValue": "2012-R2-Datacenter",
+             "allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter" ]
+         }
+     },
  }
 	```
 
