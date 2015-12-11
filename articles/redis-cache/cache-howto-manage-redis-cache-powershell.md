@@ -78,8 +78,8 @@ The following table contains properties and descriptions for commonly used param
 | StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache.                                                                                                                       |          |
 | Subnet             | When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache.                                                                                                                  |          |
 | VirtualNetwork     | When hosting your cache in a VNET, specifies the resource ID of the VNET in which to deploy the cache.                                                                                                             |          |
-|                    |                                                                                                                                                                                                                    |          |
-|                    |                                                                                                                                                                                                                    |          |
+| KeyType            | Specifies which access key to regenerate when renewing access keys. Valid values are: Primary, Secondary |  |                                                                                                                                                                                                              |          |
+
 
 ## To create a Redis Cache
 
@@ -116,7 +116,7 @@ To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku=Premium -Size P1 -ShardCount 3
 
-To specify values for the RedisConfiuration parameter, enclose the values inside `{}` as a key/value pair. The following example creates a standard 1 GB cache with allkeys-random maxmemory policy and keyspace notifications configured with KEA. For more information see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Maxmemory-policy and maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+To specify values for the RedisConfiuration parameter, enclose the values inside `{}` as a key/value pairs like `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. The following example creates a standard 1 GB cache with `allkeys-random` maxmemory policy and keyspace notifications configured with `KEA`. For more information see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Maxmemory-policy and maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
@@ -163,13 +163,13 @@ The following command updates the maxmemory-policy for the Redis Cache named MyC
 >
 >For more information, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
-The following example shows how to scale a cache named MyCache to a 2.5 GB cache. Note that this command will work for both a Basic or a Standard cache.
+The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. Note that this command will work for both a Basic or a Standard cache.
 
-	Set-AzureRmRedisCache -ResourceGroupName "MyGroup" -Name "MyCache" -Size 2.5GB
+	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 After this command is issued, the status of the cache is returned (equivalent to calling `Get-AzureRmRedisCache`). Note that the `ProvisioningState` is `Scaling`.
 
-	PS C:\> Set-AzureRmRedisCache -Name "MyCache" -ResourceGroupName "MyGroup" -Size 2.5GB
+	PS C:\> Set-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
 	
 	
 	Name               : mycache
@@ -187,7 +187,7 @@ After this command is issued, the status of the cache is returned (equivalent to
 	RedisVersion       : 3.0
 	Size               : 1GB
 	Sku                : Standard
-	ResourceGroupName  : default-sql-eastumygroups
+	ResourceGroupName  : mygroup
 	PrimaryKey         : ....
 	SecondaryKey       : ....
 	VirtualNetwork     :
@@ -196,9 +196,150 @@ After this command is issued, the status of the cache is returned (equivalent to
 	TenantSettings     : {}
 	ShardCount         :
 
-When the scaling operation is complete, the `ProvisioningState` will change to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete, so else you willr eceive an error similar to the following.
+When the scaling operation is complete, the `ProvisioningState` will change to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete, so else you will receive an error similar to the following.
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
+
+## To get information about a Redis cache
+
+You can retrieve information about a cache using the [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx) cmdlet.
+
+To see a list of available parameters for `Get-AzureRmRedisCache`, run the following command:
+
+	PS C:\> Get-Help Get-AzureRmRedisCache
+	
+	NAME
+	    Get-AzureRmRedisCache
+	
+	SYNOPSIS
+	    Gets details about a single cache or all caches in the specified resource group or all caches in the current
+	    subscription.
+	
+	
+	SYNTAX
+	    Get-AzureRmRedisCache [-Name <String>] [-ResourceGroupName <String>] [<CommonParameters>]
+	
+	
+	DESCRIPTION
+	    The Get-AzureRmRedisCache cmdlet gets the details about a cache or caches depending on input parameters. If both
+	    ResourceGroupName and Name parameters are provided then Get-AzureRmRedisCache will return details about the
+	    specific cache name provided.
+	
+	    If only ResourceGroupName is provided than it will return details about all caches in the specified resource group.
+	
+	    If no parameters are given than it will return details about all caches the current subscription.
+
+To return information about all caches in the current subscription, run `Get-AzureRmRedisCache` without any parameters.
+
+	Get-AzureRmRedisCache
+
+To return information about all caches in a specific resource group, run `Get-AzureRmRedisCache` with the `ResourceGroupName` parameter.
+
+	Get-AzureRmRedisCache -ResourceGroupName mygroup
+
+To return information about a specific cache, run `Get-AzureRmRedisCache` with the `Name` parameter containing the name of the cache, and the `ResourceGroupName` parameter with the resource group containing that cache, as shown in the following example.
+
+	PS C:\> Get-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
+	
+	Name               : mycache
+	Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/Default-SQL-EastUS/providers/Mi
+	                     crosoft.Cache/Redis/mycache
+	Location           : South Central US
+	Type               : Microsoft.Cache/Redis
+	HostName           : mycache.redis.cache.windows.net
+	Port               : 6379
+	ProvisioningState  : Succeeded
+	SslPort            : 6380
+	RedisConfiguration : {[maxmemory-policy, volatile-lru], [maxmemory-reserved, 62], [notify-keyspace-events, KEA],
+	                     [maxclients, 1000]...}
+	EnableNonSslPort   : False
+	RedisVersion       : 3.0
+	Size               : 1GB
+	Sku                : Standard
+	ResourceGroupName  : myGroup
+	VirtualNetwork     :
+	Subnet             :
+	StaticIP           :
+	TenantSettings     : {}
+	ShardCount         :
+
+## To retrieve the access keys for a Redis cache
+
+To retrieve the access keys for your cache, you can use the [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) cmdlet.
+
+To see a list of available parameters for `Get-AzureRmRedisCacheKey`, run the following command:
+
+	PS C:\> Get-Help Get-AzureRmRedisCacheKey
+	
+	NAME
+	    Get-AzureRmRedisCacheKey
+	
+	SYNOPSIS
+	    Gets the accesskeys for the specified redis cache.
+	
+	
+	SYNTAX
+	    Get-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> [<CommonParameters>]
+	
+	
+	DESCRIPTION
+	    The Get-AzureRmRedisCacheKey cmdlet gets the access keys for the specified cache.
+
+To retrieve the keys for your cache, call the `Get-AzureRmRedisCacheKey` cmdlet and pass in the name of your cache the name of the resource group that contains the cache.
+
+	PS C:\> Get-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup
+	
+	
+	PrimaryKey   : 12wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
+	SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
+
+## To regenerate access keys for your Redis cache
+
+To regenerate the access keys for your cache, you can use the [New-AzureRmRedisCacheKey](https://TODO) cmdlet.
+
+To see a list of available parameters for `New-AzureRmRedisCacheKey`, run the following command:
+
+	PS C:\> Get-Help New-AzureRmRedisCacheKey
+	
+	NAME
+	    New-AzureRmRedisCacheKey
+	
+	SYNOPSIS
+	    Regenerates the access key of a redis cache.
+	
+	SYNTAX
+	    New-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> -KeyType <String> [-Force] [<CommonParameters>]
+	
+	DESCRIPTION
+	    The New-AzureRmRedisCacheKey cmdlet regenerate the access key of a redis cache.
+	
+To regenerate the primary or secondary key for your cache, call the `New-AzureRmRedisCacheKey` cmdlet and pass in the name, resource group, and specify either `Primary` or `Secondary` for the `KeyType` parameter. In the following example, the secondary access key for a cache is regenerated.
+
+	PS C:\> New-AzureRmRedisCacheKey -Name Contoso5 -ResourceGroupName Default-SQL-EastUS -KeyType Primary
+	
+	Confirm
+	Are you sure you want to regenerate Primary key for redis cache 'Contoso5'?
+	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): n
+
+## To delete a Redis cache
+
+To delete a Redis cache, you can use the [Remove-AzureRmRedisCache](https://TODO) cmdlet.
+
+To see a list of available parameters for `Remove-AzureRmRedisCache`, run the following command:
+
+	PS C:\> Get-Help Remove-AzureRmRedisCache
+	
+	NAME
+	    Remove-AzureRmRedisCache
+	
+	SYNOPSIS
+	    Remove redis cache if exists.
+		
+	SYNTAX
+	    Remove-AzureRmRedisCache -Name <String> -ResourceGroupName <String> [-Force] [-PassThru] [<CommonParameters>]
+	
+	DESCRIPTION
+	    The Remove-AzureRmRedisCache cmdlet removes a redis cache if it exists.
 
 ## A simple Azure PowerShell script for the Redis Cache  ##
 
