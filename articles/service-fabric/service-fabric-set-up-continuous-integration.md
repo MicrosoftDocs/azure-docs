@@ -1,10 +1,6 @@
 ﻿<properties
    pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
-<<<<<<< HEAD
-   description="Learn how to set up continuous integration for a Service Fabric application by using Visual Studio Online (VSO)."
-=======
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
->>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -25,11 +21,7 @@ This article takes you through setting up continuous integration (CI) for a Serv
 
 ## Prerequisites
 
-<<<<<<< HEAD
-To get started, set up your project on Visual Studio Online:
-=======
 To get started, set up your project on Visual Studio Team Services.
->>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
 1. If you haven't already, create a Team Services account using your [Microsoft account](http://www.microsoft.com/account).
 2. Create a new project on Team Services using the Microsoft account.
@@ -54,6 +46,7 @@ Before you can set up the build machine, you need to create a "Service Principal
     2.  Launch a PowerShell command prompt.
     3.	Install the AzureRM module using the command `Install-Module AzureRM`.
     4.	Update the AzureRM module using the command `Update-AzureRM`.
+
 3.	Disable (or enable) Azure data collection.
 
     Azure cmdlets will prompt you to opt in or out of data collection until you make a choice. These prompts will block automation while waiting for user input. To suppress these prompts by making a choice ahead of time, run one of the following commands:
@@ -120,16 +113,16 @@ Note that the build definition you create from these instructions doesn't suppor
 
 1.	If you have already provisioned a machine (or plan to provide your own), install [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) on that machine.
 2.	If you don't yet have a machine, you can quickly provision an Azure virtual machine (VM) with Visual Studio 2015 pre-installed. To do this:
-    a.	Log in to the [Azure Management Portal](http://portal.azure.com).
-    b.	Choose the **New** command in the top-left corner of the screen.
-    c.	Choose **Marketplace**.
-    d.	Search for **Visual Studio 2015**.
-    e.	Choose **Compute** > **Virtual Machine** > **From Gallery**.
-    f.	Choose the image **Visual Studio Enterprise 2015 With Azure SDK 2.7 on Windows Server 2012 R2**.
+    1.	Log in to the [Azure Management Portal](http://portal.azure.com).
+    2.	Choose the **New** command in the top-left corner of the screen.
+    3.	Choose **Marketplace**.
+    4.	Search for **Visual Studio 2015**.
+    5.	Choose **Compute** > **Virtual Machine** > **From Gallery**.
+    6.	Choose the image **Visual Studio Enterprise 2015 With Azure SDK 2.7 on Windows Server 2012 R2**.
 
         >[AZURE.NOTE] Azure SDK isn't a required component, but there aren't any images available that have only Visual Studio 2015 installed.
 
-    g.	Follow the instructions on the dialog to create your VM. (We recommend that you choose a D-series VM for best disk and CPU performance.)
+    7.	Follow the instructions on the dialog to create your VM. (We recommend that you choose a D-series VM for best disk and CPU performance.)
 
 ### Install Service Fabric SDK
 
@@ -171,9 +164,9 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 
 >[AZURE.NOTE] Do this *before* you start the build agent, otherwise it will not pick up the new environment variable.
 
-### Import your Automation Certificate
+### Import your automation certificate
 
-1.	Import the certificate onto your build machine. To do this:
+1. Import the certificate onto your build machine. To do this:
     1. Copy the PFX file created by the script CreateAndUpload-Certificate.ps1 to your build machine.
     2. Open an admin PowerShell account and issue the following commands, using the password you passed to GenerateCertificate.ps1 earlier.
 
@@ -182,39 +175,31 @@ To install Azure PowerShell, please follow the steps in the previous section, **
         Import-PfxCertificate -FilePath <path/to/cert.pfx> -CertStoreLocation Cert:\LocalMachine\My -Password $password -Exportable
         ```  
 
-2.	Run the certificate manager.
-    a. Open the Windows Control Panel. Right-click the Start button and choose **Control Panel**.
-    b. Search for **certificate**.
-    c. Choose **Administrative Tools** > **Manage computer certificates**.
+2. Run the certificate manager.
 
+    1. Open the Windows Control Panel. Right-click the Start button and choose **Control Panel**.
+    2. Search for **certificate**.
+    3. Choose **Administrative Tools** > **Manage computer certificates**.
 
-3.	Grant Local Service account permission to use your automation certificate.
-    a.	Under **Certificates - Local Computer**, expand **Personal**, and then choose **Certificates**.
-    b.	Find your certificate in the list.
-    c.	Right-click your certificate and then choose **All Tasks** > **Manage Private Keys**.
-    d.	Choose the **Add** button, enter **Local Service** and then choose **Check Names**.
-    e.	Choose the **OK** button and then close the certificate manager.
+3. Grant Local Service account permission to use your automation certificate.
+
+    1.	Under **Certificates - Local Computer**, expand **Personal**, and then choose **Certificates**.
+    2.	Find your certificate in the list.
+    3.	Right-click your certificate and then choose **All Tasks** > **Manage Private Keys**.
+    4.	Choose the **Add** button, enter **Local Service** and then choose **Check Names**.
+    5.	Choose the **OK** button and then close the certificate manager.
 
 ![Picture of the Windows certificate manager UI](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 ### Register your build agent
 
 1.	Download agent.zip. To do this:
-<<<<<<< HEAD
-    a.	Log on to your team project, such as **https://[your-VSO-account-name].visualstudio.com**.
-    b.	Choose the 'gear' icon in the upper-right corner of your screen.
-    c.	From the control panel, choose the **Agent pools** tab.
-    d.	Choose **Download agent** to download the agent.zip file.
-    e.	Copy agent.zip to the build machine you created earlier.
-    f.	Unzip agent.zip to `C:\agent` (or any location with a short path) on your build machine.
-=======
     1.	Log on to your team project, such as **https://[your-VSTS-account-name].visualstudio.com**.
     1.	Choose the 'gear' icon in the upper-right corner of your screen.
     1.	From the control panel, choose the **Agent pools** tab.
     1.	Choose **Download agent** to download the agent.zip file.
     1.	Copy agent.zip to the build machine you created earlier.
     1.	Unzip agent.zip to `C:\agent` (or any location with a short path) on your build machine.
->>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
         >[AZURE.NOTE] If you plan on building ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
 
@@ -233,15 +218,9 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 3. You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
 4. Verify that your build agent was registered. To do this:
 
-<<<<<<< HEAD
-    a. Go back to your web browser (should be at page `https://[your-VSO-account-name].visualstudio.com/_admin/_AgentPool`) and then refresh the page.
-    b. Choose the agent pool that you selected when running ConfigureAgent.ps1 earlier.
-    c. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to VSO.
-=======
-    1. Go back to your web browser (should be at page `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) and then refresh the page.
+    1. Go back to your web browser (should be at the page `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) and then refresh the page.
     1. Choose the agent pool that you selected when running ConfigureAgent.ps1 earlier.
     1. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
->>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
 ![The **Agent pools** tab of the control panel](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -256,23 +235,14 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 ### Create the build definition
 
 1.	Create an empty build definition. To do this:
-<<<<<<< HEAD
-    a.	Open your project in Visual Studio Online.
-    b.	Choose the **Build** tab.
-    c.	Choose the green "**+**" sign to create a new build definition.
-    d.	Choose **Empty** and then choose the **Next** button.
-    e.  Verify that the right repository and branch are selected.
-    f.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** check box.
-2.	On the **Variables** tab, create the following variables with these values.
-=======
+
     1.	Open your project in Visual Studio Team Services.
     1.	Choose the **Build** tab.
     1.	Choose the green **+** sign to create a new build definition.
     1.	Choose **Empty** and then choose the **Next** button.
     1.  Verify that the right repository and branch are selected.
-    1.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** checkbox.
-1.	On the **Variables** tab, create the following variables with these values.
->>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
+    1.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** check box.
+2.	On the **Variables** tab, create the following variables with these values.
 
     |Variable|Value|Secret|Allow at Queue Time|
     |---|---|---|---|
