@@ -29,7 +29,7 @@ We are always working to improve Azure RemoteApp based on your feedback. Here ar
 |Azure Resource Manager (ARM) support||X|
 |Cloud Solution Provider (CSP)||X|
 |Avaiability in India region|X||
-|Availability in UK region| | X|
+|Availability in UK region| |X|
 
 Other improvements added earlier this year:
 
