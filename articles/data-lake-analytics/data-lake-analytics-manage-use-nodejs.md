@@ -96,6 +96,7 @@ The following example submits a job and gets the job list.
 
 ##See also 
 
+- [Azure SDK for Node.js](http://azure.github.io/azure-sdk-for-node/)
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
