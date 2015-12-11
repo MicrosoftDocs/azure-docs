@@ -85,42 +85,48 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 1. Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
 
-       using Microsoft.Azure;
-       using Microsoft.IdentityModel.Clients.ActiveDirectory;
-       using Microsoft.Azure.Management.Resources;
-       using Microsoft.Azure.Management.Resources.Models;
-       using Microsoft.Azure.Management.Storage;
-       using Microsoft.Azure.Management.Storage.Models;
-       using Microsoft.Azure.Management.Network;
-       using Microsoft.Azure.Management.Network.Models;
-       using Microsoft.Azure.Management.Compute;
-       using Microsoft.Azure.Management.Compute.Models;
-       using Microsoft.Rest;
+	```
+ using Microsoft.Azure;
+ using Microsoft.IdentityModel.Clients.ActiveDirectory;
+ using Microsoft.Azure.Management.Resources;
+ using Microsoft.Azure.Management.Resources.Models;
+ using Microsoft.Azure.Management.Storage;
+ using Microsoft.Azure.Management.Storage.Models;
+ using Microsoft.Azure.Management.Network;
+ using Microsoft.Azure.Management.Network.Models;
+ using Microsoft.Azure.Management.Compute;
+ using Microsoft.Azure.Management.Compute.Models;
+ using Microsoft.Rest;
+	```
 
 2. Add this method to the Program class to get the token that is needed to create the credentials:
 
-		   private static string GetAuthorizationHeader()
-       {
-         ClientCredential cc = new ClientCredential("{application-id}", "{password}");
-         var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-         var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
+	```
+ private static string GetAuthorizationHeader()
+ {
+   ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+   var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+   var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
 
-         if (result == null)
-         {
-           throw new InvalidOperationException("Failed to obtain the JWT token");
-         }
+   if (result == null)
+   {
+     throw new InvalidOperationException("Failed to obtain the JWT token");
+   }
 
-         string token = result.AccessToken;
+   string token = result.AccessToken;
 
-         return token;
-       }
+   return token;
+ }
+	```
 
 	Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureSubscription.
 
 3. Add this code to the Main method in the Program.cs file to create the credentials:
 
-       var token = GetAuthorizationHeader();
-       var credential = new TokenCredentials(token);
+	```
+ var token = GetAuthorizationHeader();
+ var credential = new TokenCredentials(token);
+	```
 
 5. Save the Program.cs file.
 
@@ -132,55 +138,60 @@ All resources must be contained in a resource group. Before you can add resource
 
 1. Add variables to the Main method of the Program class to specify the names that you want to use for the resources, the location of the resources, such as "West US", administrator account information, and your subscription identifier:
 
-       var groupName = "{resource-group-name}";
-       var ipName = "{public-ip-name}";
-       var avSetName = "{availability-set-name}";
-       var nicName = "{network-interface-name}";
-       var storageName = "{storage-account-name}";
-       var vmName = "{virtual-machine-name};  
-       var vnetName = "{vnet-name}";
-       var subnetName = "{subnet-name}";
-       var adminName = "{administrator-account-name}";
-       var adminPassword = "{administrator-account-password};
-       var location = "{location}";
-       var subscriptionId = "{subsciption-id}";
+	```
+ var groupName = "{resource-group-name}";
+ var ipName = "{public-ip-name}";
+ var avSetName = "{availability-set-name}";
+ var nicName = "{network-interface-name}";
+ var storageName = "{storage-account-name}";
+ var vmName = "{virtual-machine-name};  
+ var vnetName = "{vnet-name}";
+ var subnetName = "{subnet-name}";
+ var adminName = "{administrator-account-name}";
+ var adminPassword = "{administrator-account-password};
+ var location = "{location}";
+ var subscriptionId = "{subsciption-id}";
+	```
 
    Replace all of the bracketed placeholders with the names that you want to use. You can find the subscription identifier by running Get-AzureSubscription.
 
 2. Add this method to the Program class to create the resource group:
 
-       public static void CreateResourceGroup(
-         TokenCredentials credential,
-         string groupName,
-         string subscriptionId,
-         string location)
-         {
-           Console.WriteLine("Creating the resource group...");
-           var resourceManagementClient = new ResourceManagementClient(credential);
-           resourceManagementClient.SubscriptionId = subscriptionId;
-           var resourceGroup = new ResourceGroup {
-             Location = location
-           };
-           var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-           Console.WriteLine(rgResult.Properties.ProvisioningState);
+	```
+ public static void CreateResourceGroup(
+   TokenCredentials credential,
+   string groupName,
+   string subscriptionId,
+   string location)
+ {
+   Console.WriteLine("Creating the resource group...");
+   var resourceManagementClient = new ResourceManagementClient(credential);
+   resourceManagementClient.SubscriptionId = subscriptionId;
+   var resourceGroup = new ResourceGroup {
+     Location = location
+   };
+   var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
+   Console.WriteLine(rgResult.Properties.ProvisioningState);
 
-           var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
-           Console.WriteLine(rpResult.RegistrationState);
-           rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
-           Console.WriteLine(rpResult.RegistrationState);
-           rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
-           Console.WriteLine(rpResult.RegistrationState);
-         }
-       }
+   var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
+   Console.WriteLine(rpResult.RegistrationState);
+   rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
+   Console.WriteLine(rpResult.RegistrationState);
+   rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
+   Console.WriteLine(rpResult.RegistrationState);
+ }
+	```
 
 3. Add this code to the Main method to call the method that you just added:
 
-       CreateResourceGroup(
-         credential,
-         groupName,
-         subscriptionId,
-         location);
-       Console.ReadLine();
+	```
+ CreateResourceGroup(
+   credential,
+   groupName,
+   subscriptionId,
+   location);
+ Console.ReadLine();
+	```
 
 ### Create a storage account
 
@@ -188,37 +199,41 @@ A storage account is needed to store the virtual hard disk file that is created 
 
 1. Add this method to the Program class to create the storage account:
 
-       public static void CreateStorageAccount(
-         TokenCredentials credential,         
-         string storageName,
-         string groupName,
-         string subscriptionId,
-         string location)
-       {
-         Console.WriteLine("Creating the storage account...");
-         var storageManagementClient = new StorageManagementClient(credential);
-         storageManagementClient.SubscriptionId = subscriptionId;
-         var saResult = storageManagementClient.StorageAccounts.Create(
-           groupName,
-           storageName,
-           new StorageAccountCreateParameters()
-           {
-             AccountType = AccountType.StandardLRS,
-             Location = location
-           }
-         );
-         Console.WriteLine(saResult.ProvisioningState);
-       }
+	```
+ public static void CreateStorageAccount(
+   TokenCredentials credential,         
+   string storageName,
+   string groupName,
+   string subscriptionId,
+   string location)
+ {
+   Console.WriteLine("Creating the storage account...");
+   var storageManagementClient = new StorageManagementClient(credential);
+   storageManagementClient.SubscriptionId = subscriptionId;
+   var saResult = storageManagementClient.StorageAccounts.Create(
+     groupName,
+     storageName,
+     new StorageAccountCreateParameters()
+     {
+       AccountType = AccountType.StandardLRS,
+       Location = location
+     }
+   );
+   Console.WriteLine(saResult.ProvisioningState);
+ }
+	```
 
 2. Add this code to the Main method of the Program class to call the method that you just added:
 
-       CreateStorageAccount(
-         credential,
-         storageName,
-         groupName,
-         subscriptionId,
-         location);
-       Console.ReadLine();
+	```
+ CreateStorageAccount(
+   credential,
+   storageName,
+   groupName,
+   subscriptionId,
+   location);
+ Console.ReadLine();
+	```
 
 ### Create the public IP address
 
@@ -226,37 +241,41 @@ A public IP address is needed to communicate with the virtual machine.
 
 1. Add this method to the Program class to create the public IP address:
 
-       public static void CreatePublicIPAddress(
-         TokenCredentials credential,
-         string ipName,  
-         string groupName,
-         string subscriptionId,
-         string location)
-       {
-         Console.WriteLine("Creating the public ip...");
-         var networkManagementClient = new NetworkManagementClient(credential);
-         networkManagementClient.SubscriptionId = subscriptionId;
-         var ipResult = networkManagementClient.PublicIPAddresses.CreateOrUpdate(
-           groupName,
-           ipName,
-           new PublicIPAddress
-           {
-             Location = location,
-             PublicIPAllocationMethod = "Dynamic"
-           }
-         );
-         Console.WriteLine(ipResult.ProvisioningState);
-       }
+	```
+ public static void CreatePublicIPAddress(
+   TokenCredentials credential,
+   string ipName,  
+   string groupName,
+   string subscriptionId,
+   string location)
+ {
+   Console.WriteLine("Creating the public ip...");
+   var networkManagementClient = new NetworkManagementClient(credential);
+   networkManagementClient.SubscriptionId = subscriptionId;
+   var ipResult = networkManagementClient.PublicIPAddresses.CreateOrUpdate(
+     groupName,
+     ipName,
+     new PublicIPAddress
+     {
+       Location = location,
+       PublicIPAllocationMethod = "Dynamic"
+     }
+   );
+   Console.WriteLine(ipResult.ProvisioningState);
+ }
+	```
 
 2. Add this code to the Main method of the Program class to call the method that you just added:
 
-       CreatePublicIPAddress(
-         credential,
-         ipName,
-         groupName,
-         subscriptionId,
-         location);
-       Console.ReadLine();
+	```
+ CreatePublicIPAddress(
+   credential,
+   ipName,
+   groupName,
+   subscriptionId,
+   location);
+ Console.ReadLine();
+	```
 
 ### Create the virtual network
 
@@ -264,83 +283,87 @@ A virtual machine that's created with the Resource Manager deployment model must
 
 1. Add this method to the Program class to create a subnet and a virtual network:
 
-       public static void CreateNetwork(
-         TokenCredentials credential,
-         string vnetName,
-         string subnetName,
-         string nicName,
-         string ipName,
-         string groupName,
-         string subscriptionId,
-         string location)
+	```
+ public static void CreateNetwork(
+   TokenCredentials credential,
+   string vnetName,
+   string subnetName,
+   string nicName,
+   string ipName,
+   string groupName,
+   string subscriptionId,
+   string location)
+ {
+   Console.WriteLine("Creating the virtual network...");
+   var networkManagementClient = new NetworkManagementClient(credential);
+   networkManagementClient.SubscriptionId = subscriptionId;
+
+   var subnet = new Subnet
+   {
+     Name = subnetName,
+     AddressPrefix = "10.0.0.0/24"
+   };
+
+   var address = new AddressSpace {
+     AddressPrefixes = new List<string> { "10.0.0.0/16" }
+   };
+
+   var vnResult = networkManagementClient.VirtualNetworks.CreateOrUpdate(
+     groupName,
+     vnetName,
+     new VirtualNetwork
+     {
+       Location = location,
+       AddressSpace = address,
+       Subnets = new List<Subnet> { subnet }
+     }
+   );
+   Console.WriteLine(vnResult.ProvisioningState);
+
+   var subnetResponse = networkManagementClient.Subnets.Get(
+     groupName,
+     vnetName,
+     subnetName
+   );
+
+   var pubipResponse = networkManagementClient.PublicIPAddresses.Get(groupName, ipName);
+
+   Console.WriteLine("Updating the network with the nic...");
+   var nicResult = networkManagementClient.NetworkInterfaces.CreateOrUpdate(
+     groupName,
+     nicName,
+     new NetworkInterface
+     {
+       Location = location,
+       IpConfigurations = new List<NetworkInterfaceIPConfiguration>
        {
-         Console.WriteLine("Creating the virtual network...");
-         var networkManagementClient = new NetworkManagementClient(credential);
-         networkManagementClient.SubscriptionId = subscriptionId;
-
-         var subnet = new Subnet
+         new NetworkInterfaceIPConfiguration
          {
-           Name = subnetName,
-           AddressPrefix = "10.0.0.0/24"
-         };
-
-         var address = new AddressSpace {
-           AddressPrefixes = new List<string> { "10.0.0.0/16" }
-         };
-
-         var vnResult = networkManagementClient.VirtualNetworks.CreateOrUpdate(
-           groupName,
-           vnetName,
-           new VirtualNetwork
-           {
-             Location = location,
-             AddressSpace = address,
-             Subnets = new List<Subnet> { subnet }
-           }
-         );
-         Console.WriteLine(vnResult.ProvisioningState);
-
-         var subnetResponse = networkManagementClient.Subnets.Get(
-           groupName,
-           vnetName,
-           subnetName
-         );
-
-         var pubipResponse = networkManagementClient.PublicIPAddresses.Get(groupName, ipName);
-
-         Console.WriteLine("Updating the network with the nic...");
-         var nicResult = networkManagementClient.NetworkInterfaces.CreateOrUpdate(
-           groupName,
-           nicName,
-           new NetworkInterface
-           {
-             Location = location,
-             IpConfigurations = new List<NetworkInterfaceIPConfiguration>
-             {
-               new NetworkInterfaceIPConfiguration
-               {
-                 Name = "nicConfig1",
-                 PublicIPAddress = pubipResponse,
-                 Subnet = subnetResponse
-               }
-             }
-           }
-         );
-         Console.WriteLine(vnResult.ProvisioningState);
+           Name = "nicConfig1",
+           PublicIPAddress = pubipResponse,
+           Subnet = subnetResponse
+         }
        }
+     }
+   );
+   Console.WriteLine(vnResult.ProvisioningState);
+ }
+	```
 
 2. Add this code to the Main method of the Program class to call the method that you just added:
 
-       CreateNetwork(
-         credential,
-         vnetName,
-         subnetName,
-         nicName,
-         ipName,
-         groupName,
-         subscriptionId,
-         location);
-       Console.ReadLine();
+	```
+ CreateNetwork(
+   credential,
+   vnetName,
+   subnetName,
+   nicName,
+   ipName,
+   groupName,
+   subscriptionId,
+   location);
+ Console.ReadLine();
+	```
 
 ### Create an availability set
 
@@ -348,35 +371,39 @@ Availability sets make it easier for you to manage the maintenance of the virtua
 
 1. Add this method to the Program class to create the availability set:
 
-       public static void CreateAvailabilitySet(
-         TokenCredentials credential,
-         string avsetName,
-         string groupName,
-         string subscriptionId,
-         string location)
-       {
-         Console.WriteLine("Creating the availability set...");
-         var computeManagementClient = new ComputeManagementClient(credential);
-         computeManagementClient.SubscriptionId = subscriptionId;
-         var avResult = computeManagementClient.AvailabilitySets.CreateOrUpdate(
-           groupName,
-           avsetName,
-           new AvailabilitySet()
-           {
-             Location = location
-           }
-         );
-       }
+	```
+ public static void CreateAvailabilitySet(
+   TokenCredentials credential,
+   string avsetName,
+   string groupName,
+   string subscriptionId,
+   string location)
+ {
+   Console.WriteLine("Creating the availability set...");
+   var computeManagementClient = new ComputeManagementClient(credential);
+   computeManagementClient.SubscriptionId = subscriptionId;
+   var avResult = computeManagementClient.AvailabilitySets.CreateOrUpdate(
+     groupName,
+     avsetName,
+     new AvailabilitySet()
+     {
+       Location = location
+     }
+   );
+ }
+	```
 
 2. Add this code the the Main method of the Program class to call the method that you just added:
 
-       CreateAvailabilitySet(
-         credential,
-         avsetName,
-         groupName,
-         subscriptionId,
-         location);
-       Console.ReadLine();
+	```
+ CreateAvailabilitySet(
+   credential,
+   avsetName,
+   groupName,
+   subscriptionId,
+   location);
+ Console.ReadLine();
+	```
 
 ### Create a virtual machine
 
@@ -384,98 +411,102 @@ Now that you created all of the supporting resources, you can create a virtual m
 
 1. Add this method to the Program class to create the virtual machine:
 
-       public static void CreateVirtualMachine(
-         TokenCredentials credential,
-         string vmName,
-         string groupName,
-         string nicName,
-         string avsetName,
-         string storageName,
-         string adminName,
-         string adminPassword,
-         string subscriptionId,
-         string location)
+	```
+ public static void CreateVirtualMachine(
+   TokenCredentials credential,
+   string vmName,
+   string groupName,
+   string nicName,
+   string avsetName,
+   string storageName,
+   string adminName,
+   string adminPassword,
+   string subscriptionId,
+   string location)
+ {
+   var networkManagementClient = new NetworkManagementClient(credential);
+   networkManagementClient.SubscriptionId = subscriptionId;
+   var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
+
+   var computeManagementClient = new ComputeManagementClient(credential);
+   computeManagementClient.SubscriptionId = subscriptionId;
+   var avSet = computeManagementClient.AvailabilitySets.Get(groupName, avsetName);
+
+   Console.WriteLine("Creating the virtual machine...");
+   var vm = computeManagementClient.VirtualMachines.CreateOrUpdate(
+     groupName,
+     vmName,
+     new VirtualMachine
+     {
+       Location = location,
+       AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
        {
-         var networkManagementClient = new NetworkManagementClient(credential);
-         networkManagementClient.SubscriptionId = subscriptionId;
-         var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
-
-         var computeManagementClient = new ComputeManagementClient(credential);
-         computeManagementClient.SubscriptionId = subscriptionId;
-         var avSet = computeManagementClient.AvailabilitySets.Get(groupName, avsetName);
-
-         Console.WriteLine("Creating the virtual machine...");
-         var vm = computeManagementClient.VirtualMachines.CreateOrUpdate(
-           groupName,
-           vmName,
-           new VirtualMachine
+         Id = avSet.Id
+       },
+       HardwareProfile = new HardwareProfile
+       {
+         VmSize = "Standard_A0"
+       },
+       OsProfile = new OSProfile
+       {
+         AdminUsername = adminName,
+         AdminPassword = adminPassword,
+         ComputerName = vmName,
+         WindowsConfiguration = new WindowsConfiguration
+         {
+           ProvisionVMAgent = true
+         }
+       },
+       NetworkProfile = new NetworkProfile
+       {
+         NetworkInterfaces = new List<NetworkInterfaceReference>
+         {
+           new NetworkInterfaceReference { Id = nic.Id }
+         }
+       },
+       StorageProfile = new StorageProfile
+       {
+         ImageReference = new ImageReference
+         {
+           Publisher = "MicrosoftWindowsServer",
+           Offer = "WindowsServer",
+           Sku = "2012-R2-Datacenter",
+           Version = "latest"
+         },
+         OsDisk = new OSDisk
+         {
+           Name = "mytestod1",
+           CreateOption = "FromImage",
+           Vhd = new VirtualHardDisk
            {
-             Location = location,
-             AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
-             {
-               Id = avSet.Id
-             },
-             HardwareProfile = new HardwareProfile
-             {
-               VmSize = "Standard_A0"
-             },
-             OsProfile = new OSProfile
-             {
-               AdminUsername = adminName,
-               AdminPassword = adminPassword,
-               ComputerName = vmName,
-               WindowsConfiguration = new WindowsConfiguration
-               {
-                 ProvisionVMAgent = true
-               }
-             },
-             NetworkProfile = new NetworkProfile
-             {
-               NetworkInterfaces = new List<NetworkInterfaceReference>
-               {
-                 new NetworkInterfaceReference { Id = nic.Id }
-               }
-             },
-             StorageProfile = new StorageProfile
-             {
-               ImageReference = new ImageReference
-               {
-                 Publisher = "MicrosoftWindowsServer",
-                 Offer = "WindowsServer",
-                 Sku = "2012-R2-Datacenter",
-                 Version = "latest"
-               },
-               OsDisk = new OSDisk
-               {
-                 Name = "mytestod1",
-                 CreateOption = "FromImage",
-                 Vhd = new VirtualHardDisk
-                 {
-                   Uri = "http://" + storageName + ".blob.core.windows.net/vhds/mytestod1.vhd"
-                 }
-               }
-             }
+             Uri = "http://" + storageName + ".blob.core.windows.net/vhds/mytestod1.vhd"
            }
-         );
-         Console.WriteLine(vm.ProvisioningState);
+         }
        }
+     }
+   );
+   Console.WriteLine(vm.ProvisioningState);
+ }
+	```
 
 	>[AZURE.NOTE] This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](resource-groups-vm-searching.md).
 
 2. Add the following code to the Main method to call the method that you just added:
 
-       CreateVirtualMachine(
-         credential,
-         vmName,
-         groupName,
-         nicName,
-         avsetName,
-         storageName,
-         adminName,
-         adminPassword,
-         subscriptionId,
-         location);
-       Console.ReadLine();
+	```
+ CreateVirtualMachine(
+   credential,
+   vmName,
+   groupName,
+   nicName,
+   avsetName,
+   storageName,
+   adminName,
+   adminPassword,
+   subscriptionId,
+   location);
+ Console.ReadLine();
+	```
 
 ##Step 5: Add the code to delete the resources
 
@@ -483,23 +514,27 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 1. Add the following method to the Program class to delete the resource group:
 
-       public static void DeleteResourceGroup(
-         TokenCredentials credential,
-         string groupName,
-         string subscriptionId)
-       {
-         Console.WriteLine("Deleting resource group...");
-         var resourceGroupClient = new ResourceManagementClient(credential);
-         resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
-       }
+	```
+ public static void DeleteResourceGroup(
+   TokenCredentials credential,
+   string groupName,
+   string subscriptionId)
+ {
+   Console.WriteLine("Deleting resource group...");
+   var resourceGroupClient = new ResourceManagementClient(credential);
+   resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+ }
+	```
 
 2. Add the following code to the Main method to call the method that you just added:
 
-       DeleteResourceGroup(
-         credential,
-         groupName,
-         subscriptionId);
-       Console.ReadLine();
+	```
+ DeleteResourceGroup(
+   credential,
+   groupName,
+   subscriptionId);
+ Console.ReadLine();
+	```
 
 ## Step 6: Run the console application
 
