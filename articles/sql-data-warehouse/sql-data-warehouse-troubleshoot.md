@@ -28,22 +28,22 @@ Connecting to Azure SQL Data Warehouse can fail for a couple of common reasons:
 ### Firewall Rules
 Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses can access databases. The firewalls are secure by default - meaning you must allow your IP address access before you can connect.
 
-To configure your firewall for access, please follow the steps in the [Configure server firewall access for your client IP](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-provision/#step-4-configure-server-firewall-access-for-your-client-ip) section of the [Provision](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-provision/) page.
+To configure your firewall for access, please follow the steps in the [Configure server firewall access for your client IP](sql-data-warehouse-get-started-provision.md/#step-4-configure-server-firewall-access-for-your-client-ip) section of the [Provision](sql-data-warehouse-get-started-provision.md) page.
 
 ### Using unsupported tools/protocols
-SQL Data Warehouse supports [Visual Studio 2013/2015](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect/) as development environments and [SQL Server Native Client 10/11 (ODBC)](https://msdn.microsoft.com/library/ms131415.aspx) for client connectivity.Using   
+SQL Data Warehouse supports [Visual Studio 2013/2015](sql-data-warehouse-get-started-connect.md) as development environments and [SQL Server Native Client 10/11 (ODBC)](https://msdn.microsoft.com/library/ms131415.aspx) for client connectivity.   
 
-See our [Connect](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect/) pages to learn more.
+See our [Connect](sql-data-warehouse-get-started-connect.md) pages to learn more.
 
 ## Query Performance
 SQL Data Warehouse uses common SQL Server constructs for executing queries including statistics. Statistics are objects that contain information about the range and frequency of values in a database column. The query engine uses these statistics to optimize query execution and improve query performance.
 
-See our [Statistics](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-develop-statistics/) page to learn more. 
+See our [Statistics](sql-data-warehouse-develop-statistics.md) page to learn more. 
 
 
 ## Data Loading
 
-See our [Loading](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-load-with-polybase/) pages to learn more. 
+See our [Loading](sql-data-warehouse-get-started-load-with-polybase.md) pages to learn more. 
 
 
 ## Key performance concepts
