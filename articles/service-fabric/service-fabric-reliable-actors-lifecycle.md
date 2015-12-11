@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Reliable Actors lifecycle"
+   pageTitle="Reliable Actors lifecycle | Microsoft Azure"
    description="Explains lifecycle and garbage collection for Service Fabric Reliable Actors"
    services="service-fabric"
    documentationCenter=".net"
