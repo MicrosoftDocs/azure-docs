@@ -98,9 +98,9 @@ Every object type will be presented as a partition and configured further on **C
 
 **Object Type detection method**: The Connector supports these object type detection methods.
 
-- **Fixed Value**: You provide the list of object types with a comma separated list. E.g. User,Group,Department.
+- **Fixed Value**: You provide the list of object types with a comma separated list. E.g. User,Group,Department.  
 ![schema1b](./media/active-directory-aadconnectsync-connector-genericsql/schema1b.png)
-- **Table/View/Stored Procedure**: Provide the name of the table/view/stored procedure and then the column name which will provide the list of object types. If you use a stored procedure then also provide parameters for it in the format **[Name]:[Direction]:[Value]**. Provide each parameter on a separate line (use Ctrl+Enter to get a new line).
+- **Table/View/Stored Procedure**: Provide the name of the table/view/stored procedure and then the column name which will provide the list of object types. If you use a stored procedure then also provide parameters for it in the format **[Name]:[Direction]:[Value]**. Provide each parameter on a separate line (use Ctrl+Enter to get a new line).  
 ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 - **SQL Query**: This option allow you to provide a SQL query which will return a single column with object types, e.g. `SELECT [Column Name] FROM TABLENAME`. The returned column must be of type string (varchar).
 
