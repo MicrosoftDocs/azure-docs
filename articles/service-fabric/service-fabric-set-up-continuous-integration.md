@@ -1,6 +1,10 @@
 ﻿<properties
    pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
+<<<<<<< HEAD
    description="Learn how to set up continuous integration for a Service Fabric application by using Visual Studio Online (VSO)."
+=======
+   description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
+>>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
    services="service-fabric"
    documentationCenter="na"
    authors="cawams"
@@ -15,19 +19,23 @@
    ms.date="10/16/2015"
    ms.author="cawa" />
 
-# Set up continuous integration for a Service Fabric application using Visual Studio Online (VSO)
+# Set up continuous integration for a Service Fabric application using Visual Studio Team Services (VSTS)
 
-This article takes you through setting up continuous integration (CI) for a Service Fabric application using Visual Studio Online (VSO) so that your application can be built, packaged, and deployed in an automated fashion. Note that this document reflects the current experience and is expected to change as development progresses. Also, these instructions re-create the cluster from scratch every time.
+This article takes you through setting up continuous integration (CI) for a Service Fabric application using Visual Studio Team Services (VSTS) so that your application can be built, packaged, and deployed in an automated fashion. Note that this document reflects the current experience and is expected to change as development progresses. Also, these instructions re-create the cluster from scratch every time.
 
 ## Prerequisites
 
+<<<<<<< HEAD
 To get started, set up your project on Visual Studio Online:
+=======
+To get started, set up your project on Visual Studio Team Services.
+>>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
-1. If you haven't already, create a VSO account using your [Microsoft account](http://www.microsoft.com/account).
-2. Create a new project on VSO using the Microsoft account.
+1. If you haven't already, create a Team Services account using your [Microsoft account](http://www.microsoft.com/account).
+2. Create a new project on Team Services using the Microsoft account.
 3. Push the source for your new or existing Service Fabric app to this project.
 
-See [Connect to Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) for more information on working with VSO projects.
+See [Connect to Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) for more information on working with Team Services projects.
 
 ## Setup steps
 
@@ -192,12 +200,21 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 ### Register your build agent
 
 1.	Download agent.zip. To do this:
+<<<<<<< HEAD
     a.	Log on to your team project, such as **https://[your-VSO-account-name].visualstudio.com**.
     b.	Choose the 'gear' icon in the upper-right corner of your screen.
     c.	From the control panel, choose the **Agent pools** tab.
     d.	Choose **Download agent** to download the agent.zip file.
     e.	Copy agent.zip to the build machine you created earlier.
     f.	Unzip agent.zip to `C:\agent` (or any location with a short path) on your build machine.
+=======
+    1.	Log on to your team project, such as **https://[your-VSTS-account-name].visualstudio.com**.
+    1.	Choose the 'gear' icon in the upper-right corner of your screen.
+    1.	From the control panel, choose the **Agent pools** tab.
+    1.	Choose **Download agent** to download the agent.zip file.
+    1.	Copy agent.zip to the build machine you created earlier.
+    1.	Unzip agent.zip to `C:\agent` (or any location with a short path) on your build machine.
+>>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
         >[AZURE.NOTE] If you plan on building ASP.NET 5 Web Services, we recommend that you  choose the shortest name possible for this folder to avoid running into **PathTooLongExceptions** errors during deployment.
 
@@ -206,7 +223,7 @@ To install Azure PowerShell, please follow the steps in the previous section, **
     |Parameter|Value|
     |---|---|
     |Agent Name|Accept the default value, `Agent-[machine name]`.)
-    |TFS Url|Enter the URL to your team project, such as, `https://[your-VSO-account-name].visualstudio.com`.
+    |TFS Url|Enter the URL to your team project, such as, `https://[your-VSTS-account-name].visualstudio.com`.
     |Agent Pool|Enter the name of your agent pool. (If you haven't created an agent pool, accept the default value.)|
     |Work folder|Accept the default value. This is the folder where the build agent will actually build your application. Note: If you plan on building ASP.NET 5 Web Services, we recommend that you choose the shortest name possible for this folder to avoid running into PathTooLongExceptions errors during deployment.|
     |Install as Windows Service?|Default value is N. Change the value to Y.|
@@ -216,9 +233,15 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 3. You will be prompted for credentials. Enter the credentials for your Microsoft account that has rights to your team project.
 4. Verify that your build agent was registered. To do this:
 
+<<<<<<< HEAD
     a. Go back to your web browser (should be at page `https://[your-VSO-account-name].visualstudio.com/_admin/_AgentPool`) and then refresh the page.
     b. Choose the agent pool that you selected when running ConfigureAgent.ps1 earlier.
     c. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to VSO.
+=======
+    1. Go back to your web browser (should be at page `https://[your-VSTS-account-name].visualstudio.com/_admin/_AgentPool`) and then refresh the page.
+    1. Choose the agent pool that you selected when running ConfigureAgent.ps1 earlier.
+    1. Verify that your build agent shows up in the list and has a green status highlight. If the highlight is red, the build agent is having trouble connecting to Team Services.
+>>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
 ![The **Agent pools** tab of the control panel](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
@@ -233,6 +256,7 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 ### Create the build definition
 
 1.	Create an empty build definition. To do this:
+<<<<<<< HEAD
     a.	Open your project in Visual Studio Online.
     b.	Choose the **Build** tab.
     c.	Choose the green "**+**" sign to create a new build definition.
@@ -240,6 +264,15 @@ To install Azure PowerShell, please follow the steps in the previous section, **
     e.  Verify that the right repository and branch are selected.
     f.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** check box.
 2.	On the **Variables** tab, create the following variables with these values.
+=======
+    1.	Open your project in Visual Studio Team Services.
+    1.	Choose the **Build** tab.
+    1.	Choose the green **+** sign to create a new build definition.
+    1.	Choose **Empty** and then choose the **Next** button.
+    1.  Verify that the right repository and branch are selected.
+    1.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** checkbox.
+1.	On the **Variables** tab, create the following variables with these values.
+>>>>>>> 3fcd950a7ccf0813875963a75a27c74345975201
 
     |Variable|Value|Secret|Allow at Queue Time|
     |---|---|---|---|
