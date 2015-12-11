@@ -27,6 +27,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 - Includes device libraries for the most popular languages and platforms.
 
 This tutorial shows you how to:
+
 - Use the Azure portal to create an IoT hub.
 - Create a device identity in your IoT hub.
 - Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
@@ -103,11 +104,11 @@ In this tutorial, you configured a new IoT hub in the portal and then created a 
 - [Process Device-to-Cloud messages][lnk-process-d2c-tutorial] shows how to reliably process telemetry and interactive messages coming from devices.
 - [Uploading files from devices][lnk-upload-tutorial] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
 
-Additional information on IoT Hub:
+You can find out more about IoT Hub in the following articles:
 
 * [IoT Hub overview][lnk-hub-overview]
 * [IoT Hub developer guide][lnk-hub-dev-guide]
-* [IoT Hub guidance][lnk-hub-guidance]
+* [Design your IoT Hub solution][lnk-hub-guidance]
 * [Supported device platforms and languages][lnk-supported-devices]
 * [Azure IoT Developer Center][lnk-dev-center]
 
