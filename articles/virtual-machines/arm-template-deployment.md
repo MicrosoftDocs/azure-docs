@@ -44,21 +44,21 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 1. Open an Azure PowerShell command prompt, and then run this command and enter the credentials for your subscription when prompted:
 
-       Login-AzureRmAccount
+    Login-AzureRmAccount
 
 2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
-       New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
 	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure preview portal.
 
 3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
-       New-AzureRmADServicePrincipal -ApplicationId {application-id}
+    New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
 4. Set the permission to use the application:
 
-       New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create the Visual Studio project, the template file, and the parameters file
 
@@ -78,10 +78,10 @@ In Visual Studio, do the following:
 
 5. Open the VirtualMachineTemplate.json file and then add the opening and closing brackets, the required schema element, and the required contentVersion element:
 
-       {
-         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-         "contentVersion": "1.0.0.0",
-       }
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+        "contentVersion": "1.0.0.0",
+    }
 
 6. [Parameters](../resource-group-authoring-templates.md#parameters) are not always required, but they make template management easier. They describe the type of the value, the default value if needed, and possibly the allowed values of the parameter. For this tutorial, the parameters that are used to create a virtual machine, a storage account, and a virtual network are added to the template.
 
