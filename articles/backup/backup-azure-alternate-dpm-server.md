@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
-	ms.author="giridham"; "jimpark"/>
+	ms.date="12/10/2015"
+	ms.author="giridham;jimpark"/>
 
 # Recovering data from another DPM server in the backup vault
 You can now recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault. The process for doing so is completely integrated into the DPM management console and is similar to the other recovery workflows.
@@ -28,7 +28,7 @@ To recover data from another DPM server:
 
     ![Ad External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 
-2. Provide the **vault credentials** associated with the DPM server, whose data is being recovered, choose the **DPM server** from the list of DPM servers registered with the backup vault, and provide the **encryption passphrase** associated with the DPM server whose data is being recovered.
+2. Download new **vault credentials** from the vault associated with the **DPM server** where the data is being recovered, choose the DPM server from the list of DPM servers registered with the backup vault, and provide the **encryption passphrase** associated with the DPM server whose data is being recovered.
 
     ![External DPM Credentials](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
