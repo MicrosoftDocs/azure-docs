@@ -96,7 +96,7 @@ We confirmed that **hive.auto.convert.join.noconditionaltask** was indeed set to
     	<description>
       		Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
       		If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
-      	specified size, the join is directly converted to a mapjoin (there is no conditional task).
+      		specified size, the join is directly converted to a mapjoin (there is no conditional task).
     	</description>
   	</property>
 
