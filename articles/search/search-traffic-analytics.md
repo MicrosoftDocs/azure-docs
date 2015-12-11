@@ -185,8 +185,8 @@ To simplify this process, we present below a Sample Query that will let you star
 
 <!--Image references-->
 
-[1]: ./media/search-traffic-analytics/SettingsBlade.PNG
-[2]: ./media/search-traffic-analytics/DiagnosticsBlade.PNG
-[3]: ./media/search-traffic-analytics/GetData.PNG
-[4]: ./media/search-traffic-analytics/BlobStorage.PNG
-[5]: ./media/search-traffic-analytics/QueryEditor.PNG
+[1]: ./media/search-traffic-analytics/SettingsBlade.png
+[2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
+[3]: ./media/search-traffic-analytics/GetData.png
+[4]: ./media/search-traffic-analytics/BlobStorage.png
+[5]: ./media/search-traffic-analytics/QueryEditor.png
