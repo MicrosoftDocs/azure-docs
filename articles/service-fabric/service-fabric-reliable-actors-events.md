@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Reliable Actors events"
+   pageTitle="Reliable Actors events | Microsoft Azure"
    description="Introduction to events for Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
