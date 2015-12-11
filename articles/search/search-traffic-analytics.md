@@ -60,9 +60,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccou
   You can find it in the portal in Settings -> Properties -> ResourceId 
 ```
 New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-``` 
-	OR
-```
+**OR**
 Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
 ```   
 
