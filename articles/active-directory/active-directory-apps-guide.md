@@ -70,29 +70,18 @@ To enable single sign-on to apps that don't support federation, Azure AD offers 
 | :---: | --- |
 | An introduction to how password-based SSO works and a brief technical overview | [Password-Based Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | A summary of the scenarios related to account sharing and how these problems are solved by Azure AD | [Sharing accounts with Azure AD](active-directory-sharing-accounts.md) |
-| Deploying and troubleshooting guides for the Internet Explorer version of Azure AD's password management extension | [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)<br /><br />[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Deployment and troubleshooting guides for the Internet Explorer version of Azure AD's password management extension | [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)<br /><br />[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 ##Conditional Access: Enforce Additional Security Requirements for High-Risk Apps
 
-[sloppy, work in progress]
+You can secure sensitive apps and resources by enforcing specific security requirements on every user who attempts to sign into that app or resource. For instance, you may choose to enforce multi-factor authentication for only certain apps, or you may want to block access to an app for anyone who isn't connected to your organization's trusted network.
 
-[Managing Risk With Conditional Access](active-directory-conditional-access.md)
-
-[Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md)
-
-[Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md)
-
-[Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
-
-[Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
-
-[Azure Authenticator for Android](active-directory-conditional-access-azure-authenticator-app.md)
-
-[Conditional access device policies for Office 365 services](active-directory-conditional-access-device-policies.md)
-
-[Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
-
-[Setting up on-premises conditional access using Azure Active Directory Device Registration](active-directory-conditional-access-on-premises-setup.md)
+| Article Guide |   |
+| :---: | --- |
+| An introduction to conditional access capabilities offered across Azure AD, Office365, and Intune | [Managing Risk With Conditional Access](active-directory-conditional-access.md) |
+| How to enable conditional access for the following types of resources | [Conditional Access for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Conditional access for Office 365 services](active-directory-conditional-access-device-policies.md) |
+| How to register devices in order to enable device-based conditional access policies | [Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br /><br />	([Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md))<br />	([Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-windows7.md)) |
+| How to use the Android version of the Azure Authenticator app | [Azure Authenticator for Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 ##App Proxy: Enable SSO and Remote Access to On-Premises Applications
 
