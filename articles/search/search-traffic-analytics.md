@@ -61,7 +61,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccou
 ```
 New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
 ``` 
- OR
+	OR
 ```
 Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
 ```   
@@ -93,7 +93,7 @@ Log schema
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
 |time| datetime | "2015-12-07T00:00:43.6872559Z" | the operation's timestamp |
-|resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/RESOURCEGROUPS/DEFAULT/PROVIDERS/MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource id |
+|resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource id |
 | operationName | string | "Query.Search" | |
 | operationVersion | string | "2015-02-28"| the api-version used in this operation |
 | category | string | "OperationLogs" | this is always the same value |
