@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
