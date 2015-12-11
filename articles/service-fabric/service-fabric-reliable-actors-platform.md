@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Actors on Service Fabric | Microsoft Azure"
-   description="Describes how Reliable Actors use the features of the Service Fabric platform covering concepts from the point of view of actor developers."
+   description="Describes how Reliable Actors use the features of the Service Fabric platform, covering concepts from the point of view of actor developers."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,7 +18,7 @@
 
 # How Reliable Actors use the Service Fabric platform
 
-Actors use the Service Fabric application model to manage the application lifecycle. Every Actor type is mapped to a Service Fabric [service type](service-fabric-application-model.md#describe-a-service). The actor code is [packaged](service-fabric-application-model.md#package-an-application) as a Service Fabric application and [deployed](service-fabric-deploy-remove-applications.md#deploy-an-application) to the cluster.
+Actors use the Azure Service Fabric application model to manage the application lifecycle. Every actor type is mapped to a Service Fabric [service type](service-fabric-application-model.md#describe-a-service). The actor code is [packaged](service-fabric-application-model.md#package-an-application) as a Service Fabric application and [deployed](service-fabric-deploy-remove-applications.md#deploy-an-application) to the cluster.
 
 ## Example application model concept for actors
 
