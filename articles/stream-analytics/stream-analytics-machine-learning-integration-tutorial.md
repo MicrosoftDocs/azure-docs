@@ -113,7 +113,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
 11.	Navigate to **Query** tab and modify the query as below:  
 
-    
+```
 	WITH subquery ASA (  
 		SELECT text, sentiment(text) as result from input  
 	)  
@@ -121,7 +121,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 	Select text, result.[Score]  
 	Into output  
 	From subquery  
-  
+```
 
 12. Click **Save** to save the query.    
 
