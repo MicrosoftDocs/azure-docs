@@ -122,16 +122,16 @@ The Logic Apps designer will be adding especially seamless integration with the 
 ### Documentation for the previous API Apps model
 Some [azure.microsoft.com](https://azure.microsoft.com) articles that were written for the old API Apps model no longer apply to the new model and will be removed from the site. Their URLs will be redirected to the closest equivalent that works with the new model, but you can still see them in the [GitHub documentation repository for azure.microsoft.com](https://github.com/Azure/). Most of the articles you might want will be found in the [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) folder. Here are direct links to a few of the ones most likely to still be of use if you are supporting older API apps.
 
-* [Authentication overview](../app-service/authentication-overview.md)
-* [Protect an API app](../app-service-api/app-service-api-dotnet-add-authentication.md)
-* [Consume an internal API app](../app-service-api/app-service-api-dotnet-consume-internal.md)
-* [Consume using client flow authentication](../app-service-api/app-service-api-authentication-client-flow.md)
-* [Deploy and configure a SaaS connector API app](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
-* [Provision an API app with a new gateway](../app-service-api/app-service-api-arm-new-gateway-provision.md)
-* [Debug an API App](../app-service-api/app-service-api-dotnet-debug.md)
-* [Connect to a SaaS platform](../app-service-api/app-service-api-dotnet-connect-to-saas.md)
-* [Enhance an API App for Logic Apps](../app-service-logic/app-service-api-optimize-for-logic-apps.md)
-* [API app triggers](app-service-api-dotnet-triggers)
+* [Authentication overview](https://github.com/Azure/azure-content/tree/master/articles/app-service/authentication-overview.md)
+* [Protect an API app](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-add-authentication.md)
+* [Consume an internal API app](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-consume-internal.md)
+* [Consume using client flow authentication](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-authentication-client-flow.md)
+* [Deploy and configure a SaaS connector API app](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
+* [Provision an API app with a new gateway](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-arm-new-gateway-provision.md)
+* [Debug an API App](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-debug.md)
+* [Connect to a SaaS platform](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-connect-to-saas.md)
+* [Enhance an API App for Logic Apps](https://github.com/Azure/azure-content/tree/master/articles/app-service-logic/app-service-api-optimize-for-logic-apps.md)
+* [API app triggers](https://github.com/Azure/azure-content/tree/master/articles/app-service-api/app-service-api-dotnet-triggers.md)
 
 ## Next Steps
 To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/documentation/services/app-service/api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
