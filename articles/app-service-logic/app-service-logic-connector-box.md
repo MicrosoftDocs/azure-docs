@@ -27,7 +27,7 @@ The Box gallery app provides you Actions as mechanisms to interact with Box:
 
 **Actions**: The actions lets you perform predefined actions on the Box account configured with the logic app. Following are the actions that can be performed on Box account using Box connector:
 
-a. *List Files:* This operation returns the information of all files in a folder. List of parameters required for the action:  
+a. *List Files:* This operation returns the information of all files in a folder. The list of parameters required for the action:  
 
 Parameter Name | Description | Required
 --- | --- | ---

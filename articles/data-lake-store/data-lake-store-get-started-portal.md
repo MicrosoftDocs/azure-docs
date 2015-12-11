@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
-# Get started with Azure Data Lake Store using the Azure preview portal
+# Get started with Azure Data Lake Store using the Azure Portal
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-get-started-portal.md)
@@ -24,19 +24,19 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-Learn how to use the Azure Preview Portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
+Learn how to use the Azure Portal to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Azure Data Lake Store](data-lake-store-overview.md).
 
 ## Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="signup"></a>Enable your Azure subscription for Data Lake Store Public Preview
 
 You must first request your Azure subscription to be enabled for Data Lake Store Public Preview. Follow the steps below.
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**.
 3. In the **New Data Lake Store** blade, click **Sign up to preview**. Read the information and then click **OK**. You will receive an e-mail once your subscription has been enabled for the Public Preview.
 
@@ -44,7 +44,7 @@ You must first request your Azure subscription to be enabled for Data Lake Store
 
 ## Create an Azure Data Lake Store account
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
 2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**. Read the information in the **Azure Data Lake Store** blade, and then click **Create** in the bottom left corner of the blade.
 
@@ -87,7 +87,7 @@ You can create folders under your Data Lake Store account to manage and store da
 
 You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. In the screen capture below, follow the steps to upload a file to a sub-folder from the **Data Explorer** blade. In this screen capture, the file is uploaded to a sub-folder shown in the breadcrumbs (marked in a red box).
 
-If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 ![Upload data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 

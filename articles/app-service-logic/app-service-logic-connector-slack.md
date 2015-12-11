@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Using the Slack Connector in Logic Apps | Microsoft Azure App Service"
 	description="How to create and configure the Slack Connector or API app and use it in a logic app in Azure App Service"
-	authors="anuragdalmia" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 

@@ -13,17 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
 
-This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Microsoft Azure preview portal.
+This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Azure portal.
 
 For an introduction to Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md). To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 When deploying an application with a template, you can provide parameter values to customize how the resources are created.  You specify values for these parameters either inline or in a parameter file.
 
+## Incremental and complete deployments
+
+By default, Resource Manager handles deployments as incremental updates to the resource group. With incremental deployment, Resource Manager:
+
+- **leaves unchanged** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+
+Through Azure PowerShell or the REST API, you can specify a complete update to the resource group. Azure CLI currently does not support complete deployments. With complete deployment, Resource Manager:
+
+- **deletes** resources that exist in the resource group but are not specified in the template
+- **adds** resources that are specified in the template but do not exist in the resource group 
+- **does not re-provision** resources that exist in the resource group in the same condition defined in the template
+ 
+You specify the type of deployment through the **Mode** property.
 
 ## Deploy with PowerShell
 
@@ -32,17 +47,7 @@ When deploying an application with a template, you can provide parameter values 
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
-    Earlier than Azure PowerShell 1.0 Preview:
-
-        PS C:\> Switch-AzureMode AzureResourceManager
-        ...
-        PS C:\> Add-AzureAccount
-
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-    Azure PowerShell 1.0 Preview:
+    Azure PowerShell 1.0:
 
          PS C:\> Login-AzureRmAccount
 
@@ -69,7 +74,7 @@ When deploying an application with a template, you can provide parameter values 
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
+5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. The **Mode** parameter is not specified which means the default value of **Incremental** is used.
    
      You have the following options for providing parameter values: 
    
@@ -95,10 +100,18 @@ When deploying an application with a template, you can provide parameter values 
           Mode              : Incremental
           ...
 
+     To run a complete deployment, set **Mode** to **Complete**.
+
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          Confirm
+          Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
+          included in the template will be deleted.
+          [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
 6. To get information about deployment failures.
 
         PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
-
+        
         
 ### Video
 
@@ -190,7 +203,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
              }
            }
    
-3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). To run a complete deployment, set **mode** to **Complete**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>
@@ -213,14 +226,20 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
-## Deploy with the preview portal
+## Deploy with Visual Studio
 
-Guess what?  Every application that you create through the [preview portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
+With Visual Studio, you can create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project and those resources are automatically added to Resource Manager template. The project also provides a PowerShell script to deploy the template.
+
+For an introduction to using Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+## Deploy with the portal
+
+Guess what?  Every application that you create through the [portal](https://portal.azure.com/) is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort. 
 Simply, select the **New** icon and you will be on your way toward deploying an application through Azure Resource Manager.
 
 ![New](./media/resource-group-template-deploy/new.png)
 
-For more information about using the portal with Azure Resource Manager, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
+For more information about using the portal with Azure Resource Manager, see [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md).  
 
 
 ## Parameter file

@@ -3,8 +3,8 @@
 	description="Covers how to provide single-sign using Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 
@@ -64,10 +64,10 @@ The Active Directory configuration varies, depending on whether your Application
 
 
 
-1. In Active Directory, go to **Tools** > **Users and Computers**. 
-2. Select the server running the Connector. 
-3. Right click and select **Properties** > **Delegation**. 
-4. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the Service Principal Name (SPN) identity of the application server. 
+1. In Active Directory, go to **Tools** > **Users and Computers**.
+2. Select the server running the Connector.
+3. Right click and select **Properties** > **Delegation**.
+4. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the Service Principal Name (SPN) identity of the application server.
 5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
 ![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
@@ -115,7 +115,7 @@ Non-Windows applications typically get user identity in the form of a username o
 For this reason, Application Proxy enables you to select which identity appears in the Kerberos ticket, per application. Some of these options are suitable for systems that do not accept email address format.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 If partial identity is used, and this identity might not be unique for all the domains or forests in your organization, you might want to publish these applications twice using two different Connector groups, since each application has a different user audience, you can join its Connectors to a different domain.
 
- 
+
 ## Working with SSO when on-premises and cloud identities are not identical
 Unless otherwise configured, Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. You can configure, for each application, which identity should be used when performing single-sign-on.
 This capability allows many organizations that have different on-prem and cloud identities to have single sign on from the cloud to on-prem apps without requiring the users to enter different usernames and passwords. This includes organizations that:
@@ -135,7 +135,7 @@ It will also help with applications that do not accept addresses in the form of 
 ### Setting SSO for different cloud and on-prem identities
 1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the User Principle Name field in the sync settings.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
 NOTE: These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.
-2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used: 
+2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
 
 
 - User Principle Name: joe@contoso.com

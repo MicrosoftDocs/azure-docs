@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a Logic App with an API app" 
+	pageTitle="Create a Logic App with an API app | Microsoft Azure" 
 	description="Use an Azure Resource Manager template to deploy a Logic App and an API app." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # Create a Logic App plus API app using a template
 
-In this topic, you will learn how to create an Azure Resource Manager template to create a logic app with an App Service API app. You can use the logic app to design workflows that articulate intent through a trigger and a 
-series of steps, each invoking the API app while securely taking care of authentication and best practices like durable execution.
+In this topic, you learn how to create an Azure Resource Manager template to create a logic app with an App Service API app. You can use the logic app to design workflows that articulate intent through a trigger and a series of steps, each invoking the API app while securely taking care of authentication and best practices like durable execution.
 
-You will learn how to define which resources are deployed and 
-how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more details on the logic app properties, see [Logic App Workflow Management API](https://msdn.microsoft.com/library/azure/dn948513.aspx). 
+
 For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
@@ -33,12 +32,12 @@ For the complete template, see [Logic App with API app template](https://github.
 
 ## What you will deploy
 
-With this template, you will provision:
+With this template, you provision:
 
 - Logic App
 - API app
 
-To run the deployment automatically, click the following button:
+To run the deployment automatically, select the following button:
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json) 
 

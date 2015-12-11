@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015" 
+	ms.date="12/01/2015" 
 	ms.author="robmcm"/>
 
 # On-premises application with blob storage
@@ -435,5 +435,4 @@ Follow these links to learn more about more complex storage tasks.
   [How to Use the Blob Storage Service from Java]: storage-java-how-to-use-blob-storage.md
   [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
   [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
-  [Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

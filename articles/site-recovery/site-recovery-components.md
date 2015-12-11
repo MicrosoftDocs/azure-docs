@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Site Recovery components"
-	description="This article provides an overview of Site Recovery components and how to manage them"
+	pageTitle="How does Site Recovery work? | Microsoft Azure"
+	description="This article provides an overview of Site Recovery architecture"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,167 +13,145 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
-# Site Recovery components
+# How does Azure Site Recovery work?
 
-Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. [Read an overview](site-recovery-overview.md).
+## About this article
 
-This article summarizes and describes the Site Recovery components that are installed on servers and virtual machines.
+This article describes the underlying architecture of Site Recovery and the components that make it work. After reading this article you can post any questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-You can post any questions about this article on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Overview
 
-Site Recovery components will vary slightly depending on the protection scenario.
+Organizations need a business continuity and disaster recovery (BCDR) strategy that a determines how apps, workloads, and data remain available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Much of your BCDR strategy will center around solutions that keep business data safe and recoverable, and workloads continuously available, when disaster occurs.
 
-### Protection between two datacenters with VMM
+Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary site to keep apps and workloads available. You fail back to your primary location when it returns to normal operations.
 
-**Scenario** | **Description** | **Required components** | **Details**
---- | --- | --- | ---
-You deploy Azure Site Recovery to replicate virtual machines between two datacenters | <p>Each datacenter has a VMM server</p><p>Each VMM server has a private cloud that contains one or more Hyper-V host servers with virtual machines you want to protect</p> | The Azure Site Recovery Provider will be installed on both VMM servers | <p>No components are installed on the Hyper-V host servers or protected virtual machines</p><p>The Azure Site Recovery Provider on the VMM server communicates with the Site Recovery service over HTTPS 443 to orchestrate protection</p><p>Replication occurs between the primary and secondary Hyper-V host servers over the internet using Kerberos and certificate authentication on ports 8083 and 8084.</p>
+Site Recovery can be used in a number of scenarios and can protect a number of workloads. 
 
-![On-premises to on-premises](./media/site-recovery-components/Components_Onprem2Onprem.png)
+- **Protect VMware virtual machines**: You can protect on-premises VMware virtual machines by replicating them to Azure or to a secondary datacenter.- **Protect Hyper-V VMs**: You can protect on-premises Hyper-V virtual machines by replicating them to the cloud (Azure) or to a secondary datacenter.  
+- **Protect physical servers**: You can protect physical machines running Windows or Linux by replicating them to Azure or to a secondary datacenter.
+- **Migrate VMs**: You can use Site Recovery to migrate Azure IaaS VMs between regions, or to migrate AWS Windows instances to Azure IaaS VMs.
 
+You can get a full summary of the supported deployments in [What is Azure Site Recovery?](site-recovery-overview.md) and 
+[What workloads can Azure Site Recovery protect?](site-recovery-workload.md)
 
-### Protection between a datacenter with VMM and Azure
+## Replicate between an on-premises physical server or VMware virtual machine and Azure
 
-**Scenario** | **Description** | **Required components** | **Details**
---- | --- | --- | ---
-You deploy Azure Site Recovery to replicate virtual machines between a datacenter and Azure | <p>The on-premises datacenter has a VMM server with a private cloud that contains one or more Hyper-V host servers with virtual machines you want to protect</p> | <p>The Azure Site Recovery Provider will be installed on the VMM server</p><p>The Microsoft Recovery Services agent will be installed on source Hyper-V host servers</p> | <p>No components are installed on protected virtual machines</p><p>The Azure Site Recovery Provider on the VMM server communicates with the Site Recovery service over HTTPS 443 to orchestrate protection</p><p>Replication occurs between Microsoft Recovery Services agent running on the source Hyper-V host servers and Azure over HTTPS 443.</p>
+If you want to protect either VMware VMs, or Windows/Linux physical machines by replicating them to Azure here's what you'll need.
 
-![On-premises VMM to Azure](./media/site-recovery-components/Components_OnpremVMM2Azure.png)
-
-###  Protection between a Hyper-V site and Azure
-
-**Scenario** | **Description** | **Required components** | **Details**
---- | --- | --- | ---
-You deploy Azure Site Recovery to replicate virtual machines between a datacenter and Azure | <p>The on-premises datacenter has one or more Hyper-V host servers with virtual machines you want to protect</p><p>During configuration you define a Hyper-V site that contains one or more of these Hyper-V host servers</p> | <p>A single component installation runs to install both the Azure Site Recovery Provider and the Microsoft Recovery Services agent on the Hyper-V host servers</p> | <p>No VMM server in the deployment</p><p>No components are installed on protected virtual machines</p><p>The Azure Site Recovery Provider on the Hyper-V host server communicates with the Site Recovery service over HTTPS 443 to orchestrate protection</p><p>Replication occurs between the Microsoft Recovery Services agent running on the Hyper-V host server and Azure over HTTPS 443.</p>
-
-![On-premises VMM to Azure](./media/site-recovery-components/Components_OnpremHyperVSite2Azure.png)
-
-### Protection between an on-premises physical server or VMware virtual machine and Azure
-
-In this scenario replication can happen in two ways:
-
-- Over a VPN connection (using Azure ExpressRoute or a site-to-site VPN)
-- Over a secure connection on the internet
-
-#### Over a VPN site-to-site connection (or ExpressRoute)
-
-Communications from on-premises servers are directed to internal ports on the Azure virtual network to which the configuration and master target virtual machines are connected.
-
-![VMware or physical machine to Azure over the internet ](./media/site-recovery-components/Components_OnpremVMware2AzureVPN.png)
-
-#### Over the internet
-
-All communications from on-premises servers are directed to mapped public endpoints on the Azure cloud service for the configuration server virtual machine and master target server virtual machine. The endpoints are dynamically created when you deploy the virtual machines.
-
-![VMware or physical machine to Azure over the internet ](./media/site-recovery-components/Components_OnpremVMware2AzureInternet.png)
-
-#### Ports
-
-**Component** | **Port** | **Details**
---- | --- | --- | ---
-**Process server** |9080 | Protected machines send data for replication to the process server over TCP 9080.
-**Configuration server** | HTTPS/443 | The Mobility service running on protected machines sends replication metadata to the configuration server on port 443.
- | HTTPS/443 | The configuration server coordinates and orchestrates machine protection. The process server communicates with the configuration server on 443 or the mapped public endpoint to receive management and control information.
- | 9443 | In the failback direction, the vContinuum tool requests control and metadata from the configuration server on port 9443 (not shown on diagram)
- | 5986 | Remote management with PowerShell uses port 5986 (not shown on diagram)
- | 3389 | RDP connection to the configuration server using 3389 (not shown on diagram)
-**Master target server** | 80 | The process site sends communications about replication traffic to the master target server over 9080
- | HTTP/443 | The process server replicates data to the master target server over HTTP or 443 (VPN)
- | HTTP/443 | The process server replicates data to the master target server over HTTP or 443 (VPN)
-**Firewall rules** |  | <p>For push installation of the Mobility service to work correctly the firewall on protected machines should allow File and Printer Sharing and Windows Management Instrumentation.</p><p>The firewall rules on machines you want to protect should allow them to reach the configuration server.</p><p>To connect to Azure virtual machines over the internet after failover, firewall rules on the machines should allow Remote Desktop connections over the internet. To connect to a failed over Linux machine in Azure the Secure Shell service should be set to start automatically on system, and firewall rules should allow an ssh connection.</p>
+**Location** | **What you need** 
+--- | --- 
+ On-premises | **Process server**: This server optimizes data from protected VMware virtual machines or physical Windows/Linux machines before sending it to Azure. It also handles push installation of the Mobility service component to protected machine, and performs automatic discovery of VMware virtual machines. <br/><br/> **VMware vCenter server**: If you're protecting VMware VMs you'll need a VMwave vCenter server managing your vSphere hypervisors<br/><br/> **ESX server**: If you're protecting VMware VMs you'll need a server running ESX/ESXi version 5.1 or 5.5 with the latest updates.<br/><br/> **Machines**: If you're protecting VMware you should have VMware VMs with VMware tools installed and running. If you're protecting physical machines they should be running a supported Windows or Linux operating system. See [what's supported](site-recovery-vmware-to-azure.md/#before-you-start). <br/><br/> **Mobility service**: Installs on machines you want to protect to capture changes and communicate them to the process server. <br/><br/>Third-party components: This deployment depends on some [third-party components](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
+Azure | **Configuration server**: Standard A3 Azure VM that coordinates communication between protected machines, the process server, and master target servers in Azure. It sets up replication and coordinates recovery when failover occurs. <br/><br/>**Master target server**: Azure VM that holds replicated data from protected machines using attached VHDs created on blob storage in your Azure storage account. A failback master target server runs on premises so that you can fail back Azure VMs to VMware VMs. <br/><br/> **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service) <br/><br/> **Virtual network**: An Azure network on which the configuration server and master target servers are located, in the same subscription and region as the Site Recovery service. <br/><br/> **Azure storage**: Azure storage account to store replicated data. Should be a standard geo-redundant or premium account in the same region as the Site Recovery subscription.
 
 
-## Site Recovery components
+In this scenario communications can occur over a a VPN connection to internal ports on the Azure network (using Azure ExpressRoute or a site-to-site VPN), or over a secure internet connection to the mapped public endpoints on the Azure cloud service for the configuration and master target server VMs. 
 
-**Component** | **Details** | **Installation** | **Deployment scenario**
---- | --- | --- | ---
-**Azure Site Recovery Provider for VMM** | Handles communication between the VMM server and the Site Recovery service. | Installed on a VMM server | Used when you set up protection between two VMM sites or between a VMM site and Azure
-**Azure Site Recovery Provider for Hyper-V** | Handles communication between the Hyper-V host and the Site Recovery service when VMM isn't deployed. | Installed on a Hyper-V host server | Used when you set up protection between a Hyper-V site and Azure.
-**Microsoft Recovery Services Agent** | Handles communication between the Hyper-V host server and the Site Recovery service | Installed on the Hyper-V host server | <p>Used when you set up protection between a Hyper-V site and Azure.</p><p>You download a single provider that includes both the Azure Site Recovery Provider for Hyper-V and the Microsoft Recovery Services Agent.</p>
-**Process server/Failback process server** | <p>Optimizes data from protected VMware machines or Windows/Linux physical server before sending it to the master target server in Azure</p><p>Does push installation of the Mobility Service on VMware virtual machines or physical servers</p><p>Performs automatic discovery of VMware virtual machines.</p> <p>Failback process server: Only the first point on optimizing data before replication is applicable for the failback process server</p> | <p>Installed on a on-premises server running at least Windows Server 2012 R2</p><p>Failback process server: Runs on a standard A4 size Azure virtual machine</p> | <p>Used when you set up protection between an on-premises physical server or VMware virtual machines, and Azure.</p><p>Failback process server: Used for failback from Azure to on-premises</p>
-**Mobility service** | Captures changes on protected machines and communicates them to the on-premises process server for replication to Azure. | Installed on on-premises VMware virtual machines or on physical servers that you want to protect| Used when you set up protection between an on-premises physical server or VMware virtual machines, and Azure.
-**Master target server/failback master target server** | <p>Holds replicated data from your protected machines using attached VHDs created on blob storage in your Azure storage account</p><p>Failback master target server: Holds replication data from failed over virtual machines in Azure. Data is held on VMDKs created in the data store that's selected when reverse replication is enabled for failback.</p> | <p>Installed as an Azure virtual machine as a Windows server based on a Windows Server 2012 R2 gallery image (to protect Windows machines) or as a Linux server based on a OpenLogic CentOS 6.6 gallery image (to protect Linux machines)</p><p>Two sizing options are available – standard A3 and standard D14</p><p>Failback master target server: Runs on a VMware virtual machine. It's provisioned on the same host to which the machine will be failed back.</p>| <p>Used when you set up protection between an on-premises physical server or VMware virtual machines, and Azure.</p><p>Failback master target server: Used for failback of failed over virtual from Azure back to on-premises.</p>
-**Configuration server** | <p>Coordinates communication between protected machines, the process server, and master target servers in Azure</p><p>Sets up replication and coordinates recovery in Azure when failover occurs</p> | Installed on an Azure Standard A3 virtual machine in the same Azure subscription as Site Recovery. | Used when you set up protection between an on-premises physical server or VMware virtual machines, and Azure.
+The Mobility service on protected machines sends replication data the process server, and sends replication metadata to the configuration server. The process server communicates with configuration server for management and control information. It sends replication information to the master target server and it optimizes and sends replicated data to the master target server.
 
+## Replicating Hyper-V VMs to Azure (with VMM)
 
-## Planning for component deployment
+If you're VMs are located on a Hyper-V host that's managed in a System Center VMM cloud here's what you'll need in order to replicate them to Azure.
 
-### Azure Site Recovery Provider
+**Location** |  **What you need** 
+--- | --- 
+On-premises | **VMM server**: At least one VMM server set up with at least one VMM private cloud. The Azure Site Recovery Provider will be installed on each VMM server<br/><br/>**Hyper-V server**: At least one Hyper-V host server located in the VMM cloud. The Microsoft Recovery Services agent will be installed on each Hyper-V server. <br/><br/> **Virtual machines**: At least one virtual machine running on the Hyper-V server. Nothing gets installed on the virtual machine.
+Azure | **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service) <br/><br/>**Storage account**: An Azure storage account under the same subscription as the Site Recovery service. Replicated machines are stored in Azure storage. 
 
-The Provider runs on your VMM servers, Hyper-V host servers if you don't have a VMM server in your deployment, or on a configuration server. It connects to the Site Recovery service over the internet with an encrypted HTTPS connection. Note that:
+In this scenario the Provider running on the VMM server coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the Recovery Services agent running on the on-premises Hyper-V server and Azure storage over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 
-- You don't need to add specific firewall exception to connect the Provider to Site Recovery.
-- If you want the server on which the provider runs to connect to the internet using a proxy server you can either use the existing proxy settings, or specify a custom proxy.
-- The proxy needs to allow these addresses through the firewall:
+![On-premises VMM to Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-	-  *.accesscontrol.windows.net
-	-  .backup.windowsazure.com
-	-  *.blob.core.windows.net
-	-  *.store.core.windows.net
+## Replicating Hyper-V VMs to Azure (without VMM)
 
-- If you have IP address-based rules on your firewall make sure they allow communication from the configuration server to IP addresses described in [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) and for HTTPS (443). You'll need to whitelist IP address ranges of the Azure region you plan to use and for West US.
-- If you're deploying Site Recovery with VMM and you use a custom proxy, a VMM RunAs account (DRAProxyAccount) will be created automatically using the proxy credentials you specify in the custom proxy settings in the Site Recovery portal. You'll need to set up the proxy server so that this account can authenticate successfully.
-- If you're using a proxy traffic sent from the provider installed on a Hyper-V host server to the proxy must be sent over HTTP.
+If your VMs aren't managed by a System Center VMM server  here's what you'll need to do to replicate them to Azure
 
-### Microsoft Recovery Services agent
+**Location** | **What you need**
+--- | --- 
+ On-premises | **Hyper-V server**: At least one Hyper-V host server.  The Azure Site Recovery Provider and the Microsoft Recovery Services agent will be installed on each Hyper-V server. <br/><br/>**Virtual machines**: At least one virtual machine running on the Hyper-V server. Nothing gets installed on the virtual machine.
+Azure | **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service) <br/><br/>**Storage account**: An Azure storage account under the same subscription as the Site Recovery service. Replicated machines are stored in Azure storage.
 
-The agent connects to the Site Recovery service over the internet with an encrypted HTTPS connection. No specify firewall exceptions are required.
+In this scenario the Provider running on the Hyper-V server coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the Recovery Services agent running on the on-premises Hyper-V server and Azure storage over HTTPS 443. Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 
-### Components for VMware or physical server protection
-
-#### Master target server
-
-- The master target server can e Azure standard A4 or D14 virtual machine.
-- With a standard A4 master target you can add 16 data disks (maximum of 1023 GB per data disk) to each virtual machine.
-- With a standard D14 master target you can add 32 data disks (maximum of 1023 GB per data disk) to each virtual machine.
-- A standard D14 sized master target server is required only if you wish to protect a server that has more than 15 disks attached to it; for all other configurations you can deploy standard A4 sized master target servers.
-- Note that one disk attached to the master target server is reserved as a retention drive. Azure Site Recovery allows you to define retention windows and recover protected machines to a recovery point within that window. The retention drive maintains a journal of disk changes for the duration of the window.  This reduces the maximum disks available for replication on an A4 to 15 and on a D14 to 31.
-
-#### Process server
-
-- The process server uses disk based cache. Ensure that there's enough free space C:/ for the cache. Cache sizing will be affected by the data change rate of the machines you're protecting. Generally we recommend a cache directory size of 600 GB for medium size deployments.
-- You should deploy an additional process server if the data change rate of protected machines exceeds the capacity of an existing process server.
-- To scale your deployment you add multiple process servers and master target servers. You should deploy a second master target server if you don't have enough free disks on an existing master target server.
--  Note that process servers and master target servers don't require one-to-one mapping. You can deploy the first process server with the second master target server and so on.
-
-#### Configuration server
-
-- The configuration server is a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with a reserved public IP address.
-- Installation path in English characters only.
-
-#### Mobility service
-
-Install on VMware virtual machines or physical servers. Machines and servers must comply with the  following requirements:
-
-- **Windows servers**:
-	-  64-bit operating system: Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.
-	-  Host name, mount points, device names, Windows system path (eg: C:\Windows) in English only.
-	-  The operating system  on C:\ drive.
-	-  Only basic disks are supported. Dynamic disks aren't supported.
-
-- **Linux servers**:
-	- A supported 64 bit operating system: Centos 6.4, 6.5, 6.6; Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3.
-	- /etc/hosts files on protected machines should contain entries that map the local host name to IP addresses associated with all NICs.
-	- Host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) in English only.
-	-  Following storage supported: File system: EXT3, ETX4, ReiserFS, XFS/Multipath software-Device Mapper (multipath)/Volume manager: LVM2\. Physical servers with HP CCISS controller storage aren't supported.
+![On-premises VMM to Azure](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
 
-For detailed planning information about these components read the capacity planning section in [this article](site-recovery-vmware-to-azure.md).
+
+## Replicate Hyper-V VMs to a secondary datacenter
+
+If you want to protect your Hyper-V VMs by replicating them to a secondary datacenter here's what you'll need to do. Note that you can only do this if your Hyper-V host server is managed in a System Center VMM cloud.
+
+**Location** | **What you need** 
+--- | --- 
+ On-premises | **VMM server**: A VMM server in the primary site and one in the secondary site The Azure Site Recovery Provider will be installed on each VMM server.<br/><br/>**Hyper-V server**: At least one Hyper-V host server located in a VMM cloud in the primary and secondary sites. Nothing gets installed on the Hyper-V servers <br/><br/> **Virtual machines**: At least one virtual machine running on the Hyper-V server. Nothing gets installed on the virtual machine.
+Azure | **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service). 
+
+In this scenario the Provider on the VMM server coordinates and orchestrates replication with the Site Recovery service over the internet. Data is replicated between the primary and secondary Hyper-V host servers over the internet using Kerberos or certificate authentication. Communications from both the Provider and between Hyper-V host servers are secure and encrypted. 
+
+![On-premises to on-premises](./media/site-recovery-components/arch-onprem-onprem.png)
+
+## Replicate Hyper-V VMs to a secondary datacenter with SAN replication
+
+If your VMs are located on a Hyper-V host that's managed in a System Center VMM cloud and you're using SAN storage here's what you'll need in order to replicate between two datacenters.
+
+**Location** | **What you need** 
+--- | --- 
+ Primary datacenter | **SAN array**: A [supported SAN array](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) managed by the primary VMM server. The SAN shares a network infrastructure with another SAN array in the secondary site <br/><br/> **VMM server**: At least one VMM server with one or more VMM clouds and replication groups set up. The Azure Site Recovery Provider will be installed on each VMM server. <br/><br/> **Hyper-V server**: At least one Hyper-V host server with virtual machines, located in a replication group. Nothing gets installed on the Hyper-V host servers.<br/><br/> **Virtual machines**: At least one virtual machine running on the Hyper-V host server. Nothing gets installed on the virtual machine. 
+Secondary datacenter | **SAN array**: A [supported SAN array](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) managed by the secondary VMM server. <br/><br/>**VMM server**: At least one VMM server with one or more VMM clouds.<br/><br/> **Hyper-V server**: At least one Hyper-V host server. 
+Azure | **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service)
+
+In this scenario the Provider on the VMM server coordinates and orchestrates replication with the Site Recovery service over the internet.  Data is replicated between the primary and secondary storage arrays using synchronous SAN replication. 
+
+![On-premises to on-premises](./media/site-recovery-components/arch-onprem-onprem-san.png)
 
 
-## Keep components up-to-date
 
-**Component** | **How to update**
---- | ---
-<p>**Azure Site Recovery Provider for VMM**</p><p>**Azure Recovery Services Agent**</p> | <p></p>**First time installation**: download the latest version from the Quick Start page<p></p>**Ongoing**: You can download the latest (and previous) versions from the Dashboard in Site Recovery. Alternatively if you opt in for Microsoft Updates the latest version of the Provider and agent will be installed automatically on the server.
-<p>**Process server**</p><p>**Configuration server**</p><p>**Master target server**</p> | Check for updates on the Site Recovery Dashboard.
-**Mobility service** | <p>Ensure you have the latest Mobility service updates on each machine you want to protect:<p><p>You can download the latest updates:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>Alternatively after ensuring that the process server is up-to-date you can download the latest version of Mobility service from the C:\pushinstallsvc\repository folder on the process server</p>  
+## Hyper-V protection lifecycle
+
+This workflow shows the process for protecting, replicating, and failing over Hyper-V virtual machines. 
+
+1. **Enable protection**: You set up the Site Recovery vault, configure replication settings for a VMM cloud or Hyper-V site, and enable protection for VMs. A job called **Enable Protection** is initiated and can be monitored in the **Jobs** tab. The job checks that the machine complies with prerequisites and then invokes the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) method which sets up replication to Azure with the settings you've configured. The **Enable protection** job also invokes the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method to initialize a full VM replication.
+2. **Initial replication**: A virtual machine snapshot is taken and virtual hard disks are replicated one by one until they're all copied to Azure or to the secondary datacenter. This The time to complete this depends on the size and network bandwidth and the initial replication method you've chosen. If disk changes occur while initial replication is in progress the Hyper-V Replica Replication Tracker tracks those changes as Hyper-V Replication Logs (.hrl) that are located in the same folder as the disks. Each disk has an associated .hrl file that will be sent to secondary storage. Note that the snapshot and log files consume disk resources while initial replication is in progress. When the initial replication finishes the VM snapshot is deleted and the delta disk changes in the log are synchronized and merged.
+3. **Finalize protection**: After initial replication finishes the **Finalize protection** job configures network and other post-replication settings and the virtual machine is protected. If you're replicating to Azure you might need to tweak the settings for the virtual machine so that it's ready for failover. At this point you can run a test failover to check everything's working as expected.
+4. **Replication**: After initial replication delta synchronized occurs, in accordance with the replication settings and method. 
+	- **Replication failure**: If delta replication fails and a full replication would be costly in terms of bandwidth or time then resynchronization occurs. For example if the .hrl files reach 50% of the disk size then the virtual machine will be marked for resynchronization. Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines and sending only the delta. After resynchronization finishes delta replication should resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually.
+	- **Replication error**: If a replication error occurs there's a built-in retry. If it's a non-recoverable error such as an authentication or authorization error, or a replica machine in an invalid state no retry will be attempted. If it's a recoverable error such as a network error, or low disk space/memory then a retry occurs with increasing intervals between retries (1, 2, 4, 8, 10, and then every 30 minutes).
+4. **Planned/unplanned failovers**: You run planned/unplanned failovers when the need arises. If you run a planned failover source VMs are shut down to ensure no data loss. After replica VMs are created they're in a commit pending state. You need to commit them to complete the failover unless you're replicating with SAN in which case commit is automatic. After the primary site is up and running failback can occur. If you've replicated to Azure reverse replication is automatic. Otherwise you kick off a reverse replication.
+ 
+
+![workflow](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
+
+## Replicate VMware virtual machines and physical servers to Azure
+
+You can replicate VMware virtual machines and physical servers (Windows/Linux) to Azure over a VPN site-to-site connection or over the internet.
+
+### Replicate over a VPN site-to-site connection (or ExpressRoute) to Azure
+
+![VMware or physical machine to Azure over the internet ](./media/site-recovery-components/arch-onprem-azure-vmware-vpn.png)
+
+#### Replicate over the internet
+
+![VMware or physical machine to Azure over the internet ](./media/site-recovery-components/arch-onprem-azure-vmware-internet.png)
+
+## Replicate between on-premises physical servers or VMware virtual machines in primary and secondary datacenters
+
+If you want to protect either VMware VMs, or Windows/Linux physical machines by replicating them between two on-premises datacenters here's what you'll need.
+
+**Location** | **What you need** 
+--- | --- 
+ On-premises primary | **Process server**: Set up the process server component in your primary site to handle caching, compression, and data optimization. It also handles push installation of the Unified Agent to machines you want to protect. <br/><br/> **VMware protection**: If you're protecting VMware VMs you'll need a VMware EXS/ESXi hypervisor or a VMware vCenter server managing multiple hypervisors<br/><br/> **Physical server protection**: If you're protecting physical machines they should be running Windows or Linux. <br/><br/> **Unified Agent**: Installs on machines you want to protect and on the machine that operates as the master target server. It acts as a communication provider between all the InMage components.
+On-premises secondary | **Configuration server**: The configuration server is the first component you install, and it's installed on the secondary site to manage, configure, and monitor your deployment, either using the management website or the vContinuum console. The configuration server also includes the push mechanism for remote deployment of the Unified Agent. There's only a single configuration server in a deployment and it must be installed on a machine running Windows Server 2012 R2. <br/><br/> **vContinuum server**: Install in the same location (secondary site) as the configuration server. It provides a console for managing and monitoring your protected environment. In a default install the vContinuum server is the first master target server and has the Unified Agent installed. <br/><br/> **Master target server**: The master target server holds replicated data. It receives data from the process server and creates a replica machine in the secondary site, and holds the data retention points. The number of master target servers you need depends on the number of machines you're protecting. If you want to fail back to the primary site you'll need a master target server there too. 
+Azure | **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service). You download InMage Scout to set up the deployment after creating the vault. You also install the latest update for all the InMage component servers.
+
+
+In this scenario delta replication changes are sent from the Unified Agent running on the protected machine to the process server. The process server optimizes this data and transfers it to the master target server on the secondary site. The configuration server manages the replication process.  
+
+
+
 
 ## Next steps
 
-Start configuring the components for your deployment scenario. [Learn more](site-recovery-overview.md).
+[Get ready for deployment](site-recovery-best-practices.md).
