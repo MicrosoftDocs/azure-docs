@@ -119,6 +119,20 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 ### Logic Apps
 The Logic Apps designer will be adding especially seamless integration with the new API Apps model in early 2016. That said, the HTTP connector built into Logic Apps can invoke any HTTP endpoint and supports service principal authentication, which is also supported natively by the App Service authentication services. Learn how to consume an App Service-hosted API in Logic Apps in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
+### Documentation for the previous API Apps model
+Some [azure.microsoft.com](https://azure.microsoft.com) articles that were written for the old API Apps model no longer apply to the new model and will be removed from the site. Their URLs will be redirected to the closest equivalent that works with the new model, but you can still see them in the [GitHub documentation repository for azure.microsoft.com](https://github.com/Azure/). Most of the articles you might want will be found in the [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) folder. Here are direct links to a few of the ones most likely to still be of use if you are supporting older API apps.
+
+* [Authentication overview](../app-service/authentication-overview.md)
+* [Protect an API app](../app-service-api/app-service-api-dotnet-add-authentication.md)
+* [Consume an internal API app](../app-service-api/app-service-api-dotnet-consume-internal.md)
+* [Consume using client flow authentication](../app-service-api/app-service-api-authentication-client-flow.md)
+* [Deploy and configure a SaaS connector API app](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md)
+* [Provision an API app with a new gateway](../app-service-api/app-service-api-arm-new-gateway-provision.md)
+* [Debug an API App](../app-service-api/app-service-api-dotnet-debug.md)
+* [Connect to a SaaS platform](../app-service-api/app-service-api-dotnet-connect-to-saas.md)
+* [Enhance an API App for Logic Apps](../app-service-logic/app-service-api-optimize-for-logic-apps.md)
+* [API app triggers](app-service-api-dotnet-triggers)
+
 ## Next Steps
 To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/documentation/services/app-service/api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
 
