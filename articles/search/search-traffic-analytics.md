@@ -21,8 +21,8 @@
 
 # Enabling and using Search Traffic Analytics #
 
-Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. The data includes your search service logs and aggregated operational metrics.   
-Once there, the data is yours for you to analyze and manipulate in the most convenient way for you.
+Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics.   
+Once there, you can process and manipulate the usage data in any way.
 
 
 ## How to enable Search Traffic Analytics ##
@@ -39,7 +39,7 @@ Select this option and a new blade will open. Change the Status to **On**, selec
 
 > [AZURE.IMPORTANT] The storage account needs to be in the same region and same subscription as your search service. 
 > 
-> Standard costs apply for this storage account
+> Standard charges apply for this storage account
 
 ### 2. Using PowerShell ###
 
@@ -74,7 +74,7 @@ Once enabled, the data will start flowing into your storage account within 5-10 
 
 ## Understanding the data ##
 
-The data is stored in Azure Storage blob containers in JSON files.
+The data is stored in Azure Storage blobs formatted as JSON.
 
 There will be one blob, per hour, per container.
   
@@ -82,9 +82,9 @@ Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resour
 
 ### Logs ###
 
-The logs blobs contain your search service traffic logs. Operations executed against your Azure Search service using the REST API  will appear in these files.
+The logs blobs contain your search service traffic logs.
 
-Each file has one root object called **records** that contains an array of log objects
+Each blob has one root object called **records** that contains an array of log objects
 
 Log schema
 
@@ -136,9 +136,9 @@ Metrics schema
 
 The data is in your own storage account and we encourage you to explore this data in the manner that works best for your case.
 
-As a starting point, we recommend using [PowerBI Desktop](https://powerbi.microsoft.com/en-us/desktop) to explore and visualize your data. You can easily connect to your Blob Storage Account and quickly start analyzing your data.
+As a starting point, we recommend using [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) to explore and visualize your data. You can easily connect to your Azure Storage Account and quickly start analyzing your data.
 
-To simplify this process, we present below a Sample Query that will let you start creating your own visualizations.
+Check out the following sample query that will let you create your own reports in Power BI Desktop.
 
 ### Instructions ###
 
@@ -190,6 +190,11 @@ To simplify this process, we present below a Sample Query that will let you star
 
 9. Your data is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
 
+## Next Steps ##
+
+Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) for details.
+
+Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/) for details
 
 <!--Image references-->
 
