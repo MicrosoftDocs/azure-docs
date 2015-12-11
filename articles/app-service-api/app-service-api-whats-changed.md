@@ -62,7 +62,7 @@ The API definition blade is now available across Web, Mobile and API Apps. In th
         }
     }
 
-At this time, the metadata endpoint needs to be publicly accessible without authentication for many downstream clients (e.g. Visual Studio code generation and PowerApps "Add API" flow) to consume it. This does mean if you are using App Service authentication and want to expose the API definition from within your app itself, you will need to use the Deferred Authentication option described earlier so that the route to your Swagger metadata is public.
+At this time, the metadata endpoint needs to be publicly accessible without authentication for many downstream clients (e.g. Visual Studio REST API client generation and PowerApps "Add API" flow) to consume it. This does mean if you are using App Service authentication and want to expose the API definition from within your app itself, you will need to use the Deferred Authentication option described earlier so that the route to your Swagger metadata is public.
 
 ## Management Portal
 Selecting **New > Web + Mobile > API App** in the portal will create API apps that reflect the new capabilities described in the article. **Browse > API Apps** will only show these new API apps. Once you browse into an API app, the blade shares the same layout and capabilities as those of Web and Mobile Apps. The only differences are quickstart content and ordering of settings.
@@ -77,7 +77,7 @@ With the rationalization of the App Service types, publish is also unified under
 
 ![API Apps Publish](./media/app-service-api-whats-changed/api-apps-publish.png)
 
-To learn more about SDK 2.8.1, read the announcement [blog post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-1-for-net).
+To learn more about SDK 2.8.1, read the announcement [blog post](https://azure.microsoft.com/en-us/blog/announcing-azure-sdk-2-8-1-for-net/).
 
 Alternatively, you can manually import the publish profile from the management portal to enable publish. However, Cloud Explorer, code generation and API app selection/creation will require SDK 2.8.1 or higher.
 
