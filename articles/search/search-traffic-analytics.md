@@ -60,7 +60,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccou
   You can find it in the portal in Settings -> Properties -> ResourceId 
 ```
 New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-**OR**
+OR
 Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
 ```   
 
@@ -68,7 +68,7 @@ Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/prov
 
 Once enabled, the data will start flowing into your storage account within 5-10 minutes. You will find 2 new containers in your Blob Storage:
 
-    insights-logs-operationlogs: search service traffic logs
+    insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
@@ -153,11 +153,11 @@ To simplify this process, we present below a Sample Query that will let you star
 
 4. Enter the Name and Account Key of your storage account
 5. Right click insight-logs-operationlogs and select Load
-6. The Query Editor will open. Select View -> Advanced Editor
+6. The Query Editor will open. Now open the Advanced Editor by selecting View -> Advanced Editor
 
 	![][5]
 
-7. Replace the **red** rectangle with the following query:
+7. Keep the first 2 lines and replace the rest with the following query:
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
