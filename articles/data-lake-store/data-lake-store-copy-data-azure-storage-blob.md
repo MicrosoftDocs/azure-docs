@@ -27,7 +27,7 @@ Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/down
 
 Before you begin this article, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup). 
 - **Azure Storage Blobs** container with some data.
 - **Azure Data Lake Analytics account (optional)** - See [Get started with Azure Data Lake Analytics](data-lake-analytics/data-lake-analytics-get-started-portal.md) for instructions on how to create a Data Lake Store account.
@@ -101,7 +101,7 @@ For example:
 
 * If you use the AdlCopy tool as standalone you will be billed for egress costs for moving data, if the source Azure Storage account is not in the same region as the Data Lake Store.
 
-* If you use the AdlCopy tool with your Data Lake Analytics account, standard [Data Lake Analytics billing rates](https://azure.microsoft.com/en-us/pricing/details/data-lake-analytics/) will apply. 
+* If you use the AdlCopy tool with your Data Lake Analytics account, standard [Data Lake Analytics billing rates](https://azure.microsoft.com/pricing/details/data-lake-analytics/) will apply. 
 
 ## Next steps
 
