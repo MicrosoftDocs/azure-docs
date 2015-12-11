@@ -32,7 +32,7 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-#3.2.1 (12/11/2015)
+###3.2.1 (12/11/2015)
 
 -   Fixed the delay when a new app instance is triggered by a notification with deep links 
 
