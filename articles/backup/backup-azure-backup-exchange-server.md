@@ -122,7 +122,7 @@ For online recovery points, there are five recovery types:
 
 - **Recover to original Exchange Server location:** The data will be recovered to the original Exchange server.
 - **Recover to another database on an Exchange Server:** The data will be recovered to another database on another Exchange server.
-- **Recover to a Recovery Database:** The data will be recovered to another DPM server database.
+- **Recover to a Recovery Database:** The data will be recovered to an Exchange Recovery Database (RDB).
 - **Copy to a network folder:** The data will be recovered to a network folder.
 - **Copy to tape:** If you have a tape library or a stand-alone tape drive attached and configured on the DPM server, the recovery point will be copied to a free tape.
 
