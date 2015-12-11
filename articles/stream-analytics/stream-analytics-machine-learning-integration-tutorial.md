@@ -113,7 +113,14 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
 11.	Navigate to **Query** tab and modify the query as below:  
 
-    ![stream analytics machine learning tutorial machine learning query](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-query.png)    
+    WITH subquery ASA (
+       SELECT text, sentiment(text) as result from input
+    )
+    
+    Select text, result.[Score]
+    Into output
+    From subquery
+
 
 12. Click **Save** to save the query.    
 
