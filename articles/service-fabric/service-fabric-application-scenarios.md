@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application Scenarios and Design | Microsoft Azure"
-   description="Overview of categories of cloud applications in Service Fabric. Discusses application design using stateful and stateless services."
+   pageTitle="Application scenarios and design | Microsoft Azure"
+   description="Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -34,7 +34,7 @@ The Service Fabric platform in Azure is ideal for the following categories of ap
 
 - **Data analytics and workflows**: The fast reads and writes of Service Fabric enable applications that must reliably process events or streams of data. Service Fabric also enables applications that describe processing pipelines, where results must be reliable and passed on to the next processing stage without loss. These include transactional and financial systems, where data consistency and computation guarantees are essential.
 
-## Designing applications composed of stateless and stateful microservices
+## Design applications composed of stateless and stateful microservices
 Building applications with Azure cloud service worker roles is an example of a stateless service. In contrast, stateful microservices maintain their authoritative state beyond the request and its response. This provides high availability and consistency of the state through simple APIs that provide transactional guarantees backed by replication. Service Fabric's stateful services democratize high availability, bringing it to all types of applications, not just databases and other data stores. This is a natural progression. Applications have already moved from using purely relational databases for high availability to NoSQL databases. Now the applications themselves can have their "hot" state and data managed within them for additional performance gains without sacrificing reliability, consistency, or availability.
 
 When building applications consisting of microservices, you typically have a combination of stateless web apps (ASP.NET, node.js, etc.) calling onto stateless and stateful business middle-tier services, all deployed into the same Service Fabric cluster using the Service Fabric deployment commands. Each of these services is independent with regard to scale, reliability, and resource usage, greatly improving agility in development and lifecycle management.
@@ -58,13 +58,13 @@ Also see the following topics:
 
 [Tell me about microservices](service-fabric-overview-microservices.md)
 
-[Defining and managing service state](service-fabric-concepts-state.md)
+[Define and manage service state](service-fabric-concepts-state.md)
 
 [Availability of Service Fabric services](service-fabric-availability-services.md)
 
-[Scaling Service Fabric services](service-fabric-concepts-scalability.md)
+[Scale Service Fabric services](service-fabric-concepts-scalability.md)
 
-[Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+[Partition Service Fabric services](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
