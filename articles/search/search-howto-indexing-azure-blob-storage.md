@@ -144,7 +144,7 @@ To bring this all together, here's how you can add field mappings and enable bas
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
-> [AZURE.WARNING] To learn more about field mappings, see [this article](search-indexers-customization.md).
+> [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexers-customization.md).
 
 ## Incremental indexing and deletion detection
 
