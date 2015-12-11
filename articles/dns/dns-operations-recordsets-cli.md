@@ -24,7 +24,7 @@
 
 This guide will show how to manage record sets and records for your DNS zone.
 
->[AZURE.NOTE] Azure DNS is an Azure Resource Manager (ARM)-only service.  It does not have an ASM API.  You will therefore need to ensure the Azure CLI is configured to use ARM mode, using the 'azure config mode arm' command.
+>[AZURE.NOTE] Azure DNS is an Azure Resource Manager-only service.  It does not have an ASM API.  You will therefore need to ensure the Azure CLI is configured to use Resource Manager mode, using the 'azure config mode arm' command.
 
 >If you see "error: 'dns' is not an azure command" it is most likely because you are using Azure CLI in ASM mode, not ARM mode.
 
