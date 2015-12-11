@@ -45,17 +45,26 @@ Select this option and a new blade will open. Change the Status to **On**, selec
 
 You can also enable this feature by running the following PowerShell cmdlets.
 
-    Login-AzureRmAccount
-    Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+```PowerShell
+Login-AzureRmAccount
+Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+```
 
 -   **SearchService ResourceId**:
-	`/subscriptions/<your subscription ID>/resourceGroups/<your resource group>/providers/Microsoft.Search/searchServices/<your search service name>`  
+```
+/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
+```
+
  
 -  **StorageAccount ResourceId**:
   You can find it in the portal in Settings -> Properties -> ResourceId 
- 	`New: /subscriptions/<your subscription ID>/resourcegroups/your resource group>/providers/Microsoft.Storage/storageAccounts/your storage account name>` 
+```
+New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
+``` 
  OR
-	`Classic: /subscriptions/<your subscription ID>/resourceGroups/your resource group>/providers/Microsoft.ClassicStorage/storageAccounts/<your storage account name>`   
+```
+Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
+```   
 
 ----------
 
@@ -71,7 +80,7 @@ The data is stored in Azure Storage blob containers in JSON files.
 
 There will be one blob, per hour, per container.
   
-Example path: `resourceId=/subscriptions/<your subscription ID>/resourcegroups/<your resource group name>/providers/microsoft.search/searchservices/<your search service name>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 ### Logs ###
 
@@ -80,6 +89,7 @@ The logs blobs contain your search service traffic logs. Operations executed aga
 Each file has one root object called **records** that contains an array of log objects
 
 Log schema
+
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
 |time| datetime | "2015-12-07T00:00:43.6872559Z" | the operation's timestamp |
@@ -93,6 +103,7 @@ Log schema
 | properties | object |  see below | object that contains the operation specific data|
 
 Properties schema
+
 |Name | Type | Example | Notes| 
 |------|-----|----|-----|
 |Description| string | "GET /indexes('content')/docs" | The operation endpoint |
