@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="07/29/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -92,7 +92,7 @@ Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip t
 
 To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new Custom Add Rows module.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Upload Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 The **Custom Add Rows** module is now ready to be accessed by your Machine Learning experiments.
 
