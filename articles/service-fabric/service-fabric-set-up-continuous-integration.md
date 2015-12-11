@@ -223,7 +223,7 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 ![The **Agent pools** tab of the control panel](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
 
-## Set up your Build Definition
+## Set up your build definition
 
 ### Add the continuous integration scripts to source control for your application
 
@@ -238,7 +238,7 @@ To install Azure PowerShell, please follow the steps in the previous section, **
     c.	Choose the green "**+**" sign to create a new build definition.
     d.	Choose **Empty** and then choose the **Next** button.
     e.  Verify that the right repository and branch are selected.
-    f.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** checkbox.
+    f.  Select the agent queue to which you registered your build agent, and check the **Continuous Integration** check box.
 2.	On the **Variables** tab, create the following variables with these values.
 
     |Variable|Value|Secret|Allow at Queue Time|
@@ -261,16 +261,16 @@ To install Azure PowerShell, please follow the steps in the previous section, **
     |ServiceFabricDeploymentScriptPath|`<path/to/Deploy-FabricApplication.ps1>`|||
     |ServiceFabricApplicationProjectPath|`<path/to/your/fabric/application/project/folder>` This should be the folder containing your .sfproj file.||||
 
-1.	On the **Triggers** tab, select the **Continuous Integration** and **Batch changes** options.
-1.	On the **General** tab, choose the Queue to which you registered your build agents.
-1.	Save the build definition and give it a name. (You can change this name later if you want.)
+3.	On the **Triggers** tab, select the **Continuous Integration** and **Batch changes** options.
+4.	On the **General** tab, choose the queue to which you registered your build agents.
+5.	Save the build definition and give it a name. (You can change this name later if you want.)
 
 ### Add a "Build" Step
 
 1.	On the **Build** tab, choose the **Add build step…** command."
 2.	Choose **Build** > **MSBuild**.
 3.	Choose the pencil icon by the build step's name and rename it to **Build**.
-4.	Choose the **…** button next to the **Solution** field and then choose your .sln file.
+4.	Choose the "**…**" button next to the **Solution** field and then choose your .sln file.
 5.	Enter `$(BuildPlatform)` for **Platform**.
 6.	Enter `$(BuildConfiguration)` for **Configuration**.
 7.	Select the **Restore NuGet Packages** check box (if it isn't already selected).
