@@ -265,7 +265,7 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 4.	On the **General** tab, choose the queue to which you registered your build agents.
 5.	Save the build definition and give it a name. (You can change this name later if you want.)
 
-### Add a "Build" Step
+### Add a "Build" step
 
 1.	On the **Build** tab, choose the **Add build step…** command."
 2.	Choose **Build** > **MSBuild**.
@@ -276,39 +276,39 @@ To install Azure PowerShell, please follow the steps in the previous section, **
 7.	Select the **Restore NuGet Packages** check box (if it isn't already selected).
 8.	Save the build definition.
 
-### Add a "Package" Step
+### Add a "Package" step
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 2.	Choose **Build** > **MSBuild**.
 3.	Choose the pencil icon next to the build step's name and rename it to **Package**.
-4.	Choose the **…** button next to the **Solution** field and then select your application project's .sfproj file.
+4.	Choose the "**…**" button next to the **Solution** field and then select your application project's .sfproj file.
 5.	Enter `$(BuildPlatform)` for **Platform**.
 6.	Enter `$(BuildConfiguration)` for **Configuration**.
 7.	Enter `/t:Package` for **MSBuild Arguments**.
 8.	Clear the **Restore NuGet Packages** check box (if it isn't already cleared).
 9.	Save the build definition.
 
-### Add a "Remove Cluster Resource Group" Step
+### Add a "Remove Cluster Resource Group" step
 
 If a previous build did not clean up after itself (such as if the build was cancelled before it could clean up), there may be an existing resource group that will conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before creating a new one.
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 2.	Choose **Utility** > **PowerShell**.
 3.	Choose the pencil icon next to the build step's name and then rename it to **Remove Cluster Resource Group**.
-4.	Choose the **…** command next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **Remove-ClusterResourceGroup.ps1**.
+4.	Choose the "**…**" command next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **Remove-ClusterResourceGroup.ps1**.
 5.	For **Arguments**, enter `-ServicePrincipalPassword "$(ServicePrincipalPassword)"`.
 6.	Save the build definition.
 
-### Add a "Provision and Deploy to Secure Cluster" Step
+### Add a "Provision and Deploy to Secure Cluster" step
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 2.	Choose **Utility** > **PowerShell**.
 3.	Choose the pencil icon next to the build step's name and then rename it to **Provision and Deploy to Secure Cluster**.
-4.	Choose the **…** button next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **ProvisionAndDeploy-SecureCluster.ps1**.
+4.	Choose the "**…**" button next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **ProvisionAndDeploy-SecureCluster.ps1**.
 5.	For "Arguments", enter `-ServicePrincipalPassword "$(ServicePrincipalPassword)" -ServiceFabricClusterAdminPassword "$(ServiceFabricClusterAdminPassword)"`
 6.	Save the build definition.
 
-### Add a "Remove Cluster Resource Group" Step
+### Add a "Remove Cluster Resource Group" step
 
 Now that you're done with the temporary cluster, you should clean it up. If you don't do this, you'll continue to be charged for the temporary cluster. This step removes the resource group, which removes the cluster and all other resources in the group.
 
@@ -325,7 +325,7 @@ Now that you're done with the temporary cluster, you should clean it up. If you 
 Choose the **Queue Build** command to start a build. Builds will also be triggered upon checkin.
 
 
-## Alternative Solutions
+## Alternative solutions
 
 The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, do the following steps.
 
@@ -338,6 +338,7 @@ The previous instructions create a new cluster for each build and remove it at t
 ## Next steps
 
 To learn more about continuous integration with Service Fabric applications, read the following articles.
+
 - [Build documentation home](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
 - [Deploy a build agent](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [Create and configure a build definition](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
