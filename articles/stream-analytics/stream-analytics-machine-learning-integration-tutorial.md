@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="12/14/2015" 
 	ms.author="jeffstok"
 /> 
 
@@ -114,7 +114,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 11.	Navigate to **Query** tab and modify the query as below:  
 
 ```
-	WITH subquery ASA (  
+	WITH subquery AS (  
 		SELECT text, sentiment(text) as result from input  
 	)  
 	  
