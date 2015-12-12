@@ -23,7 +23,7 @@
 This article shows you how to deploy an Azure Virtual Machine Scale Set (VMSS) using a Visual Studio Resource Group Deployment.
 
 
-[Azure Virtual Machine Scale Sets](azure.microsoft.com/en-us/blog/azure-vm-scale-sets-public-preview/) are an Azure Compute resource to deploy and manage a collection of similar virtual machines with easily integrated options for auto-scale and load balancing. You can provision and deploy VM Scale Sets using [Azure Resource Manager (ARM) Templates](https://github.com/Azure/azure-quickstart-Templates). ARM Templates can be deployed using Azure CLI, PowerShell, REST and also directly from Visual Studio. Visual Studio provides a set of example Templates which can be deployed as part of an Azure Resource Group Deployment project.
+[Azure Virtual Machine Scale Sets](azure.microsoft.com/en-us/blog/azure-vm-scale-sets-public-preview/) are an Azure Compute resource to deploy and manage a collection of similar virtual machines with easily integrated options for auto-scale and load balancing. You can provision and deploy VM Scale Sets using [Azure Resource Manager (ARM) Templates](https://github.com/Azure/azure-quickstart-templates). ARM Templates can be deployed using Azure CLI, PowerShell, REST and also directly from Visual Studio. Visual Studio provides a set of example Templates which can be deployed as part of an Azure Resource Group Deployment project.
 
 Azure Resource Group deployments are a way to group together and publish a set of related Azure resources in a single deployment operation. You can learn more about them here: [Creating and deploying Azure resource groups through Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
 
@@ -94,16 +94,16 @@ Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK
 
 ## Next steps
 
-Once you’ve successfully deployed VM Scale Sets through Visual Studio you can further customize your project to suit your application requirements. For example setting up autoscale by adding an Insights resource, adding infrastructure to your Template like standalone VMs, or deploying applications using the custom script extension. A good source of example Templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-Templates) GitHub repository (search for "vmss").
+Once you’ve successfully deployed VM Scale Sets through Visual Studio you can further customize your project to suit your application requirements. For example setting up autoscale by adding an Insights resource, adding infrastructure to your Template like standalone VMs, or deploying applications using the custom script extension. A good source of example Templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").
 
-[file_new]: ./media/virtual-machines-vmss-vsTemplates/1-FileNew.png
-[create_project]: ./media/virtual-machines-vmss-vsTemplates/2-CreateProject.png
-[select_Template]: ./media/virtual-machines-vmss-vsTemplates/3b-SelectTemplateLin.png
-[solution_explorer]: ./media/virtual-machines-vmss-vsTemplates/4-SolutionExplorer.png
-[json_explorer]: ./media/virtual-machines-vmss-vsTemplates/10-JsonExplorer.png
-[5deploy_Template]: ./media/virtual-machines-vmss-vsTemplates/5-DeployTemplate.png
-[6deploy_Template]: ./media/virtual-machines-vmss-vsTemplates/6-DeployTemplate.png
-[new_resource]: ./media/virtual-machines-vmss-vsTemplates/7-NewResourceGroup.png
-[edit_parameters]: ./media/virtual-machines-vmss-vsTemplates/8-EditParameter.png
-[output_window]: ./media/virtual-machines-vmss-vsTemplates/9-Output.png
-[cloud_explorer]: ./media/virtual-machines-vmss-vsTemplates/12-CloudExplorer.png
+[file_new]: ./media/virtual-machines-vmss-vstemplates/1-FileNew.png
+[create_project]: ./media/virtual-machines-vmss-vstemplates/2-CreateProject.png
+[select_Template]: ./media/virtual-machines-vmss-vstemplates/3b-SelectTemplateLin.png
+[solution_explorer]: ./media/virtual-machines-vmss-vstemplates/4-SolutionExplorer.png
+[json_explorer]: ./media/virtual-machines-vmss-vstemplates/10-JsonExplorer.png
+[5deploy_Template]: ./media/virtual-machines-vmss-vstemplates/5-DeployTemplate.png
+[6deploy_Template]: ./media/virtual-machines-vmss-vstemplates/6-DeployTemplate.png
+[new_resource]: ./media/virtual-machines-vmss-vstemplates/7-NewResourceGroup.png
+[edit_parameters]: ./media/virtual-machines-vmss-vstemplates/8-EditParameter.png
+[output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
+[cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
