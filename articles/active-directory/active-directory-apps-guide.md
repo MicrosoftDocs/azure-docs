@@ -79,37 +79,21 @@ You can secure sensitive apps and resources by enforcing specific security requi
 | Article Guide |   |
 | :---: | --- |
 | An introduction to the conditional access capabilities offered across Azure AD, Office365, and Intune | [Managing Risk With Conditional Access](active-directory-conditional-access.md) |
-| How to enable conditional access for the following types of resources | [Conditional Access for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Conditional Access for Apps Published via Azure AD App Proxy](active-directory-application-proxy-conditional-access.md) |
+| How to enable conditional access for the following types of resources | [Conditional Access for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](active-directory-application-proxy-conditional-access.md) |
 | How to register devices with Azure Active Directory and enable device-based conditional access policies | [Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br />— [Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />— [Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | How to use the Android version of the Azure Authenticator app for policies involving multi-factor authentication | [Azure Authenticator for Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 ##App Proxy: Enable SSO and Remote Access to On-Premises Applications
 
-[sloppy, work in progress]
+description goes here
 
-[Working with claims aware apps in Application Proxy](active-directory-application-proxy-claims-aware-apps.md)
-
-[Working with conditional access](active-directory-application-proxy-conditional-access.md)
-
-[Publish applications on separate networks and locations using Connector groups](active-directory-application-proxy-connectors.md)
-
-[Working with custom domains in Azure AD Application Proxy](active-directory-application-proxy-custom-domains.md)
-
-[Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md)
-
-[How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md) | Overview
-
-[How to enable native client apps to interact with proxy Applications](active-directory-application-proxy-native-client.md)
-
-[Publish applications using Azure AD Application Proxy](active-directory-application-proxy-publish.md) | main how to?
-
-[How to silently install the Azure AD Application Proxy Connector](active-directory-application-proxy-silent-installation.md)
-
-[Single-sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
-
-[Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md)
-
-[Enabling hybrid access with App Proxy](active-directory-appssoaccess-enable-hybrid-access.md)
+| Article Guide |   |
+| :---: | --- |
+| Overviews of how Azure AD Application Proxy works and what it's for | [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)<br /><br />[Enabling hybrid access with App Proxy](active-directory-appssoaccess-enable-hybrid-access.md) |
+| Tutorials on how to deploy an application using App Proxy | [Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md)<br /><br />[How to silently install the Azure AD Application Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Publish applications using Azure AD Application Proxy](active-directory-application-proxy-publish.md) |
+| How to enable single sign-on for apps published with Application Proxy | [Single-sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Conditional Access and Azure AD App Proxy](active-directory-application-proxy-conditional-access.md) |
+| Other | [Publish apps using your own domain name](active-directory-application-proxy-custom-domains.md)<br /><br />[How to enable native client apps to interact with proxy Applications](active-directory-application-proxy-native-client.md)<br /><br />[Working with claims aware apps in Application Proxy](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Publish applications on separate networks and locations using Connector groups](active-directory-application-proxy-connectors.md) |
+| Troubleshooting guidance for Application Proxy | [App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
 
 [Azure AD Domain Services (Preview)](active-directory-ds-overview.md)
 
