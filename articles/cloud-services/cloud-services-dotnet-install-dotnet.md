@@ -73,53 +73,55 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
 	REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
 	set netfx="NDP46"
+		
 	
-
 	REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
 	set TMP=%PathToNETFXInstall%
 	set TEMP=%PathToNETFXInstall%
-
 	
+		
 	REM ***** Setup .NET filenames and registry keys *****
 	if %netfx%=="NDP461" goto NDP461
 	if %netfx%=="NDP46" goto NDP46
 	    set netfxinstallfile="NDP452-KB2901954-Web.exe"
 	    set netfxregkey="0x5cbf5"
 	    goto logtimestamp
-	
+		
 	:NDP46
 	set netfxinstallfile="NDP46-KB3045560-Web.exe"
 	set netfxregkey="0x60051"
 	goto logtimestamp
-	
+		
 	:NDP461
 	set netfxinstallfile="NDP461-KB3102438-Web.exe"
 	set netfxregkey="0x6041f"
-	
-	
+		
 	:logtimestamp
 	REM ***** Setup LogFile with timestamp *****
 	set timehour=%time:~0,2%
 	set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
-	md %PathToNETFXInstall%\log
-	set startuptasklog=%PathToNETFXInstall%log\startuptasklog-%timestamp%.txt
-	set netfxinstallerlog=%PathToNETFXInstall%log\NetFXInstallerLog-%timestamp%
+	md "%PathToNETFXInstall%\log"
+	set startuptasklog="%PathToNETFXInstall%log\startuptasklog-%timestamp%.txt"
+	set netfxinstallerlog="%PathToNETFXInstall%log\NetFXInstallerLog-%timestamp%"
+	
 	echo Logfile generated at: %startuptasklog% >> %startuptasklog%
+	echo TMP set to: %TMP% >> %startuptasklog%
+	echo TEMP set to: %TEMP% >> %startuptasklog%
 	
 	REM ***** Check if .NET is installed *****
 	echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
 	reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release | Find %netfxregkey%
 	if %ERRORLEVEL%== 0 goto end
-	
+		
 	REM ***** Installing .NET *****
-	echo Installing .NET. Logfile: %netfxinstallerlog% >> %startuptasklog%
-	start /wait "%~dp0%netfxinstallfile%" /q /serialdownload /log %netfxinstallerlog% >> %startuptasklog% 2>>&1
-	
+	echo Installing .NET: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% >> %startuptasklog%
+	start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% >> %startuptasklog% 2>>&1
+		
 	:end
 	echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
+
 	```
 	
-
 	> [AZURE.IMPORTANT] Update the value of the *netfx* variable in the script to match the framework version you want to install. To install .NET 4.5.2 the *netfx* variable should be set to *"NDP452"*, to install .NET 4.6 the *netfx* variable should be set to *"NDP46"* and to install .NET 4.6.1 the *netfx* variable should be set to *"NDP461"*
 		
 	The install script checks whether the specified .NET framework version is already installed on the machine by querying the registry. If the .NET version is not installed then the .Net Web Installer is launched. To help troubleshoot with any issues the script will log all activity to a file named *startuptasklog-(currentdatetime).txt* stored in *InstallLogs* local storage.
