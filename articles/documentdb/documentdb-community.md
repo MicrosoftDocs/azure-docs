@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="11/05/2015"
+  ms.date="11/23/2015"
   ms.author="andrl"/>
 
 # Community portal
@@ -45,6 +45,14 @@ A client management viewer/explorer for Microsoft Azure DocumentDB service.
 Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 
+### DoQmentDB
+
+*by Ariel Mashraki*
+
+DoQmentDB is a Node.js promise-based client, that provide a MongoDB-like layer on top of DocumentDB.
+
+Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
+
 <br/><br/>
 
 *Find more open source DocumentDB projects on [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -62,6 +70,16 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 <br/>
 
 **Community posts:**
+
+* [**Data Points - Aurelia Meets DocumentDB: A Matchmaker’s Journey**](https://msdn.microsoft.com/magazine/mt620011.aspx) - *by Julie Lerman*
+
+* [**Infrastructure as Code and Continuous Deployment of a Node.js + Azure DocumentDB Solution**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) - *by Thiago Almedia*
+
+* [**Why DocumentDb Makes Good Business Sense for Some Projects**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) - *by Samuel Uresin*
+
+* [**Azure DocumentDB の開発ことはじめ - Client クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
+
+* [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) - *by Atsushi Yokohama*
 
 * [**Dealing with RequestRateTooLarge errors in Azure DocumentDB and testing performance**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *by Azim Uddin*
 
@@ -89,7 +107,6 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                      | Location             | Date                | Hashtag |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [Integration User Group](http://www.integrationusergroup.com/)                  | Webinar              | November 9, 2015    | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/)            | Montreal, QC, Canada | December 1, 2015    | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
 *Are you hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -98,6 +115,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Location             | Date                   | Recording |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/)                                                     | Seattle, WA          | November 12, 2015      | n/a |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp)                                                            | Seattle, WA          | October 27-30, 2015    | n/a |
 | [CloudDevelop 2015](http://www.clouddevelop.org/)                                                                          | Columbus, OH         | October 23, 2015       | n/a |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx)                                            | Sofia, Bulgaria      | October 10, 2015       | n/a |
@@ -125,6 +143,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Show                                        | Date               | Episode |
 | ------------------------------------------- | ------------------ | ------- |
+| Integration User Group                      | November 9, 2015   | [Azure DocumentDB for Healthcare Integration – Part 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group                      | October 5, 2015    | [Azure DocumentDB for Healthcare Integration](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | DX Italy - #TecHeroes                       | October 2, 2015    | [#TecHeroes - DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
 | Microsoft Cloud Show - Podcast              | September 30, 2015 | [Episode 099 - Azure DocumentDB with Andrew Liu](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
@@ -214,3 +233,17 @@ These projects are actively developed by the Azure DocumentDB team in collaborat
 | Documentation       | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb)           | [Documentation website](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop Connector    | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop)                       | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Data migration tool | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft download center](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+
+<hr/>
+
+## DocumentDB Wizards
+
+<hr/>
+
+DocumentDB Wizards are community leaders who’ve demonstrated an exemplary commitment to helping others get the most out of their experience with Azure DocumentDB. They share their exceptional passion, real-world knowledge, and technical expertise with the community and with the DocumentDB team.
+
+|                                                                                                                                                                    |                                                                                                                                                                    |                                                                                                                                                                    |                                                                                                                                                                    |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Allan Mitchell](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Allan Mitchell](https://twitter.com/allansqlis) | [![Jen Stirrup](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Jen Stirrup](https://twitter.com/jenstirrup)          | [![Lenni Lobel](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Lenni Lobel](https://twitter.com/lennilobel)          | [![Mihail Mateev](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Mihail Mateev](https://twitter.com/mihailmateev)|
+
+Want to become a DocumentDB Wizard? While there is no benchmark for becoming a DocumentDB Wizard, some of the criteria we evaluate include the impact of a nominee’s contributions to online forums such as StackOverflow and MSDN; wikis and online content; conferences and user groups; podcasts, Web sites, blogs and social media; and articles and books. You can nominate yourself or someone else by [sending us an email](mailto:askdocdb@microsoft.com).

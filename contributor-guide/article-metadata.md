@@ -89,6 +89,7 @@ In articles that specify both a services value and a documentationCenter value, 
 - multi-factor-authentication
 - notification-hubs
 - operational-insights
+- powerapps
 - recovery-manager
 - redis-cache
 - remoteapp
@@ -179,6 +180,7 @@ In articles that specify both a services value and a documentationCenter value, 
  - **na**: The page does not apply to any services (rare)
  - **notification-hubs**
  - **operational-insights**
+ - **powerapps**
  - **recovery-manager**
  - **redis-cache**
  - **remoteapp**

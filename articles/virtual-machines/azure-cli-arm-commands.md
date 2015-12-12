@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Use the Azure CLI with Resource Manager | Microsoft Azure"
 	description="Learn about using the Azure CLI for Mac, Linux, and Windows to manage Azure resources using the CLI in Azure Resource Manager mode."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure preview portal.
+This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure portal.
 
 Azure Resource Manager enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit. You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation. You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging, and production.
 
@@ -45,16 +45,16 @@ The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
 - an Azure account ([get a free trial here](http://azure.microsoft.com/pricing/free-trial/))
 - [installing the Azure CLI](../xplat-cli-install.md)
-- [configuring the Azure CLI](../xplat-cli-connect.md) to use an Azure Active Directory identity or a Service Principal
+
 
 Once you have an account and have installed the Azure CLI, you must
 
-- switch to the Resource Manager mode by typing `azure config mode arm`.
-- Log in to your Azure account by typing `azure login` and using your work or school identity at the prompts
+- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity 
+- switch to the Resource Manager mode by typing `azure config mode arm`
 
 
-## azure account: Manage your account information and publish settings
-Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
+## azure account: Manage your account information
+Your Azure subscription information is used by the tool to connect to your account.
 
 **List the imported subscriptions**
 
@@ -1253,6 +1253,7 @@ Creates a public ip resource. You will create the public ip resource and associa
 
 
 Parameter options:
+
 	-h, --help                                   output usage information
 	-v, --verbose                                use verbose output
 	--json                                       use json output

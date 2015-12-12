@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -29,7 +29,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 ## Prerequisites
 
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
 ## Create a .NET application
@@ -65,7 +65,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 
 7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters in the code snippet. 
 
-	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;

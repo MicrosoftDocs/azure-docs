@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="11/28/2015"
    ms.author="tomfitz"/>
 
 # Managing access to resources
@@ -26,10 +26,21 @@ This topic focuses on the commands you use to assign roles and permissions. For 
 
 There are a few key concepts about role-based access control for you to understand:
 
-1. Principal - the entity granted permission, such as a user, security group, or application.
-2. Role - set of permitted actions
-3. Scope - the level a role applies to, such as the subscription, resource group, or resource.
-3. Role Assignment - the process of adding a principal to a role and setting the scope.
+1. Principal - the entity granted permission, such as a Azure Active Directory user, security group, or application.
+2. Role - a set of permitted and excluded actions.
+3. Action - an action that is performed against a resource (eg. read, create). 
+4. Scope - the level a role applies to, such as the subscription, resource group, or resource.
+5. Role Assignment - the process of associating a principal to a role, and setting the scope.
+
+You can get a list of supported **Actions** using the Azure cross-platform (xPlat) CLI tool or the Azure PowerShell module.
+
+For the Azure cross-platform CLI tool, use the following command to list **all** actions, for all Resource Providers.
+
+    azure provider operations show --operationSearchString '*';
+
+If you're using the Azure Resource Manager PowerShell module (AzureRm), use the following command to list **all** actions, for **all** Resource Providers.
+
+    Get-AzureRmProviderOperation -OperationSearchString *;
 
 ## Role examples
 To understand RBAC concepts, let's look at some examples of common role definitions:

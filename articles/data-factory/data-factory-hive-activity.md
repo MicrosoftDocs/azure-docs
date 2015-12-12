@@ -216,9 +216,6 @@ To use parameterize Hive script, do the following
 
 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-hive-activity.md).
-
 
 
 

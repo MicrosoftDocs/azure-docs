@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Service Fabric application deployment"
+   pageTitle="Service Fabric application deployment | Microsoft Azure"
    description="How to deploy and remove applications in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -14,23 +14,23 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.author="seanmck"/>
 
 # Deploy an application
 
-Once an [application type has been packaged][10], it's ready for deployment into a Service Fabric cluster. Deployment involves the following three steps:
+Once an [application type has been packaged][10], it's ready for deployment into an Azure Service Fabric cluster. Deployment involves the following three steps:
 
 1. Uploading the application package
 2. Registering the application type
 3. Creating the application instance
 
->[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically by invoking the PowerShell scripts found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
+>[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically through the PowerShell scripts found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
 
 ## Upload the application package
 
-Uploading the application package puts it in a location accessible by internal Service Fabric components and can be performed through PowerShell. Before running any PowerShell commands in this article, always start by first connecting to the Service Fabric cluster using **Connect-ServiceFabricCluster**.
+Uploading the application package puts it in a location that's accessible by internal Service Fabric components. You can use PowerShell to perform the upload. Before you run any PowerShell commands in this article, always start by using **Connect-ServiceFabricCluster** to connect to the Service Fabric cluster.
 
-Suppose you have a folder named *MyApplicationType* containing the necessary application manifest, service manifest(s), and code/config/data package(s), then the **Copy-ServiceFabricApplicationPackage** command will upload the package. For example:
+Suppose you have a folder named *MyApplicationType* that contains the necessary application manifest, service manifest(s), and code/config/data package(s). The **Copy-ServiceFabricApplicationPackage** command will upload the package. For example:
 
 ~~~
 PS D:\temp> dir
@@ -67,7 +67,7 @@ PS D:\temp>
 
 ## Register the application package
 
-Registering the application package, makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the previous step, verify the package (equivalent to running **Test-ServiceFabricApplicationPackage** locally), process the package contents, and copy the processed package to an internal system location.
+Registering the application package makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the previous step, verify the package (equivalent to running **Test-ServiceFabricApplicationPackage** locally), process the package contents, and copy the processed package to an internal system location.
 
 ~~~
 PS D:\temp> Register-ServiceFabricApplicationType MyApplicationType
@@ -82,13 +82,13 @@ DefaultParameters      : {}
 PS D:\temp>
 ~~~
 
-The **Register-ServiceFabricApplicationType** command  returns only after the application package has been successfully copied by the system. How long this takes depends on the contents of the application package. The **-TimeoutSec** parameter can be used to supply a longer timeout if needed (the default timeout is 60 seconds).
+The **Register-ServiceFabricApplicationType** command returns only after the system has successfully copied the application package. How long this takes depends on the contents of the application package. The **-TimeoutSec** parameter can be used to supply a longer timeout if needed. (The default timeout is 60 seconds.)
 
-The **Get-ServiceFabricApplicationType** command will list all successfully registered application type versions.
+The **Get-ServiceFabricApplicationType** command lists all successfully registered application type versions.
 
 ## Create the application
 
-An application can be instantiated using any application type version that has been registered successfully using the **New-ServiceFabricApplication** command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. If there were any default services defined in the application manifest of the target application type, then those will also be created at this time.
+You can instantiate an application by using any application type version that has been registered successfully through the **New-ServiceFabricApplication** command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. If any default services were defined in the application manifest of the target application type, then those will also be created at this time.
 
 ~~~
 PS D:\temp> New-ServiceFabricApplication fabric:/MyApp MyApplicationType AppManifestVersion1
@@ -120,7 +120,7 @@ HealthState            : Ok
 PS D:\temp>
 ~~~
 
-The **Get-ServiceFabricApplication** command lists all applications instances that were successfully created along with their overall status.
+The **Get-ServiceFabricApplication** command lists all application instances that were successfully created, along with their overall status.
 
 The **Get-ServiceFabricService** command lists all service instances that were successfully created within a given application instance. Default services (if any) will be listed here.
 
@@ -128,7 +128,7 @@ Multiple application instances can be created for any given version of a registe
 
 ## Remove an application
 
-When an application instance is no longer needed, it can be permanently removed using the **Remove-ServiceFabricApplication** command. This will automatically remove all services belonging to the application as well, permanently removing all service state. This operation cannot be reversed and application state cannot be recovered.
+When an application instance is no longer needed, you can permanently remove it by using the **Remove-ServiceFabricApplication** command. This command will automatically remove all services that belong to the application as well, permanently removing all service state. This operation cannot be reversed, and application state cannot be recovered.
 
 ~~~
 PS D:\temp> Remove-ServiceFabricApplication fabric:/MyApp
@@ -142,7 +142,7 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
-When a particular version of an application type is no longer needed, it should be unregistered using the **Unregister-ServiceFabricApplicationType** command. Unregistering unused types will release storage space used by the application package contents of that type on the Image Store. An application type can be unregistered as long as there are no applications instantiated against it or pending application upgrades referencing it.
+When a particular version of an application type is no longer needed, you should unregister it by using the **Unregister-ServiceFabricApplicationType** command. Unregistering unused types will release storage space used by the application package contents of that type on the image store. An application type can be unregistered as long as no applications are instantiated against it and no pending application upgrades are referencing it.
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationType
@@ -185,7 +185,7 @@ TODO [Upgrade applications][11]
 
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
 
-The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the **Get-ServiceFabricClusterManifest** command:
+The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find this in the cluster manifest retrieved through the **Get-ServiceFabricClusterManifest** command:
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -213,9 +213,9 @@ PS D:\temp>
 
 ## Next steps
 
-[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
+[Service Fabric application upgrade](service-fabric-application-upgrade.md)
 
-[Service Fabric Health Introduction](service-fabric-health-introduction.md)
+[Service Fabric health introduction](service-fabric-health-introduction.md)
 
 [Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
 
@@ -224,4 +224,3 @@ PS D:\temp>
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
- 

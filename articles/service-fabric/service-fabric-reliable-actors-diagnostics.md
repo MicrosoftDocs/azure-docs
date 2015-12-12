@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors Diagnostics and Performance Monitoring"
-   description="This article describes the diagnostics and performance monitoring features in the Reliable Actors runtime, including the events and performance counters emitted by it."
+   pageTitle="Actors diagnostics and monitoring | Microsoft Azure"
+   description="This article describes the diagnostics and performance monitoring features in Service Fabric's Reliable Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # Diagnostics and Performance Monitoring for Reliable Actors
 Reliable Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) that provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
-The EventSource name for Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
+The EventSource provider name for Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
 Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 

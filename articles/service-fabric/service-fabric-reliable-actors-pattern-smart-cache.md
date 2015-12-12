@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Reliable Actors design pattern: smart cache
@@ -55,7 +55,7 @@ Next, we implement this interface and use the latter option and encapsulate this
 ## Smart Cache code sample – Leaderboard actor
 
 ```
-public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
+public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 {
     // Specialised collection, could be part of the actor
 
@@ -181,7 +181,7 @@ Finally, we implement the IJobQueue interface in the actor. Note that we omitted
 ## Smart Cache code sample – Job Queue
 
 ```
-public class JobQueue : Actor<List<Jobs>>, IJobQueue
+public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
 {
 
     public override Task OnActivateAsync()

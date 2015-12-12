@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect sync - Implement password synchronization | Microsoft Azure"
+	pageTitle="Azure AD Connect sync: Implement password synchronization | Microsoft Azure"
 	description="Provides you with the information you need to understand how password synchronization works and how to enable it in your environment."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -44,6 +44,8 @@ Passwords are synchronized more frequently than the standard directory synchroni
 When you first enable the password synchronization feature, it will perform an initial synchronization of the passwords of all in-scope users from your on-premises Active Directory to Azure Active Directory. You cannot explicitly define the set of users that will have their passwords synchronized to the cloud. Subsequently, when a password has been changed by an on-premises user, the password synchronization feature detects and synchronizes the changed password, most often in a matter of minutes. The password synchronization feature automatically retries failed user password syncs. If an error occurs during an attempt to synchronize a password the error is logged in your event viewer.
 
 The synchronization of a password has no impact on currently logged on users. If a user that is logged into a cloud service also changes the on-premise password, the cloud service session will continue uninterrupted. However, as soon as the cloud service requires the user to re-authenticate, the new password needs to be provided. At this point, the user is required to provide the new password – the password that has been recently synchronized from the on-premise Active Directory to the cloud.
+
+> [AZURE.NOTE] Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
 
 ### How password synchronization works with Azure AD Domain Services
 
@@ -128,10 +130,12 @@ The status column can have the following values which also indicates the issue a
 
 | Status | Description |
 | ---- | ----- |
-| Success | Password has been successfully synchronized       |
-| SourceConnectorNotPresent | No object found in the on-prem Active Directory connector space |
-| NoTargetConnection | No object in the metaverse or in the Azure AD connector space |
-| TargetNotExportedToDirectory | The object in the Azure AD connector space has not yet been exported |
+| Success | Password has been successfully synchronized. |
+| FilteredByTarget | Password is set to **User must change password at next logon**. Password has not been synchronized. |
+| NoTargetConnection | No object in the metaverse or in the Azure AD connector space. |
+| SourceConnectorNotPresent | No object found in the on-premises Active Directory connector space. |
+| TargetNotExportedToDirectory | The object in the Azure AD connector space has not yet been exported. |
+| MigratedCheckDetailsForMoreInfo | Log entry was created before build 1.0.9125.0 and is shown in its legacy state. |
 
 
 ### Trigger a full sync of all passwords

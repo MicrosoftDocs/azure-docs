@@ -59,8 +59,10 @@ Data Contract is the recommended solution for ensuring your data is compatible. 
 
 ## Next steps
 
-[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
+[Service Fabric Application Upgrade using Visual Studio](service-fabric-application-upgrade.md)
+
+[Service Fabric Application Upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md)
+[Manual Upgrade and Upgrading with a Diff Package](service-fabric-application-upgrade-advanced.md)

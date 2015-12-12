@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,11 +87,7 @@ Given the above information we know that the only performance impact that Traffi
 
 [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md)
 
-[What is Traffic Manager?](../traffic-manmager-overview.md)
-
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
 

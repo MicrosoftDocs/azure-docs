@@ -140,5 +140,5 @@ Version checking is included in following server SDK versions:
 
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrate a Mobile Service to Azure App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate a Mobile Service to Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
 

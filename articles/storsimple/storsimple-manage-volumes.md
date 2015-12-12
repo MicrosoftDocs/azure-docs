@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
@@ -21,7 +21,7 @@
 
 This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device.
 
-The StorSimple Manager service is an extension of the Azure Portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
+The StorSimple Manager service is an extension of the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
 > [AZURE.NOTE] Azure StorSimple can create thinly provisioned volumes only. You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.
 >
@@ -65,21 +65,21 @@ You [created a volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-v
 
 3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes/AddVolume1.png)
 
 4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
   1. Supply a **Name** for your volume.
   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The capacity must be between 1 GB and 64 TB for a physical device. The maximum capacity that can be provisioned for a volume on a StorSimple virtual device is 30 TB.
-  3. From the drop-down list, select the **Usage Type** for your volume. Choose **Archival Volume** if you are working with less frequently accessed archival data. For all other use cases, select **Tiered Volume**. (Tiered volumes were formerly called primary volumes.)
+  3. From the drop-down list, select the **Usage Type** for your volume. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes.)
   5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
-     ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+        ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
    
 5. Under **Additional Settings**, add a new access control record (ACR):
   
   1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record.
-  2. Under **Default backup for this volume**, we recommend that you enable a default backup by selecting the **Enable** check box.
+  2. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box.
    3. Click the check icon ![Check icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png) to create the volume with the specified settings.
 
 Your new volume is now ready to use.
@@ -113,9 +113,9 @@ Modify a volume when you need to expand it or change the hosts that access the v
   - Modify the ACRs, provided that the volume is offline. If the volume is online, you will need to take it offline first. Refer to the steps in [Take a volume offline](#take-a-volume-offline) prior to modifying the ACR.
   - Modify the list of ACRs after the volume is offline.
  
-    > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
+    > [AZURE.NOTE] You cannot change the **Enable a default backup for this volume** option for the volume.
 
-6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
 7. If you are expanding a volume, complete the following steps on your Windows host computer:
 

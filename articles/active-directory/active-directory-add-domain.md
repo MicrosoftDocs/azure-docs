@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add your own domain name to Azure AD | Microsoft Azure"
-	description="A topic that explains how to add your own domain name to Azure AD and related info."
+	pageTitle="Add your own domain name to Azure Active Directory | Microsoft Azure"
+	description="Explains how to add your own domain name to Azure Active Directory, and other related information."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Add your own domain name to Azure AD
+# Add your own domain name to Azure Active Directory
 
-When you sign up for a Microsoft cloud service, you are issued a domain name that has the following format: contoso.onmicrosoft.com. You can continue to use that initial domain name, or you can add your own custom domain name to the cloud service. This topic explains how to add your own domain name and related information.
+When you sign up for a Microsoft cloud service, you are issued a domain name that has the following format: contoso.onmicrosoft.com. You can continue to use that initial domain name, or you can add your own custom domain name to the cloud service. This topic explains how to add your own domain name and related information to Azure Active Directory (Azure AD).
 
 Office 365 users may be interested in these related topics:
 
@@ -38,9 +38,9 @@ After you choose the name to use with the cloud service during signup, such as c
 
 If your organization already has a custom domain name, as an administrator, you can add it to your Azure AD directory to use with all of the Microsoft online services that you have subscribed to. After you've added your domain name to Azure AD, you can start associating your domain name with your various cloud services.
 
-You can add up to 900 domain names to your Azure AD tenant by using, either:
+You can add up to 900 domain names to your Azure AD directory by using, either:
 
-- The Azure Management Portal, the Office 365 portal, or the Microsoft Intune portal.
+- The Azure classic portal, the Office 365 portal, or the Microsoft Intune portal.
 - The Azure Active Directory Module for Windows PowerShell. For more information about which cmdlet you can use for this, see [Manage domains in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 You must have already registered a domain name and have the sign-in credentials needed for your domain name registrar (for example, Go Daddy or Register.com).
@@ -52,13 +52,13 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 > [AZURE.NOTE]
 > Using Office 365? Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name. You can also use your domain name for a public-facing website hosted on SharePoint Online.
 
-- [Add and verify a domain using the Azure Management Portal](#add-and-verify-a-domain-using-the-azure-management-portal)
+- [Add and verify a domain using the Azure classic portal](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [Edit DNS records for your cloud services](#edit-dns-records-for-your-cloud-services)
 - [Verify a domain at any domain name registrar](#verify-a-domain-at-any-domain-name-registrar)
 
-### Add and verify a domain using the Azure Management Portal
+### Add and verify a domain using the Azure classic portal
 
-1. In the portal, click **Active Directory**, and then click on the name of your organization's directory.You can do one of the following:
+1. In the Azure classic portal, click **Active Directory**, and then click on the name of your organization's directory.You can do one of the following:
     1. On the default directory page, click **Add Domain** in the **Improve user sign-in experience **section.
     2. Click **Domains** and then click either **Add a customer domain** or the **Add** button.
 2. On the **Add domain** page, type the domain name that you want to add and the do one of the following:
@@ -82,7 +82,7 @@ After you add and verify your custom domain name, the next step is to edit the D
 
 If you've just completed the **Add a domain** wizard, click **Configure DNS records**. Otherwise, follow these steps.
 
-1. In the portal, in the left pane, click **Domains**.
+1. In the Azure classc portal, in the left pane, click **Domains**.
 2. Depending on which portal you are using, click the domain name that you want to set up, and then click either **DNS settings** or **View DNS settings**. The **DNS settings** page lists the DNS records for the cloud service.
 
     If you want to configure a service that you don't see on the DNS settings tab, verify your domain services selections to make sure you've chosen that service for this domain name. To change the settings, for example, to add Lync Online, see Specify the services you'll use with your domain.
@@ -113,9 +113,9 @@ If you are using Microsoft Intune or the Azure Account Portal:
 
 4. From the table, copy or record the **Destination or Points to Address** information.
 
-If you are using the Management Portal:
+If you are using the Azure classic portal:
 
-1. In the portal, click **Active Directory**, click the name of your directory, click **Domains**.
+1. In the Azure classic portal, click **Active Directory**, click the name of your directory, and then click **Domains**.
 2. On the **Domains** page, in the list of domain names, click the domain that you want to verify, and then click **Verify**.
 2. On the **Verify** page, in the **Record Type** drop-down list, choose either **TXT record** or **MX record**.
 3. Copy or record the information under it.
@@ -146,7 +146,7 @@ After you create either the TXT record or the MX record and sign out of the webs
 
 After the record that you created for your domain has propagated successfully through the DNS system, do the following to finish verifying your domain with Azure AD.
 
-1. In the portal, click **Domains**.
+1. In Azure Active Directory in the Azure classic portal, click **Domains**.
 2. In the **Domains** list, find the domain that you're verifying, and then based on the portal you are using, click either **Click to verify domain** or **Verify**.
 3. Follow the instructions provided to complete the verification process.
     - If domain verification succeeds, you will be notified that your domain has been added to your account.
@@ -160,7 +160,7 @@ After you've verified your domain, you can configure your domain to work with yo
 
 After you add your domain name to Azure AD, you can change the domain name that should show as the default when you create a new user account. To do this, follow these steps.
 
-1. On the portal page, in the top left corner, click your organization name.
+1. In the Azure classic portal, in the top left corner, click your organization name.
 2. Click **Edit**.
 3. Choose a new default domain name, such as the custom domain name that you added.
 
@@ -176,7 +176,7 @@ Before you remove a domain name, we recommend that you read the following inform
 
 To remove a domain name:
 
-1. On the portal page, in the left pane, click **Domains**.
+1. In Azure AD in the Azure classic portal, in the left pane, click **Domains**.
 2. On the **Domains** page, select the domain name that you want to remove, and then click **Remove domain**.
 3. On the **Remove domain** page, click **Yes**.
 
@@ -200,7 +200,7 @@ In addition, the settings information must be exactly correct on the domain regi
 
 ### I can't verify my domain name. How can I find out what's wrong?
 
-One way to track down issues is to use the domains troubleshooting wizard. To start the wizard, do the following: In the cloud service portal, on the Admin page, click **Domains**, and then double-click the domain name that you want to verify. Then, under **Troubleshooting**, click **Troubleshoot domain**.
+One way to track down issues is to use the domains troubleshooting wizard. To start the wizard, do the following: In the Azure classic portal, on the Admin page, click **Domains**, and then double-click the domain name that you want to verify. Then, under **Troubleshooting**, click **Troubleshoot domain**.
 
 The troubleshooting wizard asks you for information about where you are in the verification process, and then provides you with information to help you complete the verification.
 

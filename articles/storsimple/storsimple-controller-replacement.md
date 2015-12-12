@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/10/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device
@@ -37,7 +37,7 @@ The following table shows the supported controller replacement scenarios.
 |3|Controllers from the same device or from different devices are swapped. The chassis, disks, and disk enclosures are healthy.|A slot mismatch alert message will appear.|
 |4|One controller is missing and the other controller fails.|[Dual controller replacement](#replace-both-controllers), which describes the [logic behind a dual controller replacement](#dual-controller-replacement-logic), as well as the [replacement steps](#dual-controller-replacement-steps).|
 |5|One or both controllers have failed. You cannot access the device through the serial console or Windows PowerShell remoting.|[Contact Microsoft Support](storsimple-contact-microsoft-support.md) for a manual controller replacement procedure.|
-|6|The controllers have a different build version, which may be due to:<ul><li>Controllers have a different software version.</li><li>Controllers have a different firmware version.</li></ul>|If the controller software versions are different, the replacement logic detects that and updates the software version on the replacement controller.<br><br>If the controller firmware versions are different and the old firmware version is **not** automatically upgradeable, an alert message will appear in Management Portal. You should scan for updates and install the firmware updates.</br></br>If the controller firmware versions are different and the old firmware version is automatically upgradeable, the controller replacement logic will detect this, and after the controller starts, the firmware will be automatically updated.|
+|6|The controllers have a different build version, which may be due to:<ul><li>Controllers have a different software version.</li><li>Controllers have a different firmware version.</li></ul>|If the controller software versions are different, the replacement logic detects that and updates the software version on the replacement controller.<br><br>If the controller firmware versions are different and the old firmware version is **not** automatically upgradeable, an alert message will appear in the Azure classic portal. You should scan for updates and install the firmware updates.</br></br>If the controller firmware versions are different and the old firmware version is automatically upgradeable, the controller replacement logic will detect this, and after the controller starts, the firmware will be automatically updated.|
 
 You need to remove a controller module if it has failed. One or both the controller modules can fail, which can result in a single controller replacement or dual controller replacement. For replacement procedures and the logic behind them, see the following:
 
@@ -75,7 +75,7 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 #### To remove a single failed controller module
 
-1. In the Management Portal of the StorSimple Manager service, click the **Devices** tab, and then click the name of the device that you want to monitor.
+1. In the Azure classic portal of the StorSimple Manager service, click the **Devices** tab, and then click the name of the device that you want to monitor.
 
 2. Click the **Maintenance** tab, and then navigate to **Hardware Status**. The status of either Controller 0 or Controller 1 should be red, which indicates a failure.
 
@@ -102,7 +102,7 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 7. While the single controller replacement logic progresses in the background, reconnect the cables. Take care to connect all the cables exactly the same way that they were connected before the replacement.
 
-8. After the controller restarts, check the **Controller status** and the **Cluster status** in the Management Portal to verify that the controller is back to a healthy state and is in standby mode.
+8. After the controller restarts, check the **Controller status** and the **Cluster status** in the Azure classic portal to verify that the controller is back to a healthy state and is in standby mode.
 
 >[AZURE.NOTE] If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu is presented, then you know that the replacement is complete. If the menu does not appear within two hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
@@ -214,13 +214,13 @@ Use the following procedure to install a factory-supplied controller module afte
 
     >[AZURE.NOTE] It can take up to 5 minutes for the controller and the LED to activate.
 
-5. To verify that the replacement is successful, in the Management Portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and make sure that both controller 0 and controller 1 are healthy (status is green).
+5. To verify that the replacement is successful, in the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and make sure that both controller 0 and controller 1 are healthy (status is green).
 
 ## Identify the active controller on your device
 
 There are many situations, such as first-time device registration or controller replacement, that require you to locate the active controller on a StorSimple device. The active controller processes all the disk firmware and networking operations. You can use any of the following methods to identify the active controller:
 
-- [Use the Management Portal to identify the active controller](#use-the-management-portal-to-identify-the-active-controller)
+- [Use the Azure classic portal to identify the active controller](#use-the-azure-classic-portal-to-identify-the-active-controller)
 
 - [Use Windows PowerShell for StorSimple to identify the active controller](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
 
@@ -228,13 +228,13 @@ There are many situations, such as first-time device registration or controller 
 
 Each of these procedures is described next.
 
-### Use the Management Portal to identify the active controller
+### Use the Azure classic portal to identify the active controller
 
 In the Management Portal, navigate to **Devices** > **Maintenance**, and scroll to the **Controllers** section. Here you can verify which controller is active.
 
 ![Identify active controller in Management Portal](./media/storsimple-controller-replacement/IC752072.png)
 
-**Figure 6** Management Portal showing active controller
+**Figure 6** Azure classic portal showing the active controller
 
 ### Use Windows PowerShell for StorSimple to identify the active controller
 

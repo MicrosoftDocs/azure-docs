@@ -369,7 +369,7 @@ You can link an Azure storage account to an Azure data factory using an Azure St
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to: **AzureStorage** | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Portal. | Yes |
+| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Classic Portal. | Yes |
 
 ## Azure Blob Dataset type properties
 
@@ -504,20 +504,6 @@ false | mergeFiles | <p>For a source folder Folder1 with the following structure
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
-
-
-
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
-
-
-
-
-
-
-
-
-
 
 
 
