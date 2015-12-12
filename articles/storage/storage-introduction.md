@@ -63,10 +63,10 @@ You can get started with Azure with a [free trial](http://azure.microsoft.com/pr
 
 A standard storage account gives you access to Blob storage, Table storage, Queue storage, and File storage:
 
-- **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
-- **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-- **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
-- **File storage** offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API. 
+- **Blob Storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. Blob Storage is sometimes referred to as Object storage. 
+- **Table Storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
+- **Queue Storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
+- **File Storage** offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API. 
 
 Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about standard storage account capacity.
 

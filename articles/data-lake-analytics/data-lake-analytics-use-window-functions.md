@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -610,7 +610,7 @@ There are 6 rows in the partition where partition key is “Web” (4th row and 
 - There are 5 rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
 - There are 4 rows with the value equal or lower than 300, so the CUME_DIST equals to 5/6=0.66
 - There are 3 rows with the value equal or lower than 200, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
-- There is 1 row with the value equal or lower than 100, so the CUME_DIST equals to 1/6=1. 
+- There is 1 row with the value equal or lower than 100, so the CUME_DIST equals to 1/6=0.16. 
 
 
 **Usage notes:**

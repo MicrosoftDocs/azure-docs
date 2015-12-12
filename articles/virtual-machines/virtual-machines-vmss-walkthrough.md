@@ -159,7 +159,7 @@ Specify schema, and content version:
 
 As with any Azure Resource Manager (ARM) template this section defines parameters which are specified at deployment time, including in this example the name of your VM scale set, the number of VM instances to start with, a unique string to use when creating storage accounts (always use lowercase when you enter values for objects like storage accounts unless you know how case is treated).:
 
-```
+````
  "parameters": {
 
     "vmSSName": {
@@ -215,7 +215,7 @@ As with any Azure Resource Manager (ARM) template this section defines parameter
     }
 
   },
-```
+````
 
 ### Variables
 
@@ -223,7 +223,7 @@ A standard ARM template component which defines variables you will reference lat
 
 Note that an array of unique strings is defined for a storage account prefix. See the Storage section for an explanation.
 
-```
+````
   "variables": {
 
     "apiVersion": "2015-06-15",
@@ -281,22 +281,22 @@ Note that an array of unique strings is defined for a storage account prefix. Se
     "imageReference": "[variables('osType')]"
 
   },
-```
+````
 
 ### Resources
 
 In this section each resource type is defined.
 
-```
+````
    "resources": [
-```
+````
 
 
 **Storage.** When you create a VM scale set you specify an array of storage accounts. The OS disks for VM instances will then be distributed evenly between each account. In the future VM scale sets will switch to using a managed disk approach where you don't have to manage storage accounts and instead just describe the storage properties as part of the scale set definition. For now, you will need to create as many storage accounts as you need in advance. We recommend creating 5 storage accounts, which will comfortably support up to 100 VMs in a scale set (the current maximum).
 
 When a set of storage accounts are created, they are distributed across partitions in a storage stamp, and the distribution scheme depends on the first letters of the storage account name. For this reason, for optimal performance it is recommended that each storage account you create starts with a different letter, spread out across the alphabet. You can name this manually, or for this example use the uniqueString() function to provide a pseudo-random distribution:
 
-```
+````
     {
 
       "type": "Microsoft.Storage/storageAccounts",
@@ -322,11 +322,11 @@ When a set of storage accounts are created, they are distributed across partitio
       }
 
     },
-```
+````
 
 **Virtual Network.** Create a VNET. Note you can have multiple scale sets, as well as single VMs in the same VNET.
 
-```
+````
     {
 
       "type": "Microsoft.Network/virtualNetworks",
@@ -368,7 +368,7 @@ When a set of storage accounts are created, they are distributed across partitio
       }
 
     },
-```
+````
 
 ### The virtualMachineScaleSets Resource
 
@@ -376,7 +376,7 @@ In many respects the _virtualMachineScaleSets_ resource is like a _virtualMachin
 
 Note how the _dependsOn_ section references the storage accounts and VNET created above, and the capacity references the _instanceCount_ parameter.
 
-```
+````
     {
 
       "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -412,13 +412,13 @@ Note how the _dependsOn_ section references the storage accounts and VNET create
         "capacity": "[parameters('instanceCount')]"
 
       },
-```
+````
 
 **Properties**
 
 VM Scale Sets have an upgradePolicy setting. Future versions will support sliced updates (e.g. change the configuration for 20% of my VMs at a time), but for now upgradePolicy can be set to manual or automatic. Manual means if you change the template and redeploy it, the changes will only take effect when new VMs are created or extensions are updated, for example when you increase _capacity_. Automatic means update all the VMs as a "blast", rebooting everything. Manual is generally a safer approach. You can delete individual VMs and redeploy as needed to update gradually.
 
-```
+````
       "properties": {
 
          "upgradePolicy": {
@@ -426,13 +426,13 @@ VM Scale Sets have an upgradePolicy setting. Future versions will support sliced
          "mode": "Manual"
 
         },
-```
+````
 
 **Properties->virtualMachineProfile**
 
 Here you reference the storage accounts created above as containers for VMs. You don't need to pre-create the actual containers, just the accounts.
 
-```
+````
         "virtualMachineProfile": {
 
           "storageProfile": {
@@ -464,13 +464,13 @@ Here you reference the storage accounts created above as containers for VMs. You
             "imageReference": "[variables('imageReference')]"
 
           },
-```
+````
 
 **Properties->osProfile**
 
 One difference for VM scale sets over individual VMs is that the computer name is a prefix. VM instances in the VM scale set will be created with names like: myvm\_0, myvm\_1 etc.
 
-```
+````
           "osProfile": {
 
             "computerNamePrefix": "[parameters('vmSSName')]",
@@ -480,13 +480,13 @@ One difference for VM scale sets over individual VMs is that the computer name i
             "adminPassword": "[parameters('adminPassword')]"
 
           },
-```
+````
 
 **Properties->networkProfile**
 
 When defining the network profile for a VMSS, remember both the NIC configuration and the IP configuration has a name. The NIC configuration has a "_primary_" setting, and the subnet id references back to the subnet resource which was created as part of the VNET above.
 
-```
+````
           "networkProfile": {
 
             "networkInterfaceConfigurations": [
@@ -526,7 +526,7 @@ When defining the network profile for a VMSS, remember both the NIC configuratio
             ]
 
           }
-```
+````
 
 **Properties->extensionProfile**
 
@@ -636,7 +636,7 @@ A. Any region which supports Azure Resource Manager supports VM Scale Sets.
 
 A. Leave the vhdContainers property blank, for example:
 
-```
+````
 "storageProfile": {
    "osDisk": {
       "name": "vmssosdisk",
@@ -648,7 +648,7 @@ A. Leave the vhdContainers property blank, for example:
      "osType": "Windows"
   }
 },
-```
+````
 
 **Q. If I reduce my VMSS capacity from 20 to 15, which VMs will be removed?**
 
