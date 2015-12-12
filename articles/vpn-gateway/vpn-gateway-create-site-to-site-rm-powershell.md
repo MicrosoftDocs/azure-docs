@@ -41,7 +41,7 @@ Verify that you have the following items before beginning configuration.
 
 You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
 
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 ## 1. Connect to your subscription 
 

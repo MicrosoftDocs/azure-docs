@@ -84,7 +84,7 @@ Before you begin, verify that you have the following:
 
 You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
 
-	[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 
 ## 1. Plan your IP address ranges
