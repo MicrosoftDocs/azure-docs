@@ -59,10 +59,8 @@ There are workarounds for most of the items in this list.  Please refer to the [
 
 You should follow the following steps before migrating your site:
 
-  *  Raise the Mobile Service tier to Standard
-
-In addition, Microsoft recommends that you [prepare for disaster recovery] by backing up your mobile service scripts and SQL database if you
-have not done so already.
+  *  [Back up youe Mobile Service] scripts and SQL database
+  *  (Optional) Raise the Mobile Service tier to Standard
 
 If you wish to test the migration process before migrating your production site, duplicate your production Azure Mobile Service (complete
 with a copy of the data source) and test the migration against the new URL.  You will have to have a test client implementation to properly
@@ -96,21 +94,21 @@ To migrate your site:
   5.  Enter the name of your Mobile Service in the box provided.  For example, if your domain name is contoso.azure-mobile.net, then enter _contoso_ in the box provided.
   6.  Click on the tick button.
 
-If you are migrating a Mobile Service in the Free or Basic pricing tiers, all Mobile Services in that pricing tier will be migrated at the same time.  You
-can monitor the status of the migration in the activity monitor and your site will be listed as *migrating* in the [Azure Classic Portal].
+If you are migrating a Mobile Service in the Free or Basic pricing tiers, all Mobile Services in that pricing tier will be migrated at the same time.   You
+can avoid this by [raising the Mobile Service you are migrating](#opt-raise-service-tier) to Standard during the migration.
+
+You can monitor the status of the migration in the activity monitor and your site will be listed as *migrating* in the [Azure Classic Portal].
 
   ![Migration Activity Monitor][1]
 
-Each migration can take anywhere from 3 to 15 minutes per mobile service being migrated.  Your site will remain
-available during the migration but will be restarted at the end of the migration process.
+Each migration can take anywhere from 3 to 15 minutes per mobile service being migrated.  Your site will remain available during the migration but will be
+restarted at the end of the migration process.  The site will be unavailable during the restart process, which may last a couple of seconds.
 
 ## <a name="finalizing-migration"></a>Finalizing the Migration
 
 You should plan to test your site from a mobile client at the conclusion of the migration process.  Ensure you can perform all common client actions
 without changes to the mobile client.  In addition, you should ensure that the changes you made to effect the migration (such as changing the pricing
-tier or enabling scheduled jobs) are reverted if necessary.
-
-Please note the following specific management tasks:
+tier) are reverted if necessary.
 
 ### <a name="update-app-service-tier"></a>Select an appropriate App Service pricing tier
 
@@ -377,7 +375,7 @@ favorites:
 [Notification Hubs Overview]: ../notification-hubs/notification-hubs-overview.md
 [performance monitoring]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[prepare for disaster recovery]: ../mobile-services/mobile-services-disaster-recovery.md
+[Back up your Mobile Service]: ../mobile-services/mobile-services-disaster-recovery.md
 [staging slots]: ../app-service-web/web-sites-staged-publishing.md
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
