@@ -65,7 +65,6 @@ Convert to Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-You get your account key [here]( https://datamarket.azure.com/account/keys). 
 
 
 
