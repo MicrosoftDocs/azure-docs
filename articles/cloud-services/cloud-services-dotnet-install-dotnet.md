@@ -141,7 +141,7 @@ To configure diagnostics open the *diagnostics.wadcfgx* and add the following un
 </DataSources>
 ```
 
-This will configure azure diagnostics to transfer all files in the *InstallLogs* resource to the diagnostics storage account in the *netfx-install* blob container.
+This will configure azure diagnostics to transfer all files in the *log* directory under the *NETFXInstall* resource to the diagnostics storage account in the *netfx-install* blob container.
 
 ## Deploying your service 
 When you deploy your service the startup tasks will run and install the .NET framework if it is not already installed. Your roles will be in the busy state while the framework is installing and may even restart if the framework install requires it. 
