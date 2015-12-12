@@ -532,6 +532,7 @@ See these links for more information about Azure File storage.
 
 - [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 ### Tooling support for File storage
 
