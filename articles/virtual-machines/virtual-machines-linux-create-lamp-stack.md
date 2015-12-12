@@ -46,7 +46,7 @@ SSH is an important tool for system administrators. However, relying on a human-
 
 Follow these steps to generate the SSH Authentication Key.
 
--	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 -	Run puttygen.exe.
 -	Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
 ![][1]
