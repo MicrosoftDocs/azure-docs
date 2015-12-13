@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="Getting started with queue storage and Visual Studio connected services (WebJob projects) | Microsoft Azure"
 	description="How to get started using Azure Queue storage in a WebJob project after connecting to a storage account using Visual Studio connected services."
 	services="storage"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/13/2015"
 	ms.author="tarcher"/>
 
 # Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)
