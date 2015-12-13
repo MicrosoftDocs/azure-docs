@@ -42,13 +42,13 @@ Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK
 
  ![File New][file_new]
 
-2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
+> 2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
 
- ![Create Project][create_project]
+>> ![Create Project][create_project]
 
-3.  From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
+> 3.  From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
 
- ![Select Template][select_Template]
+>> ![Select Template][select_Template]
 
 4. Once your project is created you’ll see PowerShell deployment scripts, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
 
