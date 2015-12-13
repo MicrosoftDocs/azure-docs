@@ -50,7 +50,7 @@ These links will be useful for exploring the platform in depth:
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 - [App Model v2.0 Protocol Reference](active-directory-v2-protocols.md)
 - [App Model v2.0 Token Reference](active-directory-v2-tokens.md)
-- [Office 365 REST API Reference](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Scopes and Consent in the v2 endpoint](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
