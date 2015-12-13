@@ -140,7 +140,7 @@ To list the blobs in a container, first get a container reference. You can then 
 There are others ways to list the contents of a blob container. See [How to use blob storage from .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for more information.
 
 ##Download a blob
-TTo download a blob, first get a reference to the blob, and then call the **DownloadToStreamAsync** method. The following example uses the **DownloadToStreamAsync** method to transfer the blob contents to a stream object that you can then save as a local file.
+To download a blob, first get a reference to the blob, and then call the **DownloadToStreamAsync** method. The following example uses the **DownloadToStreamAsync** method to transfer the blob contents to a stream object that you can then save as a local file.
 
 	// Get a reference to a blob named "photo1.jpg".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
