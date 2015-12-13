@@ -22,6 +22,11 @@
 > - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What happened](vs-storage-aspnet-what-happened.md)
 
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet-getting-started-tables.md)
+
 ## References added
 
 The Azure Storage NuGet package was added to your Visual Studio project.  
