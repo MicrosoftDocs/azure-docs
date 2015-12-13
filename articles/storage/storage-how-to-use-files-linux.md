@@ -65,7 +65,7 @@ Also to keep a file share mounted after reboot, you can add a setting like below
 
 For example, if you created a Azure VM using Linux image Ubuntu Server 15.04 (which is available from the Azure image gallery), you can mount the file as below:
 
-    azureuser@azureconubuntu:~$ sudo apt-get install apt-file
+    azureuser@azureconubuntu:~$ sudo apt-get install cifs-utils
     azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
     azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     azureuser@azureconubuntu:~$ df -h /mnt/mountpoint
