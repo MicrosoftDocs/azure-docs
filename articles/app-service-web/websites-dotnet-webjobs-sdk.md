@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/13/2015" 
 	ms.author="tdykstra"/>
 
 # What is the Azure WebJobs SDK
@@ -22,11 +22,11 @@
 
 This article explains what the WebJobs SDK is, reviews some common scenarios it is useful for, and gives an overview of how you use it in your code.
 
-[WebJobs](websites-webjobs-resources.md) is a feature of Azure App Service that enables you to run a program or script in the same context as a web app. The purpose of the WebJobs SDK is to simplify the task of writing code that runs as a WebJob and works with Azure Storage queues, blobs, and tables, and Service Bus queues.
+[WebJobs](websites-webjobs-resources.md) is a feature of Azure App Service that enables you to run a program or script in the same context as a web app, API app, or mobile app. The purpose of the WebJobs SDK is to simplify the code you write for common tasks that a WebJob can perform. The WebJobs SDK has built-in features for working with Azure Storage and Service Bus, but it can handle many other scenarios as well.
 
 The WebJobs SDK includes the following components:
 
-* **NuGet packages**. NuGet packages that you add to a Visual Studio Console Application project provide a framework your code uses to work with the Azure Storage service or Service Bus queues.   
+* **NuGet packages**. NuGet packages that you add to a Visual Studio Console Application project provide a framework that your code uses by decorating your methods with WebJobs SDK attributes.
   
 * **Dashboard**. Part of the WebJobs SDK is included in Azure App Service and provides rich monitoring and diagnostics for programs that use the NuGet packages. You don't have to write code to use these monitoring and diagnostics features.
 
@@ -47,6 +47,8 @@ Here are some typical scenarios you can handle more easily with the Azure WebJob
 * Other long-running tasks that you want to run in a background thread, such as [sending emails](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
 
 In many of these scenarios you may want to scale a web app to run on multiple VMs, which would run multiple WebJobs simultaneously. In some scenarios this could result in the same data getting processed multiple times, but this is not a problem when you use the built-in queue, blob, and Service Bus triggers of the WebJobs SDK. The SDK ensures that your functions will be processed only once for each message or blob.
+
+The WebJobs SDK also makes it easy to handle common error handling scenarios. You can set up alerts to send notifications when a function fails, and you can set timeouts so that a function is automatically canceled if it doesn't complete within a specified time limit.
 
 ## <a id="code"></a> Code samples
 
@@ -79,9 +81,68 @@ The function then uses these parameters to write the value of the queue message 
 
 		writer.WriteLine(inputText);
 
-The trigger and binder features of the WebJobs SDK greatly simplify the code you have to write to work with Azure Storage and Service Bus queues. The low-level code required to handle queue and blob processing is done for you by the WebJobs SDK framework -- the framework creates queues that don't exist yet, opens the queue, reads queue messages, deletes queue messages when processing is completed, creates blob containers that don't exist yet, writes to blobs, and so on.
+The trigger and binder features of the WebJobs SDK greatly simplify the code you have to write. The low-level code required to process queues, blobs, or files, or to initiate scheduled tasks, is done for you by the WebJobs SDK framework. For example, the framework creates queues that don't exist yet, opens the queue, reads queue messages, deletes queue messages when processing is completed, creates blob containers that don't exist yet, writes to blobs, and so on.
 
-The WebJobs SDK provides many ways to work with  Azure Storage. For example, if the parameter you decorate with the `QueueTrigger` attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a `BlobTrigger` attribute to trigger a process whenever a new blob is created in an Azure Storage account. (Note that while `QueueTrigger` finds new queue messages within a few seconds, `BlobTrigger` can take up to 20 minutes to detect a new blob. `BlobTrigger` scans for blobs whenever the `JobHost` starts and then periodically checks the Azure Storage logs to detect new blobs.)
+## Extensibility
+
+The WebJobs SDK provides many ways to work with  Azure Storage. For example, if the parameter you decorate with the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) attribute to trigger a process whenever a new blob is created in an Azure Storage account.
+
+And you're not limited to built-in functionality -- the WebJobs SDK is designed to be extensible, which allows you to write custom triggers and binders.  For example you can write triggers for file events and periodic schedules. Extending the WebJobs SDK leads to simplicity in developing and managing WebJobs, since you can have a single WebJob that performs a variety of functions, with triggers on Azure queues, blobs, files, timers, WebHooks from GitHub, Slack, Instagram, IFTTT, and more.
+
+The following code example shows a WebJob which has functions that are triggered on a variety of events. 
+
+```
+    public class Functions
+    {
+        public static void ProcessTimer([TimerTrigger("*/15 * * * * *", RunOnStartup = true)]
+        TimerInfo info, [Queue("queue")] out string message)
+        {
+            message = info.FormatNextOccurrences(1);
+        }
+
+        public static void ProcessQueueMessage([QueueTrigger("queue")] string message,
+        TextWriter log)
+        {
+            log.WriteLine(message);
+        }
+
+        public static void ProcessFileAndUploadToBlob(
+            [FileTrigger(@"import\{name}", "*.*", autoDelete: true)] Stream file,
+            [Blob(@"processed/{name}", FileAccess.Write)] Stream output,
+            string name,
+            TextWriter log)
+        {
+            output = file;
+            file.Close();
+            log.WriteLine(string.Format("Processed input file '{0}'!", name));
+        }
+
+        [Singleton]
+        public static void ProcessWebHookA([WebHookTrigger] string body, TextWriter log)
+        {
+            log.WriteLine(string.Format("WebHookA invoked! Body: {0}", body));
+        }
+
+        public static void ProcessGitHubWebHook([WebHookTrigger] string body, TextWriter log)
+        {
+            dynamic issueEvent = JObject.Parse(body);
+            log.WriteLine(string.Format("GitHub WebHook invoked! ('{0}', '{1}')",
+                issueEvent.issue.title, issueEvent.action));
+        }
+
+        public static void ErrorMonitor(
+        [ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+        [SendGrid(
+            To = "admin@emailaddress.com",
+            Subject = "Error!")]
+         SendGridMessage message)
+        {
+            // log last 5 detailed errors to the Dashboard
+            log.WriteLine(filter.GetDetailedMessage(5));
+            message.Text = filter.GetDetailedMessage(1);
+        }
+    }
+```
 
 ## <a id="workerrole"></a>Using the WebJobs SDK outside of WebJobs
 
@@ -102,4 +163,6 @@ The WebJobs SDK provides several advantages even if you don't need to work direc
 ## <a id="nextsteps"></a>Next steps
 
 For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
+
+For information about the latest enhancements to the WebJobs SDK, see the [Release Notes](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
