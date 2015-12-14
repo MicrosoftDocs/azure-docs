@@ -210,7 +210,7 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 3.	Click the **Team** tab.
 
 4. In the **team member** textbox, type Britta's email address in the Azure.
-    <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_11.png) <br>
+   <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_11.png) <br>
 
 4.	Click **Invite**. 
 
