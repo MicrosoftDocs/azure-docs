@@ -143,57 +143,57 @@ NOTE: Make sure the system has internet connectivity before downloading and inst
 This command downloads these 15 packages from CentOS 6.6
 repository and installs them:
 
-bc-1.06.95-1.el6.x86\_64.rpm
+	bc-1.06.95-1.el6.x86\_64.rpm
 
-busybox-1.15.1-20.el6.x86\_64.rpm
+	busybox-1.15.1-20.el6.x86\_64.rpm
 
-elfutils-libs-0.158-3.2.el6.x86\_64.rpm
+	elfutils-libs-0.158-3.2.el6.x86\_64.rpm
 
-kexec-tools-2.0.0-280.el6.x86\_64.rpm
+	kexec-tools-2.0.0-280.el6.x86\_64.rpm
 
-lsscsi-0.23-2.el6.x86\_64.rpm
+	lsscsi-0.23-2.el6.x86\_64.rpm
 
-lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
+	lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
 
-perl-5.10.1-136.el6\_6.1.x86\_64.rpm
+	perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
+	perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
-perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
+	perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
+	
+	perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
-perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
+	perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
+	perl-version-0.77-136.el6\_6.1.x86\_64.rpm
 
-perl-version-0.77-136.el6\_6.1.x86\_64.rpm
+	rsync-3.0.6-12.el6.x86\_64.rpm
 
-rsync-3.0.6-12.el6.x86\_64.rpm
+	snappy-1.1.0-1.el6.x86\_64.rpm
 
-snappy-1.1.0-1.el6.x86\_64.rpm
-
-wget-1.12-5.el6\_6.1.x86\_64.rpm
+	wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 NOTE: If the source machine uses Reiser or XFS filesystem for the root or boot
 device, then following packages should be downloaded and installed on
 Linux master target prior to protection.
 
-\# cd /usr/local
+	\# cd /usr/local
 
-\# wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+	\# wget
+	<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget
-<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+	\# wget
+	<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+	\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+	reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-\# wget
-<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+	\# wget
+	<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+	\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-#### Apply custom configuration changes
+	#### Apply custom configuration changes
 
 Before applying these changes make sure you've completed the previous section, then follow these steps:
 
@@ -235,7 +235,7 @@ tar archive by running: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\*�
 to the directory to which the contents of the tar archive were
 extracted. From this directory path run “sudo ./install.sh”.
 
-![](./media/site-recovery-failback-azure-to-vmware/image17.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image17.png)
 
 8. When prompted to choose a primary role select **2 (Master Target)**. Leave the other interactive install options at their default values.
 9. Wait for installation to continue and the Host Config
@@ -416,8 +416,6 @@ To map the names, go to the virtual machines **Dashboard** in Azure and check th
 	![](./media/site-recovery-failback-azure-to-vmware/image43.png)
 
 ## Recover virtual machines
-
-
 
 After the plan's been created, you can recover the virtual machines. Before you do check that the virtual machines have completed synchronization. If replication status shows OK then the protection is completed and the RPO threshold has been met. You can verify health in the VM properties.
 
