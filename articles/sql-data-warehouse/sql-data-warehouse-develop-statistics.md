@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/03/2015"
+   ms.date="12/11/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Manage statistics in SQL Data Warehouse

@@ -3,7 +3,7 @@
 	description="Enable Search traffic analytics for Azure Search, a cloud hosted search service on Microsoft Azure, to unlock insights about your users and your data." 
 	services="search" 
 	documentationCenter="" 
-	authors="benitorres" 
+	authors="bernitorres" 
 	manager="pablocas" 
 	editor=""
 />
