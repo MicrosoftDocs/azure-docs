@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/10/2015" 
+    ms.date="12/14/2015" 
     ms.author="elizapo" />
 
 
@@ -23,7 +23,7 @@ If you have an Office 365 subscription you have an Azure Active Directory that s
 
 If you are deploying Azure RemoteApp you are most likely using an Azure subscription that is associated with a different Azure AD. In order to use your Office 365 directory, you will need to move the Azure subscription into that directory.
 
-Make sure to review [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md) before you get started here.l
+For info on how to deploy Office 365 client applications, see [How to use your Office 365 subscription with Azure RemoteApp](remoteapp-officesubscription.md).
  
 ## Phase 1: Register your free Office 365 Azure Active Directory subscription
 Follow the instructions [here](https://technet.microsoft.com/library/dn832618.aspx) in order to get administrative access to your Azure AD via the Azure Management Portal. As the result of this process you should be able to log into the Azure portal and see your directory there – at this point you won’t see much more since the full Azure subscription you are using with Azure RemoteApp is in a different directory.
