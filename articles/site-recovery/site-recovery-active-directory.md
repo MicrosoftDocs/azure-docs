@@ -33,7 +33,7 @@ There are two recommended options based on the complexity of your environment.
 
 If you have a small number of applications and a single domain controller, and you want to fail over the entire site, then we recommend using Site Recovery to replicate the domain controller to  the secondary site (whether you're failing over to Azure or to a secondary site). The same replicated virtual machine can be used for test failover too.
 
-####Option 2
+### Option 2
 
 If you have a large number of applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you'll also set up an additional domain controller on the target site ( Azure or a secondary on-premises datacenter). 
 
@@ -61,7 +61,7 @@ Enable protection of the domain controller/DNS virtual machine in Site Recovery.
 
 For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example if you're replicating Hyper-V VMs to Azure you can select the the VM in the VMM cloud or in the protect group to configure the network settings as shown below
 
-![VM Network Settings](./media/site-recovery-active-directory/vm-network-settings.png)
+![VM Network Settings](./media/site-recovery-active-directory/Vm-Network-Settings.png)
 
 ## Protect Active Directory using Active Directory replication 
 
