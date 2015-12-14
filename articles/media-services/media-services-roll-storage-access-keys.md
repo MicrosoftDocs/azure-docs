@@ -18,7 +18,7 @@
 
 #How To: Update Media Services after Rolling Storage Access Keys
 
-When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can [add more than one storage accounts]() to your Media Services account.
+When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can [add more than one storage accounts](meda-services-managing-multiple-storage-accounts.md) to your Media Services account.
 
 When a new storage account is created, Azure generates two 512-bit storage access keys, which are used to authenticate access to your storage account. To keep your storage connections more secure, it is recommended to periodically regenerate and rotate your storage access key. Two access keys (primary and secondary) are provided in order to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. This procedure is also called "rolling access keys".
 
