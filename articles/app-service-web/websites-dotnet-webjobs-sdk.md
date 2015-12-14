@@ -46,6 +46,8 @@ Here are some typical scenarios you can handle more easily with the Azure WebJob
 
 * Other long-running tasks that you want to run in a background thread, such as [sending emails](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure). 
 
+* Any tasks that you want to run on a schedule, such as performing a back-up operation every night.
+
 In many of these scenarios you may want to scale a web app to run on multiple VMs, which would run multiple WebJobs simultaneously. In some scenarios this could result in the same data getting processed multiple times, but this is not a problem when you use the built-in queue, blob, and Service Bus triggers of the WebJobs SDK. The SDK ensures that your functions will be processed only once for each message or blob.
 
 The WebJobs SDK also makes it easy to handle common error handling scenarios. You can set up alerts to send notifications when a function fails, and you can set timeouts so that a function is automatically canceled if it doesn't complete within a specified time limit.
