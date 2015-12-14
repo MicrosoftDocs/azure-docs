@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware | Microsoft Azure" 
-   description="This article describes how to fail back  a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
+   description="This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
    authors="ruturaj" 
@@ -22,7 +22,7 @@
 
 This document describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site. 
 
-To set up replication and failover for this scenario follow the instructions [this article](site-recovery-vmware-to-azure.md). After a successful failover of VMware virtual machines or physical servers to Azure with Site Recovery, the machines will be available in the Azure virtual machines tab. 
+To set up replication and failover for this scenario follow the instructions in [this article](site-recovery-vmware-to-azure.md). After a successful failover of VMware virtual machines or physical servers to Azure with Site Recovery, the machines will be available in the Azure virtual machines tab. 
 
 >[AZURE.NOTE] You can only fail VMware virtual machines and Windows/Linux physical servers from Azure to VMware virtual machines in the on-premises primary site.  If you're failing back a physical machine, failover to Azure will convert it to an Azure VM, and failback to VMware will convert it to a VMware VM. 
 
