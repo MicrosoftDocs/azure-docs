@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
+	ms.date="12/14/2015" 
 	ms.author="rasquill" 
 />
 
