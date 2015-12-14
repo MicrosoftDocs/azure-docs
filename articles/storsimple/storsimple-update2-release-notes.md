@@ -105,9 +105,8 @@ If patch update 2 is applied to a physical device (running versions prior to Upd
 
 This release updates the driver and the disk firmware on your device.
  
-- For more information about the USM update, see [need KB link). 
-- For more information about the LSI driver update, see [need KB link].
-- For more information about the SSD firmware update, see [need KB link].
+- For more information about the USM and LSI firmware update, see Microsoft Knowledge base article 3121900. 
+- For more information about the disk firmware update, see Microsoft Knowledge base article 3121899.
  
 ## Virtual device updates in Update 2
 
