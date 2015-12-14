@@ -136,7 +136,7 @@ The following code example shows a variety of triggers in one WebJob: `QueueTrig
     }
 ```
 
-## <a id="schedule"></a> Scheduling functions
+## <a id="schedule"></a> Scheduling
 
 The `TimerTrigger` attribute gives you the ability to trigger functions to run on a schedule. You can schedule a WebJob as a whole through Azure or schedule individual functions of a WebJob using the WebJobs SDK `TimerTrigger`. Here's a code sample.
 
@@ -152,7 +152,6 @@ public class Functions
 ```
 
 For more sample code, see [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) in the azure-webjobs-sdk-extensions repository on GitHub.com.
-
 
 ## Extensibility
 
