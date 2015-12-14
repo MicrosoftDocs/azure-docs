@@ -17,7 +17,7 @@
    ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Azure SQL Database Transact-SQL information
+# Azure SQL Database Transact-SQL differences
 
 
 Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. A partial list of supported features for applications follows:
@@ -101,9 +101,9 @@ For more information about Transact-SQL grammar, usage, and examples, see [Trans
 
 ### About the "Applies to" tags
 
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. The same "Applies to" tags often also list Azure SQL Database. If an "Applies to" does not list Azure SQL Database, the topic content does not apply to Azure SQL Database.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Under the topic title there is usually an "Applies to" line which lists SQL Server versions, and perhaps other product names too. Often the same "Applies to" tags also lists Azure SQL Database. If an "Applies to" does not list Azure SQL Database, the topic content does not apply to Azure SQL Database. Sometimes you might see an "Applies to" line which lists multiple products, each with a small icon to indicate whether topic applies to each product.
 
- For example, availability groups were introduced in SQL Server 2012. The **CREATE AVAILABILTY GROUP** topic indicates it applies to **SQL Server (SQL Server 2012 through current version)** because it does not apply to SQL Server 2008, SQL Server 2008 R2, or Azure SQL Database.
+ For example, availability groups were introduced in SQL Server 2012. The **CREATE AVAILABILTY GROUP** topic indicates it applies to **SQL Server (SQL Server 2012 through current version)** because it does not apply to SQL Server 2008, SQL Server 2008 R2, or to Azure SQL Database.
 
-In some cases, the general subject of topic can be used in a product, but there are minor differences. The differences are indicated at midpoints in the topic as appropriate.
+In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
 
