@@ -166,7 +166,7 @@ To create a cache with default parameters, run the following command.
 
 To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB), or P4 (53 GB - 530 GB). To enable clustering, specify a shard count using the ShardCount parameter. The following example creates a P1 premium cache with 3 shards. A P1 premium cache is 6 GB in size, and since we specified three shards the total size is 18 GB (3 x 6 GB).
 
-	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku=Premium -Size P1 -ShardCount 3
+	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
 To specify values for the RedisConfiuration parameter, enclose the values inside `{}` as a key/value pairs like `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. The following example creates a standard 1 GB cache with `allkeys-random` maxmemory policy and keyspace notifications configured with `KEA`. For more information see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Maxmemory-policy and maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
@@ -238,7 +238,7 @@ The following command updates the maxmemory-policy for the Redis Cache named MyC
 
 	Set-AzureRmRedisCache -ResourceGroupName "MyGroup" -Name "MyCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-### Scale a Redis cache with PowerShell
+## Scale a Redis cache with PowerShell
 
 `Set-AzureRmRedisCache` can be used to scale an Azure Redis cache instance when the `Size`, `Sku`, or `ShardCount` properties are modified. 
 
@@ -284,7 +284,7 @@ After this command is issued, the status of the cache is returned (equivalent to
 	TenantSettings     : {}
 	ShardCount         :
 
-When the scaling operation is complete, the `ProvisioningState` will change to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete, so else you will receive an error similar to the following.
+When the scaling operation is complete, the `ProvisioningState` will change to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete, or else you will receive an error similar to the following.
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
@@ -344,7 +344,7 @@ To return information about a specific cache, run `Get-AzureRmRedisCache` with t
 	PS C:\> Get-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 	
 	Name               : mycache
-	Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/Default-SQL-EastUS/providers/Mi
+	Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/myGroup/providers/Mi
 	                     crosoft.Cache/Redis/mycache
 	Location           : South Central US
 	Type               : Microsoft.Cache/Redis
@@ -496,6 +496,14 @@ To see a list of available parameters and their descriptions for `Remove-AzureRm
 	        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+In the following example, the cache named `myCache` is removed.
+
+	PS C:\> Remove-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
+	
+	Confirm
+	Are you sure you want to remove redis cache 'myCache'?
+	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 <a name="classic"></a>
 ## Manage Azure Redis Cache instances with the PowerShell classic deployment model
