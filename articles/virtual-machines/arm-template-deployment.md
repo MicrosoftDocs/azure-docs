@@ -79,10 +79,10 @@ In Visual Studio, do the following:
 5. Open the VirtualMachineTemplate.json file and then add the opening and closing brackets, the required schema element, and the required contentVersion element:
 
 	```
- {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-     "contentVersion": "1.0.0.0",
- }
+{
+	 	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+		"contentVersion": "1.0.0.0",
+}
 	```
 
 6. [Parameters](../resource-group-authoring-templates.md#parameters) are not always required, but they make template management easier. They describe the type of the value, the default value if needed, and possibly the allowed values of the parameter. For this tutorial, the parameters that are used to create a virtual machine, a storage account, and a virtual network are added to the template.
@@ -90,21 +90,21 @@ In Visual Studio, do the following:
     Add the parameters element and its child elements after the contentVersion element:
 
 	```
- {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-         "newStorageAccountName": { "type": "string" },
-         "adminUserName": { "type": "string" },
-         "adminPassword": { "type": "securestring" },
-         "dnsNameForPublicIP": { "type": "string" },
-         "windowsOSVersion": {
-             "type": "string",
-             "defaultValue": "2012-R2-Datacenter",
-             "allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter" ]
-         }
-     },
- }
+	{
+			"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+			"contentVersion": "1.0.0.0",
+			"parameters": {
+					"newStorageAccountName": { "type": "string" },
+					"adminUserName": { "type": "string" },
+  				"adminPassword": { "type": "securestring" },
+					"dnsNameForPublicIP": { "type": "string" },
+					"windowsOSVersion": {
+							"type": "string",
+							"defaultValue": "2012-R2-Datacenter",
+							"allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter" ]
+					}
+			},
+ 	}
 	```
 
 7. [Variables](../resource-group-authoring-templates.md#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values.
@@ -113,38 +113,38 @@ In Visual Studio, do the following:
 
 	```
  {
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-   "contentVersion": "1.0.0.0",
-   "parameters": {
-     "newStorageAccountName": { "type": "string" },
-     "adminUsername": { "type": "string" },
-     "adminPassword": { "type": "securestring" },
-     "dnsNameForPublicIP": { "type": "string" },
-     "windowsOSVersion": {
-       "type": "string",
-       "defaultValue": "2012-R2-Datacenter",
-       "allowedValues": ["2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"]
-     }
-   },
-   "variables": {
-     "location": "West US",
-     "imagePublisher": "MicrosoftWindowsServer",
-     "imageOffer": "WindowsServer",
-     "OSDiskName": "osdiskforwindowssimple",
-     "nicName": "myVMnic1",
-     "addressPrefix": "10.0.0.0/16",
-     "subnetName": "Subnet",
-     "subnetPrefix": "10.0.0.0/24",
-     "storageAccountType": "Standard_LRS",
-     "publicIPAddressName": "myPublicIP",
-     "publicIPAddressType": "Dynamic",
-     "vmStorageAccountContainerName": "vhds",
-     "vmName": "MyWindowsVM",
-     "vmSize": "Standard_A2",
-     "virtualNetworkName": "MyVNET",
-     "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
-   },
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "newStorageAccountName": { "type": "string" },
+       "adminUsername": { "type": "string" },
+       "adminPassword": { "type": "securestring" },
+       "dnsNameForPublicIP": { "type": "string" },
+       "windowsOSVersion": {
+         "type": "string",
+         "defaultValue": "2012-R2-Datacenter",
+         "allowedValues": ["2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"]
+       }
+     },
+     "variables": {
+       "location": "West US",
+       "imagePublisher": "MicrosoftWindowsServer",
+       "imageOffer": "WindowsServer",
+       "OSDiskName": "osdiskforwindowssimple",
+       "nicName": "myVMnic1",
+       "addressPrefix": "10.0.0.0/16",
+       "subnetName": "Subnet",
+       "subnetPrefix": "10.0.0.0/24",
+       "storageAccountType": "Standard_LRS",
+       "publicIPAddressName": "myPublicIP",
+       "publicIPAddressType": "Dynamic",
+       "vmStorageAccountContainerName": "vhds",
+       "vmName": "MyWindowsVM",
+       "vmSize": "Standard_A2",
+       "virtualNetworkName": "MyVNET",
+       "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+       "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
+     },
  }
 	```
 
@@ -425,7 +425,7 @@ Resources are always deployed from a template to a resource group. You use the [
  Console.ReadLine();
 	```
 
-   Replace {group-name} with the name that you want to use for the resource group. Replace {subscription-id} with your subscription identifier, you can get this by running Get-AzureSubscription. Replace location with the region that you want to create the resources, such as "West US".
+	Replace {group-name} with the name that you want to use for the resource group. Replace {subscription-id} with your subscription identifier, you can get this by running Get-AzureSubscription. Replace location with the region that you want to create the resources, such as "West US".
 
 3. Add the following method to the Program class to deploy the resources to the resource group by using the template that you defined:
 
