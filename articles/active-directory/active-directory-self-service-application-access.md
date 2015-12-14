@@ -52,7 +52,7 @@ To enable self-service application access and configured which applications can 
 
 **6:** To optionally configure an approval workflow for access requests, set **Require approval before granting access** to **Yes**. Then one or more approvers can be selected using the **Approvers** button.
 
-An approver can be any user in the organization with an Azure AD account, and could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app. The approver could even be the group owner of one or more shared account groups, and can assign the users to one of these groups to give them access via a shared accounts. 
+An approver can be any user in the organization with an Azure AD account, and could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app. The approver could even be the group owner of one or more shared account groups, and can assign the users to one of these groups to give them access via a shared account. 
 
 If no approval is required, then users will instantly get the application added to their Azure AD access panel. This appropriate if the application has been set up for [automatic user provisioning](active-directory-saas-app-provisioning.md), or has been set up [“user-managed” password SSO mode](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) where the user already has a user account and knows the password.
 
@@ -62,7 +62,7 @@ If no approval is required, then users will instantly get the application added 
 
 **9:** Click **Save** at the bottom of the screen to save the configuration. Now users will be able to request access to this app from the access panel.
 
-**10:** o try the end user experience, sign into you organization’s Azure AD access panel at https://myapps.microsoft.com, preferably using a different account that isn’t an app approver. 
+**10:** To try the end user experience, sign into you organization’s Azure AD access panel at https://myapps.microsoft.com, preferably using a different account that isn’t an app approver. 
 
 **11:** Under the **Applications** tab, click the **Get more applications** tile. This displays a gallery of all of the applications that have been enabled for self-service application access in the directory, with the ability to search and filter by app category on the left. 
 
