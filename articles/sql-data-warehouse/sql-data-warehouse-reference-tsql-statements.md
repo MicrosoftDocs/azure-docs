@@ -62,7 +62,7 @@
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW_SHOWEXECUTIONPLAN
+- [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/en-US/library/mt204017.aspx)
 - DBCC PDW_SHOWPARTITIONSTATS
 - DBCC PDW_SHOWSPACEUSED
 - [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
