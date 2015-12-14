@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 ## Overview
 
-This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see (Virtual Machines Pricing)[https://azure.microsoft.com/pricing/details/virtual-machines/].
+This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
@@ -87,10 +87,10 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 |Standard_A5|2|14 GB|1|Temporary = 135 GB |4|4X500|
 |Standard_A6|4|28 GB|2|Temporary = 285 GB |8|8x500|
 |Standard_A7|8|56 GB|4|Temporary = 605 GB |16|16x500|
-|Standard_A8|8|56 GB|2| Temporary = 382 GB Note: For information and considerations about using this size, see (About the A8, A9, A10, and A11 compute intensive instances)[http://go.microsoft.com/fwlink/p/?linkid=328042]. |16|16x500|
-|Standard_A9|16|112 GB|4| Temporary = 382 GB Note: For information and considerations about using this size, see (About the A8, A9, A10, and A11 compute intensive instances)[http://go.microsoft.com/fwlink/p/?linkid=328042]. |16|16x500|
-|Standard_A10|8|56 GB|2| Temporary = 382 GB Note: For information and considerations about using this size, see (About the A8, A9, A10, and A11 compute intensive instances)[http://go.microsoft.com/fwlink/p/?linkid=328042]. |16|16x500|
-|Standard_A11|16|112 GB|4| Temporary = 382 GB Note: For information and considerations about using this size, see (About the A8, A9, A10, and A11 compute intensive instances)[http://go.microsoft.com/fwlink/p/?linkid=328042]. |16|16x500|
+|Standard_A8|8|56 GB|2| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
+|Standard_A9|16|112 GB|4| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
+|Standard_A10|8|56 GB|2| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
+|Standard_A11|16|112 GB|4| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
 
 ## Standard tier: D-series
 
@@ -161,4 +161,4 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md)
 
-(Basic tier sizes for virtual machines)[virtual-machines-basic-tier.md]
+[Basic tier sizes for virtual machines](virtual-machines-basic-tier.md)
