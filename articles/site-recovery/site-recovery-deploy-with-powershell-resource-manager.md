@@ -4,8 +4,8 @@
 	services="site-recovery"
 	documentationCenter=""
 	authors="bsiva"
-	manager="jwhit"
-	editor="tysonn"/>
+	manager="abhiag"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -29,7 +29,7 @@ Azure Site Recovery(ASR) PowerShell cmdlets available with Azure PowerShell for 
 
 This article describes how to use Windows PowerShell® together with ARM to deploy Azure Site Recovery to configure and orchestrate server protection to Azure with the help of an example. The example used in this article shows you how to protect, failover and recover virtual machines on a Hyper-V host to Azure using Azure PowerShell with ARM.
 
-> [AZURE.Note] The Azure Site Recovery PowerShell cmdlets currently allow you to configure the VMM site to VMM site, VMM site to Azure and Hyper-V site to Azure scenarios. Support for other ASR scenarios will be added soon. 
+> [AZURE.NOTE] The Azure Site Recovery PowerShell cmdlets currently allow you to configure the VMM site to VMM site, VMM site to Azure and Hyper-V site to Azure scenarios. Support for other ASR scenarios will be added soon. 
 
 You don't need to be a PowerShell expert to use this article, but it does assume that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 - Read more about [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
@@ -64,7 +64,7 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 
 	Alternately, you could also include your account credentials as a parameter to the `Login-AzureRmAccount` cmdlet using the `-Credential` parameter.
 	
-	If you are CSP partner working on behalf of a tenant you'll need to specify the customer as a tenant using their tenant using their tenantID or tenant primary domain name
+	If you are CSP partner working on behalf of a tenant you'll need to specify the customer as a tenant using their tenantID or tenant primary domain name
 
 		Login-AzureRmAccount -Tenant "fabrikam.com"
 
@@ -88,7 +88,7 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 
 		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
 
-	>[AZURE.NOTE] It may take upto an hour to enable access to the Recovery Services provider on your subscription after successful completion of the above command. Attempts to register the Recovery Services provider in your subscription using the `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` command might fail in the interim. If this happens, wait for an hour and retry.
+	>[AZURE.TIP] It may take upto an hour to enable access to the Recovery Services provider on your subscription after successful completion of the above command. Attempts to register the Recovery Services provider in your subscription using the `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` command might fail in the interim. If this happens, wait for an hour and retry.
 
 	Once you've enabled access to the Recovery Services provider on your subscription, register the provider in your subscription by executing the following command
 
@@ -114,7 +114,7 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 
 	You can retrieve a list of existing vaults using the `Get-AzureRmRecoveryServicesVault` cmdlet.
 
-> [AZURE.INFO] If you wish to perform operations on ASR vaults created using the classic portal or the Azure Service Management PowerShell module, you can retrieve a list of such vaults using the `Get-AzureRmSiteRecoveryVault` cmdlet. It is recommended that for all new operations you create a new Recovery Services vault. The Site Recovery vaults you've created earlier will continue to be supported but will not have the latest features.
+> [AZURE.NOTE] If you wish to perform operations on ASR vaults created using the classic portal or the Azure Service Management PowerShell module, you can retrieve a list of such vaults using the `Get-AzureRmSiteRecoveryVault` cmdlet. It is recommended that for all new operations you create a new Recovery Services vault. The Site Recovery vaults you've created earlier will continue to be supported but will not have the latest features.
 
 ## Step 3: Generate a vault registration key
 
@@ -157,13 +157,14 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 
 		$ReplicationFrequencyInSeconds = "300";    	#options are 30,300,900
 		$PolicyName = “replicapolicy”
-		$Recoverypoints = 6            		#specify the number of recovery points 
+		$Recoverypoints = 6            		#specify the number of recovery points
+		$storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id 
 
 		$PolicyResult = New-AzureRmSiteRecoveryPolicy -Name $PolicyName -ReplicationProvider “HyperVReplicaAzure” -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
 	Check the returned job to ensure that replication policy creation succeeds.
 
-	>[AZURE.INFO] The Storage Account specified should be in the same Azure region as your recovery services vault and should have Geo-replication enabled.
+	>[AZURE.IMPORTANT] The Storage Account specified should be in the same Azure region as your recovery services vault and should have Geo-replication enabled.
 	>
 	> - If the specified Recovery storage account is of type Azure Storage(Classic), failover of the protected machines will recover the machine to Azure IaaS (Classic)
 	> - If the specified Recovery storage account is of type Azure Storage(ARM), failover of the protected machines will recover the machine to Azure IaaS (ARM)
@@ -191,7 +192,7 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 		$Ostype = "Windows"                                 # "Windows" or "Linux"
 		$DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
 
-	>[AZURE.INFO] The Storage Account specified should be in the same Azure region as your recovery services vault and should have Geo-replication enabled.
+	>[AZURE.IMPORTANT] The Storage Account specified should be in the same Azure region as your recovery services vault and should have Geo-replication enabled.
 	>
 	> - If the specified Recovery storage account is of type Azure Storage(Classic), failover of the protected machines will recover the machine to Azure IaaS (Classic)
 	> - If the specified Recovery storage account is of type Azure Storage(ARM), failover of the protected machines will recover the machine to Azure IaaS (ARM)
@@ -247,6 +248,8 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 ## Step 8: Run a test failover
 
 1. Run a test failover job:
+		
+		$nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 		
 		$protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMFriendlyName -ProtectionContainer $protectionContainer
 
