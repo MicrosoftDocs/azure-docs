@@ -70,7 +70,7 @@ To configure the integration of Mixpanel into Azure AD, you need to add Mixpanel
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **Mixpanel**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-Mixpanel-tutorial/tutorial_Mixpanel_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_01.png)<br>
 7. In the results pane, select **Mixpanel**, and then click **Complete** to add the application.
 <br><br>
 
@@ -100,10 +100,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Mixpanel** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_04.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_04.png) <br>
 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Mixpanel application using the following pattern: **“https://mixpanel.com/login/”**.
@@ -115,7 +115,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 4. On the **Configure single sign-on at Mixpanel** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_05.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_05.png) <br>
 
     a. Click **Download Certificate**, and then save the file on your computer. 
 
@@ -125,16 +125,16 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. In a differend browser window, sign-on to your Mixpanel application as an administrator.
    
 6. On bottom of the page, click the little **gear** icon in the left corner. 
-   <br><br>![Mixpanel Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_06.png) <br>
+   <br><br>![Mixpanel Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_06.png) <br>
 
 7. Click the **Access security** tab, and then click **Change settings**.
-   <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_08.png) <br>
+   <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_08.png) <br>
     
 8. On the **Change your certificate** dialog page, click **Choose file** to upload your downloaded certificate, and then click **Next**.
-  <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_09.png) <br>
+  <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_09.png) <br>
 
 9. In the Azure classic portal, on the **Configure single sign-on at Mixpanel** dialog page, copy the **Single Sign-On Service URL** value, paste it into the authentication URL textbox on the **Change your authentication  URL** dialog page, and then click **Next**.
-   <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_10.png) <br>
+   <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_10.png) <br>
     
 1. Click **Done**.
 
@@ -228,7 +228,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Mixpanel**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_Mixpanel_50.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_50.png) <br>
 
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
