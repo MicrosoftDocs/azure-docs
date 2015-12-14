@@ -1,10 +1,10 @@
-<properties
+﻿<properties
 	pageTitle="Actions to fix transient connection loss | Microsoft Azure"
 	description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="dalechen"
+	manager="msmets"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/30/2015"
-	ms.author="genemi"/>
+	ms.date="12/10/2015"
+	ms.author="daleche"/>
 
 
 # Troubleshoot transient faults and connection errors to SQL Database

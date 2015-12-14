@@ -212,6 +212,7 @@ If you would like to learn more about other Azure storage APIs, follow these lin
 - [Azure Storage Client SDK Reference]
 - [Azure Storage REST API]
 - [Azure Storage Team Blog]
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

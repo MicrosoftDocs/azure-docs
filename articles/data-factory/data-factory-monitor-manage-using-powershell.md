@@ -200,8 +200,9 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 			      }
 			    ],
 			    "type": "AzureBlob",
-			    "linkedServiceName": "AzureStorageLinkedService1",
+			    "linkedServiceName": "StorageLinkedService",
 			    "typeProperties": {
+				  "fileName": "emp.txt",
 			      "folderPath": "adftutorial/",
 			      "format": {
 			        "type": "TextFormat",
@@ -220,7 +221,8 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 	
 	- dataset **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **StorageLinkedService**. 
-	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
+	- **folderPath** is set to the **adftutorial** container. 
+	- **fileName** is set to **emp.txt**. If you do not specify the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
 	- There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)	
 	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1** ), so the Data Factory service will look for input data every hour in the root folder in the blob container (**adftutorial**) you specified.
@@ -319,9 +321,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 			            "type": "BlobSource"
 			          },
 			          "sink": {
-			            "type": "SqlSink",
-			            "writeBatchSize": 10000,
-			            "writeBatchTimeout": "00:60:00"
+			            "type": "SqlSink"
 			          }
 			        },
 			        "Policy": {
@@ -333,8 +333,8 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 			        }
 			      }
 			    ],
-			    "start": "2015-07-12T00:00:00Z",
-			    "end": "2015-07-13T00:00:00Z",
+			    "start": "2015-12-09T00:00:00Z",
+			    "end": "2015-12-10T00:00:00Z",
 			    "isPaused": false
 			  }
 			}
