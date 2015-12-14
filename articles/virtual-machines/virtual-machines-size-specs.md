@@ -77,7 +77,9 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 * Standard_A3 is Large
 * Standard_A4 is ExtraLarge
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+<br>
+
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_A0\ExtraSmall |1|768 MB|1| Temporary = 20 GB |1|1x500|
 |Standard_A1\Small|1|1.75 GB|1|Temporary = 70 GB |2|2x500|
@@ -94,7 +96,7 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 ## Standard tier: D-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D1 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500|
 |Standard_D2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500|
@@ -107,7 +109,7 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 ## Standard tier: Dv2-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_D1_v2 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500|
 |Standard_D2_v2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500|
@@ -121,7 +123,7 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 ## Standard tier: DS-series*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|---|
 |Standard_DS1 |1|3.5|1|Local SSD disk = 7 GB |2|43| 3,200  32 MB per second |
 |Standard_DS2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  64 MB per second |
@@ -136,7 +138,7 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 ## Standard tier: G-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
 |Standard_G1 |2|28 GB|1|Local SSD disk = 384 GB |4|4 x 500|
 |Standard_G2 |4|56 GB|2|Local SSD disk = 768 GB |8|8 x 500|
@@ -146,7 +148,7 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 ## Standard tier: GS-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk sizes – virtual machine|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth|
 |---|---|---|---|---|---|---|---|
 |Standard_GS1|2|28|1|Local SSD disk = 56 GB |4|264| 5,000  125 MB per second |
 |Standard_GS2|4|56|2|Local SSD disk = 112 GB |8|528| 10,000  250 MB per second |
