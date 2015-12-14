@@ -62,7 +62,7 @@ In the event of a disaster, workloads can be recovered as follows:
 ### Clustered VMM server
 
 
-[Deploying VMM in a cluster](https://technet.microsoft.com/en-us/library/gg610675.aspx) provides high availability and protection against hardware failover. If you're deploying your VMM cluster with Site Recovery note that:
+[Deploying VMM in a cluster](https://technet.microsoft.com/library/gg610675.aspx) provides high availability and protection against hardware failover. If you're deploying your VMM cluster with Site Recovery note that:
 
 The VMM server should be deployed in a stretched cluster across geographically separate sites.
 The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.
