@@ -61,14 +61,13 @@ Enable protection of the domain controller/DNS virtual machine in Site Recovery.
 
 For the domain controller/DNS virtual machine, configure network settings in Site Recovery so that the VM will be attached to the right network after failover. For example if you're replicating Hyper-V VMs to Azure you can select the the VM in the VMM cloud or in the protect group to configure the network settings as shown below
 
-- 
 ![VM Network Settings](./media/site-recovery-active-directory/vm-network-settings.png)
 
 ## Protect Active Directory using Active Directory replication 
 
 ###Site-to-site protection
 
-Create a domain controller on the secondary site and when you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. you can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. See [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx) for more details.
+Create a domain controller on the secondary site and specify the name of the same domain that is being used on the primary site when you premote the server to a domain controller role. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. See [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx) for more details.
 
 ###Site-to-Azure protection
 
