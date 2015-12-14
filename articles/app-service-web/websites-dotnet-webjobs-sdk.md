@@ -52,7 +52,9 @@ The WebJobs SDK also makes it easy to handle common error handling scenarios. Yo
 
 ## <a id="code"></a> Code samples
 
-The code for handling typical tasks that work with Azure Storage is simple. In a Console Application, you write methods for the background tasks that you want to execute, and you decorate them with attributes from the WebJobs SDK. Your `Main` method creates a `JobHost` object that coordinates the calls to methods you write. The WebJobs SDK framework knows when to call your methods based on the WebJobs SDK attributes you use in them. 
+The code for handling typical tasks that work with Azure Storage is simple. In your Console Application's `Main` method you create a `JobHost` object that coordinates the calls to methods you write. The WebJobs SDK framework knows when to call your methods and what parameter values to use based on the WebJobs SDK attributes you use in them. The SDK provides *triggers* that specify what conditions cause the function to be called, and *binders* that specify how to get information into and out of method parameters.
+
+For example, the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) attribute causes a function to be called when a message is received on a queue, and if the message format is JSON for a byte array or a custom type, the message is automatically deserialized. The [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) attribute triggers a process whenever a new blob is created in an Azure Storage account.
 
 Here is a simple program that polls a queue and creates a blob for each queue message received:
 
@@ -83,13 +85,7 @@ The function then uses these parameters to write the value of the queue message 
 
 The trigger and binder features of the WebJobs SDK greatly simplify the code you have to write. The low-level code required to process queues, blobs, or files, or to initiate scheduled tasks, is done for you by the WebJobs SDK framework. For example, the framework creates queues that don't exist yet, opens the queue, reads queue messages, deletes queue messages when processing is completed, creates blob containers that don't exist yet, writes to blobs, and so on.
 
-## Extensibility
-
-The WebJobs SDK provides many ways to work with  Azure Storage. For example, if the parameter you decorate with the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) attribute is a byte array or a custom type, it is automatically deserialized from JSON. And you can use a [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) attribute to trigger a process whenever a new blob is created in an Azure Storage account.
-
-And you're not limited to built-in functionality -- the WebJobs SDK is designed to be extensible, which allows you to write custom triggers and binders.  For example you can write triggers for file events and periodic schedules. Extending the WebJobs SDK leads to simplicity in developing and managing WebJobs, since you can have a single WebJob that performs a variety of functions, with triggers on Azure queues, blobs, files, timers, WebHooks from GitHub, Slack, Instagram, IFTTT, and more.
-
-The following code example shows a WebJob which has functions that are triggered on a variety of events. 
+The following code example shows a variety of triggers in one WebJob: `TimerTrigger`, `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, and `ErrorTrigger`. 
 
 ```
     public class Functions
@@ -143,6 +139,9 @@ The following code example shows a WebJob which has functions that are triggered
         }
     }
 ```
+## Extensibility
+
+You're not limited to built-in functionality -- the WebJobs SDK allows you to write custom triggers and binders.  For example, you can write triggers for cache events and periodic schedules. An [open source repository](https://github.com/Azure/azure-webjobs-sdk-extensions) contains a [detailed guide on WebJobs SDK extensibility](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) and sample code to help get you started writing your own triggers and binders.
 
 ## <a id="workerrole"></a>Using the WebJobs SDK outside of WebJobs
 
