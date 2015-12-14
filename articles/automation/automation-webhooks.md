@@ -53,19 +53,22 @@ The **$WebhookData** object will have the following properties:
 
 There is no configuration of the webhook required to support the **$WebhookData** parameter, and the runbook is not required to accept it.  If the runbook does not define the parameter, then any details of the request sent from the client is ignored.
 
-If you specify a value for $WebhookData when you create the webhook, that value will be overriden when the webhook starts the runbook with the data from the client POST request, even if the client does not include any data in the request body.  If you start a runbook that has $WebhookData using a method other than a webhook, you can provide a value for $Webhookdata that will be recognized by the runbook.  This value should be an object with the same properties as $Webhookdata so that the runbook can properly work with it.
+If you specify a value for $WebhookData when you create the webhook, that value will be overriden when the webhook starts the runbook with the data from the client POST request, even if the client does not include any data in the request body.  If you start a runbook that has $WebhookData using a method other than a webhook, you can provide a value for $Webhookdata that will be recognized by the runbook.  This value should be an object with the same [properties](#details-of-a-webhook) as $Webhookdata so that the runbook can properly work with it as if it was working with actual WebhookData passed by a webhook.
 
-To test this property, create a runbook that takes $WebhookData as an input parameter of type **Object** and add code to it.
+For example, if you are starting the following runbook from the Azure Portal and want to pass some sample WebhookData for testing, since WebhookData is an object, it should be passed as JSON in the UI.
 
 ![WebhookData parameter from UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
-Now Save the runbook and open the **Test blade** to test it using Azure portal. In the test balde, enter a value for $WebhookData parameter in JSON format and start the runbook. Below is a sample JSON formatted value that can be passed to the $WebhoookData parameter.
+For the above runbook, if you have the following properties for the WebhookData parameter:
+a.	WebhookName: *MyWebhook*
+b.	RequestHeader: *From=Test User*
+c.	RequestBody: *[“VM1”, “VM2”]*
 
+Then you would pass the following JSON value in the UI for the WebhookData parameter:
 {"WebhookName":"MyWebhook", "RequestHeader": {"From":"Test User"}, "RequestBody": "[\"VM1\",\"VM2\"]"}
 
 ![WebhookData parameter from UI](media/automation-webhooks/Start WebhookData parameter from UI.png)
 
-Once the runbook completes execution, you can view the $WebhookData property values in the output screen.
 
 >[AZURE.NOTE] The values of all input parameters are logged with the runbook job.  This means that any input provided by the client in the webhook request will be logged and available to anyone with access to the automation job.  For this reason, you should be cautious about including sensitive information in webhook calls.
 
