@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/13/2015"
 	ms.author="juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys
 
-When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can add more than one storage accounts to your Media Services account.
+When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can [add more than one storage accounts]() to your Media Services account.
 
 When a new storage account is created, Azure generates two 512-bit storage access keys, which are used to authenticate access to your storage account. To keep your storage connections more secure, it is recommended to periodically regenerate and rotate your storage access key. Two access keys (primary and secondary) are provided in order to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. This procedure is also called "rolling access keys".
 
-Media Services has dependency on one of the storage keys (primary or secondary). Specifically, the locators that are used to stream or download your assets depend on the access key. When rolling storage access keys, you also need to make sure to update your locators so there will no interruption in your streaming service.
-
->[AZURE.NOTE]After you regenerate a storage key, you must make sure to synchronize the update with Media Services. 
+Media Services has dependency on one of the storage keys (primary or secondary). Specifically, the locators that are used to stream or download your assets depend on the specified storage access key.  By default, AMS accounts have dependency on the primary storage access key but you can choose to take dependency on either key. You must make sure to let Media Services know which key to use by following steps described in this topic. Also, when rolling storage access keys, you need to make sure to update your locators so there will no interruption in your streaming service. 
 
 This topic describes steps you would take to roll storage keys and update Media Services to use the appropriate storage key. Note, if you have multiple storage accounts, you would perform this procedure with each storage account.
 
