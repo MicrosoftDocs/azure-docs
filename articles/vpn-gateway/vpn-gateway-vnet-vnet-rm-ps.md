@@ -25,7 +25,7 @@
 
 This article will walk you through the steps using the Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above. At this time, we don't have a solution for VNet-to-VNet connections for virtual networks created using the Resource Manager deployment method that reside in different subscriptions. The team is currently working on a solution and we anticipate having steps by the end of the year. When it is available, this article will reflect those steps. The steps below are for VNets that are in the same subscription. 
 
-### About Azure deployment models
+**About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 	
