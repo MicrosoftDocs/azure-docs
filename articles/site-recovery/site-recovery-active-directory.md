@@ -20,7 +20,7 @@
 
 Enterprise applications such as SharePoint, Dynamics AX and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you create a disaster recovery solution for applications, it's important to remember that you need to protect and recover Active Directory and DNS before the other application components, to ensure that things function correctly when disaster occurs. 
 
-Site Recovery is an Azure service that provides disaster recovery by orchestrating replication, failover and recovery of virtual machines. Site Recovery supports a number of replication technologies to consistently replicate, protect, and seamlessly failover virtual machines and applications to private, public or hoster clouds. 
+Site Recovery is an Azure service that provides disaster recovery by orchestrating replication, failover and recovery of virtual machines. Site Recovery supports a number of replication scenarios to consistently protect, and seamlessly failover virtual machines and applications to private, public or hoster clouds. 
 
 Using Site Recovery, you can create a complete automated disaster recovery plan for Active Directory. When disruptions occur, you can initiate a failover within seconds from anywhere in get Active Directory up and running in a few minutes. If you've deployed Active Directory for multiple applications such as SharePoint and SAP in your primary site, and you want to fail over the complete site, you can fail over Active Directory first using Site Recovery, and then fail over the other applications using application-specific recovery plans.
 
