@@ -39,8 +39,8 @@ public class Program
 }
 ```
 
-For a sample, see [the azure-webjobs-sdk-samples repository on GitHub.com](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs).
-		
+A [complete Service Bus code example](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) is in the azure-webjobs-sdk-samples repository on GitHub.com.
+
 ## <a id="prerequisites"></a> Prerequisites
 
 To work with Service Bus you have to install the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet package in addition to the other WebJobs SDK packages. 
