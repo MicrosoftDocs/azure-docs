@@ -105,7 +105,7 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started/GS13newaspnetprojdb.png)
 
-	The default settings specify that Visual Studio will create an Azure app service for your web project. In the next section of the tutorial, you'll deploy the web project to the newly created app service.
+	The default settings specify that Visual Studio will create an Azure web app for your web project. In the next section of the tutorial, you'll deploy the web project to the newly created web app.
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 
@@ -167,7 +167,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Choose Publish](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you'll accept the settings that deploy to the app service that you created earlier.
+	In a few seconds, the **Publish Web** wizard appears. The wizard opens to a *publish profile* that has settings for deploying the web project to the new web app. If you wanted to deploy to a different web app, you could click the **Profile** tab to create a different profile. For this tutorial, you'll accept the settings that deploy to the web app that you created earlier.
 
 8. On the **Connection** tab of the **Publish Web** wizard, click **Next**.
 
@@ -193,7 +193,7 @@ In this section you deploy web project to the web app, as illustrated in step 2 
 
 	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
-	Upon successful deployment, the default browser automatically opens to the URL of the deployed app service, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is loaded from the Internet.
+	Upon successful deployment, the default browser automatically opens to the URL of the deployed web app, and the application that you created is now running in the cloud. The URL in the browser address bar shows that the web app is loaded from the Internet.
 
 	![Web app running in Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
@@ -225,7 +225,7 @@ This change is now in the deployed site but not the local project. If you redepl
 
 This feature is handy for [temporarily turning off customErrors in the Web.config file in order to get a detailed error message](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-In **Server Explorer** you can also right-click the app service node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
+In **Server Explorer** you can also right-click the App Service node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
 
 ![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
 
@@ -233,7 +233,7 @@ For more information, see [Troubleshooting Azure web apps in Visual Studio](web-
 
 ## Monitor and manage the web app in the Azure Portal
 
-The [Azure Portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the app service that you just created. In this section of the tutorial, you look at some of what you can do in the Portal.
+The [Azure Portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created. In this section of the tutorial, you look at some of what you can do in the Portal.
 
 1. In your browser, go to [https://portal.azure.com](https://portal.azure.com), and sign in with your Azure credentials.
 
