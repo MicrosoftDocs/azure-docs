@@ -301,8 +301,6 @@ Notification Hubs for migration Mobile Services must be managed through the [Azu
 
 XXX-TODO - Add section for managing notification hubs
 
-Log into the [Azure Classic Portal] to manage classic push notifications.
-
 For more information, review the [Notification Hubs] documentation.
 
 ### <a name="app-settings"></a>App Settings
