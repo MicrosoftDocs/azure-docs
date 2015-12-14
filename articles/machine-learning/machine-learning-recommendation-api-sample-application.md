@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="luisca"/> 
 
 
@@ -58,6 +58,7 @@ You will usually invoke Get Recommendation for a certain period of time. During 
 
 * Visual Studio 2013
 * Internet access 
+* Subscription to the Recommendations API (https://datamarket.azure.com/dataset/amla/recommendations).
 
 ##Azure Machine Learning sample app solution
 
