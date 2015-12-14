@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="garye" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
