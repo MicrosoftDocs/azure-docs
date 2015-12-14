@@ -335,9 +335,11 @@ Diagnostic Logging is normally disabled in an Azure App Service.  To enable diag
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Select **Diagnostic Logs** under the FEATURES menu.
   5. Click **ON** for the following logs:
+
     a. Application Logging (Filesystem)
     b. Detailed error messages
     c. Failed request tracing
+
   6. Click **File System** for Web server logging
   7. Click on **Save**
 
