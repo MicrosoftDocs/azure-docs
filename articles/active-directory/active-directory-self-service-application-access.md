@@ -105,4 +105,4 @@ The **Configure** tile is only shown if the application was configured by the IT
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
-[3]: ./media/active-directory-self-service-application-access/saa_ap_manage_app_config.PNG
+[3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
