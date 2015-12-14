@@ -147,3 +147,4 @@ To learn about more complex storage tasks, follow these links:
 
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
