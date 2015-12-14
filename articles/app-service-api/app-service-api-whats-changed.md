@@ -18,7 +18,7 @@
 
 # App Service API Apps - What's changed
 
-At the Connect() event in November 2015, a number of improvements were [announced](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) to Azure App Service. These improvements include underlying changes to API Apps to better align with Mobile and Web Apps, reduce concept count and improve deployment and runtime performance. Starting November 30, 2015, new API apps you create using the Azure management portal or the latest tooling will reflect these changes. This article describes these changes, as well as how to redeploy existing apps to take advantage of the capabilities.
+At the Connect() event in November 2015, a number of improvements to Azure App Service were [announced](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/). These improvements include underlying changes to API Apps to better align with Mobile and Web Apps, reduce concept count and improve deployment and runtime performance. Starting November 30, 2015, new API apps you create using the Azure management portal or the latest tooling will reflect these changes. This article describes these changes, as well as how to redeploy existing apps to take advantage of the capabilities.
 
 
 > [AZURE.NOTE] The initial preview of API Apps supported two primary scenarios: 1) custom APIs for use in Logic Apps or your own clients and 2) Marketplace API (often SaaS connectors) for use in Logic Apps. This article addresses the first scenario, custom APIs. For Marketplace APIs, an improved Logic Apps designer experience and underlying connectivity foundation will be introduced in early 2016. The existing Marketplace APIs remain available in the Logic Apps designer.
@@ -120,7 +120,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 The Logic Apps designer will be adding especially seamless integration with the new API Apps model in early 2016. That said, the HTTP connector built into Logic Apps can invoke any HTTP endpoint and supports service principal authentication, which is also supported natively by the App Service authentication services. Learn how to consume an App Service-hosted API in Logic Apps in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
 ## Next Steps
-To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/documentation/services/app-service/api/). They have been updated the reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
+To learn more, read the articles in the [API Apps Documentation section](https://azure.microsoft.com/documentation/services/app-service/api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
 
 - [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)

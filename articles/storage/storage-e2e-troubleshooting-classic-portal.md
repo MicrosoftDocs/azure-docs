@@ -371,7 +371,7 @@ For more information about troubleshooting end-to-end scenarios in Azure Storage
 - [Monitor, diagnose, and troubleshoot Storage](storage-monitoring-diagnosing-troubleshooting.md)
 - [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [How to monitor a storage account](storage-monitor-storage-account.md)
-- [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 - [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)
  
  

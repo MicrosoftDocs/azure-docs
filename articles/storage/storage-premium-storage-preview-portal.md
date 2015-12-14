@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram;selcint"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh;selcint"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
