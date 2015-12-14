@@ -101,7 +101,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to Fuse** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png) <br>
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Fuse application using the following pattern: **“https://azuresso.fusion-universal.com/ ”**.
@@ -119,7 +119,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Copy the **Issuer URL**, the **Single Sign-On Service URL** and the **Single Sign-Out Service URL**.
 
    
-5. To get SSO configured for your application, contact your Fuse support team via **support@fusion-universal.com**,  attach the downloaded certificate file and include the the **Issuer URL**, the **Single Sign-On Service URL** and the **Single Sign-Out Service URL**.
+5. To get SSO configured for your application, contact your Fuse support team via **support@fusion-universal.com**,  attach the downloaded certificate file and include the **Issuer URL**, the **Single Sign-On Service URL** and the **Single Sign-Out Service URL**.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
