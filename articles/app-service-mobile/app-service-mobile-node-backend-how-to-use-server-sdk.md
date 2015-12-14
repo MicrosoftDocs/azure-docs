@@ -630,7 +630,7 @@ Node.js applications have access to a wide range of diagnostic log tools.  Inter
 
 ## <a name="in-portal-editing"></a>In-portal code editing experience
 
-Special tooling in the Azure portal makes it easy to work with a Node.js backend project without having to download the code project. Easy Tables and Easy APIs in the portal let you create and work with tables and custom APIs right in the portal. You can even edit table operation and API scripts right in the portal using the Visual Studio Online "Monaco" editor.
+Special tooling in the Azure portal makes it easy to work with a Node.js backend project without having to download the code project. Easy Tables and Easy APIs in the portal let you create and work with tables and custom APIs right in the portal. You can even edit table operation and API scripts right in the portal using the Visual Studio Team Services "Monaco" editor.
 
 ### <a name="work-easy-tables"></a>How to: Work with Easy Tables in the Azure portal
 
@@ -641,7 +641,7 @@ When you click **Easy tables** in your backend site settings, you can add a new 
 The following commands are available on the command bar for a table:
 
 + **Change permissions** - modify the the permission for read, insert, update and delete operations on the table. Options are to allow anonymous access, to require authentication, or to disable all access to the operation. This modifies the table.json project code file.
-+ **Edit script** - the script file for the table is opened in the Visual Studio Online editor.
++ **Edit script** - the script file for the table is opened in the Visual Studio Team Services editor.
 + **Manage schema** - add or delete columns or change the table index.
 + **Clear table** - truncates an existing table be deleting all data rows but leaving the schema unchanged.
 + **Delete rows** - delete individual rows of data.
@@ -653,15 +653,15 @@ When you click **Easy APIs** in your backend site settings, you can add a new cu
 
 ![Work with Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
 
-In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the Visual Studio Online editor, or view the streaming logs.
+In the portal, you can change the access permissions for a given HTTP action, edit the API script file in the Visual Studio Team Services editor, or view the streaming logs.
 
-###<a name="online-editor"></a>How to: Edit code in Visual Studio Online
+###<a name="online-editor"></a>How to: Edit code in Visual Studio Team Services
 
-The Azure portal lets you edit your Node.js backend script files in Visual Studio Online without having to download the project to your local computer. To edit script files in the online editor:
+The Azure portal lets you edit your Node.js backend script files in Visual Studio Team Services without having to download the project to your local computer. To edit script files in the online editor:
 
-1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the Visual Studio Online editor.
+1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the Visual Studio Team Services editor.
 
-	![Visual Studio Online code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Visual Studio Team Services code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 

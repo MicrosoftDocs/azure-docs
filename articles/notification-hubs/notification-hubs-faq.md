@@ -23,9 +23,10 @@
 Notification Hubs is offered in three tiers - *Free*, *Basic* & *Standard* tiers. More details here - [Notification Hubs Pricing]. The pricing is charged at the subscription level and is based on the number of pushes so it doesn't matter how many namespaces or notification hubs you have.
 Free tier is offered for development purpose with no SLA guarantee. Basic & Standard Tiers are offered for production usage with the following key features enabled only for Standard Tier:
 
-- *Broadcast* - Basic tier limits the number of Notification Hub tags to 3K (applies to > 5 devices). If you have an audience size greater than 3K then you must move to Standard Tier.
 - *Rich telemetry* - Basic Tier does not allow exporting your telemetry or registrations data. If you need the capability to export your telemetry data for offline viewing and analysis then you must move to Standard Tier.
 - *Multi-tenancy* - If you are creating a mobile app using Notification Hubs to support multiple tenants then you must consider moving to Standard tier. This allows you to set Push Notification Services (PNS) credentials at the Notification Hub namespace level for the app and then you can segregate the tenants providing them individual hubs under this common namespace. This enables ease of maintenance while keeping the SAS keys to send & receive notifications from the notification hubs segregated for each tenant ensuring non cross-tenant overlap.
+- *Scheduled Push* - You can schedule for push notifications to be queued up and sent out.
+- *Bulk import* - You can import registrations in bulk.
 
 ###2.	What is the SLA?
 For Basic and Standard Notification Hub tiers, we guarantee that at least 99.9% of the time, properly configured applications will be able to send notifications or perform registration management operations with respect to a Notification Hub deployed within a Basic or Standard Notification Hub Tier. To learn more about our SLA, please visit the SLA page here - [Notification Hubs SLA]. Note that there are no SLA guarantees for the leg between the Platform Notification Service and the device since Notification Hubs depend on external platform providers to deliver the notification to the device.
@@ -41,7 +42,7 @@ We have a number of customers using Notification Hubs with a few notable ones be
 * Bing Apps – 10s of millions of devices, sending 3 million notifications/day
 
 ###4. How do I upgrade or downgrade my Notification Hubs to change my service tier?
-Go to the [Azure Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
+Go to the [Azure Classic Portal], click Service Bus, and click on your namespace then your notification hub. Under the Scale tab, you will be able to change your Notification Hubs service tier.
 
 ##Design & Development
 ###1.	Which service side platforms do you support?
@@ -111,18 +112,18 @@ Recommendation is to use an app backend which either:
 If you don’t have a backend then when the app starts up on the devices then they will do a new registration in the secondary NH and eventually the secondary NH will have all the active devices registered but the downside is that there will be a time period when devices where apps haven't opened up will not receive notifications.
 
 ###2.	Is there any audit log capability?
-All Notification Hubs Management operations go to Operation Logs which are exposed in the Azure Management Portal.
+All Notification Hubs Management operations go to Operation Logs which are exposed in the [Azure Classic Portal].
 
 ##Monitoring & Troubleshooting
 ###1.	What troubleshooting capabilities are available?
 Azure Notification Hubs provide several features to do common troubleshooting particularly in the most common scenario around dropped notifications. See details in this troubleshooting whitepaper - [NH - troubleshooting]
 
 ###2.	What telemetry features are available?
-Azure Notification Hubs enable viewing telemetry data in the Azure management portal. Details of the available metrics are available here - [NH - Metrics].
+Azure Notification Hubs enables viewing telemetry data in the [Azure Classic Portal]. Details of the available metrics are available here - [NH - Metrics].
 Note that successful notifications only mean that the notifications have been delivered to the external Push Notification Service (e.g. APNS for Apple, GCM for Google etc) and then it is up to the PNS to deliver the notification to the devices and the PNS do not expose these metrics to us.  
 It also provides the capability to export the telemetry programmatically (in Standard Tier). See this sample for details - [NH - Metrics sample]
 
-[Azure Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [CaseStudy - Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942

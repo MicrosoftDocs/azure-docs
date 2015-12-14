@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/11/2015" 
 	ms.author="sdanie"/>
 
 # How to Scale Azure Redis Cache
@@ -89,7 +89,12 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ## Can I scale to, from, or within a Premium cache
 
-During the preview period, scaling is not available for **Premium** caches, but you can change the pricing tier within a premium cache.
+-	You can't scale to a **Premium** cache pricing tier from **Basic** or **Standard** pricing tiers.
+-	You can't scale from a **Premium** cache to a **Basic** or **Standard** pricing tier.
+-	You can scale from one **Premium** cache pricing tier to another.
+-	If you enabled clustering when you created your **Premium** cache, you can scale the shard count up or down.
+
+For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 
 ## After scaling, do I have to change my cache name or access keys
 
@@ -101,7 +106,7 @@ When a **Basic** cache is scaled to a different size, it is shut down and a new 
 
 When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
 
-When a **Standard** cache is scaled to a different size, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
+When a **Standard** cache is scaled to a different size, one of the replicas is shut down and re-provisioned to the new size and the data transferred over, and then the other replica performs a failover before it is re-provisioned, similar to the process that occurs during a failure of one of the cache nodes.
 
 ## Will I lose data from my cache during scaling
 
