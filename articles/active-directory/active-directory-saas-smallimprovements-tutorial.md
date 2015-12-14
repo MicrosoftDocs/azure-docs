@@ -101,14 +101,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to Small Improvements** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
 
     > [AZURE.NOTE] Contact the Small Improvements support team at [Support@small-improvements.com](mailto:support@small-improvements.com) to configure a domain name for your account. This is required for single sign-on to work.
 
 
     a. In the **Sign-On URL** textbox, type the URL used by your users to sign-on to your Small Improvements application.  
-    a. Click **Next**.
+    b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Small Improvements** page, perform the following steps:
@@ -214,7 +214,7 @@ You have already enabled it in [Configuring Azure AD Single Sign-On](#configurin
 
 1. From the Home page, go to the menu on the left, click **Administration**.
 
-1. Click the **User Directory** buttton from User Management section. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) <br>
+1. Click the **User Directory** button from User Management section. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) <br>
 
 1. Click **Add Team Member**. <br><br>![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_11.png) <br>
 
