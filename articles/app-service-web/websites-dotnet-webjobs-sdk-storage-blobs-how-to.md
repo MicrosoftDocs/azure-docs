@@ -97,7 +97,7 @@ You can use the `BlobTrigger` attribute on the following types:
 
 If you want to work directly with the Azure storage account, you can also add a `CloudStorageAccount` parameter to the method signature.
 
-For examples, see the [azure-webjobs-sdk repository on GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs#L155).
+For examples, see the [blob binding code in the azure-webjobs-sdk repository on GitHub.com](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
 ## <a id="string"></a> Getting text blob content by binding to string
 
