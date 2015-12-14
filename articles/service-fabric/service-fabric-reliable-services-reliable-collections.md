@@ -18,12 +18,12 @@
 
 # Introduction to Reliable Collections in Azure Service Fabric stateful services
 
-Reliable Collections enable you to write highly available, scalable, and low-latency cloud applications as though you were writing single computer applications. The classes in the **Microsoft.ServiceFabric.Data.Collections** namespace provide a set of out-of-the-box collections that automatically make your state highly available. Developers need only to program to the Reliable Collection APIs and let Reliable Collections manage the replicated and local state.
+Reliable Collections enable you to write highly available, scalable, and low-latency cloud applications as though you were writing single computer applications. The classes in the **Microsoft.ServiceFabric.Data.Collections** namespace provide a set of out-of-the-box collections that automatically make your state highly available. Developers need to program only to the Reliable Collection APIs and let Reliable Collections manage the replicated and local state.
 
 The key difference between Reliable Collections and other high-availability technologies (such as Redis, Azure Table service, and Azure Queue service) is that the state is kept locally in the service instance while also being made highly available. This means that:
 
-1. All reads are local, which results in low latency and high throughput reads.
-2. All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.
+1. All reads are local, which results in low latency and high-throughput reads.
+2. All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
 
 ![Image of evolution of collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
@@ -31,13 +31,13 @@ Reliable Collections can be thought of as the natural evolution of the **System.
 
 1. Replicated: State changes are replicated for high availability.
 2. Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-3. Asynchronous: APIs are asynchronous to ensure threads are not blocked when incurring IO.
-4. Transactional: APIs utilize the abstraction of transactions to allow you to manage multiple Reliable Collections within a service easily.
+3. Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
+4. Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
 
 Reliable Collections provide strong consistency guarantees out of the box in order to make reasoning about application state easier.
-Strong consistency is achieved by ensuring transaction commits only complete after the entire transaction
-has been applied on a quorum of replicas including the primary.
-To achieve weaker consistency, applications can acknowledge back to the client / requester before the asynchronous commit returns.
+Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction
+has been applied on a quorum of replicas, including the primary.
+To achieve weaker consistency, applications can acknowledge back to the client/requester before the asynchronous commit returns.
 
 The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the **System.Collections.Concurrent** namespace):
@@ -49,18 +49,18 @@ The Reliable Collections APIs are an evolution of concurrent collections APIs
 Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 
 1. [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
-2. [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+2. [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
 
 ## Isolation levels
 Isolation level is a measure of the degree to which isolation is achieved.
-Isolation means that a transaction behaves as it would in a system that only allows one transaction to be in-flight at any given time.
+Isolation means that a transaction behaves as it would in a system that allows only one transaction to be in-flight at any given time.
 
 Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica.
 
 There are two isolation levels that are supported in Reliable Collections:
 
-- **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. The transaction can only recognize data modifications that were committed before the start of the transaction. Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction. The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. The transaction can recognize only data modifications that were committed before the start of the transaction. Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction. The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
 In other words, any write within a transaction will be visible to a following read
@@ -80,17 +80,17 @@ that belongs to the same transaction.
 
 ## Persistence model
 The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
-This is a model where each state change is logged on disk and only applied in memory.
-The complete state itself is only persisted occasionally (a.k.a. Checkpoint).
-The benefit it provides is:
+This is a model where each state change is logged on disk and applied only in memory.
+The complete state itself is persisted only occasionally (a.k.a. Checkpoint).
+The benefit that it provides is:
 
 - Deltas are turned into sequential append-only writes on disk for improved performance.
 
-To better understand the log and checkpoint model, let’s first look at the infinite disk scenario.
+To better understand the Log and Checkpoint model, let’s first look at the infinite disk scenario.
 The Reliable State Manager logs every operation before it is replicated.
-This allows the Reliable Collection to only apply the operation in memory.
+This allows the Reliable Collection to apply only the operation in memory.
 Since logs are persisted, even when the replica fails and needs to be restarted, the Reliable State Manager has enough information in its logs to replay all the operations the replica has lost.
-As the disk is infinite, log records never need to be removed and the Reliable Collection only needs to manage the in-memory state.
+As the disk is infinite, log records never need to be removed and the Reliable Collection needs to manage only the in-memory state.
 
 Now let’s look at the finite disk scenario.
 At one point, the Reliable State Manager will run out of disk space.
@@ -102,7 +102,7 @@ This way, when the replica needs to be restarted, Reliable Collections will reco
 
 ## Locking
 In Reliable Collections, all transactions are two-phased: a transaction does not release
-the locks it has acquired until the transaction terminates with either an abort or commit.
+the locks it has acquired until the transaction terminates with either an abort or a commit.
 
 Reliable Collections always take Exclusive locks.
 For reads, the locking is dependent on a couple of factors.
@@ -124,7 +124,7 @@ For example, two transactions (T1 and T2) are trying to read and update K1.
 It is possible for them to deadlock, because they both end up having the Shared lock.
 In this case, one or both of the operations will time out.
 
-Note that the above deadlock scenario is a great example of how Update lock can prevent deadlocks.
+Note that the above deadlock scenario is a great example of how an Update lock can prevent deadlocks.
 
 ## Recommendations
 
