@@ -297,9 +297,18 @@ after migration:
 | **MS_NotificationHubConnectionString** | The Notification Hub Connection String   |
 | **MS_NamespaceName**                   | An alias for MS_PushEntityNamespace      |
 
-Notification Hubs for migration Mobile Services must be managed through the [Azure Classic Portal].
+Your Notification Hub will be managed through the [Azure Portal].  Note the Notification Hub name (you can find this using the App Settings):
 
-XXX-TODO - Add section for managing notification hubs
+  1. Log into the [Azure Portal].
+  2. Select **Browse** > **Notification Hubs**
+  3. Click on the Notification Hub name associated with the mobile service.
+
+> [AZURE.NOTE] Your notification hub will not be visible if it a "Mixed" type.  "Mixed" type notification hubs utilize both Notification Hubs and
+> legacy Service Bus features.  You will need to [convert your Mixed namespaces].  Once the conversion is complete, your notification hub will
+> appear in the [Azure Portal] .
+
+> [AZURE.TIP] Notification Hubs management features in the [Azure Portal] is still in preview.  The [Azure Classic Portal] remains available for
+> managing all your Notification Hubs.
 
 For more information, review the [Notification Hubs] documentation.
 
@@ -373,6 +382,7 @@ Not that your application is migrated to App Service, there are even more featur
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
 [continuously deploy]: ../app-service-web/web-sites-publish-source-control.md
+[convert your Mixed namespaces]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [custom domain names]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
