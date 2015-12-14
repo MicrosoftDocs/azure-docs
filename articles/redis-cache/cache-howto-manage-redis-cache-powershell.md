@@ -22,7 +22,7 @@
 - [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 - [Azure CLI](cache-manage-cli.md)
 
-This topic shows you how to perform common tasks such as create, update and delete an Azure Redis Cache. For a complete list of Azure Redis Cache PowerShell cmdlets, see [Azure Redis Cache cmdlets](https://msdn.microsoft.com/library/azure/mt634513.aspx).
+This topic shows you how to perform common tasks such as create, update, and scale your Azure Redis Cache instance, how to regenerate access keys, and how to view information about your caches. For a complete list of Azure Redis Cache PowerShell cmdlets, see [Azure Redis Cache cmdlets](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](#classic) described later in this article.
 
