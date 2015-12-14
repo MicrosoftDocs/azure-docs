@@ -16,7 +16,7 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Fail back VMware virtual machines and physical servers from Azure to VMware
+# Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery
 
 ## Overview
 
