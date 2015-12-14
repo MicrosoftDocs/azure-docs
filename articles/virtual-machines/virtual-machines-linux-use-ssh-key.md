@@ -164,7 +164,7 @@ You can then use the .pem file with either the classic portal or with the classi
 
 ## Connect to your VM
 
-The **ssh** command takes a username to log on with, the network address of the computer, and the port at which to connect to the address -- as well as many other special variations. (For more information about **ssh**, you might start [here](https://en.wikipedia.org/wiki/Secure_Shell)) 
+The **ssh** command takes a username to log on with, the network address of the computer, and the port at which to connect to the address -- as well as many other special variations. (For more information about **ssh**, you might start with this [article on Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)) 
 
 A typical usage with Resource Manager deployment might look like the following, if you've merely specified a subdomain and a deployment location:
 
