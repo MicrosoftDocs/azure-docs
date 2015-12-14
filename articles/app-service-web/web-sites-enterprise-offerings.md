@@ -153,7 +153,7 @@ In addition to the scaling flexibility of Web Apps, the overall platform enables
 App Service Web Apps offers a flexible, cost effective, responsive solution to the dynamic needs of a business in a rapidly evolving environment. Web Apps helps businesses increase productivity and efficiency by making use of a managed platform with modern DevOps capabilities and reduced hands on management, while providing enterprise capabilities in scale, resilience, security and integration with on-premises assets.
 
 ## Call to Action ##
-For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/sservices/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
+For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/services/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
