@@ -26,4 +26,4 @@ Creating, deploying, and managing WebJobs is seamless with integrated tooling in
 
 The WebJobs dashboard in the Azure portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output.
 
-[AZURE.INCLUDE [app-service-blueprint-webjobs](../includes/app-service-blueprint-webjobs.md)]
+[AZURE.INCLUDE [app-service-blueprint-webjobs](../../includes/app-service-blueprint-webjobs.md)]

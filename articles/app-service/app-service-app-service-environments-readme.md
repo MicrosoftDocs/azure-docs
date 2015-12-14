@@ -17,7 +17,8 @@
 	ms.date="12/08/2015" 
 	ms.author="nirma"/>
 
-## Overview ##
+# Overview
+
 An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including [Web Apps][WebApps], [Mobile Apps][MobileApps], and [API Apps][APIApps].  
 
 App Service Environments are ideal for application workloads requiring:
@@ -31,7 +32,7 @@ App Service Environments are isolated to running only a single customer's applic
 
 Apps frequently need to access corporate resources such as internal databases and web services.  Apps running on App Service Environments can access resources reachable via [Site-to-Site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
 
-[AZURE.INCLUDES [app-service-blueprint-app-service-environment](../includes/app-service-blueprint-app-service-environment.md)]
+[AZURE.INCLUDES [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/

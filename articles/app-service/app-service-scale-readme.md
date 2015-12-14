@@ -41,4 +41,4 @@ This section will help you understand all the factors and help you device a
 strategy that takes advantage of the necessary App Service features to achieve 
 your scalability goals.
 
-[AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../includes/app-service-blueprint-scaling-app-service-applications.md)]
+[AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]

@@ -38,4 +38,4 @@ All App types rely on the scalable and flexible Web App platform which allows de
  
 Put together, the App Service capabilities allow developers to focus on their code and reach a stable, highly scalable production state quickly. With the API and Logic App features, developers can build real-world enterprise applications bridging barriers between business solutions as well as on premise to cloud integration.  
 
-[AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../includes/app-service-blueprint-how-app-service-works.md)]
+[AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
