@@ -38,7 +38,7 @@ Figure 2:
 The prerequisites for this article are as follows:
 
 1.	An active Azure subscription
-2.	A CSV file with some data in it. The one in Figure 2 is provided [in Github](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) for download, or you may create your own. This tutorial is written with the assumption that the one provided for download is used.
+2.	A CSV file with some data in it. The one in Figure 2 is provided [in GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) for download, or you may create your own. This tutorial is written with the assumption that the one provided for download is used.
 
 At a high level, the following steps will be performed:
 
