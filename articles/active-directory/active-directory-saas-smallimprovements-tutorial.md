@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Small Improvements."
 	services="active-directory"
 	documentationCenter=""
-	authors="jeedes"
+	authors="jeevansd"
 	manager="prasanns"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/14/2015"
-	ms.author="jeevansd"/>
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Small Improvements
