@@ -44,21 +44,21 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 1. Open an Azure PowerShell command prompt, and then run this command and enter the credentials for your subscription when prompted:
 
-    Login-AzureRmAccount
+			Login-AzureRmAccount
 
 2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
-    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
 	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure preview portal.
 
 3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
-    New-AzureRmADServicePrincipal -ApplicationId {application-id}
+			New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
 4. Set the permission to use the application:
 
-    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+			New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create the Visual Studio project, the template file, and the parameters file
 
@@ -79,10 +79,10 @@ In Visual Studio, do the following:
 5. Open the VirtualMachineTemplate.json file and then add the opening and closing brackets, the required schema element, and the required contentVersion element:
 
 	```
-{
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-	"contentVersion": "1.0.0.0",
-}
+	{
+		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+		"contentVersion": "1.0.0.0",
+	}
 	```
 
 6. [Parameters](../resource-group-authoring-templates.md#parameters) are not always required, but they make template management easier. They describe the type of the value, the default value if needed, and possibly the allowed values of the parameter. For this tutorial, the parameters that are used to create a virtual machine, a storage account, and a virtual network are added to the template.
@@ -112,40 +112,40 @@ In Visual Studio, do the following:
     Add the variables element after the parameters section:
 
 	```
- {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "newStorageAccountName": { "type": "string" },
-       "adminUsername": { "type": "string" },
-       "adminPassword": { "type": "securestring" },
-       "dnsNameForPublicIP": { "type": "string" },
-       "windowsOSVersion": {
-         "type": "string",
-         "defaultValue": "2012-R2-Datacenter",
-         "allowedValues": ["2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"]
-       }
-     },
-     "variables": {
-       "location": "West US",
-       "imagePublisher": "MicrosoftWindowsServer",
-       "imageOffer": "WindowsServer",
-       "OSDiskName": "osdiskforwindowssimple",
-       "nicName": "myVMnic1",
-       "addressPrefix": "10.0.0.0/16",
-       "subnetName": "Subnet",
-       "subnetPrefix": "10.0.0.0/24",
-       "storageAccountType": "Standard_LRS",
-       "publicIPAddressName": "myPublicIP",
-       "publicIPAddressType": "Dynamic",
-       "vmStorageAccountContainerName": "vhds",
-       "vmName": "MyWindowsVM",
-       "vmSize": "Standard_A2",
-       "virtualNetworkName": "MyVNET",
-       "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-       "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
-     },
- }
+	{
+		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+			"newStorageAccountName": { "type": "string" },
+			"adminUsername": { "type": "string" },
+			"adminPassword": { "type": "securestring" },
+			"dnsNameForPublicIP": { "type": "string" },
+			"windowsOSVersion": {
+				"type": "string",
+				"defaultValue": "2012-R2-Datacenter",
+				"allowedValues": ["2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"]
+			}
+		},
+		"variables": {
+			"location": "West US",
+			"imagePublisher": "MicrosoftWindowsServer",
+			"imageOffer": "WindowsServer",
+			"OSDiskName": "osdiskforwindowssimple",
+			"nicName": "myVMnic1",
+			"addressPrefix": "10.0.0.0/16",
+			"subnetName": "Subnet",
+			"subnetPrefix": "10.0.0.0/24",
+			"storageAccountType": "Standard_LRS",
+			"publicIPAddressName": "myPublicIP",
+			"publicIPAddressType": "Dynamic",
+			"vmStorageAccountContainerName": "vhds",
+			"vmName": "MyWindowsVM",
+			"vmSize": "Standard_A2",
+			"virtualNetworkName": "MyVNET",
+			"vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+			"subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
+		},
+	}
 	```
 
 8. [Resources](../resource-group-authoring-templates.md#resources) such as the virtual machine, the virtual network, and the storage account are defined next in the template.
@@ -153,145 +153,145 @@ In Visual Studio, do the following:
     Add the resources section after the variables section:
 
 	```
- {		 
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-   "contentVersion": "1.0.0.0",
-   "parameters": {
-     "newStorageAccountName": { "type": "string" },
-     "adminUsername": { "type": "string" },
-     "adminPassword": { "type": "securestring" },
-     "dnsNameForPublicIP": { "type": "string" },
-     "windowsOSVersion": {
-       "type": "string",
-       "defaultValue": "2012-R2-Datacenter",
-       "allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"]
-     }
-   },
-   "variables": {
-     "location": "West US",
-     "imagePublisher": "MicrosoftWindowsServer",
-     "imageOffer": "WindowsServer",
-     "OSDiskName": "osdiskforwindowssimple",
-     "nicName": "myVMnic1",
-     "addressPrefix": "10.0.0.0/16",
-     "subnetName": "Subnet",
-     "subnetPrefix": "10.0.0.0/24",
-     "storageAccountType": "Standard_LRS",
-     "publicIPAddressName": "myPublicIP",
-     "publicIPAddressType": "Dynamic",
-     "vmStorageAccountContainerName": "vhds",
-     "vmName": "MyWindowsVM",
-     "vmSize": "Standard_A2",
-     "virtualNetworkName": "MyVNET",
-     "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-     "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
-   },
-   "resources": [
-     {
-       "apiVersion": "2015-05-01-preview",
-       "type": "Microsoft.Storage/storageAccounts",
-       "name": "[parameters('newStorageAccountName')]",
-       "location": "[variables('location')]",
-       "properties": {
-         "accountType": "[variables('storageAccountType')]"
-       }
-     },
-     {
-       "apiVersion": "2015-05-01-preview",
-       "type": "Microsoft.Network/publicIPAddresses",
-       "name": "[variables('publicIPAddressName')]",
-       "location": "[variables('location')]",
-       "properties": {
-         "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-         "dnsSettings": {
-           "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-         }
-       }
-     },
-     {
-       "apiVersion": "2015-05-01-preview",
-       "type": "Microsoft.Network/virtualNetworks",
-       "name": "[variables('virtualNetworkName')]",
-       "location": "[variables('location')]",
-       "properties": {
-         "addressSpace": {
-           "addressPrefixes": [ "[variables('addressPrefix')]" ]
-         },
-         "subnets": [ {
-           "name": "[variables('subnetName')]",
-           "properties": {
-             "addressPrefix": "[variables('subnetPrefix')]"
-           }
-         } ]
-       }
-     },
-     {
-       "apiVersion": "2015-05-01-preview",
-       "type": "Microsoft.Network/networkInterfaces",
-       "name": "[variables('nicName')]",
-       "location": "[variables('location')]",
-       "dependsOn": [
-         "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-         "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-       ],
-       "properties": {
-         "ipConfigurations": [ {
-           "name": "ipconfig1",
-           "properties": {
-             "privateIPAllocationMethod": "Dynamic",
-             "publicIPAddress": {
-               "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
-             },
-             "subnet": {
-               "id": "[variables('subnetRef')]"
-             }
-           }
-         } ]
-       }
-     },
-     {
-       "apiVersion": "2015-06-15",
-       "type": "Microsoft.Compute/virtualMachines",
-       "name": "[variables('vmName')]",
-       "location": "[variables('location')]",
-       "dependsOn": [
-         "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-       ],
-       "properties": {
-         "hardwareProfile": {
-           "vmSize": "[variables('vmSize')]"
-         },
-         "osProfile": {
-           "computerName": "[variables('vmName')]",
-           "adminUsername": "[parameters('adminUsername')]",
-           "adminPassword": "[parameters('adminPassword')]",
-         },
-         "storageProfile": {
-           "imageReference": {
-             "publisher": "[variables('imagePublisher')]",
-             "offer": "[variables('imageOffer')]",
-             "sku": "[parameters('windowsOSVersion')]",
-             "version" : "latest"
-           },
-           "osDisk": {
-             "name": "osdisk",
-             "vhd": {
-               "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-             },
-             "caching": "ReadWrite",
-             "createOption": "FromImage"
-           }
-         },
-         "networkProfile": {
-           "networkInterfaces" : [ {
-             "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-           } ]
-         }
-       }
-     } ]
-   }
-	```
+	{
+		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+			"newStorageAccountName": { "type": "string" },
+			"adminUsername": { "type": "string" },
+			"adminPassword": { "type": "securestring" },
+			"dnsNameForPublicIP": { "type": "string" },
+			"windowsOSVersion": {
+				"type": "string",
+				"defaultValue": "2012-R2-Datacenter",
+				"allowedValues": [ "2008-R2-SP1", "2012-Datacenter", "2012-R2-Datacenter"]
+			}
+		},
+		"variables": {
+			"location": "West US",
+			"imagePublisher": "MicrosoftWindowsServer",
+			"imageOffer": "WindowsServer",
+			"OSDiskName": "osdiskforwindowssimple",
+			"nicName": "myVMnic1",
+			"addressPrefix": "10.0.0.0/16",
+			"subnetName": "Subnet",
+			"subnetPrefix": "10.0.0.0/24",
+			"storageAccountType": "Standard_LRS",
+			"publicIPAddressName": "myPublicIP",
+			"publicIPAddressType": "Dynamic",
+			"vmStorageAccountContainerName": "vhds",
+			"vmName": "MyWindowsVM",
+			"vmSize": "Standard_A2",
+			"virtualNetworkName": "MyVNET",
+			"vnetID":"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+			"subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
+		},
+		"resources": [
+			{
+  			"apiVersion": "2015-05-01-preview",
+				"type": "Microsoft.Storage/storageAccounts",
+				"name": "[parameters('newStorageAccountName')]",
+				"location": "[variables('location')]",
+				"properties": {
+					"accountType": "[variables('storageAccountType')]"
+				}
+			},
+			{
+				"apiVersion": "2015-05-01-preview",
+				"type": "Microsoft.Network/publicIPAddresses",
+				"name": "[variables('publicIPAddressName')]",
+				"location": "[variables('location')]",
+				"properties": {
+					"publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+					"dnsSettings": {
+						"domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+					}
+				}
+			},
+			{
+				"apiVersion": "2015-05-01-preview",
+				"type": "Microsoft.Network/virtualNetworks",
+				"name": "[variables('virtualNetworkName')]",
+				"location": "[variables('location')]",
+				"properties": {
+					"addressSpace": {
+						"addressPrefixes": [ "[variables('addressPrefix')]" ]
+					},
+					"subnets": [ {
+						"name": "[variables('subnetName')]",
+						"properties": {
+							"addressPrefix": "[variables('subnetPrefix')]"
+						}
+					} ]
+				}
+			},
+			{
+				"apiVersion": "2015-05-01-preview",
+				"type": "Microsoft.Network/networkInterfaces",
+				"name": "[variables('nicName')]",
+				"location": "[variables('location')]",
+				"dependsOn": [
+					"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+					"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+				],
+				"properties": {
+					"ipConfigurations": [ {
+						"name": "ipconfig1",
+						"properties": {
+							"privateIPAllocationMethod": "Dynamic",
+							"publicIPAddress": {
+								"id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
+							},
+							"subnet": {
+								"id": "[variables('subnetRef')]"
+							}
+						}
+					} ]
+				}
+			},
+			{
+				"apiVersion": "2015-06-15",
+				"type": "Microsoft.Compute/virtualMachines",
+				"name": "[variables('vmName')]",
+				"location": "[variables('location')]",
+				"dependsOn": [
+					"[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
+					"[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+				],
+				"properties": {
+					"hardwareProfile": {
+						"vmSize": "[variables('vmSize')]"
+					},
+					"osProfile": {
+						"computerName": "[variables('vmName')]",
+						"adminUsername": "[parameters('adminUsername')]",
+						"adminPassword": "[parameters('adminPassword')]",
+					},
+					"storageProfile": {
+						"imageReference": {
+							"publisher": "[variables('imagePublisher')]",
+							"offer": "[variables('imageOffer')]",
+							"sku": "[parameters('windowsOSVersion')]",
+							"version" : "latest"
+						},
+						"osDisk": {
+							"name": "osdisk",
+							"vhd": {
+								"uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+							},
+							"caching": "ReadWrite",
+							"createOption": "FromImage"
+						}
+					},
+					"networkProfile": {
+						"networkInterfaces" : [ {
+							"id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+						} ]
+					}
+				}
+			} ]
+		}
+		```
 
 9. Save the template file that you created.
 
@@ -306,16 +306,16 @@ To specify values for the resource parameters that were defined in the template,
 3. Open the parameters.json file and then add the following JSON content:
 
 	```
- {
-   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-   "contentVersion": "1.0.0.0",
-   "parameters": {
-     "newStorageAccountName": { "value": "mytestsa1" },
-     "adminUserName": { "value": "mytestacct1" },
-     "adminPassword": { "value": "mytestpass1" },
-     "dnsNameForPublicIP": { "value": "mytestdns1" }
-   }
- }
+	{
+		"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+			"newStorageAccountName": { "value": "mytestsa1" },
+			"adminUserName": { "value": "mytestacct1" },
+			"adminPassword": { "value": "mytestpass1" },
+			"dnsNameForPublicIP": { "value": "mytestdns1" }
+		}
+	}
 	```
 
     >[AZURE.NOTE] This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](resource-groups-vm-searching.md).
@@ -352,30 +352,30 @@ Now that the Azure Active Directory application is created and the authenticatio
 1. Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
 
 	```
- using Microsoft.Azure;
- using Microsoft.IdentityModel.Clients.ActiveDirectory;
- using Microsoft.Azure.Management.Resources;
- using Microsoft.Azure.Management.Resources.Models;
- using Microsoft.Rest;
+	using Microsoft.Azure;
+	using Microsoft.IdentityModel.Clients.ActiveDirectory;
+	using Microsoft.Azure.Management.Resources;
+	using Microsoft.Azure.Management.Resources.Models;
+	using Microsoft.Rest;
 	```
 
 2.	Add the following method to the Program class to get the token that is needed to create the credentials:
 
 	```
- private static string GetAuthorizationHeader()
- {
-   ClientCredential cc = new ClientCredential("{application-id}", "{password}");
-   var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-   var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
-   if (result == null)
-   {
-     throw new InvalidOperationException("Failed to obtain the JWT token");
-   }
+	private static string GetAuthorizationHeader()
+	{
+		ClientCredential cc = new ClientCredential("{application-id}", "{password}");
+		var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+		var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
+		if (result == null)
+		{
+			throw new InvalidOperationException("Failed to obtain the JWT token");
+		}
 
-   string token = result.AccessToken;
+		string token = result.AccessToken;
 
-   return token;
- }
+		return token;
+	}
 	```
 
 	Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureSubscription.
@@ -383,8 +383,8 @@ Now that the Azure Active Directory application is created and the authenticatio
 3. Add the following code to the Main method in the Program.cs file to create the credentials:
 
 	```
- var token = GetAuthorizationHeader();
- var credential = new TokenCredentials(token);
+	var token = GetAuthorizationHeader();
+	var credential = new TokenCredentials(token);
 	```
 
 4. Save the Program.cs file.
@@ -397,32 +397,32 @@ Resources are always deployed from a template to a resource group. You use the [
 1. Add the following method to the Program class to create the resource group:
 
 	```
- public static void CreateResourceGroup(
-   TokenCredentials credential,
-   string groupName,
-   string subscriptionId,
-   string location)
- {
-   Console.WriteLine("Creating the resource group...");
-   var resourceManagementClient = new ResourceManagementClient(credential);
-   resourceManagementClient.SubscriptionId = subscriptionId;
-   var resourceGroup = new ResourceGroup {
-     Location = location
-   };
-   var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
-   Console.WriteLine(rgResult.StatusCode.Properties.ProvisioningState);
- }
+	public static void CreateResourceGroup(
+		TokenCredentials credential,
+		string groupName,
+		string subscriptionId,
+		string location)
+	{
+		Console.WriteLine("Creating the resource group...");
+		var resourceManagementClient = new ResourceManagementClient(credential);
+		resourceManagementClient.SubscriptionId = subscriptionId;
+		var resourceGroup = new ResourceGroup {
+			Location = location
+		};
+		var rgResult = resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, resourceGroup);
+		Console.WriteLine(rgResult.StatusCode.Properties.ProvisioningState);
+	}
 	```
 
 2. Add the following code to the Main method to call the method that you just added:
 
 	```
- CreateResourceGroup(
-   credential,
-   "{group-name}",
-   "{subscription-id}",
-   "{location}");
- Console.ReadLine();
+	CreateResourceGroup(
+		credential,
+		"{group-name}",
+		"{subscription-id}",
+		"{location}");
+		Console.ReadLine();
 	```
 
 	Replace {group-name} with the name that you want to use for the resource group. Replace {subscription-id} with your subscription identifier, you can get this by running Get-AzureSubscription. Replace location with the region that you want to create the resources, such as "West US".
@@ -430,35 +430,35 @@ Resources are always deployed from a template to a resource group. You use the [
 3. Add the following method to the Program class to deploy the resources to the resource group by using the template that you defined:
 
 	```
- public static void CreateTemplateDeployment(
-   TokenCredentials credential,
-   string groupName,
-   string storageName,
-   string deploymentName,
-   string subscriptionId)
- {
-   Console.WriteLine("Creating the template deployment...");
-   var deployment = new Deployment();
-   deployment.Properties = new DeploymentProperties
-   {
-     Mode = DeploymentMode.Incremental,
-     TemplateLink = new TemplateLink
-     {
-       Uri = "https://{storage-name}.blob.core.windows.net/templates/VirtualMachineTemplate.json"
-     },
-     ParametersLink = new ParametersLink
-     {
-       Uri = "https://{storage-name}.blob.core.windows.net/templates/Parameters.json"
-     }
-   };
-   var resourceManagementClient = new ResourceManagementClient(credential);
-   resourceManagementClient.SubscriptionId = subscriptionId;
-   var dpResult = resourceManagementClient.Deployments.CreateOrUpdate(
-     groupName,
-     deploymentName,
-     deployment);
-   Console.WriteLine(dpResult.Properties.ProvisioningState);
- }
+	public static void CreateTemplateDeployment(
+		TokenCredentials credential,
+		string groupName,
+		string storageName,
+		string deploymentName,
+		string subscriptionId)
+	{
+		Console.WriteLine("Creating the template deployment...");
+		var deployment = new Deployment();
+		deployment.Properties = new DeploymentProperties
+		{
+			Mode = DeploymentMode.Incremental,
+			TemplateLink = new TemplateLink
+			{
+				Uri = "https://{storage-name}.blob.core.windows.net/templates/VirtualMachineTemplate.json"
+			},
+			ParametersLink = new ParametersLink
+			{
+				Uri = "https://{storage-name}.blob.core.windows.net/templates/Parameters.json"
+			}
+		};
+		var resourceManagementClient = new ResourceManagementClient(credential);
+		resourceManagementClient.SubscriptionId = subscriptionId;
+		var dpResult = resourceManagementClient.Deployments.CreateOrUpdate(
+			groupName,
+			deploymentName,
+			deployment);
+		Console.WriteLine(dpResult.Properties.ProvisioningState);
+	}
 	```
 
 	Replace {storage-name} with the name of the account where you previously placed the files.
@@ -466,13 +466,13 @@ Resources are always deployed from a template to a resource group. You use the [
 4. Add the following code to the Main method to call the method that you just added:
 
 	```
- CreateTemplateDeployment(
-   credential,
-   "{group-name}",
-   "{storage-name}",
-   "{deployment-name}",
-   "{subscription-id}");
- Console.ReadLine();
+	CreateTemplateDeployment(
+		credential,
+		"{group-name}",
+		"{storage-name}",
+		"{deployment-name}",
+		"{subscription-id}");
+	Console.ReadLine();
 	```
 
     Replace {group-name} with the name of the resource group that you created. Replace {storage-name} with the name of the storage account where you placed the template files. Replace {deployment-name} with the name that you want to use to identify the deployment set of resources. Replace {subscription-id} with your subscription identifier, you can get this by running Get-AzureSubscription.
@@ -484,24 +484,25 @@ Because you are charged for resources used in Azure, it is always a good practic
 1.	Add the following method to the Program class to delete the resource group:
 
 	```
- public static void DeleteResourceGroup(
-   TokenCredentials credential,
-   string groupName,
-   string subscriptionId)
- {
-   Console.WriteLine("Deleting resource group...");
-   var resourceGroupClient = new ResourceManagementClient(credential);
-   resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
- }
+	public static void DeleteResourceGroup(
+		TokenCredentials credential,
+		string groupName,
+		string subscriptionId)
+	{
+		Console.WriteLine("Deleting resource group...");
+		var resourceGroupClient = new ResourceManagementClient(credential);
+		resourceGroupClient.ResourceGroups.DeleteAsync(groupName);
+	}
 	```
+
 2.	Add the following code to the Main method to call the method that you just added:
 
 	```
- DeleteResourceGroup(
-   credential,
-   "{group-name}",
-   "{subscription-id}");
- Console.ReadLine();
+	DeleteResourceGroup(
+		credential,
+		"{group-name}",
+		"{subscription-id}");
+	Console.ReadLine();
 	```
     Replace {group-name} with the name of the resource group that you created. Replace {subscription-id} with your subscription identifier, you can get this by running Get-AzureSubscription.
 
