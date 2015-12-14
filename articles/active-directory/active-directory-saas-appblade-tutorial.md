@@ -23,8 +23,7 @@ The objective of this tutorial is to show you how to integrate AppBlade with Azu
 
 - You can control in Azure AD who has access to AppBlade
 - You can enable your users to automatically get signed-on to AppBlade (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory 
-- 
+- You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -77,7 +76,7 @@ To configure the integration of AppBlade into Azure AD, you need to add AppBlade
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with AppBlade based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in AppBlade to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in AppBlade needs to be established.<br>
+For single sign-on to work, Azure AD needs to know what the counterpart user in AppBlade to a user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in AppBlade needs to be established.<br>
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in AppBlade.
 
 To configure and test Azure AD single sign-on with AppBlade, you need to complete the following building blocks:
@@ -102,7 +101,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to AppBlade** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_04.png) <br>
 
 
@@ -184,13 +183,13 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 ### Creating a AppBlade test user
 
-The objective of this section is to create a user called Britta Simon in AppBlade. AppBlade supports just-in-time provisioning, which is by default enabled. **Please make sure that your domain name is configured with AppBlade for user proivisoning. After that only the just-in-time user provisioning will work.**
+The objective of this section is to create a user called Britta Simon in AppBlade. AppBlade supports just-in-time provisioning, which is by default enabled. **Please make sure that your domain name is configured with AppBlade for user provisoning. After that only the just-in-time user provisioning will work.**
 
 If the user has an email address ending with the domain configured by AppBlade for your account then the user will automatically join the account as a member with the permission level you specify, which is one of "Basic" (a basic user who can only install applications), "Team Member" (a user who can upload new app versions and manage projects), or "Administrator" (full admin privileges to the account). Normally one would choose Basic and then promote users manually via an Admin login (AppBlade needs to configure either an email-based admin login in advance or promote a user on behalf of the customer after login).
 
 There is no action item for you in this section. A new user will be created during an attempt to access AppBlade if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the AppBlade support team.
+> [AZURE.NOTE] If you need to create a user manually, you need to contact the AppBlade support team.
 
 
 ### Assigning the Azure AD test user
