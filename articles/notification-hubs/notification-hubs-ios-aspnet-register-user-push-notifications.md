@@ -235,5 +235,4 @@ Now that the client app has been updated, return to the [Notify users with Notif
 <!-- URLs. -->
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios

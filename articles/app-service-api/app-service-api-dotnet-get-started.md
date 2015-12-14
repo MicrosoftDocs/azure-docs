@@ -341,6 +341,8 @@ The ContactsList.MVC project already has the generated client code, but you'll d
 
 	![](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
+	If you don't see the API app in the list, chances are that when you were creating the API app you accidentally omitted the step that changed the type from web app to API app. In that case, you can create a new API app by repeating the steps you did earlier. You'll need to choose a different name for the API app, unless you go to the portal and delete the web app first. 
+
 	Notice that when you return to the **Add REST API Client** dialog, the text box has been filled in with the API definition URL value that you saw earlier in the portal. 
 
 	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)

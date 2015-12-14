@@ -35,7 +35,7 @@ Azure offers you great cloud solutions, built on virtual machines&mdash;based on
 
 And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). 
 
-This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're [right here](#tools-for-working-with-containers).
+This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're right here at [tools for working with containers](#tools-for-working-with-containers).
 
 ## The difference between virtual machines and containers
 
@@ -123,7 +123,7 @@ At this point, any architect, developer, or IT operations specialist might be th
 
 You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can&mdash;and perhaps already have&mdash;automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md). 
 
-These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (There are links to using these tools with Azure [here](#tools-for-working-with-containers).) 
+These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (Here are some links to [using these tools with Azure](#tools-for-working-with-containers).) 
 
 ### Azure resource group templates
 

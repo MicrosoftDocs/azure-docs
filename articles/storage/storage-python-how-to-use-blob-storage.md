@@ -117,7 +117,8 @@ Finally, to delete a blob, call **delete_blob**.
 Now that you have learned the basics of Blob storage, follow these links
 to learn about more complex storage tasks.
 
--   Visit the [Azure Storage Team Blog][]
+- Visit the [Azure Storage Team Blog][]
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 For more information, see also the [Python Developer Center](/develop/python/).
 
