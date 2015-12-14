@@ -586,11 +586,11 @@ And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 
 ![Error log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
 
-If you want to plug in your own logger, see [this example](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs#L54).
+If you want to plug in your own logger, see [this example](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs).
 
 ## <a id="errors"></a>How to handle errors and configure timeouts
 
-The WebJobs SDK also includes a [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs#L125) attribute that you can use to cause a function to be canceled if doesn't complete within a specified amount of time. And if you want to raise an alert when too many errors happen within a specified period of time, you can use the `ErrorTrigger` attribute. Here is an [ErrorTrigger example](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring).
+The WebJobs SDK also includes a [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) attribute that you can use to cause a function to be canceled if doesn't complete within a specified amount of time. And if you want to raise an alert when too many errors happen within a specified period of time, you can use the `ErrorTrigger` attribute. Here is an [ErrorTrigger example](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring).
 
 ```
 public static void ErrorMonitor(
@@ -606,7 +606,7 @@ public static void ErrorMonitor(
 }
 ```
 
-You can also [dynamically disable and enable functions](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs#L104) to control whether they can be triggered, by using a configuration switch that could be an app setting or environment variable name.
+You can also dynamically disable and enable functions to control whether they can be triggered, by using a configuration switch that could be an app setting or environment variable name. For sample code, see the `Disable` attribute in [the WebJobs SDK samples repository](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs).
 
 ## <a id="nextsteps"></a> Next steps
 
