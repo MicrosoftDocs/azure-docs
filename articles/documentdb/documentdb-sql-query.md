@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
 # SQL query in DocumentDB
@@ -1885,9 +1885,9 @@ First, for the type system, we support all JSON primitive types – numeric type
 Here is a list of supported LINQ operators in the LINQ provider included with the DocumentDB .NET SDK.
 
 -	**Select**: Projections translate to the SQL SELECT including object construction
--	**Where: Filters translate to the SQL WHERE, and support translation between && , || and ! to the SQL operators
--	**SelectMany: Allows unwinding of arrays to the SQL JOIN clause. Can be used to chain/nest expressions to filter on array elements
--	**OrderBy and OrderByDescending: Translates to ORDER BY ascending/descending:
+-	**Where**: Filters translate to the SQL WHERE, and support translation between && , || and ! to the SQL operators
+-	**SelectMany**: Allows unwinding of arrays to the SQL JOIN clause. Can be used to chain/nest expressions to filter on array elements
+-	**OrderBy and OrderByDescending**: Translates to ORDER BY ascending/descending:
 -	**CompareTo**: Translates to range comparisons. Commonly used for strings since they’re not comparable in .NET
 -	**Take**: Translates to the SQL TOP for limiting results from a query
 -	**Math Functions**: Supports translation from .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate to the equivalent SQL built-in functions.
