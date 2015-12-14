@@ -211,9 +211,9 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 	```
 
-> Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
+	Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
 
-5.  Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint, in this case the front-end virtual machine.
+5.  Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint. In this case the front-end virtual machine.
 
 	```
 		# Specify the parameters to be used by the script
