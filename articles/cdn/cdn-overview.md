@@ -58,3 +58,8 @@ The Premium CDN tier includes all of the features of the Standard tier, plus the
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)
 - [Real-time stats](cdn-read-time-stats.md)
+
+
+## REST API Reference
+
+Microsoft Azure CDN can be managed programmatically using the [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx). 
