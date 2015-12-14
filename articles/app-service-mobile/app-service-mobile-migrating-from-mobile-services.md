@@ -287,25 +287,23 @@ Your on-demand jobs are located in `App_Data/config/scripts/scheduler post-migra
 
 ### <a name="notification-hubs"></a>Notification Hubs
 
-Mobile Services supported two types of push notifications - Classic and Notification Hubs.  The linkage between the Mobile Service and the Push Notifications
-is managed through App Settings.  Specifically:
+Mobile Services uses Notification Hubs for push notifications.  The following App Settings are used to link the Notification Hub to your Mobile Service
+after migration:
 
-| Application Setting        | Type of Push Notifications | Description                              |
-| :------------------------- | :------------------------- | :--------------------------------------- |
-| **MS_PushEntityNamespace** | Classic                    | The Classic Push Notifications namespace |
-XXX-TODO: More Settings and Notification Hubs explanation
+| Application Setting                    | Description                              |
+| :------------------------------------- | :--------------------------------------- |
+| **MS_PushEntityNamespace**             | The Notification Hub Namespace           |
+| **MS_NotificationHubName**             | The Notification Hub Name                |
+| **MS_NotificationHubConnectionString** | The Notification Hub Connection String   |
+| **MS_NamespaceName**                   | An alias for MS_PushEntityNamespace      |
+
+Notification Hubs for migration Mobile Services must be managed through the [Azure Classic Portal].
+
+XXX-TODO - Add section for managing notification hubs
 
 Log into the [Azure Classic Portal] to manage classic push notifications.
 
-Notification Hubs are managed in the Notification Hub section of the [Azure Portal].  If you wish to update the settings of your Notification Hub:
-
-  1. Log into the [Azure Portal].
-  2. Select **All resources** or **Notification Hubs** then click on the name of your migrated Notification Hub.
-  3. The Settings blade will open by default - if it doesn't, click on **Settings**.
-
-Most individual Push Notification Service settings are under _Notification Services_.  The Connection Strings are available under _Access Policies_.  The
-notification hub is associated with your migrated Mobile Service through an app setting.  If you wish to change the association, review the [Notification
-Hubs Overview] documentation for information.
+For more information, review the [Notification Hubs] documentation.
 
 ### <a name="app-settings"></a>App Settings
 
@@ -385,7 +383,7 @@ Not that your application is migrated to App Service, there are even more featur
 [Logging]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[Notification Hubs Overview]: ../notification-hubs/notification-hubs-overview.md
+[Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
 [performance monitoring]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [Back up your Mobile Service]: ../mobile-services/mobile-services-disaster-recovery.md
