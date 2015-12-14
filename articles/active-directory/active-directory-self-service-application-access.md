@@ -22,7 +22,7 @@ Enabling self-service capabilities for end users is a common scenario for enterp
 
 Self-service application access is a feature of [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) that allow directory administrators to:
 
-* Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+* Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Set which applications users can request access to
 * Set whether or not an approval is required for users to be able to self-assign access to an application
 * Set who should approve the requests and manage access for each application
@@ -38,37 +38,37 @@ This article describes how to:
 
 To enable self-service application access and configured which applications can be added or requested by your end users, follow the instructions below.
 
-1.	Sign into the [Azure classic portal](https://manage.windowsazure.com/).
+**1:** Sign into the [Azure classic portal](https://manage.windowsazure.com/).
 
-2.	Under the **Active Directory** section, select your directory, then select the **Applications** tab. 
+**2:**	Under the **Active Directory** section, select your directory, then select the **Applications** tab. 
 
-3.  Select the **Add** button, and use the gallery option to select and add an application.
+**3:** Select the **Add** button, and use the gallery option to select and add an application.
 
-4.	After your app has been added, you’ll get the app Quick Start page. Click **Configure Single Sign-On**, select the desired single sign-on mode, and save the configuration. 
+**4:** After your app has been added, you’ll get the app Quick Start page. Click **Configure Single Sign-On**, select the desired single sign-on mode, and save the configuration. 
 
-5.	Next, select the **Configure** tab. To enable users to request access to this app from the Azure AD access panel, set **Allow self-service application access** to **Yes**.
+**5:** Next, select the **Configure** tab. To enable users to request access to this app from the Azure AD access panel, set **Allow self-service application access** to **Yes**.
 
 ![][1]
 
-6.	To optionally configure an approval workflow for access requests, set **Require approval before granting access** to **Yes**. Then one or more approvers can be selected using the **Approvers** button.
+**6:** To optionally configure an approval workflow for access requests, set **Require approval before granting access** to **Yes**. Then one or more approvers can be selected using the **Approvers** button.
 
 An approver can be any user in the organization with an Azure AD account, and could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app. The approver could even be the group owner of one or more shared account groups, and can assign the users to one of these groups to give them access via a shared accounts. 
 
-If no approval is required, then users will instantly get the application added to their Azure AD access panel. This appropriate if the application has been set up for [automatic user provisioning](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-app-provisioning/), or has been set up [“user-managed” password SSO mode](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on) where the user already has a user account and knows the password.
+If no approval is required, then users will instantly get the application added to their Azure AD access panel. This appropriate if the application has been set up for [automatic user provisioning](active-directory-saas-app-provisioning.md), or has been set up [“user-managed” password SSO mode](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) where the user already has a user account and knows the password.
 
-7.	If the application has been configured to use password-based single sign-on, then an option for allowing the approver to set the SSO credentials on behalf of each user is also available. See the following section on delegate access management for more information.
+**7:** If the application has been configured to use password-based single sign-on, then an option for allowing the approver to set the SSO credentials on behalf of each user is also available. See the following section on delegate access management for more information.
 
-8.	Finally, the **Group for Self-Assigned Users** shows the name of the group that will be used to store the users who have been granted or assigned access to the application. The access approver become the owner of this group. If the group name shown does not exist, it will be created automatically. Optionally the group name can be set to the name of an existing group.
+**8:** Finally, the **Group for Self-Assigned Users** shows the name of the group that will be used to store the users who have been granted or assigned access to the application. The access approver become the owner of this group. If the group name shown does not exist, it will be created automatically. Optionally the group name can be set to the name of an existing group.
 
-9.	Click **Save** at the bottom of the screen to save the configuration. Now users will be able to request access to this app from the access panel.
+**9:** Click **Save** at the bottom of the screen to save the configuration. Now users will be able to request access to this app from the access panel.
 
-10.	To try the end user experience, sign into you organization’s Azure AD access panel at https://myapps.microsoft.com, preferably using a different account that isn’t an app approver. 
+**10:** o try the end user experience, sign into you organization’s Azure AD access panel at https://myapps.microsoft.com, preferably using a different account that isn’t an app approver. 
 
-11.	Under the **Applications** tab, click the **Get more applications** tile. This displays a gallery of all of the applications that have been enabled for self-service application access in the directory, with the ability to search and filter by app category on the left. 
+**11:** Under the **Applications** tab, click the **Get more applications** tile. This displays a gallery of all of the applications that have been enabled for self-service application access in the directory, with the ability to search and filter by app category on the left. 
 
-12.	Clicking on an app kicks off the request process. If no approval process is required, then the application will be immediately added under the **Applications** tab after a short confirmation. If approval is required, then you will see a dialog indicating this, and an email will be send to the approvers. (Quick note: You need to be signed into the access panel as a non-approver to see this request process).
+**12:** Clicking on an app kicks off the request process. If no approval process is required, then the application will be immediately added under the **Applications** tab after a short confirmation. If approval is required, then you will see a dialog indicating this, and an email will be send to the approvers. (Quick note: You need to be signed into the access panel as a non-approver to see this request process).
 
-13.	The email directs the approver to sign into the Azure AD access panel and approve the request. Once the request is approved (and any special processes you define have been performed by the approver), the user will then see the application appear under their **Applications** tab where they can sign into it.
+**13:** The email directs the approver to sign into the Azure AD access panel and approve the request. Once the request is approved (and any special processes you define have been performed by the approver), the user will then see the application appear under their **Applications** tab where they can sign into it.
 
 ##Delegated application access management
 
@@ -96,13 +96,13 @@ The **Configure** tile is only shown if the application was configured by the IT
 
 ![][3]
 
-* **Users sign in with their own passwords** – In this mode, the assigned users know what their usernames and passwords are for the application, and will be prompted to enter them upon their first sign-in to the application. This corresponds to the password SSO case where the [users manage credentials](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on).
+* **Users sign in with their own passwords** – In this mode, the assigned users know what their usernames and passwords are for the application, and will be prompted to enter them upon their first sign-in to the application. This corresponds to the password SSO case where the [users manage credentials](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-* **Users are automatically signed in using separate accounts that I manage** – In this mode, the assigned users not be required to enter or know their app-specific credentials when signing into the application. Instead, the approver sets the credentials for each user after assigning access using the **Add User** tile. When the user clicks on the application in their access panel or Office 365, they will be automatically signed in using the credentials set by the approver. This corresponds to the password SSO case where the [administrators manage credentials](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on).
+* **Users are automatically signed in using separate accounts that I manage** – In this mode, the assigned users not be required to enter or know their app-specific credentials when signing into the application. Instead, the approver sets the credentials for each user after assigning access using the **Add User** tile. When the user clicks on the application in their access panel or Office 365, they will be automatically signed in using the credentials set by the approver. This corresponds to the password SSO case where the [administrators manage credentials](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-* **Users are automatically signed in using a single account that I manage** -  This is a special case, and is appropriate to use when all assigned users need to be granted access using a single shared account. The most common use case for this is social media applications, where an organization has a single “company” account and multiple users need to make updates to that account. This also corresponds to the password SSO case where the [administrators manage credentials](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on). However, after selecting this option, the approver will be prompted to enter the username and password for the single shared account. Once completed, all assigned users will be signed in using this account when clicking on the application in their Azure AD access panels or Office 365.
+* **Users are automatically signed in using a single account that I manage** -  This is a special case, and is appropriate to use when all assigned users need to be granted access using a single shared account. The most common use case for this is social media applications, where an organization has a single “company” account and multiple users need to make updates to that account. This also corresponds to the password SSO case where the [administrators manage credentials](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). However, after selecting this option, the approver will be prompted to enter the username and password for the single shared account. Once completed, all assigned users will be signed in using this account when clicking on the application in their Azure AD access panels or Office 365.
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
-[3]: ./media/active-directory-self-service-application-access/saa_ap_manage_app_config.PNG
+[3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
