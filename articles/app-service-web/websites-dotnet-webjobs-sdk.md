@@ -87,17 +87,11 @@ The function then uses these parameters to write the value of the queue message 
 
 The trigger and binder features of the WebJobs SDK greatly simplify the code you have to write. The low-level code required to process queues, blobs, or files, or to initiate scheduled tasks, is done for you by the WebJobs SDK framework. For example, the framework creates queues that don't exist yet, opens the queue, reads queue messages, deletes queue messages when processing is completed, creates blob containers that don't exist yet, writes to blobs, and so on.
 
-The following code example shows a variety of triggers in one WebJob: `TimerTrigger`, `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, and `ErrorTrigger`. 
+The following code example shows a variety of triggers in one WebJob: `QueueTrigger`, `FileTrigger`, `WebHookTrigger`, and `ErrorTrigger`. 
 
 ```
     public class Functions
     {
-        public static void ProcessTimer([TimerTrigger("*/15 * * * * *", RunOnStartup = true)]
-        TimerInfo info, [Queue("queue")] out string message)
-        {
-            message = info.FormatNextOccurrences(1);
-        }
-
         public static void ProcessQueueMessage([QueueTrigger("queue")] string message,
         TextWriter log)
         {
@@ -141,6 +135,25 @@ The following code example shows a variety of triggers in one WebJob: `TimerTrig
         }
     }
 ```
+
+## <a id="schedule"></a> Scheduling functions
+
+The `TimerTrigger` attribute gives you the ability to trigger functions to run on a schedule. You can schedule a WebJob as a whole through Azure or schedule individual functions of a WebJob using the WebJobs SDK `TimerTrigger`. Here's a code sample.
+
+```
+public class Functions
+{
+    public static void ProcessTimer([TimerTrigger("*/15 * * * * *", RunOnStartup = true)]
+    TimerInfo info, [Queue("queue")] out string message)
+    {
+        message = info.FormatNextOccurrences(1);
+    }
+}
+```
+
+For more sample code, see [TimerSamples.cs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/ExtensionsSample/Samples/TimerSamples.cs) in the azure-webjobs-sdk-extensions repository on GitHub.com.
+
+
 ## Extensibility
 
 You're not limited to built-in functionality -- the WebJobs SDK allows you to write custom triggers and binders.  For example, you can write triggers for cache events and periodic schedules. An [open source repository](https://github.com/Azure/azure-webjobs-sdk-extensions) contains a [detailed guide on WebJobs SDK extensibility](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) and sample code to help get you started writing your own triggers and binders.
