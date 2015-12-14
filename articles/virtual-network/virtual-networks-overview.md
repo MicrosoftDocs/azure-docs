@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/11/2015"
-   ms.author=telmos" />
+   ms.author="telmos" />
 
 # Virtual Network Overview
 
