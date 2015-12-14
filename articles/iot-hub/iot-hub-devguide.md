@@ -78,7 +78,7 @@ If you must build an Event Hub connection string with the previous information, 
 The following is a list of SDKs and integration that can be used with IoT Hub:
 
 * [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can find the link to the spout source [here](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
 * [Apache Spark integration](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## Device identity registry
