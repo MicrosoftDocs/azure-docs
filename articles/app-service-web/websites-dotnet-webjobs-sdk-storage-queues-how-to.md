@@ -22,7 +22,7 @@
 
 This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.
 
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md). Note that starting in version 1.1 you can use multiple storage accounts; see **Multiple storage account support** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md#configure-storage) or to [multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
 Most of the code snippets only show functions, not the code that creates the `JobHost` object as in this example:
 
