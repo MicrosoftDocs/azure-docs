@@ -312,7 +312,7 @@ Your Notification Hub will be managed through the [Azure Portal].  Note the Noti
 
 For more information, review the [Notification Hubs] documentation.
 
-### <a name="app-settings"></a>App Settings
+### <a name="app-settings"></a>Other App Settings
 
 The following additional app settings are migrated from your Mobile Service and available under *Settings* > *App Settings*:
 
