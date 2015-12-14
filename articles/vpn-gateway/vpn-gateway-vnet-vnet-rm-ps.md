@@ -260,6 +260,5 @@ After verifying that your gateway subnets are configured correctly, continue wit
 
 ## Next steps
 
-You can add virtual machines to your virtual networks. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.
 
-For more information about Virtual Networks, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
