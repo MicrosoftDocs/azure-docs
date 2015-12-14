@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Add Azure automation runbooks to recovery plans" 
+   pageTitle="Add Azure automation runbooks to recovery plans | Microsoft Azure" 
    description="This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure" 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # Add Azure automation runbooks to recovery plans
 
