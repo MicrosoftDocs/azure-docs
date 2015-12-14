@@ -71,6 +71,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Create a Scheduled WebJob in the Azure Portal](web-sites-create-web-jobs.md#CreateScheduled)
 * [Hooking up a scheduler job to a WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
+* [Scheduling individual WebJob functions using the WebJobs SDK TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)
 
 ##<a name="debug"></a>Testing and debugging WebJobs
 
