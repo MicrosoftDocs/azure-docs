@@ -62,6 +62,7 @@ The guide includes the following topics:
 	- Configure QueueTrigger settings
 	- Set values for WebJobs SDK constructor parameters in code
 -   [How to trigger a function manually](#manual)
+-   [How to write logs](#logs) 
 -   [How to handle errors and configure timeouts](#errors)
 -   [Next steps](#nextsteps)
 
