@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 2: Configure domain controllers
@@ -112,7 +112,7 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE] Because these virtual machines are for an intranet application, they are not assigned a public IP address or a DNS domain name label and exposed to the Internet. However, this also means that you cannot connect to them from the Azure Preview portal. The **Connect** button will be unavailable when you view the properties of the virtual machine. Use the Remote Desktop Connection accessory or another Remote Desktop tool to connect to the virtual machine using its private IP address or intranet DNS name.
+> [AZURE.NOTE] Because these virtual machines are for an intranet application, they are not assigned a public IP address or a DNS domain name label and exposed to the Internet. However, this also means that you cannot connect to them from the Azure portal. The **Connect** button will be unavailable when you view the properties of the virtual machine. Use the Remote Desktop Connection accessory or another Remote Desktop tool to connect to the virtual machine using its private IP address or intranet DNS name.
 
 ## Configure the first domain controller
 
@@ -166,12 +166,12 @@ You will be prompted to supply the credentials of a domain administrator account
 
 Next, you need to update the DNS servers for your virtual network so that Azure assigns virtual machines the IP addresses of the two new domain controllers to use as their DNS servers. Note that this procedure uses values from Table V (for your virtual network settings) and Table M (for your virtual machines).
 
-1.	In the left pane of the Azure Preview portal, click **Virtual networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
+1.	In the left pane of the Azure portal, click **Virtual networks**, and then click the name of your virtual network (Table V – Item 1 – Value column).
 2.	On the **Settings** pane, click **DNS servers**.
 3.	On the **DNS servers** pane, type the following:
 	- For **Primary DNS server**: Table V – Item 6 – Value column
 	- For **Secondary DNS server**: Table V – Item 7 – Value column
-4.	In the left pane of the Azure preview portal, click **Virtual machines**.
+4.	In the left pane of the Azure portal, click **Virtual machines**.
 5.	In the **Virtual machines pane**, click the name of your first domain controller (Table M – Item 1 - Virtual machine name column).
 6.	On the pane for the virtual machine, click **Restart**.
 7.	When the first domain controller is started, click the name of your second domain controller on the **Virtual machines** pane (Table M – Item 2 - Virtual machine name column).
