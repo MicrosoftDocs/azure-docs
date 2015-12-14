@@ -19,14 +19,14 @@
 
 
 # Service Fabric application lifecycle
-As with other platforms, an application on Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Azure Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
+As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
 ## Service model roles
 The service model roles are:
 
-- **Service developer**: Develops modular and generic services that can be re-purposed and used in multiple applications of the same type or different types. For example, a queue service can be used for creating a ticketing application (help desk) or an e-commerce application (shopping cart).
+- **Service developer**: Develops modular and generic services that can be re-purposed and used in multiple applications of the same type or different types. For example, a queue service can be used for creating a ticketing application (helpdesk) or an e-commerce application (shopping cart).
 
-- **Application developer**: Creates applications by integrating a collection of services to satisfy certain specific requirements or scenarios. For example, an e-commerce website might integrate “JSON Stateless Front-end Service,” “Auction Stateful Service,” and “Queue Stateful Service” to build an auctioning solution.
+- **Application developer**: Creates applications by integrating a collection of services to satisfy certain specific requirements or scenarios. For example, an e-commerce website might integrate “JSON Stateless Front-End Service,” “Auction Stateful Service,” and “Queue Stateful Service” to build an auctioning solution.
 
 - **Application administrator**: Makes decisions on the application configuration (filling in the configuration template parameters), deployment (mapping to available resources), and quality of service. For example, an application administrator decides the language locale (English for the United States or Japanese for Japan, for example) of the application. A different deployed application can have different settings.
 
@@ -34,17 +34,17 @@ The service model roles are:
 
 
 ## Develop
-1. A *service developer* develops different types of services using the [reliable actors](service-fabric-reliable-actors-introduction.md) or [reliable services](../service-fabric/service-fabric-reliable-services-introduction.md) programming model.
+1. A *service developer* develops different types of services using the [Reliable Actors](service-fabric-reliable-actors-introduction.md) or [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md) programming model.
 2. A *service developer* declaratively describes the developed service types in a service manifest file consisting of one or more code, configuration, and data packages.
 3. An *application developer* then builds an application using different service types.
 4. An *application developer* declaratively describes the application type in an application manifest by referencing the service manifests of the constituent services and appropriately overriding and parameterizing different configuration and deployment settings of the constituent services.
 
-See [Get started with reliable actors](service-fabric-reliable-actors-get-started.md) and [Get started with reliable services](service-fabric-reliable-services-quick-start.md) for examples.
+See [Get started with Reliable Actors](service-fabric-reliable-actors-get-started.md) and [Get started with Reliable Services](service-fabric-reliable-services-quick-start.md) for examples.
 
 ## Deploy
 1. An *application administrator* tailors the application type to a specific application to be deployed to a Service Fabric cluster by specifying the appropriate parameters of the **ApplicationType** element in the application manifest.
 
-2. An *operator* uploads the application package to the cluster **ImageStore** by using the [**CopyApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) or the [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx). The application package contains the application manifest and the collection of service packages. Service Fabric deploys applications from the application package stored in the ImageStore, which can be an Azure blob store or the Service Fabric system service.
+2. An *operator* uploads the application package to the cluster image store by using the [**CopyApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) or the [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx). The application package contains the application manifest and the collection of service packages. Service Fabric deploys applications from the application package stored in the image store, which can be an Azure blob store or the Service Fabric system service.
 
 3. The *operator* then provisions the application type in the target cluster from the uploaded application package using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the  [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
 
@@ -70,7 +70,7 @@ See [Testability scenarios](service-fabric-testability-scenarios.md) for example
 
 3. An *application administrator* incorporates the new version of the application type into the target application by updating the appropriate parameters.
 
-4. An *operator* uploads the updated application package to the cluster ImageStore using the [**CopyApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) or the [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx). The application package contains the application manifest and the collection of service packages.
+4. An *operator* uploads the updated application package to the cluster image store using the [**CopyApplicationPackage** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) or the [**Copy-ServiceFabricApplicationPackage** cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx). The application package contains the application manifest and the collection of service packages.
 
 5. An *operator* provisions the new version of the application in the target cluster by using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Provision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
 
