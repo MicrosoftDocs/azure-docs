@@ -22,7 +22,7 @@
 
 This guide provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure queue storage service.
 
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md). Note that starting in version 1.1 you can use multiple storage accounts; see **Multiple storage account support** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 Most of the code snippets only show functions, not the code that creates the `JobHost` object as in this example:
 
@@ -62,7 +62,7 @@ The guide includes the following topics:
 	- Configure QueueTrigger settings
 	- Set values for WebJobs SDK constructor parameters in code
 -   [How to trigger a function manually](#manual)
--   [How to write logs](#logs)
+-   [How to handle errors and configure timeouts](#errors)
 -   [Next steps](#nextsteps)
 
 ## <a id="trigger"></a> How to trigger a function when a queue message is received
@@ -131,13 +131,15 @@ The SDK implements a random exponential back-off algorithm to reduce the effect 
 
 ### <a id="instances"></a> Multiple instances
 
-If your web app runs on multiple instances, a continuous WebJob runs on each machine, and each machine will wait for triggers and attempt to run functions. The WebJobs SDK queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent.
+If your web app runs on multiple instances, a continuous WebJob runs on each machine, and each machine will wait for triggers and attempt to run functions. The WebJobs SDK queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent. However, if you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the `Singleton` attribute. 
 
 ### <a id="parallel"></a> Parallel execution
 
 If you have multiple functions listening on different queues, the SDK will call them in parallel when messages are received simultaneously. 
 
-The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#config). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a `QueueTrigger` attribute. If you don't want parallel execution for messages received on one queue, set the batch size to 1.
+The same is true when multiple messages are received for a single queue. By default, the SDK gets a batch of 16 queue messages at a time and executes the function that processes them in parallel. [The batch size is configurable](#config). When the number being processed gets down to half of the batch size, the SDK gets another batch and starts processing those messages. Therefore the maximum number of concurrent messages being processed per function is one and a half times the batch size. This limit applies separately to each function that has a `QueueTrigger` attribute. 
+
+If you don't want parallel execution for messages received on one queue, you can set the batch size to 1. See also **More control over Queue processing** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a id="queuemetadata"></a>Get queue or queue message metadata
 
@@ -583,6 +585,27 @@ And in an Azure table the `Console.Out` and `Console.Error` logs look like this:
 ![Info log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableinfo.png)
 
 ![Error log in table](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/tableerror.png)
+
+If you want to plug in your own logger, see **Extensible tracing and logging** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
+
+## <a id="errors"></a>How to handle errors and configure timeouts
+
+The WebJobs SDK also includes a [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs#L125) attribute that you can use to cause a function to be canceled if doesn't complete within a specified amount of time. And if you want to raise an alert when too many errors happen within a specified period of time, you can use the `ErrorTrigger` attribute. Here is an `ErrorTrigger` example.
+
+```
+public static void ErrorMonitor(
+[ErrorTrigger("00:01:00", 1)] TraceFilter filter, TextWriter log,
+[SendGrid(
+    To = "admin@emailaddress.com",
+    Subject = "Error!")]
+ SendGridMessage message)
+{
+    // log last 5 detailed errors to the Dashboard
+   log.WriteLine(filter.GetDetailedMessage(5));
+   message.Text = filter.GetDetailedMessage(1);
+}
+```
+For more information, see **Error monitoring system** in [Azure WebJobs SDK 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ## <a id="nextsteps"></a> Next steps
 
