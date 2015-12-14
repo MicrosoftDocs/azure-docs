@@ -57,8 +57,7 @@ To configure the integration of Capriza into Azure AD, you need to add Capriza f
 
 **To add Capriza from the gallery, perform the following steps:**
 
-1. In the **Azure Management 
-2. **, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the Azure classic portal, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -102,7 +101,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to Capriza** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-capriza-tutorial/tutorial_capriza_04.png) <br>
 
 
@@ -184,11 +183,11 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 ### Creating a Capriza test user
 
-The objective of this section is to create a user called Britta Simon in Capriza. Capriza supports just-in-time provisioning, which is by default enabled. **Please make sure that your domain name is configured with Capriza for user proivisoning. After that only the just-in-time user provisioning will work.**
+The objective of this section is to create a user called Britta Simon in Capriza. Capriza supports just-in-time provisioning, which is by default enabled. **Please make sure that your domain name is configured with Capriza for user provisoning. After that only the just-in-time user provisioning will work.**
 
 There is no action item for you in this section. A new user will be created during an attempt to access Capriza if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the Capriza support team.
+> [AZURE.NOTE] If you need to create a user manually, you need to contact the Capriza support team.
 
 
 ### Assigning the Azure AD test user
