@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is Site Recovery?" 
+	pageTitle="What is Site Recovery? | Microsoft Azure" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="11/29/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  What is Site Recovery?
@@ -22,6 +22,7 @@ Site Recovery is an Azure service that contributes to your business continuity a
 
 
 ## Why use Site Recovery? 
+
 - **Simpler BCDR story**-Site Recovery makes it easy to handle replication, failover and recovery for your on-premises workloads and applications.
 - **Flexible replication**-You can replicate on-premises servers, Hyper-V virtual machines, and VMware virtual machines.  Site Recovery uses smart replication, replicating only data blocks and not the entire VHD for the initial replication. For ongoing replication only delta changes are replicated. Site Recovery supports offline data transfer and works with WAN optimizers. 
 - **Eliminate the need for secondary datacenter**-Site Recovery can automate replication between datacenters, but it also provides the opportunity to forgo a secondary on-site location by replicating to Azure. Replicated data is stored in Azure Storage, with all the resilience that provides.
@@ -37,10 +38,10 @@ VMware virtual machines | On-premises VMware server | Azure storage | [Deploy](s
 Physical Windows/Linux server | On-premises physical server | Azure storage | [Deploy](site-recovery-vmware-to-azure.md)
 Hyper-V virtual machines | On-premises Hyper-V host server in VMM cloud | Azure storage | [Deploy](site-recovery-vmm-to-azure.md)
 Hyper-V virtual machines | On-premises Hyper-V site (one or more Hyper-V host servers) | Azure storage | [Deploy](site-recovery-hyper-v-site-to-azure.md)
-On-premises Hyper-V virtual machines| On-premises Hyper-V host server in VMM cloud | On-premises Hyper-V host server in VMM cloud in secondary datacenter | [Deploy](site-recovery-vmm-to-vmm)
+On-premises Hyper-V virtual machines| On-premises Hyper-V host server in VMM cloud | On-premises Hyper-V host server in VMM cloud in secondary datacenter | [Deploy](site-recovery-vmm-to-vmm.md)
 Hyper-V virtual machines | On-premises Hyper-V host server in VMM cloud with SAN storage| On-premises Hyper-V host server in VMM cloud with SAN storage in secondary datacenter | [Deploy](site-recovery-vmm-san.md)
-VMware virtual machines | On-premises VMware server | Secondary datacenter running VMware | [Deploy](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
-Physical Windows/Linux server | On-premises physical server | Secondary datacenter | [Deploy](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+VMware virtual machines | On-premises VMware server | Secondary datacenter running VMware | [Deploy](site-recovery-vmware-to-vmware.md) 
+Physical Windows/Linux server | On-premises physical server | Secondary datacenter | [Deploy](site-recovery-vmware-to-vmware.md) 
 
 These are summarized in the following diagrams.
 
