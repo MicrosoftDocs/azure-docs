@@ -28,12 +28,10 @@ This tutorial shows you how to create an ASP.NET 5 web app using [Visual Studio 
 
 * Install [VS Code](http://code.visualstudio.com/Docs/setup).
 * Install [Node.js](http://nodejs.org) - Node.js is a platform for building fast and scalable server applications using JavaScript. Node is the runtime (Node), and [npm](http://www.npmjs.com/) is the Package Manager for Node modules. You will use npm to scaffold an ASP.NET 5 web app in this tutorial.
-* Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows command prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
+* Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows Command Prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
 
 ## Install ASP.NET 5 and DNX
-ASP.NET 5/DNX is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
-
-> [AZURE.NOTE] ASP.NET 5 and DNX (the .NET Execution Environment) on OS X and Linux are in an early Beta/Preview state. 
+ASP.NET 5/DNX (the .NET Execution Environment) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
 This tutorial is designed to get you started building applications with the latest development versions of ASP.NET 5 and DNX. The following instructions are specific to Windows. For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET 5 and DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
 
@@ -65,7 +63,7 @@ This tutorial is designed to get you started building applications with the late
 
 	![DNVM location](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-	If more than one DNX runtime is listed, you can choose to enter the following (or a more recent version) at the command prompt to set the active DNX runtime. Set it to the same version as the one that is used by the ASP.NET 5 generator when you create your web app later in this tutorial. *You may not need to change the active runtime if it is set to the latest available.*
+	If more than one DNX runtime is listed, you can choose to enter the following (or a more recent version) at the command prompt to set the active DNX runtime. Set it to the same version that is used by the ASP.NET 5 generator when you create your web app later in this tutorial. *You may not need to change the active runtime if it is set to the latest available.*
 
 		dnvm use 1.0.0-update1 –p
 
@@ -81,7 +79,7 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
-	> [AZURE.NOTE] If you get a warning suggesting your npm version is out of date, ignore it when following these pre-release instructions.
+	> [AZURE.NOTE] You may get a warning suggesting that your npm version is out of date. This warning should not affect this tutorial.
 
 3. Enter the following at the command prompt to create the project folder and scaffold the app.
 
@@ -105,14 +103,6 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
 
 		code .
 
-9. In VS Code, select **View > Command Palette**.
-
-10. In the **Command Palette**, enter the following commands:
-
-		OmniSharp: Restart OmniSharp
-
-	As you start typing, you will see the full command line from the list. 
-
 ## Run the web app locally
 
 Now that you have created the web app and retrieved all the NuGet packages for the app, you can run the web app locally.
@@ -121,13 +111,15 @@ Now that you have created the web app and retrieved all the NuGet packages for t
 
 		dnx: Run Command
 
-	Next, enter the following command to run your web app:
+	> [AZURE.NOTE] If the Omnisharp server is not currently running, it will start up. Re-enter the above command.
+
+	Next, select the following command to run your web app:
 		
 		dnx web - (SampleWebApp)
 
-	The command window will display *Started* in it. If the command window doesn't display *Started*, check the lower left corning of VS Code for errors in your project.
+	The command window will display that the application has started. If the command window doesn't display this message, check the lower left corning of VS Code for errors in your project.
 	
-	> [AZURE.NOTE] Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. Also, You can view the details of the web command in the *project.json* file. 
+	> [AZURE.NOTE] Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. You can view the details related to the **web** command in the *project.json* file. 
 
 2. Open a browser and navigate to the following URL.
 
@@ -137,7 +129,7 @@ Now that you have created the web app and retrieved all the NuGet packages for t
 
 	![Local web app in a browser](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 
-3. Close your browser. In the **Command Window**, press **Ctrl+C** to shut down the application and close the Command Window. 
+3. Close your browser. In the **Command Window**, press **Ctrl+C** to shut down the application and close the **Command Window**. 
 
 ## Create a web app in the Azure Portal
 
