@@ -232,11 +232,11 @@ The following table lists the operationName and corresponding REST API command.
 | operationName        | REST API Command |
 | ------------- |-------------|
 | Authentication      | Via Azure Active Directory endpoint|
-| VaultGet      | Via Azure Active Directory endpoint.|
+| VaultGet      | Via Azure Active Directory endpoint|
 | Authentication      | [Get information about a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx)|
 | VaultPut      | [Create or update a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx)|
 | VaultDelete      | [Delete a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx)|
-| VaultPatch      | Update Key Vault|
+| VaultPatch      | [Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx)|
 | VaultList      | [List all key vaults in a resource group](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx)|
 | KeyCreate      | [Create a key](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx)|
 | KeyGet      | [Get information about a key](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx)|
