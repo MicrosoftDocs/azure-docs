@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Protect Active Directory and DNS with Azure Site Recovery | Microsoft Azure" 
-	description="This article describes how to disaster recovery solution for Active Directory using Azure Site Recovery." 
+	description="This article describes how to implement a disaster recovery solution for Active Directory using Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="prateek9us" 
