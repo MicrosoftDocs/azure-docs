@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/13/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # What is the Azure WebJobs SDK
@@ -149,9 +149,9 @@ A program that uses the the WebJobs SDK is a standard Console Application and ca
 
 However, the dashboard is only available as an extension for an Azure App Service web app. If you want to run outside of a WebJob and still use the Dashboard, you can configure a web app to use the same storage account that your WebJobs SDK Dashboard connection string refers to, and that web app's WebJobs Dashboard will then show data about function execution from your program that is running somewhere else. You can get to the Dashboard by using the URL https://*{webappname}*.scm.azurewebsites.net/azurejobs/#/functions. For more information, see [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx), but note that the blog post shows an old connection string name. 
 
-## <a id="nostorage"></a>Using the WebJobs SDK to invoke any function
+## <a id="nostorage"></a>Dashboard features
 
-The WebJobs SDK provides several advantages even if you don't need to work directly with Azure Storage queues, tables, or blobs, or Service Bus queues:
+The WebJobs SDK provides several advantages even if you don't use WebJobs SDK triggers or binders:
 
 * You can invoke functions from the Dashboard.
 * You can replay functions from the Dashboard.
