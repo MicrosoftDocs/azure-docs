@@ -59,7 +59,7 @@ There are workarounds for most of the items in this list.  Please refer to the [
 
 You should follow the following steps before migrating your site:
 
-  *  [Back up youe Mobile Service] scripts and SQL database
+  *  [Back up your Mobile Service] scripts and SQL database
   *  (Optional) Raise the Mobile Service tier to Standard
 
 If you wish to test the migration process before migrating your production site, duplicate your production Azure Mobile Service (complete
@@ -307,10 +307,10 @@ Your Notification Hub will be managed through the [Azure Portal].  Note the Noti
 > legacy Service Bus features.  You will need to [convert your Mixed namespaces].  Once the conversion is complete, your notification hub will
 > appear in the [Azure Portal] .
 
+For more information, review the [Notification Hubs] documentation.
+
 > [AZURE.TIP] Notification Hubs management features in the [Azure Portal] is still in preview.  The [Azure Classic Portal] remains available for
 > managing all your Notification Hubs.
-
-For more information, review the [Notification Hubs] documentation.
 
 ### <a name="app-settings"></a>Other App Settings
 
