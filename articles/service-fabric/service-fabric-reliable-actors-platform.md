@@ -147,7 +147,7 @@ Another actor with ID `-4952641569324299627` was created within a different part
 
 The partition ID can be used to get other information about the partition. For example, the [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) tool can be used to view information about the partition and about the service and application to which it belongs. The screenshot below shows information about partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, which contained the actor with ID `-4952641569324299627` in the above example.  
 
-![][3]
+![Information about a partition in Service Fabric Explorer][3]
 
 Actors can programmatically obtain the partition ID, service name, application name, and other Service Fabric platform-specific information via the `Host.ActivationContext` and the `Host.StatelessServiceInitialization` or `Host.StatefulServiceInitializationParameters` members of the base class that the actor type derives from. The following code snippet shows an example.
 
@@ -206,7 +206,7 @@ Stateful actors are created within a partition of the Service Fabric stateful se
 
 Recall that in the [VoiceMailBoxActor example presented earlier](#service-fabric-partition-concepts-for-actors), the actor with ID `-4952641569324299627` was created within partition `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. The EventSource event from that example also indicated that the actor was created in replica `130745418574851853` of that partition. This was the primary replica of that partition at the time that the actor was created. The Service Fabric Explorer screenshot below confirms this.
 
-![Illustration of primary replica in Service Fabric Explorer][4]
+![A primary replica in Service Fabric Explorer][4]
 
 ## Actor state provider choices
 Some default actor state providers are included in the Actors runtime. In order to choose an appropriate state provider for an actor service, it is necessary to understand how the state providers use the underlying Service Fabric platform features to make the actor state highly available.
