@@ -36,28 +36,28 @@ You'll need to install a vContinuum server on premises and point it to the confi
 
 1.  [Download vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
 2.  After you've downloaded then download the updated [vContinuum update](http://go.microsoft.com/fwlink/?LinkID=533813) verison.
-2.  Run setup for the latest version to install vContinuum. On the **Welcome** page click **Next**.
-![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-2.  On the first page of the wizard specify the CX server IP address and the CX server port. Select **Use HTTPS**.
+3.  Run setup for the latest version to install vContinuum. On the **Welcome** page click **Next**.
+	![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+4.  On the first page of the wizard specify the CX server IP address and the CX server port. Select **Use HTTPS**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
 
-3.  Find the configuration server IP address on the **Dashboard** tab of the configuration server VM in Azure.
+5.  Find the configuration server IP address on the **Dashboard** tab of the configuration server VM in Azure.
 	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
-4.  Find the configuration server HTTPS public port on the **Endpoints** tab of the configuration server VM in Azure.
+6.  Find the configuration server HTTPS public port on the **Endpoints** tab of the configuration server VM in Azure.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-5. On the **CS Passphrase Details** page specify the passphrase that you noted down when you registered the configuration server. If you don't remember it check it in **C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase** on the configuration server VM.
+7. On the **CS Passphrase Details** page specify the passphrase that you noted down when you registered the configuration server. If you don't remember it check it in **C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase** on the configuration server VM.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
-6.  In the **Select Destination Location** page specify where you want to install the vContinuum server and click **Install**.
+8.  In the **Select Destination Location** page specify where you want to install the vContinuum server and click **Install**.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
 
-7. After installation completes, you can launch vContinuum.
+9. After installation completes, you can launch vContinuum.
     ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 
@@ -143,57 +143,57 @@ NOTE: Make sure the system has internet connectivity before downloading and inst
 This command downloads these 15 packages from CentOS 6.6
 repository and installs them:
 
-	bc-1.06.95-1.el6.x86\_64.rpm
+bc-1.06.95-1.el6.x86\_64.rpm
 
-	busybox-1.15.1-20.el6.x86\_64.rpm
+busybox-1.15.1-20.el6.x86\_64.rpm
 
-	elfutils-libs-0.158-3.2.el6.x86\_64.rpm
+elfutils-libs-0.158-3.2.el6.x86\_64.rpm
 
-	kexec-tools-2.0.0-280.el6.x86\_64.rpm
+kexec-tools-2.0.0-280.el6.x86\_64.rpm
 
-	lsscsi-0.23-2.el6.x86\_64.rpm
+lsscsi-0.23-2.el6.x86\_64.rpm
 
-	lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
+lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
 
-	perl-5.10.1-136.el6\_6.1.x86\_64.rpm
+perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-	perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
+perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
-	perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
+perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
 	
-	perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
+perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
-	perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
+perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-	perl-version-0.77-136.el6\_6.1.x86\_64.rpm
+perl-version-0.77-136.el6\_6.1.x86\_64.rpm
 
-	rsync-3.0.6-12.el6.x86\_64.rpm
+rsync-3.0.6-12.el6.x86\_64.rpm
 
-	snappy-1.1.0-1.el6.x86\_64.rpm
+snappy-1.1.0-1.el6.x86\_64.rpm
 
-	wget-1.12-5.el6\_6.1.x86\_64.rpm
+wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 NOTE: If the source machine uses Reiser or XFS filesystem for the root or boot
 device, then following packages should be downloaded and installed on
 Linux master target prior to protection.
 
-	\# cd /usr/local
+\# cd /usr/local
 
-	\# wget
-	<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-	\# wget
-	<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget
+<http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-	\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
-	reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-	\# wget
-	<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget
+<http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-	\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-	#### Apply custom configuration changes
+#### Apply custom configuration changes
 
 Before applying these changes make sure you've completed the previous section, then follow these steps:
 
@@ -204,7 +204,7 @@ Before applying these changes make sure you've completed the previous section, t
 
 3. Run this command to give permissions: \# **chmod 755 ./ApplyCustomChanges.sh**
 
-4. Run the script: **\# ./ApplyCustomChanges.sh**. Only run the script once on the server. Restart the server after the script runs.
+4. Run the script: **\# ./ApplyCustomChanges.sh**. Run the script only once on the server. Restart the server after the script runs.
 
 
 
