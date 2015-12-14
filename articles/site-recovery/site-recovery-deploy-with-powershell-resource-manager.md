@@ -128,7 +128,8 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 ## Step 4: Create a Hyper-V Site and generate a new vault registration key for the site.
 
 1. Create a new Hyper-V site as follows:
-
+		
+		$sitename = "MySite"                #Specify site friendly name
 		New-AzureRmSiteRecoverySite -Name $sitename
 
 	This cmdlet starts an ASR Job to create the site and returns an ASR Job object. Wait for the Job to complete and verify that the job completed successfully.
@@ -137,7 +138,7 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 2. Generate and download a registration key for the site :-
 
 		$SiteIdentifier = Get-AzureRmSiteRecoverySite -Name $sitename | Select -ExpandProperty SiteIdentifier
-		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName "MySite" -Path $Path
+		Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename -Path $Path
 	
 	Copy the downloaded key to the Hyper-V host. You'll need the key to register the Hyper-V host to the site 
 
