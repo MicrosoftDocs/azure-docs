@@ -46,7 +46,7 @@ The finer-grained authorization model (Azure RBAC) is supported only by the Azur
 ### Authorization for Management vs Data Operations
 The finer-grained authorization model (Azure RBAC) is supported only for management operations of the Azure resources in the Azure classic portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
-## Manage access using the Azure classic portal
+## Manage access using the Azure portal
 ### View Access
 Select access settings in the essentials section of the resource group blade. The **Users** blade lists all users, groups and applications that have been granted access to the resource group. Access is either assigned on the resource group or inherited from an assignment on the parent subscription.
 

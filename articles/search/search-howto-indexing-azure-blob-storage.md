@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
 
-For quite some time now, Azure Search customers have been able to "automagically" index some popular data sources by using indexers for [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) and [Azure DocumentDB](documentdb-search-indexer.md).
+For quite some time now, Azure Search customers have been able to "automagically" index some popular data sources by using indexers for [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) and [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
 
 We're now adding support for indexing documents stored in Azure Blob storage. Many customers have asked us to simplify indexing documents stored in blobs, such as PDFs, Office documents, or HTML pages. Until now, this involved writing custom code to do text extraction and adding the documents to an Azure Search index. 
 
@@ -104,7 +104,7 @@ Azure Search indexes each document (blob) as follows:
 
 You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application. 
 
-> [AZURE.NOTE] Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Search to the field names in your search index. 
+> [AZURE.NOTE] Often, the field names in your existing index will be different from the field names generated during document extraction. You can use **field mappings** to map the property names provided by Azure Search to the field names in your search index. You will see an example of field mappings use below. 
 
 ## Picking the document key field and dealing with different field names
 
@@ -144,6 +144,8 @@ To bring this all together, here's how you can add field mappings and enable bas
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexers-customization.md).
+
 ## Incremental indexing and deletion detection
 
 When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
@@ -152,7 +154,7 @@ When you set up a blob indexer to run on a schedule, it re-indexes only the chan
 
 To indicate that certain documents must be removed from the index, you should use a soft delete strategy - instead of deleting the corresponding blobs, add a custom metadata property to indicate that they're deleted, and set up a soft deletion detection policy on the data source.
 
-> [AZURE.NOTE] If you just delete the blobs instead of using a deletion detection policy, corresponding documents will not be removed from the search index.
+> [AZURE.WARNING] If you just delete the blobs instead of using a deletion detection policy, corresponding documents will not be removed from the search index.
 
 For example, the policy shown below will consider that a blob is deleted if it has a metadata property `IsDeleted` with the value `true`:
 

@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     ![Configure App URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configure App URL")
 
-4. If you have already configured single sign-on for another Salesforce Sandbox instance in your directory, then you must also configure the **Issuer URL** to have the same value as the **Sign on URL**. The **Issuer URL** field can be found by checking the **Show advanced settings** checkbox on the **Configure App URL** page of the dialog.
+4. If you have already configured single sign-on for another Salesforce Sandbox instance in your directory, then you must also configure the **Identifier** to have the same value as the **Sign on URL**. The **Identifier** field can be found by checking the **Show advanced settings** checkbox on the **Configure App URL** page of the dialog.
 
 4.  On the **Configure single sign-on at Salesforce Sandbox** page, click **Download certificate**, and then save the certificate file on your computer.
 
