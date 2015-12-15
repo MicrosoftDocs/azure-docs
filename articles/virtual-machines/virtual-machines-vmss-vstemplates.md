@@ -54,15 +54,15 @@ Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK
 
 	![Solution Explorer][solution_explorer]
 
- ## Customize your project
+## Customize your project
 
 5. Now you can edit the Template to customize it for your application's needs, such as adding VM extension properties or editing load balancing rules. By default the VM Scale Set Templates are configured to deploy the AzureDiagnostics extension which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules which let you connect to the VM instances with SSH (Linux) or RDP (Windows) – the front end port range starts at 50000, which means in the case of Linux, if you SSH to port 50000 of the public IP address (or domain name) you will be routed to port 22 of the first VM in the Scale Set. Connecting to port 50001 will be routed to port 22 of the second VM and so on.
 
  A good way to edit your Templates with Visual Studio is to use the JSON Outline to organize the parameters, variables and resources. With an understanding of the schema Visual Studio can point out errors in your Template before you deploy it.
 
-	![JSON Explorer][json_explorer]
+![JSON Explorer][json_explorer]
 
- ## Deploy the project
+## Deploy the project
 
 6. Deploy the ARM Template to Azure to create the VM Scale Set resource. Right click on the project node, choose **Deploy | New Deployment**.
 
@@ -84,7 +84,7 @@ Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK
 
 	![Output Window][output_window]
 
- ## Exploring your VM Scale Set
+## Exploring your VM Scale Set
 
 11. Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.
 
