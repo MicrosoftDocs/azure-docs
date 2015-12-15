@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Migrate Azure IaaS virtual machines from one Azure region to another"
+	pageTitle="Migrate Azure IaaS virtual machines from one Azure region to another with Site Recovery | Microsoft Azure"
 	description="Use Azure Site Recovery to migrate Azure IaaS virtual machines from one Azure region to another."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  Migrate Azure IaaS virtual machines between Azure regions
+#  Migrate Azure IaaS virtual machines between Azure regions with Site Recovery
 
 
 ## Overview

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Line of business application Phase 1 | Microsoft Azure" 
 	description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the line of business application in Azure." 
 	documentationCenter=""
@@ -66,10 +66,10 @@ Item | Subnet name | Subnet address space | Purpose
 
 For the two on-premises DNS servers that you want to use when initially setting up the domain controllers in your virtual network, fill in Table D. Give each DNS server a friendly name and a single IP address. This friendly name does not need to match the host name or computer name of the DNS server. Note that two blank entries are listed, but you can add more. Work with your IT department to determine this list. 
 
-Item | DNS server friendly name | DNS server IP address 
---- | --- | ---
-1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+Item | DNS server IP address 
+--- | ---
+1. | ___________________________
+2. | ___________________________ 
 
 **Table D: On-premises DNS servers**
 
@@ -85,13 +85,24 @@ Item | Local network address space
 
 **Table L: Address prefixes for the local network**
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace all instances of "-AzureRM" with "-Azure" and add the **Switch-AzureMode AzureResourceManager** command before you execute any commands. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+First, start an Azure PowerShell prompt.
 
-Open an Azure PowerShell prompt.
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-Next, create a new resource group for your line of business application.
+First, start an Azure PowerShell prompt and login to your account.
 
-To determine a unique resource group name, use this command to list your existing resource groups.
+	Login-AzureRMAccount
+
+Get your subscription name using the following command.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Set your Azure subscription. Replace everything within the quotes, including the < and > characters, with the correct names.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+Next, create a new resource group for your line of business application. To determine a unique resource group name, use this command to list your existing resource groups.
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@ You will need these names when you create the virtual machines in phases 2, 3, a
 
 You must pick a globally unique name for each storage account that contains only lowercase letters and numbers. You can use this command to list the existing storage accounts.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 To create the first storage account, run these commands.
 
@@ -169,12 +180,12 @@ Next, use these commands to create the gateways for the site-to-site VPN connect
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Next, configure on-premises VPN device to connect to the Azure VPN gateway. For more information, see [Configure your VPN device](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Next, configure your on-premises VPN device to connect to the Azure VPN gateway. For more information, see [Configure your VPN device](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 To configure your on-premises VPN device, you will need the following:
 
-- The public IPv4 address of the Azure VPN gateway for your virtual network (from the display of the **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** command)
-- The IPsec pre-shared key for the site-to-site VPN connection (Table V- Item 8 – Value column)
+- The public IPv4 address of the Azure VPN gateway for your virtual network from the display of the **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** command.
+- The IPsec pre-shared key for the site-to-site VPN connection (Table V- Item 8 – Value column).
 
 Next, ensure that the address space of the virtual network is reachable from your on-premises network. This is usually done by adding a route corresponding to the virtual network address space to your VPN device and then advertising that route to the rest of the routing infrastructure of your organization network. Work with your IT department to determine how to do this.
 
@@ -207,16 +218,5 @@ This is the configuration resulting from the successful completion of this phase
 
 ## Next step
 
-To continue with the configuration of this workload, go to [Phase 2: Configure Domain Controllers](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+- Use [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) to continue with the configuration of this workload.
 
-## Additional resources
-
-[Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)

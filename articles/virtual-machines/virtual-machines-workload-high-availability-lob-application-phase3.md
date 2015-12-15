@@ -21,12 +21,11 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-
 In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure the two computers running SQL Server and the cluster majority node computer, and then combine them into a Windows Server cluster. 
 
 You must complete this phase before moving on to [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace all instances of "-AzureRM" with "-Azure" and add the **Switch-AzureMode AzureResourceManager** command before you execute any commands. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] These instructions use a SQL Server image in the Azure image gallery and you are charged ongoing costs for the use of the SQL Server license. It is also possible to create virtual machines in Azure and install your own SQL Server licenses, but you must have Software Assurance and License Mobility to use your SQL Server license on a virtual machine, including an Azure virtual machine. For more information about installing SQL Server on a virtual machine, see [Installation for SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Create the SQL Server cluster virtual machines in Azure
 
@@ -41,6 +40,8 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table A, for your availability sets
 
 Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) and Tables V, S, ST, and A in [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.
 
@@ -246,7 +247,7 @@ Use these steps to enable AlwaysOn Availability Groups on SQL Server.
 2.	On the Start screen, type **SQL Server Configuration**, and then click **SQL Server Configuration Manager**.
 3.	In the left pane, click **SQL Server Services**.
 4.	In the contents pane, double-click **SQL Server (MSSQLSERVER)**.
-5.	In **SQL Server (MSSQLSERVER) Properties**, click the **AlwaysOn High Availability** tab, select **Enable AlwaysOn Availability Group**s, click **Apply**, and then click **OK** when prompted. Do not close the properties window yet. 
+5.	In **SQL Server (MSSQLSERVER) Properties**, click the **AlwaysOn High Availability** tab, select **Enable AlwaysOn Availability Groups**, click **Apply**, and then click **OK** when prompted. Do not close the properties window yet. 
 6.	Click the virtual-machines-manage-availability tab, then type [Domain]**\sqlservice** in **Account Name**. Type the sqlservice account password in **Password** and **Confirm password**, and then click **OK**.
 7.	In the message window, click **Yes** to restart the SQL Server service.
 8.	Log on to the secondary SQL Server virtual machine with the sqladmin account and repeat steps 2 through 7. 
@@ -257,17 +258,5 @@ This diagram shows the configuration resulting from the successful completion of
 
 ## Next step
 
-To continue with the configuration of this workload, go to [Phase 4: Configure Web Servers](virtual-machines-workload-high-availability-LOB-application-phase4.md).
-
-## Additional resources
-
-[Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
+- Use [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md) to continue with the configuration of this workload.
 
