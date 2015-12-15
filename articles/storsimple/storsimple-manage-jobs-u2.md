@@ -23,31 +23,28 @@
 
 The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
 
-![Jobs page](./media/storsimple-manage-jobs/HCS_JobsPage.png)
+![Jobs page](./media/storsimple-manage-jobs-u2/HCS_JobsPage.png)
 
 You can quickly find the jobs you are interested in by filtering on fields such as:
 
-- **Status** – Jobs can be running, scheduled, failed, completed, canceling, or canceled.
-
-- **Type** – Jobs can be created as a result of a scheduled or an on-demand backup (**Take Backup**), cloning, a device restore, or an update operation.
+- **Status** – Jobs can be running, completed, canceled, failed, canceling, or completed with errors.
+- **From and To** – Jobs can be filtered based on the date and time range.
+- **Type** – The job type can be backup, manual backup, restore, clone, device failover, create locally pinned volume, modify volume, update, support package, or virtual device provisioning.
 
 - **Devices** – Jobs are initiated on a certain device connected to your service.
-
-- **From and To** – Jobs can be filtered based on the date and time range.
-
 The filtered jobs are then tabulated on the basis of the following attributes:
 
-- **Type** – Backup, clone, restore, failover, or update.
+    - **Type** – backup, manual backup, restore, clone, device failover, create locally pinned volume, modify volume, update, support package, or virtual device provisioning.
 
-- **Status** – Running, scheduled, failed, completed, canceling, or canceled.
+    - **Status** – running, completed, canceled, failed, canceling, or completed with errors.
 
-- **Entity** – The jobs can be associated with a volume, a backup policy, or a device. A clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
+    - **Entity** – The jobs can be associated with a volume, a backup policy, or a device. For example, a clone job is associated with a volume, whereas a scheduled backup job is associated with a backup policy. A device job is created as a result of a disaster recovery (DR) or a restore operation.
 
-- **Device** – The name of the device on which the job was started.
+    - **Device** – The name of the device on which the job was started.
 
-- **Started On** – The time when the job was started.
+    - **Started on** – The time when the job was started.
 
-- **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
+    - **Progress** – The percentage completion of a running job. For a completed job, this should always be 100%.
 
 The list of jobs is refreshed every 30 seconds.
 
@@ -70,10 +67,14 @@ Perform the following steps to view the details of any job.
 3. At the bottom of the page, click **Details**.
 
 4. In the **Backup Job Details** dialog box, you can view the status, details, time statistics, and data statistics.
+ 
+    ![Job details page](./media/storsimple-manage-jobs-u2/JobDetails.png)
 
 ## Cancel a job
 
 Perform the following steps to cancel a running job.
+
+>[AZURE.NOTE] Some jobs, such as modifying a volume to change the volume type or expanding a volume, cannot be canceled.
 
 ### To cancel a job
 
