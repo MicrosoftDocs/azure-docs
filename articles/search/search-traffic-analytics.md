@@ -88,26 +88,26 @@ Each blob has one root object called **records** that contains an array of log o
 
 Log schema
 
-|Name | Type | Example | Notes| 
+|Name |Type |Example |Notes| 
 |------|-----|----|-----|
-|time| datetime | "2015-12-07T00:00:43.6872559Z" | Timestamp of the operation|
-|resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | Your ResourceId |
-| operationName | string | "Query.Search" | The name of the operation |
-| operationVersion | string | "2015-02-28"| The api-version used |
-| category | string | "OperationLogs" | constant |
-| resultType | string | "Success" | Possible values: Success or Failure | 
-| resultSignature | int | 200 | HTTP result code |
-| durationMS | int | 50 | Duration of the operation in milliseconds |
-| properties | object |  see below | Object containing operation specific data|
+|time|datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp of the operation|
+|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
+|operationName |string |"Query.Search" |The name of the operation |
+|operationVersion |string |"2015-02-28"|The api-version used |
+|category |string |"OperationLogs" |constant |
+|resultType |string |"Success" |Possible values: Success or Failure | 
+|resultSignature |int |200 |HTTP result code |
+|durationMS |int |50 |Duration of the operation in milliseconds |
+|properties |object |see below |Object containing operation specific data|
 
 Properties schema
 
-|Name | Type | Example | Notes| 
+|Name |Type |Example |Notes| 
 |------|-----|----|-----|
-|Description| string | "GET /indexes('content')/docs" | The operation's endpoint |
-|Query | string | "?search=AzureSearch&$count=true&api-version=2015-02-28" | The query parameters |
-| Documents | int | 42 | Number of documents processed|
-| IndexName | string | "testindex"| Name of the index associated with the operation |
+|Description|string |"GET /indexes('content')/docs" |The operation's endpoint |
+|Query |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |The query parameters |
+|Documents |int |42 |Number of documents processed|
+|IndexName |string |"testindex"|Name of the index associated with the operation |
 
 ### Metrics ###
 
@@ -120,17 +120,17 @@ Available metrics:
 
 Metrics schema
 
-|Name | Type | Example | Notes| 
+|Name |Type |Example |Notes| 
 |------|-----|----|-----|
-| resourceId | string | "/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE"  | your resource id |
-| metricName | string | "Latency" | the name of the metric |
-| time| datetime | "2015-12-07T00:00:43.6872559Z" | the operation's timestamp |
-| average | int | 64| The average value of the raw samples in the metric time interval |
-| minimum | int | 37 | The minimum value of the raw samples in the metric time interval |
-| maximum | int | 78 | The maximum value of the raw samples in the metric time interval | 
-| total | int | 258 | The total value of the raw samples in the metric time interval |
-| count | int | 4 | The number of raw samples used to generate the metric |
-| timegrain | string | "PT1M" | The time grain of the metric in ISO 8601|
+|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE"  |your resource id |
+|metricName |string |"Latency" |the name of the metric |
+|time|datetime |"2015-12-07T00:00:43.6872559Z" |the operation's timestamp |
+|average |int |64|The average value of the raw samples in the metric time interval |
+|minimum |int |37 |The minimum value of the raw samples in the metric time interval |
+|maximum |int |78 |The maximum value of the raw samples in the metric time interval | 
+|total |int |258 |The total value of the raw samples in the metric time interval |
+|count |int |4 |The number of raw samples used to generate the metric |
+|timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
 ## Analyzing your data ##
 
