@@ -90,12 +90,12 @@ Each blob has one root object called **records** that contains an array of log o
 
 Name |Type |Example |Notes 
 ------|-----|----|-----
-time |datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |Timestamp of the operation
-resourceId |string |&quot;/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE&quot; |Your ResourceId
-operationName |string |&quot;Query.Search&quot; |The name of the operation
-operationVersion |string |&quot;2015-02-28&quot;|The api-version used
-category |string |&quot;OperationLogs&quot; |constant 
-resultType |string |&quot;Success&quot; |Possible values: Success or Failure 
+time |datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp of the operation
+resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId
+operationName |string |"Query.Search" |The name of the operation
+operationVersion |string |"2015-02-28"|The api-version used
+category |string |"OperationLogs" |constant 
+resultType |string |"Success" |Possible values: Success or Failure 
 resultSignature |int |200 |HTTP result code 
 durationMS |int |50 |Duration of the operation in milliseconds 
 properties |object |see below |Object containing operation specific data
@@ -104,7 +104,7 @@ properties |object |see below |Object containing operation specific data
 
 |Name |Type |Example |Notes|
 |------|-----|----|-----|
-|Description|string |"GET /indexes('content')&#47;docs" |The operation's endpoint |
+|Description|string |"GET /indexes('content')/docs" |The operation's endpoint |
 |Query |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |The query parameters |
 |Documents |int |42 |Number of documents processed|
 |IndexName |string |"testindex"|Name of the index associated with the operation |
@@ -122,15 +122,15 @@ Available metrics:
 
 |Name |Type |Example |Notes|
 |------|-----|----|-----|
-|resourceId |string |&quot;&#47;SUBSCRIPTIONS&#47;11111111-1111-1111-1111-111111111111&#47;<br/>RESOURCEGROUPS&#47;DEFAULT&#47;PROVIDERS/&#47;<br/>MICROSOFT.SEARCH&#47;SEARCHSERVICES&#47;SEARCHSERVICE&quot;  |your resource id |
-|metricName |string |&quot;Latency&quot; |the name of the metric |
-|time|datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |the operation's timestamp |
+|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE"  |your resource id |
+|metricName |string |"Latency" |the name of the metric |
+|time|datetime |"2015-12-07T00:00:43.6872559Z" |the operation's timestamp |
 |average |int |64|The average value of the raw samples in the metric time interval |
 |minimum |int |37 |The minimum value of the raw samples in the metric time interval |
 |maximum |int |78 |The maximum value of the raw samples in the metric time interval |
 |total |int |258 |The total value of the raw samples in the metric time interval |
 |count |int |4 |The number of raw samples used to generate the metric |
-|timegrain |string |&quot;PT1M&quot; |The time grain of the metric in ISO 8601|
+|timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
 ## Analyzing your data ##
 
