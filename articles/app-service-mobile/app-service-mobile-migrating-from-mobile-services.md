@@ -63,8 +63,8 @@ You should follow the following steps before migrating your site:
   *  (Optional) Raise the Mobile Service tier to Standard
 
 If you wish to test the migration process before migrating your production site, duplicate your production Azure Mobile Service (complete
-with a copy of the data source) and test the migration against the new URL.  You will have to have a test client implementation to properly
-test the migrated site.
+with a copy of the data source) and test the migration against the new URL.  You will also need a test client implementation that points
+to the test site to properly test the migrated site.
 
 ### <a name="opt-raise-service-tier"></a>(Optional) Raise the Mobile Service tier to Standard
 
@@ -147,8 +147,8 @@ There are a limited number of free scheduler jobs available post-migration.  You
 
 ### <a name="configure-cors"></a>Configure CORS if needed
 
-[Cross-origin resource sharing] (also known as CORS) is a technique to allow a website to access a Web API on a different domain.  If you were using
-Azure Mobile Services with an associated website then you will need to configure CORS as part of the migration.  If you were accessing Azure Mobile
+[Cross-origin resource sharing] is a technique to allow a website to access a Web API on a different domain.  If you were using Azure Mobile
+Services with an associated website then you will need to configure CORS as part of the migration.  If you were accessing Azure Mobile
 Services exclusively from mobile devices, then CORS does not need to be configured except in rare cases.
 
 Your migrated CORS settings are available as the **MS_CrossDomainWhitelist** App Setting.  To migrate your site to the App Service CORS facility:
@@ -300,7 +300,7 @@ after migration:
 Your Notification Hub will be managed through the [Azure Portal].  Note the Notification Hub name (you can find this using the App Settings):
 
   1. Log into the [Azure Portal].
-  2. Select **Browse** > **Notification Hubs**
+  2. Select **Browse**>, then select **Notification Hubs**
   3. Click on the Notification Hub name associated with the mobile service.
 
 > [AZURE.NOTE] Your notification hub will not be visible if it a "Mixed" type.  "Mixed" type notification hubs utilize both Notification Hubs and
@@ -334,12 +334,7 @@ Diagnostic Logging is normally disabled in an Azure App Service.  To enable diag
   2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3. The Settings blade will open by default - if it doesn't, click on **Settings**.
   4. Select **Diagnostic Logs** under the FEATURES menu.
-  5. Click **ON** for the following logs:
-
-    a. Application Logging (Filesystem)
-    b. Detailed error messages
-    c. Failed request tracing
-
+  5. Click **ON** for the following logs: **Application Logging (Filesystem)**, **Detailed error messages** and **Failed request tracing**
   6. Click **File System** for Web server logging
   7. Click on **Save**
 
@@ -357,10 +352,11 @@ the [Logging] documentation for more information.
 
 Not that your application is migrated to App Service, there are even more features you can leverage:
 
-  * Deployment [staging slots] allow you to stage changes to your site and perform A/B testing
-  * [WebJobs] provide a replacement for On-demand scheduled jobs
-  * You can [continuously deploy] your site by linking your site to GitHub, TFS or Mercurial
-  * You can use [Application Insights] to monitor your site
+  * Deployment [staging slots] allow you to stage changes to your site and perform A/B testing.
+  * [WebJobs] provide a replacement for On-demand scheduled jobs.
+  * You can [continuously deploy] your site by linking your site to GitHub, TFS or Mercurial.
+  * You can use [Application Insights] to monitor your site.
+  * Serve a website and a Mobile API from the same code.
 
 ### <a name="upgrading-your-site"></a>Upgrading your Mobile Services site to Azure Mobile Apps SDK
 
