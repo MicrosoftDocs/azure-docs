@@ -98,7 +98,7 @@ If you don't have an existing AAD app with the key and secret values, then use t
 A new Azure Active Directory app is created. You can use this app in your Office 365 Users API configuration in the Azure portal. 
 
 ## Summary and next steps
-In this topic, you added the Office 365 Outlook API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
+In this topic, you added the Office 365 Users API to your PowersApps Enterprise. Next, give users access to the API so it can be added to their apps: 
 
 [Add a connection and give users access](powerapps-manage-api-connection-user-access.md)
 
@@ -115,7 +115,3 @@ In this topic, you added the Office 365 Outlook API to your PowersApps Enterpris
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
