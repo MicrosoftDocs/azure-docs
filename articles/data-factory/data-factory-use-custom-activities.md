@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="12/15/2015"
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -676,7 +676,20 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
 2. Create an Azure Batch pool. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
 
-	You can also use [New-AzureBatchPool][new-azure-batch-pool] cmdlet to create an Azure Batch pool.
+	You can also use [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
+
+	You may want to create the Azure Batch pool with at least 2 compute nodes so that slices are processed in parallel. If you are using Batch Explorer:  
+
+	•	Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
+	•	Specify **Windows Server 2012 R2** for the Operating System Family setting. 
+	•	Specify **2** as value for the **Max tasks per compute node** setting. 
+	•	Specify **2** as value for the **Number of Target Dedicated** setting. 
+
+	The Data Factory service creates a job in Azure Batch with the name: adf-<pool name>:job-xxx. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
+	
+	![Batch Explorer tasks](./media/data-factory-use-custom-activities/BatchExplorerTasks.png)
+
+	![Data Factory & Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
 
 2. Create an Azure Batch Linked Service using the following JSON template. The Data Factory Editor displays a similar template for you to start with. Specify the Azure Batch account name, account key and pool name in the JSON snippet.
 
