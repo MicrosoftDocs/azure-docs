@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/13/2015"
+   ms.date="12/15/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS 
@@ -30,9 +30,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
 | MS15-132 | [3116162] | Security Update for Windows to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
 | MS15-133 | [3116130] | Security Update for Windows PGM to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-134 | [3108669] | Security Update for Windows Media Center to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-135 | [3119075] | Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
+
 ## November Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
@@ -210,6 +210,16 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+
+[3116180]: http://support.microsoft.com/kb/3116180
+[3116178]: http://support.microsoft.com/kb/3116178
+[3100465]: http://support.microsoft.com/kb/3100465
+[3104503]: http://support.microsoft.com/kb/3104503
+[3116162]: http://support.microsoft.com/kb/3116162
+[3116130]: http://support.microsoft.com/kb/3116130
+[3108669]: http://support.microsoft.com/kb/3108669
+[3119075]: http://support.microsoft.com/kb/3119075
 
 [3104517]: http://support.microsoft.com/kb/3104517
 [3100213]: http://support.microsoft.com/kb/3100213
