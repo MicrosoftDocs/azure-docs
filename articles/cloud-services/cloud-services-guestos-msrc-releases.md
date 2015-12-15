@@ -24,14 +24,15 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-124 | [3116180] | Cumulative Security Update for Internet Explorer | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-126 | [3116178] | Security Update for Microsoft VBScript and JScript to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-127 | [3100465] | Security Update for Microsoft Windows DNS to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-132 | [3116162] | Security Update for Windows to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-133 | [3116130] | Security Update for Windows PGM to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
 |  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
 |  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
 |  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-|  | [] |  | 4.27, 3.34, 2.46 | December 8, 2015 |
-
 ## November Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
