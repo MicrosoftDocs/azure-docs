@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="12/15/2015"
    ms.author="tomfitz"/>
 
 # Key vault template schema
@@ -29,9 +29,6 @@ To create a key vault, add the following schema to the resources section of your
         "apiVersion": "2015-06-01",
         "name": string,
         "location": string,
-        "tags": {
-            "displayName": "KeyVault"
-        },
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
@@ -42,8 +39,8 @@ To create a key vault, add the following schema to the resources section of your
                     "tenantId": string,
                     "objectId": string,
                     "permissions": {
-                        "keys": array,
-                        "secrets": array
+                        "keys": [ keys permissions ],
+                        "secrets": [ secrets permissions ]
                     }
                 }
             ],
@@ -53,8 +50,8 @@ To create a key vault, add the following schema to the resources section of your
             }
         },
         "resources": [
-             array of child resources
-        }
+             child resources
+        ]
     }
 
 ## Values
@@ -67,35 +64,39 @@ The following tables describe the values you need to set in the schema.
 | apiVersion | enum | Yes | **2015-06-01** <br /> **2014-12-19-preview** | The API version to use for creating the resource. | 
 | name | string | Yes |   | The name of the key vault to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
 | location | string | Yes | To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).  | The region to host the key vault. |
-| properties | object | Yes | (shown below) | An object that specifies the type of key vault to create. |
-| resources | array | No | [secrets]() resource type  | Child resources for the key vault. |
+| properties | object | Yes | ([shown below](#properties)) | An object that specifies the type of key vault to create. |
+| resources | array | No | [Key vault secrets](resource-manager-template-keyvault-secrets.md)  | Child resources for the key vault. |
 
+<a id="properties" />
 ### properties object
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
 | enabledForDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
-| enabledForTemplateDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for use in Resource Manager template deployments. |
+| enabledForTemplateDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
 | enabledForVolumeEncryption | boolean | No | **true** or **false** | Specifies if the vault is enabled for volume encryption. |
 | tenantId | string | Yes | Globally-unique identifier | The tenant identifier for the subscription. You can retrieve it with the **Get-AzureRMSubscription** PowerShell cmdlet. |
-| accessPolicies | array | Yes | (shown below) | An array of up to 16 objects that specify the permissions for the user or service principal. |
-| sku | object | Yes | (shown below) | The SKU for the key vault. |
+| accessPolicies | array | Yes | ([shown below](#accesspolicies)) | An array of up to 16 objects that specify the permissions for the user or service principal. |
+| sku | object | Yes | ([shown below](#sku)) | The SKU for the key vault. |
 
+<a id="accesspolicies" />
 ### properties.accessPolicies object
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
 | tenantId | string | Yes | Globally-unique identifier | The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
 | objectId | string | Yes | Globally-unique identifier | The object identifier of the AAD user or service principal that will have access to the vault. You can retrieve the value from either the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. |
-| permissions | object | Yes | (shown below) | The permissions granted on this vault to the Active Directory object. |
+| permissions | object | Yes | ([shown below](#permissions)) | The permissions granted on this vault to the Active Directory object. |
 
+<a id="permissions" />
 ### properties.accessPolicies.permissions object
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| keys | array | Yes | **all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | The permissions granted on keys in this vault to this Active Directory object. |
-| secrets | array | Yes | **all**<br />**delete**<br />**get**<br />**list**<br />**set** | The permissions granted on secrets in this vault to this Active Directory object. |
+| keys | array | Yes | **all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
+| secrets | array | Yes | **all**<br />**delete**<br />**get**<br />**list**<br />**set** | The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
 
+<a id="sku" />
 ### properties.sku object
 
 | Name | Type | Required | Permitted values | Description |
