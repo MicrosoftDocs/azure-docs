@@ -91,7 +91,7 @@ Log schema
 |Name |Type |Example |Notes| 
 |------|-----|----|-----|
 |time|datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |Timestamp of the operation|
-|resourceId |string |&quot;/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE&quot; |Your ResourceId |
+|resourceId |string |&quot;&#47;SUBSCRIPTIONS&#47;11111111-1111-1111-1111-111111111111&#47;<br/>RESOURCEGROUPS&#47;DEFAULT&#47;PROVIDERS&#47;<br/>MICROSOFT.SEARCH&#47;SEARCHSERVICES&#47;SEARCHSERVICE&quot; |Your ResourceId |
 |operationName |string |&quot;Query.Search&quot; |The name of the operation |
 |operationVersion |string |&quot;2015-02-28&quot;|The api-version used |
 |category |string |&quot;OperationLogs&quot; |constant |
@@ -104,7 +104,7 @@ Properties schema
 
 |Name |Type |Example |Notes| 
 |------|-----|----|-----|
-|Description|string |&quot;GET /indexes('content')/docs&quot; |The operation's endpoint |
+|Description|string |&quot;GET /indexes('content')&#47;docs&quot; |The operation's endpoint |
 |Query |string |&quot;?search=AzureSearch&$count=true&api-version=2015-02-28&quot; |The query parameters |
 |Documents |int |42 |Number of documents processed|
 |IndexName |string |&quot;testindex&quot;|Name of the index associated with the operation |
@@ -122,7 +122,7 @@ Metrics schema
 
 |Name |Type |Example |Notes| 
 |------|-----|----|-----|
-|resourceId |string |&quot;/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE&quot;  |your resource id |
+|resourceId |string |&quot;&#47;SUBSCRIPTIONS&#47;11111111-1111-1111-1111-111111111111&#47;<br/>RESOURCEGROUPS&#47;DEFAULT&#47;PROVIDERS/&#47;<br/>MICROSOFT.SEARCH&#47;SEARCHSERVICES&#47;SEARCHSERVICE&quot;  |your resource id |
 |metricName |string |&quot;Latency&quot; |the name of the metric |
 |time|datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |the operation's timestamp |
 |average |int |64|The average value of the raw samples in the metric time interval |
