@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/25/2015" 
+	ms.date="12/15/2015" 
 	ms.author="billmath"/>
 
 # Using Azure AD Connect Health for sync
