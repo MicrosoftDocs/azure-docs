@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
+   ms.date="12/10/2015"
    ms.author="seanmck"/>
 
 # Deploy an application
@@ -24,7 +24,7 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Registering the application type
 3. Creating the application instance
 
->[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically through the PowerShell scripts found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
+>[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically through a PowerShell script found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
 
 ## Upload the application package
 
