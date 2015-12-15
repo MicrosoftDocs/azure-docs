@@ -202,15 +202,13 @@ The method has a few key components that you need to understand.
             return new Dictionary<string, string>();
         }
 
-
 9. Add the following helper methods. The **Execute** method invokes these helper methods. The **GetConnectionString** method retrieves the Azure Storage connection string and the **GetFolderPath** method retrieves the blob location. Most importantly, the **Calculate** method isolates the code that iterates through each blob.
-
 
         /// <summary>
         /// Gets the folderPath value from the input/output dataset.   
 		/// </summary>
 
-       private static string GetFolderPath(Dataset dataArtifact)
+		private static string GetFolderPath(Dataset dataArtifact)
         {
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
@@ -273,17 +271,17 @@ The method has a few key components that you need to understand.
             return output;
         }
 
-The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. 
-
-    "name": "InputDataset",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-            "fileName": "file.txt",
-            "folderPath": "mycontainer/inputfolder/",
-
-The Calculate method calculates the number of instances of keyword Microsoft in the input files (blobs in the folder). The search term (“Microsoft”) is hard coded in the code.
+	The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to. 
+	
+		    "name": "InputDataset",
+		    "properties": {
+		        "type": "AzureBlob",
+		        "linkedServiceName": "StorageLinkedService",
+		        "typeProperties": {
+		            "fileName": "file.txt",
+		            "folderPath": "mycontainer/inputfolder/",
+	
+	The Calculate method calculates the number of instances of keyword Microsoft in the input files (blobs in the folder). The search term (“Microsoft”) is hard coded in the code.
 
 10. Compile the project. Click **Build** from the menu and click **Build Solution**.
 11. Launch **Windows Explorer**, and navigate to **bin\debug** or **bin\release** folder depending type of build.
@@ -407,7 +405,8 @@ Linked services link data stores or compute services to an Azure data factory. I
 2.	Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
 3.	Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Click **Deploy** on the command bar to deploy the linked service.
-5.	
+
+
 #### Create Azure HDInsight linked service 
 The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.
 
@@ -418,7 +417,7 @@ If you have extended the [Get started with Azure Data Factory][adfgetstarted] tu
 
 ##### To use an on-demand HDInsight cluster
 
-1. In the **Azure Classic Portal**, click **Author and Deploy** in the Data Factory home page.
+1. In the **Azure Portal**, click **Author and Deploy** in the Data Factory home page.
 2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
 2. Do the following in the JSON script:
 	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
@@ -466,7 +465,6 @@ In this step, you will create datasets to represent input and output data.
 			        "type": "AzureBlob",
 			        "linkedServiceName": "StorageLinkedService",
 			        "typeProperties": {
-					   "fileName": "*.txt",
 			            "folderPath": "adftutorial/customactivityinput/",
 			            "format": {
 			                "type": "TextFormat"
@@ -582,8 +580,8 @@ In this step, you will create datasets to represent input and output data.
 		        }
 		      }
 		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z",
+    		"start": "2015-11-16T00:00:00Z",
+			"end": "2015-11-16T05:00:00Z",
 		    "isPaused": false
 		  }
 		}
@@ -606,22 +604,55 @@ In this step, you will create datasets to represent input and output data.
 
 
 4. Click **Deploy** on the command bar to deploy the pipeline.
-8. Verify that the output files are generated in the blob storage in the **adftutorial** container.
+
+### Monitor the pipeline
+ 
+8. In the Data Factory blade in the Azure Portal, click **Diagram**.
+	
+	![Diagram tile](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
+ 
+9. In the Diagram View, now click on the OutputDataset.
+ 
+	![Diagram view](./media/data-factory-use-custom-activities/DiagramView.png)
+
+10. You should see that the 5 output slices are in the Ready state if they have already been produced.
+
+	![Output slices](./media/data-factory-use-custom-activities/OutputSlices.png)
+	
+12. Verify that the output files are generated in the blob storage in the **adftutorial** container.
 
 	![output from custom activity][image-data-factory-ouput-from-custom-activity]
 
 9. If you open the output file, you should see the output similar to the following:
 
-	adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28
+	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
 
-	(blob location), (name of the blob), (number of lines in the blob), (node on which the activity ran), (date time stamp)
-
-10.	Use the [Azure Classic Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
+10.	Use the [Azure Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs (specifically user-0.log) that you can download from the portal or using cmdlets.
 
 	![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
 
 
 See [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) for detailed steps for monitoring datasets and pipelines.      
+
+### Debug the pipeline
+Debugging consists of a few basic techniques:
+
+1.	If the input slice is not set to **Ready**, confirm that the input folder structure is correct and file.txt exists in the input folders.
+2.	In the **Execute** method of your custom activity, use the **IActivityLogger** object to log information that will help you troubleshoot issues. The logged messages will show up in the user_0.log file. 
+
+	In the **OutputDataset** blade, click on the slice to see the **DATA SLICE** blade for that slice. You will see **activity runs** for that slice. You should see one activity run for the slice. If you click Run in the command bar, you can start another activity run for the same slice. 
+
+	When you click the activity run, you will see the **ACTIVITY RUN DETAILS** blade with a list of log files. You will see logged messages in the user_0.log file. When an error occurs, you will see three activity runs because the retry count is set to 3 in the pipeline/activity JSON. When you click the activity run, you will see the log files that you can review to troubleshoot the error. 
+
+	In the list of log files, click the **user-0.log**. In the right panel are the results of using the **IActivityLogger.Write** method.
+
+	You should also check **system-0.log** for any system error messages and exceptions.
+
+3.	Include the **PDB** file in the zip file so that the error details will have information such as **call stack** when an error occurs.
+4.	All the files in the zip file for the custom activity must be at the **top level** with no subfolders.
+5.	Ensure that the **assemblyName** (MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip), and **packageLinkedService** (should point to the Azure blob storage that contains the zip file) are set to correct values. 
+6.	If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**. 
+
 
 ## Updating a custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
@@ -640,7 +671,7 @@ You can run your custom .NET activities using Azure Batch as a compute resource.
 
 Here are the high-level steps for using the Azure Batch Linked Service in the walkthrough described in the previous section:
 
-1. Create an Azure Batch account using the [Azure Classic Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
+1. Create an Azure Batch account using the [Azure Portal](http://manage.windowsazure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions. Note down the Azure Batch account name and account key.
 
 	You can also use [New-AzureBatchAccount][new-azure-batch-account] cmdlet to create an Azure Batch account. See [Using Azure PowerShell to Manage Azure Batch Account][azure-batch-blog] for detailed instructions on using this cmdlet.
 2. Create an Azure Batch pool. You can download the source code for the [Azure Batch Explorer tool][batch-explorer], compile, and use it  (or) use [Azure Batch Library for .NET][batch-net-library] to create a Azure Batch pool. See [Azure Batch Explorer Sample Walkthrough][batch-explorer-walkthrough] for step-by-step instructions for using the Azure Batch Explorer.
