@@ -21,11 +21,11 @@ The Azure ML Connector for Logic Apps enables calling Azure ML APIs for batch sc
 
  ![][1]
  
-# Get started with the Azure Machine Learning Connector and add it to your Logic App
+## Get started with the Azure Machine Learning Connector and add it to your Logic App
 To get started, create an experiment in Azure ML Studio, then set up and deploy a web service. You can then use the API URL and Key of the BES Post URL found on the Batch Exaction Help page. ([more info](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
 To run a BES job using the Connector, add the Azure ML Connector to your Logic App. Then enter the required info (see below for more on that).
-To set up Retraining, add a second Azure ML Connector and provide the input parameters (see [here](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-retrain-models-programmatically/) for more on setting a model up for retraining).
+To set up Retraining, add a second Azure ML Connector and provide the input parameters (see [here](machine-learning-retrain-models-programmatically.md) for more on setting a model up for retraining).
 
 ## Running an Azure ML Batch Execution Job
 The Azure ML Connector provides the following four options for running Batch Execution (BES) jobs:
@@ -36,7 +36,7 @@ The Azure ML Connector provides the following four options for running Batch Exe
 Note that BES is an asynchronous request and could take time to complete depending on the size of your data and the complexity of the model. When the job is completed, the Connector will return the output result.
 
 ### Run Batch Execution: with Input and Output
-If the Studio Experiment has web service input and output modules, you need to provide information on the Storage blob account and location ([more here](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-consume-web-services/)). In addition, you can include Global (web service) Parameters if set up in your experiment ([more here](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-web-service-parameters/)).
+If the Studio Experiment has web service input and output modules, you need to provide information on the Storage blob account and location ([more here](machine-learning-consume-web-services.md)). In addition, you can include Global (web service) Parameters if set up in your experiment ([more here](machine-learning-web-service-parameters.md)).
 
 ![][2]
 
@@ -77,7 +77,7 @@ Note that this will not be available if you have not included a web service outp
 
 ![][7]
 
-# Summary
+## Summary
 
 Using the Azure ML Connector for Logic Apps, you can run batch scoring and retraining jobs to be executed on demand or on a recurring schedule. The combination of the two actions can automatically, score your data, and retrain, evaluate, and update your web service’s model without a need to write any code.
 
