@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -69,20 +69,15 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 11. After you click **Create**, your New Relic account will begin the creation process. You can monitor the status by clicking the **Notifications** button. Once it is created, the New Relic account's blade will be displayed.
 
-12. To retrieve your New Relic license key, go to **Settings** > **New Relic keys**. Your Web Apps instance will automatically register this license key in its app settings when you integrate your web app with the New Relic account.
+12. To retrieve your New Relic license key, look at the **Essentials** panel at the top of the blade. Your Web Apps instance will automatically register this license key in its app settings when you integrate your web app with the New Relic account.
 
 ## Step 2: Configure New Relic integration for your web app
 
 1. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
-
-2. Select **Add titles** in the monitoring section.
-
+2. Click the "..." menu at the top of the blade and select **Add tiles**.
 3. On the **Monitoring** tab select **Application summary** and drag it to where you want the tile to appear on your web app's blade.
-
 4. Click Done to finish adding tiles.
-
 5. Click the **Application monitoring** tile and select **New Relic**.
-
 6. Select the account that you created in the previous step, then click **OK**. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
