@@ -49,7 +49,8 @@ Note the following **important** points about on-demand HDInsight linked service
 	      "timeToLive": "00:05:00",
 	      "version": "3.2",
 		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore"
+	      "linkedServiceName": "MyBlobStore",
+		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
 	        "otherLinkedServiceName2"
@@ -69,6 +70,7 @@ version | Version of the HDInsight cluster. The default value is 3.1 for Windows
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
 osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
+hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
 
 ### Advanced Properties
 
