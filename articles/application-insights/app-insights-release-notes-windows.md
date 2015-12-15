@@ -34,13 +34,16 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 
 ## Version 1.2
 
-### Windows App SDK
-
-- Fix a FileNotFound exception that was preventing persisted telemetries from being sent after the app is re-opened.
-
 ### Core SDK
 
 - First version of Application Insights SDK shipped from [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Version 1.1.1
+
+### Windows SDK
+
+- Fix a hang during crash when using the Windows Phone's Silverlight SDK.
+- Set the NuGet's dependencies to a specific version of Core and Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
 
 ## Version 1.1
 

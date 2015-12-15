@@ -40,7 +40,9 @@ For API scenarios, there are a number of relevant new capabilities:
 - **Support for using Azure Active Directory directly**, without client code having to exchange the AAD token for a session token: Your client can just include the AAD tokens in the Authorization header, according to the bearer token specification. This also means no App Service-specific SDK is required on the client or server side. 
 - **Service-to-service or "Internal" access**: If you have a daemon process or some other client needing access to APIs without an interface, you can request a token using an AAD service principal and pass it to App Service for authentication with your application.
 - **Deferred authorization**: Many applications have varying access restrictions for different parts of the application. Perhaps you want some APIs to be publicly available, while others require sign-in. The original Authentication/Authorization feature was all-or-nothing, with the whole site requiring login. This option still exists, but you can alternatively allow your application code to render access decisions after App Service has authenticated the user.
-
+ 
+For more information about the new authentication features, see [Authentication and authorization for API Apps in Azure App Service](app-service-api-authentication.md). For information about how to migrate existing API apps from the previous API apps model to the new one, see [Migrating existing API apps](#migrating-existing-api-apps) later in this article.
+ 
 ### CORS
 Instead of a comma-delimited **MS_CrossDomainOrigins** app setting, there is now a blade in the Azure management portal for configuring CORS. Alternatively, it can be configured using Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). Set the **cors** property on the **Microsoft.Web/sites/config** resource type for your **&lt;site name&gt;/web** resource. For example:
 
@@ -119,7 +121,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 ### Logic Apps
 The Logic Apps designer will be adding especially seamless integration with the new API Apps model in early 2016. That said, the HTTP connector built into Logic Apps can invoke any HTTP endpoint and supports service principal authentication, which is also supported natively by the App Service authentication services. Learn how to consume an App Service-hosted API in Logic Apps in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
-### Documentation for the previous API Apps model
+### <a id="documentation"></a> Documentation for the previous API Apps model
 Some [azure.microsoft.com](https://azure.microsoft.com) articles that were written for the old API Apps model no longer apply to the new model and will be removed from the site. Their URLs will be redirected to the closest equivalent that works with the new model, but you can still see the old articles in the [GitHub documentation repository for azure.microsoft.com](https://github.com/Azure/azure-content). Most of the articles you might want will be found in the [articles/app-service-api](https://github.com/Azure/azure-content/tree/master/articles/app-service-api) folder. Here are direct links to a few of the ones most likely to still be of use if you are supporting older API apps or if you create new connector API apps from the Marketplace.
 
 * [Authentication overview](https://github.com/Azure/azure-content/tree/master/articles/app-service/app-service-authentication-overview.md)
