@@ -435,6 +435,7 @@ The Azure ML web service reader and writer modules might be configured to run wi
 	},
 
 The **take-aways** are:
+
 -   If your experiment endpoint uses a webServiceInput, it is represented by a Blob dataset and is included in the activity inputs as well as the webServiceInput property. Otherwise, the webServiceInput property is omitted. 
 -   If your experiment endpoint uses webServiceOutput(s), they are represented by Blob Datasets and are included in the activity outputs as well as in the webServicepOutputs property (mapped by the name of each output in the experiment). Otherwise, the webServiceOutputs property is omitted.
 -   If your experiment endpoint exposes globalParameter(s), they are given in the activity globalParameters property as key,value pairs. Otherwise, the globalParameters property is omitted. The keys are case-sensitive. Azure Data Factory functions may be used in the values. 
