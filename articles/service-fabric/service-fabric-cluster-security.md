@@ -60,7 +60,7 @@ There are three distinct steps
 
 ## Step 2 : Uploading the x509 certificate to Key Vault
 
-This is an involved process, so we have a powershell Module uploaded to a Git Repp, that does this for you. 
+This is an involved process, so we have a powershell Module uploaded to a Git Repo, that does this for you. 
 
 **Step 2.1**: Copy this folder down to your machine from this [Git repo](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
