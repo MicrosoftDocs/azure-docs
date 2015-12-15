@@ -35,11 +35,11 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
 
 ### High-level steps 
-1.	Create a custom activity to use in the Data Factory solution. The custom activity contains the data processing logic. 
+1.	**Create a custom activity** to use in the Data Factory solution. The custom activity contains the data processing logic. 
 	1.	In Visual Studio (or code editor of choice), create a .NET Class Library project, add the code to process input data, and compile the project.	
 	2.	Zip all the binary files and the PDB (optional) file in the output folder.	
 	3.	Upload the zip file to Azure blob storage. Detailed steps are in the Create the custom activity section. 
-2. Create an Azure data factory that uses the custom activity:
+2. **Create an Azure data factory that uses the custom activity**:
 	1. Create an Azure data factory.
 	2. Create linked services.
 		1. StorageLinkedService: Supplies storage credentials for accessing blobs.
@@ -360,7 +360,7 @@ This section provides more details and notes about the code in the **Execute** m
 
 ## Create the data factory
 
-In the Create the custom activity section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you will create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
+In the **Create the custom activity** section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you will create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
  
 The input dataset for the custom activity represents the blobs (files) in the input folder (mycontainer\inputfolder) in blob storage. The output dataset for the activity represents the output blobs in the output folder (mycontainer\outputfolder) in blob storage. 
 
@@ -377,10 +377,10 @@ You will see one output file with in the mycontainer\output folder with 1 or mor
 
 Here are the steps you will be performing in this section:
 
-1. Create a data factory.
-2. Create linked services for the HDInsight cluster on which the custom activity will run as a map-only job and the Azure Storage that holds the input/output blobs. 
-2. Create input and output datasets that represent input and output of the custom activity. 
-3. Create and run a pipeline that uses the custom activity.
+1. Create a **data factory**.
+2. Create **linked services** for the HDInsight cluster on which the custom activity will run as a map-only job and the Azure Storage that holds the input/output blobs. 
+2. Create input and output **datasets** that represent input and output of the custom activity. 
+3. Create and run a **pipeline** that uses the custom activity.
 
 ### Step 1: Create the data factory
 
