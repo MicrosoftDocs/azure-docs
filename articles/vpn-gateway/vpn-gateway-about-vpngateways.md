@@ -17,7 +17,9 @@
 
 # About VPN gateways
 
-VPN Gateways are used to send network traffic between virtual networks and on-premises locations, and also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are a number of factors to take into consideration. You'll need to know: 
+VPN Gateways are used to send network traffic between virtual networks and on-premises locations, and also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are a number of factors to take into consideration. 
+
+You'll need to know the following: 
 
 - The gateway SKU that you want to use
 - The gateway routing type that is needed for your configuration
@@ -49,11 +51,10 @@ There are two gateway types:
 - Policy-based (also known as Static Gateways)
 - Route-based (also known as Dynamic Gateways)
 
-Some configurations (such as Point-to-Site and VNet-to-VNet) will only work with a specific gateway routing type, while some VPN devices are limited to certain routing type configurations. When you create a VPN gateway, you'll select the gateway routing type that is required for your configuration, making sure that the VPN device you select also supports that routing type. 
+Some configurations (such as Point-to-Site and VNet-to-VNet) will only work with a specific gateway routing type. And some VPN devices don't support both policy-based and route-based configurations. When you create a VPN gateway, you'll select the gateway routing type that is required for your configuration, while at the same time verifying that the VPN device you plan to use also supports that routing type. 
 
-For example, if you plan to use a Site-to-Site configuration concurrently with a Point-to-Site configuration, you’ll need to configure a route-based VPN gateway. While it's true that Site-to-Site configurations will work with policy-based gateways, Point-to-Site configurations require a route-based gateway type. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations. The VPN device you use must also support route-based configurations.
+For example, if you plan to use a Site-to-Site configuration concurrently with a Point-to-Site configuration, you’ll need to configure a route-based VPN gateway. While it's true that Site-to-Site configurations will work with policy-based gateways, Point-to-Site configurations require a route-based gateway type. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations. Additionally, the VPN device you use must also support route-based configurations.
 
-Additionally, you'll want to verify that your VPN device supports the type of gateway and the IPsec/IKE parameters and configuration that you require. For example, if you want to create a route-based gateway and your VPN device doesn't support route-based VPNs, you will have to reconsider your plans. You can decide to either acquire a different VPN device that supports route-based gateways, or you can instead decide to create a VPN gateway connection that supports a policy-based gateways. If you later acquire a VPN device that is capable of supporting a route-based gateway, you can always recreate the gateway as route-based and configure the connection with the new VPN device. In that case, you'll need to only recreate the gateway. You won't need to recreate the entire virtual network.
 
 Below are the two types of gateways:
 
