@@ -217,8 +217,8 @@ Append "**.<region name**" to the name of your batch account for the **accountNa
 
 Another option is to provide the batchUri endpoint as shown below.  
 
-			accountName: "adfteam",
-			batchUri: "https://eastus.batch.azure.com",
+			"accountName": "adfteam",
+			"batchUri": "https://eastus.batch.azure.com",
 
 ### Properties
 
