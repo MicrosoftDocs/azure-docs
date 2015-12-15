@@ -40,7 +40,9 @@ For API scenarios, there are a number of relevant new capabilities:
 - **Support for using Azure Active Directory directly**, without client code having to exchange the AAD token for a session token: Your client can just include the AAD tokens in the Authorization header, according to the bearer token specification. This also means no App Service-specific SDK is required on the client or server side. 
 - **Service-to-service or "Internal" access**: If you have a daemon process or some other client needing access to APIs without an interface, you can request a token using an AAD service principal and pass it to App Service for authentication with your application.
 - **Deferred authorization**: Many applications have varying access restrictions for different parts of the application. Perhaps you want some APIs to be publicly available, while others require sign-in. The original Authentication/Authorization feature was all-or-nothing, with the whole site requiring login. This option still exists, but you can alternatively allow your application code to render access decisions after App Service has authenticated the user.
-
+ 
+For more information on the new authentication features, see [Authentication and authorization for API Apps in Azure App Service](app-service-api-authentication.md).
+ 
 ### CORS
 Instead of a comma-delimited **MS_CrossDomainOrigins** app setting, there is now a blade in the Azure management portal for configuring CORS. Alternatively, it can be configured using Resource Manager tooling such as Azure PowerShell, CLI or [Resource Explorer](https://resources.azure.com/). Set the **cors** property on the **Microsoft.Web/sites/config** resource type for your **&lt;site name&gt;/web** resource. For example:
 
