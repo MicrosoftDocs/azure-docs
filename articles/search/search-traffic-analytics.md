@@ -88,17 +88,17 @@ Each blob has one root object called **records** that contains an array of log o
 
 Log schema
 
-|Name |Type |Example |Notes| 
-|------|-----|----|-----|
-|time|datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |Timestamp of the operation|
-|resourceId |string |&quot;&#47;SUBSCRIPTIONS&#47;11111111-1111-1111-1111-111111111111&#47;<br/>RESOURCEGROUPS&#47;DEFAULT&#47;PROVIDERS&#47;<br/>MICROSOFT.SEARCH&#47;SEARCHSERVICES&#47;SEARCHSERVICE&quot; |Your ResourceId |
-|operationName |string |&quot;Query.Search&quot; |The name of the operation |
-|operationVersion |string |&quot;2015-02-28&quot;|The api-version used |
-|category |string |&quot;OperationLogs&quot; |constant |
-|resultType |string |&quot;Success&quot; |Possible values: Success or Failure | 
-|resultSignature |int |200 |HTTP result code |
-|durationMS |int |50 |Duration of the operation in milliseconds |
-|properties |object |see below |Object containing operation specific data|
+Name |Type |Example |Notes 
+------|-----|----|-----
+time |datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |Timestamp of the operation
+resourceId |string |&quot;&#47;SUBSCRIPTIONS&#47;11111111-1111-1111-1111-111111111111&#47;<br/>RESOURCEGROUPS&#47;DEFAULT&#47;PROVIDERS&#47;<br/> MICROSOFT.SEARCH&#47;SEARCHSERVICES&#47;SEARCHSERVICE&quot; |Your ResourceId
+operationName |string |&quot;Query.Search&quot; |The name of the operation
+operationVersion |string |&quot;2015-02-28&quot;|The api-version used
+category |string |&quot;OperationLogs&quot; |constant 
+resultType |string |&quot;Success&quot; |Possible values: Success or Failure 
+resultSignature |int |200 |HTTP result code 
+durationMS |int |50 |Duration of the operation in milliseconds 
+properties |object |see below |Object containing operation specific data
 
 Properties schema
 
