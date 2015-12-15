@@ -48,29 +48,20 @@ By the end of this article, you will have learned about the following primary fe
 
 ## Overview of the *DotNetTutorial* sample project
 
-The following diagram illustrates the primary operations performed by the sample project, **DotNetTutorial**. This basic workflow is typical of most compute solutions created with Batch, and while it does not demonstrate every feature available, nearly every Batch scenario will include similar processes.
+The following diagram illustrates the primary operations performed by the sample project, **DotNetTutorial**. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available, nearly every Batch scenario will include similar processes.
 
 ![Batch example workflow][8]<br/>*Figure: The DotNetTutorial sample application workflow*
 
-**1.** Create blob **containers** in Azure Storage
-
-**2.** Upload task application and input files to containers
-
-**3.** Create Batch **pool**
-
-  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Pool **StartTask** downloads task binaries as nodes join the pool
-
-**4.** Create Batch **job**
-
-**5.** Add **tasks** to job
-
+**1.** Create blob **containers** in Azure Storage<br/>
+**2.** Upload task application and input files to containers<br/>
+**3.** Create Batch **pool**<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Pool **StartTask** downloads task binaries as nodes join the pool<br/>
+**4.** Create Batch **job**<br/>
+**5.** Add **tasks** to job<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage
-
-**6.** Monitor tasks
-
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks complete, they upload their output data to Azure Storage
-
+	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage<br/>
+**6.** Monitor tasks<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks complete, they upload their output data to Azure Storage<br/>
 **7.** Download task output from Storage
 
 While not every Batch solution may include above steps (and may often include many more), the *DotNetTutorial* sample is designed to show the most common processes within a Batch scenario.
@@ -79,7 +70,7 @@ Now that you have been introduced to the basic workflow, we closely examine each
 
 > [AZURE.NOTE] In this and the other diagrams in the article, **Client application** represents the application implementing the Batch .NET library executed on your workstation. In this case, it is the *DotNetTutorial* sample project.
 
-## Step 1: Create containers in Azure Storage
+## Step 1: Create Storage containers
 
 ![Create containers in Azure Storage][1]
 
@@ -105,7 +96,7 @@ await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
-## Step 2: Upload task application and input (data) files to containers
+## Step 2: Upload task application and data files
 
 ![Upload task application and input (data) files to containers][2]
 
@@ -220,7 +211,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Step 7: Download task output from Storage
+## Step 7: Download task output
 
 ![Download task output from Storage][7]
 
