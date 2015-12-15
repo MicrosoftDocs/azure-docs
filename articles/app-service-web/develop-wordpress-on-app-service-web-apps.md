@@ -1,1 +1,5 @@
-[AZURE.INCLUDE [wordpress-guide](../../includes/guide-to-building-wordpress-on-app-service-web-apps.md)]
+# Developing WordPress on Azure App Service
+
+
+
+[AZURE.INCLUDE [wordpress-guide](../../includes/app-service-guide-for-wordpress.md)]
