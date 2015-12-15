@@ -78,9 +78,9 @@ Azure IoT Hub implements the [service-assisted communication][lnk-service-assist
 
 - Security takes precedence over all other capabilities.
 - Devices do not accept unsolicited network information. A device establishes all connections and routes in an outbound-only fashion. For a device to receive a command from the back end, the device must regularly initiate a connection to check for any pending commands to process.
-- Devices should only connect to or establish routes to well-known services that they are peered with, such as an IoT hub.
+- Devices should only connect to or establish routes to well-known services that they are peered with, such as IoT Hub.
 - The communication path between device and service or between device and gateway is secured at the application protocol layer.
-- System-level authorization and authentication are based on per-device identities. They make access credentials and permissions near-instantly revocable.
+- System-level authorization and authentication are based on per-device identities. They make access credentials and permissions nearly instantly revocable.
 - Bidirectional communication for devices that connect sporadically due to power or connectivity concerns is facilitated by holding commands and device notifications until a device connects to receive them. IoT Hub maintains device specific queues for the commands it sends.
 - Application payload data is secured separately for protected transit through gateways to a particular service.
 
