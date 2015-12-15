@@ -67,7 +67,7 @@ c.	RequestBody: *[“VM1”, “VM2”]*
 Then you would pass the following JSON value in the UI for the WebhookData parameter:
 {"WebhookName":"MyWebhook", "RequestHeader": {"From":"Test User"}, "RequestBody": "[\"VM1\",\"VM2\"]"}
 
-![WebhookData parameter from UI](media/automation-webhooks/Start WebhookData parameter from UI.png)
+![Start WebhookData parameter from UI](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
 
 >[AZURE.NOTE] The values of all input parameters are logged with the runbook job.  This means that any input provided by the client in the webhook request will be logged and available to anyone with access to the automation job.  For this reason, you should be cautious about including sensitive information in webhook calls.
