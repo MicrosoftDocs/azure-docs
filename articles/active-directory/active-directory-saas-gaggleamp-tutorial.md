@@ -123,7 +123,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. In another browser instance, navigate to the SAML SSO page created for you by the Gaggle support team (e.g.: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
 6. On your **SAML SSO** page, perform the following steps:  
-   <br><br>![GaggleAMP Single Sign-On](./media/active-directory-saas-GaggleAMP-tutorial/tutorial_gaggleamp_06.png) <br>
+   <br><br>![GaggleAMP Single Sign-On](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) <br>
 
     a. On the Azure classic portal, copy the **Issuer URL**, and then paste it into the **Identity Provider Issuer** textbox. 
 
