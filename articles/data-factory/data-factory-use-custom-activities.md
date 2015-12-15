@@ -43,7 +43,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 	1. Create an Azure data factory.
 	2. Create linked services.
 		1. StorageLinkedService: Supplies storage credentials for accessing blobs.
-		2. AzureBatchLinkedService: specifies Azure Batch as compute.
+		2. HDInsightLinkedService: specifies Azure HDInsight as compute.
 	3. Create datasets.
 		1. InputDataset: specifies storage container and folder for the input blobs.
 		1. OuputDataset: specifies storage container and folder for the output blobs.
@@ -65,7 +65,7 @@ The method has a few key components that you need to understand.
 - The method takes four parameters:
 	- **linkedServices**. This is an enumerable list of linked services that link input/output data sources (for example: Azure Blob Storage) to the data factory. In this sample, there is only one linked service of type Azure Storage used for both input and output. 
 	- **datasets**. This is an enumerable list of datasets. You can use this parameter to get the locations and schemas defined by input and output datasets.
-	- **activity**. This parameter represents the current compute entity - in this case, an Azure Batch service.
+	- **activity**. This parameter represents the current compute entity - in this case, an Azure HDInsight.
 	- **logger**. The logger lets you write debug comments that will surface as the “User” log for the pipeline. 
 
 - The method returns a dictionary that can be used to chain custom activities together. We will not use this feature in this sample solution. 
@@ -294,7 +294,7 @@ The method has a few key components that you need to understand.
 
 ### Execute method
 
-This section provides more details and notes about the code in the Execute method.
+This section provides more details and notes about the code in the **Execute** method.
  
 1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) namespace. Iterating through the blob collection requires using the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
 
@@ -364,7 +364,7 @@ In the Create the custom activity section, you created a custom activity and upl
  
 The input dataset for the custom activity represents the blobs (files) in the input folder (mycontainer\inputfolder) in blob storage. The output dataset for the activity represents the output blobs in the output folder (mycontainer\outputfolder) in blob storage. 
 
-You will drop one or more files in the input folder: mycontainer\inputfolder. For example, drop one file (file.txt) with the following content into each of the folders. 
+Create a file named file.txt with the following content and upload it to mycontainer\inputfolder (mycontainer is the name of the Azure blob container and inputfolder is the name of the folder in that container.)
 
 	test custom activity Microsoft test custom activity Microsoft
 
@@ -393,11 +393,11 @@ Here are the steps you will be performing in this section:
 4.	Verify that you are using the correct **subscription** and **region** where you want the data factory to be created. 
 5.	Click **Create** on the **New data factory** blade.
 6.	You will see the data factory being created in the **Dashboard** of the Azure Portal.
-7.	After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory.
+7.	After the data factory has been created successfully, you will see the Data Factory blade, which shows you the contents of the data factory.
 
 ### Step 2: Create linked services
 
-Linked services link data stores or compute services to an Azure data factory. In this step, you will link your Azure Storage account and Azure Batch account to your data factory.
+Linked services link data stores or compute services to an Azure data factory. In this step, you will link your Azure Storage account and Azure HDInsight cluster to your data factory.
 
 #### Create Azure Storage linked service
 
@@ -654,10 +654,10 @@ Debugging consists of a few basic techniques:
 6.	If you fixed an error and want to reprocess the slice, right-click the slice in the **OutputDataset** blade and click **Run**. 
 
 
-## Updating a custom activity
+## Update the custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
 
-## <a name="AzureBatch"></a> Using Azure Batch linked service
+## <a name="AzureBatch"></a> Use Azure Batch linked service
 > [AZURE.NOTE] See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.
 
 You can run your custom .NET activities using Azure Batch as a compute resource. You will have to create your own Azure Batch pools and specify the number of VMs along with other configurations. Azure Batch pools provides the following features to customers:
