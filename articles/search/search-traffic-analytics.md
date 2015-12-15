@@ -102,7 +102,7 @@ properties |object |see below |Object containing operation specific data
 
 Properties schema
 
-|Name |Type |Example |Notes| 
+|Name |Type |Example |Notes|
 |------|-----|----|-----|
 |Description|string |&quot;GET /indexes('content')&#47;docs&quot; |The operation's endpoint |
 |Query |string |&quot;?search=AzureSearch&$count=true&api-version=2015-02-28&quot; |The query parameters |
@@ -120,14 +120,14 @@ Available metrics:
 
 Metrics schema
 
-|Name |Type |Example |Notes| 
+|Name |Type |Example |Notes|
 |------|-----|----|-----|
 |resourceId |string |&quot;&#47;SUBSCRIPTIONS&#47;11111111-1111-1111-1111-111111111111&#47;<br/>RESOURCEGROUPS&#47;DEFAULT&#47;PROVIDERS/&#47;<br/>MICROSOFT.SEARCH&#47;SEARCHSERVICES&#47;SEARCHSERVICE&quot;  |your resource id |
 |metricName |string |&quot;Latency&quot; |the name of the metric |
 |time|datetime |&quot;2015-12-07T00:00:43.6872559Z&quot; |the operation's timestamp |
 |average |int |64|The average value of the raw samples in the metric time interval |
 |minimum |int |37 |The minimum value of the raw samples in the metric time interval |
-|maximum |int |78 |The maximum value of the raw samples in the metric time interval | 
+|maximum |int |78 |The maximum value of the raw samples in the metric time interval |
 |total |int |258 |The total value of the raw samples in the metric time interval |
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |&quot;PT1M&quot; |The time grain of the metric in ISO 8601|
