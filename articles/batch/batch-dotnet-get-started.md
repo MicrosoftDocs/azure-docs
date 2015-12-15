@@ -42,7 +42,7 @@ By the end of this article, you will have learned about the following primary fe
 
 ## Sample project overview
 
-The following diagram illustrates the primary operations performed by the sample project, **DotNetTutorial**. This basic workflow is typical of most compute solutions created with Batch, and while it does not demonstrate every feature available, nearly every Batch scenario will execute a similar process.
+The following diagram illustrates the primary operations performed by the sample project, **DotNetTutorial**. This basic workflow is typical of most compute solutions created with Batch, and while it does not demonstrate every feature available, nearly every Batch scenario will include similar processes.
 
 ![Batch example workflow][8]<br/>*Figure: The DotNetTutorial sample application workflow*
 
@@ -58,7 +58,8 @@ The following diagram illustrates the primary operations performed by the sample
 
 **5.** Add **tasks** to job
 
-  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to nodes and download their input data
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage
 
 **6.** Monitor tasks
 
@@ -66,7 +67,7 @@ The following diagram illustrates the primary operations performed by the sample
 
 **7.** Download task output from Storage
 
-While not every Batch solution may include above steps (and may often include many more), the *DotNetTutorial* sample is designed to show the common functions of a Batch scenario.
+While not every Batch solution may include above steps (and may often include many more), the *DotNetTutorial* sample is designed to show the most common processes within a Batch scenario.
 
 Now that you have been introduced to the basic workflow, we closely examine each section of the sample application to gain familiarity with how these steps are performed using the **Batch .NET** library.
 
