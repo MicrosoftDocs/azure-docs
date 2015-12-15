@@ -30,7 +30,7 @@ This page has links to overviews, conceptual articles, and tutorials to help you
 - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 - [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
 - [Notes on Service Fabric Reliable Actors type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
-- [Node.js and Reliable Actors](service-fabric-node-and-reliable-actors-an-winning-combination.md)
+- [Node.js and Reliable Actors](service-fabric-deploy-multiple-apps.md)
 
 Communicating with Actors is described in:
 
