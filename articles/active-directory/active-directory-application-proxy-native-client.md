@@ -27,7 +27,7 @@ The recommended method to publish such applications is to use the Azure AD Authe
 
 1. Publish your proxy application as you would any other application, assign users and give them premium or basic licenses. For more information see  [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 2. Configure your native application as follows:
-  3. Sign in to the Azure Management Portal.
+  3. Sign in to the Azure classic portal.
   4. Click on the Active Directory icon on the left menu, and then click on the desired directory.
   5. On the top menu, click Applications. If no apps have been added to your directory, this page will only show the Add an App link. Click on the link, or alternatively you can click on the Add button on the command bar.
   4. On the **What do you want to do** page, click on the link to **Add an application my organization is developing**.
@@ -79,7 +79,7 @@ There's a lot more you can do with Application Proxy:
 
 
 ### Learn more about Application Proxy
-- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Take a look at our online help](active-directory-application-proxy-enable.md)
 - [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 

@@ -35,7 +35,7 @@ When a user accesses applications remotely, from any device, he’s authenticate
 Azure AD Application Proxy provides single sign-on to applications that use Integrated Windows Authentication (IWA), or claims-aware applications. If your application uses IWA, Application Proxy impersonates the user using Kerberos Constrained Delegation to provide SSO. If you have a claims-aware application that trusts Azure Active Directory, SSO is achieved because the user was already authenticated by Azure AD.
 
 ## How to get started
-Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator. You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps. Take a look [here](active-directory-editions.md) for more information about the Azure AD editions.
+Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator. You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps. Take a look at  [Azure Active Directory editions](active-directory-editions.md) for more information.
 
 ### Getting started enabling remote access to on-premises applications
 Setting up Application Proxy is accomplished in two steps:
@@ -54,7 +54,7 @@ There's a lot more you can do with Application Proxy:
 
 
 ### Learn more about Application Proxy
-- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Take a look at our online help](active-directory-application-proxy-enable.md)
 - [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 

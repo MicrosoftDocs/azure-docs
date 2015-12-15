@@ -39,7 +39,7 @@ Access rules are evaluated when a user accesses a federated application that use
 ![](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configure per-application multi-factor authentication
-1. Sign in as an administrator in the Azure Management Portal.
+1. Sign in as an administrator in the Azure classic portal.
 2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
 3. Click **Applications** and scroll down to the **Access Rules** section. The access rules section with only be shown for applications published using Application Proxy that use federated authentication.
 4. Enable the rule by selecting **Enable Access Rules** to **On**.
@@ -64,7 +64,7 @@ There's a lot more you can do with Application Proxy:
 - [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 ## Learn more about Application Proxy
-- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Take a look at our online help](active-directory-application-proxy-enable.md)
 - [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 

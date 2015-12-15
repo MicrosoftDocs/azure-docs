@@ -81,7 +81,7 @@ There's a lot more you can do with Application Proxy:
 - [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 ## Learn more about Application Proxy
-- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Take a look at our online help](active-directory-application-proxy-enable.md)
 - [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 

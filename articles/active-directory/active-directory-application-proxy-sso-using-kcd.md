@@ -87,7 +87,7 @@ The Active Directory configuration varies, depending on whether your Application
 >[AZURE.NOTE] `sharepointserviceaccount` can be the SPS machine account or a service account under which the SPS app pool is running.
 
 
-### Azure portal configuration
+### Azure classic portal configuration
 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of applications, select it and click **Configure**.
@@ -120,47 +120,32 @@ If partial identity is used, and this identity might not be unique for all the d
 Unless otherwise configured, Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. You can configure, for each application, which identity should be used when performing single-sign-on.
 This capability allows many organizations that have different on-prem and cloud identities to have single sign on from the cloud to on-prem apps without requiring the users to enter different usernames and passwords. This includes organizations that:
 
-
 - Have multiple domains internally (joe@us.contoso.com, joe@eu.contoso.com) and a single domain in the cloud (joe@contoso.com).
-
 
 - Have non routable domain name internally (joe@contoso.usa) and a legal one in the cloud.
 
-
 - Do not use domain names internally (joe)
-
 
 - Use Different aliases on-prem and in the cloud. E.g. joe-johns@contoso.com vs. joej@contoso.com
 It will also help with applications that do not accept addresses in the form of email address, which is a very common scenario for non-Windows backend servers.
+
+
 ### Setting SSO for different cloud and on-prem identities
+
 1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the User Principle Name field in the sync settings.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
 NOTE: These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.
+
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
-
-
-- User Principle Name: joe@contoso.com
-
-
-- Alternate User Principle Name: joed@contoso.local
-
-
-- Username part of User Principle Name: joe
-
-
-- Username part of Alternate User Principle Name: joed
-
-
-- On-premises SAM account name: depending on-prem domain controller configuration
-![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
+  - User Principle Name: joe@contoso.com
+  - Alternate User Principle Name: joed@contoso.local
+  - Username part of User Principle Name: joe
+  - Username part of Alternate User Principle Name: joed
+  - On-premises SAM account name: depending on-prem domain controller configuration
+![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
 ### Troubleshooting SSO for different identities
 If there is an error in the SSO process it will appear in the Connector machine event log as explained in [Troubleshooting](active-directory-application-proxy-troubleshoot.md).
-But, in some cases, the request will be successfully sent to the backend application while this application will reply in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the Connector machine in the Application Proxy session event log. The user identity that was used for delegation will appear in the “user” field within the event details (“joe@contoso55.com” in the example below). To turn on session log, select **Show analytic and debug logs **in the event viewer view menu.
-
-
-
-
-
+But, in some cases, the request will be successfully sent to the backend application while this application will reply in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the Connector machine in the Application Proxy session event log. The user identity that was used for delegation will appear in the “user” field within the event details (“joe@contoso55.com” in the example below). To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
 
 
 ## See also
@@ -174,6 +159,6 @@ There's a lot more you can do with Application Proxy:
 - [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 ## Learn more about Application Proxy
-- [Take a look here at our online help](active-directory-application-proxy-enable.md)
+- [Take a look at our online help](active-directory-application-proxy-enable.md)
 - [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
