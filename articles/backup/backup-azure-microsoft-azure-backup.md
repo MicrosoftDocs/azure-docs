@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/02/2015"
+  ms.date="12/15/2015"
   ms.author="sammehta; jimpark"; "aashishr"/>
 
 # Preparing to back up workloads using Azure Backup Server
@@ -23,8 +23,6 @@
 - [System Center DPM](backup-azure-dpm-introduction.md)
 
 This article is about preparing your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. For deeper planning considerations, read the article on [planning your deployment](backup-planning-azure-backup-server.md).
-
-[//]: <> (AASHISH: The previous like should be removed once the intro articles are in place. The first paragraph should include a link to learn more about Azure Backup Server and what its exact function is.)
 
 >[AZURE.WARNING] Azure Backup Server inherits the functionality of Data Protection Manager (DPM) for workload backup. You will find pointers to DPM documentation for some of these capabilities. However Azure Backup Server does not provide protection on tape or integrate with System Center.
 
@@ -99,7 +97,6 @@ After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe
 
 > [AZURE.WARNING] At least 4GB of free space is required to extract the setup files.
 
-[//]: <> (AASHISH: Check with Jim if the entire extraction process can be turned into an Animated GIF)
 
 ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/01.gif)
 
