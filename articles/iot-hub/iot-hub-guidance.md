@@ -67,7 +67,7 @@ A field gateway can be *transparent* or *opaque*:
 
 ### Other considerations
 
-You can use the [Azure IoT device SDKs][lnk-device-sdks] to implement a field gateway. Some device SDKs offer specific functionality that helps you to implement a field gateway--such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub. As explained in [IoT Hub Developer Guide - Choosing your communication protocol][lnk-devguide-protocol], you should avoid using HTTP/1 as the transport protocol for a field gateway.
+You can use the [Azure IoT device SDKs][lnk-device-sdks] to implement a field gateway. Some device SDKs offer specific functionality that helps you to implement a field gateway--such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub. As explained in [IoT Hub developer guide - Choosing your communication protocol][lnk-devguide-protocol], you should avoid using HTTP/1 as the transport protocol for a field gateway.
 
 ## Custom device authentication
 
@@ -81,18 +81,18 @@ These are the main steps of the token service pattern:
 
 1. Create an [IoT Hub shared access policy][lnk-devguide-security] with **DeviceConnect** permissions for your IoT hub. You can create this policy in the [Azure portal][lnk-portal] or programmatically. The token service uses this policy to sign the tokens it creates.
 2. When a device needs to access your IoT hub, it requests a signed token from your token service. The device can authenticate with your custom device identity registry/authentication scheme to determine the device identity that the token service uses to create the token.
-3. The token service returns a token, which is created as per the [security section of the IoT Hub developer guide][lnk-devguide-security]--by using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated. The token service uses the shared access policy to construct the token.
+3. The token service returns a token. The token is created as per the [security section of the IoT Hub developer guide][lnk-devguide-security] by using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated. The token service uses the shared access policy to construct the token.
 4. The device uses the token directly with the IoT hub.
 
 > [AZURE.NOTE] You can use the .NET class [SharedAccessSignatureBuilder][lnk-dotnet-sas] or the Java class [IotHubServiceSasToken][lnk-java-sas] to create a token in your token service.
 
 The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device connection. Then, the device must request a new token from the token service. If you use a short expiry time, this increases the load on both the device and the token service.
 
-For a device to connect to your hub, you must still add it to the IoT Hub device identity registry even though the device is using a token and not a device key to connect. Therefore, you can continue to use per-device access control by enabling or disabling device identities in the [IoT Hub identity registry][lnk-devguide-identityregistry] when the device authenticates with a token. This mitigates the risks of using tokens with long expiry times.
+For a device to connect to your hub, you must still add it to the IoT Hub device identity registry--even though the device is using a token and not a device key to connect. Therefore, you can continue to use per-device access control by enabling or disabling device identities in the [IoT Hub identity registry][lnk-devguide-identityregistry] when the device authenticates with a token. This mitigates the risks of using tokens with long expiry times.
 
 ### Comparison with a custom gateway
 
-The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol (for example, [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]) that a service processing all the traffic (*custom gateway*) is required. For more information, see the [protocol gateway][lnk-gateway] topic.
+The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-gateway] topic.
 
 ## Next steps
 
