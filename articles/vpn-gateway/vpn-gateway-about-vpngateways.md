@@ -17,9 +17,9 @@
 
 # About VPN gateways
 
-VPN Gateways are used to send network traffic between virtual networks and on-premises locations, and also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are a number of factors to take into consideration. 
-
-You'll need to know the following: 
+VPN Gateways are used to send network traffic between virtual networks and on-premises locations, and also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are a number of factors to take into consideration.
+ 
+Consider the following items when planning:
 
 - The gateway SKU that you want to use
 - The gateway routing type that is needed for your configuration
