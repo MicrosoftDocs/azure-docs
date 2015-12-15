@@ -34,7 +34,7 @@ This article shows equivalent Microsoft Azure command-line interface (Azure CLI)
 ## VM tasks
 The next table compares common VM tasks you can perform with Azure CLI commands in Service Management and Resource Manager. With many Resource Manager commands you need to pass the name of an existing resource group.
 
-> [AZURE.NOTE] These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md).
+> [AZURE.NOTE] These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 Task | Service Management | Resource Manager
 -------------- | ----------- | -------------------------
@@ -67,6 +67,5 @@ Get all available VM sizes | Not available | `azure vm sizes [options]`
 
 ## Next steps
 
-* For more about using the Azure CLI to work with Resource Manager resources, see [Use the Azure CLI with Azure Resource Manager](xplat-cli-azure-resource-manager.md) and [Managing Role-Based Access Control with the Azure Command-Line Interface](../role-based-access-control-xplat-cli.md).
-* For additional examples of the CLI commands, see [Using the Azure Command-Line Interface with Azure Service Management](../virtual-machines-command-line-tools.md) and
+* For additional examples of the CLI commands, see [Using the Azure Command-Line Interface with Azure Service Management](virtual-machines-command-line-tools.md) and
 [Using the Azure CLI with Azure Resource Manager](azure-cli-arm-commands.md).
