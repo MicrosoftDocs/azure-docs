@@ -143,5 +143,5 @@ You can remove a user or a group added to Azure AD Connect Health Role Based Acc
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
-* [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)

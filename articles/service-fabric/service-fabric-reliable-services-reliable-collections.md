@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Introduction to Reliable Collections in Service Fabric stateful services
@@ -74,8 +74,8 @@ read operation depending on the operation and the role of the replica.
 
 There are two isolation levels that are supported in Reliable Collections:
 
-- **Repeatable Read**: "Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes. (https://msdn.microsoft.com/en-us/library/ms173763.aspx)"
-- **Snapshot**: "Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. The transaction can only recognize data modifications that were committed before the start of the transaction. Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction. The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction. (https://msdn.microsoft.com/en-us/library/ms173763.aspx)"
+- **Repeatable Read**: "Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes. (https://msdn.microsoft.com/library/ms173763.aspx)"
+- **Snapshot**: "Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. The transaction can only recognize data modifications that were committed before the start of the transaction. Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction. The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction. (https://msdn.microsoft.com/library/ms173763.aspx)"
 
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
 In other words, any write within a transaction will be visible to a following read
@@ -157,6 +157,7 @@ Here are some things to keep in mind:
 
 - The default timeout is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
 - The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
+- The key type parameter (TKey) for a Reliable Dictionary must correctly implement GetHashCode() and Equals(). Keys must be immutable.
 - Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections are not consistent across collections.
 - To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
+	pageTitle="Azure AD B2C Preview: Using the Graph API | Microsoft Azure"
 	description="How to call the Graph API for a B2C tenant using an application identity to automate the process."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -257,7 +257,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'

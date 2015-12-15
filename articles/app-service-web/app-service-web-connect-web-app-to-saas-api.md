@@ -10,7 +10,7 @@
 <tags
 	ms.service="app-service-web"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
 	ms.date="09/15/2015"
@@ -30,7 +30,7 @@ This tutorial builds upon the series from the API App tutorials:
 
 ## Make the API app publicly accessible
 
-In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the API app. Click on the **Settings** button in the command bar. In the **Application Settings** blade, change the **Access Level** to **Public (anonymous)**.
+In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the API app. Click on the **Settings** button in the command bar. In the **Application Settings** blade, change the **Access Level** to **Public (anonymous)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -93,5 +93,4 @@ Follow the instructions available at [How to Deploy an Azure web app](web-sites-
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

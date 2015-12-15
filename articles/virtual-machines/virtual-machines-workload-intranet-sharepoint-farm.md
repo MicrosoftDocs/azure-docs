@@ -86,13 +86,38 @@ This baseline configuration requires the following set of Azure services and com
 - One storage account.
 - One Azure subscription.
 
+Here are the virtual machines and thier default sizes for this configuration.
+
+Item | Virtual machine description | Gallery image | Default size
+--- | --- | --- | ---
+1. | First domain controller | Windows Server 2012 R2 Datacenter | A2 (Medium)
+2. | Second domain controller | Windows Server 2012 R2 Datacenter | A2 (Medium)
+3. | First database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4. | Second database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5. | Majority node for the cluster | Windows Server 2012 R2 Datacenter | A1 (Small)
+6. | First SharePoint application server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+7. | Second SharePoint application server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+8. | First SharePoint web server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+9. | Second SharePoint web server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4 (ExtraLarge)
+
+To compute the estimated costs for this configuration, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
+
+1. In **Modules**, click **Compute**, and then click **Virtual Machines** enough times to create a list of nine virtual machines.
+2. For each virtual machine, select:
+	- Your intended region
+	- **Windows** for the type
+	- **Standard** for the pricing tier
+	- The default size in the previous table or your intended size for the **Instance size**
+
+> [AZURE.NOTE] The Azure Pricing Calculator does not include the additional costs for the SQL Server license for the two virtual machines running SQL Server 2014 Enterprise. See [Virtual Machines Pricing-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) for more information.
+
 ### Deployment phases
 
 To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure.
 
-	Use the Azure portal and Azure PowerShell to create a storage account, cloud services, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	Use the Azure classic portal and Azure PowerShell to create a storage account, cloud services, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Phase 2: Configure the domain controllers.
 

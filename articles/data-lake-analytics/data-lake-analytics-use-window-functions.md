@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -607,10 +607,10 @@ The results:
 There are 6 rows in the partition where partition key is “Web” (4th row and down):
 
 - There are 6 rows with the value equal or lower than 500, so the CUME_DIST equals to 6/6=1
-- There are 5 rows with the value equal or lower than 500, so the CUME_DIST equals to 5/6=0.83
-- There are 4 rows with the value equal or lower than 500, so the CUME_DIST equals to 5/6=0.66
-- There are 3 rows with the value equal or lower than 500, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
-- There are 1 rows with the value equal or lower than 500, so the CUME_DIST equals to 1/6=1. 
+- There are 5 rows with the value equal or lower than 400, so the CUME_DIST equals to 5/6=0.83
+- There are 4 rows with the value equal or lower than 300, so the CUME_DIST equals to 5/6=0.66
+- There are 3 rows with the value equal or lower than 200, so the CUME_DIST equals to 3/6=0.5. There are two rows with the same latency value.
+- There is 1 row with the value equal or lower than 100, so the CUME_DIST equals to 1/6=0.16. 
 
 
 **Usage notes:**
@@ -738,12 +738,12 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 ## See also
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)
 - [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
-- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
 - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

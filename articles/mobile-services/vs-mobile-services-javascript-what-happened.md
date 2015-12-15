@@ -3,7 +3,7 @@
 	description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/23/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # What happens to my Javascript project when I add Azure Mobile Services using Connected Visual Studio Services?
 

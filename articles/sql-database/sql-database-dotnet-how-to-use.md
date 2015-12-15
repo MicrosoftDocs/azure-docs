@@ -41,11 +41,11 @@ SQL Database provides relational data storage, access, and management services o
 
 ## Create and configure SQL Database
 
-Next, create and configure a database and server. In the Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
+Next, create and configure a database and server. In the Azure Classic Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
 **Create a database instance and logical server:**
 
-1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com).
+1. Sign in to the [Azure Classic Portal](http://manage.windowsazure.com).
 
 2. Click **NEW** at the bottom of the page.
 
@@ -83,7 +83,7 @@ Failover is transparent and part of the service.
 
 12. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-13. Be sure to keep the **Allow Azure Services to access the server** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Azure. 
+13. Be sure to keep the **Allow Azure Services to access the server** option selected so that you can connect to this database using the Classic Portal for SQL Database, storage services, and other services on Azure. 
 
 14. Click the checkmark at the bottom of the page when you are finished.
 

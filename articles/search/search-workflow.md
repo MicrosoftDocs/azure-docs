@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Typical workflow for Azure Search development | Microsoft Azure"
-	description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search."
+	pageTitle="Typical workflow for Azure Search development | Microsoft Azure | Hosted cloud search service"
+	description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
 
-This article is a roadmap for including Azure Search as a component that provides the search experience in your custom application. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
+This article is a roadmap for including Azure Search, a hosted cloud search service, as a component that provides the search experience in your custom application. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
 
 In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort.
 
@@ -42,7 +42,7 @@ There are two pricing tiers to choose from. We recommend the shared (free) servi
 
 After you create the service, you are ready to create an index, starting with its schema definition.
 
-The fastest and easiest way to create an index is through the Azure portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](search-create-index-portal.md).
+The fastest and easiest way to create an index is through the Azure Classic Portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](search-create-index-portal.md).
 
 > [AZURE.NOTE] Inside an Azure Search Index
 >
@@ -180,7 +180,7 @@ To use external data, you should define a field in your index that stores a URL 
 
 One of the more compelling feature in Azure Search is the ease with which you can scale up or scale down resources in response to demand. While this capability doesn’t eliminate the need for capacity planning, it does minimize most of the risk. You’re not stuck with extra hardware, or the wrong hardware, for running your search workloads.
 
-As a last step, review the existing resource levels for both replicas and partitions, and determine whether adjustments are needed. The easiest way to adjust capacity is in the [Azure portal](https://ms.portal.azure.com/).
+As a last step, review the existing resource levels for both replicas and partitions, and determine whether adjustments are needed. The easiest way to adjust capacity is in the [Azure Classic Portal](https://ms.portal.azure.com/).
 
 Remember that only the standard pricing tier can be scaled up or down. Additionally, depending on the degree of adjustment, it can take anywhere from several minutes to several hours to deploy additional clusters for your service.
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -44,13 +44,17 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 You must designate at least one on-premise computer to run hybrid runbook jobs.  This computer must have the following:
 
 - Windows Server 2012 or later
-- WIndows PowerShell 4.0 or later
+- Windows PowerShell 4.0 or later
 
 Consider the following recommendations for hybrid workers: 
 
 - Designate multiple hybrid workers in each group for high availability.  
 - Hybrid workers can coexist with Service Management Automation or System Center Orchestrator runbook servers.
 - Consider using a machine physically located in or near the region of your automation account since the job data is sent back to Azure Automation when a job completes.
+
+Firewall requirements:
+
+- The on-premise machine running hybrid runbook worker must have outbound access to *.cloudapp.net on ports 443, 9354, and 30000-30199.
 
 ## Installing Hybrid Runbook Worker
 The procedure below describes how to install and configure Hybrid Runbook Worker.  Perform the first two steps once for your Automation environment and then repeat the remaining steps for each worker computer.
@@ -151,10 +155,9 @@ If you are an existing SMA user, you can move your runbooks to Azure Automation 
 
 You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.
 
-- SMA requires a local installation of Windows Azure Pack that has higher more local resources and maintenance costs than Azure Automation which only needs an agent installed on local runbook workers.  The agents are managed by Operations Management Suite furthering decreasing their maintenance costs.
+- SMA requires a local installation of Windows Azure Pack that has more local resources and higher maintenance costs than Azure Automation which only needs an agent installed on local runbook workers.  The agents are managed by Operations Management Suite furthering decreasing their maintenance costs.
 - Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbooks Workers.  If your security policy does not allow this behavior then you should use SMA.
 - Windows Azure Pack is a free download while Azure Automation may incur subscription charges.
- Azure.  Must maintain multiple databases for SMA.
 - Azure Automation with Hybrid Runbook Worker allow you to manage runbooks for cloud resources and local resources in one location as opposed to separately managing both Azure Automation and SMA.
 - Azure Automation has advanced features such including graphical authoring that are not available in SMA.
 

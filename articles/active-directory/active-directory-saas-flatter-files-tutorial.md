@@ -70,8 +70,8 @@ To configure the integration of Flatter Files into Azure AD, you need to add Fla
 ![Applications][4]<br>
 6. In the search box, type **Flatter Files**.<br><br>
 ![Creating an Azure AD test user](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_01.png)<br>
-7. In the results pane, select **Flatter Files**, and then click **Complete** to add the application.
-
+7. In the results pane, select **Flatter Files**, and then click **Complete** to add the application.<br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_500.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Flatter Files based on a test user called "Britta Simon".

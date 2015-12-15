@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="10/05/2015"
+	ms.date="11/30/2015"
 	ms.author="glenga"/>
 
 
@@ -58,11 +58,11 @@ The following are required to complete this tutorial:
 
 ## Create a new HTML app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
+Once you have created your mobile service, you can follow an easy quickstart in the Azure classic portal to either create a new app or modify an existing app to connect to your mobile service.
 
 In this section you will create a new HTML app that is connected to your mobile service.
 
-1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1.  In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new HTML app**.
@@ -107,9 +107,9 @@ The final stage of this tutorial is to host and run your new app on your local c
 
    	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.
+	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the page.js file.
 
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItems** table.
 
    	![][11]
 
@@ -150,7 +150,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Add authentication to your app]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [latest version of Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md

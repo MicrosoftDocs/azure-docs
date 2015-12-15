@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015" 
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
 # How to use the managed client library for Azure Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-##Overview 
+##Overview
 
 This guide shows you how to perform common scenarios using the managed client library for Azure Mobile Services in Windows and Xamarin apps. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](mobile-services-dotnet-backend-xamarin-ios-get-started.md) tutorial.
 
@@ -44,7 +49,9 @@ The corresponding typed client-side .NET type is the following:
 		public bool Complete { get; set; }
 	}
 
-When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
+Note that the [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) is used to define the mapping between the PropertyName mapping between the client type and the table.
+
+When dynamic schema is enabled in a JavaScript backend mobile service, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271). In a .NET backend mobile service, the table is defined in the data model of the project.
 
 ##<a name="create-client"></a>How to: Create the Mobile Services client
 
@@ -56,18 +63,18 @@ The following code creates the `MobileServiceClient` object that is used to acce
 		"AppKey"
 	);
 
-In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
+In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure classic portal, by selecting your mobile service and then clicking on "Dashboard".
 
 >[AZURE.IMPORTANT]The application key is intended to filter-out random request against your mobile service, and it is distributed with the application. Because this key is not encrypted, it cannot be considered secure. To truly secure your mobile service data, you must instead authenticate users before allowing access. For more information, see [How to: Authenticate users](#authentication).
 
 ##<a name="instantiating"></a>How to: Create a table reference
 
-All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`.
+All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) method on an instance of the `MobileServiceClient`, as follows:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-This is the typed serialization model; see discussion of the <a href="#untyped">untyped serialization model</a> below.
+This is the typed serialization model; see the discussion of the [untyped serialization model](#untyped) below.
 
 ##<a name="querying"></a>How to: Query data from a mobile service
 
@@ -79,7 +86,7 @@ This section describes how to issue queries to the mobile service, which include
 - [Select specific columns]
 - [Look up data by ID]
 
->[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].  
+>[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].
 
 ### <a name="filtering"></a>How to: Filter returned data
 
@@ -290,30 +297,42 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 
 The Mobile Services client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a handle that you obtain from the platform-specific Push Notification Service (PNS). You then provide this value along with any tags when you create the registration. The following code registers your Windows app for push notifications with the Windows Notification Service (WNS):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
-Note that in this example, two tags are included with the registration. For more information on Windows apps, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md). 
+Note that in this example, two tags are included with the registration. For more information on Windows apps, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>How to: Use periodic notifications in a Windows app
 
-##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency
+Windows supports period notifications (pull notifications) to update live tiles. With periodic notifications enabled, Windows will periodically access a custom API endpoint to update the app tile on the start menu. To use periodic notifications, you must [define a custom API](mobile-services-javascript-backend-define-custom-api.md) that returns XML data in a tile-specific format. For more information, see [Periodic notifications](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
+
+The following example turns on period notifications to request tile template data from a *tiles* custom endpoint:
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    );
+
+Select a [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) value that best matches the update frequency of your data.
+
+##<a name="optimisticconcurrency"></a>How to: Use optimistic concurrency
 
 Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Optimistic Concurrency Control assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back.
 
-Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is defined for each table created by Mobile Services. Each time a record is updated, Mobile Services sets the `__version` property for that record to a new value. During each update request, the `__version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the server, then the Mobile Services .NET client library throws a `MobileServicePreconditionFailedException<T>`. The type included with the exception is the record from the server containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct `__version` value from the server to commit changes.  
+Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is defined for each table created by Mobile Services. Each time a record is updated, Mobile Services sets the `__version` property for that record to a new value. During each update request, the `__version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the server, then the Mobile Services .NET client library throws a `MobileServicePreconditionFailedException<T>`. The type included with the exception is the record from the server containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct `__version` value from the server to commit changes.
 
 To enable optimistic concurrency the application defines a column on the table class for the `__version` system property. The following definition provides an example.
 
@@ -519,7 +538,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your mobile service. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your mobile service. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your mobile service.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -670,16 +689,19 @@ To support your specific app scenario, you might need to customize communication
 		await table.InsertAsync(newItem);
 	}
 
-	public class MyHandler : DelegatingHandler
-	{
-		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-		{
-			request.Headers.Add("x-my-header", "my value");
-			var response = awaitbase.SendAsync(request, cancellationToken);
-			response.StatusCode = HttpStatusCode.ServiceUnavailable;
-			return response;
-		}
-	}
+    public class MyHandler : DelegatingHandler
+    {
+        protected override async Task<HttpResponseMessage>
+            SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            // Add a custom header to the request.
+            request.Headers.Add("x-my-header", "my value");
+            var response = await base.SendAsync(request, cancellationToken);
+            // Set a differnt response status code.
+            response.StatusCode = HttpStatusCode.ServiceUnavailable;
+            return response;
+        }
+    }
 
 This code adds a new **x-my-header** header in the request and arbitrarily sets the response code to unavailable. In a real-world scenario, you would set the response status code based on some custom logic required by your app.
 
@@ -739,6 +761,7 @@ This property converts all properties to lower case during serialization.
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
 [Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
+[MobileServiceClient]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx

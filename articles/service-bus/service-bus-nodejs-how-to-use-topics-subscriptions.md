@@ -80,7 +80,7 @@ The Azure module reads the environment variables AZURE\_SERVICEBUS\_NAMESPACE an
 
 For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage][].
 
-For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage][].
+For an example of setting the environment variables in the [Azure classic portal][] for an Azure Website, see [Node.js Web Application with Storage][].
 
 ## Create a topic
 
@@ -404,7 +404,7 @@ delivery attempts.
 ## Delete topics and subscriptions
 
 Topics and subscriptions are persistent, and must be explicitly deleted
-either through the Azure Management portal or programmatically.
+either through the [Azure classic portal][] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
@@ -433,7 +433,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 -   Visit the [Azure SDK for Node][] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx

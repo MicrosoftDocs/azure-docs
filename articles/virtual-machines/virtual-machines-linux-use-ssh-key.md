@@ -47,26 +47,26 @@ If you need to create the files:
 
 	- For Mac, be sure to visit the [Apple Product Security web site](https://support.apple.com/HT201222) and choose the proper updates if necessary.
 	- For Debian-based Linux distributions such as Ubuntu, Debian, Mint, and so on:
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- For RPM-based Linux distributions such as CentOS and Oracle Linux:
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- For SLES and OpenSUSE
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. Use **ssh-keygen** to create a 2048-bit RSA public and private key files, and unless you have a specific location or specific names for the files, accept the default location and name of `~/.ssh/id_rsa`. The basic command is:
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	Typically, your **ssh-keygen** implementation adds a comment, often the username and host name of the computer. You can specify a specific comment using the `-C` option.
-	
+
 3. Create a .pem file from your `~/.ssh/id_rsa` file to enable you to work with the classic portal. Use the **openssl** as follows:
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -128,7 +128,7 @@ The next example shows the use of the **ssh-rsa** format with a Resource Manager
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -160,20 +160,20 @@ You can then use the .pem file with either the classic portal or with the classi
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## Connect to your VM
 
-The **ssh** command takes a username to log on with, the network address of the computer, and the port at which to connect to the address -- as well as many other special variations. (For more information about **ssh**, you might start [here](https://en.wikipedia.org/wiki/Secure_Shell)) 
+The **ssh** command takes a username to log on with, the network address of the computer, and the port at which to connect to the address -- as well as many other special variations. (For more information about **ssh**, you might start with this [article on Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)) 
 
 A typical usage with Resource Manager deployment might look like the following, if you've merely specified a subdomain and a deployment location:
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 or, if you are connecting to a classic deployment cloud service the address you would use might look like this:
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 Because the address form can change -- you can always use the IP address or perhaps you have a custom domain name assigned -- you'll need to discover the address of your Azure VM. 
 
 ### Discovering your Azure VM SSH address with classic deployments
@@ -269,27 +269,27 @@ If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, yo
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -298,5 +298,5 @@ If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, yo
 You can read the suggestions at [Troubleshooting SSH Connections](virtual-machines-troubleshoot-ssh-connections.md) to see if they can help resolve the situation.
 
 ## Next steps
-
+ 
 Now that you've connected to your VM, make sure to update your chosen distribution before continuing to use it.

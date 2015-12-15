@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL using Azure Data Factory
@@ -555,8 +555,6 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
 
 
 

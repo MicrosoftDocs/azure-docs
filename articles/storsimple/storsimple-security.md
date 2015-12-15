@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/29/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos"/>
 
 # StorSimple security and data protection
@@ -36,9 +36,9 @@ The following sections describe the StorSimple security features that help prote
 
 ## StorSimple Manager service protection
 
-The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured. You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure Management Portal through a web browser. 
+The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured. You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure classic portal through a web browser. 
 
-Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](../sign-up-organization.md). 
+Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure classic portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](../sign-up-organization.md). 
 
 Because the StorSimple Manager service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/security/).
 
@@ -46,7 +46,7 @@ Because the StorSimple Manager service is hosted in Azure, it is protected by th
 
 The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.
 
-Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the portal. 
+Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the Azure classic portal. 
 
 ![Service registration key](./media/storsimple-security/ServiceRegistrationKey.png)
 
@@ -131,7 +131,7 @@ As described in other sections, passwords are used to authorize and authenticate
 
 ## Protect data flowing through the service
 
-The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device. The StorSimple Manager service runs in Microsoft Azure. You use the Azure Management Portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device. StorSimple uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information. 
+The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device. The StorSimple Manager service runs in Microsoft Azure. You use the Azure classic portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device. StorSimple uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information. 
 
 ![Data encryption in flight](./media/storsimple-security/DataEncryption.png)
 
@@ -167,7 +167,6 @@ To help ensure the security and integrity of data moved to the cloud, StorSimple
 - When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.
 - The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
 - Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
-- We recommend that you rotate cloud storage encryption key quarterly. However, the rotation of these keys will not be enforced.
 
 ### Additional security best practices
 
@@ -184,7 +183,7 @@ When you create a storage account, Microsoft Azure generates two 512-bit storage
 We recommend that you follow these best practices for key rotation:
 
 - You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.
-- Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Management Portal to directly access the storage account.
+- Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Azure classic portal to directly access the storage account.
 
 
 ## Protect data via encryption
@@ -193,8 +192,8 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 
 | Algorithm | Key length | Protocols/applications/comments |
 | --------- | ---------- | ------------------------------- |
-| RSA       | 2048       | RSA PKCS 1 v1.5 is used by the Management Portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys. |
-| AES       | 256        | AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Management Portal from the StorSimple device. It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account. |
+| RSA       | 2048       | RSA PKCS 1 v1.5 is used by the Azure classic portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys. |
+| AES       | 256        | AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Azure classic portal from the StorSimple device. It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account. |
 
 
 ## StorSimple virtual device security

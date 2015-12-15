@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Scaling using the elastic database split-merge tool" 
+    pageTitle="Scaling using the elastic database split-merge tool | Microsoft Azure" 
     description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh"/>
+    authors="ddove"/>
 
 <tags 
     ms.service="sql-database" 
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/29/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # Scaling using the Elastic Database split-merge tool
 
-If you choose not to use the simple model of allocating separate databases for each shardlet (tenant), your application may need to flexibly redistribute data among databases when capacity needs fluctuate. Elastic database tools includes a customer-hosted split-merge tool for rebalancing the data distribution and managing hotspots for sharded applications. It builds on an underlying capability for moving shardlets on demand between different databases and integrates with shard map management to maintain consistent mappings.
+[Elastic database tools](sql-database-elastic-scale-introduction.md) includes a tool for rebalancing the data distribution and managing hotspots for sharded applications. The **split-merge tool** manages scale-in and scale-out; you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see [Elastic scale glossary](sql-database-elastic-scale-glossary.md)). 
 
-The split-merge tool manages scale-in and scale-out; you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see [Elastic scale glossary](sql-database-elastic-scale-glossary.md)). 
+The tool moves shardlets on demand between different databases and integrates with [shard map management](sql-database-elastic-scale-shard-map-management.md) to maintain consistent mappings.
+
+To start, see [Elastic database Split-Merge tool ](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## What's new in split-merge
 
@@ -35,8 +37,6 @@ The 1.0.0 release of the split-merge tool provides the following improvements:
 
 ## How to upgrade
 
-To upgrade to the latest version of split-merge, follow these steps:
-
 1. Download the latest version of the split-merge package from NuGet as described in [Download the split-merge packages](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages).
 2. Change your cloud service configuration file for your split-merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
 3. Before deploying the update to Azure, ensure that all currently running split-merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the split-merge metadata database for ongoing requests.
@@ -45,6 +45,7 @@ To upgrade to the latest version of split-merge, follow these steps:
 You do not need to provision a new metadata database for split-merge to upgrade. The new version will automatically upgrade your existing metadata database to the new version. 
 
 ## Scenarios for split-merge 
+
 Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database, as illustrated by the following scenarios: 
 
 * **Grow Capacity – Splitting Ranges**: The ability to grow aggregate capacity at the data tier addresses increasing capacity needs. In this scenario, the application provides the additional capacity by sharding the data and by distributing it across incrementally more databases until capacity needs are fulfilled. The ‘split’ feature of the Elastic Scale split-merge Service addresses this scenario. 

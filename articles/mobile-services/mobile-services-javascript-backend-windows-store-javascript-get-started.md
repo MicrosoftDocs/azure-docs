@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/06/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # Get started with Mobile Services
@@ -36,9 +36,9 @@ To complete this tutorial, you need the following:
 
 ## Create a new Windows Store app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to create a new Windows Store 8.1 JavaScript app that connects to your mobile service.
+Once you have created your mobile service, you can follow an easy quickstart in the Azure classic portal to create a new Windows Store 8.1 JavaScript app that connects to your mobile service.
 
-1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1.  In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
@@ -65,7 +65,7 @@ The final stage of this tutorial is to build and run your new app.
 
 4. (Optional) Run the app again, and notice that data saved from the previous step is loaded from the mobile service after the app starts.
  
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItems** table.
 
    	This lets you browse the data inserted by the app into the table.
 
@@ -87,4 +87,4 @@ Now that you have completed the quickstart, learn how to work with the [Mobile S
 <!-- URLs. -->
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/

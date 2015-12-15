@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern"
-   description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
+<properties
+   pageTitle="Distributed networks and graphs pattern | Microsoft Azure"
+   description="Design pattern on how Service Fabric Reliable Actors can be used to model applications as distributed networks and graphs."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -58,7 +58,7 @@ Public class SocialPersonState
     public SocialStatus _lastStatus; // this is my last update
 }
 
-public class SocialPerson : Actor<SocialPersonState>, ISocialPerson
+public class SocialPerson : StatefulActor<SocialPersonState>, ISocialPerson
 {
     public override Task ActivateAsync()
     {
@@ -148,7 +148,7 @@ public class GroupChatParticipantState
     public List<GroupChatMessage> _messages;
 }
 
-public class GroupChatParticipant : Actor<GroupChatParticipantState>, IGroupParticipant
+public class GroupChatParticipant : StatefulActor<GroupChatParticipantState>, IGroupParticipant
 {
     public Task SendMessageAsync(string message)
     {
@@ -174,7 +174,7 @@ public class GroupChatState
 }
 
 
-public class GroupChat : Actor<GroupChatState>, IGroupChat
+public class GroupChat : StatefulActor<GroupChatState>, IGroupChat
 {
 
 public Task PublishMessageAsync(long participantId, string message)

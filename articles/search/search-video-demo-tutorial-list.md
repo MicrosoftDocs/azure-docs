@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Videos, samples, and tutorials in Azure Search"
-	description="Find all videos, samples, demos and tutorials created for Azure Search in one central list."
+	pageTitle="Videos, samples, and tutorials in Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Central list of all videos, samples, demos and tutorials created for Azure Search, a hosted cloud service on MIcrosoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Azure Search: tutorials, video demos, and samples
@@ -25,13 +25,16 @@ Get up to speed faster with the following videos, demos, tutorials, and sample a
 
 [**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is a live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative.
 
-[**Try App Service + Azure Search**](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features.
+[**Try App Service + Azure Search in ASP.NET MVC combo app**](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features in an ASP.NET application.
+
+[**Azure Search Demo Site**](https://searchsamples.azurewebsites.net/#/) is a collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search.
 
 ##Videos
 
 Link|Description
 ----|-----------
-[AzureCon 2015 Best Practices for Azure Search](https://azure.microsoft.com/en-us/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Practical advice on how to achieve scale, optimum performance, and coding efficiency when building apps for Web or mobile scenarios. 
+[What is Azure Search?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Azure Search overview in one and a half minutes.
+[AzureCon 2015 Best Practices for Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Practical advice on how to achieve scale, optimum performance, and coding efficiency when building apps for Web or mobile scenarios. 
 [Microsoft Virtual Academy: Adding Azure Search to your Websites and Apps](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|7-part series on how to add Azure Search to an application, presented by Liam Cavanagh, Janusz Lembicz, and Bernardita Torres Garayar.
 [Build 2015: Modern Data](http://channel9.msdn.com/Events/Build/2015/2-663)|At 29 minutes into the session, learn how Azure Search fits in the modern data revolution, presented by Shawn Bice and Pablo Castro.
 [Build 2015: Using Azure Search to Build Great Search Experiences in Mobile and WebApps](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presents at Microsoft Build 2015.
@@ -50,6 +53,7 @@ Link|Description
 
 Walkthrough|Description
 -----------|-----------
+[How to search StackExchange data using Azure Search](search-howto-stackexchange-data.md)|Full-text search over StackExchange data in an application integrated with Azure Search.
 [How to use Azure Search with D3.js to Build Interactive Data Visualizations](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Blog post and sample code that demonstrates how to add visual search capabilities to your custom app.
 [Get started with Azure Search in .NET](search-get-started-dotnet.md)|Learn how to work with Azure Search in managed code.
 [Get started with Azure Search in NodeJS](search-get-started-nodejs.md)|Learn how to work with Azure Search in NodeJS.

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Search Indexer Customization" 
-	description="Learn how to customize settings and policies of Azure Search indexers." 
+	pageTitle="Azure Search Indexer Customization | Microsoft Azure | Hosted cloud search service" 
+	description="Learn how to customize settings and policies of indexers in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Azure Search Indexer Customization

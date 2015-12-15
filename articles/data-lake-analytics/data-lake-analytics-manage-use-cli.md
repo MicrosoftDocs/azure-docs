@@ -26,8 +26,9 @@ Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Azure CLI**. See [Install and configure Azure CLI](xplat-cli.md).
+	- Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 - **Authentication**, using the following command:
 
 		azure login
@@ -107,7 +108,7 @@ The value is listed under properties:datalakeStoreAccount:name.
 
 ### Add additional Data Lake Store accounts
 
-  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" [-d]
+  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
 
 [-d] is an optional switch to indicate whether the Data Lake being added is the default Data Lake account. 
 
@@ -220,7 +221,7 @@ The ARM group however can be located in a different data center.
 ##See also 
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-use-portal.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

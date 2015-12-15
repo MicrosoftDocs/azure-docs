@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to Scale Media Processing using the Azure Portal"
+	pageTitle="How to Scale Media Processing using the Azure Classic Portal"
 	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with."
 	services="media-services"
 	documentationCenter=""
@@ -17,13 +17,14 @@
 	ms.author="juliako"/>
 
 
-# How to Scale Media Processing using the Azure Portal
+# How to Scale Media Processing using the Azure Classic Portal
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
 - [Portal](media-services-portal-encoding-units.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ## Overview
 
@@ -35,7 +36,7 @@ In addition to specifying the reserved unit type, you can specify to provision y
 
 To change the reserved unit type and the number of encoding reserved units, do the following:
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
 2. Select the **ENCODING** page.
 
@@ -63,7 +64,8 @@ For information about quotas and limitations and how to open a support ticket, s
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

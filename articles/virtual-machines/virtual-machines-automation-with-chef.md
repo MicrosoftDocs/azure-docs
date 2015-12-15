@@ -218,7 +218,7 @@ Once the deployment is complete, we should be able to connect to the web service
 
 As you can see, I got creative with my HTML code.
 
-Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
+Don’t forget we can also connect through an RDP session from the Azure classic portal via port 3389.
 
 I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
 

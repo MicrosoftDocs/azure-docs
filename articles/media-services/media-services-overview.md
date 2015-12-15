@@ -30,7 +30,7 @@ To build Media Services solutions, you can use:
 
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
-- Existing tools: [Azure Management Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Existing tools: [Azure Classic Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
 ##Media Services learning paths
@@ -50,7 +50,7 @@ You can view AMS learning paths here:
 To start using Azure Media Services, you should have the following:
  
 3. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](azure.microsoft.com).
-2. An Azure Media Services account. Use Azure Management Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
+2. An Azure Media Services account. Use the Azure Classic Portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-create-account.md).
 3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md). 
 
 	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect_programmatically.md).
@@ -212,6 +212,10 @@ You can also scale your Media Services account by adding storage accounts to it.
 [Online documentation](https://msdn.microsoft.com/library/dn735912.aspx)
 [Downloadable eBook](https://www.microsoft.com/download/details.aspx?id=42629)
 
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Service Level Agreement (SLA)
 

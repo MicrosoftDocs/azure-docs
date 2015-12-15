@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect - Upgrade from Windows Azure AD sync tool (DirSync) | Microsoft Azure"
+   pageTitle="Azure AD Connect: Upgrade from Windows Azure AD sync tool (DirSync) | Microsoft Azure"
    description="Learn how to upgrade from DirSync to Azure AD Connect.  This articles describes the steps for upgrading your current Windows Azure AD sync tool (DirSync) to Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="shoatman;billmath"/>
 
-# Upgrading Windows Azure Active Directory sync (DirSync) to Azure Active Directory Connect (Azure AD Connect)
+# Upgrading Windows Azure Active Directory sync (DirSync) to Azure AD Connect
 
 The following documentation will help you upgrade your existing DirSync installation to Azure AD Connect.
 
@@ -57,7 +57,12 @@ The following configuration changes are supported with DirSync and will be upgra
 - Password sync and Exchange hybrid settings
 - Your forest/domain and Azure AD settings
 
-The following changes cannot be upgraded. If you have made any of these changes the upgrade will be blocked. In those cases the recommendation is to install a new Azure AD Connect server in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration.
+The following changes cannot be upgraded. If you have made any of these changes the upgrade will be blocked.
+
+![Upgrade blocked](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
+
+In those cases the recommendation is to install a new Azure AD Connect server in [staging mode](active-directory-aadconnectsync-operations.md#staging-mode) and verify the old DirSync and new Azure AD Connect configuration. Reapply any changes using custom configuration, as described in [Azure AD Connect Sync custom configuration](active-directory-aadconnectsync-whatis.md).
+
 
 - Unsupported DirSync changes, e.g. removed attributes and using a custom extension DLL
 - Filtering based on user attributes
@@ -171,6 +176,8 @@ Within the application you will need to view the **Operations** tab. On this tab
 - Import on the Azure AD Connector
 - Full Sync on the AD Connector
 - Full Sync on the Azure AD Connector
+
+![Import and Sync Completed](./media/active-directory-aadconnect-dirsync-upgrade-get-started/importsynccompleted.png)
 
 Review the result from these operations and ensure there are no errors.
 

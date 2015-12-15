@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="11/09/2015"
 	ms.author="cynthn"/>
 
 
@@ -23,13 +23,13 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
+[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure classic portal](http://manage.windowsazure.com), you can create a virtual machine running Windows Server 2012 R2 from the Image Gallery. You can then install and configure it as a MySQL Server.
 
 For instructions on installing MySQL on Linux, refer to: [How to install MySQL on Azure](virtual-machines-linux-install-mysql.md).
 
 This tutorial shows you how to:
 
-- Use the Azure portal to create a virtual machine running Windows Server 2012 R2.
+- Use the Azure classic portal to create a virtual machine running Windows Server 2012 R2.
 
 - Install and run the community version of MySQL 5.6.23 as a MySQL Server on the virtual machine.
 
@@ -59,8 +59,8 @@ Follow these steps to install, configure, and run the Community version of MySQL
 1.	After you've connected to the virtual machine using Remote Desktop, click **Internet Explorer** from the start screen.
 2.	Select the **Tools** button in the upper-right corner (the cogged wheel icon), and then click **Internet Options**. Click the **Security** tab, click the **Trusted Sites** icon, and then click the **Sites** button. Add http://*.mysql.com to the list of trusted sites. Click **Close**, and then click **OK**.
 3.	In the address bar of Internet Explorer, type http://dev.mysql.com/downloads/mysql/.
-4.	Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows. When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.6.23.0.msi with a file size of 282.4 MB), and save the installer file to the Windows desktop.
-5.	From the desktop, double-click the installer file to begin installation.
+4.	Use the MySQL site to locate and download the latest version of the MySQL Installer for Windows. When choosing the MySQL Installer, download the version that has the complete file set (for example, the mysql-installer-community-5.6.23.0.msi with a file size of 282.4 MB), and save the installer.
+5.	When the installer has finished downloading, click **Run** to launch setup.
 6.	On the **License Agreement** page, accept the license agreement and click **Next**.
 7.	On the **Choosing a Setup Type** page, click the setup type that you want, and then click **Next**. The following steps assume the selection of the **Server only** setup type.
 8.	On the **Installation** page, click **Execute**. When installation is complete, click **Next**.
@@ -91,6 +91,7 @@ Follow these steps to install, configure, and run the Community version of MySQL
 
 19.	You can also configure server configuration default settings, such as the base and data directories and drives, with entries in the C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini file. For more information, see [5.1.2 Server Configuration Defaults](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
+## Configure endpoints
 
 If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule. This is TCP port 3306 unless you specified a different port on the **Type and Networking** page (step 10 of the previous procedure).
 
@@ -100,19 +101,26 @@ If you want the MySQL Server service to be available to MySQL client computers o
 
 To configure an endpoint for the MySQL Server service:
 
-1.	In the Azure portal, click **Virtual Machines**, click the name of your MySQL virtual machine, and then click **Endpoints**.
+1.	In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL virtual machine, and then click **Endpoints**.
 2.	In the command bar, click **Add**.
 3.	On the **Add an endpoint to a virtual machine** page, click the right arrow.
 4.	If you are using the default MySQL TCP port of 3306, click **MySQL** in **Name**, and then click the check mark.
 5.	If you are using a different TCP port, type a unique name in **Name**. Select **TCP** in protocol, type the port number in both **Public Port** and **Private Port**, and then click the check mark.
 
-To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an administrator-level Windows PowerShell command prompt on the MySQL server computer.
+## Add a Windows Firewall rule to allow MySQL traffic
+
+To add a Windows Firewall rule that allows MySQL traffic from the Internet, run the following command at an elevated Windows PowerShell command prompt on the MySQL server virtual machine.
 
 	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
 
+
+	
+## Test your remote connection
+
+
 To test your remote connection to the MySQL Server service running on the Azure virtual machine, you must first determine the DNS name corresponding to the cloud service that contains the virtual machine running MySQL Server.
 
-1.	In the Azure portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
+1.	In the Azure classic portal, click **Virtual Machines**, click the name of your MySQL server virtual machine, and then click **Dashboard**.
 2.	From the virtual machine dashboard, note the **DNS Name** value under the **Quick Glance** section. Here is an example:
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_DNSName.png)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 
@@ -38,8 +38,9 @@ In the current preview, **Azure Data Catalog** supports the registration of thes
 * SQL Server Analysis Services Tabular Tables
 * SQL Server Reporting Services Reports
 * Azure Storage Blobs and Directories
+* Azure Data Lake Store
 * HDFS Files and Directories
-* HDInsight Hive Tables
+* Apache Hive Tables
 * Teradata Tables and Views
 
 > [AZURE.NOTE] SQL Server support also includes Microsoft Azure SQL Database and Microsoft Azure SQL Data Warehouse

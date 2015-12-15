@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
-    ms.author="torsteng" />
+    ms.date="11/09/2015"
+    ms.author="torsteng;sidneyh" />
 
 # Elastic database query for cross-database queries (vertical partitioning)
 
@@ -44,7 +44,7 @@ A credential represents the user ID and password that elastic query will use to 
     SECRET = ‘<password>’
     [;]
     
-or to drop:
+To delete the credential:
     
     DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
     DROP MASTER KEY;   

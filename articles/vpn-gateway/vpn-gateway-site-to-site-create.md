@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a virtual network with a site-to-site VPN connection using the Azure portal | Microsoft Azure"
+   pageTitle="Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal | Microsoft Azure"
    description="Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations using the classic deployment model."
    services="vpn-gateway"
    documentationCenter=""
@@ -17,10 +17,10 @@
    ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
-# Create a virtual network with a site-to-site VPN connection using the Azure portal
+# Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network. This article applies to the classic deployment model. 
@@ -43,7 +43,7 @@ Verify that you have the following items before beginning configuration.
 
 ## Create your virtual network
 
-1. Log in to the **Azure portal**.
+1. Log in to the **Azure Classic Portal**.
 
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
@@ -84,13 +84,13 @@ Enter the following information, and then click the checkmark on the lower right
 - **Add subnet**: Include Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 - **Add gateway subnet**: Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration.
 
-Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Azure portal. After the VNet has been created, you can then configure your virtual network gateway.
+Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Azure Classic Portal. After the VNet has been created, you can then configure your virtual network gateway.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Configure your virtual network gateway
 
-Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure portal](vpn-gateway-configure-vpn-gateway-mp.md).
+Next, you'll configure the virtual network gateway in order to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Next steps
 

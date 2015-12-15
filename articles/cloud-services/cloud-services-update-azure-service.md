@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 pageTitle="How to update a cloud service | Microsoft Azure"
 description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
 services="cloud-services"
@@ -15,8 +15,9 @@ ms.topic="article"
 ms.date="10/26/2015"
 ms.author="kenazk"/>
 
-# Overview
+# How to update a cloud service
 
+## Overview
 At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
 
 ## Update an Azure Service
@@ -56,8 +57,10 @@ The following table shows the allowed changes to a service during an update:
 |Add new certificates|Yes|Yes|Yes|
 |Change existing certificates|Yes|Yes|Yes|
 |Deploy new code|Yes|Yes|Yes|
+\*Requires Azure SDK 1.5 or later versions.
+
 > [AZURE.WARNING] Changing the virtual machine size will destroy local data.
-> [AZURE.NOTE] \*Requires Azure SDK 1.5 or later versions.
+
 
 The following items are not supported during an update:
 
@@ -65,7 +68,7 @@ The following items are not supported during an update:
 -   Changing of the Upgrade Domain count.
 -   Decreasing the size of the local resources.
 
-If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/en-us/library/azure/ee460814.aspx).
+If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
 ## How an upgrade proceeds
 You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
@@ -115,6 +118,9 @@ This next diagram illustrates how the update proceeds if you are upgrading only 
 >To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
 
 During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
+
+### Role Instance Start Timeout 
+The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance. 
 
 ## Rollback of an update
 Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
@@ -172,6 +178,6 @@ The following diagram illustrates how a service than contains two roles are dist
 > [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
 ## Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)
-[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)
-[How to Configure Cloud Services](cloud-services-how-to-cofigure.md)
+[How to Manage Cloud Services](cloud-services-how-to-manage.md)<br>
+[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)<br>
+[How to Configure Cloud Services](cloud-services-how-to-cofigure.md)<br>

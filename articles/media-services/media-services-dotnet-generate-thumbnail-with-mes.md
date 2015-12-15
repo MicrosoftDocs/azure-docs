@@ -369,15 +369,16 @@ The following considerations apply:
 	NOTE: (Step and Range are ignored when Start is set to {Best})
 	
 	- Defaults: Start:{Best}
-- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, AMS will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
+- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See Also 
 

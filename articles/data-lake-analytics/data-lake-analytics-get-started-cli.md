@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started with Azure Data Lake Analytics using Azure Command-line Interface | Azure" 
+   pageTitle="Get started with Azure Data Lake Analytics using Azure Command-line Interface | Microsoft Azure" 
    description="Learn how to use the Azure Command-line Interface to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -42,8 +42,9 @@ in the U-SQL script, and then save the output to either a Data Lake Store accoun
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Azure CLI**. See [Install and configure Azure CLI](xplat-cli.md).
+	- Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 - **Authentication**, using the following command:
 
 		azure login
@@ -52,7 +53,7 @@ Before you begin this tutorial, you must have the following:
 
 		azure config mode arm
 		
-##Create Data Lake Analytics account
+## Create Data Lake Analytics account
 
 You must have a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following:
 
@@ -87,18 +88,18 @@ You must have a Data Lake Analytics account before you can run any jobs. To crea
 		azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
 		azure datalake analytics account list
-		azure datalake analytics account show "<Data Lake Analytics Account Name>"				
+		azure datalake analytics account show "<Data Lake Analytics Account Name>"			
 
-	![Data Lake Analytics show account](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
+![Data Lake Analytics show account](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
 > [AZURE.NOTE] The Data Lake Analytics account name must only contain lowercase letters and numbers.
 
 
-##Upload data to Data Lake Store
+## Upload data to Data Lake Store
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-The Azure Preview portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare soude data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
+The Azure Portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md#prepare-source-data) to upload the data to the default Data Lake Store account.
 
 To upload files using cli, use the following command:
 
@@ -107,7 +108,7 @@ To upload files using cli, use the following command:
 
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](storage-azure-cli.md).
 
-##Submit Data Lake Analytics jobs
+## Submit Data Lake Analytics jobs
 
 The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
 
@@ -169,6 +170,6 @@ After the job is completed, you can use the following cmdlets to list the file, 
 - To see a more complexed query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 

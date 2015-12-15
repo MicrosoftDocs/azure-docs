@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to use scoring profiles in Azure Search" 
-	description="Get started with scoring profiles in Azure Search" 
+	pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # How to use scoring profiles in Azure Search
@@ -46,8 +46,8 @@ On the Source Code tab, click **Download** to get a zip file of the solution.
 ## Edit app.config
 
 1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
-1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the management portal.
-1. Sign in to the [Azure Portal](https://portal.azure.com).
+1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the Classic Portal.
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
 1. Go to the service dashboard for Azure Search.
 1. Click the **Properties** tile to copy the service URL
 1. Click the **Keys** tile to copy the `api-key`.

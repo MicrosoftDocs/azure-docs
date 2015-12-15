@@ -18,6 +18,8 @@
 
 # Debug an API App in Azure App Service
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Overview
 
 In this tutorial, you debug ASP.NET Web API code that is configured to run in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md). You debug the code while it is running locally and while it runs remotely in Azure. 

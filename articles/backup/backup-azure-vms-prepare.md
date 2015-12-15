@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Preparing your environment to back up Azure virtual machines | Microsoft Azure"
 	description="Make sure your environment is prepared to back up Azure virtual machines"
 	services="backup"
@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Prepare your environment to back up Azure virtual machines
 Before you back up an Azure virtual machine, you need to complete these prerequisites to prepare your environment. If you've already done this, you can start [backing up your VMs](backup-azure-vms.md), otherwise, continue through the steps below to make sure your environment is ready.
 
+
 ## 1. Backup vault
+
+![Backup vault](./media/backup-azure-vms-prepare/step1.png)
+
 To start backing up your Azure virtual machines, you first need to create a backup vault. A vault is an entity that stores all the backups and recovery points that have been created over time. The vault also contains the backup policies that will be applied to the virtual machines being backed up.
 
 This image shows the relationships between the various Azure Backup entities:
@@ -49,28 +53,128 @@ To create a backup vault:
 
     ![Virtual machine backup instructions in the Dashboard page](./media/backup-azure-vms-prepare/vmbackup-instructions.png)
 
-## 2. VM Agent
+
+
+## 2. Network connectivity
+
+![Network connectivity](./media/backup-azure-vms-prepare/step2.png)
+
+The backup extension needs connectivity to the Azure public IPs to function correctly, because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. Without the right internet connectivity, these HTTP requests from the VM will time out and the backup operation will fail.
+
+### Network restrictions with NSGs
+
+If your deployment has access restrictions in place (through a Network Security Group, for example), then you need to take additional steps to ensure that backup traffic to the Azure Backup vault remains unaffected.
+
+There are two ways to provide a path for the backup traffic:
+
+1. Whitelist the [Azure datacenter IP ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+2. Deploy an HTTP proxy to route the traffic.
+
+The trade-off is between manageability, granular control, and cost.
+
+|Option|Advantages|Disadvantages|
+|------|----------|-------------|
+|OPTION 1: Whitelist IP ranges| No additional costs<br><br>For opening access in an NSG, use the Use the <i>Set-AzureNetworkSecurityRule</i> commandlet | Complex to manage as the impacted IP ranges change over time,<br>Provides access to the whole of Azure, and not just Storage.|
+|OPTION 2: HTTP proxy| Granular control in the proxy over the storage URLs allowed,<br>Single point of internet access to the VMs,<br>Not subject to Azure IP address changes| Additional costs for running a VM with the proxy software.|
+
+### Using an HTTP proxy for VM backup
+When backing up a VM, the snapshot management commands are sent from the backup extension to Azure Storage using an HTTPS API. This traffic must be routed from the extension through the proxy, since only the proxy will be configured to have access to the public internet.
+
+>[AZURE.NOTE] There is no recommendation for the proxy software that should be used. Ensure that you pick a proxy that is compatible with configuration steps mentioned below.
+
+In the example below, the App VM needs to be configured to use the Proxy VM for all HTTP traffic bound for the public internet. The Proxy VM needs to be configured to allow incoming traffic from VMs in the VNET. And finally, the NSG (named *NSG-lockdown*) needs a new Security Rule that allows outbound Internet traffic from the Proxy VM.
+
+![NSG with HTTP proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
+
+**A) Allow outgoing network connections:**
+
+1. For Windows machines, run the following command in an elevated command prompt:
+
+	```
+	netsh winhttp set proxy http://<proxy IP>:<proxy port>
+	```
+
+	This will setup a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+
+2. For Linux machines, add the following line to the ```/etc/environment``` file:
+
+ 	```
+ 	http_proxy=http://<proxy IP>:<proxy port>
+ 	```
+
+	Add the following lines to the ```/etc/waagent.conf``` file:
+
+	```
+HttpProxy.Host=<proxy IP>
+HttpProxy.Port=<proxy port>
+```
+
+**B) Allow incoming connections on the proxy server:**
+
+1. Open up Windows Firewall on the proxy server; right-click on *Inbound Rules* and click on **New Rule...**.
+
+	![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
+
+	![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
+2. In the *New Inbound Rule Wizard* choose the **Custom** option for the *Rule Type* and click Next. In the screen to select the *Program* choose **All Programs** and click Next.
+
+3. In the *Protocol and Ports* screen use the inputs in the table below and click Next:
+
+	![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
+
+| Input field | Value |
+| --- | --- |
+| Protocol type | TCP |
+| Local port    | select *Specific Ports* in the dropdown, and in the text box enter the ```<Proxy Port>``` that has been configured. |
+| Remote port   | select *All Ports* in the dropdown. |
+
+For the rest of the wizard, click all the way to the end and give this rule a name.
+
+**C) Add an exception rule to the NSG:**
+
+In an Azure PowerShell command prompt, type out the following command:
+
+```
+Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
+Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
+```
+
+This command adds an exception to the NSG, allowing TCP traffic from any port on 10.0.0.5 to any Internet address on port 80 (HTTP) or 443 (HTTPS). If you need to hit a specific port in the public internet, make sure you add that to the ```-DestinationPortRange``` as well.
+
+*Ensure that you replace the names in the example with the details appropriate to your deployment.*
+
+## 3. VM Agent
+
+![VM agent](./media/backup-azure-vms-prepare/step3.png)
+
 Before you can back up the Azure virtual machine, you should ensure that the Azure VM Agent is correctly installed on the virtual machine. Since the VM agent is an optional component at the time that the virtual machine is created, ensure that the checkbox for the VM agent is selected before the virtual machine is provisioned.
+
+### Manual installation and update
+
+The VM Agent is already present in VMs that are created from the Azure gallery. However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed. For such VMs, the VM Agent needs to be installed explicitly. Read more about [installing the VM agent on an existing VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+
+| **Operation** | **Windows** | **Linux** |
+| --- | --- | --- |
+| Installing the VM agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install latest [Linux agent](https://github.com/Azure/WALinuxAgent) from Github. You will need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
+| Updating the VM agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Ensure that no backup operation is running while the VM Agent is being updated. | Follow the instructions on [Updating Linux VM Agent ](../virtual-machines-linux-update-agent.md). <br><br>Ensure that no backup operation is running while the VM Agent is being updated. |
+| Validating the VM agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher | - |
+
 
 Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### Backup extension
+
 To back up the virtual machine, the Azure Backup service installs an extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
 
 The backup extension is installed if the VM is running. A running VM also provides the greatest chance of getting an application consistent recovery point. However, the Azure Backup service will continue to back up the VM even if it is turned off and the extension could not be installed (aka Offline VM). In this case, the recovery point will be *Crash consistent* as discussed above.
 
-## 3. Network connection
-The backup extension needs connectivity to the internet to function correctly, because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. Without internet connectivity, these HTTP requests from the VM will time out and the backup operation will fail.
 
 ## Limitations
 
 - Back up of Azure Resource Manager based (aka IaaS V2) virtual machines is not supported.
 - Back up of virtual machines with more than 16 data disks is not supported.
 - Back up of virtual machines using Premium storage is not supported.
-- Back up of virtual machines with multiple reserved IPs is not supported.
 - Back up of virtual machines with a reserved IP and no end-point defined is not supported.
-- Back up of virtual machines using multiple NICs is not supported.
-- Back up of virtual machines in a load-balanced configuration (internal and internet-facing) is not supported.
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
 - Virtual machine back up using the Azure Backup service is supported in all public regions of Azure. Here is a [checklist](http://azure.microsoft.com/regions/#services) of supported regions. If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
@@ -78,6 +182,10 @@ The backup extension needs connectivity to the internet to function correctly, b
   - **Linux**: The list of distributions endorsed by Azure is available [here](../virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 - Restoring a domain controller VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms)
+- Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations). 
+	- Virtual machines under load balancer configuration ( Internal adn external)
+	- Virtual machines with multiple Reserved IPs
+	- Virtual machines with multiple NICs
 
 ## Questions?
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).

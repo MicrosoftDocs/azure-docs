@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
@@ -21,13 +21,13 @@
 # BizTalk Services: Service state chart
 Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.
 
-For example, you provision a new BizTalk service in the Azure Management Portal. When it completes successfully, the BizTalk service is in Active state. In the Active State, you can Stop the BizTalk service. If Stop is successful, the BizTalk service goes to a Stopped state. If Stop fails, the BizTalk service goes to a StopFailed state. In the StopFailed state, you can Restart the BizTalk service. If you try an Operation that is not allowed, like Resume the BizTalk service, the following error occurs:
+For example, you provision a new BizTalk service in the Azure classic portal. When it completes successfully, the BizTalk service is in Active state. In the Active State, you can Stop the BizTalk service. If Stop is successful, the BizTalk service goes to a Stopped state. If Stop fails, the BizTalk service goes to a StopFailed state. In the StopFailed state, you can Restart the BizTalk service. If you try an Operation that is not allowed, like Resume the BizTalk service, the following error occurs:
 
 **Operation not allowed**
 
-To provision a BizTalk Service, go to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+To provision a BizTalk Service, go to [BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280).
 
-The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state. A check mark means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
+The following tables list the Operations or actions that can be completed when the BizTalk Service is in a specific state. A ✔ means the operation is allowed while in that state. A blank entry means the operation cannot be performed while in that state.
 
 ## Start, Stop, Restart, Suspend, Resume, and Delete Operations
 <table border="1">
@@ -50,11 +50,11 @@ The following tables list the Operations or actions that can be completed when t
 <tr>
 <td bgcolor="FAF9F9"><b>Active</b></td>
 <td> </td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Disabled</b></td>
@@ -63,7 +63,7 @@ The following tables list the Operations or actions that can be completed when t
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Suspended</b></td>
@@ -71,17 +71,17 @@ The following tables list the Operations or actions that can be completed when t
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Stopped</b></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Service Update Failed</b></td>
@@ -90,7 +90,7 @@ The following tables list the Operations or actions that can be completed when t
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>DisableFailed</b></td>
@@ -99,7 +99,7 @@ The following tables list the Operations or actions that can be completed when t
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>EnableFailed</b></td>
@@ -108,18 +108,18 @@ The following tables list the Operations or actions that can be completed when t
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>StartFailed<br/>
 StopFailed<br/>
 RestartFailed</b></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>SuspendedFailed<br/>
@@ -127,9 +127,9 @@ ResumeFailed</b></td>
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
@@ -139,16 +139,16 @@ RestoreFailed<br/></b></td>
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
@@ -157,7 +157,7 @@ RestoreFailed<br/></b></td>
 <td> </td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 </table>
 <br/>
@@ -179,9 +179,9 @@ RestoreFailed<br/></b></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Active</b></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Disabled</b></td>
@@ -193,13 +193,13 @@ RestoreFailed<br/></b></td>
 <td bgcolor="FAF9F9"><b>Suspended</b></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Stopped</b></td>
 <td> </td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Service Update Failed</b></td>
@@ -224,7 +224,7 @@ RestoreFailed<br/></b></td>
 StopFailed<br/>
 RestartFailed</b></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 </tr>
 <tr>
@@ -244,19 +244,19 @@ RestoreFailed<br/></b></td>
 <tr>
 <td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
 <td> </td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
-<td><center>x</center></td>
+<td><center>✔</center></td>
 <td> </td>
 <td> </td>
 </tr>
 </table>
 
 ## See Also
-- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 - [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

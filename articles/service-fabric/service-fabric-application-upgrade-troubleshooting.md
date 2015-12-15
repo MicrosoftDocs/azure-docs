@@ -216,11 +216,13 @@ The upgrade time for a upgrade domain is limited by *UpgradeDomainTimeout*.  If 
 
 ## Next steps
 
-[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
+[Service Fabric Application Upgrade using Visual Studio](service-fabric-application-upgrade.md)
+
+[Service Fabric Application Upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md)
+[Manual Upgrade and Upgrading with a Diff Package](service-fabric-application-upgrade-advanced.md)
 
 [Data Serialization](service-fabric-application-upgrade-data-serialization.md)
  

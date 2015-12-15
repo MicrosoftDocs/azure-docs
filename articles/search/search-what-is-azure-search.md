@@ -1,6 +1,6 @@
 <properties
-	pageTitle="What is Azure Search"
-	description="Azure Search technical overview and feature summary."
+	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Azure Search is a hosted cloud search service. Learn more in this technical overview and feature summary."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # What is Azure Search?
 
-Azure Search Service is a fully managed cloud service that allows developers to build rich search applications using a .NET SDK or REST APIs. It includes full-text search scoped over your content, plus advanced search behaviors similar to those found in commercial web search engines, such as type-ahead query suggestions based on a partial term input, hit-highlighting, and faceted navigation. Natural language support is built-in, using the linguistic rules that are appropriate to the specified language.
+Azure Search Service is a fully managed, hosted cloud search service that allows developers to build rich search applications using a .NET SDK or REST APIs. It includes full-text search scoped over your content, plus advanced search behaviors similar to those found in commercial web search engines, such as type-ahead query suggestions based on a partial term input, hit-highlighting, and faceted navigation. Natural language support is built-in, using the linguistic rules that are appropriate to the specified language.
 
 You can scale your service based on the need for increased search or storage capacity. For example, retailers can increase capacity to meet the extra volumes associated with holiday shopping or promotional events.
 
@@ -29,7 +29,7 @@ Azure Search is an API-based service for developers and system integrators who k
 
 Azure Search is a [PaaS service](https://wikipedia.org/wiki/Platform_as_a_service) that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you populate with search data, and then access from your application. Depending on how you configure the service, you'll use either the free service that is shared with other Azure Search subscribers, or the Standard pricing tier that offers dedicated resources used only by your service. Standard search is scalable, with options to meet increased demands for storage or query loads.
 
-Azure Search stores your data in an index that can be searched through full text queries. The schema of these indexes can either be created in the Azure Portal, or programmatically using the client library or REST APIs. Once the schema is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
+Azure Search stores your data in an index that can be searched through full text queries. The schema of these indexes can either be created in the Azure Classic Portal, or programmatically using the client library or REST APIs. Once the schema is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
 
 You can use either push or pull models to upload data to the index. The pull model is provided through indexers that can be configured for on demand or scheduled updates (see [Indexer operations (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn946891.aspx)), allowing you to easily ingest data and data changes from an Azure DocumentDB, Azure SQL Database, or SQL Server hosted in an Azure VM. The push model is provided through the SDK or REST APIs used for sending updated documents to an index. You can push data from virtually any dataset, as long as its in JSON format. See [Add, update, or delete Documents](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 

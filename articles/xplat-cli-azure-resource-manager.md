@@ -44,7 +44,7 @@ Working with the Azure Resource Manager through the Azure CLI requires you to au
 
 For more information on authenticating to Microsoft Azure, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](../azure-portal/resource-group-rbac.md).
+>[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
 ## Set the Azure Resource Manager mode
 
@@ -204,7 +204,7 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-* For information on working with Azure Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm].
+* For information on working with Azure Resource Manager from the Azure portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant

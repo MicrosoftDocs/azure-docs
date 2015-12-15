@@ -13,18 +13,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/30/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
 
+## What's new for the week of November 20, 2015 release
+
+As of the week of November 20, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- The ability to view and copy connection strings from within the **Azure Data Catalog** portal for SQL Server (including Azure SQL Database) and Oracle data sources. Users can click on the "View Connection Strings" link in the connection information for a SQL Server or Oracle table, view, or database, to see the connection strings used to connect to the data source. ADO.NET, ODBC, OLEDB and JDBC connection strings are provided for SQL Server data sources. ODBC and OLEDB connection strings are provided for Oracle data sources.
+- Support for including data profiles when registering Teradata tables and views.
+- Support for "Open in Power BI Desktop" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage, and HDFS sources.  
+
+> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+
+## What's new for the week of November 13, 2015 release
+
+As of the week of November 13, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for LDAP authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using LDAP as well as TD2 authentication.
+- Support for "Open in Excel" for Teradata data sources.
+- Support for recent search terms in the **Azure Data Catalog** portal. When searching in the portal, users can select from recently used search terms to accelerate the discovery experience.
+
+## What's new for the week of November 6, 2015 release
+
+As of the week of November 6, 2015, the following capabilities have been added to **Azure Data Catalog**:
+
+- Support for preview for Teradata data sources. When registering Teradata tables and views, users can choose to include snapshot records with the metadata extracted from the data source.
+- Support for "Open in Excel" for Azure SQL Data Warehouse data sources.
+- Support for defining and editing column-level schemas for manually registered data assets. After manually creating a data asset using the **Azure Data Catalog** portal, users can add column definitions in the data asset properties.
+- Support for "has" queries when searching **Azure Data Catalog**, to enable the discovery of registered data assets that possess specific metadata. **Azure Data Catalog** query syntax now includes:
+
+| Query syntax            | Purpose |
+|-------------------------|---------|
+| has:previews             | Finds data assets that include a preview  |
+| has:documentation       | Finds data assets for which documentation has been provided |
+| has:tableDataProfiles   | Finds data assets with table-level data profile information |
+| has:columnsDataProfiles | Finds data assets with column-level data profile information |
+
+
 ## What's new for the week of October 30, 2015 release
 
 As of the week of October 30, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
-- Support for encryption at rest of data previews and data profiles for registered data sources. Azure Data Catalog will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
+- Support for encryption at rest of data previews and data profiles for registered data sources. **Azure Data Catalog** will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
 
 ## What's new for the week of October 23, 2015 release
 

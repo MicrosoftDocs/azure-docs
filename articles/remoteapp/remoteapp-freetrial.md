@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Free 30 day trial of Azure RemoteApp"
+    pageTitle="Free 30 day trial of Azure RemoteApp | Microsoft Azure"
     description="Check out the 30 day free trial for Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
