@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-<<<<<<< HEAD
-	ms.date="12/02/2015"
-	ms.author="sammehta"; "jimpark"; "aashishr"/>
-=======
 	ms.date="12/10/2015"
 	ms.author="giridham;jimpark"/>
->>>>>>> 02a806b40ae6f5874ea40523f22c2e76ce8bc53e
 
 # Preparing to back up workloads to Azure with DPM
 
