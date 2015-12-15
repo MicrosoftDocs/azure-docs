@@ -23,12 +23,12 @@ The following release notes describe the new features and identify the critical 
 
 Update 2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. 
 
-Please review the information contained in the release notes before you deploy the update in your StorSimple solution. For more information, see how to [Install Update 2 on your StorSimple device](storsimple-install-update-2.md). 
+Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 >[AZURE.IMPORTANT]
 > 
 - It takes approximately 4-7 hours to install this update (including the Windows updates). 
-- Update 2 has software, USM, LSI driver, and SSD firmware updates. To install, follow the instructions in [Install Update 2 on your StorSimple device](storsimple-install-update-2.md).
+- Update 2 has software, USM, LSI driver, and SSD firmware updates.
 - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 
@@ -67,11 +67,11 @@ Update 2 introduces the following new features.
 
 The following tables provides a summary of issues that were fixed in Updates 2.    
 
-| No. | Feature | Issue | Fixed in Update | Applies to physical device | Applies to virtual device |
-|-----|---------|-------|-----------------|---------------------------------|--------------------------------|
-| 1 | Data ports | After an upgrade to Update 1, the StorSimple Manager service reported that the Data2 and Data3 ports failed on one controller. This issue has been fixed. | Update 2 | Yes | Yes |
-| 2 | Updates | After an upgrade to Update 1, audible alarm alerts occurred in the Azure portal on multiple appliances. This issue has been fixed. | Yes | Yes |
-| 3 | Openstack authentication | When using Openstack as your cloud service provider, you could receive an error that your cloud authentication string was too long. This has been fixed. | 
+| No. | Feature | Issue | Applies to physical device | Applies to virtual device |
+|-----|---------|-------|--------------------------------|--------------------------------|
+| 1 | Network interfaces | After an upgrade to Update 1, the StorSimple Manager service reported that the Data2 and Data3 ports failed on one controller. This issue has been fixed. | Yes | No |
+| 2 | Updates | After an upgrade to Update 1, audible alarm alerts occurred in the Azure portal on multiple devices. This issue has been fixed. | Yes | No |
+| 3 | Openstack authentication | When using Openstack as your cloud service provider, you could receive an error that your cloud authentication string was too long. This has been fixed. | Yes | No |
 
 
 ## Known issues in Update 2
@@ -94,7 +94,7 @@ The following table provides a summary of known issues in this release.
 | 12| Migration | After the migration is complete, the 5000/7000 series device must not access the migrated data containers. | We recommend that you delete the migrated data containers after the migration is complete and committed. | Yes | No |
 | 13| Clone and DR | A StorSimple device running Update 1 cannot clone or perform Disaster Recovery to a device running pre-update 1 software. | You will need to update the target device to Update 1 to allow these operations | Yes | Yes |
 | 14 | Migration | Configuration backup for migration may fail on a 5000-7000 series device when there are volume groups with no associated volumes. | Delete all the empty volume groups with no associated volumes and then retry the configuration backup.| Yes | No |
-| 15 | PowerShell cmdlets and locally pinned volumes | You cannot create a locally pinned volume via PowerShell cmdlets. (Any volume you create via PowerShell will be tiered.) |Always use the StorSimple Manager service to configure locally pinned volumes.|
+| 15 | Azure PowerShell cmdlets and locally pinned volumes | You cannot create a locally pinned volume via Azure PowerShell cmdlets. (Any volume you create via Azure PowerShell will be tiered.) |Always use the StorSimple Manager service to configure locally pinned volumes.|
 | 16 |Space available for locally pinned volumes | If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager service updates the local space available approximately every hour.| Wait for an hour before you try to create the new volume. |
 
 ## Physical device updates in Update 2
@@ -112,7 +112,3 @@ This release updates the driver and the disk firmware on your device.
 
 This update cannot be applied to the virtual device. New virtual devices will need to be created. 
 
-## Next steps
-
-- [Install Update 2 on your device](storsimple-install-update-2.md).
- 
