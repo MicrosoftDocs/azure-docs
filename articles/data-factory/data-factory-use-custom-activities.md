@@ -613,7 +613,7 @@ In this step, you will create datasets to represent input and output data.
  
 9. In the Diagram View, now click on the OutputDataset.
  
-	![Diagram view](./media/data-factory-use-custom-activities/DiagramView.png)
+	![Diagram view](./media/data-factory-use-custom-activities/diagram.png)
 
 10. You should see that the 5 output slices are in the Ready state if they have already been produced.
 
