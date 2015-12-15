@@ -2,4 +2,4 @@
 
 
 
-[AZURE.INCLUDE [wordpress-guide](../../includes/app-service-guide-for-wordpress.md)]
+[AZURE.INCLUDE [wordpress-guide](../../includes/app-service-blueprint-guide-for-wordpress.md)]
