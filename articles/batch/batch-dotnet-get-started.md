@@ -24,23 +24,29 @@ By the end of this article, you will have learned about the following primary fe
 
 ## Prerequisites
 
-- Azure, Batch, and Storage accounts:
+### Accounts
 
-	- **Azure account** - You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-	- **Batch account** - See [Create and manage an Azure Batch account](batch-account-create-portal.md).
-	- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage-create-storage-account.md).
-  - **Visual Studio** - You must have Visual Studio 2013 or above to build the sample project. Find free and trial versions in the [Overview of Visual Studio 2015 Products][visual_studio].
-- Download the sample project from GitHub
+- **Azure account** - You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+- **Batch account** - See [Create and manage an Azure Batch account](batch-account-create-portal.md).
+- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage-create-storage-account.md).
 
-<instructions here>
+### Visual Studio
 
-- Build the sample project
+- **Visual Studio** - You must have Visual Studio 2013 or above to build the sample project. Find free and trial versions in the [Overview of Visual Studio 2015 Products][visual_studio].
+
+### *DotNetTutorial* sample project
+
+- **Download** the sample project from GitHub
+
+  - [link & path within repo here]
+
+- **Build** the sample project
 
   - get credentials
 	- update Program.cs
 	- build (restores NuGet packages)
 
-## Sample project overview
+## Overview of the *DotNetTutorial* sample project
 
 The following diagram illustrates the primary operations performed by the sample project, **DotNetTutorial**. This basic workflow is typical of most compute solutions created with Batch, and while it does not demonstrate every feature available, nearly every Batch scenario will include similar processes.
 
