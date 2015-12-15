@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Create a SQL Data Warehouse
@@ -29,6 +29,8 @@ In this tutorial you will:
 
 - Create a server that will host your database.
 - Create a database that contains AdventureWorksDW sample database.
+
+If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-get-started-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
