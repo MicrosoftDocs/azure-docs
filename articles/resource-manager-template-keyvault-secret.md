@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/14/2015"
+   ms.date="12/15/2015"
    ms.author="tomfitz"/>
 
 # Key vault secret template schema
 
-Creates a secret that is stored in a key vault.
+Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
 
 ## Schema format
 
@@ -30,7 +30,6 @@ resource type.
         "type": enum,
         "apiVersion": "2015-06-01",
         "name": string,
-        "tags": { "displayName": "secret" },
         "properties": {
             "value": string
         },
@@ -45,7 +44,7 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | type | enum | Yes | As child resource of key vault:<br />**secrets**<br /><br />As top-level resource:<br />**Microsoft.KeyVault/vaults/secrets** | The resource type to create. |
 | apiVersion | enum | Yes | **2015-06-01** <br /> **2014-12-19-preview** | The API version to use for creating the resource. | 
-| name | string | Yes |   | The name of the secret to create.  | If you are deploying the secret as a child resource of a key vault, simply provide a name for the secret. If you are deploying the secret as a top-level resource, the names must be in the format **{key-vault-name}/{secret-name}**. |
+| name | string | Yes |   | The name of the secret to create.  If you are deploying the secret as a child resource of a key vault, simply provide a name for the secret. If you are deploying the secret as a top-level resource, the names must be in the format **{key-vault-name}/{secret-name}**. |
 | properties | object | Yes | (shown below) | An object that specifies the value of the secret to create. |
 | dependsOn | array | No | A comma-separated list of a resource names or resource unique identifiers. | The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
 
@@ -53,12 +52,12 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| value | string | Yes |  | The secret value to store in the key vault. Use a parameter of type **securestring** for this value.  |
+| value | string | Yes |  | The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
 
 	
 ## Examples
 
-The following example deploys a key vault and secret.
+The first example deploys a secret as a child resource of a key vault.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -183,6 +182,45 @@ The following example deploys a key vault and secret.
                 ]
             }]
         }]
+    }
+
+The second example deploys the secret as a top-level resource that is stored in an existing key vault.
+
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "keyVaultName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Name of the existing vault"
+                }
+            },
+            "secretName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Name of the secret to store in the vault"
+                }
+            },
+            "secretValue": {
+                "type": "securestring",
+                "metadata": {
+                    "description": "Value of the secret to store in the vault"
+                }
+            }
+        },
+        "variables": {},
+        "resources": [
+            {
+                "type": "Microsoft.KeyVault/vaults/secrets",
+                "apiVersion": "2015-06-01",
+                "name": "[concat(parameters('keyVaultName'), '/', parameters('secretName'))]",
+                "properties": {
+                    "value": "[parameters('secretValue')]"
+                }
+            }
+        ],
+        "outputs": {}
     }
 
 
