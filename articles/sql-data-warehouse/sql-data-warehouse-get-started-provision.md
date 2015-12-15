@@ -32,6 +32,8 @@ In this tutorial you will:
 
 If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-get-started-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
 
+To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Step 1: Sign in and get started
