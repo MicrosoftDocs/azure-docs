@@ -47,7 +47,7 @@ As mentioned above, reporting can be done from:
 
 > [AZURE.NOTE] Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Using system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). The user reports must be sent on [health entities](service-fabric-health-introduction.md#health-entities-and-hierarchy) that have already been created by the system.
 
-Once the health reporting design is clear, health reports can be sent easily. This can be done through the API by using **FabricClient.HealthManager.ReportHealth**, through PowerShell or through REST. Internally, all methods use a health client contained in a fabric client. Configuration knobs batch reports for improved performance.
+Once the health reporting design is clear, health reports can be sent easily. This can be done through the API by using **FabricClient.HealthManager.ReportHealth**, through PowerShell, or through REST. Internally, all methods use a health client contained in a fabric client. Configuration knobs batch reports for improved performance.
 
 > [AZURE.NOTE] Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client doesn't mean that it is applied in the store. It will be sent asynchronously and possibly batched with other reports. The processing on the server may still fail (e.g. a sequence number is stale, the entity on which the report must be applied has been deleted, etc.).
 
