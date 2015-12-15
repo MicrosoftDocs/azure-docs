@@ -680,10 +680,10 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 
 	You may want to create the Azure Batch pool with at least 2 compute nodes so that slices are processed in parallel. If you are using Batch Explorer:  
 
-	•	Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
-	•	Specify **Windows Server 2012 R2** for the Operating System Family setting. 
-	•	Specify **2** as value for the **Max tasks per compute node** setting. 
-	•	Specify **2** as value for the **Number of Target Dedicated** setting. 
+	- Enter an ID for the pool (**Pool ID**). Note the **ID of the pool**; you will need it when creating the Data Factory solution. 
+	- Specify **Windows Server 2012 R2** for the Operating System Family setting.
+	- Specify **2** as value for the **Max tasks per compute node** setting.
+	- Specify **2** as value for the **Number of Target Dedicated** setting. 
 
 	The Data Factory service creates a job in Azure Batch with the name: adf-<pool name>:job-xxx. A task is created for each activity run  of a slice. If there are 10 slices ready to be processed, 10 tasks are created in this job. You can have more than one slice running in parallel if you have multiple compute nodes in the pool. You can also have more than one slice running on the same compute if the maximum tasks per compute node is set to > 1. 
 	
