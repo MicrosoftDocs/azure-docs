@@ -77,7 +77,7 @@ Note that this will not be available if you have not included a web service outp
 
 ![][7]
 
-# Summary
+## Summary
 
 Using the Azure ML Connector for Logic Apps, you can run batch scoring and retraining jobs to be executed on demand or on a recurring schedule. The combination of the two actions can automatically, score your data, and retrain, evaluate, and update your web service’s model without a need to write any code.
 
