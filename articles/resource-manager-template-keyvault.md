@@ -65,7 +65,7 @@ The following tables describe the values you need to set in the schema.
 | name | string | Yes |   | The name of the key vault to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
 | location | string | Yes | To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).  | The region to host the key vault. |
 | properties | object | Yes | ([shown below](#properties)) | An object that specifies the type of key vault to create. |
-| resources | array | No | [Key vault secrets](resource-manager-template-keyvault-secrets.md)  | Child resources for the key vault. |
+| resources | array | No | [Key vault secrets](resource-manager-template-keyvault-secret.md)  | Child resources for the key vault. |
 
 <a id="properties" />
 ### properties object
@@ -93,8 +93,8 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted values | Description |
 | ---- | ---- | -------- | ---------------- | ----------- |
-| keys | array | Yes | **all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
-| secrets | array | Yes | **all**<br />**delete**<br />**get**<br />**list**<br />**set** | The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
+| keys | array | Yes | A comma-separated list of the following values:<br />**all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
+| secrets | array | Yes | A comma-separated list of the following values:<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
 
 <a id="sku" />
 ### properties.sku object
