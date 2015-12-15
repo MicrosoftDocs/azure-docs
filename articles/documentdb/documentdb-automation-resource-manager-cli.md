@@ -15,16 +15,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
-# Automate DocumentDB database account creation using Azure Resource Manager templates and Azure CLI
+# Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
 - [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 
-This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure Command-Line Interface (CLI). 
+This article shows you how to create a DocumentDB account by using Azure Resource Manager templates or the Azure Command-Line Interface (CLI). To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
 
 - [Create a DocumentDB account using CLI](#quick-create-documentdb-account)
 - [Create a DocumentDB account using an ARM template](#deploy-documentdb-from-a-template)
@@ -93,13 +93,13 @@ Which provides the following output:
 
 You can switch back to the default set of commands by typing `azure config mode asm`.
 
-## <a id="quick-create-documentdb-account"></a>Task: Create a DocumentDB account using CLI
+## <a id="quick-create-documentdb-account"></a>Task: Create a DocumentDB account using Azure CLI
 
 Use the instructions in this section to create a DocumentDB account with Azure CLI. 
 
 ### Step 1: Create or retrieve your resource group
 
-In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, skip to [Step 2](#create-documentdb-account-cli).
+In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, then skip to [Step 2](#create-documentdb-account-cli). 
 
 To review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
@@ -107,9 +107,12 @@ To review a list of all of your current resource groups, run the following comma
 
 To create a new resource group, run the following command, specify the name of the new resource group to create, and the region in which to create the resource group: 
 
-	azure group create <resourcegroupname> <location>
+	azure group create <resourcegroupname> <resourcegrouplocation>
 
-For example:
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
+ - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
+Example input:
 
 	azure group create new_res_group westus
 
@@ -135,9 +138,13 @@ Create a DocumentDB account in the new or existing resource group by entering th
 
 > [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
 
-    azure resource create -g <resourceGroupName> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{\"databaseAccountOfferType\":\"Standard\"}" 
+    azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{\"databaseAccountOfferType\":\"Standard\"}" 
 
-For example: 
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
+ - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
+ - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
+Example input: 
 
     azure resource create -g new_res_group -n samplecliacct -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08  -l westus -p "{\"databaseAccountOfferType\":\"Standard\"}"
 
@@ -216,13 +223,11 @@ To create a parameters file, copy the following content into a new file and name
         }
     }
 
-In the azuredeploy.parameters.json file, update the value "samplearmacct" to the database name you'd like to use, then save the file. 
-
-> [AZURE.TIP] Database account names can only use lowercase letters, numbers, the '-' character and must be between 3 and 50 characters.
+In the azuredeploy.parameters.json file, update the value "samplearmacct" to the database name you'd like to use, then save the file. `<databaseAccountName>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
 
 ### Step 2: Create or retrieve your resource group
 
-In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, skip to [Step 3](#create-account-from-template).
+In order to create a DocumentDB account, you first need a resource group. If you already know the name of the resource group that you'd like to use, ensure that the location is a [region where DocumentDB is generally available](https://azure.microsoft.com/regions/#services), then skip to [Step 3](#create-account-from-template). In the template, the location of the account is created in the same region as the resource group, so attempting to create an account in a region where DocumentDB is not available will result in a deployment error.
 
 To review a list of all of your current resource groups, run the following command and take note of the resource group name you'd like to use: 
 
@@ -230,9 +235,12 @@ To review a list of all of your current resource groups, run the following comma
 
 To create a new resource group, run the following command, specify the name of the new resource group to create, and the region in which to create the resource group: 
 
-	azure group create <resourcegroupname> <location>
+	azure group create <resourcegroupname> <databaseaccountlocation>
 
-For example:
+ - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
+ - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+
+Example input:
 
 	azure group create new_res_group westus
 
@@ -260,7 +268,12 @@ To use a parameter file:
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
-For example: 
+ - `<PathToTemplate>` is the path to the azuredeploy.json file created in step 1.
+ - `<PathToParameterFile>` is the path to the azuredeploy.parameters.json file created in step 1.
+ - `<resourcegroupname>` is the name of the existing resource group in which to add a DocumentDB database account. 
+ - `<deploymentname>` is the optional name of the deployment.
+
+Example input: 
 
     azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json -g new_res_group -n azuredeploy
 
@@ -268,12 +281,12 @@ OR to specify the database account name parameter without a parameter file, and 
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-For example (which shows the prompt and entry for a database account named new\_db_acct):
+Example input which shows the prompt and entry for a database account named new\_db_acct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    databaseAccountName: newarmacct
+    databaseAccountName: samplearmacct
 
 As the account is provisioned, you will receive the following information: 
 
@@ -289,7 +302,7 @@ As the account is provisioned, you will receive the following information:
     data:    Mode               : Incremental
     data:    Name                 Type    Value
     data:    -------------------  ------  ------------------
-    data:    databaseAccountName  String  newarmacct
+    data:    databaseAccountName  String  samplearmacct
     data:    location             String  West US
     info:    group deployment create command OK
 
@@ -299,21 +312,25 @@ After the command returns, the account will be in the **Creating** state for a f
 
 ## Troubleshooting
 
-If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, use the following command to view the log for the resource group.
+If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, you have a few troubleshooting options. 
 
-    azure group log show <resourcegroupname> --last-deployment
+> [AZURE.NOTE] Providing incorrect characters in the database account name or providing a location in which DocumentDB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
-For example:
+- If your output contains the following `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, then review the error info in the azure.err file.
 
-    azure group log show new_res_group --last-deployment
+- You may find useful info in the log file for the resource group. To view the log file, run the following command:
 
-Then see [Troubleshooting resource group deployments in Azure](../resource-group-deploy-debug.md) for additional  information.
+    	azure group log show <resourcegroupname> --last-deployment
 
-Remember that database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. 
+    Example input:
 
-Error information is also available in the Azure Portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
+    	azure group log show new_res_group --last-deployment
 
-![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png)
+    Then see [Troubleshooting resource group deployments in Azure](../resource-group-deploy-debug.md) for additional  information.
+
+- Error information is also available in the Azure Portal as shown in the following screenshot. To navigate to the error info: click Resource Groups in the Jumpbar, select the Resource Group that had the error, then in the Essentials area of the Resource group blade click the date of the Last Deployment, then in the Deployment history blade select the failed deployment, then in the Deployment blade click the Operation detail with the red exclamation mark. The Status Message for the failed deployment is displayed in the Operation details blade. 
+
+    ![Screenshot of the Azure portal showing how to navigate to the deployment error message](media/documentdb-automation-resource-manager-cli/portal-troubleshooting-deploy.png) 
 
 ## Next steps
 

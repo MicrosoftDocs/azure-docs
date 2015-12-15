@@ -54,6 +54,7 @@ This article assumes that you have the following items:
 Azure supports a variety of Linux distributions (see [Endorsed Distributions](../linux-endorsed-distributions.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
 - **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 The latest Azure CLI defaults into Resource Manager deployment model, so make sure you are in the classic deployment model by using this command:
 
-		azure change mode asm  
+		azure config mode asm  
 
 Next, use any of the following login methods to connect to your Azure subscription. 
 

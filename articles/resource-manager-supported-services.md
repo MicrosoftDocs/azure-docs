@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/04/2015"
    ms.author="tomfitz"/>
 
 # Resource Manager support for services, regions, and API versions
@@ -62,9 +62,9 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 | DocumentDB | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.DocumentDB) | Yes  | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) |   |
 | Storage | Yes     | [Yes](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) |  No  | [Create Storage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Storage account](resource-manager-template-storage.md) |
 | Redis Cache | Yes | [Yes](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Yes |   | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Yes  | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| SQL Database | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDatabase.1.0.3) | Yes  | [Create Database](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.Search) | Yes   | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  |
-| SQL Data Warehouse | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) |   |   |      |
+| SQL Data Warehouse | Yes | [Yes](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.13-preview) |   |   |      |
 | StorSimple | No   | No | -  | -        | -       |
 | Managed cache | No | No | -             | -        | -       |
 
@@ -73,7 +73,7 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 | Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | API Management | Yes | No | Yes  | [Create API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) |        |
-| API Apps | Yes | [Yes](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| API Apps | Yes | [Yes](https://portal.azure.com/#create/Microsoft.ApiApp) |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | Web Apps | Yes | [Yes](https://portal.azure.com/#create/Microsoft.WebSite)  | Yes, with limitations (see below) |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
 | Notification Hubs | Yes | [Yes](https://portal.azure.com/#create/Microsoft.NotificationHub) | Yes  | [Create Notification Hub](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
 | Logic Apps | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Yes   |          |        |
@@ -99,7 +99,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| CDN | Yes (preview) | No |  |  |  |
+| CDN | Yes | [Yes](https://portal.azure.com/#create/Microsoft.CDN) |  |  |  |
 | Media Service | No | No |  |  |  |
 
 
@@ -124,7 +124,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Yes | [Yes](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | No   |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Yes | [Yes](https://portal.azure.com/#create/Microsoft.AppInsights) | No   |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Maps | Yes   | [Yes](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) |         |          |        |
 | Visual Studio account | Yes |  |      |          | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -132,7 +132,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 | Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automation | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Yes     |          |        |
+| Automation | Yes  | [Yes](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.5) | Yes     |          |        |
 | Key Vault | Yes    | No | Yes            | [Key Vault REST](https://msdn.microsoft.com/library/azure/dn903609.aspx) |        |
 | Scheduler | Yes   | No |        |          | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Yes | No | Yes   |          |        |

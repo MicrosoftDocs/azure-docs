@@ -3,8 +3,8 @@
 	description="Create a new storage account, manage your access keys, or delete a storage account in the Azure Portal."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # About Azure storage accounts
@@ -137,3 +137,4 @@ To remove a storage account that you are no longer using, navigate to the storag
 
 - To learn more about Azure Storage, see the Azure Storage documentation on [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
