@@ -56,8 +56,8 @@ The following diagrams depict an example high-level solution with connectivity o
 Using Standard App Service Features:
 ![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions.png "Using Standard App Service Features")
 
-Using an App Service Environment
-![Using an App Service Environment](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions-ase.png )
+Using an App Service Environment:
+![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions-ASE.png "Using an App Service Environment")
 
 ## Business Benefits ##
 
