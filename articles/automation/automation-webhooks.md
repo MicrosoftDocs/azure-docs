@@ -60,6 +60,7 @@ For example, if you are starting the following runbook from the Azure Portal and
 ![WebhookData parameter from UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
 For the above runbook, if you have the following properties for the WebhookData parameter:
+
 1. WebhookName: *MyWebhook*
 2. RequestHeader: *From=Test User*
 3. RequestBody: *[“VM1”, “VM2”]*
