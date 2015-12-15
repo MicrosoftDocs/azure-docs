@@ -52,7 +52,7 @@ The best way to deploy a web app is to set up a [continuous delivery workflow](h
 
 Another deployment option is to use a cloud-based service such as [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). For more information, see [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Continuous delivery using Visual Studio Team Services
+##<a name="vsts"></a>Continuous delivery using Visual Studio Team Services
 
 [Visual Studio Team Services](http://www.visualstudio.com/) (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration. The service is free for a team of up to 5 developers. You can do continuous delivery to a web app in App Services, and your repository can use either [Git or TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
@@ -202,5 +202,4 @@ For information about other deployment topics, see the Deploy section in [Web Ap
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

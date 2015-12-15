@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 
@@ -47,10 +47,8 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 - Azure PowerShell.
 
-> [AZURE.IMPORTANT] Starting with the release of Azure PowerShell 1.0 Preview, the Switch-AzureMode cmdlet is no longer available, and cmdlets that were in the Azure ResourceManger module have been renamed. The examples in this article use the new PowerShell 1.0 Preview naming convention. For detailed information, see [Deprecation of Switch-AzureMode in Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running, and due to the removal of Switch-AzureMode, you should download and install the latest Azure PowerShell by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
 
@@ -58,7 +56,7 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -68,7 +66,7 @@ After successfully signing in you will see some information on screen that inclu
 To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy the subscription Id from the information displayed from previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
 
@@ -78,7 +76,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
 
 ## Change the service tier and performance level of your SQL database
 
-Run the **Set-AzureRMSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -88,7 +86,7 @@ Run the **Set-AzureRMSqlDatabase** cmdlet and set the **-RequestedServiceObjecti
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
 
 
   
@@ -112,10 +110,10 @@ Run the **Set-AzureRMSqlDatabase** cmdlet and set the **-RequestedServiceObjecti
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     

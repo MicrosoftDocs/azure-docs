@@ -3,7 +3,7 @@
  description="Learn about how the Azure Automation service can be used to manage Azure Traffic Manager." 
  services="traffic-manager, automation" 
  documentationCenter="" 
- authors="eamonoreilly" 
+ authors="joaoma" 
  manager="carmonm" 
  editor=""/>
 

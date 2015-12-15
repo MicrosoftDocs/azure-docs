@@ -155,13 +155,13 @@ TPM Instance Name | Enter the name of the **BizTalk Trading Partner Management**
 
 
 ## Add your partners, agreements, certificates, and schemas 
-In the Azure Management Portal, open your TPM API App. In the **Components** section, add your Partners, Agreements, Certificates, and Schemas. 
+In the Azure portal, open your TPM API App. In the **Components** section, add your Partners, Agreements, Certificates, and Schemas. 
 
 You can also add agreements to your AS2 connectors, X12 API Apps, and EDIFACT API Apps. 
 
 
 ## Monitor your API Apps
-In the Azure Management Portal, open your TPM API App. In the **Operations** section, you can view different management operations. For example, you can:
+In the Azure portal, open your TPM API App. In the **Operations** section, you can view different management operations. For example, you can:
 
 - View Informational and Error events
 - View memory usage and thread count of the worker process (w3wp)

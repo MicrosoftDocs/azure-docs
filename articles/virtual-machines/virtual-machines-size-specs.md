@@ -120,7 +120,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_D11\same|2|14 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D12\same|4|28 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
 |Standard_D13\same|8|56 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
-|Standard_D14\same|16|112 GB|16|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
+|Standard_D14\same|16|112 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 
 ## Standard tier: Dv2-series
 
@@ -130,11 +130,11 @@ The following tables show the sizes and the capacities they provide.
 |Standard_D2_v2\same|2|7 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D3_v2\same|4|14 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
 |Standard_D4_v2\same|8|28 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
-|Standard_D5_v2\same|16|56 GB|16|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
+|Standard_D5_v2\same|16|56 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 |Standard_D11_v2\same|2|14 GB|2|<p>OS = 1023 GB</p><p>Temporary (SSD) =100 GB</p>|4|4x500|
 |Standard_D12_v2\same|4|28 GB|4|<p>OS = 1023 GB</p><p>Temporary (SSD) =200 GB</p>|8|8x500|
 |Standard_D13_v2\same|8|56 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =400 GB</p>|16|16x500|
-|Standard_D14_v2\same|16|112 GB|16|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
+|Standard_D14_v2\same|16|112 GB|8|<p>OS = 1023 GB</p><p>Temporary (SSD) =800 GB</p>|32|32x500|
 
 ## Standard tier: DS-series*
 
@@ -147,7 +147,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_DS11\same|2|14|2|<p>OS = 1023 GB</p><p>Local SSD disk = 28 GB</p>|4|72|<p>6,400</p><p>64 MB per second</p>|
 |Standard_DS12\same|4|28|4|<p>OS = 1023 GB</p><p>Local SSD disk = 56 GB</p>|8|144|<p>12,800</p><p>128 MB per second</p>|
 |Standard_DS13\same|8|56|8|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|16|288|<p>25,600</p><p>256 MB per second</p>|
-|Standard_DS14\same|16|112|16|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|32|576|<p>50,000</p><p>512 MB per second</p>|
+|Standard_DS14\same|16|112|8|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|32|576|<p>50,000</p><p>512 MB per second</p>|
 
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
 
@@ -159,7 +159,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_G2\same|4|56 GB|2|<p>OS = 1023 GB</p><p>Local SSD disk = 768 GB</p>|8|8 x 500|
 |Standard_G3\same|8|112 GB|4|<p>OS = 1023 GB</p><p>Local SSD disk = 1,536 GB</p>|16|16 x 500|
 |Standard_G4\same|16|224 GB|8|<p>OS = 1023 GB</p><p>Local SSD disk = 3,072 GB</p>|32|32 x 500|
-|Standard_G5\same|32|448 GB|16|<p>OS = 1023 GB</p><p>Local SSD disk = 6,144 GB</p>|64|<p>64 x 500</p>|
+|Standard_G5\same|32|448 GB|8|<p>OS = 1023 GB</p><p>Local SSD disk = 6,144 GB</p>|64|<p>64 x 500</p>|
 
 ## Standard tier: GS-series
 
@@ -169,7 +169,7 @@ The following tables show the sizes and the capacities they provide.
 |Standard_GS2|4|56|2|<p>OS = 1023 GB</p><p>Local SSD disk = 112 GB</p>|8|528|<p>10,000</p><p>250 MB per second</p>|
 |Standard_GS3|8|112|4|<p>OS = 1023 GB</p><p>Local SSD disk = 224 GB</p>|16|1056|<p>20,000</p><p>500 MB per second</p>|
 |Standard_GS4|16|224|8|<p>OS = 1023 GB</p><p>Local SSD disk = 448 GB</p>|32|2112|<p>40,000</p><p>1,000 MB per second</p>|
-|Standard_GS5|32|448|16|<p>OS = 1023 GB</p><p>Local SSD disk = 896 GB</p>|64|4224|<p>80,000</p><p>2,000 MB per second</p>|
+|Standard_GS5|32|448|8|<p>OS = 1023 GB</p><p>Local SSD disk = 896 GB</p>|64|4224|<p>80,000</p><p>2,000 MB per second</p>|
 
 
 ### See also

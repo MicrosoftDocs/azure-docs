@@ -19,6 +19,13 @@
 
 # Azure Windows VM Extension Configuration Samples
 
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br> 
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 
@@ -26,7 +33,7 @@
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
 
 
-To learn more about these extensions, see [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+To learn more about these extensions, see [Azure VM Extensions Overview.](virtual-machines-extensions-features.md)
 
 To learn more about authoring extension templates, see [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
 

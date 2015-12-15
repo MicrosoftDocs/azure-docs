@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -26,6 +26,16 @@ Related links:
 
 - For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.0.9131.0
+Released: 2015 December
+
+**Fixed issues:**
+
+- Password sync might not work when you change passwords in AD DS, but works when you do set password.
+- When you have a proxy server, authentication to Azure AD might fail during installation or un upgrade on the configuration page.
+- Updating from a previous release of Azure AD Connect with a full SQL Server will fail if you are not SA in SQL.
+- Updating from a previous release of Azure AD Connect with a remote SQL Server will show the error “Unable to access the ADSync SQL database”.
 
 ## 1.0.9125.0
 Released: 2015 November
@@ -44,7 +54,7 @@ Released: 2015 November
 
 **New supported scenario:**
 
-- Supports multiple on-premises Exchange organizations. See [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/en-us/library/jj873754.aspx) for more information.
+- Supports multiple on-premises Exchange organizations. See [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/library/jj873754.aspx) for more information.
 
 **Fixed issues:**
 

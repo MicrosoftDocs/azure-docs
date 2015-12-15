@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="12/04/2015"
 	ms.author="selcint" />
 
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
@@ -202,7 +202,7 @@ In this application pattern, you deploy 2-tier or 3-tier application to Azure by
 
 With Cloud Services, Azure maintains the infrastructure for you, performs routine maintenance, patches the operating systems, and attempts to recover from service and hardware failures. When your application needs scale-out, automatic, and manual scale out options are available for your cloud service project by increasing or decreasing the number of instances or virtual machines that are used by your application. In addition, you can use on-premises Visual Studio to deploy your application to a cloud service project in Azure.
 
-In summary, if you don’t want to own extensive administrative tasks for the presentation/business tier and your application does not require any complex configuration of software or the operating system, use Azure Cloud Services. If Azure SQL Database does not support all the features you are looking for, use SQL Server in an Azure Virtual Machine for the data tier. Running an application on Azure Cloud Services and storing data in Azure Virtual Machines combines the benefits of both services. For a detailed comparison, see the section in this topic on [Comparing development strategies in Azure](#comparing-development-strategies-in-azure).
+In summary, if you don’t want to own extensive administrative tasks for the presentation/business tier and your application does not require any complex configuration of software or the operating system, use Azure Cloud Services. If Azure SQL Database does not support all the features you are looking for, use SQL Server in an Azure Virtual Machine for the data tier. Running an application on Azure Cloud Services and storing data in Azure Virtual Machines combines the benefits of both services. For a detailed comparison, see the section in this topic on [Comparing development strategies in Azure](#comparing-web-development-strategies-in-azure).
 
 In this application pattern, the presentation tier includes a web role, which is a Cloud Services component running in the Azure execution environment and it is customized for web application programming as supported by IIS and ASP.NET. The business or backend tier includes a worker role, which is a Cloud Services component running in the Azure execution environment and it is useful for generalized development, and may perform background processing for a web role. The database tier resides in a SQL Server virtual machine in Azure. The communication between the presentation tier and the database tier happens directly or over the business tier – worker role components.
 

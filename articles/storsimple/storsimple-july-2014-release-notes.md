@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/16/2015"
+   ms.date="12/01/2015"
    ms.author="v-sharos" />
 
 # StorSimple 8000 Series Release Version release notes - July 2014 
@@ -35,7 +35,7 @@ The following table provides a summary of known issues in this release.
 | 5 | Device monitoring charts | In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device. | Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE. To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet. | Yes | Yes |
 | 6 | Storage accounts | Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. | | Yes | Yes |
 | 7 | Failback | A failback within 24 hours of disaster recovery (DR) is not supported. | | Yes | No |
-| 8 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure portal. | | Yes | No |
+| 8 | Device failover | Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. | | Yes | No |
 | 9 | Installation | During StorSimple Adapter for SharePoint installation, you need to provide a device IP for the install to finish successfully. | | Yes | No |
 | 10 | Network interfaces | Network interfaces DATA 2 and DATA 3 were swapped in the software. | Please contact Microsoft Support if you need to configure these interfaces. | Yes | No |
 

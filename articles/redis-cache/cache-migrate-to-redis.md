@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="10/23/2015"
+    ms.date="12/03/2015"
     ms.author="sdanie" />
 
 # Migrate from Managed Cache Service to Azure Redis Cache
@@ -56,7 +56,7 @@ Microsoft Azure Redis Cache is available in the following tiers:
 
 -	**Basic** – Single node. Multiple sizes up to 53 GB.
 -	**Standard** – Two-node Primary/Replica. Multiple sizes up to 53 GB. 99.9% SLA.
--	**Premium** – Currently in preview. Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). No SLA during the preview period.
+-	**Premium** – Two-node Primary/Replica with up to 10 shards. Multiple sizes from 6 GB to 530 GB (contact us for more). All Standard tier features and more including support for [Redis cluster](cache-how-to-premium-clustering.md), [Redis persistence](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md). 99.9% SLA.
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -64,9 +64,9 @@ A starting point for migration is to pick the size that matches the size of your
 
 ## Create a Cache
 
-Caches in Azure Redis Cache can be created in the [Azure preview portal](https://portal.azure.com), or by using ARM templates, PowerShell, or Azure CLI.
+Caches in Azure Redis Cache can be created in the [Azure Portal](https://portal.azure.com), or by using ARM templates, PowerShell, or Azure CLI.
 
--	To create a cache in the Azure preview portal, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+-	To create a cache in the Azure Portal, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 -	To create a cache using ARM templates, see [Create a Redis cache using a template](cache-redis-cache-arm-provision.md).
 -	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](cache-manage-cli.md).

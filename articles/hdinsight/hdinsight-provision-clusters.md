@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create Hadoop clusters in HDInsight | Microsoft Azure"
-   	description="Learn how to create clusters for Azure HDInsight by using the Azure Preview Portal, Azure PowerShell, a command line, or a .NET SDK."
+   	description="Learn how to create clusters for Azure HDInsight by using the Azure Portal, Azure PowerShell, a command line, or a .NET SDK."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="12/11/2015"
    ms.author="jgao"/>
 
 # Create Hadoop clusters in HDInsight
@@ -55,7 +55,7 @@ The following are the basic configuration options for creating a HDInsight clust
 
 	You can create HDInsight clusters on one of the following two operating systems:
 	- **HDInsight on Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux) **: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Cluster type** and **cluster size (a.k.a. data nodes)**
 
@@ -132,7 +132,7 @@ The following are the basic configuration options for creating a HDInsight clust
 
 	The HDInsight clusters allow you to configure two user accounts during provisioning:
 
-	- HTTP user. The default user name is admin using the basic configuration on the Azure preview portal.
+	- HTTP user. The default user name is admin using the basic configuration on the Azure Portal.
 	- RDP user (Windows clusters): It is used to connect to the cluster using RDP. When you create the account, you must set an expiration date that is within 90 days from today.
 	- SSH User (Linux clusters): Is used to connect to the cluster using SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -222,7 +222,7 @@ For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluste
 
 ### Customize clusters using Script action
 
-You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the preview portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
+You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Use Azure virtual networks
@@ -254,16 +254,16 @@ For more information on Virtual Network features, benefits, and capabilities, se
 >
 > It is highly recommended to designate a single subnet for one cluster.
 
-## Create using the preview portal
+## Create using the Portal
 
 You can refer to the [basic configuration options](#basic-configuration-options), and the [advanced configuration options](#advanced-configuration-options) for the explanations of the fields.
 
 **To create an HDInsight cluster**
 
-1. Sign in to the [Azure preview portal][azure-preview-portal].
+1. Sign in to the [Azure Portal][azure-preview-portal].
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure preview portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. Type or select the following values:
 
@@ -299,8 +299,6 @@ You can refer to the [basic configuration options](#basic-configuration-options)
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
 			>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
-  
-
   		
 		* **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
  
@@ -308,25 +306,19 @@ You can refer to the [basic configuration options](#basic-configuration-options)
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
-
 			For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
-
 
 			>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 		
   		* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
-  	
 
 			![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
 
-
     	* **Azure Storage Keys**: Specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
-    
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
-
-4. Click **Create**. Selecting **Pin to Startboard** will add a tile for cluster to the Startboard of your preview portal. The icon will indicate that the cluster is being created, and will change to display the HDInsight icon once creation has completed.
+4. Click **Create**. Selecting **Pin to Startboard** will add a tile for cluster to the Startboard of your Portal. The icon will indicate that the cluster is being created, and will change to display the HDInsight icon once creation has completed.
 
 
 	| While creating | Creationg complete |
@@ -356,7 +348,7 @@ You can refer to the [basic configuration options](#basic-configuration-options)
 	* **Users** (![users icon](./media/hdinsight-provision-clusters/users.png)): Allows you to set permissions for _portal management_ of this cluster for other users on your Azure subscription.
 	
 
-		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the preview portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
+		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
 		
 	* **Tags** (![tag icon](./media/hdinsight-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
 
@@ -413,6 +405,7 @@ The following procedures are needed to create an HDInsight cluster by using Azur
 - Create an Azure Storage account
 - Create an Azure Blob container
 - Create an HDInsight cluster
+
 
 	$subscriptionId = "<Azure Subscription ID>"
 	

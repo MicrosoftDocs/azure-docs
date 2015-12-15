@@ -272,7 +272,7 @@ If you want to specify it at runtime instead, you can call the following method 
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Management Portal.
+The connection string for your application is displayed on the Azure Classic Portal.
 
 ### Items name change
 

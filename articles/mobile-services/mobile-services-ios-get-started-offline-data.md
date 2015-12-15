@@ -18,6 +18,11 @@
 
 # Get Started with Offline Data Sync in Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 Offline sync allows you to view, add, or modify data in a mobile app even when there is no network connection. In this tutorial, you'll learn how your app can automatically store changes in a local offline database and sync those changes whenever it's back online.
@@ -198,7 +203,7 @@ In this section, you will turn of Wi-Fi in the simulator to create an offline sc
 
 3. View the contents of the remote TodoItem table. Verify that the new items have _not_ been synced to the server.
 
-   - For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
+   - For the JavaScript backend, go to the [Azure classic portal](http://manage.windowsazure.com), and click the Data tab to view the contents of the `TodoItem` table.
    - For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
 4. Turn on Wi-Fi in the iOS simulator. Next, perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".

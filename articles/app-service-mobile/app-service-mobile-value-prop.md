@@ -47,12 +47,9 @@ For more information on Azure App Service platform, see [Azure App Service].
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 <!-- URLs. -->
-[Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Get Started]: app-service-mobile-ios-get-started.md
 
-[Management Portal]: https://manage.windowsazure.com/
-[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[JavaScript backend version]: ../mobile-services-ios-get-started.md
  
