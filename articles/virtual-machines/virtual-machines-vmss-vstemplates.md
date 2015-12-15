@@ -86,7 +86,7 @@ Now you can edit the Template to customize it for your application's needs, such
 
 ## Exploring your VM Scale Set
 
-11. Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.
+Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.
 
 	![Cloud Explorer][cloud_explorer]
 
