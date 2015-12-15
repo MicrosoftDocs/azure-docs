@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="12/15/2015"
    ms.author="alkohli" />
 
 # StorSimple system limits
