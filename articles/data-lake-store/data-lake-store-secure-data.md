@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
@@ -159,6 +159,7 @@ When you remove security groups ACLs from Azure Data Lake Store file system, you
 ## See also
 
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+- [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)

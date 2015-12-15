@@ -131,7 +131,7 @@ CoreOS is a small, optimized distro for pure compute scale with a high degree of
 13. [The basics: RAID](virtual-machines-linux-configure-raid.md)
 14. [The basics: Capturing a Linux VM to Make a Template](virtual-machines-linux-capture-image.md)
 15. [The basics: The Azure Linux Agent](virtual-machines-linux-agent-user-guide.md)
-16. [The basics: Azure VM Extensions and Features](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [The basics: Azure VM Extensions and Features](virtual-machines-extensions-features.md)
 17. [The basics: Injecting Custom Data into a VM to use with Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blogging the basics: Building Highly Available Linux on Azure in 12 Steps](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blogging the basics: Automate Provisioning Linux on Azure with Azure CLI, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)

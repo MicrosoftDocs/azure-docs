@@ -20,7 +20,7 @@
 
 This article describes how to create a client application that uses the [Microsoft Azure IoT device SDK for Java][lnk-java-sdk] to communicate with Azure IoT Hub. The tutorial shows you how to create and build the project using the [Maven][apache-maven] tool. You can follow these instructions on either a Windows or Linux machine.
 
-You can find the Java API docs [here][lnk-java-api-docs].
+You can view the [Java API docs][lnk-java-api-docs] for reference.
 
 ## Installation
 
@@ -214,8 +214,8 @@ To change the logging granularity, include the following line in your `config.pr
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]  You can find an explanation of the different logging levels 
-[here](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
+> [AZURE.NOTE]  You can read an explanation of the different [logging levels] 
+(http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
 
 Then, set the JVM property `java.util.logging.config.file={Path to your config.properties file}`.
 

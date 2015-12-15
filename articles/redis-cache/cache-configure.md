@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="How to configure Azure Redis Cache"
-   description="Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	pageTitle="How to configure Azure Redis Cache"
+	description="Understand the default Redis configuration for Azure Redis Cache and learn how to configure your Azure Redis Cache instances"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn" />
 <tags 
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="12/03/2015"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="12/11/2015"
+	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
 
@@ -116,7 +116,20 @@ Click **Storage Account** to select the storage account to use, and choose eithe
 
 Click **OK** to save the persistence configuration.
 
->[AZURE.IMPORTANT] Redis data persistence is only available for Premium caches.
+>[AZURE.IMPORTANT] Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
+
+## Redis Cluster Size
+
+Click **(PREVIEW) Redis Cluster Size** to add or remove shards from a running premium cache with clustering enabled.
+
+>[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
+
+![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
+
+To change the shard count, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
+
+>[AZURE.IMPORTANT] Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+
 
 ## Users and tags
 
