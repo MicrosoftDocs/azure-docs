@@ -36,7 +36,7 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 
 ### Windows SDK
 
-- Fix a hang during crash when using the Windows Phone's Silverlight SDK. After this change crashes that happen ~2 seconds after the call to WindowsAppInitialier.InitializeAsync(...) will be persisted to disk and will be sent the next time the app is started. Crashes that happens in the ~2 seconds timeframe will be ignored. 
+- Fix a hang during crash when using the Windows Phone's Silverlight SDK. After this change, any crash that happens later than ~2 seconds after the call to WindowsAppInitialier.InitializeAsync(...) will be persisted to disk and will be sent the next time the app is started. If a crash happens before ~2 seconds after the call, it will be ignored.  
 - Set the NuGet's dependencies to a specific version of Core and Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
 
 ### Core SDK
