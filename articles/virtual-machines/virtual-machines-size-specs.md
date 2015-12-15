@@ -163,4 +163,4 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md)
 
-[Basic tier sizes for virtual machines](virtual-machines-basic-tier.md)
+
