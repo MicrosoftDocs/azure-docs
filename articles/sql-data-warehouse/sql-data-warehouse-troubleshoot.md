@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/10/2015"
+   ms.date="12/11/2015"
    ms.author="twounder"/>
 
 # Troubleshooting
-Azure SQL Data Warehouse is a s
+The following topic lists some of the more common issues customers run into with Azure SQL Data Warehouse.
 
 ## Connectivity
 Connecting to Azure SQL Data Warehouse can fail for a couple of common reasons:
@@ -36,15 +36,31 @@ SQL Data Warehouse supports [Visual Studio 2013/2015](sql-data-warehouse-get-sta
 See our [Connect](sql-data-warehouse-get-started-connect.md) pages to learn more.
 
 ## Query Performance
-SQL Data Warehouse uses common SQL Server constructs for executing queries including statistics. Statistics are objects that contain information about the range and frequency of values in a database column. The query engine uses these statistics to optimize query execution and improve query performance.
+SQL Data Warehouse uses common SQL Server constructs for executing queries including statistics. [Statistics](sql-data-warehouse-develop-statistics.md) are objects that contain information about the range and frequency of values in a database column. The query engine uses these statistics to optimize query execution and improve query performance. You can use the following query determine the last time your statistics where updated.  
+
+```
+SELECT
+	sm.[name]								    AS [schema_name],
+	tb.[name]								    AS [table_name],
+	co.[name]									AS [stats_column_name],
+	st.[name]									AS [stats_name],
+	STATS_DATE(st.[object_id],st.[stats_id])	AS [stats_last_updated_date]
+FROM
+	sys.objects				AS ob
+	JOIN sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
+	JOIN sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
+									AND	st.[object_id]		= sc.[object_id]
+	JOIN sys.columns		AS co	ON	sc.[column_id]		= co.[column_id]
+									AND	sc.[object_id]		= co.[object_id]
+	JOIN sys.types           AS ty	ON	co.[user_type_id]	= ty.[user_type_id]
+	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
+	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
+WHERE
+	1=1 
+	AND st.[user_created] = 1;
+```
 
 See our [Statistics](sql-data-warehouse-develop-statistics.md) page to learn more. 
-
-
-## Data Loading
-
-See our [Loading](sql-data-warehouse-get-started-load-with-polybase.md) pages to learn more. 
-
 
 ## Key performance concepts
 
