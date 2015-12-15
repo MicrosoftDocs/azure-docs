@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/14/15-->
+<!--author=alkohli last changed: 12/15/15-->
 
 | Limit identifier | Limit | Comments |
 |----------------- | ------|--------- |
@@ -7,7 +7,7 @@
 | Maximum number of volumes | 255 | |
 | Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
 | Maximum size of a tiered volume on physical devices | 64 TB for 8100 and 8600 | 8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure | 30 TB for 8010A <br></br> 64 TB for 8020AP | 8010A and 8020AP are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
+| Maximum size of a tiered volume on virtual devices in Azure | 30 TB for 8010 <br></br> 64 TB for 8020 | 8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
 | Maximum size of a locally pinned volume on physical devices | 10 TB for 8100 <br></br> 25 TB for 8600 | 8100 and 8600 are physical devices. |
 | Maximum number of iSCSI connections | 512 | |
 | Maximum number of iSCSI connections from initiators | 512 | |
