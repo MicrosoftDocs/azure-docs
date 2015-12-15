@@ -244,7 +244,7 @@ That is it! Now whenever the service is run, it will start sending traces to the
 ![Kibana showing PartyCluster application events][2]
 
 ## Next steps
-- [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
+- [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
