@@ -78,15 +78,16 @@ Once the cache is created you connect to it and use it just like a non-clustered
 	    }
 	}
 
-## Add or remove shards from a running premium cache
+<a name="cluster-size"></a>
+## Change the cluster size on a running premium cache
 
-To add or remove shards from a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Settings** blade.
+To change the cluster size on a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Settings** blade.
 
 >[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 
 ![Redis cluster size][redis-cache-redis-cluster-size]
 
-To change the shard count, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
+To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
 ## Clustering FAQ
 

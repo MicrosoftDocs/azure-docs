@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="12/11/2015"
+	ms.date="12/16/2015"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -118,9 +118,10 @@ Click **OK** to save the persistence configuration.
 
 >[AZURE.IMPORTANT] Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 
+<a name="cluster-size"></a>
 ## Redis Cluster Size
 
-Click **(PREVIEW) Redis Cluster Size** to add or remove shards from a running premium cache with clustering enabled.
+Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
 
 >[AZURE.NOTE] Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 

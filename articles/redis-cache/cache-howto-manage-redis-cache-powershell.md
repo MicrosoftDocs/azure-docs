@@ -79,7 +79,7 @@ The following table contains properties and descriptions for commonly used param
 | RedisConfiguration | Specifies Redis configuration settings for maxmemory-delta, maxmemory-policy, and notify-keyspace-events. Note that maxmemory-delta and notify-keyspace-events are available for Standard and Premium caches only. |          |
 | EnableNonSslPort   | Indicates whether the non-SSL port is enabled.                                                                                                                                                                     | False    |
 | MaxMemoryPolicy    | This parameter has been deprecated - use RedisConfiguration instead.                                                                                                                                              |          |
-| StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache.                                                                                                                       |          |
+| StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet.                                                                                                                     |          |
 | Subnet             | When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache.                                                                                                                  |          |
 | VirtualNetwork     | When hosting your cache in a VNET, specifies the resource ID of the VNET in which to deploy the cache.                                                                                                             |          |
 | KeyType            | Specifies which access key to regenerate when renewing access keys. Valid values are: Primary, Secondary |  |                                                                                                                                                                                                              |          |
@@ -242,7 +242,8 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## Scale a Redis cache with PowerShell
+<a name="scale"></a>
+## To scale a Redis cache
 
 `Set-AzureRmRedisCache` can be used to scale an Azure Redis cache instance when the `Size`, `Sku`, or `ShardCount` properties are modified. 
 
