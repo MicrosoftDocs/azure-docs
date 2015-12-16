@@ -44,7 +44,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## Scenario Description
+## Scenario description
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -76,7 +76,7 @@ To configure the integration of GaggleAMP into Azure AD, you need to add GaggleA
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with GaggleAMP based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in GaggleAMP to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in GaggleAMP needs to be established.<br>
+For single sign-on to work, Azure AD needs to know the counterpart user in GaggleAMP to an user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in GaggleAMP needs to be established.<br>
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in GaggleAMP.
 
 To configure and test Azure AD single sign-on with GaggleAMP, you need to complete the following building blocks:
@@ -87,7 +87,7 @@ To configure and test Azure AD single sign-on with GaggleAMP, you need to comple
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD Single Sign-On
+### Configuring Azure AD single sign-on
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your GaggleAMP application.
 
@@ -107,7 +107,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your GaggleAMP application using the following pattern: **“https://secure4.gaggleamp.com”**.
 
-    > [AZURE.NOTE]Please contact your [GaggleAMP sales team](mailto:sales@gaggleamp.com) if you don't know what the Sign On URL of your application is."
+    > [AZURE.NOTE]Please contact your [GaggleAMP sales team](mailto:sales@gaggleamp.com) if you need the **Sign On URL** for your application."
 
     b. Click **Next**.
 
@@ -224,13 +224,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.<br>
 When you click the GaggleAMP tile in the Access Panel, you should get automatically signed-on to your GaggleAMP application.
 
 
-## Additional Resources
+## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
