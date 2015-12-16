@@ -18,11 +18,6 @@
 
 # Migrating a SQL Server database to Azure SQL Database
 
-> [AZURE.SELECTOR]
-- [Determine Compatibility](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [Migrate Compatible Database](sql-database-migrate-compatible.md)
-- [Fix Database Compatibility Issues](sql-database-fix-compatibility-issues.md)
-
 This article discusses migrating an on-premises SQL Server 2005 or later database to Azure SQL Database. The migration process requires that you validate the existing database for compatibility and then migrate your schema and your data from your current environment into SQL Database. With [SQL Database V12](../sql-database-v12-whats-new.md), you will see very few or not compatibility issues during this migration. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering  to [fix these incompatibilities](../sql-database-cloud-migrate-fix-compatibility-issues.md) before the SQL Server database can be migrated. 
 
 >[AZURE.NOTE] To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).

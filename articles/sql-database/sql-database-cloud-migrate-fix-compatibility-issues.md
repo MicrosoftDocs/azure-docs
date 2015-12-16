@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrating a SQL Server database to Azure SQL Database"
-   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
+   pageTitle="Fix SQL Server database compatibility issues before migration to SQL Database"
+   description="Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -16,11 +16,11 @@
    ms.date="10/12/2015"
    ms.author="carlrab"/>
 
-# Fix database compatibility issues
+# Fix SQL Server database compatibility issues before migration to SQL Database
 
 If you determine that your source SQL Server database is not compatible, you have a number of options to fix the database compatibility issues that you [identified previously](../sql-database-cloud-migrate.md).
 
-- Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/). You can use this CodePlex tool to generate a T-SQL script from an incompatible source database that is then transformed by the wizard to make it compatible with the SQL Database and then connect to Azure SQL Database to execute the script. This tool will also analyze trace files to determine compatiblity issues. The script can be generated with schema only or can include data in BCP format. Additional documentation, including step-by-step guidance is available on Codeplex at [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/).  
+- Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/). You can use this CodePlex tool to generate a T-SQL script from an incompatible source database that is then transformed by the wizard to make it compatible with the SQL Database and then connect to Azure SQL Database to execute the script. This tool will also analyze trace files to determine compatiblity issues. The script can be generated with schema only or can include data in BCP format. Additional documentation, including step-by-step guidance is available on CodePlex at [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/).  
 
  ![SAMW migration diagram](./media/sql-database-cloud-migrate/02SAMWDiagram.png)
 
@@ -30,6 +30,6 @@ If you determine that your source SQL Server database is not compatible, you hav
 
   ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
 
- > [AZURE.NOTE] If schema-only migration is required, the schema can be published directly from Visual Studio directly to Azure SQL Database. Use this method when the database schema requires more changes than can be handled by the migration wizard alone.
+  > [AZURE.NOTE] If schema-only migration is required, the schema can be published directly from Visual Studio directly to Azure SQL Database. Use this method when the database schema requires more changes than can be handled by the migration wizard alone.
 
 - SQL Server Management Studio. You can fix the issues in Management Studio using various Transact-SQL commands, such as **ALTER DATABASE**.

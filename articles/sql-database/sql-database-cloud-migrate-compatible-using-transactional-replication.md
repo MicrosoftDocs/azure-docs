@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrating a SQL Server database to Azure SQL Database"
-   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
+   pageTitle="Migrate to SQL Database using transactional replication"
+   description="Microsoft Azure SQL Database, database migration, import database, transactional replication"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -16,7 +16,7 @@
    ms.date="12/16/2015"
    ms.author="carlrab"/>
 
-# Using transactional replication to migrate a SQL Server database to SQL Database with minimal downtime
+# Migrate SQL Server database to SQL Database using transactional replication
 
 When you need to cannot afford to remove your your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. With transactional replication, all changes to your data or schema that happen between the moment you start migrating and the moment you complete the migration will show up in your Azure SQL Database. Once the migration is complete, you just need to change the connection string of your applications to point them to your Azure SQL Database instead of pointing them to your on premise database. Once transactional replication drains any changes left on your on-premises database and all your applications point to Azure DB, you can now safely uninstall replication leaving your Azure SQL Database as the production system.
 

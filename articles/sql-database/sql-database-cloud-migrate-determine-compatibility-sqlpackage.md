@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrating a SQL Server database to Azure SQL Database"
-   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
+   pageTitle="Determine SQL Database compatibility using SqlPackage.exe"
+   description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, SqlPackage"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -16,7 +16,9 @@
    ms.date="12/15/2015"
    ms.author="carlrab"/>
 
-# Determine if your database is compatible using sqlpackage.exe
+# Determine SQL Database compatibility using SqlPackage.exe
+
+In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
 
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 2. Execute the following sqlpackage.exe command with the following arguments for your environment:
