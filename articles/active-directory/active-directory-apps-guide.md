@@ -85,15 +85,15 @@ Once you set up single sign-on to your apps and resources, you can then further 
 
 ##App Proxy: Enable SSO and Remote Access to On-Premises Applications
 
-If you have applications located inside your private network that need to be accessed by users and devices who are currently not on the network, then you can use Azure AD Application Proxy to enable secure, remote access to those apps.
+If you have applications in your private network that need to be accessed by users and devices outside the network, then you can use Azure AD Application Proxy to enable secure, remote access to those apps.
 
 | Article Guide |   |
 | :---: | --- |
 | Overview of Azure AD Application Proxy and how it works | [Providing secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)<br /><br />[How does Azure AD App Proxy Work?](active-directory-appssoaccess-enable-hybrid-access.md) |
-| Tutorials on how to configure Application Proxy and publish your first application | [How to Set Up Azure AD App Proxy](active-directory-application-proxy-enable.md)<br /><br />[How to Silently Install the App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[How to Publish Applications using App Proxy](active-directory-application-proxy-publish.md)<br /><br />[How to Use your own Domain Name](active-directory-application-proxy-custom-domains.md) |
+| Tutorials on how to configure Application Proxy and how to publish your first app | [How to Set Up Azure AD App Proxy](active-directory-application-proxy-enable.md)<br /><br />[How to Silently Install the App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[How to Publish Applications using App Proxy](active-directory-application-proxy-publish.md)<br /><br />[How to Use your own Domain Name](active-directory-application-proxy-custom-domains.md) |
 | How to enable single sign-on and conditional access for apps published with App Proxy | [Single-sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Conditional Access and Application Proxy](active-directory-application-proxy-conditional-access.md) |
-| Guidance on how to use Application Proxy for these different use cases | [How to Support Native Client Applications](active-directory-application-proxy-native-client.md)<br /><br />[How to Support Claims-Aware Applications](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[How to Support Applications Published on Separate Networks and Locations](active-directory-application-proxy-connectors.md) |
-| Troubleshooting guidance for Application Proxy | [App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
+| Guidance on how to use Application Proxy for the following scenarios | [How to Support Native Client Applications](active-directory-application-proxy-native-client.md)<br /><br />[How to Support Claims-Aware Applications](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[How to Support Applications Published on Separate Networks and Locations](active-directory-application-proxy-connectors.md) |
+| Troubleshooting guide for Application Proxy | [App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
 
 You may also be interested in [Azure AD Domain Services](active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
 
