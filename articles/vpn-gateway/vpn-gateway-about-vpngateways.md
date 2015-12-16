@@ -22,8 +22,8 @@ VPN Gateways are used to send network traffic between virtual networks and on-pr
 Consider the following items when planning:
 
 - The gateway SKU that you want to use
-- The gateway routing type that is needed for your connection
-- The VPN device that you plan to use, if a VPN device is needed for your configuration
+- The gateway routing type for your connection
+- The VPN device, if required for your configuration
 
 ## Gateway SKUs
 
@@ -46,7 +46,7 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 ## Gateway routing types
 
-There are two gateway types:
+There are two gateway routing types:
 
 - **Policy-based:** Policy-based gateways were previously called *Static Gateways*. The functionality of a static gateway has not changed with the name change. This type of gateway supports policy-based VPNs. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on-premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
  
