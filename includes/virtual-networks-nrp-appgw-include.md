@@ -8,7 +8,7 @@ Application Gateway provides an Azure-managed HTTP load balancing solution based
 | **backendHttpSettingsCollection** |  Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool |
 | **frontendPorts** | This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back end servers |
 | **httpListeners** | Listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload) |
-| **requestRoutingRules** | The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener. Currently, only the basic rule is supported.The basic rule is round-robin load distribution |
+| **requestRoutingRules** | The rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed. Currently works only as Round-robin |
 
 
 Example of an application gateway Json template:

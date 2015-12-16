@@ -5,8 +5,7 @@ Azure DNS is a hosting service for DNS domains, providing name resolution using 
 
 | Property | Description | Sample Value |
 |---|---|---|
-| **DNSzones** | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
-providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| **DNSzones** | Domain zone information to host DNS records of a particular domain | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"| 
 
 
 ### DNS record sets
