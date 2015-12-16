@@ -20,7 +20,7 @@
 
 Azure IoT Hub can support up to a million simultaneously connected devices by increasing the number of IoT Hub S1 tier units or S2 tier units to 2,000. For more information, see [IoT Hub pricing][lnk-pricing].
 
-Each IoT Hub unit allows a certain number of device identities in the registry, which can all be simultaneously connected, and a number of daily messages.
+Each IoT Hub unit allows a certain number of device identities in the registry, which can all be simultaneously connected. Each unit also allows a number of daily messages.
 
 In order to properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
@@ -48,7 +48,7 @@ When receiving device-to-cloud messages, the application back end can expect the
 | S1 | Up to 120 Kb/min per unit, with 2 Mb/s minimum |
 | S2 | Up to 4 Mb/min per unit, with 2 Mb/s minimum |
 
-Cloud-to-device messages performance scales per device, with each device receiving up to 5 messages per minute.
+The performance of cloud-to-device messages scales per device, with each device receiving up to 5 messages per minute.
 
 ## Identity registry operation throughput
 
