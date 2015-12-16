@@ -1,7 +1,7 @@
 Resource|Default Limit|Maximum Limit
 ---|---|---
 Azure Media Services (AMS) accounts in a single subscription||25
-Assets per AMS account||1,000,000
+Assets per AMS account||1,000,000<sup>1</sup>
 Chained tasks per job||30
 Assets per task||50
 Assets per job||100
