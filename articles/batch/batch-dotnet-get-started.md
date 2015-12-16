@@ -27,16 +27,16 @@ This article assumes that you have a working knowledge of C# and Visual Studio, 
 ### Accounts
 
 - **Azure account** - If you do not already have an Azure subscription, you can create a free trial account in minutes at [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-- **Batch account** - See [Create and manage an Azure Batch account](batch-account-create-portal.md).
-- **Storage account** - See the **Create a storage account** section of [About Azure storage accounts](../storage-create-storage-account.md).
+- **Batch account** - Once you have an Azure subscription, [Create and manage an Azure Batch account](batch-account-create-portal.md).
+- **Storage account** - See the **Create a storage account** section in [About Azure storage accounts](../storage-create-storage-account.md).
 
 ### Visual Studio
 
-You must have **Visual Studio 2013** or **above** to build the sample project. Find free and trial versions in the [Overview of Visual Studio 2015 Products][visual_studio].
+You must have **Visual Studio 2013 or above** to build the sample project. You can find free and trial versions of Visual Studio in the [Overview of Visual Studio 2015 Products][visual_studio].
 
 ### *DotNetTutorial* code sample
 
-The [DotNetTutorial][github_dotnettutorial] sample is one of the many code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download the sample by clicking the "Download ZIP" button on the repository home page, or clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link.
+The [DotNetTutorial][github_dotnettutorial] sample is one of the many code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download the sample by clicking the "Download ZIP" button on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link.
 
 ### Batch Explorer (optional)
 
@@ -44,7 +44,7 @@ The Batch Explorer is a free utility included in the [azure-batch-samples][githu
 
 ## Overview of the *DotNetTutorial* sample project
 
-The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**. The following diagram illustrates the primary operations performed by the client application (DotNetTutorial) and the application that is executed by the tasks (TaskApplication). This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available, nearly every Batch scenario will include similar processes.
+The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**. The following diagram illustrates the primary operations performed by the client application (DotNetTutorial) and the application that is executed by the tasks (TaskApplication). This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
 ![Batch example workflow][8]<br/>
 *DotNetTutorial sample application workflow*
@@ -61,7 +61,7 @@ The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of tw
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks complete, they upload their output data to Azure Storage<br/>
 **7.** Download task output from Storage
 
-While not every Batch solution may include the above steps (and may include more), the *DotNetTutorial* sample is designed to show the most common processes within a Batch scenario.
+While not every Batch solution will include the above steps (and may include more), the *DotNetTutorial* sample is designed to show the most common processes within a Batch scenario.
 
 ## Build the *DotNetTutorial* sample project
 
@@ -440,8 +440,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.aspx
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
+[net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[poolcreate_net]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
+[net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
+[net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
+[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[storage_use_blobs]: ../storage/storage-dotnet-how-to-use-blobs.md
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started\batch_workflow_01_sm.png "Create containers in Azure Storage"
