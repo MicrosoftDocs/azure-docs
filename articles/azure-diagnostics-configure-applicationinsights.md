@@ -7,7 +7,7 @@
    manager=""
    editor="" />
 <tags
-   ms.service="application-insights,cloud-services,virtual-machines"
+   ms.service="application-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
