@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure PHP in Azure App Service Web Apps"
+	pageTitle="Configure PHP in Azure App Service Web Apps | Microsoft Azure"
 	description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Configure PHP in Azure App Service Web Apps
@@ -45,27 +45,34 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 ### Azure PowerShell (Windows)
 
-1. Open Windows PowerShell
-2. Type `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` then press enter.
-3. The PHP version is now set.
+1. Open Azure PowerShell, and login to your account:
 
-	![Setting the PHP version with Azure PowerShell][SETPHPVERPS]
-4. You can confirm these settings by typing `Get-AzureWebiste -Name <site-name>` then press enter.
+      PS C:\> Login-AzureRmAccount
 
-	![Verifying the PHP version with Azure PowerShell][GETPHPVERPS]
+2. Set the PHP version for the web app.
+
+      PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. The PHP version is now set. You can confirm these settings:
+
+      PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 
 To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
 
-1. Open Terminal.
-2. Type `azure site set --php-version [5.4 | 5.5] [site-name]` then press enter.
-3. The PHP version is now set.
+1. Open Terminal, and login to your account.
 
-	![Setting the PHP version with Azure Command-Line Interface][SETPHPVERCLI]
-4. You can confirm these settings by typing `azure site show [site-name]` then press enter.
+      azure login
 
-	![Verifying the PHP version with Azure Command-Line Interface][GETPHPVERCLI]
+2. Set the PHP version for the web app.
+
+      azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. The PHP version is now set. You can confirm these settings:
+
+      azure site show {site-name}
+
 
 ## How to: Change the built-in PHP configurations
 
