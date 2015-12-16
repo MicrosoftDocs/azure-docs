@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal | Microsoft Azure"
-   description="Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations using the classic deployment model."
+   pageTitle="Create a virtual network with a site-to-site VPN Gateway connection using the Azure Classic Portal | Microsoft Azure"
+   description="Create a VNet with a S2S VPN Gateway connection for cross-premises and hybrid configurations using the classic deployment model."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
