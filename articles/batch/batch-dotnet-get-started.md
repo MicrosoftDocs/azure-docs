@@ -87,9 +87,9 @@ You can find these credentials within account blade of each service within the [
 ![Storage credentials in Portal][10]<br/>
 *Batch and Storage account credentials found within the Azure Portal*
 
-Now that you've updated the project with your credentials, right-click the solution in *Solution Explorer* and click **Build Solution**. You may be prompted to confirm the restoration of various NuGet packages, which you should accept.
+Now that you've updated the project with your credentials, right-click the solution in *Solution Explorer* and click **Build Solution**. Confirm the restoration of any NuGet packages, if prompted.
 
-In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in depth. You are encouraged to refer to the open solution in Visual Studio at any time while working your way through the rest of this article since not every line of code within the sample appears below.
+In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in depth. You are encouraged to refer to the open solution in Visual Studio while working your way through the rest of this article since not every line of code within the sample is discussed.
 
 ## Step 1: Create Storage containers
 
@@ -97,7 +97,15 @@ In the following sections, we break the sample application down into the steps i
 <br/>
 *Creating the blob containers in Azure Storage*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the DotNetTutorial client application does is create three block blob containers in Azure Storage:
+
+- **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
+- **input** - Tasks will download the data files they are to process from the *input* container.
+- **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
+
+Note that in your own solution, you may create as many containers as you wish, and you may name them differently.
+
+In order to interact with a Storage account and create containers, we must first create a reference to the account via [CloudStorageAccount][net_cloudstorageaccount], and from that obtain a [CloudBlobClient][net_cloudblobclient].
 
 ```
 // Construct the Storage account connection string
@@ -109,7 +117,11 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 
 // Create the blob client, for use in obtaining references to blob storage containers
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+```
 
+We use the `blobClient` reference throughout the rest of the application, passing it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
+
+```
 // Use the blob client to create the containers in Azure Storage if they don't yet exist
 const string appContainerName    = "application";
 const string inputContainerName  = "input";
@@ -119,52 +131,57 @@ await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
+```
+private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobClient, string containerName)
+{
+		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+		if (await container.CreateIfNotExistsAsync())
+		{
+				Console.WriteLine("Container [{0}] created.", containerName);
+		}
+		else
+		{
+				Console.WriteLine("Container [{0}] exists, skipping creation.", containerName);
+		}
+}
+```
+
+Once the three containers have been created, the application can now upload the files that will be used by the tasks.
+
+> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) provides a great overview of working with Azure Storage containers and blobs, and should be near the top of your reading list as you start working with Batch.
+
 ## Step 2: Upload task application and data files
 
 ![Upload task application and input (data) files to containers][2]
 <br/>
 *Uploading the task application (binaries) and the task input (data) files*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+In the file upload operation, the application first defines collections of *application* and *input* file paths on the local machine, then uploads these files to the containers created in step #1 above. Two helper methods are involved in the upload process:
 
-```
-// The collection of data files that are to be processed by the tasks
-List<string> inputFilePaths = new List<string>
-{
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt",
-    @"..\..\taskdata3.txt"
-};
-```
+- `UploadFilesToContainerAsync` - This method returns a collection of [ResourceFile][net_resourcefile] objects, and internally calls `UploadFileToContainerAsync` to upload each file passed in the *filePaths* parameter.
+- `UploadFileToContainerAsync` - This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. Internally, it obtains a Shared Access Signature (SAS) for the file and returns a ResourceFile object representing the file. Shared access signatures are discussed below.
 
-A helper method is called which then calls this method that does the actual work of uploading the files:
+### ResourceFiles
 
-```
-private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClient blobClient, string containerName, string filePath)
-{
-    Console.WriteLine("Uploading file {0} to container [{1}]...", filePath, containerName);
+A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before running the task. Most tasks types within Batch .NET include a ResourceFiles property, including:
 
-    string blobName = Path.GetFileName(filePath);
+- [CloudTask][net_task]
+- [StartTask][net_pool_starttask]
+- [JobPreparationTask][net_jobpreptask]
+- [JobReleaseTask][net_jobreltask]
 
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-    CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
-    await blobData.UploadFromFileAsync(filePath, FileMode.Open);
+The [ResourceFile.BlobSource][net_resourcefile_blobsource] property specifies the full URL of the file as it exists in Azure Storage, which may also include a shared access signature (SAS) that provides secure access to the file. The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask, but you can read more about both in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
-    // Set the expiry time and permissions for the blob shared access signature. In this case, no start time is specified,
-    // so the shared access signature becomes valid immediately
-    SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
-    {
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(2),
-        Permissions = SharedAccessBlobPermissions.Read
-    };
+### Shared Access Signatures (SAS)
 
-    // Construct the SAS URL for blob
-    string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
-    string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
+Shared access signatures are strings which - when included as part of a URL - provide secure access to either containers or blobs within Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
 
-    return new ResourceFile(blobSasUri, blobName);
-}
-```
+- **Blob SAS** - The tasks in DotNetTutorial use blob shared access signatures when downloading the application binaries and input data files from Storage. The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's SAS, and does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
+
+- **Container SAS** - As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, the TaskApplication uses a container SAS that provides write-access to the container as part of the path when uploading the file. Obtaining the container SAS is done in a similar fashion as when obtaining the blob SAS, and in DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so.
+
+> [AZURE.INFO] Check out the two-part series on shared access signatures, [Part 1: Understanding the SAS Model](./../storage/storage-dotnet-shared-access-signature-part-1.md) and [Part 2: Create and Use a SAS with the Blob Service](./../storage/storage-dotnet-shared-access-signature-part-2.md), to learn more about providing secure access to data in your Storage account.
 
 ## Step 3: Create Batch pool
 
@@ -172,7 +189,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 <br/>
 *(1) Creating a pool of compute nodes within Batch and (2) nodes downloading the pool's StartTask.ResourceFiles*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+After uploading the application and data files to the Storage account, a pool of compute nodes is created in the Batch account.
 
 ```
 private static async Task CreatePoolAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -438,14 +455,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
+[net_jobpreptask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
+[net_jobreltask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
 [net_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.aspx
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
+[net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
+[net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
+[net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
+[net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
+[net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
 [net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
 [net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[storage_use_blobs]: ../storage/storage-dotnet-how-to-use-blobs.md
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started\batch_workflow_01_sm.png "Create containers in Azure Storage"
