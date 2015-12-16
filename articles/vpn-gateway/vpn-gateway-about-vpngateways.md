@@ -17,12 +17,12 @@
 
 # About VPN gateways
 
-VPN Gateways are used to send network traffic between virtual networks and on-premises locations, and also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are a number of factors to take into consideration.
+VPN Gateways are used to send network traffic between virtual networks and on-premises locations. They are also used to send traffic between multiple virtual networks within Azure. When creating a gateway, there are some factors to take into consideration.
  
 Consider the following items when planning:
 
 - The gateway SKU that you want to use
-- The gateway routing type that is needed for your configuration
+- The gateway routing type that is needed for your connection
 - The VPN device that you plan to use, if a VPN device is needed for your configuration
 
 ## Gateway SKUs
@@ -48,21 +48,16 @@ Pricing does differ between gateway SKUs. For information about pricing, see [VP
 
 There are two gateway types:
 
-- Policy-based (also known as Static Gateways)
-- Route-based (also known as Dynamic Gateways)
+- **Policy-based:** Policy-based gateways were previously called *Static Gateways*. The functionality of a static gateway has not changed with the name change. This type of gateway supports policy-based VPNs. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on-premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
+ 
+- **Route-based:** Route-based gateways were previously called *Dynamic Gateways*. The functionality of a dynamic gateway has not changed with the name change. Route-based gateways implement route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
-Some configurations (such as Point-to-Site and VNet-to-VNet) will only work with a specific gateway routing type. And some VPN devices don't support both policy-based and route-based configurations. When you create a VPN gateway, you'll select the gateway routing type that is required for your configuration, while at the same time verifying that the VPN device you plan to use also supports that routing type. 
+Some connections (such as Point-to-Site and VNet-to-VNet) will only work with a specific gateway routing type. You'll see the gateway requirements listed in the article that corresponds to the connection scenario you want to create. 
+
+VPN devices also have configuration limitations. When you create a VPN gateway, you'll select the gateway routing type that is required for your connection, making sure to verify that the VPN device you plan to use also supports that routing type. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information.
 
 For example, if you plan to use a Site-to-Site configuration concurrently with a Point-to-Site configuration, you’ll need to configure a route-based VPN gateway. While it's true that Site-to-Site configurations will work with policy-based gateways, Point-to-Site configurations require a route-based gateway type. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations. Additionally, the VPN device you use must also support route-based configurations.
 
-
-Below are the two types of gateways:
-
-- **Policy-based:** Policy-based gateways were previously called *Static Gateways*. The functionality of a static gateway has not changed with the name change. This type of gateway supports policy-based VPNs. Policy-based VPNs direct packets through IPsec tunnels with traffic selectors based on the combinations of address prefixes between your on premises network and your Azure VNet. The traffic selectors or policies are usually defined as an access list in your VPN configurations.
-
-	>[AZURE.NOTE] Not all configurations are compatible with policy-based VPN gateways. For example, multi-site configurations, VNet-to-VNet configurations, and Point-to-Site connections all require route-based gateways. You'll see the gateway requirements in the articles for each configuration. 
-
-- **Route-based:** Route-based gateways were previously called *Dynamic Gateways*. The functionality of a dynamic gateway has not changed with the name change. Route-based gateways implement route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding VPN tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
 ## Gateway requirements
 
