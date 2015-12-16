@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/30/2015"
+	ms.date="12/15/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs for iOS apps
@@ -87,6 +87,8 @@ Your notification hub is now configured to work with APNS, and you have the conn
    	![][9]
 
 4. Download the [Mobile Services iOS SDK version 1.2.4] and unzip the file. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Copy items if needed**, and then click **Add**.
+
+	>[AZURE.NOTE] The notification hubs SDK does not currently support bitcode on Xcode 7.  You must set **Enable Bitcode** to **No** in the **Build Options** for your project.
 
    	![][10]
 
