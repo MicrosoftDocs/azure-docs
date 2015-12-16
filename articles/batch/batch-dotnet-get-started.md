@@ -81,7 +81,11 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-You can find these credentials within the [Azure Portal][azure_portal].
+You can find these credentials within account blade of each service within the [Azure Portal][azure_portal]:
+
+![Batch credentials in Portal][9]
+![Storage credentials in Portal][10]<br/>
+*Batch and Storage account credentials found within the Azure Portal*
 
 Now that you've updated the project with your credentials, right-click the solution in Solution Explorer and click **Build Solution**. You may be prompted to confirm the restoration of various NuGet packages, which you should accept.
 
@@ -280,3 +284,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [6]: ./media/batch-dotnet-get-started\batch_workflow_06_sm.png "Monitor tasks"
 [7]: ./media/batch-dotnet-get-started\batch_workflow_07_sm.png "Download task output from Storage"
 [8]: ./media/batch-dotnet-get-started\batch_workflow_sm.png "Batch solution workflow (full diagram)"
+[9]: ./media/batch-dotnet-get-started\credentials_batch_sm.png "Batch credentials in Portal"
+[10]: ./media/batch-dotnet-get-started\credentials_storage_sm.png "Storage credentials in Portal"
