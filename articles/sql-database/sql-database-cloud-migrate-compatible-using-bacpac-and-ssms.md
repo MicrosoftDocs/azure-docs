@@ -24,9 +24,9 @@ text
 
 Use the steps below to use Management Studio to export a migrating a [compatible](#determine-if-your-database-is-compatible) SQL Server database to a BACPAC file.
 
-1. Verify that you have version 13.0.600.65 or later of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio.
+	 > [AZURE.IMPORTANT] [Use newest version of version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database.
 
 2. Open Management Studio and connect to your source database in Object Explorer.
 
