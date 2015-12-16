@@ -40,7 +40,7 @@ The best way to deploy a web app is to set up a [continuous delivery workflow](h
 
 * [Automate deployment with MSBuild](#msbuild)
 * [Copy files with FTP tools and scripts](#ftp)
-* [Automate deployment with Windows PowerShell(#powershell)
+* [Automate deployment with Windows PowerShell](#powershell)
 * [Automate deployment with .NET management API](#api)
 * [Deploy from Azure Command-Line Interface (Azure CLI)](#cli)
 * [Deploy from Web Deploy command line](#webdeploy)
