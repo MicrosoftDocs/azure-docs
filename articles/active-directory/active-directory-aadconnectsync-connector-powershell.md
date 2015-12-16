@@ -194,7 +194,7 @@ The begin import script receives the following parameters from the connector:
 | --- | --- | --- |
 | ConfigParameters | [KeyedCollection][keyk][string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector. |
 | Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab. |
-| OpenImportConnectionRunStep | OpenImportConnectionRunStep[oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
+| OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
 | Types | [Schema][schema] | Schema for the connector space that will be imported. |
 
 The script must return a single [OpenImportConnectionResults][oicres] object to the pipeline. The sample code below demonstrates how to return an OpenImportConnectionResults object to the pipeline:
