@@ -148,7 +148,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal.
+>Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal or command line management tools such as Azure CLI or PowerShell.
 
 |Setting|Default value|Description|
 |---|---|---|
@@ -178,7 +178,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 
 ## Redis commands not supported in Azure Redis Cache
 
->[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is done using the Azure Portal the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT] Because configuration and management of Azure Redis Cache instances is managed by Microsoft the following commands are disabled. If you try to invoke them you will receive an error message similar to `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
