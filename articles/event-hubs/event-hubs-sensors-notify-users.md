@@ -3,7 +3,7 @@
    description="Describes how to use Event Hubs to notify users of sensor data."
    services="event-hubs"
    documentationCenter="na"
-   authors="sethmanheim"
+   authors="spyrossak"
    manager="timlt"
    editor="" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/16/2015"
-   ms.author="sethm" />
+   ms.author="spyros" />
 
 # Introduction
 
