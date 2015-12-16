@@ -123,16 +123,16 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. Open another browser instance, and then log-in to OpsGenie as an administrator.
 
 6. Click **Settings**, and then click the **Single Sign On** tab.
-   <br><br>![OpsGenie Single Sign-On](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_06.png) <br>
+   <br><br>![OpsGenie Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png) <br>
 
 7. To enable SSO, select **Enabled**.
-   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_07.png) <br>
+   <br><br>![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) <br>
    
 8. In the **Provider** section, click the **Azure Active Directory** tab.
-   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_08.png) <br>
+   <br><br>![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) <br>
     
 9. On the Azure Active Directory dialog page, perform the following steps:
-   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_09.png) <br>
+   <br><br>![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png) <br>
 
     a. In the Azure portal, on the **Configure single sign-on at OpsGenie** dialog page, copy the **Single Sign On Service URL** value, and then paste it into the **SAML 2.0 Endpoint** textbox.
 
