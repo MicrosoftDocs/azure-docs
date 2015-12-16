@@ -351,8 +351,6 @@ Operation name | Status | Sub status
 -------------- | ------ | ----------
 RunStarted | Started | Starting
 RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
-SliceOnTime | In Progress | Ontime
-SliceDelayed | In Progress | Late
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
