@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="12/16/2015"
 	ms.author="mithal;garye" />
 
 # Cheat sheet for an automated data pipeline for Azure Machine Learning predictions
@@ -28,7 +28,7 @@ This cheat sheet walks you through the decisions you'll need to make and offers 
 
 Once you download the cheat sheet, you can print it in tabloid size (11 x 17 in.).
 
-Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](TBD)**
+Download the cheat sheet here: **[Microsoft Azure Machine Learning automated data pipeline cheat sheet](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio Capabilities Overview][op-cheat-sheet]
 
@@ -37,7 +37,7 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 
 ## More help with Machine Learning Studio
 
-* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* For an overview of Microsoft Azure Machine Learning, see [Introduction to machine learning on Microsoft Azure](machine-learning-what-is-machine-learning.md).
 * For an explanation of how to deploy a scoring web service, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 * For a discussion of how to consume a scoring web service, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
 
