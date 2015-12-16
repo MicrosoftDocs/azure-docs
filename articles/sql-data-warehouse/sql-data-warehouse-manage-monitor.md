@@ -131,7 +131,7 @@ Check the *operation_type* column of the long-running query step:
 
 ### STEP 4a: Find the execution progress of a SQL Step
 
-Use the Request ID and the Step Index to retrieve information about the SQL Server query distribution as a part of the SQL Step in the query. Save the Node ID and SPID.
+Use the Request ID and the Step Index to retrieve information about the SQL Server query distribution as a part of the SQL Step in the query. Save the Distribution ID and SPID.
 
 ```
 
