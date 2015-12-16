@@ -18,10 +18,10 @@
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
-# Azure virtual machine backup
+# Back up Azure virtual machines
 This article provides the procedures for how to back up existing Azure virtual machines (VMs) to protect your VMs in accordance with your company’s backup and disaster recovery policies.
 
-First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for VM backup before you proceed.
+First, there are a few things you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](backup-azure-vms-prepare.md) to prepare your environment for backing up VMs before you proceed.
 
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -29,7 +29,7 @@ Backing up Azure virtual machines involves three key steps:
 
 ![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE] Virtual machine backup is local. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need backup, at least one backup vault must be created in that region.
+>[AZURE.NOTE] Backing up virtual machines is a local process. You cannot back up virtual machines from one region to a backup vault in another region. So, for every Azure region that has VMs that need to be backed up, at least one backup vault must be created in that region.
 
 ## Step 1 - Discover Azure virtual machines
 The discovery process should always be run as the first step to ensure that any new virtual machines that are added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region.
