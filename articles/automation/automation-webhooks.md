@@ -65,8 +65,9 @@ For the above runbook, if you have the following properties for the WebhookData 
 2. RequestHeader: *From=Test User*
 3. RequestBody: *[“VM1”, “VM2”]*
 
-Then you would pass the following JSON value in the UI for the WebhookData parameter:
-{"WebhookName":"MyWebhook", "RequestHeader": {"From":"Test User"}, "RequestBody": "[\"VM1\",\"VM2\"]"}
+Then you would pass the following JSON value in the UI for the WebhookData parameter:  
+
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"[\"VM1\",\"VM2\"]"}
 
 ![Start WebhookData parameter from UI](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
