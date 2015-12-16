@@ -65,7 +65,7 @@ While not every Batch solution may include the above steps (and may include more
 
 ## Build the *DotNetTutorial* sample project
 
-Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the DotNetTutorial project's Program.cs file:
+Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the DotNetTutorial project's `Program.cs` file:
 
 ```
 // Update the Batch and Storage account credential strings below with the values unique to your accounts.
@@ -87,9 +87,9 @@ You can find these credentials within account blade of each service within the [
 ![Storage credentials in Portal][10]<br/>
 *Batch and Storage account credentials found within the Azure Portal*
 
-Now that you've updated the project with your credentials, right-click the solution in Solution Explorer and click **Build Solution**. You may be prompted to confirm the restoration of various NuGet packages, which you should accept.
+Now that you've updated the project with your credentials, right-click the solution in *Solution Explorer* and click **Build Solution**. You may be prompted to confirm the restoration of various NuGet packages, which you should accept.
 
-In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in depth. You are encouraged to refer to the open solution in Visual Studio at any time while working your way through the rest of this article as not every line of code within the sample appears below.
+In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in depth. You are encouraged to refer to the open solution in Visual Studio at any time while working your way through the rest of this article since not every line of code within the sample appears below.
 
 ## Step 1: Create Storage containers
 
@@ -175,17 +175,6 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ```
-// Paths to the executable and its dependencies that will be executed by the tasks
-List<string> applicationFilePaths = new List<string>
-{
-    // The DotNetTutorial project includes a project reference to TaskApplication, allowing us to
-    // determine the path of the task application binary dynamically
-    typeof(TaskApplication.Program).Assembly.Location,
-    "Microsoft.WindowsAzure.Storage.dll"
-};
-```
-
-```
 private static async Task CreatePoolAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
 {
     Console.WriteLine("Creating pool [{0}]...", poolId);
@@ -227,12 +216,54 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+```
+private static async Task CreateJobAsync(BatchClient batchClient, string jobId, string poolId)
+{
+    Console.WriteLine("Creating job [{0}]...", jobId);
+
+    CloudJob job = batchClient.JobOperations.CreateJob();
+    job.Id = jobId;
+    job.PoolInformation = new PoolInformation { PoolId = poolId };
+
+    await job.CommitAsync();
+}
+```
+
 ## Step 5: Add tasks to job
 
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```
+private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
+{
+    Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
+
+    // Create a collection to hold the tasks that we'll be adding to the job
+    List<CloudTask> tasks = new List<CloudTask>();
+
+    // Create each of the tasks. Because we copied the task application to the
+    // node's shared directory with the pool's StartTask, we can access it via
+    // the shared directory on whichever node each task will run.
+    foreach (ResourceFile inputFile in inputFiles)
+    {
+        string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
+        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
+
+        CloudTask task = new CloudTask(taskId, taskCommandLine);
+        task.ResourceFiles = new List<ResourceFile> { inputFile };
+        tasks.Add(task);
+    }
+
+    // Add the tasks as a collection opposed to a separate AddTask call for each. Bulk task submission
+    // helps to ensure efficient underlying API calls to the Batch service.
+    await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+
+    return tasks;
+}
+```
 
 ## Step 6: Monitor tasks
 
@@ -241,6 +272,82 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+```
+private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
+{
+    bool allTasksSuccessful = true;
+    const string successMessage = "All tasks reached state Completed.";
+    const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
+
+    // Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
+    // specify that only the "id" property of each task should be populated. Using a detail level for
+    // all list operations helps to lower response time from the Batch service.
+    ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
+    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+
+    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
+
+    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
+    // reach the Completed state.
+    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
+    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+
+    if (timedOut)
+    {
+        allTasksSuccessful = false;
+
+        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
+
+        Console.WriteLine(failureMessage);
+    }
+    else
+    {
+        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
+
+        // All tasks have reached the "Completed" state, however, this does not guarantee all tasks completed successfully.
+        // Here we further check each task's ExecutionInfo property to ensure that it did not encounter a scheduling error
+        // or return a non-zero exit code.
+
+        // Update the detail level to populate only the task id and executionInfo properties.
+        // We refresh the tasks below, and need only this information for each task.
+        detail.SelectClause = "id, executionInfo";
+
+        foreach (CloudTask task in tasks)
+        {
+            // Populate the task's properties with the latest info from the Batch service
+            await task.RefreshAsync(detail);
+
+            if (task.ExecutionInformation.SchedulingError != null)
+            {
+                // A scheduling error indicates a problem starting the task on the node. It is important to note that
+                // the task's state can be "Completed," yet still have encountered a scheduling error.
+
+                allTasksSuccessful = false;
+
+                Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
+            }
+            else if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
+
+                allTasksSuccessful = false;
+
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
+        }
+    }
+
+    if (allTasksSuccessful)
+    {
+        Console.WriteLine("Success! All tasks completed successfully within the specified timeout period.");
+    }
+
+    return allTasksSuccessful;
+}
+```
+
 ## Step 7: Download task output
 
 ![Download task output from Storage][7]<br/>
@@ -248,13 +355,74 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+```
+private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
+{
+		Console.WriteLine("Downloading all files from container [{0}]...", containerName);
+
+		// Retrieve a reference to a previously created container
+		CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+		// Get a flat listing of all the block blobs in the specified container
+		foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+		{
+				// Retrieve reference to the current blob
+				CloudBlob blob = (CloudBlob)item;
+
+				// Save blob contents to a file in the %TEMP% folder
+				string localOutputFile = Path.Combine(directoryPath, blob.Name);
+				await blob.DownloadToFileAsync(localOutputFile, FileMode.Create);
+		}
+
+		Console.WriteLine("All files downloaded to {0}", directoryPath);
+}
+```
+
 ## Step 8: Delete task output
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+```
+private static async Task DeleteBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName)
+{
+    Console.WriteLine("Deleting all files from container [{0}]...", containerName);
+
+    // Retrieve a reference to the container
+    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+    // Get a flat listing of all of the blobs within the container
+    foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+    {
+        // Retrieve a reference to the current blob
+        CloudBlob blob = (CloudBlob)item;
+
+        // Delete the blob
+        await blob.DeleteAsync();
+    }
+}
+```
+
 ## Step 9: Delete job and pool
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```
+// Clean up the resources we've created in the Batch account if the user so chooses
+Console.WriteLine();
+Console.WriteLine("Delete job? [yes] no");
+string response = Console.ReadLine().ToLower();
+if (response != "n" && response != "no")
+{
+    await batchClient.JobOperations.DeleteJobAsync(JobId);
+}
+
+Console.WriteLine("Delete pool? [yes] no");
+response = Console.ReadLine();
+if (response != "n" && response != "no")
+{
+    await batchClient.PoolOperations.DeletePoolAsync(PoolId);
+}
+```
 
 ## Next steps
 
