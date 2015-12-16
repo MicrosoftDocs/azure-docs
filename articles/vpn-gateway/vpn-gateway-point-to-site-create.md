@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="12/16/2015"
    ms.author="cherylmc"/>
 
 # Configure a point-to-site VPN connection to a VNet
@@ -22,10 +22,12 @@
 
 This article applies to point-to-site connections for virtual networks created using the classic deployment model (Service Management). 
 
-**At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are not supported.** This page will be updated when this feature is supported for the Resource Manager deployment model.
+**At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are available using REST APIs and PowerShell.** We are currently working on an article that will walk you through the steps. I'll update this page and include the link when the article is ready. We're currently planning for early January.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+**About Azure deployment models**
 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+ 
 The following procedure will walk you through the steps to create a secure point-to-site connection to a virtual network. Although configuring a point-to-site connection requires multiple steps, it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. 
 
 The configuration for a point-to-site connection is broken down into 3 sections: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that will be used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
@@ -186,9 +188,6 @@ Example:
 
 ## Next steps
 
-You can learn more about virtual network cross-premises connectivity in this article: [About virtual network secure cross-premises connectivity](vpn-gateway-cross-premises-options.md).
-
-If you want to configure a site-to-site VPN connection, see [Configure a virtual network with a site-to-site VPN gateway connection](vpn-gateway-site-to-site-create.md).
 
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
 
