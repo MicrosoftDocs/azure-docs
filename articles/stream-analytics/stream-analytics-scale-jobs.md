@@ -61,7 +61,7 @@ The previous query has two steps.
 
 Partitioning a step requires the following conditions:
 
-- The input source must be partitioned. For more information, see [Azure Stream Analytics developer guide](../stream-analytics-developer-guide.md) and [Event Hubs Developer Guide](../event-hubs/event-hubs-programming-guide.md).
+- The input source must be partitioned. For more information, see [Azure Stream Analytics developer guide](../stream-analytics-developer-guide.md) and [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 - The SELECT statement of the query must read from a partitioned input source.
 - The query within the step must have the **Partition By** keyword
 
