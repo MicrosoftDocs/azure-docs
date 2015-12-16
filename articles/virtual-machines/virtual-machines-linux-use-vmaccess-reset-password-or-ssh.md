@@ -17,7 +17,7 @@
 	ms.date="08/28/2015"
 	ms.author="cynthn"/>
 
-# How to Reset a Password or SSH for Linux Virtual Machines #
+# How to Reset Access and Manage Users, Disks with the Azure VMAccess Extension for Linux Virtual Machines #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -61,6 +61,8 @@ With the Azure CLI, you can do the following tasks:
 + [Reset the SSH configuration](#sshconfigresetcli)
 + [Delete a user](#deletecli)
 + [Display the status of the VMAccess extension](#statuscli)
++ [Check consistency of added disks](#checkdisk)
++ [Repair added disks on your Linux VM](#repairdisk)
 
 ### <a name="pwresetcli"></a>Reset the password
 
@@ -149,6 +151,34 @@ To display the status of the VMAccess extension, run this command.
 
 	azure vm extension get
 
+### <a name='checkdisk'<</a>Check consistency of added disks
+
+To run fsck on all disks in your Linux virtual machine, you will need to do the following:
+
+Step 1: Create a file named PublicConf.json with this content. Check Disk takes a boolean for whether to check disks attached to your virtual machine or not. 
+
+    {   
+    "check_disk": "true"
+    }
+
+Step 2: Run this command to execute, substituting for the placeholder values.
+
+   azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
+
+### <a name='repairdisk'></a>Repair added disks on your Linux virtual machine
+
+To repair disks that are not mounting or have mount configuration errors, use the VMAccess extension to reset the mount configuration on your Linux VIrtual machine.
+
+Step 1: Create a file named PublicConf.json with this content. 
+
+    {
+    "repair_disk":"true",
+    "disk_name":"yourdisk"
+    }
+
+Step 2: Run this command to execute, substituting for the placeholder values.
+
+    azure vm extension set vm-name VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
 
 ## Use Azure PowerShell
 
@@ -179,6 +209,8 @@ Then, you can do the following tasks:
 + [Reset the SSH configuration](#config)
 + [Delete a user](#delete)
 + [Display the status of the VMAccess extension](#status)
++ [Check consistency of added disks](#checkdisk)
++ [Repair added disks on your Linux VM](#repairdisk)
 
 ### <a name="password"></a>Reset the password
 
@@ -252,6 +284,25 @@ To display the status of the VMAccess extension, run this command.
 
 	$vm.GuestAgentStatus
 
+### <a name="checkdisk"<</a>Check the consistency of added disks
+
+To check the consistency of your disks with fsck utility, run these commands. 
+
+	$PublicConfig = "{"check_disk": "true"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
+
+### <a name="checkdisk"<</a>Repair added disks on your Linux VM
+
+To repair disks with fsck utility, run these commands. 
+
+	$PublicConfig = "{"repair_disk": "true", "disk_name": "my_disk"}"
+	$ExtensionName = "VMAccessForLinux"
+	$Publisher = "Microsoft.OSTCExtensions"
+	$Version = "1.*"
+	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PublicConfiguration $PublicConfig | Update-AzureVM
 
 ## Additional resources
 
