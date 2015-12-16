@@ -20,7 +20,7 @@
 # Configure a point-to-site VPN connection to a VNet
 
 
-This article applies to point-to-site connections for virtual networks created using the classic deployment model (Service Management). **At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are available using REST APIs and PowerShell.** We are currently working on an article that will walk you through the steps. I'll update this page and include the link when the article is ready. We're currently planning for early January.
+This article applies to point-to-site connections for virtual networks created using the classic deployment model (Service Management). We are happy to say that Point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are now available using REST APIs and PowerShell. We are currently working on an article that will walk you through the steps. I'll update this page and include the link when the article is ready. We're currently planning for early January.
 
 **About Azure deployment models**
 
