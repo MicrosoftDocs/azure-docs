@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="11/24/2015"
 	ms.author="garye" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
@@ -24,14 +24,14 @@ Solution Templates are designed to accelerate the process of building an
 E2E demo on top of Cortana Analytics Suite. A deployed template will
 provision your subscription with necessary Cortana Analytics components
 and build the relationships between them. It also seeds the data
-pipeline with sample data generated from a data simulation application which will need to be downloaded and installed on
+pipeline with sample data generated from a data simulation application which you will download and install on
 your local machine after you deploy the solution template.The data generated from the simulator will hydrate the
 data pipeline and start generating machine learning predictions which can
 then be visualized on the PowerBI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
 
 The goal of this document is to explain the reference architecture and
 different components provisioned in your subscription as part of this
-Solution Template. The document also talks about how to replace the
+solution template. The document also talks about how to replace the
 sample data with real data of your own to be able to see insights and
 predictions from your own data. Additionally, the document discusses the
 parts of the Solution Template that would need to be modified if you
@@ -39,7 +39,7 @@ wanted to customize the solution with your own data. Instructions on how
 to build the PowerBI dashboard for this Solution Template are provided
 at the end.
 
->[AZURE.TIP] You can download and print a PDF version of this document [here](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+>[AZURE.TIP] You can download and print a [PDF version of this document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 
 ## **Big Picture**
 
@@ -49,7 +49,8 @@ When the solution is deployed, various Azure services within Cortana
 Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
 diagram above shows, at a high level, how the Predictive Maintenance for
-Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services by clicking on them on the solution template diagram created with the deployment of the solution.You can download a full-size version of the diagram [here](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services by clicking on them on the solution template diagram created with the deployment of the solution.
+You can download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe each piece.
 
@@ -59,7 +60,7 @@ The following sections describe each piece.
 
 For this template the data source used is generated from a desktop
 application that you will download and run locally after successful
-deployment. You will find the instructions to download and install this application on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
+deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Predictive Maintenance Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
 with data points, or events, that will be used in the rest of the solution flow. This data
 source is comprised of or derived from publicly available data from the
 [NASA data
@@ -310,7 +311,7 @@ contains a single activity - a
 [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
 activity that moves the results of the [Azure Machine
 Learning](#azure-machine-learning) experiment from the
-***MLScoringPipeline*** to the he [Azure SQL
+***MLScoringPipeline*** to the [Azure SQL
 Database](https://azure.microsoft.com/services/sql-database/) that was provisioned as part of the
 solution template installation.
 
@@ -324,8 +325,7 @@ set consumed and therefore will require modification or replacement
 specific to the data that's brought in.
 
 For information about how the Azure Machine Learning experiment was
-created, click
-[here](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature engineering](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## **Power BI Dashboard**
 
@@ -381,20 +381,17 @@ containing data (*e.g.*. prediction results) for visualization.
 
     -   In the folder on your PC where you downloaded and unzipped the
     Generator file, double-click the
-    **PowerBI\\PredictiveMaintenanceAerospace.pbix** file. When you open
-    the file you'll see a warning messege, "*There are pending changes
-    in your queries that haven't been applied*" - ignore this message.
-    On the top of the file, click **'Edit Queries'**.
+    **PowerBI\\PredictiveMaintenanceAerospace.pbix** file. If you see any warning messages when you open the file, ignore them. On the top of the file, click **'Edit Queries'**.
 
 	    ![](media\cortana-analytics-technical-guide-predictive-maintenance\edit-queries.png)
 
 	-	You'll see two tables, **RemainingUsefulLife** and **PMResult**.Select the first table and click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) next to **'Source'** under
 		**'APPLIED STEPS'** on the right **'Query Settings'** panel. Ignore
-		the warning message that appears.
+		any warning messages that appear.
 
     -   In the pop out window, replace **'Server'** and **'Database'** with
     your own server and database names, and then click **'OK'**. For server
-    name make sure you specify the port 1433
+    name, make sure you specify the port 1433
     (**YourSoutionName.database.windows.net, 1433**). Ignore the warning
     messages that appear on the screen.
 
@@ -411,9 +408,8 @@ containing data (*e.g.*. prediction results) for visualization.
     **'APPLIED STEPS'** on the right **'Query Settings'** panel, and update
     the server and database names as in the above steps and click OK.
 
-    -   Once you're guided back to the previous page, close the window. A message on the right will pop out - click **Apply**. Lastly, click the **Save** button to save
-    the changes. Your PowerBI file has now established connection to the server. Use the refresh button to reflect new
-    data on the visualizations. Also, make sure you clear the selections on the visualizations to visualize all the data.
+    -   Once you're guided back to the previous page, close the window. A message will pop out - click **Apply**. Lastly, click the **Save** button to save
+    the changes. Your PowerBI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations as time progresses.
 
 3.  (Optional) Publish the cold path dashboard to [Power BI
     online](http://www.powerbi.com/). Note that this step needs a Power
@@ -422,40 +418,30 @@ containing data (*e.g.*. prediction results) for visualization.
     -   Click **'Publish'** and few seconds later a window appears
     displaying "Publishing to Power BI Success!" with a green
     check mark. Click the link below "Open
-    PredictiveMaintenanceAerospace.pbix in Power BI". You can find
-    detailed instructions
-    [here](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+    PredictiveMaintenanceAerospace.pbix in Power BI". To find detailed instructions, see [Publish from Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
 
     -   To create a new dashboard: click the **+** sign next to the
     **Dashboards** section on the left pane. Enter the name "Predictive
     Maintenance Demo" for this new dashboard.
 
     -   Once you open the report, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) to pin all the
-    visualizations to your dashboard. Go back to the dashboard page and
-    adjust the size and location of your visualizations. You can find
-    detailed instructions
-    [here](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). Here is an example dashboard with some cold path visualizations pinned to it. Depending on how long you run your data simulator, your numbers on the visualizations may be different. 
+    visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). 
+    Go to the dashboard page and
+    adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.  Depending on how long you run your data simulator, your numbers on the visualizations may be different.
 
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png)
 
-    -   Schedule refresh of the data source.
+    -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh. **
 
-    -   Hover your mouse over the **PredictiveMaintenanceAerospace**
-    dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose
-    **Schedule Refresh. **
-
-    **Note:** If you see a warning massage, click **Edit Credentials**
-    and make sure your database credentials are the same as those
-    described in step 1.
+        **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
 
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png)
 
     -   Expand the **Schedule Refresh** session. Turn on "keep your
     data up-to-date".
 
-    -   Schedule the refresh based on your needs. You can find more
-    information
-    [here](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+    -   Schedule the refresh based on your needs. To find more information, see
+    [Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### Setup Hot Path Dashboard
 
@@ -463,15 +449,14 @@ The following steps will guide you how to visualize real time data
 output from Stream Analytics jobs that were generated at the time of
 solution deployment. A [Power BI online](http://www.powerbi.com/)
 account is required to perform the following steps. If you don't have an
-account, you can create one
-[here](https://powerbi.microsoft.com/pricing).
+account, you can [create one](https://powerbi.microsoft.com/pricing).
 
 1.  Add Power BI output in Azure Stream Analytics (ASA).
 
-    -  You will need to follow the instructions
-    [here](stream-analytics-power-bi-dashboard.md)
+    -  You will need to follow the instructions in 
+    [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-	- Locate the stream analytics job **maintenancesa02asapbi** in the Azure Portal [here](https://manage.windowsazure.com).
+	- Locate the stream analytics job **maintenancesa02asapbi** in the [Azure Portal](https://manage.windowsazure.com).
 	- Setup the three outputs of the ASA query which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. Make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same as in your query (**aircraftmonitor**, **aircraftalert**, and **flightsbyhour**). Once
     you have added all three output tables and started the Stream
     Analytics job, you should get a confirmation message (*e.g.*,
