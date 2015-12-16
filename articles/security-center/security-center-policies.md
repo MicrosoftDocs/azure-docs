@@ -13,13 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 #Setting security policies in Azure Security Center
-Learn how to configure security policies in Azure Security Center using this walkthrough.
+This document helps you to configure security policies in Azure Security Center by guiding you through the necessary steps to perform this task.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
+
+## What is Azure Security Center?
+Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ##When should I use security policies?
 A security policy defines the set of controls which are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company security needs and the type of applications or sensitivity of the data in each subscription.

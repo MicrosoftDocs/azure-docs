@@ -13,13 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
-Learn how to use Azure Security Center capabilities to manage and respond to security alerts using this walkthrough.
+This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
+
+## What is Azure Security Center?
+Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ## How does Azure Security Center manage security alerts?
 Azure Security Center automatically collects, analyzes and integrates log data from your Azure resources, the network, and partner solutions like antimalware and firewalls to detect real threats and reduce false positives. A list of prioritized alerts is surfaced as Security Alerts.  
