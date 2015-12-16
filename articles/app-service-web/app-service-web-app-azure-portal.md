@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/16/2015"
 	ms.author="jaime-espinosa"/>
 
 # Reference for navigating the class portal
