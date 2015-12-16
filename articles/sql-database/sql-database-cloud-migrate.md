@@ -20,6 +20,8 @@
 
 Migrating an on-premises SQL Server database to Azure SQL Database requires that you migrate your schema and your data from your current environment into SQL Database. With [SQL Database V12](../sql-database-v12-whats-new.md), you will see very few or not compatibility issues during this migration. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering  to [fix these incompatibilities](../sql-database-migrate-fix-compatibility-issues.md) before the SQL Server database can be migrated. 
 
+>[AZURE.NOTE] To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
+
 To test for SQL Database compatibility issues before you start the migration process, use one of the following methods:
 
 - The [sqlpackage.exe command prompt utility](../sql-database-migrate-determine-compatibility-sqlpackage.md), which will generate a report containing detected issues.
@@ -32,9 +34,11 @@ To migrate a compatible SQL Server datbase, Microsoft provides several migration
 - To migrate a compatible database with downtime when you do not have connectivity from the SQL Server database to the Microsoft Azure cloud, use the [BACPAC method](../sql-database-migrate-compatible-using-bacpac.md). 
 - To migrate a compatible SQL Server database with minimal downtime, [use SQL Server transactional replication](../sql-database-migrate-compatible-using-transactional-replication.md).    
 
->[AZURE.NOTE] To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
 
 > [AZURE.SELECTOR]
 - [Determine Compatibility](sql-database-geo-replication-portal.md)
 - [Migrate Compatible Database](sql-database-geo-replication-powershell.md)
 - [Fix Database Compatibility Issues](sql-database-geo-replication-transact-sql.md)
+
+
+ 
