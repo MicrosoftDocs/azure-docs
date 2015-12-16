@@ -142,28 +142,32 @@ The first step is to add the UI elements to your existing main activity that ena
 				return settings.getStringSet("categories", new HashSet<String>());
 			}
 
-			public void subscribeToCategories(final Set<String> categories) {
-				new AsyncTask<Object, Object, Object>() {
-					@Override
-					protected Object doInBackground(Object... params) {
-						try {
-							String regid = gcm.register(senderId);
-					        hub.register(regid, categories.toArray(new String[categories.size()]));
-						} catch (Exception e) {
-							Log.e("MainActivity", "Failed to register - " + e.getMessage());
-							return e;
-						}
-						return null;
-					}
-
-					protected void onPostExecute(Object result) {
-						String message = "Subscribed for categories: "
-								+ categories.toString();
-						Toast.makeText(context, message,
-								Toast.LENGTH_LONG).show();
-					}
-				}.execute(null, null, null);
-			}
+		    public void subscribeToCategories(final Set<String> categories) {
+		        new AsyncTask<Object, Object, Object>() {
+		            @Override
+		            protected Object doInBackground(Object... params) {
+		                try {
+		                    String regid = gcm.register(senderId);
+		
+		                    String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+		
+		                    hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
+								categories.toArray(new String[categories.size()]));
+		                } catch (Exception e) {
+		                    Log.e("MainActivity", "Failed to register - " + e.getMessage());
+		                    return e;
+		                }
+		                return null;
+		            }
+		
+		            protected void onPostExecute(Object result) {
+		                String message = "Subscribed for categories: "
+		                        + categories.toString();
+		                Toast.makeText(context, message,
+		                        Toast.LENGTH_LONG).show();
+		            }
+		        }.execute(null, null, null);
+		    }
 
 		}
 
