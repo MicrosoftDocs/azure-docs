@@ -22,7 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-arm.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 In this article, you will learn how to use Azure PowerShell to create your first pipeline. This tutorial consists of the following steps:
