@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="12/16/2015"
 	ms.author="maheshu"/>
-	
+
 
 # Deployment scenarios and use-cases
-In this section, we take a look at a few scenarios and use-cases that would benefit from Azure AD Domain Services.
+In this section, we take a look at a few scenarios and use-cases that would benefit from Azure Active Directory (AD) Domain Services.
 
 ## Secure, easy administration of Azure virtual machines
 As servers and other infrastructure reaches end-of-life, Contoso is moving many applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using Group Policy. Contoso's IT administrator prefers to domain join virtual machines deployed in Azure, in order to make administration easier (i.e. admins can login using corporate credentials). Contoso would prefer not to have to deploy, monitor and manage domain controllers in Azure in order to secure Azure virtual machines.
