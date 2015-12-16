@@ -37,11 +37,11 @@ If you are using an Azure Event Hub or IoT Hub to receive data from devices or e
 
 Let's look at the case of a light sensor, as previously mentioned. There are three steps involved. We’ve just published sample code for this step in the **Connect The Dots** project, in the [Azure/AppToNotifyUsers][] folder. The readme file contains all the info you need to modify, build, and publish the application; this article just describes the basics. The application is written in C#, and we’re going to assume that you understand how to use Visual Studio to open, build, and deploy a C# solution to Azure.
 
-## Prerequisite: push alerts to an Event Hub
+## Prerequisite: Push alerts to an Event Hub
 
 Any Event Hub or IoT Hub will do, as long as you have access to it. To test this for the real-time data case (sensors), you can start by connecting the light sensor to a device that sends the light levels in the room to an Event Hub. You can then use [Azure Stream Analytics][] to monitor the data for levels that indicate that the light has been turned off, and finally push an alert to that effect to a second Event Hub. Simple steps and code showing how to do this with an Arduino shield and a Raspberry Pi are described in the [Getting Started](https://github.com/Azure/connectthedots/blob/master/GettingStarted.md) section of the [Connect The Dots](https://github.com/Azure/connectthedots) project, published as open source on GitHub. In that code sample, the message "The Light is turned OFF" is sent to an Event Hub called **ehalerts**, and all we need to do now is to send that message to someone using email, SMS, or some other communications network.
 
-## Step 1: monitor the Event Hub
+## Step 1: Monitor the Event Hub
 
 The code in the [AppToNotifyUsers][] solution creates an Azure Cloud Service (worker role) that monitors an Event Hub identified by a URL you list in App.config, together with the shared key that grants you access. You must modify the following strings in App.config:
 
@@ -59,7 +59,7 @@ If you deploy the example in Connect The Dots, that Event Hub is called **ehaler
 
 The **EventHubReader** uses this information to get messages from **ehalerts**, and put it in a queue to be sent by whatever method you specify.
 
-## Step 2: select the outbound messaging service
+## Step 2: Select the outbound messaging service
 
 Notification options in the solution are encoded as separate subroutines that are called depending upon entries in the App.Config file. Currently there are three options included in the sample code:
 
@@ -81,7 +81,7 @@ If you want to use email to send your alerts, replace `[Service option]` with **
 
 Note that this solution is a DIY, developer-focused example only. It does not address enterprise requirements such as redundancy, fail-over, restart upon failure, etc. For more comprehensive and production solutions, you should review options such as using connectors available in [Logic Apps connectors](../app-service-logic/app-service-logic-connectors-list.md), or push notifications from an Azure Notification Hub. For more information about Notification Hubs, see the [Notification Hubs Overview](https://msdn.microsoft.com/library/azure/jj927170.aspx) and [Scott Guthrie's blog](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
 
-## Step 3: identify the sender and recipients of the messages
+## Step 3: Identify the sender and recipients of the messages
 
 Once you have specified how messages will be sent, you must identify from whom, and to whom, they will be sent. If the notification service is SMTP, either using an SMTP host to which you have access, or using **SendGrid**, you can specify an email address in the **sendFrom** address in App.Config:
 
@@ -101,7 +101,7 @@ If you are using an SMTP (email) sender, this is the display name and email alia
 </sendToList>
 ```
 
-## Step 4: deploy the cloud service
+## Step 4: Deploy the cloud service
 
 Having completed all the necessary fields in the App.config file, you must deploy the application. Since we assume you know how to do that, we won’t go over those details. The reason for including this step in this blog is to bring to your attention the following warning:
 
