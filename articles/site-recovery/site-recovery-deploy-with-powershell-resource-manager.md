@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Protect servers to Azure using Azure PowerShell with Azure Resource Manager"
+	pageTitle="Protect servers to Azure using Azure PowerShell with Azure Resource Manager | Microsoft Azure"
 	description="Automate protection of servers to Azure with Azure Site Recovery using PowerShell and Azure Resource Manager."
 	services="site-recovery"
 	documentationCenter=""
@@ -261,7 +261,3 @@ This article illustrates how to use Azure Powershell with ARM to configure and m
 3. Complete the Test Failover
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
-
-## Next steps
-
-For questions and comments on this scenario visit the [Site Recovery forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)
