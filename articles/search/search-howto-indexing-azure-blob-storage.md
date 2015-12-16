@@ -192,7 +192,7 @@ PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_auth
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extract text, including attachments
 ZIP (application/zip) | `metadata_content_type` | Extract text from all documents in the archive
 XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text </td>
-JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
 Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
