@@ -69,7 +69,7 @@ To configure the integration of OpsGenie into Azure AD, you need to add OpsGenie
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **OpsGenie**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-opsgenie-tutorial/tutorial_OpsGenie_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_01.png)<br>
 7. In the results pane, select **OpsGenie**, and then click **Complete** to add the application.
 <br><br>
 
@@ -99,10 +99,10 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to OpsGenie** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_OpsGenie_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_OpsGenie_04.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_04.png) <br>
 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your OpsGenie application using the following pattern: **“https://app.opsgenie.com/auth/login”**.
@@ -113,7 +113,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 4. On the **Configure single sign-on at OpsGenie** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_OpsGenie_05.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_05.png) <br>
 
     a. Click **Download Certificate**, and then save the file on your computer. We will need this certificate and Metadata URLs (Entity ID, SSO Sign In URL and Sign Out URL) to set up SSO on OpsGenie side.
 
@@ -123,16 +123,16 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. Open another browser instance, and then log-in to OpsGenie as an administrator.
 
 6. Click **Settings**, and then click the **Single Sign On** tab.
-   <br><br>![OpsGenie Single Sign-On](./media/active-directory-saas-OpsGenie-tutorial/tutorial_OpsGenie_06.png) <br>
+   <br><br>![OpsGenie Single Sign-On](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_06.png) <br>
 
 7. To enable SSO, select **Enabled**.
-   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_OpsGenie_07.png) <br>
+   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_07.png) <br>
    
 8. In the **Provider** section, click the **Azure Active Directory** tab.
-   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_OpsGenie_08.png) <br>
+   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_08.png) <br>
     
 9. On the Azure Active Directory dialog page, perform the following steps:
-   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_OpsGenie_09.png) <br>
+   <br><br>![OpsGenie Settings](./media/active-directory-saas-OpsGenie-tutorial/tutorial_opsgenie_09.png) <br>
 
     a. In the Azure portal, on the **Configure single sign-on at OpsGenie** dialog page, copy the **Single Sign On Service URL** value, and then paste it into the **SAML 2.0 Endpoint** textbox.
 
@@ -239,7 +239,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **OpsGenie**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_OpsGenie_50.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_50.png) <br>
 
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
