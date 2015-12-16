@@ -264,6 +264,8 @@ fileName | Specify the name of the file in the **folderPath** if you want the ta
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <p>Allowed values are: * (multiple characters) and ? (single character).</p><p>Examples 1: "fileFilter": "*.log"</p>Example 2: "fileFilter": 2014-1-?.txt"</p><p>**Note**: fileFilter is applicable for an input FileShare dataset</p> | No
 | compression | Specify the type and level of compression for the data. Supported types are: GZip, Deflate, and BZip2 and supported levels are: Optimal and Fastest. See [Compression support](#compression-support) section for more details.  | No |
+| format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either of these values. When the format is TextFormat you can specify additional optional properties for format. See the [Specifying TextFormat](#specifying-textformat) section below for more details. | No
+
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
@@ -297,6 +299,50 @@ In the above example {Slice} is replaced with the value of Data Factory system v
 	],
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
+
+### Specifying TextFormat
+
+If the format is set to **TextFormat**, you can specify the following **optional** properties in the **Format** section.
+
+| Property | Description | Required |
+| -------- | ----------- | -------- |
+| columnDelimiter | The character(s) used as a column separator in a file.This tag is optional. The default value is comma (,). | No |
+| rowDelimiter | The character(s) used as a raw separator in file. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
+| escapeChar | <p>The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No | 
+| quoteChar | <p>The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No |
+| nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |
+| encodingName | Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). For example: windows-1250 or shift_jis. The default value is: UTF-8. | No | 
+
+#### Samples
+The following sample shows some of the format properties for TextFormat.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myblobname"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": "\"",
+	        "NullValue": "NaN"
+	    }
+	},
+
+To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
+
+	"escapeChar": "$",
+
+### Specifying AvroFormat
+If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
