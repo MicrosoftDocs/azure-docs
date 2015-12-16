@@ -48,7 +48,7 @@ The process for creating a Service Fabric cluster on-premises will be similar to
 * Knowledge of building Service Fabric applications carries over from one hosting platform to others.
 * Operational experience of running Service Fabric clusters carries over from one deployment environment to others.
 * Broad customer reach is unbounded by hosting environment constraints.
-* An extra layer of reliability and protection against widespread outages exists because you can move the services over to another deployment environment if a data center or cloud provide has a blackout.
+* An extra layer of reliability and protection against widespread outages exists because you can move the services over to another deployment environment if a data center or cloud provider has a blackout.
 
 ## Advantages of using Azure Cloud Services over Deploy Anywhere
 Running Service Fabric clusters using Azure Cloud Services provides a few advantages over using the Deploy Anywhere option, so if you don't have specific needs for where you run your clusters, then we suggest that you run them on Azure Cloud Services. On Azure, we provide integration with other Azure features and services, which makes operations and management of the cluster easier:
