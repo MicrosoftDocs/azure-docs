@@ -44,7 +44,7 @@ Once the Event Hub monitor detects a message, it triggers a process that sends t
 The code in this sample only shows how to monitor Event Hubs and how to call external messaging services in the event that you want to add this functionality to your application. Note that this solution is a DIY, developer-focused example only. It does not address enterprise requirements such as redundancy, fail-over, restart upon failure, etc. For more comprehensive and production solutions, see the following:
 
 - Using connectors or push notifications using the [Azure Logic Apps](../app-service-logic/app-service-logic-connectors-list.md) service.
-- Using [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx), as described the blog [Broadcast push notifications to millions of mobile devices using Windows Azure Notification Hubs](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
+- Using [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx), as described the blog [Broadcast push notifications to millions of mobile devices using Azure Notification Hubs](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
 
 ## Next steps
 
