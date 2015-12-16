@@ -75,21 +75,6 @@
 
       It may take up to 11 hours to apply all the updates, including the Windows Updates.
 
-8. After all the updates are successfully installed, run the following cmdlet to confirm that the software updates were applied correctly:
-
-     `Get-HcsSystem`
-
-    You should see the following versions:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
- 
-9. Run the following cmdlet to confirm that the firmware update was applied correctly:
-
-    `Start-HcsFirmwareCheck`.
-
-     The firmware status should be **UpToDate**.
-
 10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
 
      `Set-CloudPlatform -AzureGovt_US`
