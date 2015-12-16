@@ -51,11 +51,11 @@ We also recommend installing [Python Tools 2.2 for Visual Studio]. This is optio
 You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.
 
 
-## Web app creation on the Azure Preview Portal
+## Web app creation on the Azure Portal
 
-The first step in creating your app is to create the web app via the [Azure Preview Portal](https://portal.azure.com).  
+The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com).  
 
-1. Log into the Azure Preview Portal and click the **NEW** button in the bottom left corner. 
+1. Log into the Azure Portal and click the **NEW** button in the bottom left corner. 
 2. Click **Web + Mobile**.
 3. In the search box, type "python".
 4. In the search results, select **Bottle**, then click **Create**.
@@ -132,7 +132,7 @@ The next 3 sections describe how to proceed with the web app development under 3
 
 ### Clone the repository
 
-First, clone the repository using the url provided on the Azure Preview Portal. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the url provided on the Azure Portal. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
 Open the solution file (.sln) that is included in the root of the repository.
 
@@ -144,7 +144,7 @@ Now we'll create a virtual environment for local development. Right-click on **P
 
 - Make sure the name of the environment is `env`.
 
-- Select the base interpreter. Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Preview Portal).
+- Select the base interpreter. Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal).
 
 - Make sure the option to download and install packages is checked.
 
@@ -199,7 +199,7 @@ Browse to the Azure URL to view your changes.
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Preview Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -209,7 +209,7 @@ First, clone the repository using the URL provided on the Azure Preview Portal, 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository). Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade for your web app in the Azure Preview Portal)
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade for your web app in the Azure Portal)
 
 For Python 2.7:
 
@@ -278,7 +278,7 @@ Browse to the Azure URL to view your changes.
 
 ### Clone the repository
 
-First, clone the repository using the URL provided on the Azure Preview Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -288,7 +288,7 @@ First, clone the repository using the URL provided on the Azure Preview Portal, 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository). Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Preview Portal).
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the Application Settings blade of your web app in the Azure Portal).
 
 For Python 2.7:
 
@@ -379,7 +379,6 @@ For information on using Azure Table Storage and MongoDB:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

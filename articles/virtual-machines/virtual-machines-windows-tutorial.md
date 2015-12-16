@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in the Azure preview portal | Microsoft Azure"
-	description="Learn how to create an Azure VM or virtual computer running Windows by using the Azure Marketplace in the Azure preview portal"
+	pageTitle="Create a virtual machine running Windows in the Azure portal | Microsoft Azure"
+	description="Learn how to create an Azure VM or virtual computer running Windows by using the Azure Marketplace in the Azure portal"
 	keywords="azure vm,create a virtual machine,virtual computer,setting up a virtual machine"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,17 +17,20 @@
 	ms.date="08/14/2015"
 	ms.author="cynthn"/>
 
-# Create a virtual machine running Windows in the Azure preview portal#
+# Create a virtual machine running Windows in the Azure portal#
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
-This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure preview portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+
+
+This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. For details about Resource Manager, see [Azure Resource Manager Overview](resource-group-overview.md).
 
@@ -43,7 +46,7 @@ Here's a walkthrough of this tutorial.
 
 ## Select the virtual machine image
 
-1. Sign in to the Azure preview portal.
+1. Sign in to the Azure portal.
 
 2. On the Hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
 
@@ -87,7 +90,7 @@ After you create the virtual machine, you'll want to log on to it so you can man
 
 >[AZURE.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. If you haven't already done so, sign in to the Azure preview portal.
+1. If you haven't already done so, sign in to the Azure portal.
 
 2. Click your virtual machine on the Startboard. If you need to find it, click **Browse All** > **Recent** or **Browse All** > **Virtual machines**. Then, select your virtual machine from the list.
 
@@ -108,4 +111,4 @@ After you create the virtual machine, you'll want to log on to it so you can man
 ## Next steps
 
 * Use Azure PowerShell and the Azure CLI to [find and select virtual machine images](resource-groups-vm-searching.md).
-* Automate virtual machine and workload deployment and management using [Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) and [Azure Resource Manager templates](http://azure.microsoft.com/en-us/documentation/templates/).
+* Automate virtual machine and workload deployment and management using [Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) and [Azure Resource Manager templates](http://azure.microsoft.com/documentation/templates/).

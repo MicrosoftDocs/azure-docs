@@ -14,18 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above.
 
->[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Before you begin
 
@@ -37,8 +40,11 @@ Verify that you have the following items before beginning configuration.
 	
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell cmdlets (1.0 or later). You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
-	
+## Install the PowerShell modules
+
+You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
+
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 ## 1. Connect to your subscription 
 
@@ -82,7 +88,7 @@ The sample below creates a virtual network named *testvnet* and two subnets, one
 
 ### <a name="gatewaysubnet"></a>To add a gateway subnet to a VNet (optional)
 
-This step is required only if you need to add a gateway subnet to a VNet.
+This step is required only if you need to add a gateway subnet to a VNet that you previously created.
 
 If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
 
@@ -136,7 +142,7 @@ The gateway configuration defines the subnet and the public IP address to use. U
 
 ## 6. Create the gateway
 
-In this step, you'll create the virtual network gateway. Note that that creating a gateway takes a while to complete. 
+In this step, you'll create the virtual network gateway. Note that that creating a gateway can take a long time to complete. Often 20 minutes or more. 
 
 Use the following values:
 
@@ -158,7 +164,7 @@ To find the public IP address of your virtual network gateway, use the following
 Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
 
 		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
@@ -246,4 +252,4 @@ You can use the following sample as a guideline.
 
 ## Next steps
 
-Add a virtual machine to your virtual network. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.

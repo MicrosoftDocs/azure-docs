@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a SQL Data Warehouse database in the Azure preview portal | Microsoft Azure"
-	description="Learn how to create an Azure SQL Data Warehouse in the Azure preview portal"
+	pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
+	description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -13,28 +13,32 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
+   ms.date="12/15/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Create a SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-This tutorial shows you how to create an Azure SQL Data Warehouse database in just a few minutes by using the Azure preview portal. 
+This tutorial shows you how to create an Azure SQL Data Warehouse database in just a few minutes by using the Azure Portal. 
 
 In this tutorial you will:
 
 - Create a server that will host your database.
 - Create a database that contains AdventureWorksDW sample database.
 
+If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-get-started-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
+
+To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Step 1: Sign in and get started
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
 2. Click **New** > **Data + Storage** > **SQL Data Warehouse**.
 
@@ -99,7 +103,7 @@ Now that you have selected your logical SQL server, you are ready to finish crea
 
 1. Click **Create** to create your SQL Data Warehouse database. 
 
-1. Wait for a few minutes and your database will be ready. When finished, you should be returned to the [Azure preview portal](https://portal.azure.com). Notice that your SQL Data Warehouse database has been added to the dashboard.
+1. Wait for a few minutes and your database will be ready. When finished, you should be returned to the [Azure Portal](https://portal.azure.com). Notice that your SQL Data Warehouse database has been added to the dashboard.
 
     ![Portal view](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 

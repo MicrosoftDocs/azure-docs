@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="11/30/2015"
 	ms.author="rajram"/>
 
 # Get started with the FTP Connector and add it to your Logic App

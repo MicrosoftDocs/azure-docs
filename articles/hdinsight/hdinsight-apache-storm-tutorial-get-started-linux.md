@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
@@ -40,11 +40,11 @@ You must have the following to successfully complete this Apache Storm tutorial:
 
 Storm on HDInsight uses Azure Blob storage for storing log files and topologies submitted to the cluster. Use the following steps to create an Azure Storage account for use with your cluster:
 
-1. Sign in to the [Azure Preview Portal][preview-portal].
+1. Sign in to the [Azure Portal][preview-portal].
 
 2. Select **NEW**, select __Data Analytics__, and then select __HDInsight__
 
-	![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
+	![Creating a new cluster in the Azure Portal](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
 3. Enter a __Cluster Name__, then select __Storm__ for the __Cluster Type__. A green check will appear beside the __Cluster Name__ if it is available.
 
@@ -66,7 +66,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows) 
+	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) 
 
 6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
 

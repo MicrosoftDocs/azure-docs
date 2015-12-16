@@ -67,6 +67,10 @@ You can update the primary or the secondary certificates easily from the portal 
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Note** Before you identify the certificates you want to use to the cluster resources, you will need to have completed the following steps, else the new certificate will not be used.
+1) upload the new certificate to the keyvault - refer to [Service Fabric Security](service-fabric-cluster-security.md) for instructions - start with step #2 in that document.
+2) update all the Virtual Machines that make up our cluster, so that the certificate get deployed on them. Refer to [this blog post](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) on how to.
+
 ### Application Ports
 
 You can do this by changing the load balancer resource properties associated with the Node Type. you can use the portal or ARM PowerShell directly.

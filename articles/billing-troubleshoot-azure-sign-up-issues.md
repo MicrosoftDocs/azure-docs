@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/25/2015"
-	ms.author="rgarodia, azuresbcic"/>
+	ms.author="rgarodia"/>
 
 # Troubleshoot Azure Sign-up Issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
@@ -45,7 +45,7 @@ Suggestions:
 **Note:** You can change your preferred phone number at a later time by updating [your profile information](https://account.windowsazure.com/Profile).
 
 ## Are you sure that the payment method you are using at sign-up is supported for Azure activations or payments?
-- Virtual and not prepaid credit/debit cards are not accepted.
+- Virtual and prepaid credit/debit cards are not accepted.
 - Accepted credit/debit card providers vary based on account country.
 
 Suggestions:

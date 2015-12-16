@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect design concepts | Microsoft Azure"
+   pageTitle="Azure AD Connect: Design concepts | Microsoft Azure"
    description="This topic details certain implementation design areas"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="10/13/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Design concepts for Azure AD Connect
@@ -55,7 +55,6 @@ If you have multiple forests and do not move users between forests and between d
 If you move users between forests and domains, then you must find an attribute which will not change or can be moved with the users during the move. A recommended approach is to introduce a synthetic attribute. An attribute which could hold something which looks like a GUID would be suitable. During object creation a new GUID is created and stamped on the user. A custom rule can be created in the sync engine server to create this value based on the **objectGUID** and update the selected attribute in ADDS. When you move the object, make sure to also copy the content of this value.
 
 Another solution is to pick an existing attribute you know will not change. Commonly used attributes include **employeeID**. If you consider an attribute which will contain letters, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes which should not be used include those with the name of the user. In a marriage or divorce the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes will also contain the @-character, which is not allowed in the sourceAnchor.
-
 
 ### Changing the sourceAnchor attribute
 The sourceAnchor attribute value cannot be changed after the object has been created in Azure AD and the identity is synchronized.

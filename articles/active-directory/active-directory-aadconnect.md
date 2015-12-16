@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
+	pageTitle="Azure AD Connect: Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
 	description="This is the Azure AD Connect that describes what it is and why you would use it."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/04/2015"
+	ms.date="12/02/2015"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -78,7 +78,7 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
-| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnt-user-signin.md) |
+| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md) |
 
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.

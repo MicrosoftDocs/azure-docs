@@ -466,13 +466,11 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 
 Now that you’ve learned the basics of the Azure Table service, follow these links to learn about more complex storage tasks.
 
-- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 For more information, see also the [PHP Developer Center](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 

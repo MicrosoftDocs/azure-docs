@@ -36,7 +36,7 @@ In addition, the tutorial assumes that you have already implemented the followin
 
 - You have created two Virtual Machines (VMs) in Azure using the platform provided Oracle Enterprise Edition image on Windows Server. For information, see [Creating an Oracle Database 12c Virtual Machine in Azure](#z3dc8d3c097cf414e9048f7a89c026f80) and [Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/). Make sure that the Virtual Machines are in the [same cloud service](virtual-machines-load-balance.md) and in the same [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the persistent private IP address.
 
-- You’ve set the Virtual Machine names as “MachineGG1” for Site A and “MachineGG2” for Site B at the Azure portal.
+- You’ve set the Virtual Machine names as “MachineGG1” for Site A and “MachineGG2” for Site B at the Azure classic portal.
 
 - You’ve created test databases “TestGG1” on Site A and “TestGG2” on Site B.
 
@@ -95,7 +95,7 @@ For subsequent releases of Oracle Database and Oracle GoldenGate, there might be
 ##1. Setup database on Site A and Site B
 This section explains how to perform the database prerequisites on both Site A and Site B. You must perform all the steps of this section on both sites: Site A and Site B.
 
-First, remote desktop to Site A and Site B via the Azure portal. Open up a Windows command prompt and create a home directory for Oracle GoldenGate setup files:
+First, remote desktop to Site A and Site B via the Azure classic portal. Open up a Windows command prompt and create a home directory for Oracle GoldenGate setup files:
 
 	mkdir C:\OracleGG
 
@@ -183,7 +183,7 @@ Next, create and enable a database trigger, INVENTORY_CDR_TRG, on the newly crea
 ##2. Prepare Site A and Site B for database replication
 This section explains how to prepare Site A and Site B for database replication. You must perform all the steps of this section on both sites: Site A and Site B.
 
-First, remote desktop to Site A and Site B via the Azure Portal. Switch the database to archivelog mode using the SQL*Plus command window:
+First, remote desktop to Site A and Site B via the Azure classic portal. Switch the database to archivelog mode using the SQL*Plus command window:
 
 	sql>shutdown immediate
 	sql>startup mount
@@ -286,7 +286,7 @@ Start the manager process:
 ###Create Extract and Data Pump processes on Site A
 
 You need to create the Extract and Data Pump processes on Site A and Site B.
-Remote desktop to Site A and Site B via the Azure portal. Open up GGSCI command interpreter window. Run the following commands on Site A:
+Remote desktop to Site A and Site B via the Azure classic portal. Open up GGSCI command interpreter window. Run the following commands on Site A:
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.

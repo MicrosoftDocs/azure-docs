@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/16/2015"
+	ms.date="12/07/2015"
 	ms.author="tdykstra"/>
 
 # Create an ASP.NET web app in Azure App Service
@@ -40,7 +40,7 @@ You'll learn:
 * How to set up Visual Studio to create a new App Service web app while it creates an ASP.NET MVC 5 web project.
 * How to deploy a web project to an App Service web app by using Visual Studio.
 * How to use Visual Studio **Server Explorer** to open remote files and start a remote debug session. 
-* How to use the [Azure portal](/overview/preview-portal/) to monitor and manage your web app.
+* How to use the [Azure Portal](/overview/preview-portal/) to monitor and manage your web app.
 
 > [AZURE.NOTE] This tutorial is about using ASP.NET with Azure App Service; it doesn't teach how to develop an ASP.NET web application. For an introduction to ASP.NET MVC 5, see [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) on the [ASP.NET](http://asp.net/) site. For links to other articles that go into more depth about how to use Azure App Service, see the [Next steps](#next-steps) section.
 > 
@@ -51,7 +51,7 @@ You'll learn:
 You need an Azure account to complete this tutorial. You can:
 
 * [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
-* [Activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+* [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 
 If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
@@ -109,23 +109,23 @@ The diagram illustrates what you're doing in the create and deploy steps.
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 
-	When you're signed in, the **Configure Microsoft Azure Web App Settings** dialog box asks you what resources you want to create.
+	When you're signed in, the **Create App Service** dialog box asks you what resources you want to create.
 
 	![Signed in to Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. In the **Configure Microsoft Azure Web App Settings** dialog box, enter a **Web App name** that is unique in the *azurewebsites.net* domain. For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810. If a default web name is created for you, it will be unique and you can use that.
+3. In the **Create App Service** dialog box, enter a **Web App name** that is unique in the *azurewebsites.net* domain. For example, you can name it MyExample with numbers to the right to make it unique, such as MyExample810. If a default web name is created for you, it will be unique and you can use that.
 
 	If someone else has already used the name that you enter, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
 
 	Azure will use this name as the prefix for your application's URL. The complete URL will consist of this name plus *.azurewebsites.net* (as shown next to the **Web App name** text box). For example, if the name is `MyExample810`, the URL will be `MyExample810.azurewebsites.net`. The URL has to be unique.
 
-4. In the **App Service plan** drop-down, select **Create new App Service plan**.
+4. Next to the **App Service plan** drop-down, click the **New...** button.
 
 	The [Next steps](#next-steps) section has links to information about App Service plans.
 
 5. Enter **MyExamplePlan**, or another name if you prefer, for the plan name.
 
-6. In the **Resource group** drop-down, select **Create new resource group**.
+6. In the **Resource group** drop-down, type the name of your new resource group.
 
 	The [Next steps](#next-steps) section has links to information about resource groups.
 
@@ -225,25 +225,25 @@ This change is now in the deployed site but not the local project. If you redepl
 
 This feature is handy for [temporarily turning off customErrors in the Web.config file in order to get a detailed error message](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-In **Server Explorer** you can also right-click the web app node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
+In **Server Explorer** you can also right-click the App Service node and get access to web app settings in a Visual Studio window, start a remote debugging session, and view application logs in real time as the application writes them.
 
 ![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
 
 For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Monitor and manage the web app in the Azure portal
+## Monitor and manage the web app in the Azure Portal
 
-The [Azure portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created. In this section of the tutorial, you look at some of what you can do in the portal.
+The [Azure Portal](/services/management-portal/) is a web interface that you can use to manage and monitor your Azure services, such as the web app that you just created. In this section of the tutorial, you look at some of what you can do in the Portal.
 
 1. In your browser, go to [https://portal.azure.com](https://portal.azure.com), and sign in with your Azure credentials.
 
-2. Click **Web Apps**, and then click the name of your web app.
+2. Click **App Services**, and then click the name of your web app.
 
 	The **Web app** blade displays an overview of settings and usage statistics for your web app.
 
 	![Web app blade](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
-	At this point, your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the portal page, you'll see some statistics show up.
+	At this point, your web app hasn't had much traffic and may not show anything in the graph. If you browse to your application, refresh the page a few times, and then refresh the Portal page, you'll see some statistics show up.
 
 3. Click **Settings** to see more options for configuring your web app.
 
@@ -253,13 +253,13 @@ The [Azure portal](/services/management-portal/) is a web interface that you can
 
 	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
-4. Click **Application settings** to see an example of the kinds of settings that you can configure in the portal.
+4. Click **Application settings** to see an example of the kinds of settings that you can configure in the Portal.
 
 	For example, you can control the .NET version that's used for the web app, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/), and set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 	![Portal web app configure tab](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
-These are just a few of the portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
+These are just a few of the Portal's features. You can create new web apps, delete existing web apps, stop and restart web apps, and manage other kinds of Azure services, such as databases and virtual machines.  
 
 ## Next steps
 
@@ -300,4 +300,3 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and existing Azure services](http://go.microsoft.com/fwlink/?LinkId=529714).
-* For a guide to the change from the Azure portal to the preview portal, see [Reference for navigating the Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715).
