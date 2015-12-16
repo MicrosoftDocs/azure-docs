@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enable diagnostics in a Azure Virtual Machine running Windows using PowerShell| Microsoft Azure" 
+	pageTitle="Enable diagnostics in a Azure Virtual Machine running Windows using PowerShell | Microsoft Azure" 
 	description="Learn how use PowerShell to enable diagnostics in a Azure Virtual Machine running Windows" 
 	services="virtual-machines" 
 	documentationCenter=""
