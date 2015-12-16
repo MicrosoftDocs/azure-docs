@@ -58,7 +58,7 @@ Update 2 introduces the following new features.
 - **Firmware updates** – The following firmware updates are included:
     - USM 3.33 RC5
     - LSI: lsi_sas2.sys Product Version 2.00.72.10
-    - SSD only (no HDD updates): XMGG, XGEG, KZ50, F6C2 and VR08
+    - SSD only (no HDD updates): XMGG, XGEG, KZ50, F6C2, and VR08
 
 - **Proactive Support** – Update 2 enables Microsoft to pull additional diagnostic information from the device. When our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. **By accepting Update 2, you allow us to provide this proactive support**.    
  
@@ -96,10 +96,6 @@ The following table provides a summary of known issues in this release.
 | 14 | Migration | Configuration backup for migration may fail on a 5000-7000 series device when there are volume groups with no associated volumes. | Delete all the empty volume groups with no associated volumes and then retry the configuration backup.| Yes | No |
 | 15 | Azure PowerShell cmdlets and locally pinned volumes | You cannot create a locally pinned volume via Azure PowerShell cmdlets. (Any volume you create via Azure PowerShell will be tiered.) |Always use the StorSimple Manager service to configure locally pinned volumes.|
 | 16 |Space available for locally pinned volumes | If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager service updates the local space available approximately every hour.| Wait for an hour before you try to create the new volume. |
-
-## Physical device updates in Update 2
-
-If patch update 2 is applied to a physical device (running versions prior to Update 1), the software version will change to [need version number].
 
 ## Controller and firmware updates in Update 2
 
