@@ -13,15 +13,15 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/16/2015"
-   ms.author="spyros" />
+   ms.author="spyros;sethm" />
 
-# Introduction
+# Notify users of data received from sensors or other systems
 
 Microsoft Azure [Event Hubs][] or [IoT Hub][] provide perfect endpoints for collecting the massive quantities of data coming from devices and tiny sensors, or from line of business systems such as Microsoft Dynamics. For example, a company might want to continuously monitor the temperature in conference rooms in all its buildings, which it can do by sending all the thermostat data to an Event Hub for processing using any number of cloud-based tools such as Azure Stream Analytics, Azure Machine Learning, Power BI, and so on. Or, a farmer might want to monitor or control the status of the lights in a greenhouse, or a fleet services company might want to record the driving characteristics of all their drivers. This article describes a simple example and provides documentation on how to alert users to certain conditions, such as a temperature being too low or a light being turned off. Suppose you want an easy way to send the following message a the service manager. How can you do this in the simplest manner?
 
 A new sample in the Azure Samples Gallery shows just how to do this, using either email, SMS, or even a phone.  Check out the full post at [AppToNotifyUsers][].
 
-## Scenario description
+## Introduction
 
 Take the scenario in which you have a light sensor in a room, and you want to receive an email if the light is turned off, as in the following image.
 
