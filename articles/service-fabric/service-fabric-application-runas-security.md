@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/24/2015"
    ms.author="mfussell"/>
 
 # RunAs: Running a Service Fabric application with different security permissions
@@ -86,9 +86,10 @@ Next under the **ServiceManifestImport** section configure a policy to apply thi
 
 Let's now add the file MySetup.bat to the Visual Studio project in order to test the Administrator privileges. In Visual Studio right click on the service project and add a new file call MySetup.bat. Next it is necessary to ensure that this file is included in the service package, which it is not by default. To ensure that the MySetup.bat file is include in the package select the file, right click to get context menu, choose properties and in the properties dialog ensure that the **Copy to Output Directory** is set to **Copy if newer**. This is shown in the screen shot below.
 
-![Visual Studio CopyToOutput for SetupEntryPoint batch file][Image1]
+![Visual Studio CopyToOutput for SetupEntryPoint batch file][image1]
 
 Now open the MySetup.bat file and add the following commands.
+
 ~~~
 REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
@@ -100,10 +101,7 @@ REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Mana
 ~~~
 
 Next build and deploy the solution to a local development cluster.  Once the service has started, as seen in the Service Fabric Explorer, you can see that the MySetup.bat was successful in a two ways. Open a PowerShell command prompt and type
-~~~
- [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-~~~
-Like this
+
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
@@ -119,15 +117,17 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 In order to run PowerShell from the **SetupEntryPoint** point you can run PowerShell.exe in a batch file pointing to a PowerShell file. First add a PowerShell file to the service project e.g. MySetup.ps1. Remember to set the *Copy if newer* property so that this file is also included in the service package. The example below shows a sample batch file to launch a PowerShell file called MySetup.ps1 which sets a system environment variable called *TestVariable*.
 
 MySetup.bat to launch PowerShell file.
+
 ~~~
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-In the PowerShell file add the following to set a system environment variable
-~~~
+In the PowerShell file add the following to set a system environment variable.
+
+```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-~~~
+```
 
 ## Applying RunAsPolicy to services 
 In the steps above you saw how to apply RunAs policy to a SetupEntryPoint. Let's looks a little deeper how to create different principals that can be applied as service policies. 
@@ -266,11 +266,13 @@ The application manifest below shows many of the different settings described ab
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
+         <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -286,4 +288,4 @@ The application manifest below shows many of the different settings described ab
 * [Specifying Resources in a Service Manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

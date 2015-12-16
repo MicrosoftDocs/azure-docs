@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to customize the look and feel of the developer portal in Azure API Management
@@ -49,7 +49,6 @@ When you are done with making changes to the styles of the selected element clic
 
 [Next steps]: #next-steps
 
-[Management Portal]: https://manage.windowsazure.com/
 
 [api-management-customization-toolbar]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png

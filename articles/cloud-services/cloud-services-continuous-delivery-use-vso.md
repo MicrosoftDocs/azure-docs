@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Continuous delivery with Visual Studio Team Services in Azure"
+	pageTitle="Continuous delivery with Visual Studio Team Services in Azure | Microsoft Azure"
 	description="Learn how to configure your Visual Studio Team Services team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services
 
@@ -63,7 +63,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 ## Step 3: Connect the project to Azure
 
-1. Now that you have a VSTS team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure Management Portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
+1. Now that you have a VSTS team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure classic portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
 
 	![][10]
 
@@ -162,7 +162,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 	![][29]
 
-1. In the [Azure Management Portal](http://manage.windowsazure.com), you can view the associated deployment on the **Deployments** tab when the staging environment is selected.
+1. In the [Azure classic portal](http://manage.windowsazure.com), you can view the associated deployment on the **Deployments** tab when the staging environment is selected.
 
 	![][30]
 
@@ -180,13 +180,13 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 
 ## Step 5: Redeploy an earlier build
 
-This step applies to cloud services and is optional. In the Azure management portal, choose an earlier deployment and then choose the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS and create a new entry in your deployment history.
+This step applies to cloud services and is optional. In the Azure classic portal, choose an earlier deployment and then choose the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS and create a new entry in your deployment history.
 
 ![][34]
 
 ## Step 6: Change the Production deployment
 
-This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the **Swap** button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
+This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the **Swap** button in the Azure classic portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
 
 ![][35]
 

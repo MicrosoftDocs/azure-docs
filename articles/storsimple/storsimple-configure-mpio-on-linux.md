@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Configure MPIO on a StorSimple host running CentOS
@@ -163,9 +163,9 @@ This section details the configuration prerequisites for CentOS server and your 
 
 Your StorSimple device should have:
 
-- A minimum of two interfaces enabled for iSCSI. To verify that two interfaces are iSCSI-enabled on your StorSimple device, perform the following steps in the Management Portal of your StorSimple device:
+- A minimum of two interfaces enabled for iSCSI. To verify that two interfaces are iSCSI-enabled on your StorSimple device, perform the following steps in the Azure classic portal for your StorSimple device:
 
-	1. Log into the Management Portal of your StorSimple device.
+	1. Log into the classic portal for your StorSimple device.
 
 	1. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI. 
 	
@@ -340,10 +340,10 @@ This load-balancing algorithm uses all the available multipaths to the active co
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+		If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 	
-	1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see how to [Step 6: Create a volume](https://sandboxmsdnstage.redmond.corp.microsoft.com/en-us/library/azure/dn772357.aspx) via Management Portal on your StorSimple device.
+	1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
 
 	1. Verify the available paths. Type:
 
@@ -460,7 +460,7 @@ A. To verify whether your device is whitelisted, use the following troubleshooti
     dm-3 devnode blacklisted, unmonitored
 
 
-For more information, see how to [use troubleshooting interactive command for multipathing](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+For more information, go to [use troubleshooting interactive command for multipathing](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## List of useful commands
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="11/30/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -104,22 +104,26 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-Here, "WinGame" is the name that appears in the Application Insights portal. Click the Custom Events tile on the overview blade:
+Here, "WinGame" is the name that appears in the Application Insights portal. 
 
-![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
+To see a count of your events, open a [Metric Explorer](app-insights-metrics-explorer.md) blade, add a new chart, and select Events.  
+
+![](./media/app-insights-api-custom-events-metrics/01-custom.png)
+
+To compare the counts of different events, set the chart type to Grid, and group by event name:
+
+![](./media/app-insights-api-custom-events-metrics/07-grid.png)
 
 
-The chart is grouped by Event name so that you can see the relative contributions of the most significant events. To control this, select the chart and use the Grouping control.
-
-![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
-
-From the list below the chart, select an event name. Click through to see individual occurrences of the event.
+On the grid, click through an event name to see individual occurrences of that event.
 
 ![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Click any occurrence to see more detail.
 
+To focus on specific events in either Search or Metric Explorer, set the blade's filter to the event names that you're interested in:
 
+![Open Filters, expand Event name, and select one or more values](./media/app-insights-api-custom-events-metrics/06-filter.png)
 
 ## Track Metric
 
@@ -654,16 +658,24 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 ## Limits
 
-There are some limits on the number of metrics and events per application.
+There are some limits on the number of metrics and events per application (that is, per instrumentation key).
 
-1. Up to 500 telemetry data points per second per instrumentation key (that is, per application). This includes both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code.
+1. A maximum rate per second which applies separately to each instrumentation key. Above the limit, some data will be dropped.
+ * Up to 500 data points per second for TrackTrace calls and captured log data. (100 per second for the free pricing tier.)
+ * Up to 50 data points per second for exceptions, captured either by our modules or by TrackException calls. 
+ * Up to 500 data points per second for all other data, including both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code. (100 per second for the free pricing tier.)
+1. Monthly total volume of data, depending on your [pricing tier](app-insights-pricing.md).
 1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
 2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
 3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
 
-* *Q: How long is data kept?*
+*How can I avoid hitting the data rate limit?*
 
-    See [Data retention and privacy][data].
+* Install the latest SDK to use [sampling](app-insights-sampling.md).
+
+*How long is data kept?*
+
+* See [Data retention and privacy][data].
 
 
 ## Reference docs
@@ -715,7 +727,7 @@ There are some limits on the number of metrics and events per application.
 [data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md

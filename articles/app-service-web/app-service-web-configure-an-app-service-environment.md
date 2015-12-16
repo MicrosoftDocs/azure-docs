@@ -41,7 +41,7 @@ The database holds the information that defines the environment as well as detai
 
 The virtual network that is used with your ASE can be one that you made when creating the ASE or one that you had ahead of time.  If you want your ASE to be in a resource group that is separate from the one used for your ASE then you need to make your VNET separately from the ASE creation flow.  It is a good idea to create the subnet you want to use at the same time as creating the subnet during ASE creation will force the ASE to be in the same resource group as the VNET.  Currently there is only support for V1 "classic" VNETs.  
 
-The UI to manage and monitor your App Service Environment is available from the Azure portal.  If you have an ASE then you are likely to see the App Service symbol on your sidebar.  This symbol is used to represent App Service Environments in the Azure portal.
+The UI to manage and monitor your App Service Environment is available from the Azure Portal.  If you have an ASE then you are likely to see the App Service symbol on your sidebar.  This symbol is used to represent App Service Environments in the Azure Portal.
 
 ![][1]
 

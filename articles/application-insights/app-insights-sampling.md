@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 #  Sampling in Application Insights
@@ -20,47 +20,120 @@
 *Application Insights is in preview.*
 
 
-Sampling  is an option in Application Insights that allows you to collect and store a reduced set of telemetry while maintaining a statistically correct analysis of application data. You'd typically use it to reduce traffic and avoid [throttling](app-insights-pricing.md#data-rate). The data is filtered in such a way that related items are allowed through, so that you can perform diagnostic investigations with a reduced set of data. Client and server side automatically coordinate to filter related items. When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics. 
+Sampling is a feature in Application Insights that allows you to collect and store a reduced set of telemetry while maintaining a statistically correct analysis of application data.  It reduces traffic and helps avoid [throttling](app-insights-pricing.md#data-rate). The data is filtered in such a way that related items are allowed through, so that you can navigate between items when you're performing diagnostic investigations.
+When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
+
+Adaptive sampling is enabled by default in the Application Insights SDK for ASP.NET, version 2.0.0-beta3 or later. Sampling is currently in Beta, and may change in the future.
+
+There are two alternative sampling modules:
+
+* Adaptive sampling automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only.  
+* Fixed-rate sampling is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+
+## Enabling adaptive sampling
+
+**Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+
+In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust a number of parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
+
+* `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
+
+    The target rate that the adaptive algorithm aims for **on a single server host**. If your web app runs on many hosts, you will want to reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
+
+* `<EvaluationInterval>00:00:15</EvaluationInterval>` 
+
+    The interval at which the current rate of telemetry is re-evaluated. Evaluation is performed as a moving average. You might want to shorten this interval if your telemetry is liable to sudden bursts.
+
+* `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
+
+    When sampling percentage value changes, how soon after are we allowed to lower sampling percentage again to capture less data.
+
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+
+    When sampling percentage value changes, how soon after are we allowed to increase sampling percentage again to capture more data.
+
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
+
+    As sampling percentage varies, what is the minimum value we're allowed to set.
+
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
+
+    As sampling percentage varies, what is the maximum value we're allowed to set.
+
+* `<MovingAverageRatio>0.25</MovingAverageRatio>` 
+
+    In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes.
+
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
+
+    The value assigned when the app has just started. Don't reduce this while you're debugging. 
+
+### Alternative: configure adaptive sampling in code
+
+Instead of adjusting sampling in the .config file, you can use code. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
+
+Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
 
-Sampling is currently in Beta, and may change in the future.
 
-## Configuring  sampling for your application
+*C#*
 
-Sampling is currently available for the ASP.NET SDK or [any web page](#other-web-pages). 
+```C#
 
-### ASP.NET server
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-1. Update your project's NuGet packages to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+    var adaptiveSamplingSettings = new SamplingPercentageEstimatorSettings();
 
-2. Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+    // Optional: here you can adjust the settings from their defaults.
 
-```XML
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    
+    builder.UseAdaptiveSampling(
+         adaptiveSamplingSettings,
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        // Callback on rate re-evaluation:
+        (double afterSamplingTelemetryItemRatePerSecond,
+         double currentSamplingPercentage,
+         double newSamplingPercentage,
+         bool isSamplingPercentageChanged,
+         SamplingPercentageEstimatorSettings s
+        ) =>
+        {
+          if (isSamplingPercentageChanged)
+          {
+             // Report the sampling rate.
+             telemetryClient.TrackMetric("samplingPercentage", newSamplingPercentage);
+          }
+      });
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
-> [AZURE.NOTE] For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
+([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
+
 
 <a name="other-web-pages"></a>
-### Web pages with JavaScript
+## Sampling for web pages with JavaScript
 
-You can configure web pages for sampling from any server. For ASP.NET servers, configure both client and server sides. 
+You can configure web pages for fixed-rate sampling from any server. 
 
-When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. (In ASP.NET, you'll find it in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
+When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
 
     <script>
 	var appInsights= ... 
 	}({ 
 
+
+    // Value must be 100/N where N is an integer.
+    // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
 	samplingPercentage: 10, 
 
 	instrumentationKey:...
@@ -70,15 +143,52 @@ When you [configure the web pages for Application Insights](app-insights-javascr
 	appInsights.trackPageView(); 
 	</script> 
 
-Make sure that you provide the same sampling percentage in the JavaScript as you did in the server side.
+For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
 
-[Learn more about the API](app-insights-api-custom-events-metrics.md)
-
-
-### Alternative: set sampling in server code
+If you also enable fixed-rate sampling at the server, the clients and server will synchronize so that, in Search, you can  navigate between related page views and requests.
 
 
-Instead of setting the sampling parameter in the .config file, you can use code. This would allow you to switch sampling on or off.
+## Enabling fixed-rate sampling at the server
+
+1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+
+2. **Disable adaptive sampling**: In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
+
+    ```xml
+
+    <TelemetryProcessors>
+    <!-- Disabled adaptive sampling:
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    -->
+    
+
+    ```
+
+2. **Enable the fixed-rate sampling module.** Add this snippet to [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
+
+    ```XML
+
+    <TelemetryProcessors>
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+      <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+      <SamplingPercentage>10</SamplingPercentage>
+      </Add>
+    </TelemetryProcessors>
+
+    ```
+
+> [AZURE.NOTE] For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
+
+
+
+### Alternative: enable fixed-rate sampling in server code
+
+
+Instead of setting the sampling parameter in the .config file, you can use code. 
 
 *C#*
 
@@ -86,26 +196,42 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-    // It's recommended to set SamplingPercentage in the .config file instead.
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.UseSampling(10.0); // percentage
 
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
+([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 ## When  to use sampling?
+
+Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later.
 
 You don’t need sampling for most small and medium size applications. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all of your user activities. 
 
  
-The main reasons you'd use sampling are:
-
+The main advantages of sampling are:
 
 * Application Insights service drops ("throttles") data points when your app sends a very high rate of telemetry in short time interval. 
-* You  want to keep within the [quota](app-insights-pricing.md) of data points for your pricing tier. 
+* To keep within the [quota](app-insights-pricing.md) of data points for your pricing tier. 
 * To reduce network traffic from the collection of telemetry. 
+
+### Fixed or adaptive sampling?
+
+Use fixed-rate sampling if:
+
+* You want synchronized sampling between client and server, so that, when you're investigating events in [Search](app-insights-diagnostic-search.md), you can navigate between related events on the client and server, such as page views and http requests.
+* You are confident of the appropriate sampling percentage for your app. It should be high enough to get accurate metrics, but below the rate that exceeds your pricing quota and the throttling limits. 
+* You aren't debugging your app. When you hit F5 and try a few pages of your app, you probably want to see all the telemetry.
+
+Otherwise, we recommend adaptive sampling. 
 
 ## How does sampling work?
 
@@ -120,6 +246,10 @@ When presenting telemetry back to you, the Application Insights service adjusts 
 The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all of their telemetry while staying within the quota, without causing data loss from throttling. 
 
 Note that Application Insights does not sample Metrics and Sessions telemetry types, since for these types reduction in the precision can be highly undesirable. 
+
+### Adaptive sampling
+
+Adaptive sampling adds a component that monitors the current rate of transmission from the SDK, and adjusts the sampling percentage to try to stay within the target maximum rate. The adjustment is recalculated at regular intervals, and is based on a moving average of the outgoing transmission rate.
 
 ## Sampling and the JavaScript SDK
 
@@ -140,11 +270,17 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *Can the sampling percentage change over time?*
 
- * In today's implementation you would typically not change the sampling percentage after setting it up on application start. Even though you have control over sampling percentage runtime, there is no way to determine which sampling percentage will be optimal and will collect "just the right amount of data volume" before throttling logic kicks in or before monthly data volume quota is reached. Future versions of Application Insights SDK will include adaptive sampling that, on the fly, will adjust the sampling percentage up and down, based on the currently observed volume of the telemetry and other factors. 
+ * Yes, adaptive sampling gradually changes the sampling percentage, based on the currently observed volume of the telemetry.
 
-*How do I know which sampling percentage will work the best for my app?*
+*Can I find out the sampling rate that adaptive sampling is using?*
 
-* Today you have to guess. Analyze your current telemetry usage in AI, observe the drops of data related to throttling, and estimate the volume of the collected telemetry. These three inputs, together with the selected pricing tier, will suggest how much you might want to reduce the volume of the collected telemetry. However, a shift in the pattern of the telemetry volume may invalidate optimally configured sampling percentage (for example an increase in the number of your users). When implemented, adaptive sampling will automatically control the sampling percentage to its optimal level, based on the observed telemetry volume.
+ * Yes - use the code method of configuring adaptive sampling, and you can provide a callback that gets the sampling rate.
+
+*If I use fixed-rate sampling, how do I know which sampling percentage will work the best for my app?*
+
+* One way is to start with adaptive sampling, find out what rate it settles on (see the above question), and then switch to fixed-rate sampling using that rate. 
+
+    Otherwise, you have to guess. Analyze your current telemetry usage in AI, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, will suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
 
 *What happens if I configure sampling percentage too low?*
 
@@ -156,10 +292,8 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 
 *On what platforms can I use sampling?*
 
-* Currently sampling is available for any web pages, and for both client and server sides of .NET web applications.
+* Currently, adaptive sampling is available for the server sides of ASP.NET web apps (hosted either in Azure or on your own server). Fixed-rate sampling is available for any web pages, and for both client and server sides of .NET web applications.
 
-*Can I use sampling with device apps (Windows Phone, iOS, Android, or desktop apps)?*
+*There are certain rare events I always want to see. How can I get them past the sampling module?*
 
-* No, sampling for device applications is not supported at the moment. 
-
->>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+ * Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.
