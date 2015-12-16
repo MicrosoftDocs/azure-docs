@@ -142,8 +142,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 	                                  "scriptPath": "script/partitionweblogs.hql",
 	                                  "scriptLinkedService": "StorageLinkedService",
 	                                  "defines": {
-	                                    "partitionedtable": "wasb://data@[variables('storageAccountName')].blob.core.windows.net/partitioneddata"
-	                                  }
+                                        "partitionedtable": "[concat('wasb://data@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"	                                  }
 	                                },
 	                                "outputs": [
 	                                  {
