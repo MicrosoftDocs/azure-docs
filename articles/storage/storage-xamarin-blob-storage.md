@@ -177,4 +177,4 @@ Learn more about blobs, tables, and queues by checking out the following links:
 [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)  
 [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)  
 [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
- 
+[Transfer data with the AzCopy command-line utility](storage-use-azcopy) 

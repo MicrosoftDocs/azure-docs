@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/17/2015"
+   ms.date="12/09/2015"
    ms.author="v-sharos" />
 
 # Deploy your on-premises StorSimple device in the Government Portal
+
+[AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
 ## Overview
 
@@ -150,7 +152,7 @@ A StorSimple Manager service can manage multiple StorSimple devices. Perform the
 
 ## Step 2: Get the service registration key
 
-After the StorSimple Manager service is up and running, you will need to get the service registration key. This key is used to register and connect your StorSimple device with the service.
+After the StorSimple Manager service is up and running, you will need to get the service registration key. This key is used to register and connect your StorSimple device to the service.
 
 Perform the following steps in the Government Portal.
 
