@@ -17,22 +17,18 @@
    ms.author="telmos" />
 
 # IP addresses (classic) in Azure
-You can assign IP addresses to different Azure resources to provide communication to other Azure resources, your on-premises network, and the public Internet. Private IP addresses are used for communication within an Azure virtual network (VNet) or cloud service, and even your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure. Public IP addresses are used for communication with the public Internet, including Azure public facing services.
+You can assign IP addresses to Azure resources to provide communication to other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
-You can assign IP addresses to different Azure resources including:
-- [Cloud services](cloud-services-choose-me.md)
-- IaaS virtual machines ([VMs](virtual-machines-about.md))
-- PaaS [role instances](cloud-services-choose-me.md/#tellmecs)
-- [VPN gateways](vpn-gateway-about-vpngateways.md)
-- [Application gateways](application-gateway-introduction.md)
-- [Load balancers](load-balancer-overview.md)
+Public IP addresses are used for communication with the Internet, including Azure public-facing services.
+
+Private IP addresses are used for communication within an Azure virtual network (VNet) or cloud service, and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure. 
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [resource manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
-In the classic deployment model, public IP addresses are associated to application gateways and public facing load balancers through a cloud service. 
-
 ## Public IP addresses
-You assign public IP addresses to allow Azure resources to communicate with Internet services, including Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md). You can assign a public IP address to any of the following resources:
+You assign public IP addresses to allow Azure resources to communicate with Internet services, including Azure public-facing services like [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md). 
+
+You can assign a public IP address to any of the following resources:
 
 - Cloud services
 - VMs
@@ -40,7 +36,7 @@ You assign public IP addresses to allow Azure resources to communicate with Inte
 - VPN gateways
 - Application gateways
 
-**Cloud services** 
+###Cloud services 
 A cloud service always has a public facing IP address that is referred to as a VIP. You can create endpoints in a cloud service to associated different ports in the VIP to internal ports on VMs and role instances within the cloud service.
 
 **VMs and PasS role instances**
@@ -107,7 +103,13 @@ You can associate private IP addresses to the **BackendAddressPool** property of
 ### Allocation methods
 You can use *dynamic* or *static* private IP addresses. In the default allocation method, which is *dynamic*, an IP address is automatically assigned to a resource based on the subnet or cloud service the resource is a part of. However, the IP address used by the resource may change when the resource is stopped and restarted.
 
-If you want to ensure the IP address for your resource remains the same, you have to change the allocation method to *static* and specify a valid IP address that is part of the range of addresses assigned to the subnet the resource is part of. Static IP addresses are commonly used for VMs that act as DNS servers, or domain controllers.
+If you want to ensure the IP address for your resource remains the same, you have to change the allocation method to *static* and specify a valid IP address that is part of the range of addresses assigned to the subnet the resource is part of. 
+
+Static IP addresses are commonly used for:
+- VMs that act as DNS servers.
+- VMs that act domain controllers.
+- VMs that require firewall rules using IP addresses.
+- VMs running services accessed by other apps by using an IP address.
 
 >[AZURE.IMPORTANT] You can only set a static private IP address for resources that are assigned to a VNet.
 
