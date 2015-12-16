@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Download the Azure SDK for PHP
@@ -31,8 +31,7 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
-> [AZURE.NOTE]
-> You must have PHP 5.3 or higher to use the PHP client libraries for Azure.
+> [AZURE.NOTE] You must have PHP 5.3 or higher to use the PHP client libraries for Azure.
 
 ##PHP client libraries for Azure
 
@@ -45,8 +44,7 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 1. [Install Git][install-git].
 
 
-	> [AZURE.NOTE]
-	> On Windows, you will also need to add the Git executable to your PATH environment variable.
+	> [AZURE.NOTE] On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
@@ -81,7 +79,7 @@ To install the PHP Client Libraries for Azure as a PEAR package, follow these st
 		pear channel-discover pear.windowsazure.com
 3. Install the PEAR package:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.4.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
 After the installation completes, you can reference class libraries from your application.
 
@@ -91,8 +89,7 @@ To download and install the PHP Client Libraries for Azure manually, follow thes
 
 1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
 
-	> [AZURE.NOTE]
-	> The PHP Client Libraries for Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
+	> [AZURE.NOTE] The PHP Client Libraries for Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application.
 
