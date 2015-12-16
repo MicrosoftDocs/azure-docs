@@ -47,15 +47,15 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 1. Open Azure PowerShell, and login to your account:
 
-      PS C:\> Login-AzureRmAccount
+        PS C:\> Login-AzureRmAccount
 
 2. Set the PHP version for the web app.
 
-      PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
 
 3. The PHP version is now set. You can confirm these settings:
 
-      PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 
@@ -63,15 +63,15 @@ To use the Azure Command-Line Interface, you must have **Node.js** installed on 
 
 1. Open Terminal, and login to your account.
 
-      azure login
+        azure login
 
 2. Set the PHP version for the web app.
 
-      azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version [5.4 | 5.5] {site-name}
 
 3. The PHP version is now set. You can confirm these settings:
 
-      azure site show {site-name}
+        azure site show {site-name}
 
 
 ## How to: Change the built-in PHP configurations
