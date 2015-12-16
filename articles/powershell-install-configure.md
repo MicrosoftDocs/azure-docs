@@ -122,7 +122,7 @@ These resources provide help for specific cmdlets:
 
 
 
-- Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+- Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx).
 
 For help from the community, try these popular forums:
 

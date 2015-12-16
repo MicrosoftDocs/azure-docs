@@ -351,7 +351,96 @@ In the above JSON example:
 
 - The deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.  
 - Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
- 
+
+### Other scenarios
+
+#### Web Service does not require an input
+
+Azure ML batch execution web services can be used to run any workflows, for example R or Python scripts, that may not require any inputs. Or, the experiment might be configured with a Reader module that does not expose any GlobalParameters. In that case, the AzureMLBatchExecution Activity would be configured as follows:
+
+	{
+        "name": "scoring service",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "myBlob"
+            }
+        ],
+        "typeProperties": {
+            "webServiceOutputs": {
+                "output1": "myBlob"
+            }              
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+   
+
+#### Web Service does not require an input/output
+The Azure ML batch execution web service might not have any Web Service output configured. In this example, there is no Web Service input or output, nor are any GlobalParameters configured. Note that there is still an output configured on the activity itself, but it is not given as a webServiceOutput.
+
+	{
+        "name": "retraining",
+        "type": "AzureMLBatchExecution",
+        "outputs": [
+            {
+                "name": "placeholderOutputDataset"
+            }
+        ],
+        "typeProperties": {
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
+
+#### Web Service uses readers and writers, and the activity runs only when other activities have succeeded
+
+The Azure ML web service reader and writer modules might be configured to run with or without any GlobalParameters. But you might want to embed the service calls in a processing pipeline that uses dataset dependencies to only invoke the service when some upstream processing has completed, and then to trigger some other action after the batch execution has completed. In that case, you can express the dependencies using activity inputs and outputs, without naming any of them as Web Service inputs or outputs.
+
+	{
+	    "name": "retraining",
+	    "type": "AzureMLBatchExecution",
+	    "inputs": [
+	        {
+	            "name": "upstreamData1"
+	        },
+	        {
+	            "name": "upstreamData2"
+	        }
+	    ],
+	    "outputs": [
+	        {
+	            "name": "downstreamData"
+	        }
+	    ],
+	    "typeProperties": {
+	     },
+	    "linkedServiceName": "mlEndpoint",
+	    "policy": {
+	        "concurrency": 1,
+	        "executionPriorityOrder": "NewestFirst",
+	        "retry": 1,
+	        "timeout": "02:00:00"
+	    }
+	},
+
+The **take-aways** are:
+
+-   If your experiment endpoint uses a webServiceInput, it is represented by a Blob dataset and is included in the activity inputs as well as the webServiceInput property. Otherwise, the webServiceInput property is omitted. 
+-   If your experiment endpoint uses webServiceOutput(s), they are represented by Blob Datasets and are included in the activity outputs as well as in the webServicepOutputs property (mapped by the name of each output in the experiment). Otherwise, the webServiceOutputs property is omitted.
+-   If your experiment endpoint exposes globalParameter(s), they are given in the activity globalParameters property as key,value pairs. Otherwise, the globalParameters property is omitted. The keys are case-sensitive. Azure Data Factory functions may be used in the values. 
+- Additional datasets may be included in the Activity inputs and outputs properties, without being referenced the in the Activity typeProperties. These will govern execution using slice dependencies but are otherwise ignored by the AzureMLBatchExecution Activity. 
+
 
 ## Updating Azure ML models using the Update Resource Activity
 Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are: 
@@ -583,30 +672,88 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
 	                "name": "AzureML Update Resource",
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
-	        ]
+	        ],
+	    	"start": "2015-02-13T00:00:00Z",
+	   		"end": "2015-02-14T00:00:00Z"
 	    }
 	}
 
 
+### Reader and Writer Modules
+
+A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
+
+For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.
 
 
 ## Frequently asked questions
-
-**Q:** I am using the AzureMLBatchScoring activity. Should I switch to using the AzureMLBatchExecution Activity?
-
-**A:** Yes. If you are using the AzureMLBatchScoring activity to integrate with Azure Machine Learning, we recommend that you use the latest AzureMLBatchExecution activity. We are deprecating the AzureMLBatchScoring activity, and it will be removed in a future release.
-
-The AzureMLBatchExecution activity is introduced in the August 2015 release of Azure SDK and Azure PowerShell.
-
-The AzureMLBatchExecution activity does not require an input (if input dependencies are not needed). It also allows you to be explicit about whether you want to use the Web service input and Web service output or not use them. If you do choose to use Web service input/output, it enables you to specify the relevant Azure Blob datasets to be used.In addition, it allows you to clearly specify the values for the web service parameters that are provided by the web service.
-
-If you want to continue using the AzureMLBatchScoring activity, please refer to [Azure ML Batch Scoring Activity](data-factory-create-predictive-pipelines.md) article for details.
-
 
 **Q:** I have multiple files that are generated by my big data pipelines. Can I use the AzureMLBatchExecution Activity to work on all the files?
 
 **A:** Yes. See the **Using a Reader module to read data from multiple files in Azure Blob** section for details. 
 
+## Azure ML Batch Scoring Activity
+If you are using the **AzureMLBatchScoring** activity to integrate with Azure Machine Learning, we recommend that you use the latest **AzureMLBatchExecution** activity. 
+
+The AzureMLBatchExecution activity is introduced in the August 2015 release of Azure SDK and Azure PowerShell.
+
+If you want to continue using the AzureMLBatchScoring activity, continue reading through this section.  
+
+### Azure ML Batch Scoring activity using Azure Storage for input/output 
+
+	{
+	  "name": "PredictivePipeline",
+	  "properties": {
+	    "description": "use AzureML model",
+	    "activities": [
+	      {
+	        "name": "MLActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "prediction analysis on batch input",
+	        "inputs": [
+	          {
+	            "name": "ScoringInputBlob"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "ScoringResultBlob"
+	          }
+	        ],
+	        "linkedServiceName": "MyAzureMLLinkedService",
+	        "policy": {
+	          "concurrency": 3,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
+	}
+
+### Web Service Parameters
+Add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON to specify values for Web service parameters in that section as shown in the following example: 
+
+	"typeProperties": {
+		"webServiceParameters": {
+			"Param 1": "Value 1",
+			"Param 2": "Value 2"
+		}
+	}
+
+
+You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn835056.aspx) in passing values for the Web service parameters as shown in the following example:
+
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	}
+  	}
+ 
+> [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
 
 ## See Also
 

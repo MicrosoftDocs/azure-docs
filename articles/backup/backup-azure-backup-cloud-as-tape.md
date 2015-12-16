@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Use Azure Backup to replace your tape infrastructure | Microsoft Azure"
    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
    services="backup"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Use Azure Backup to replace your tape infrastructure
