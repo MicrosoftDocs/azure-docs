@@ -84,7 +84,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 1. Download the notification-hubs-0.4.jar file from the **Files** tab of the [Notification-Hubs-Android-SDK on Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Drag the file directly into the **libs** folder in the Project View window of Android Studio. Then right click the file and click **Add as Library**.
   
-2. In the Build.Gradle file under **app**, add the following line in the **dependencies** section.
+2. In the Build.Gradle file for the **app**, add the following line in the **dependencies** section.
 
 	    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
 
@@ -166,7 +166,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     	}
 
 
-7. Add the `ToastNotify` method to the activity to display the notification when the app is running and visible. Also override `onStart`, `onPause`, `onResume` and `onStop` to determine whether the activity is visible to display the dialog.
+7. Add the `ToastNotify` method to the activity to display the notification when the app is running and visible. Also override `onStart`, `onPause`, `onResume` and `onStop` to determine whether the activity is visible to display the toast.
 
 	    @Override
 	    protected void onStart() {

@@ -16,7 +16,7 @@ This section shows how to send notifications using a console app
 The included code broadcasts to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices.
 
 
-## To send notifications using a C# console app 
+### To send notifications using a C# console app 
 
 Modify the `SendTemplateNotificationAsync` method in the console app you previously created with the following code. Notice how in this case there is no need to send multiple notifications for different locales and platforms.
 

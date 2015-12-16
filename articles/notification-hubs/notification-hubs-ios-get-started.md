@@ -255,6 +255,7 @@ If you want to send notifications within an app. This section provides an exampl
 		{
 			[super viewDidLoad];
 			[self ParseConnectionString];
+			[_notificationMessage setDelegate:self];
 		}
 
 		-(NSString *)CF_URLEncodedString:(NSString *)inputString

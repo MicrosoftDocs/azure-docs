@@ -253,9 +253,6 @@ For more information on using templates, see:
 - [Notify users with Notification Hubs: Mobile Services]
 
 
-A reference for the template expression language is in [Notification Hubs How-To for iOS].
-
-
 
 
 
