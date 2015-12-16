@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -26,7 +26,11 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](#classic) described later in this article.
 
-## Prerequisites ##
+## Prerequisites
+
+>[AZURE.IMPORTANT] The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` will fail.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
