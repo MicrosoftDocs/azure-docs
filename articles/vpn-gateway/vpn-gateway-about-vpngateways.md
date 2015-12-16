@@ -23,7 +23,7 @@ Consider the following items when planning:
 
 - The gateway SKU that you want to use
 - The gateway routing type for your connection
-- The VPN device, if required for your configuration
+- The VPN device, if required for your connection
 
 ## Gateway SKUs
 
@@ -56,7 +56,7 @@ Some connections (such as Point-to-Site and VNet-to-VNet) will only work with a 
 
 VPN devices also have configuration limitations. When you create a VPN gateway, you'll select the gateway routing type that is required for your connection, making sure to verify that the VPN device you plan to use also supports that routing type. See [About VPN devices](vpn-gateway-about-vpn-devices.md) for more information.
 
-For example, if you plan to use a Site-to-Site configuration concurrently with a Point-to-Site configuration, you’ll need to configure a route-based VPN gateway. While it's true that Site-to-Site configurations will work with policy-based gateways, Point-to-Site configurations require a route-based gateway type. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both configurations. Additionally, the VPN device you use must also support route-based configurations.
+For example, if you plan to use a Site-to-Site connection concurrently with a Point-to-Site connection, you’ll need to configure a route-based VPN gateway. While it's true that Site-to-Site connections will work with policy-based gateways, Point-to-Site connections require a route-based gateway type. Because both connections will go over the same gateway, you'll have to select the gateway type that supports both. Additionally, the VPN device you use must also support route-based configurations.
 
 
 ## Gateway requirements
