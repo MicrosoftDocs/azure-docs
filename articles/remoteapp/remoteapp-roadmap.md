@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="12/10/2015"
+    ms.date="12/16/2015"
     ms.author="elizapo" />
 
 # What's coming in Azure RemoteApp
