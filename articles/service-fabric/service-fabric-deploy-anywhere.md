@@ -50,10 +50,10 @@ The process for creating a Service Fabric cluster on-premises will be similar to
 * Broad customer reach is unbounded by hosting environment constraints.
 * An extra layer of reliability and protection against widespread outages exists because you can move the services over to another deployment environment if a data center or cloud provider has a blackout.
 
-## Advantages of using Azure Cloud Services over Deploy Anywhere
-Running Service Fabric clusters using Azure Cloud Services provides a few advantages over using the Deploy Anywhere option, so if you don't have specific needs for where you run your clusters, then we suggest that you run them on Azure Cloud Services. On Azure, we provide integration with other Azure features and services, which makes operations and management of the cluster easier:
+## Advantages of Service Fabric managed clusters on Azure over Service Fabric clusters created and managed using Deploy Anywhere
+Running Service Fabric clusters on Azure provides a few advantages over using the Deploy Anywhere option, so if you don't have specific needs for where you run your clusters, then we suggest that you run them on Azure. On Azure, we provide integration with other Azure features and services, which makes operations and management of the cluster easier:
 
 * **Azure portal:** Azure portal makes it easy to create and manage clusters.
 * **Azure Resource Manager:** Use of Azure Resource Manager allows easy management of all resources used by the cluster as a unit and simplifies cost tracking and billing.
 * **Diagnostics:** On Azure, we provide  integration with Azure Diagnostics and Operational Insights.
-* **Auto-scaling:** For clusters on Azure Cloud Services, we provide built-in auto-scaling functionality. In other environments using the Deploy Anywhere feature, you will have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
+* **Auto-scaling:** For clusters on Azure, we provide built-in auto-scaling functionality. In other environments using the Deploy Anywhere feature, you will have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
