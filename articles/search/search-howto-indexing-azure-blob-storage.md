@@ -200,23 +200,9 @@ Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding
 
 You can add metadata properties to a blob to control certain aspects of the blob indexing and document extraction process. Currently the following properties are supported:
 
-<table style="font-size:12">
-
-<tr>
-<th>Property name</th>
-<th>Property value</th>
-<th>Explanation</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted.
-This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
-</td>
-</tr>
-
-</table>
+Property name | Property value | Explanation
+--------------|----------------|------------
+AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
 
 ## Help us make Azure Search better
 
