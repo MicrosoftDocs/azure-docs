@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrating a SQL Server database to Azure SQL Database"
-   description="Microsoft Azure SQL Database, database deploy, database migration, import database, export database, migration wizard"
+   pageTitle="Import to SQL Database from a BACPAC file using SqlPackage"
+   description="Microsoft Azure SQL Database, database migration, import database, import BACPAC file, sqlpackage"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -16,30 +16,19 @@
    ms.date="12/16/2015"
    ms.author="carlrab"/>
 
-# Using SqlPackage to migrate SQL Server database to SQL Database
+# Import to SQL Database from a BACPAC file using SqlPackage
 
-Sqlpackage is a command-prompt utility that generates a BACPAC file from a SQL Server database and that imports into SQL Database from a BACPAC file. 
+> [AZURE.SELECTOR]
+- [Export to BACPAC using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Export to BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+- [Import from BACPAC using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms)
+- [Import from BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage)
+- [Import from BACPAC using Azure portal](sql-database-import.md)
+- [Import from BACPAC using PowerShell](sql-database-import-powershell.md)
 
-> [AZURE NOTE] After generating a BACPAC file to a local file location, you can upload the BACPAC file to Azure blob storage using [AzCopy](../articles/storage-use-azcopy.md) and then import it into SQL Database using the Azure portal. This method may be faster for large BACPAC files.
-
-## Export a SQL Server database to a BACPAC file using SqlPackage
-
-Use the steps below to use the [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx) command line utility to export [compatible](#determine-if-your-database-is-compatible) database to a BACPAC file.
+This article shows how to import to SQL database from a [BACPAC](https://msdn.microsoft.com/en-us/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 
 > [AZURE.NOTE] The steps below assume that you have already provisioned a SQL Database server, have the connection information on hand, and have verified that your source database is compatible.
-
-1. Open a command prompt and change a directory containing the sqlpackage.exe command line utility - this utility ships with both Visual Studio and SQL Server. Use search on your computer to find the path in your environment.
-2. Execute the following sqlpackage.exe command with the following arguments for your environment:
-
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
-
-	| Argument  | Description  |
-	|---|---|
-	| < server_name >  | source server name  |
-	| < database_name >  | source database name  |
-	| < target_file >  | file name and location for BACPAC file  |
-
-	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
 ## Import from a BACPAC file into Azure SQL Database using SqlPackage
 

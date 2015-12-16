@@ -42,8 +42,8 @@ After you have verified that you have a compatible database, you choose your mig
 
 > [AZURE.SELECTOR]
 - [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac.md)
+- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 - Use the Deploy Database to Microsoft Azure Database Wizard in SQL Server Management Studio for small to medium databases, migrating a compatible SQL Server 2005 or later database is as simple as running the [Deploy Database to Microsoft Azure Database Wizard](sql-database-cloud-migrate-compatible-using-migration-wizard.md) in SQL Server Management Studio. 
