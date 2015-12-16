@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Set up protection between on-premises VMM sites with SAN"
+	pageTitle="Set up protection between on-premises VMM sites using SAN with Azure Site Recovery | Microsoft Azure"
 	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication."
 	services="site-recovery"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
-# Set up protection between on-premises VMM sites with SAN
+# Set up protection between on-premises VMM sites using SAN with Azure Site Recovery
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](site-recovery-overview.md).
 

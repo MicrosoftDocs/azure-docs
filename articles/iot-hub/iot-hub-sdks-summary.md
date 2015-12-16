@@ -42,6 +42,7 @@ The Microsoft Azure IoT service SDKs contain code that facilitates building appl
 The following IoT service SDK is available to download from GitHub:
 
 - [Azure IoT service SDK for Node.js][]
+- [Azure IoT service SDK for Java][]
 
 ## Online API reference documentation
 
@@ -62,6 +63,7 @@ The following is a list of links to online API reference documentation for Azure
 [Azure IoT device SDK for C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
 [Azure IoT device SDK for .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [Azure IoT device SDK for Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
+[Azure IoT service SDK for Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
 [Azure IoT device SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Azure IoT service SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/
 [OS Platforms and hardware compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md

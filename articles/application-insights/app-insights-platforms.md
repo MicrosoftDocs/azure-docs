@@ -75,7 +75,7 @@ These are implementations we've heard about, including some by third parties.
 
 ## Export and Data Analysis
 
-+ [Alooma](http://alooma.com/blog/application-insights-amazon-redshift)
++ [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 + [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 + [Stream Analytics](app-insights-export-power-bi.md)
 
