@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Generic LDAP Connector technical reference
@@ -59,12 +59,13 @@ Supported Directories for Delta import and Password management:
     - Supports Set Password
 - Apache Directory Server
     - Does not support delta import since this directory does not have a persistent change log
+    - Supports Set Password
 - IBM Tivoli DS
     - Supports all operations for delta import
     - Supports Set Password and Change Password
 - Isode Directory
     - Supports all operations for delta import
-    - Supports Set Password
+    - Supports Set Password and Change Password
 - Novell eDirectory and NetIQ eDirectory
     - Supports Add, Update, and Rename operations for delta import
     - Does not support Delete operations for delta import
@@ -209,14 +210,15 @@ The following is a list of default change log DNs:
 | --- | --- |
 | Microsoft AD LDS and AD GC | Automatically detected. USNChanged. |
 | Apache Directory Server | Not available. |
-| Directory 389 | Not automatically detected. Select **Change Log**. Default value to use: **cn=changelog** |
-| IBM Tivoli DS | Automatically detected. Change log. |
-| Novell eDirectory | Not available. TimeStamp. The Connector will use last updated date/time to get added and updated records. |
-| Open DJ/DS | Automatically detected. Change log.  Default value to use: **cn=changelog** |
-| Open LDAP | Automatically detected. Access log. Default value to use: **cn=accesslog** |
-| Oracle DSEE | Automatically detected. Change log. Default value to use: **cn=changelog** |
+| Directory 389 | Change log. Default value to use: **cn=changelog** |
+| IBM Tivoli DS | Change log. Default value to use: **cn=changelog** |
+| Isode Directory | Change log. Default value to use: **cn=ChangeLog**
+| Novell/NetIQ eDirectory | Not available. TimeStamp. The Connector will use last updated date/time to get added and updated records. |
+| Open DJ/DS | Change log.  Default value to use: **cn=Changelog** |
+| Open LDAP | Access log. Default value to use: **cn=accesslog** |
+| Oracle DSEE | Change log. Default value to use: **cn=changelog** |
 | RadiantOne VDS | Virtual directory. Depends on the directory connected to VDS. |
-| Sun One Directory Server | Automatically detected. Change log. Default value to use: **cn=changelog** |
+| Sun One Directory Server | Change log. Default value to use: **cn=Changelog** |
 
 The password attribute is the name of the attribute the Connector should use to set the password in password change and password set operations.
 This is by default set to **userPassword** but can be changed if needed for a particular LDAP system.
