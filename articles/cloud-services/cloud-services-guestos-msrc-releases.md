@@ -31,6 +31,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-132 | [3116162] | Security Update for Windows to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
 | MS15-133 | [3116130] | Security Update for Windows PGM to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
 | MS15-134 | [3108669] | Security Update for Windows Media Center to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-135 | [3119075] | Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
 
 ## November Guest OS
 
