@@ -27,12 +27,11 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 ##What is security health monitoring?
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
 
-##Monitor compliance with policies
+##Monitoring security health
 After enabling [security policies](security-center-policies.md) for the subscription’s resources, Azure Security Center will analyze the security of your resources to identify potential vulnerabilities.  While information about your network configuration is available instantly, it may take an hour or more for information about virtual machine configuration, such as security update status and OS configuration, to be available. You can view the security state of your resources, along with any issues in the Resource Security Health blades. You can also view a list of those issues on the Recommendations blades.
 
 For more information on how to apply recommendations read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-##Resource health
 The **Resources health** tile allows you to monitor the security state of your resources. You will see a number of issues with high and medium severity that require attention as shown below:
 
 ![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1.png)
