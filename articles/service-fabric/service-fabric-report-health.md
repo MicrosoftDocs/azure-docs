@@ -25,9 +25,9 @@ To design and implement health reporting, watchdogs and system components must:
 
 - Define the condition they are interested in, the way it is monitored, and the impact on the cluster or application functionality. This defines the health report property and health state.
 
-- Determine the [entity](service-fabric-health-introduction.md#health-entities-and-hierarchy) where the report applies.
+- Determine the [entity](service-fabric-health-introduction.md#health-entities-and-hierarchy) that the report applies to.
 
-- Determine where the reporting is done, from within service or from an internal or external watchdog.
+- Determine where the reporting is done, from within the service or from an internal or external watchdog.
 
 - Define a source used to identify the reporter.
 
@@ -41,7 +41,7 @@ As mentioned above, reporting can be done from:
 
 - Internal watchdogs deployed as a Service Fabric service (e.g. a Service Fabric stateless service that monitors conditions and issues reports). The watchdogs can be deployed an all nodes or can be affinitized to the monitored service.
 
-- Internal Watchdogs that run on the Service Fabric nodes but are *not* implemented as Service Fabric services.
+- Internal watchdogs that run on the Service Fabric nodes but are *not* implemented as Service Fabric services.
 
 - External watchdogs that probe the resource from *outside* the Service Fabric cluster (e.g. a Gomez-like monitoring service).
 
@@ -52,15 +52,15 @@ Once the health reporting design is clear, health reports can be sent easily. Th
 > [AZURE.NOTE] Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client doesn't mean that it is applied in the store. It will be sent asynchronously and possibly batched with other reports. The processing on the server may still fail (e.g. a sequence number is stale, the entity on which the report must be applied has been deleted, etc.).
 
 ## Health client
-The health reports are sent to the health store by using a health client, which lives inside the fabric client. The health client can be configured with the following:
+The health reports are sent to the health store through a health client, which lives inside the fabric client. The health client can be configured with the following:
 
-- **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. This is used to batch reports into a single message, rather than one message being sent for each report. This improves performance. Default: 30 seconds.
+- **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. This is used to batch reports into a single message, rather than sending one message for each report. This improves performance. Default: 30 seconds.
 
 - **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health store. Default: 30 seconds.
 
 - **HealthOperationTimeout**: The timeout period for a report message sent to the health store. If a message times out, the health client retries it until the health store confirms that the report has been processed. Default: two minutes.
 
-> [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store is not able to apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
+> [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
 
 The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will be replaced with the last version. Only one such report exists in the client queue at most. If batching is configured, the number of reports sent to the health store is just one per send interval. This is the last added report, which reflects the most current state of the entity.
 All configuration parameters can be specified when **FabricClient** is created by passing **FabricClientSettings** with the desired values for health-related entries.
@@ -118,9 +118,9 @@ Reporting from within the monitored service is not always an option. A watchdog 
 
 Sometimes, a watchdog running in the cluster is not an option either. If the monitored condition is the availability or functionality of the service as users see it, it's best to have the watchdogs in the same place as the user clients. There, they can test the operations in the same way users call them. For example, you can have a watchdog that lives outside the cluster and issues requests to the service, and then checks the latency and correctness of the result. (For a calculator service, for example, does 2+2 return 4 in a reasonable amount of time?)
 
-Once the watchdog details have been finalized, you should decide on a source ID that uniquely identifies it. If multiple watchdogs of the same type are living in the cluster, either they must report on different entities, or, if they report on the same entity, they must ensure that the source ID or the property is different. This way, their reports can coexist. The property of the health report should capture the monitored condition (for the example above, the property could be **ShareSize**). If multiple reports apply to the same condition, the property should contain some dynamic information that allows reports to coexist. For example, if multiple shares need to be monitored, the property name can be **ShareSize-sharename**.
+Once the watchdog details have been finalized, you should decide on a source ID that uniquely identifies it. If multiple watchdogs of the same type are living in the cluster, either they must report on different entities, or, if they report on the same entity, they must ensure that the source ID or the property is different. This way, their reports can coexist. The property of the health report should capture the monitored condition. (For the example above, the property could be **ShareSize**.) If multiple reports apply to the same condition, the property should contain some dynamic information that allows reports to coexist. For example, if multiple shares need to be monitored, the property name can be **ShareSize-sharename**.
 
-> [AZURE.NOTE] The health store should *not* be used to keep status information. Only health-related information should be reported as health, as this information impacts the health evaluation of an entity. The health store was not designed as a general purpose store. It uses health evaluation logic to aggregate all data into the health state. Sending information unrelated to health (e.g. reporting status with a health state of OK) will not impact the aggregated health state, but it can negatively affect the performance of the health store.
+> [AZURE.NOTE] The health store should *not* be used to keep status information. Only health-related information should be reported as health, as this information impacts the health evaluation of an entity. The health store was not designed as a general-purpose store. It uses health evaluation logic to aggregate all data into the health state. Sending information unrelated to health (e.g. reporting status with a health state of OK) will not impact the aggregated health state, but it can negatively affect the performance of the health store.
 
 The next decision point is which entity to report on. Most of the time, this is obvious, based on the condition. You should choose the entity with best possible granularity. If a condition impacts all replicas in a partition, report on the partition, not on the service. There are corner cases where more thought is needed, though. If the condition impacts an entity, such as a replica, but the desire is to have the condition flagged for more than the duration of replica life, then it should be reported on the partition. Otherwise, when the replica is deleted, all reports associated with it will be cleaned up from the store. This means that watchdog writers must also think about the lifetimes of the entity and the report. It must be clear when a report should be cleaned up from a store (e.g. when an error reported on an entity no longer applies).
 
@@ -128,7 +128,7 @@ Let's look at an example that puts together the points above. Consider a Service
 
 Another condition that can be monitored is task execution time. The master distributes tasks to the slaves based on the task type. Depending on the design, the master could poll the slaves for task status. It could also wait for slaves to send back acknowledgement signals when they are done. In the second case, care must be taken to detect situations where slaves die or messages are lost. One option is for the master to send a ping request to the same slave, which sends back its status. If no status is received, the master considers this a failure and reschedules the task. This assumes that the tasks are idempotent.
 
-We can translate the monitored condition as a warning if the task is not done in a certain time **t1** (e.g. 10 minutes); and as an error if the task is not completed in time **t2** (e.g. 20 minutes). This reporting can be done in multiple ways:
+We can translate the monitored condition as a warning if the task is not done in a certain time (**t1**, e.g. 10 minutes); and as an error if the task is not completed in time (**t2**, e.g. 20 minutes). This reporting can be done in multiple ways:
 
 - The master primary replica reports on itself periodically. You can have one property for all pending tasks in the queue. If at least one task takes longer, the report status on the property **PendingTasks** is a warning or error, as appropriate. If there are no pending tasks or all have just started, the report status is OK. The tasks are persistent, so if the primary goes down, the newly promoted primary can continue to report properly.
 
@@ -151,7 +151,7 @@ Once the entity and report details are clear, sending health reports can be done
 ### API
 In order to report through the API, users need to create a health report specific to the entity type they want to report on. They then give the report to a health client.
 
-The following example shows periodic reporting from a watchdog within the cluster. The watchdog checks to determine whether an external resource can be accessed from within a node. The resource is needed by a service manifest within the application. If the resource is unavailable, the other services within the application can still function properly. Therefore, the report is sent on the deployed service package entity every 30 seconds.
+The following example shows periodic reporting from a watchdog within the cluster. The watchdog checks whether an external resource can be accessed from within a node. The resource is needed by a service manifest within the application. If the resource is unavailable, the other services within the application can still function properly. Therefore, the report is sent on the deployed service package entity every 30 seconds.
 
 ```csharp
 private static Uri ApplicationName = new Uri("fabric:/WordCount");
@@ -181,7 +181,7 @@ public static void SendReport(object obj)
 ### PowerShell
 Users can send health reports by using **Send-ServiceFabric*EntityType*HealthReport**.
 
-The following example shows periodic reporting on CPU values on a node. The reports should be sent every 30 seconds, and they have a time to live of two minute. If they expire, the reporter has issues, so the node is evaluated at error. When the CPU is above a threshold, the report has a health state of warning. When the CPU remains above a threshold for more than the configured time, it's reported as an error. Otherwise, the reporter sends a health state of OK.
+The following example shows periodic reporting on CPU values on a node. The reports should be sent every 30 seconds, and they have a time to live of two minutes. If they expire, the reporter has issues, so the node is evaluated at error. When the CPU is above a threshold, the report has a health state of warning. When the CPU remains above a threshold for more than the configured time, it's reported as an error. Otherwise, the reporter sends a health state of OK.
 
 ```powershell
 PS C:\> Send-ServiceFabricNodeHealthReport -NodeName Node.1 -HealthState Warning -SourceId PowershellWatcher -HealthProperty CPU -Description "CPU is above 80% threshold" -TimeToLiveSec 120
