@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/12/2015"
+   ms.date="12/16/2015"
    ms.author="carlrab"/>
 
 # Using SQL Server Management Studio to migrate to SQL Database Using a BACPAC

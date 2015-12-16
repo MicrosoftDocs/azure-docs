@@ -16,7 +16,7 @@
    ms.date="10/12/2015"
    ms.author="carlrab"/>
 
-# Using transactional replication to migrate a compatible database to SQL Database with no downtime
+# Using transactional replication to migrate to SQL Database with no downtime
 
 When you need to cannot afford to remove your your SQL Server database from production while the migration is occurring, you can use SQL Server transactional replication as your migration solution. With transactional replication, all changes to your data or schema that happen between the moment you start migrating and the moment you complete the migration will show up in your Azure SQL Database. Once the migration is complete, you just need to change the connection string of your applications to point them to your Azure SQL Database instead of pointing them to your on premise database. Once transactional replication drains any changes left on your on-premises database and all your applications point to Azure DB, you can now safely uninstall replication leaving your Azure SQL Database as the production system.
 
@@ -31,7 +31,7 @@ Transactional replication is a technology built-in and integrated with SQL Serve
  - SQL Server 2012 SP2 CU8 and above
  - SQL Server 2013 SP3 when it will release
 
-You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionially, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
+You can also use transactional replication to migrate a subset of your on-premises database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. Additionally, for each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
 
 ## Use Deploy Database to Microsoft Azure Database Wizard
 
