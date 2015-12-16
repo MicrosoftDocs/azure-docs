@@ -31,20 +31,21 @@ In this article, you will learn how to use Azure Resource Manager templates to c
 2.	Creating the linked services (data stores, computes) and datasets.
 3.	Creating the pipeline.
 
-> [AZURE.IMPORTANT] 
-> This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
  
 
 ## Prerequisites
 Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
 
-- **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer. 
+- **Install Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
+- This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, read through [Introduction to Azure Data Factory](data-factory-introduction.md). 
+- See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager (ARM) templates. 
+ 
 
 ## Step 1: Create the ARM template
 
 Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder with the following content: 
 
-> [AZURE.IMPORTANT] Change the values for storageAccountName and storageAccountKey variables. 
+> [AZURE.IMPORTANT] Change the values for **storageAccountName** and **storageAccountKey** variables. Change the **dataFactoryName** too because the name has to be unique. 
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -52,7 +53,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 	    "parameters": {
 	    },
 	    "variables": {
-	        "dataFactoryName":  "DataFactoryMyFirstPipelineARM2",
+	        "dataFactoryName":  "TutorialDataFactoryARM",
 	        "storageAccountName":  "<stroage account name>" ,
 	        "storageAccountKey":  "<storage account key>",
 	        "apiVersion": "2015-10-01",
@@ -171,12 +172,31 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 	}
 
 
-#### Step 2: Deploy Data Factory entities using the ARM template
+## Step 2: Deploy Data Factory entities using the ARM template
 
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
 	- Run **Login-AzureRmAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
 	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
-	- Run **Select-AzureSubscription <Name of the subscription>** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+	- Run **Select-AzureSubscription SubscriptionName** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 1. Run the following command to deploy Data Factory entities using the ARM template you created in Step 1. 
 
 		New-AzureRmResourceGroupDeployment -Name SP-ARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
+
+## Monitor the pipeline
+ 
+1.	After logging into the [Azure Portal](http://portal.azure.com/), Click **Browse** and select **Data factories**.
+		![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+2.	In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.	
+2.	In the **Data Factory** blade for your data factory, click **Diagram**.
+		![Diagram Tile](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+4.	In the **Diagram View**, you will see an overview of the pipelines, and datasets used in this tutorial.
+	
+	![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
+8. In the Diagram View, double-click on the dataset **AzureBlobOutput**. You will see that the slice that is currently being processed.
+
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+9. When processing is done, you will see the slice in **Ready** state. Note that the creation of an on-demand HDInsight cluster usually takes sometime. 
+
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
+10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **data** container in your blob storage for the output data.  
+ 
