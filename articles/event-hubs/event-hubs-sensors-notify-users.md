@@ -105,7 +105,7 @@ If you are using an SMTP (email) sender, this is the display name and email alia
 
 Having completed all the necessary fields in the App.config file, you must deploy the application. Since we assume you know how to do that, we won’t go over those details. The reason for including this step in this blog is to bring to your attention the following warning:
 
-> [AZURE.WARNING] This application runs in the cloud, and will push ALL the data that the event hub receives to the users you list.
+> [AZURE.WARNING] This application runs in the cloud, and will push ALL the data that the Event Hub receives to the users you list.
 > 
 > The anticipated scenario is that you monitor an Event Hub that is dedicated to receiving alerts on a sporadic basis (maybe once a day or once a week), in which case your targeted users will get an alert pushed to them once a day or once a week. If, however, you monitor an Event Hub that is getting data every second then your users will get an alert once a second.
 > 
