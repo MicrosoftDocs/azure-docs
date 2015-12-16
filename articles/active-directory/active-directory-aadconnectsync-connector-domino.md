@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/10/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -456,7 +456,7 @@ This section lists the attributes that are mandatory for each supported object t
 | Group | <li>ListName</li> |
 | Main-In Database | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Person | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>_MMS_UseAdminP</li> |
-| Contact (Person with no certifier) | <li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li> |
+| Contact (Person with no certifier) | <li>\_MMS_IDRegType</li> |
 | Resource | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## Common issues and questions
