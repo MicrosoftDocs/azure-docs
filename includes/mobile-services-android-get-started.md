@@ -31,7 +31,7 @@ You can run the app using the emulator, or using an actual device.
 
 	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.java file.
 
-8. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+8. Back in the Azure classic portal, click the **Data** tab and then click the **TodoItems** table.
 
    	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 

@@ -40,7 +40,7 @@ Azure HDInsight offers a fully managed Spark service. Benefits of using Spark on
 
 | Feature                             | Description       |
 |-------------------------------------|-------------------|
-| Ease of provisioning            | You can provision a new Spark cluster on HDInsight in minutes using the Azure Management Portal, Azure PowerShell, or the HDInsight .NET SDK. See [Provision a Spark cluster in HDInsight](hdinsight-apache-spark-provision-clusters.md) |
+| Ease of provisioning            | You can provision a new Spark cluster on HDInsight in minutes using the Azure Classic Portal, Azure PowerShell, or the HDInsight .NET SDK. See [Provision a Spark cluster in HDInsight](hdinsight-apache-spark-provision-clusters.md) |
 | Ease of use                     | Spark in HDInsight clusters includes Zeppelin and Jupyter notebooks pre-configured. You can use these for interactive data processing and visualization. The URLs for these notebooks are https://CLUSTERNAME.azurehdinsight.net/zeppelin and https://CLUSTERNAME.azurehdinsight.net/jupyter. Replace __CLUSTERNAME__ with the name of your HDInsight cluster.|
 | REST APIs                       | Spark in HDInsight includes Spark job server, which is a REST API server that enables users to remotely submit and monitor running jobs. |
 | Concurrent Queries              | Spark in HDInsight supports concurrent queries. This enables multiple queries from one user or multiple queries from various users and applications to share the same cluster resources. |

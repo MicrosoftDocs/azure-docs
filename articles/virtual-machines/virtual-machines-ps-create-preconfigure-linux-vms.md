@@ -159,7 +159,7 @@ Add a block to your command set to start the virtual machine creation process by
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-The short name of the cloud service is the name that appears in the list of Azure Cloud Services in the Azure portal or in the list of resource groups in the Azure preview portal.
+The short name of the cloud service is the name that appears in the list of Azure Cloud Services in the Azure classic portal or in the list of resource groups in the Azure portal.
 
 **Option 2**: Create the virtual machine in an existing cloud service and virtual network.
 
@@ -178,7 +178,7 @@ After the virtual machine is created, see [How to log on to a virtual machine ru
 If you want to reuse the command set, you can:
 
 - Save this command set as a PowerShell script file (*.ps1)
-- Save this command set as an Azure automation runbook in the **Automation** section of the Azure portal
+- Save this command set as an Azure automation runbook in the **Automation** section of the Azure classic portal
 
 ## <a id="examples"></a>Examples
 

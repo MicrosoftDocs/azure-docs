@@ -59,7 +59,7 @@ Finally, it is important to note that all IoT Hub endpoints are exposed over [TL
 
 When using the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host][], you can use any IoT Hub connection strings with the correct permissions, and then use `messages/events` as the Event Hub name.
 
-When using SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure preview portal][]:
+When using SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][]:
 
 1. In the IoT hub blade, click **Settings**, then **Messaging**,
 2. In the **Device-to-cloud settings** section, you will find an **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions** box.
@@ -78,7 +78,7 @@ If you must build an Event Hub connection string with the previous information, 
 The following is a list of SDKs and integration that can be used with IoT Hub:
 
 * [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can find the link to the spout source [here](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
 * [Apache Spark integration](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## Device identity registry
@@ -193,7 +193,7 @@ IoT Hub uses the following set of *permissions* to grant access to each IoT hub'
 
 Permissions are granted in the following ways:
 
-* **Hub-level shared access policies**. *Shared access policies* can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure preview portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **Hub-level shared access policies**. *Shared access policies* can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure portal][lnk-management-portal] or programmatically using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
     - *iothubowner*: Policy with all permissions
     - *service*: Policy with **ServiceConnect** permission
@@ -352,7 +352,7 @@ An IoT hub exposes the following properties to control D2C messaging.
 
 Also, analogously to Event Hubs, IoT Hub allows the management of Consumer Groups on the device-to-cloud receive endpoint.
 
-You can modify all these properties using either the [Azure preview portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+You can modify all these properties using either the [Azure portal][lnk-management-portal], or programmatically through the [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 
 #### Anti-spoofing properties <a id="antispoofing"></a>
 
@@ -491,7 +491,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 
 [Event Hubs - Event Processor Host]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
-[Azure preview portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 [img-summary]: ./media/iot-hub-devguide/summary.png
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="07/28/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Scheduler Limits, Defaults, and Error Codes
@@ -59,16 +59,21 @@ API operations may also return additional error information that is defined by t
 
 ## See Also
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [What is Scheduler?](scheduler-intro.md)
+ 
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ 
+  

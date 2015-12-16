@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Connect to on-premises SQL Server from a web app in Azure App Service using Hybrid Connections
@@ -24,7 +24,7 @@ In this tutorial, you will learn how to create an App Service web app in the [Az
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 >
->The Web Apps portion of the Hybrid Connections feature is available only in the [Azure preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+>The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ## Prerequisites ##
 
@@ -117,11 +117,11 @@ Your Visual Studio web application requires a membership database that can be ac
 	![MembershipDB created][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Create a web app in the Azure preview portal ##
+## B. Create a web app in the Azure Portal ##
 
-> [AZURE.NOTE] If you have already created a web app in the Azure preview portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and continue from there.
+> [AZURE.NOTE] If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and continue from there.
 
-1. In the [Azure preview portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Web app**.
+1. In the [Azure Portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Web app**.
 
 	![New button][New]
 
@@ -140,7 +140,7 @@ Next, you will create a hybrid connection and a BizTalk service for the web app.
 <a name="CreateHC"></a>
 ## C. Create a Hybrid Connection and a BizTalk Service ##
 
-1. Back in the portal, scroll down your web app's blade and click **Network Feature status** > **Configure your hybrid connection endpoints**.
+1. Back in the Portal, go to settings and click **Networking** > **Configure your hybrid connection endpoints**.
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -207,7 +207,7 @@ In this step, you edit the connection string that tells your application where t
 
 	- If you are connecting to a named instance instead of a default instance (for example, YourServer\SQLEXPRESS), you must configure your SQL Server to use static ports. For information on configuring static ports, see [How to configure SQL Server to listen on a specific port](http://support.microsoft.com/kb/823938). By default, named instances use UDP and dynamic ports, which are not supported by Hybrid Connections.
 
-	- It is recommended that you specify the port (1433 by default, as shown in the example) n the connection string so that you can be sure that your local SQL Server has TCP enabled and is using the correct port.
+	- It is recommended that you specify the port (1433 by default, as shown in the example) on the connection string so that you can be sure that your local SQL Server has TCP enabled and is using the correct port.
 
 	- Remember to use SQL Server Authentication to connect, specifying the user ID and password in your connection string.
 
@@ -240,7 +240,7 @@ Now, you'll publish your application to your App Service web app and then test i
 
 ### Publish the web application ###
 
-1. You can download your publishing profile for the App Service web app in the Azure preview portal. On the blade for your web app, click **Get publish profile**, and then save the file to your computer.
+1. You can download your publishing profile for the App Service web app in the Azure Portal. On the blade for your web app, click **Get publish profile**, and then save the file to your computer.
 
 	![Download publish profile][PortalDownloadPublishProfile]
 

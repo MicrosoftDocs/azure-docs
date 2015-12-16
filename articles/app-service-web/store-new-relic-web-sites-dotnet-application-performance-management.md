@@ -57,7 +57,7 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 1. Create a New Relic account
 
-1. Log in to the [Azure preview portal](https://portal.azure.com) and click **New** in the corner.
+1. Log in to the [Azure Portal](https://portal.azure.com) and click **New** in the corner.
 3. Click **Developer services** > **New Relic APM**.
 4. Configure your New Relic account by specifying the following, then click **Create**.
 	- **Name**
@@ -73,7 +73,7 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 2: Configure New Relic integration for your web app
 
-1. Open your web app's blade in the [Azure preview portal](https://portal.azure.com).
+1. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
 2. Click the "..." menu at the top of the blade and select **Add tiles**.
 3. On the **Monitoring** tab select **Application summary** and drag it to where you want the tile to appear on your web app's blade.
 4. Click Done to finish adding tiles.
@@ -94,7 +94,7 @@ Using Visual Studio, publish your web app. If you have previously published your
 
 To view your New Relic dashboard:
 
-2. Open your web app's blade in the [Azure preview portal](https://portal.azure.com).
+2. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
 3. Click **Application monitoring** > **application name** > **View at New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -177,7 +177,6 @@ browsers to load your webpages, where they come from, and what browsers they use
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [vswebsite]: web-sites-dotnet-get-started.md

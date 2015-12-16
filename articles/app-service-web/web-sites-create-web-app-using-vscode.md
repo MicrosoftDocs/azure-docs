@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="erikre"/>
 
 # Create an ASP.NET 5 web app in Visual Studio Code
@@ -28,12 +28,10 @@ This tutorial shows you how to create an ASP.NET 5 web app using [Visual Studio 
 
 * Install [VS Code](http://code.visualstudio.com/Docs/setup).
 * Install [Node.js](http://nodejs.org) - Node.js is a platform for building fast and scalable server applications using JavaScript. Node is the runtime (Node), and [npm](http://www.npmjs.com/) is the Package Manager for Node modules. You will use npm to scaffold an ASP.NET 5 web app in this tutorial.
-* Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows command prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
+* Install Git - You can install it from either of these locations: [Chocolatey](https://chocolatey.org/packages/git) or [git-scm.com](http://git-scm.com/downloads). If you are new to Git, choose [git-scm.com](http://git-scm.com/downloads) and select the option to **Use Git from the Windows Command Prompt**. Once you install Git, you'll also need to set the Git user name and email as it's required later in the tutorial (when performing a commit from VS Code).  
 
 ## Install ASP.NET 5 and DNX
-ASP.NET 5/DNX is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
-
-> [AZURE.NOTE] ASP.NET 5 and DNX (the .NET Execution Environment) on OS X and Linux are in an early Beta/Preview state. 
+ASP.NET 5/DNX (the .NET Execution Environment) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
 This tutorial is designed to get you started building applications with the latest development versions of ASP.NET 5 and DNX. The following instructions are specific to Windows. For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET 5 and DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
 
@@ -43,9 +41,9 @@ This tutorial is designed to get you started building applications with the late
 
 	This will download the DNVM script and put it in your user profile directory. 
 
-2. Restart Windows to complete the DNVM installation. 
+2. **Restart Windows** to complete the DNVM installation. 
 
-3. Open a command prompt and verify the location of DNVM by entering the following. 
+	After you have restarted Windows, you can open the command prompt to verify the location of DNVM by entering the following:
 
 		where dnvm
 
@@ -53,11 +51,11 @@ This tutorial is designed to get you started building applications with the late
 
 	![dnvm location](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
 
-4. Now that you have DNVM, you need to use it to download DNX to run your applications. Run the following at the command prompt.
+3. Now that you have DNVM, you must to use it to download DNX to run your applications. Run the following at the command prompt:
 
 		dnvm upgrade
 
-5. Verify your DNVM, and view the active runtime by entering the following at the command prompt.
+	Verify your DNVM, and view the active runtime by entering the following at the command prompt:
 
 		dnvm list
 
@@ -65,9 +63,9 @@ This tutorial is designed to get you started building applications with the late
 
 	![DNVM location](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-6. If more than one DNX runtime is listed, enter the following at the command prompt to set the active DNX runtime to the same version as the one that is used by the ASP.NET 5 generator when you create your web app later in this tutorial. *You may not need to change the active runtime if it is set to the latest available.*
+	If more than one DNX runtime is listed, you can choose to enter the following (or a more recent version) at the command prompt to set the active DNX runtime. Set it to the same version that is used by the ASP.NET 5 generator when you create your web app later in this tutorial. *You may not need to change the active runtime if it is set to the latest available.*
 
-		dnvm use 1.0.0-beta4 –p
+		dnvm use 1.0.0-update1 –p
 
 > [AZURE.NOTE] For more detailed installation instructions for OS X, Linux, and Windows, see [Installing ASP.NET 5 and DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx). 
 
@@ -81,71 +79,65 @@ This section shows you how to scaffold a new app ASP.NET web app. You will use t
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
+	> [AZURE.NOTE] You may get a warning suggesting that your npm version is out of date. This warning should not affect this tutorial.
+
 3. Enter the following at the command prompt to create the project folder and scaffold the app.
 
 		yo aspnet
 
-4. Use the arrow keys to select the **Web Application** type from the ASP.NET 5 generator menu, and press **&lt;Enter>**.
+4. Use the arrow keys to select the **Web Application Basic** type from the ASP.NET 5 generator menu, and press **&lt;Enter>**.
 
 	![Yeoman - ASP.NET 5 generator](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 
 5. Set the name of your new ASP.NET web app to **SampleWebApp**. As this name is used throughout the tutorial, if you select a different name, you'll need to substitute it for each occurrence of **SampleWebApp**. When you press **&lt;Enter>**, Yeoman will create a new folder named **SampleWebApp** and the necessary files for your new app.
 
-6. Open VS Code by entering the following at the command prompt.
+6. At the command prompt, change directories to your new project folder:
+
+		cd SampleWebApp
+
+7. Also at the command prompt, to install the necessary NuGet packages to run the application, enter the following command:
+
+		dnu restore
+
+8. Open VS Code by entering the following at the command prompt:
 
 		code .
-
-7. In VS Code, select **File > Open Folder**, and select the folder containing your ASP.NET web app.
-
-	![Select Folder dialog box](./media/web-sites-create-web-app-using-vscode/02-open-folder.png)
-
-	VS Code will load your project, and display its files in the **Explore** windows.
-
-	![VSCode displaying SampleWebApp project](./media/web-sites-create-web-app-using-vscode/03-vscode-project.png)
-
-8. Select **View > Command Palette**.
-
-9. In the **Command Palette**, enter the following commands.
-
-		dnx:dnu restore - (SampleWebApp)
-
-	As you start typing, you will see the full command line from the list. 
-
-	![Restore command](./media/web-sites-create-web-app-using-vscode/04-dnu-restore.png)
-
-	The Restore command installs the necessary NuGet packages to run the application. A command prompt will display **Restore complete** when ready.
 
 ## Run the web app locally
 
 Now that you have created the web app and retrieved all the NuGet packages for the app, you can run the web app locally.
 
-1. From the **Command Palette** in VS Code, enter the following to run the app locally.
+1. From the **Command Palette** in VS Code, enter the following to show the available run command options:
 
-		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini)
+		dnx: Run Command
 
-	The command window will display *Started* in it. If the command window doesn't display *Started*, check the lower left corning of VS Code for errors in your project.
+	> [AZURE.NOTE] If the Omnisharp server is not currently running, it will start up. Re-enter the above command.
+
+	Next, select the following command to run your web app:
+		
+		dnx web - (SampleWebApp)
+
+	The command window will display that the application has started. If the command window doesn't display this message, check the lower left corning of VS Code for errors in your project.
 	
-	> [AZURE.NOTE] Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. Also, You can view the details of the kestrel command in the *project.json* file. 
+	> [AZURE.NOTE] Issuing a command from the **Command Palette** requires a **>** character at the beginning of the command line. You can view the details related to the **web** command in the *project.json* file. 
 
 2. Open a browser and navigate to the following URL.
 
 	**http://localhost:5000**
 
-	> [AZURE.NOTE] The kestrel command specified in the *project.json* file points to a hosting details file (*hosting.ini*) that specifies the local app location. In this case, the app is visible from the above URL.
-
 	The default page of the web app will appear as follows.
 
 	![Local web app in a browser](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
 
-3. Close your browser. In the Command Window, press **Ctrl+C** to shut down the application or close the Command Window. 
+3. Close your browser. In the **Command Window**, press **Ctrl+C** to shut down the application and close the **Command Window**. 
 
-## Create a web app in the Azure preview portal
+## Create a web app in the Azure Portal
 
-The following steps will guide you through creating a web app in the Azure preview portal.
+The following steps will guide you through creating a web app in the Azure Portal.
 
-1. Log in to the [Azure preview portal](https://portal.azure.com).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 
-2. Click **NEW** at the top left of the portal.
+2. Click **NEW** at the top left of the Portal.
 
 3. Click **Web Apps > Web App**.
 
@@ -165,7 +157,7 @@ The following steps will guide you through creating a web app in the Azure previ
 
 Git is a distributed version control system that you can use to deploy your Azure App Service web app. You'll store the code you write for your web app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository.   
 
-1. Log into the [Azure preview portal](https://portal.azure.com).
+1. Log into the [Azure Portal](https://portal.azure.com).
 
 2. Click **Browse**.
 
@@ -258,7 +250,7 @@ This can be done in two ways:
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* In the Azure preview portal, locate the web app blade for your web app, and click **Browse** to view your app 
+* In the Azure Portal, locate the web app blade for your web app, and click **Browse** to view your app 
 * in your default browser.
 
 ![Azure web app](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)

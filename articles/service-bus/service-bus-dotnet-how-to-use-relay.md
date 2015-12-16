@@ -44,12 +44,12 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Azure portal][].
+1.  Log on to the [Azure classic portal][].
 
-2.  In the left navigation pane of the Azure portal, click
+2.  In the left navigation pane of the portal, click
     **Service Bus**.
 
-3.  In the lower pane of the Azure portal, click **Create**.
+3.  In the lower pane of the portal, click **Create**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -69,7 +69,7 @@ To create a service namespace:
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	The namespace you created then appears in the Azure portal and takes a moment to activate. Wait until the status is **Active** before continuing.
+	The namespace you created then appears in the portal and takes a moment to activate. Wait until the status is **Active** before continuing.
 
 ## Obtain the default management credentials for the namespace
 
@@ -292,7 +292,7 @@ Now that you've learned the basics of the Service Bus relay service, follow thes
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
   [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [overview of Service Bus samples]: service-bus-samples.md

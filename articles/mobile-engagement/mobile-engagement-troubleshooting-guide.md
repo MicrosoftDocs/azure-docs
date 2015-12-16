@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guides" 
    description="Troubleshooting Guide for Azure Mobile Engagement" 
    services="mobile-engagement" 
@@ -29,7 +29,7 @@ In general, you should always ensure the following:
 2. You are using the latest version of the platform SDKs. 
 3. Test on both an actual device and an emulator because some issues are specific to emulator only. 
 4. You are not hitting any limits/throttles from Mobile Engagement which are documented [here](azure-subscription-service-limits.md)
-5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/en-us/status/)
+5. If you are not able to connect to the Mobile Engagement service backend or seeing data not being loaded continuously then ensure that there are no ongoing service incidents by checking [here](https://azure.microsoft.com/status/)
 
 ## 'Monitor' issues
 
@@ -79,7 +79,9 @@ More platform specific troubleshooting instructions below:
 
 	- Ensure that the certificates are valid and unexpired for iOS Push Notifications. 
 	- Ensure that you are correctly configuring a *Production* certificate in your Mobile Engagement app. 
+	- Ensure that you are testing on a *real, physical device.* The iOS simulator cannot process push messages.
 	- Ensure that the Bundle Identifier is correctly configured in the mobile app. See the instructions [here](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+	- When testing, use "Ad Hoc" distribution in your mobile provisioning profile. You will not be able to receive notification if your app is compiled using "Debug"
 
 2. **Android**
 

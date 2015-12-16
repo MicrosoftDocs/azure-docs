@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Use the Azure preview portal to manage IoT Hub | Microsoft Azure"
-	 description="An overview of how to create and manage Azure IoT hubs through the Azure preview portal"
+	 pageTitle="Use the Azure portal to manage IoT Hub | Microsoft Azure"
+	 description="An overview of how to create and manage Azure IoT hubs through the Azure portal"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Manage IoT hubs through the Azure preview portal
+# Manage IoT hubs through the Azure portal
 
 ## Introduction
 
-This article describes how to get started with Azure IoT Hub through the Azure preview portal, how to find IoT hubs, and how to create and manage IoT hubs.
+This article describes how to get started with Azure IoT Hub through the Azure portal, how to find IoT hubs, and how to create and manage IoT hubs.
 
 ## Where to find IoT hubs
 

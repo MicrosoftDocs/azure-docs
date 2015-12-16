@@ -1,7 +1,7 @@
 <properties
-	pageTitle="What is Hadoop in HDInsight: Cloud big data analysis | Microsoft Azure"
-	description="An introduction to Hadoop components in the cloud in HDInsight. Learn how HDInsight uses Hadoop clusters to manage, analyze, and report on big data."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	pageTitle="What is Hadoop in the cloud? Introduction to HDInsight | Microsoft Azure"
+	description="What is Hadoop in the cloud and how is it managed in HDInsight? An introduction to Hadoop components and big data analysis."
+	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop in the cloud"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -14,56 +14,52 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="12/02/2015"
    ms.author="cgronlun"/>
 
 
-# Introduction to Hadoop in HDInsight: Big-data analysis and processing in the cloud
+# What is Hadoop in the cloud? An introduction to Hadoop components in HDInsight for big data analysis
 
-Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop in HDInsight and what are the Hadoop components, common terminology, and scenarios for big data analysis? Also, learn about Hadoop tutorials, documentation, and resources for using Hadoop in HDInsight.
+Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop in HDInsight and what are the Hadoop components, common terminology, and scenarios for big data analysis? Also, learn about Hadoop tutorials, documentation, and resources for using Hadoop the cloud in HDInsight.
 
-## What is Hadoop in HDInsight?
+## What is Hadoop in the cloud in HDInsight?
 
-Azure HDInsight deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data with high reliability and availability. HDInsight uses the **Hortonworks Data Platform (HDP)** Hadoop distribution. Hadoop often refers to the entire Hadoop ecosystem of components, which includes Storm and HBase clusters, as well as other technologies under the Hadoop umbrella. See [Overview of the Hadoop ecosystem on HDInsight](#overview) below for details.
+Azure HDInsight deploys and provisions managed Apache Hadoop clusters in the cloud, providing a software framework designed to process, analyze, and report on big data with high reliability and availability. HDInsight uses the **Hortonworks Data Platform (HDP)** Hadoop distribution. Hadoop often refers to the entire Hadoop ecosystem of components, which includes Apache HBase, Apache Spark, and Apache Storm, as well as other technologies under the Hadoop umbrella. See [Overview of the Hadoop ecosystem on HDInsight](#overview) below for details.
 
 
 ## What is big data?
-Big data refers to data being collected in ever-escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts.
+Big data refers to data being collected in ever-escalating volumes, at increasingly higher velocities, and in an expanding variety of unstructured formats and variable semantic contexts.
 
 Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on an online catalog. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source).
 
-For big data to provide actionable intelligence or insight, not only must the right questions be asked and data be relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
+For big data to provide actionable intelligence or insight, not only must you collect relevant data and ask the right questions, but also the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
 
 
 ## <a name="overview"></a>Overview of the Hadoop ecosystem on HDInsight
 
-HDInsight is a cloud implementation on Microsoft Azure of the rapidly exanding Apache Hadoop technology stack that is the go-to solution for big data analysis. It includes implementations of Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
+HDInsight is a cloud implementation on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack that is the go-to solution for big data analysis. It includes implementations of Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
-### Linux and Windows clusters
+### Clusters on Linux
 
-Azure HDInsight deploys and provisions Hadoop clusters in the cloud, by using either **Linux** or **Windows** as the underlying OS.
+Azure HDInsight deploys and provisions Hadoop clusters in the cloud on **Linux**. See the table below for details.
 
-* **HDInsight on Linux** - A Hadoop cluster on Ubuntu. Use this if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux.
-
-* **HDInsight on Windows** - A Hadoop cluster on Windows Server. Use this if you are familiar with Windows, are migrating from an existing Windows-based Hadoop solution, or want to use .NET or other Windows-only technologies on the cluster.
-
-The following table compares the two:
-
-Category | Hadoop on Linux | Hadoop on Windows
----------| -------------------| --------------------
-**Cluster OS** | Ubuntu 12.04 Long Term Support (LTS) | Windows Server 2012 R2
-**Cluster Type** | Hadoop, HBase, Storm | Hadoop, HBase, Storm
-**Deployment** | Azure preview portal, Azure CLI, Azure PowerShell | Azure portal, Azure preview portal, Azure CLI, Azure PowerShell, HDInsight .NET SDK
-**Cluster UI** | Ambari | Cluster Dashboard
-**Remote Access** | Secure Shell (SSH), REST API, ODBC, JDBC | Remote Desktop Protocol (RDP), REST API, ODBC, JDBC
+Category | Hadoop on Linux
+---------| -------------------
+**Cluster OS** | Ubuntu 12.04 Long Term Support (LTS)
+**Cluster Type** | Hadoop, Spark, HBase, Storm
+**Deployment** | Azure portal, Azure CLI, Azure PowerShell
+**Cluster UI** | Ambari
+**Remote Access** | Secure Shell (SSH), REST API, ODBC, JDBC
 
 
 
-### Hadoop, HBase, Storm, Spark, and customized clusters
+### Hadoop, HBase, Spark, Storm, and customized clusters
 
-HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you can [customize clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
+HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, or Storm. Or, you can [customize clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 * **Hadoop** (the "Query" workload): Provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
+
+* **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
 
 * **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** (the "NoSQL" workload): A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
 
@@ -71,31 +67,25 @@ HDInsight provides cluster configurations for Hadoop, HBase, or Storm. Or, you c
 
 #### Example customization scripts
 
-Script Actions are scripts that are ran during cluster provisioning, and can be used to install additional components on the cluster. For Windows-based HDInsight clusters, these are PowerShell scripts. For Linux-based clusters, these are Bash scripts.
+Script Actions are scripts that run during cluster provisioning, and can be used to install additional components on the cluster. For Linux-based clusters, these are Bash scripts.
 
-The following are example scripts provided by the HDInsight team:
+The following example scripts are provided by the HDInsight team:
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Hue](hdinsight-hadoop-hue-linux.md): A set of web applications used to interact with a cluster. Linux clusters only.
 
-	> [AZURE.NOTE] The Hue script is available only for Linux-based clusters.
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md): Graph processing to model relationships between things or people.
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md): An open-source language and environment for statistical computing used in machine learning.
 
-* [R](hdinsight-hadoop-r-scripts-linux.md)
-
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
-
-* [Spark](hdinsight-hadoop-spark-install-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md): An enterprise-scale search platform that allows full-text search on data.
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
-## What are the Hadoop components?
+## What are the Hadoop components and utilties?
 
-In addition to the previous overall configurations, the following individual components are also included on HDInsight clusters.
+The following components and utilities are included on HDInsight clusters.
 
 * **[Ambari](#ambari)**: Cluster provisioning, management, and monitoring.
-
-	> [AZURE.NOTE] Only a subset of the Ambari REST API is provided for Windows-based HDInsight clusters.
 
 * **[Avro](#avro)** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment.
 
@@ -195,10 +185,10 @@ To read more about the advantages on Hadoop in HDInsight, see the  [Azure featur
 
 ## <a id="resources"></a>Resources for learning more about big-data analysis, Hadoop, and HDInsight
 
-Build on this introduction to Hadoop on HDInsight and big data analysis with the resources below.
+Build on this introduction to Hadoop in the cloud and big data analysis with the resources below.
 
 
-### HDInsight on Linux
+### Hadoop documentation for HDInsight
 
 * [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
@@ -213,19 +203,6 @@ Build on this introduction to Hadoop on HDInsight and big data analysis with the
 * [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md): Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster by using Ambari Web, or the Ambari REST API.
 
 
-### HDInsight on Windows
-
-* [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
-
-* [Learning map for HDInsight](hdinsight-learn-map.md): A guided tour of Hadoop documentation for HDInsight.
-
-* [Get started with Azure HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md): A quick-start tutorial for using Hadoop in HDInsight.
-
-* [Run the HDInsight samples](hdinsight-run-samples.md): A tutorial on how to run the samples that ship with HDInsight.
-
-* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx): Reference documentation for the HDInsight SDK.
-
-
 ### Apache Hadoop
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a>: Learn more about the Apache Hadoop software library, a framework that allows for the distributed processing of large datasets across clusters of computers.
@@ -236,9 +213,9 @@ Build on this introduction to Hadoop on HDInsight and big data analysis with the
 
 ### SQL Database on Azure
 
-* [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
+* [Azure SQL Database](/documentation/services/sql-database/): Documentation, tutorials, and videos for SQL Database.
 
-* [Management Portal for SQL Database](https://msdn.microsoft.com/library/azure/dn771027.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [SQL Database on the Azure Portal](sql-database-manage-portal.md): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304): Download page for a SQL Database sample database.
 

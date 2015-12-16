@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox
@@ -37,8 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 - The HDInsight Emulator requires a 64-bit version of Windows. One of the following requirements must be satisfied:
 
-	- Windows 7 Service Pack 1
-	- Windows Server 2008 R2 Service Pack 1
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -438,7 +437,7 @@ Before you start with the instructions below, you must have created a storage ac
 
 **To create a container**
 
-1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
 2. Click **NEW** on the left, click **Data + Storage**, and then click **Storage**.
 3. In the Storage Account blade, configure the properties as shown in the screen capture below.
 	
