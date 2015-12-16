@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Notification Hubs Notify Users with .NET backend"
+	pageTitle="Azure Notification Hubs Notify Users for iOS with .NET backend"
 	description="Learn how to send push notifications to users in Azure. Code samples written in Objective-C and the .NET API for the backend."
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
-#Azure Notification Hubs Notify Users with .NET backend
+#Azure Notification Hubs Notify Users for iOS with .NET backend
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -263,7 +263,7 @@ Push notification support in Azure enables you to access an easy-to-use, multipl
 
 		@end
 
-	The code above implements the logic explained in the guidance article [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx) using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.
+	The code above implements the logic explained in the guidance article [Registering from your app backend](notification-hubs-registration-management.md/#registration-management-from-a-backend) using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.
 
 	Note that this class requires its property **authorizationHeader** to be set in order to work properly. This property is set by the **ViewController** class after the log in.
 
