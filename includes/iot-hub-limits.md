@@ -2,8 +2,7 @@ The following table lists the limits associated with the the different service t
 
 | Resource | S1 Standard | S2 Standard | F1 Free |
 | -------- | ----------- | ----------- | ------- |
-| Devices/unit | 500 | 500 | 10 |
-| Messages/day | 50,000 | 1,500,000 | 3,000 |
+| Messages/day | 400,000 | 6,000,000 | 8,000 |
 | Maximum units | 200 | 200 | 1 |
 | Device updates (create, update, <br/> delete) per unit per day | 1100 | 1100 | 1100 |
 
