@@ -16,18 +16,9 @@
    ms.date="10/12/2015"
    ms.author="carlrab"/>
 
-# Migrating a compatible SQL Server database to Azure SQL Database
+# Migrating a SQL Server database to Azure SQL Database
 
-You can choose to migrate your on-premises compatible database to Azure SQL Database using one of several methods. The following table summarizes these choices and provides guidance in choosing amongst these choices. 
-
-| SSMS Migration Wizard | Primary Use Case | When Not to Use | Link to Step-By-Step |
-| --------------------- | ---------------- 
-varies in complexity based on your database and application design, and your tolerance for downtime. For compatible databases, migration to Azure SQL Database is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications. [Azure SQL Database V12](../sql-database-v12-whats-new.md) brings near-complete engine compatibility with SQL Server 2014 and SQL Server 2016. Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Azure SQL Database. This includes the SQL Server data types, operators, and the string, arithmetic, logical, cursor functions, and the other Transact-SQL elements that most applications depend upon. Partially or unsupported functions are usually related to differences in how SQL Database manages the database (such as file, high availability, and security features) or for special purpose features such as service broker. Because SQL Database isolates many features from dependency on the master database, many server-level activities are inappropriate and unsupported. Features deprecated in SQL Server are generally not supported in SQL Database. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering before they can be migrated.
-
-> [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-portal.md)
-- [PowerShell](sql-database-geo-replication-powershell.md)
-- [Transact-SQL](sql-database-geo-replication-transact-sql.md)
+Moving your on-premises database to Azure SQL Database varies in complexity based on your database and application design, and your tolerance for downtime. For compatible databases, migration to Azure SQL Database is a straightforward schema and data movement operation requiring few, if any, changes to the schema and little or no re-engineering of applications. [Azure SQL Database V12](../sql-database-v12-whats-new.md) brings near-complete engine compatibility with SQL Server 2014 and SQL Server 2016. Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Azure SQL Database. This includes the SQL Server data types, operators, and the string, arithmetic, logical, cursor functions, and the other Transact-SQL elements that most applications depend upon. Partially or unsupported functions are usually related to differences in how SQL Database manages the database (such as file, high availability, and security features) or for special purpose features such as service broker. Because SQL Database isolates many features from dependency on the master database, many server-level activities are inappropriate and unsupported. Features deprecated in SQL Server are generally not supported in SQL Database. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering before they can be migrated.
 
 The workflow for migrating a SQL Server database to Azure SQL Database are:
 
