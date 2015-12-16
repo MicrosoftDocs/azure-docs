@@ -19,10 +19,11 @@
 
 # Enable diagnostics in a Azure Virtual Machine running Windows using PowerShell
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] 
+
 You can collect diagnostic data like application logs, performance counter etc. from a Azure Virtual machine running Windows using the Azure Diagnostics extension. This article describes how to enable the Azure Diagnostics extension for a Virtual Machine using PowerShell.  See [How to install and configure Azure PowerShell](powershell-install-configure.md) for the prerequisites needed for this article.
 
 ## Enable Azure Diagnostics extension on a virtual machine using resource manager stack
->AZURE.NOTE Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](resource-manager-deployment-model.md). This section covers using the classic deployment model which Microsoft recommends for most new deployments instead of the [classic deployment model](virtual-machine-windows-tutorial-classic-portal.md)
 
 You can enable the diagnostics extension while creating a windows virtual machines on the resource manager stack by adding the extension configuration to the resource manager template. See [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines-extensions-diagnostics-windows-template.md).
 
@@ -58,11 +59,10 @@ The *Name* parameter can be set to any string used to identify the Azure diagnos
 
 The *TypeHandlerVersion* specified the version of the extension to use. Set it to latest available version of **1.5**.
 
-Once the Azure diagnostics extension is enabled on a VM you can get the current settings using the [Get-AzureRMVmExtension](https://msdn.microsoft.com/en-us/library/mt603744.aspx) cmdlet and passing in the details for the extension used with the Set-AzureRmVMExtension cmdlet.  To remove the extension from the virtual machine use the [Remove-AzureRMVmExtension](https://msdn.microsoft.com/library/mt603782.aspx) cmdlet. 
+Once the Azure diagnostics extension is enabled on a VM you can get the current settings using the [Get-AzureRMVmExtension](https://msdn.microsoft.com/library/mt603744.aspx) cmdlet and passing in the details for the extension used with the Set-AzureRmVMExtension cmdlet.  To remove the extension from the virtual machine use the [Remove-AzureRMVmExtension](https://msdn.microsoft.com/library/mt603782.aspx) cmdlet. 
   
 
 ## Enable Azure Diagnostics extension on a virtual machine (classic)
->AZURE.IMPORTANT Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](resource-manager-deployment-model.md). This section covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-machine-windows-tutorial.md). 
 
 The [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) cmdlet can be used to enable Azure Diagnostics extension on a virtual machine (classic). The following example shows how to create a new virtual machine (classic) with the Azure diagnostics extension enabled.
 
