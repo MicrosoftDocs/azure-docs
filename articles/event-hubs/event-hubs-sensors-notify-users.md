@@ -17,105 +17,40 @@
 
 # Notify users of data received from sensors or other systems
 
-Microsoft Azure [Event Hubs][] or [IoT Hub][] provide perfect endpoints for collecting the massive quantities of data coming from devices and tiny sensors, or from line of business systems such as Microsoft Dynamics. For example, a company might want to continuously monitor the temperature in conference rooms in all its buildings, which it can do by sending all the thermostat data to an Event Hub for processing using any number of cloud-based tools such as Azure Stream Analytics, Azure Machine Learning, Power BI, and so on. Or, a farmer might want to monitor or control the status of the lights in a greenhouse, or a fleet services company might want to record the driving characteristics of all their drivers. This article describes a simple example and provides documentation on how to alert users to certain conditions, such as a temperature being too low or a light being turned off. Suppose you want an easy way to send the following message a the service manager. How can you do this in the simplest manner?
-
-A new sample in the Azure Samples Gallery shows just how to do this, using either email, SMS, or even a phone.  Check out the full post at [AppToNotifyUsers][].
-
-## Introduction
-
-Take the scenario in which you have a light sensor in a room, and you want to receive an email if the light is turned off, as in the following image.
+Suppose you have an application that monitors data in real time, or produces reports on a schedule. If you look at the website on which those real-time charts or reports are displayed, you might see something that requires action. What if you need to be alerted to those situations, rather than relying on remembering to check the website? Imagine that you have a grow light in a greenhouse, and you need to know immediately if the light goes out. One way to do that would be with a light sensor in the greenhouse, arranging to be sent an email if the light is off.
 
 ![][1]
 
-Perhaps you want to receive a text message from your ERP system if your warehouse inventory of dog food has fallen to a critical level, as in the following image.
+In another scenario, imagine that you run a pet boarding facility, and you must be alerted to low inventory supply levels. For example, you might arrange to be sent a text message from your ERP system if your warehouse inventory of dog food has fallen to a critical level. 
 
 ![][2]
 
-If you are using an Azure Event Hub or IoT Hub to receive data from devices or enterprise applications such as [Dynamics AX][], you have several options for how to process them. You can view them on a website, you can analyze them, you can store them, and you can use them to trigger commands to do something. To do this, you can use powerful tools such as [Azure Websites][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [Logic Apps][], or [Azure Notification Hubs][]. But sometimes all you want to do is to send that data to someone. This article shows you how to do that with code for a simple cloud service.
+The problem is how to get critical information when certain conditions are met, not when you get around to checking out a static report. If you are using an [Azure Event Hub][] or [IoT Hub][] to receive data from devices or enterprise applications such as [Dynamics AX][], you have several options for how to process them. You can view them on a website, you can analyze them, you can store them, and you can use them to trigger commands to do something. To do this, you can use powerful tools such as [Azure Websites][], [SQL Azure][], [HDInsight][], [Cortana Analytics Suite][], [IoT Suite][], [Logic Apps][], or [Azure Notification Hubs][]. But sometimes all you want to do is to send that data to someone. This article shows you how to do that with just a little bit of code. Options included are email (SMTP), SMS, and phone.
 
 ## Application structure
 
-Let's look at the case of a light sensor, as previously mentioned. There are three steps involved. We’ve just published sample code for this step in the **Connect The Dots** project, in the [Azure/AppToNotifyUsers][] folder. The readme file contains all the info you need to modify, build, and publish the application; this article just describes the basics. The application is written in C#, and we’re going to assume that you understand how to use Visual Studio to open, build, and deploy a C# solution to Azure.
+The application is written in C#, and the readme file in the sample contains all the info you need to modify, build, and publish the application. The following sections provide a high-level overview of what the application does.
 
-## Prerequisite: Push alerts to an Event Hub
+We start with the assumption that you have critical events being pushed to an Azure Event Hub or IoT Hub. Any hub will do, as long as you have access to it and know the connection string.
 
-Any Event Hub or IoT Hub will do, as long as you have access to it. To test this for the real-time data case (sensors), you can start by connecting the light sensor to a device that sends the light levels in the room to an Event Hub. You can then use [Azure Stream Analytics][] to monitor the data for levels that indicate that the light has been turned off, and finally push an alert to that effect to a second Event Hub. Simple steps and code showing how to do this with an Arduino shield and a Raspberry Pi are described in the [Getting Started](https://github.com/Azure/connectthedots/blob/master/GettingStarted.md) section of the [Connect The Dots](https://github.com/Azure/connectthedots) project, published as open source on GitHub. In that code sample, the message "The Light is turned OFF" is sent to an Event Hub called **ehalerts**, and all we need to do now is to send that message to someone using email, SMS, or some other communications network.
+If you do not already have an Event Hub or IoT hub, you can easily set up a test bed with an Arduino shield and a Raspberry Pi, following the instructions in the [Connect The Dots](https://github.com/Azure/connectthedots) project. The light sensor on the Arduino shield sends the light levels through the Pi to an [Azure Event Hub][] (**ehdevices**), and an [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) job pushes alerts to a second event hub (**ehalerts**) if the light levels received fall below a certain level.
 
-## Step 1: Monitor the Event Hub
+When **AppToNotify** starts, it reads a configuration file (App.config) to get the URL and credentials for the Event Hub receiving the alerts. It then spawns a process to continuously monitor that Event Hub for any message that comes through – as long as you have can access the URL for the Event Hub or IoT hub and valid credentials, this Event Hubs reader code will continuously read what's coming in. During startup, the application also reads the URL and credentials for the messaging service (email, SMS, phone) you want to use, and the name/address of the sender and a list of recipients.
 
-The code in the [AppToNotifyUsers][] solution creates an Azure Cloud Service (worker role) that monitors an Event Hub identified by a URL you list in App.config, together with the shared key that grants you access. You must modify the following strings in App.config:
+Once the Event Hub monitor detects a message, it triggers a process that sends that message using the method specified in the configuration file. Note that it sends every message it detects. If you set the monitor to point to an Event Hub that receives ten messages per second, the sender will send ten messages per second – ten emails per second, ten SMS messages per second, ten phone calls per second. For that reason, make sure that you monitor an Event Hub that only receives the alerts that need to be sent out, not an Event Hub that receives all the raw data from your sensors or applications.
 
-```
-<add key="Microsoft.ServiceBus.EventHubToMonitor" value="[event hub name]" />
-<add key="Microsoft.ServiceBus.EventHubConnectionString" value="[event hub connection string]" />
-```
+## Applicability
 
-If you deploy the example in Connect The Dots, that Event Hub is called **ehalerts**, and you replace `[event hub name]` with **ehalerts**, and the `EventHubConnectionString` string with the connection string obtained from the [Azure classic portal][]. The App.config entry should look something like this:
- 
-```
-<add key="Microsoft.ServiceBus.EventHubToMonitor" value="ehalerts" />
-<add key="Microsoft.ServiceBus.EventHubConnectionString" value="Endpoint=sb://mynamespace-ns.servicebus.windows.net/;SharedAccessKeyName=StreamingAnalytics;SharedAccessKey=<your key from the portal>" />
-```
+The code in this sample only shows how to monitor Event Hubs and how to call external messaging services in the event that you want to add this functionality to your application. Note that this solution is a DIY, developer-focused example only. It does not address enterprise requirements such as redundancy, fail-over, restart upon failure, etc. For more comprehensive and production solutions, see the following:
 
-The **EventHubReader** uses this information to get messages from **ehalerts**, and put it in a queue to be sent by whatever method you specify.
-
-## Step 2: Select the outbound messaging service
-
-Notification options in the solution are encoded as separate subroutines that are called depending upon entries in the App.Config file. Currently there are three options included in the sample code:
-
-- SMTP
-- SMS
-- Phone
-
-As with the Event Hub, in App.Config you must specify the service you will be using to push the alerts and the credentials for that service. The keys are as follows:
-
-```
-<add key="NotificationService" value="[Service option]" />
-<add key="SmtpHost" value="[host name]" />
-<add key="SenderUserName" value="[user name]" />
-<add key="SenderPassword" value="[user password]" />
-<add key="SmtpEnableSSL" value="true" />
-```
-
-If you want to use email to send your alerts, replace `[Service option]` with **SMTP**, the SMTPHost with your email server name, and enter the credentials that are allowed to use that service. If you want to use SMS, and have a subscription to a service such as Twilio, replace `[Service option`] with **SMS**, and so on. You can easily add additional or alternative notification options, following the workflow in the current solution. A different architecture, for example, that uses Twitter for notifications is shown in Olivier Bloch's sample [Tweet vibration anomalies detected by Azure IoT services on data from an Intel Edison running Node.js](https://azure.microsoft.com/documentation/samples/iot-hub-nodejs-intel-edison-vibration-anomaly-detection/). Note that each of these solutions requires a subscription to an external service (for example, an email service if notifying users over email).
-
-Note that this solution is a DIY, developer-focused example only. It does not address enterprise requirements such as redundancy, fail-over, restart upon failure, etc. For more comprehensive and production solutions, you should review options such as using connectors available in [Logic Apps connectors](../app-service-logic/app-service-logic-connectors-list.md), or push notifications from an Azure Notification Hub. For more information about Notification Hubs, see the [Notification Hubs Overview](https://msdn.microsoft.com/library/azure/jj927170.aspx) and [Scott Guthrie's blog](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
-
-## Step 3: Identify the sender and recipients of the messages
-
-Once you have specified how messages will be sent, you must identify from whom, and to whom, they will be sent. If the notification service is SMTP, either using an SMTP host to which you have access, or using **SendGrid**, you can specify an email address in the **sendFrom** address in App.Config:
-
-```
-<sendFrom
-    address="sender@outlook.com"
-    displayName="Sender Name"
-    subject="CTD Alerts" />
-```
-
-If you are using an SMTP (email) sender, this is the display name and email alias shown on the **From:** and **Subject:** lines of the email. If you are using a service such as Twilio to send SMS messages, this is the phone number Twilio assigns to you for the sender of the SMS. Similarly for the recipient list:
-
-```
-<sendToList>
-<add address="operator1@outlook.com" />
-<add address="operator2@outlook.com" />
-</sendToList>
-```
-
-## Step 4: Deploy the cloud service
-
-Having completed all the necessary fields in the App.config file, you must deploy the application. Since we assume you know how to do that, we won’t go over those details. The reason for including this step in this blog is to bring to your attention the following warning:
-
-> [AZURE.WARNING] This application runs in the cloud, and will push ALL the data that the Event Hub receives to the users you list.
-> 
-> The anticipated scenario is that you monitor an Event Hub that is dedicated to receiving alerts on a sporadic basis (maybe once a day or once a week), in which case your targeted users will get an alert pushed to them once a day or once a week. If, however, you monitor an Event Hub that is getting data every second then your users will get an alert once a second.
-> 
-> Realize that it may take a few minutes to stop a cloud service once it is running, so that your user(s) may get 60 emails a minute until the service is fully shut down if you make the wrong choice - assuming you are at a computer and able to connect to the Azure classic portal to stop the service. We strongly recommend that you do not set this up and then go away without testing anticipated scenarios.
+- Using connectors or push notifications using the [Azure Logic Apps](../app-service-logic/app-service-logic-connectors-list.md) service.
+- Using [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx), as described the blog [Broadcast push notifications to millions of mobile devices using Windows Azure Notification Hubs](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
 
 ## Next steps
 
 It is straightforward to create a simple notification service that sends emails or text messages to recipients, or calls them, to relay data received by an Event Hub or IoT Hub. To deploy the solution to notify users based upon data received by these hubs, visit [AppToNotifyUsers][].
 
-For more information, see the following articles:
+For more information about these hubs, see the following articles:
 
 - [Azure Event Hubs]
 - [Azure IoT Hub]
@@ -123,14 +58,17 @@ For more information, see the following articles:
 - A complete [sample application that uses Event Hubs].
 - A [queued messaging solution] using Service Bus queues.
 
-[Azure classic portal]: http://manage.windowsazure.com
+To deploy the solution to notify users based on data received by these hubs, visit:
+
+- [AppToNotifyUsers][]
+
 [Event Hubs tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [Azure IoT Hub]: https://azure.microsoft.com/services/iot-hub/
+[IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/services/event-hubs/
+[Azure Event Hub]: https://azure.microsoft.com/services/event-hubs/
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[Event Hubs]: https://azure.microsoft.com/services/event-hubs/
-[IoT Hub]: https://azure.microsoft.com/services/iot-hub/
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
 [Dynamics AX]: http://www.microsoft.com/en-us/dynamics/erp-ax-overview.aspx
 [Azure Websites]: https://azure.microsoft.com/services/app-service/web/
@@ -140,7 +78,6 @@ For more information, see the following articles:
 [IoT Suite]: https://azure.microsoft.com/solutions/iot-suite/
 [Logic Apps]: https://azure.microsoft.com/services/app-service/logic/
 [Azure Notification Hubs]: https://azure.microsoft.com/services/notification-hubs/
-[Azure/AppToNotify]: https://github.com/Azure/connectthedots/tree/master/Azure/AppToNotifyUsers
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
  
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
