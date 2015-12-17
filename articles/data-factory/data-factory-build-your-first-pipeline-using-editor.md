@@ -288,6 +288,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). 
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
  
+	![output data](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
  
 
