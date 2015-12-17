@@ -63,13 +63,13 @@ The solution counts the number of occurrences of a search term (“Microsoft”)
 
 2.  **Azure storage account**. You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). The sample solution uses blob storage.
 
-3.  Create an **Azure Batch account** using the [Azure Portal](http://manage.windowsazure.com/). See [Create and manage an Azure Batch account](../batch/batch-account-create-portal.md). Note the Azure Batch account name and account key. You can also use [New-AzureRmBatchAccount](https://msdn.microsoft.com/en-us/library/mt603749.aspx) cmdlet to create an Azure Batch account. See [Get started with Azure Batch PowerShell cmdlets](../batch/batch-powershell-cmdlets-get-started.md) for detailed instructions on using this cmdlet.
+3.  Create an **Azure Batch account** using the [Azure Portal](http://manage.windowsazure.com/). See [Create and manage an Azure Batch account](../batch/batch-account-create-portal.md). Note the Azure Batch account name and account key. You can also use [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet to create an Azure Batch account. See [Get started with Azure Batch PowerShell cmdlets](../batch/batch-powershell-cmdlets-get-started.md) for detailed instructions on using this cmdlet.
 
     The sample solution uses Azure Batch (indirectly via an Azure Data Factory pipeline) to process data in a parallel manner on a pool of compute nodes, which is a managed collection of virtual machines.
 
 4.  Create an **Azure Batch pool** with at least 2 compute nodes.
 
-	 You can download the source code for the [Azure Batch Explorer tool](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compile, and use it to create the pool (**highly recommended for this sample solution**), or use [Azure Batch Library for .NET](../batch/batch-dotnet-get-started.md) to create the pool. See [Azure Batch Explorer Sample Walkthrough](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) for step-by-step instructions for using the Azure Batch Explorer. You can also use the [New-AzureRmBatchPool](https://msdn.microsoft.com/en-us/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
+	 You can download the source code for the [Azure Batch Explorer tool](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer), compile, and use it to create the pool (**highly recommended for this sample solution**), or use [Azure Batch Library for .NET](../batch/batch-dotnet-get-started.md) to create the pool. See [Azure Batch Explorer Sample Walkthrough](http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx) for step-by-step instructions for using the Azure Batch Explorer. You can also use the [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx) cmdlet to create an Azure Batch pool.
 	
 	 Use Batch Explorer to create the pool with the following setting:
 
@@ -916,7 +916,7 @@ After you process data you can consume it with online tools like **Microsoft Pow
 
 ## References
 
--   [Azure Data Factory](https://azure.microsoft.com/en-us/documentation/services/data-factory/)
+-   [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
     -   [Introduction to Azure Data Factory service](data-factory-introduction.md)
 
@@ -924,7 +924,7 @@ After you process data you can consume it with online tools like **Microsoft Pow
 
     -   [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md)
 
--   [Azure Batch](https://azure.microsoft.com/en-us/documentation/services/batch/)
+-   [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
     -   [Basics of Azure Batch](../batch/batch-technical-overview.md)
 
