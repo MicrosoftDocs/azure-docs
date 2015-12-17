@@ -36,15 +36,17 @@ You must have **Visual Studio 2013 or above** to build the sample project. You c
 
 ### *DotNetTutorial* code sample
 
-The [DotNetTutorial][github_dotnettutorial] sample is one of the many code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download the sample by clicking the "Download ZIP" button on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link.
+The [DotNetTutorial][github_dotnettutorial] sample is one of the many code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download the sample by clicking the "Download ZIP" button on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you will find the solution in the following folder:
+
+`\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### Batch Explorer (optional)
 
 The Batch Explorer is a free utility included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it is highly recommended for use in debugging and administration of the entities in your Batch account. You can read about an older version of the Batch Explorer in the [Azure Batch Explorer Sample Walkthrough][batch_explorer_blog] blog post.
 
-## *DotNetTutorial* sample project overview
+## DotNetTutorial sample project overview
 
-The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**. The client application, *DotNetTutorial*, interacts with the Batch and Storage services to coordinate the execution of a workload on compute nodes (virtual machines), while *TaskApplication* is the executable that actually runs on the compute nodes to perform the work. In this sample, TaskApplication.exe parses the text in a text file (the "input" file) that has been downloaded to the node from Azure Storage, outputting another text file that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads its output file to Azure Storage, making it available to the client application for download.
+The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**. The client application, *DotNetTutorial*, interacts with the Batch and Storage services to coordinate the execution of a workload on compute nodes (virtual machines), while *TaskApplication* is the executable that actually runs on the compute nodes to perform the work. In this sample, TaskApplication.exe parses the text in a text file (the "input" file) that has been downloaded to the node from Azure Storage, producing as output another text file that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads its output file to Azure Storage, making it available to the client application for download.
 
 The following diagram illustrates the primary operations performed by the client application, DotNetTutorial, and the application that is executed by the tasks, TaskApplication. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
@@ -106,8 +108,7 @@ Batch includes built-in support for interacting with Azure Storage, and blob con
 - **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
 - **input** - Tasks will download the data files they are to process from the *input* container.
 - **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
-
-
+&nbsp;
 > [AZURE.INFO] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
 
 In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage] and create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that obtain a [CloudBlobClient][net_cloudblobclient]:
@@ -295,7 +296,7 @@ Now that we have created a job, we can add tasks and perform the work.
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, also [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before the command line is executed. In the case of the tasks in our DotNetTutorial sample project, each task processes only one file and as such its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, also [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before the command line is executed. In the case of the tasks in our DotNetTutorial sample project, each task processes only one file, and as such, its ResourceFiles collection contains a single element.
 
 ```
 private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
@@ -326,86 +327,113 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
+> [AZURE.IMPORTANT] In order to ensure that environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` are properly expanded, you must prefix task command lines with `cmd /c` to explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your task command line does not include environment variables.
+
+Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that three command line arguments are passed to *TaskApplication.exe*:
+
+1. The **first argument** is path of the file to process. This is the local path to the file as it exists on the node. When first creating the ResourceFile object in `UploadFileToContainerAsync` above, we simply used the name of the file for this property (as a parameter to the ResourceFile constructor). In doing so, we indicate that the file can be found in the same directory in which *TaskApplication.exe* resides.
+
+2. The **second argument** specifies that the top *N* words should be written to the output file. In the sample, this is hard-coded so that the top 3 words will be written to the output file.
+
+3. The **third argument** is the shared access signature (SAS) providing write-access to the **output** container in Azure Storage. *TaskApplication.exe* uses this SAS URL when uploading the output file to Azure Storage, the code for which can be found in the `UploadFileToContainer` method in the TaskApplication project's `Program.cs` file:
+
+```
+private static void UploadFileToContainer(string filePath, string containerSas)
+{
+		string blobName = Path.GetFileName(filePath);
+
+		// Obtain a reference to the container using the SAS URI.
+		CloudBlobContainer container = new CloudBlobContainer(new Uri(containerSas));
+
+		// Upload the file (as a new blob) to the container
+		try
+		{
+				CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+				blob.UploadFromFile(filePath, FileMode.Open);
+
+				Console.WriteLine("Write operation succeeded for SAS URL " + containerSas);
+				Console.WriteLine();
+		}
+		catch (StorageException e)
+		{
+
+				Console.WriteLine("Write operation failed for SAS URL " + containerSas);
+				Console.WriteLine("Additional error information: " + e.Message);
+				Console.WriteLine();
+
+				// Indicate that a failure has occurred so that when the Batch service sets the
+				// CloudTask.ExecutionInformation.ExitCode for the task that executed this application,
+				// it properly indicates that there was a problem with the task.
+				Environment.ExitCode = -1;
+		}
+}
+```
+
+
 ## Step 6: Monitor tasks
 
 ![Monitor tasks][6]<br/>
 *Client application (1) monitors the tasks for completion and success status, and (2) the tasks upload result data to Azure Storage*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Batch handles all task queuing and scheduling, retrying, and other task administration duties for you. There are many approaches to monitoring task execution, and DotNetTutorial shows a simple example that reports only on completion and task failure or success states.
+
+The logic `MonitorTasks` method in DotNetTutorial's `Program.cs` is fairly straightforward, so here we discuss only those sections of code that introduce new or important Batch .NET concepts. Refer to DotNetTutorial's `Program.cs` file for the full method.
 
 ```
-private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
+// Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
+// specify that only the "id" property of each task should be populated. Using a detail level for
+// all list operations helps to lower response time from the Batch service.
+ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
+List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+```
+
+In the code snippet above...
+
+```
+// We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
+// reach the Completed state.
+TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
+bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+```
+
+The TaskStateMonitor...
+
+```
+await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
+```
+```
+await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
+```
+
+Terminating a job is important because it...
+
+In the following code snippet, each task is refreshed prior to checking its ExecutionInformation property for a SchedulingError. The task must be refreshed because...
+
+```
+foreach (CloudTask task in tasks)
 {
-    bool allTasksSuccessful = true;
-    const string successMessage = "All tasks reached state Completed.";
-    const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
+    // Populate the task's properties with the latest info from the Batch service
+    await task.RefreshAsync(detail);
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
-    // specify that only the "id" property of each task should be populated. Using a detail level for
-    // all list operations helps to lower response time from the Batch service.
-    ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
-
-    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
-
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
-    // reach the Completed state.
-    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
-
-    if (timedOut)
+    if (task.ExecutionInformation.SchedulingError != null)
     {
+        // A scheduling error indicates a problem starting the task on the node. It is important to note that
+        // the task's state can be "Completed," yet still have encountered a scheduling error.
+
         allTasksSuccessful = false;
 
-        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
-
-        Console.WriteLine(failureMessage);
+        Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
     }
-    else
+    else if (task.ExecutionInformation.ExitCode != 0)
     {
-        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
+        // A non-zero exit code may indicate that the application executed by the task encountered an error
+        // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+        // your implementation of error checking may differ from this example.
 
-        // All tasks have reached the "Completed" state, however, this does not guarantee all tasks completed successfully.
-        // Here we further check each task's ExecutionInfo property to ensure that it did not encounter a scheduling error
-        // or return a non-zero exit code.
+        allTasksSuccessful = false;
 
-        // Update the detail level to populate only the task id and executionInfo properties.
-        // We refresh the tasks below, and need only this information for each task.
-        detail.SelectClause = "id, executionInfo";
-
-        foreach (CloudTask task in tasks)
-        {
-            // Populate the task's properties with the latest info from the Batch service
-            await task.RefreshAsync(detail);
-
-            if (task.ExecutionInformation.SchedulingError != null)
-            {
-                // A scheduling error indicates a problem starting the task on the node. It is important to note that
-                // the task's state can be "Completed," yet still have encountered a scheduling error.
-
-                allTasksSuccessful = false;
-
-                Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
-            }
-            else if (task.ExecutionInformation.ExitCode != 0)
-            {
-                // A non-zero exit code may indicate that the application executed by the task encountered an error
-                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
-                // your implementation of error checking may differ from this example.
-
-                allTasksSuccessful = false;
-
-                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
-            }
-        }
+        Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
     }
-
-    if (allTasksSuccessful)
-    {
-        Console.WriteLine("Success! All tasks completed successfully within the specified timeout period.");
-    }
-
-    return allTasksSuccessful;
 }
 ```
 
