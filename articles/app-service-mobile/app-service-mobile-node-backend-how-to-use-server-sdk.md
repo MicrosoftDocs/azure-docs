@@ -341,7 +341,7 @@ app in App Settings:
 | App Setting                 | _azureMobile.js_ Setting  | Description                               | Valid Values                                |
 | :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
 | **MS_MobileAppName**        | name                      | The name of the app                       | string                                      |
-| **MS_MobileLogingLevel**    | logging.level             | Minimum log level of messages to log      | error, warning, info, verbose, debug, silly |
+| **MS_MobileLoggingLevel**   | logging.level             | Minimum log level of messages to log      | error, warning, info, verbose, debug, silly |
 | **MS_DebugMode**            | debug                     | Enable or Disable debug mode              | true, false                                 |
 | **MS_TableSchema**          | data.schema               | Default schema name for SQL tables        | string (default: dbo)                       |
 | **MS_DynamicSchema**        | data.dynamicSchema        | Enable or Disable debug mode              | true, false                                 |
