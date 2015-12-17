@@ -47,5 +47,5 @@ to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events because t
 StatefulRunAsyncFailure is emitted whenever
 the service RunAsync() task throws an exception. Typically, an exception thrown indicates an error or bug in the service. Additionally, the exception causes the service to fail, so it is moved to a different node. This can be an expensive operation and can delay incoming requests while the service is moved. Service writers should determine the cause of the exception and, if possible, mitigate it.
 
-StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than 4 seconds. When a service takes too long to complete cancellation, it impacts
+StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than four seconds. When a service takes too long to complete cancellation, it impacts
 the ability for the service to be quickly restarted on another node. This may impact the overall availability of the service.
