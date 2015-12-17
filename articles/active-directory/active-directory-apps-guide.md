@@ -99,23 +99,14 @@ You may also be interested in [Azure AD Domain Services](active-directory-ds-ove
 
 ##Building Apps that Integrate with Azure AD
 
-[sloppy, work in progress]
+description
 
-[Azure AD and Applications: Guiding Developers](active-directory-applications-guiding-developers-for-lob-applications.md)
+| Article Guide |   |
+| :---: | --- |
+| Guidance for both IT professionals and application developers on integrating apps with Azure AD | [The IT Pro's Guide for Developing Applications for Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](active-directory-developers-guide.md) |
+| How to manage access to developed applications using Azure Active Directory | [How to Enable User Assignment for Developed Applications](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Assigning Users to your App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Assigning Group to your App](active-directory-applications-guiding-developers-assigning-groups.md) |
 
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
-
-[Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md)
-
-[Azure AD and Applications: Assigning Groups to an Application](active-directory-applications-guiding-developers-assigning-groups.md)
-
-[Azure AD and Applications: Assigning Users to an Application](active-directory-applications-guiding-developers-assigning-users.md)
-
-[Azure AD and Applications: Requiring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-
-[Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications](../active-directory-b2c/active-directory-b2c-overview.md)
+If you're developing consumer-facing applications, you may be interested in using [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) so that you don't have to develop your own identity system to manage your users. [Learn more](../active-directory-b2c/active-directory-b2c-overview.md).
 
 ##Automatically Provision and Deprovision User Accounts in SaaS Apps
 
