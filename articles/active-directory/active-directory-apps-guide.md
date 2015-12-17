@@ -121,29 +121,16 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 | Limit who gets provisioned to an application based on their attribute values | [Scoping Filters](active-directory-saas-scoping-filters.md) |
 
 
-##Tools for Managing who has Access to which Apps
+##How to Manage who has Access to which Apps
 
-[sloppy, work in progress]
+Azure Active Directory provides several tools to help you control who has access to which resources. 
 
-[Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-
-[Dedicated groups in Azure Active Directory](active-directory-accessmanagement-dedicated-groups.md)
-
-[Using a group to manage access to SaaS applications](active-directory-accessmanagement-group-saasapps.md)
-
-[Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md)
-
-[Managing security groups in Azure Active Directory](active-directory-accessmanagement-manage-groups.md)
-
-[Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md)
-
-[Setting up Azure Active Directory for self service application access management](active-directory-accessmanagement-self-service-group-management.md)
-
-[Creating a simple rule to configure dynamic memberships for a group](active-directory-accessmanagement-simplerulegroup.md)
-
-[Troubleshooting dynamic memberships to groups](active-directory-accessmanagement-troubleshooting.md)
-
-also make sure to delegated/self-service stuff is included
+| Article Guide |   |
+| :---: | --- |
+| An overview Azure AD's access management features | [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)<br /><br />[How Access Management Works in Azure AD](active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
+| Delegate management of apps and groups, and enable self-service management | [Self-Service and Delegated Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service and Delegated Group Management](active-directory-accessmanagement-self-service-group-management.md) |
+| Instructions for setting up your groups in Azure AD | [How to Create Security Groups](active-directory-accessmanagement-manage-groups.md)<br /><br />[How to Designate Owners for a Group](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
+| Automatically populate group membership using attribute-based membership rules | [Dynamic Group Membership: Simple Rules](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[Dynamic Group Membership: Advanced Rules](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 ##B2B: Enable Partner Access to Applications
 
