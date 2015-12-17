@@ -1,5 +1,5 @@
-* [Deploying an app to Azure App Service](web-sites-deploy/)
-* [Configuring source control and continuous integration](web-sites-publish-source-control/)
-* [Staging deployments with deployment slots](web-sites-staged-publishing/)
+* [Deploying an app to Azure App Service](../app-service-web/web-sites-deploy/)
+* [Configuring source control and continuous integration](../app-service-web/web-sites-publish-source-control/)
+* [Staging deployments with deployment slots](../app-service-web/web-sites-staged-publishing/)
 * [Publishing and Role Based Access Control (RBAC)](/blog/rbac-and-azure-websites-publishing/)
 * [Automating the deployment workflow for release management](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)

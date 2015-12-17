@@ -4,7 +4,7 @@
 	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
 	services="app-service" 
 	documentationCenter="" 
-	authors="nirma" 
+	authors="yochay" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/08/2015" 
-	ms.author="nirma"/>
+	ms.author="yochay"/>
 
 # How App Service Works
 
@@ -23,12 +23,14 @@ Azure App Service is a cloud services designed to solve the practical problems f
 App Service is focused on providing superior developer productivity without compromising on the need to deliver applications at cloud scale. 
 App Service also provides the set of features and frameworks necessary to compose enterprise Line-of-Business applications while meeting developers where they are with support for most popular development languages (.NET, Java, PHP, Node.JS and Python).
 With App Service developers can:
-* Build truly scalable Web Apps.
+
+* Build truly scalable Web Apps
 * Quickly build Mobile App back-ends with a set of easy to use mobile capabilities such as data back-ends, user authentication and push notifications with Mobile Apps. 
 * Implement, deploy and publish APIs with API Apps.
 * Tie business applications together in workflows and transform data with Logic Apps.
 
 All App types rely on the scalable and flexible Web App platform which allows developers an optimized full lifecycle experience from App design to App maintenance. The lifecycle capabilities allow developers to:
+
 * Quick App Creation - start from scratch or pick an OSS package from the Azure Marketplace. 
 * Continuous Deployment - automatically deploy new code from popular source control solutions such as TFS, GitHub and BitBucket and sync content from online storage services such as OneDrive and DropBox.
 * Test in Production - smoothly create pre-production environments and manage the portion of traffic going to them. Debug in the cloud when needed and roll back if issues are found.
