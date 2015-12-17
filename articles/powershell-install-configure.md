@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="12/02/2015"
 	ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
@@ -37,9 +37,9 @@ Download and install [PowerShell 1.0.1](https://github.com/Azure/azure-powershel
 The module installs a customized console for Azure PowerShell. You can run the cmdlets from the standard Windows PowerShell console, or from the Azure PowerShell console.
 
 ## Step 3: Connect
-The cmdlets need your subscription so they can manage your services. You can purchase an Azure subscription if you don't already have one. For instructions, see [Get Started with Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
+The cmdlets need your subscription so they can manage your services. You can purchase an Azure subscription if you don't already have one. For instructions, see [How to buy Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-1. Type Add-AzureAccount
+1. Type **Add-AzureAccount**
 
 2. Type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 
@@ -50,42 +50,27 @@ Sign into your work or school account:
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
 
-	>
-	> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
-	>
-	> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
-	>
-	> 2. If no directory exists, select **Create your directory** and provide the requested information.
-	>
-	> 3. Select your directory and add a new user. This new user can sign in using a work or school account.
-	>
-	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-	>
-	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
-	>
-	> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
-	>
-	>For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
+> [AZURE.NOTE] This non-interactive login method only works with a work or school account. A work or school account is a user that is managed by your work or school, and defined in the Azure Active Directory instance for your work or school. If you do not currently have a work or school account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 
+> 1. Login to the [Azure Management Portal](https://manage.windowsazure.com), and click on **Active Directory**.
+
+> 2. If no directory exists, select **Create your directory** and provide the requested information.
+
+> 3. Select your directory and add a new user. This new user can sign in using a work or school account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information, as it is used in step 5 below.
+
+> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the work or school account to manage your Azure subscription.
+
+> 5. Finally, log out of the Azure portal and then log back in using the work or school account. If this is the first time logging in with this account, you will be prompted to change the password.
+
+> For more information on signing up for Microsoft Azure with a work or school account, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
 
 ### View account and subscription details
 
 You can have multiple accounts and subscriptions available for use by Azure PowerShell. You can add multiple accounts by running **Add-AzureAccount** more than once.
 
-To get the available Azure accounts, type:
+To display the available Azure accounts, type **Get-AzureAccount**.
 
-	Get-AzureAccount
-
-To get your Azure subscriptions, type:
-
-	Get-AzureSubscription
-
-
-
-
-
-
-
+To display your Azure subscriptions, type **Get-AzureSubscription**.
 
 ## Step 4: Test<a id="Ex"></a>
 
@@ -137,7 +122,7 @@ These resources provide help for specific cmdlets:
 
 
 
-- Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](http://msdn.microsoft.com/library/windowsazure/jj554330.aspx).
+- Reference information about the cmdlets in the Azure PowerShell modules is also available in the Azure library. For information, see [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx).
 
 For help from the community, try these popular forums:
 

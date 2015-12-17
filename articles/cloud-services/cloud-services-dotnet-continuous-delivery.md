@@ -3,9 +3,9 @@
 	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts."
 	services="cloud-services"
 	documentationCenter=""
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/19/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 
 # Continuous Delivery for Cloud Services in Azure
 

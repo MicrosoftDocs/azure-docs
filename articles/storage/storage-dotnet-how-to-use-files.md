@@ -3,8 +3,8 @@
             description="Create a file share in the cloud and manage file content. Mount a file share from an Azure VM or from an on-premises application."
             services="storage"
             documentationCenter=".net"
-            authors="tamram"
-            manager="adinah"
+            authors="robinsh"
+            manager="carmonm"
             editor="" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="10/26/2015"
-      ms.author="tamram" />
+      ms.date="12/04/2015"
+      ms.author="robinsh" />
 
 # How to use Azure File storage with Windows
 
@@ -532,6 +532,7 @@ See these links for more information about Azure File storage.
 
 - [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 ### Tooling support for File storage
 

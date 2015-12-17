@@ -55,8 +55,8 @@ You can save time and money by deploying and debugging your Azure Service Fabric
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Test a Service Fabric service](service-fabric-test-your-service-index.md)
-- [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+- [Test a Service Fabric service](service-fabric-testability-overview.md).
+- [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
