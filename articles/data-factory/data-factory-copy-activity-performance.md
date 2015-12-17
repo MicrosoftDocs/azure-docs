@@ -67,7 +67,7 @@ The typical steps we suggest you to do to tune performance of your Azure Data Fa
 ## Performance Reference
 > [AZURE.IMPORTANT] **Disclaimer:** Data below has been published for the sole purpose of guidance and planning. It assumes that bandwidth, hardware, configuration, etc. are among the best in their class. Use this as a reference only. The data movement throughput you observe will be affected by a range of variables. Refer to the sections later to learn about how you can possibly tune and achieve better performance for your data movement needs. These data will be updated when new features are available to boost the copy performance.
 
-![Performance matrix](./media/data-factory-copy-activity-performance/performance-matrix.png)
+![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 (All throughout numbers above are in **MBps**)
 
