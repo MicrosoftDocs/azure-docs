@@ -28,10 +28,6 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 ## Prerequisites
 
->[AZURE.IMPORTANT] The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` will fail.
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
-
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
 	Get-Module azure | format-table version
@@ -88,6 +84,10 @@ The following table contains properties and descriptions for commonly used param
 ## To create a Redis Cache
 
 New Azure Redis Cache instances are created using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
+
+>[AZURE.IMPORTANT] The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` will fail.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 To see a list of available parameters and their descriptions for `New-AzureRmRedisCache`, run the following command.
 
