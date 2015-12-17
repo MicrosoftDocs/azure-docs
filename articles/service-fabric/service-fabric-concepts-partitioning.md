@@ -16,8 +16,8 @@
    ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# How to partition Service Fabric reliable services
-This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
+# Partition Service Fabric reliable services
+This article provides an introduction to the basic concepts of partitioning Azure Service Fabric reliable services. The source code used in the article is also available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
 ## Partitioning
 Partitioning is not unique to Service Fabric. In fact, it is a core pattern of building scalable services. In a broader sense, we can think about partitioning as a concept of dividing state (data) and compute into smaller accessible units to improve scalability and performance. A well-known form of partitioning is [data partitioning][wikipartition], also known as sharding.
@@ -39,10 +39,10 @@ The remainder of this walkthrough focuses on stateful services.
 ### Partition Service Fabric stateful services
 Service Fabric makes it easy to develop scalable stateful services by offering a first-class way to partition state (data). Conceptually, you can think about a partition of a stateful service as a scale unit that is highly reliable through [replicas](service-fabric-availability-services.md) that are distributed and balanced across the nodes in a cluster.
 
-Partitioning in the context of Service Fabric stateful services refers to the process of determining that a particular service partition is responsible for a portion of the complete state of the service (as mentioned before, a partition is a set of [replicas](service-fabric-availability-services.md)) . A great thing about Service Fabric is that it places the partitions on different nodes. This allows them to grow to a node's resource limit. As the data needs grow, partitions grow, and Service Fabric rebalances partitions across nodes. This ensures the continued efficient use of hardware resources.
+Partitioning in the context of Service Fabric stateful services refers to the process of determining that a particular service partition is responsible for a portion of the complete state of the service. (As mentioned before, a partition is a set of [replicas](service-fabric-availability-services.md)). A great thing about Service Fabric is that it places the partitions on different nodes. This allows them to grow to a node's resource limit. As the data needs grow, partitions grow, and Service Fabric rebalances partitions across nodes. This ensures the continued efficient use of hardware resources.
 
-To give you an example, say you start with a five-node cluster and a service that is configured to have 10 partitions and a target of three replicas. In this case, Service Fabric would balance and distribute the replicas across the cluster--and you would end up with two primary [replicas](service-fabric-availability-services.md) per node.
-If you now need to scale out the cluster to 10 nodes, Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise, if you scaled back to five nodes, Service Fabric would rebalance all the replicas across the five nodes.  
+To give you an example, say you start with a 5-node cluster and a service that is configured to have 10 partitions and a target of three replicas. In this case, Service Fabric would balance and distribute the replicas across the cluster--and you would end up with two primary [replicas](service-fabric-availability-services.md) per node.
+If you now need to scale out the cluster to 10 nodes, Service Fabric would rebalance the primary [replicas](service-fabric-availability-services.md) across all 10 nodes. Likewise, if you scaled back to 5 nodes, Service Fabric would rebalance all the replicas across the 5 nodes.  
 
 Figure 2 shows the distribution of 10 partitions before and after scaling the cluster.
 
@@ -123,10 +123,10 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 >[AZURE.NOTE] This is a simplified scenario, as in reality the distribution would be uneven. Last names starting with the letters "S" or "M" are more common than the ones starting with "X" or "Y".
 
 
-1. Open Visual Studio > File > New > Project.
-2. In the New Project dialog, choose the Service Fabric application.
+1. Open **Visual Studio** > **File** > **New** > **Project**.
+2. In the **New Project** dialog box, choose the Service Fabric application.
 3. Call the project "AlphabetPartitions".
-4. In the Create a Service dialog, choose Stateful Service and call it "Alphabet.Processing" as shown in the image below.
+4. In the **Create a Service** dialog box, choose **Stateful** service and call it "Alphabet.Processing" as shown in the image below.
 ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
 5. Set the number of partitions. Open the ApplicationManifest.xml file in the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
 
@@ -154,7 +154,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 
     >[AZURE.NOTE] For this sample, we assume that you are using a simple HttpCommunicationListener. For more information on reliable service communication, see [The Reliable Service communication model](service-fabric-reliable-services-communication.md).
 
-8. A recommended pattern for the URL a replica listens on is the following format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+8. A recommended pattern for the URL that a replica listens on is the following format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
 So you want to configure your communication listener to listen on the correct endpoints and with this pattern.
 
 Multiple replicas of this service may be hosted on the same computer, so this address needs to be unique to the replica. This is why partition ID + replica ID are in the URL. HttpListener can listen on multiple addresses on the same port as long as the URL prefix is unique.
@@ -233,7 +233,7 @@ The listening URL is given to HttpListener. The published URL is the URL that is
 
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key, and sends it to the Alphabet.Processing service for processing.
-11. In the Create a Service dialog, choose Stateless service and call it "Alphabet.WebApi" as shown below.
+11. In the **Create a Service** dialog box, choose **Stateless** service and call it "Alphabet.WebApi" as shown below.
 ![Stateless service screenshot](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png).
 12. Update the endpoint information in the ServiceManifest.xml of the Alphabet.WebApi service to open up a port as shown below.
 
@@ -350,7 +350,7 @@ This service serves as a simple web interface that accepts the lastname as a que
 17. In a browser, you can test the partitioning logic by entering `http://localhost:8090/?lastname=somename`. You will see that each last name that starts with the same letter is being stored in the same partition.
 ![Browser screenshot](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
-The entire source code of the sample is available on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
+The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
 ## Next steps
 
@@ -362,4 +362,4 @@ For information on Service Fabric concepts, see the following:
 
 - [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
 
-- [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
+[wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
